@@ -13,10 +13,11 @@
       "textColor": "#8979c3"
     },
     "wiki": {
-      "textColor": "#ffffff",
-      "backgroundColor": "#696969",
-      "opacity": 1,
-      "isBold": true
+      "isBold": true,
+      "textColor": "#ffffff"
+    },
+    "bin": {
+      "opacity": 1
     }
   },
   "presets": {},
