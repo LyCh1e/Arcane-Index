@@ -47,8 +47,7 @@
               "title": "CLAUDE"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -256,8 +255,17 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0a8cfbe2955ac252",
+  "active": "845678323c6133f0",
   "lastOpenFiles": [
+    "wiki/sources/INF2008-machine-learning.md",
+    "wiki/concepts/clustering-and-dimensionality-reduction.md",
+    "wiki/concepts/neural-networks-linear-models.md",
+    "wiki/concepts/decision-trees-and-ensembles.md",
+    "wiki/concepts/ml-model-training-evaluation.md",
+    "wiki/concepts/ml-data-understanding.md",
+    "wiki/concepts/ml-foundations.md",
+    "CLAUDE.md",
+    "raw/INF2008 Machine Learning Notes.md",
     "wiki/concepts/secure-software-requirements.md.tmp.13020.296e832cc4bb",
     "wiki/concepts/vulnerability-tracking-frameworks.md",
     "wiki/concepts/owasp-top-10.md",
@@ -284,16 +292,7 @@
     "Arcane-Index/commands/autoresearch.md",
     "Arcane-Index/commands",
     "Arcane-Index/bin/setup-dragonscale.sh",
-    "Arcane-Index/bin/setup-vault.sh",
     "Arcane-Index/agents/wiki-lint.md",
-    "Arcane-Index/agents/wiki-ingest.md",
-    "Arcane-Index/wiki/sources/INF2007-mobile-app-development.md",
-    "Arcane-Index/wiki/sources/_index.md",
-    "Arcane-Index/wiki/sources/INF2002-human-computer-interaction.md",
-    "Arcane-Index/wiki/sources/INF1008-data-structures-algorithms.md",
-    "Arcane-Index/wiki/sources/INF1009-object-oriented-programming.md",
-    "Arcane-Index/wiki/sources/INF1004-mathematics-2.md",
-    "Arcane-Index/wiki/sources/INF1003-mathematics-1.md",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",

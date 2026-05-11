@@ -18,6 +18,7 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[INF2002-human-computer-interaction\|INF2002 Human Computer Interaction]] | course notes | hci | 2026-05-11 |
 | [[INF1003-mathematics-1\|INF1003 Mathematics 1]] | course notes | mathematics | 2026-05-11 |
 | [[INF1004-mathematics-2\|INF1004 Mathematics 2]] | course notes | mathematics | 2026-05-11 |
+| [[INF2008-machine-learning\|INF2008 Machine Learning]] | course notes | machine-learning | 2026-05-11 |
 
 ## By Type
 
@@ -32,6 +33,7 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | Human Computer Interaction | INF2002 | SIT | [[concepts/hci-fundamentals\|HCI Fundamentals]], [[concepts/needfinding-and-task-analysis\|Needfinding & Task Analysis]] |
 | Mathematics 1 | INF1003 | SIT | [[concepts/discrete-mathematics-foundations\|Discrete Maths Foundations]], [[concepts/combinatorics\|Combinatorics]], [[concepts/propositional-logic\|Propositional Logic]], [[concepts/predicate-logic-and-proofs\|Predicate Logic & Proofs]], [[concepts/sets-functions-relations\|Sets, Functions & Relations]] |
 | Mathematics 2 | INF1004 | SIT | [[concepts/descriptive-statistics\|Descriptive Statistics]], [[concepts/probability-theory\|Probability Theory]], [[concepts/probability-distributions\|Probability Distributions]], [[concepts/linear-algebra-matrices\|Linear Algebra & Matrices]], [[concepts/eigenvalues-and-svd\|Eigenvalues & SVD]] |
+| Machine Learning | INF2008 | SIT | [[concepts/ml-foundations\|ML Foundations]], [[concepts/ml-data-understanding\|Data Understanding]], [[concepts/ml-model-training-evaluation\|Training & Evaluation]], [[concepts/decision-trees-and-ensembles\|Decision Trees & Ensembles]], [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]], [[concepts/clustering-and-dimensionality-reduction\|Clustering & Dim. Reduction]] |
 
 ### Papers & Articles
 *(none yet)*

@@ -11,6 +11,23 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 ---
 
+## 2026-05-11 — Ingest: INF2008 Machine Learning
+
+- Action: INGEST
+- Source: `raw/INF2008 Machine Learning Notes.md` (Lectures L00–L12, Donny Soh)
+- Created: `wiki/sources/INF2008-machine-learning.md`
+- Created: 6 concept pages in `wiki/concepts/`
+  - `ml-foundations` — AI definitions, four narrow-AI perspectives, expert systems vs ML, supervised/unsupervised/reinforcement learning, CRISP-DM phases mapped to production components, business understanding framework (problem/decision/metric/intervention/value), MoonHub churn and JuneBank loan examples
+  - `ml-data-understanding` — 7 DU stages: data generation process, schema, data types (cardinal continuous/discrete vs categorical nominal/ordinal), completeness, sanity checks (plausibility, consistency, leakage), representativeness (class imbalance), granularity and aggregation
+  - `ml-model-training-evaluation` — baseline models (majority class, mean, default DT), train-validate-test split, stratification (M&Ms analogy), k-fold cross-validation, confusion matrix, Type I/II errors, accuracy/balanced accuracy/precision/recall/specificity/F1, bias-variance trade-off (4 cases, corrective actions), learning curves
+  - `decision-trees-and-ensembles` — Gini impurity formula and worked example, entropy, greedy tree construction, stopping criteria (max_depth, min_samples_split, min_samples_leaf), bagging/bootstrap sampling, Random Forests (OOB estimation: ~36.8% OOB, feature subsampling), AdaBoost, Gradient Boosting (loss gradients, iterative residual fitting, early stopping), stacking; comparison table
+  - `neural-networks-linear-models` — label encoding vs OHE (advantages, dangers, when to use), simple and multiple linear regression, RMSE, 4-step gradient descent loop (forward pass, loss, backprop, update), vectorised multiple regression, neuron (z→σ→a), hidden activations (ReLU/Leaky ReLU/tanh), output activations (identity/sigmoid/softmax), backpropagation chain rule, cross-entropy loss, worked backprop example
+  - `clustering-and-dimensionality-reduction` — distance measures (L1/L2/L∞), k-NN, K-means objective function (why the mean minimises it), K-means algorithm, elbow method, silhouette score, K-means++, DBSCAN (core/border/noise points, ε/MinPts effects), K-means vs DBSCAN comparison, PCA (5 steps: standardise, covariance matrix, eigendecomposition, project, interpret), t-SNE (Gaussian→t-distribution probabilities, KL divergence gradient descent, perplexity), PCA vs t-SNE comparison
+- Updated: `wiki/index.md`, `wiki/sources/_index.md`, `raw/.manifest.json`
+- Status: Complete
+
+---
+
 ## 2026-05-11 — Ingest: ICT2216 Lectures 1 & 2
 
 - Action: INGEST

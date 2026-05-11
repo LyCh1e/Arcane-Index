@@ -27,6 +27,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/INF2002-human-computer-interaction\|INF2002 Human Computer Interaction]] | course | hci | 2026-05-11 |
 | [[sources/INF1003-mathematics-1\|INF1003 Mathematics 1]] | course | mathematics | 2026-05-11 |
 | [[sources/INF1004-mathematics-2\|INF1004 Mathematics 2]] | course | mathematics | 2026-05-11 |
+| [[sources/INF2008-machine-learning\|INF2008 Machine Learning]] | course | machine-learning | 2026-05-11 |
 
 ## Concepts
 
@@ -58,6 +59,12 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/probability-distributions\|Probability Distributions]] | mathematics | high |
 | [[concepts/linear-algebra-matrices\|Linear Algebra & Matrices]] | mathematics | high |
 | [[concepts/eigenvalues-and-svd\|Eigenvalues, Diagonalisation & SVD]] | mathematics | high |
+| [[concepts/ml-foundations\|Machine Learning Foundations]] | machine-learning | medium |
+| [[concepts/ml-data-understanding\|ML Data Understanding]] | machine-learning | medium |
+| [[concepts/ml-model-training-evaluation\|ML Model Training & Evaluation]] | machine-learning | high |
+| [[concepts/decision-trees-and-ensembles\|Decision Trees & Ensemble Methods]] | machine-learning | high |
+| [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] | machine-learning | high |
+| [[concepts/clustering-and-dimensionality-reduction\|Clustering & Dimensionality Reduction]] | machine-learning | high |
 
 ## Examples
 

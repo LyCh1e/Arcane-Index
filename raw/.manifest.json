@@ -60,6 +60,21 @@
         "wiki/concepts/needfinding-and-task-analysis.md"
       ]
     },
+    "raw/INF2008 Machine Learning Notes.md": {
+      "ingested": "2026-05-11",
+      "course": "INF2008",
+      "title": "Machine Learning",
+      "domain": "machine-learning",
+      "source_index": "wiki/sources/INF2008-machine-learning.md",
+      "concept_pages": [
+        "wiki/concepts/ml-foundations.md",
+        "wiki/concepts/ml-data-understanding.md",
+        "wiki/concepts/ml-model-training-evaluation.md",
+        "wiki/concepts/decision-trees-and-ensembles.md",
+        "wiki/concepts/neural-networks-linear-models.md",
+        "wiki/concepts/clustering-and-dimensionality-reduction.md"
+      ]
+    },
     "raw/ICT2216 Lecture 1 Secure Software Development.md": {
       "ingested": "2026-05-11",
       "course": "ICT2216",
@@ -142,6 +157,13 @@
     "wiki/concepts/linear-algebra-matrices.md": "c-000022",
     "wiki/concepts/eigenvalues-and-svd.md": "c-000023",
     "wiki/concepts/owasp-top-10.md": "c-000024",
-    "wiki/concepts/vulnerability-tracking-frameworks.md": "c-000025"
+    "wiki/concepts/vulnerability-tracking-frameworks.md": "c-000025",
+    "wiki/sources/INF2008-machine-learning.md": "s-000008",
+    "wiki/concepts/ml-foundations.md": "c-000026",
+    "wiki/concepts/ml-data-understanding.md": "c-000027",
+    "wiki/concepts/ml-model-training-evaluation.md": "c-000028",
+    "wiki/concepts/decision-trees-and-ensembles.md": "c-000029",
+    "wiki/concepts/neural-networks-linear-models.md": "c-000030",
+    "wiki/concepts/clustering-and-dimensionality-reduction.md": "c-000031"
   }
 }

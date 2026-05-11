@@ -11,7 +11,7 @@
       "query": "path:wiki/index.md OR path:wiki/hot.md OR path:wiki/log.md OR path:wiki/overview.md",
       "color": {
         "a": 1,
-        "rgb": 5676246
+        "rgb": 16777215
       }
     },
     {
@@ -102,6 +102,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.13051064842930138,
+  "scale": 0.2292013286438984,
   "close": true
 }
