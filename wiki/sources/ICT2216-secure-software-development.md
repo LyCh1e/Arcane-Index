@@ -5,7 +5,7 @@ course: ICT2216
 institution: SIT
 raw: ""
 domain: secure-software-development
-topics: [security-requirements, confidentiality, integrity, availability, authentication, authorisation, accountability, securityrat, owasp]
+topics: [security-requirements, confidentiality, integrity, availability, authentication, authorisation, accountability, securityrat, owasp, BSIMM, OpenSAMM, CVE, NVD, MITRE-ATTCK]
 ingested: 2026-05-11
 ---
 
@@ -19,7 +19,15 @@ The module covers the full secure development lifecycle (SDLC), starting from th
 
 ## Key Topics
 
-### Secure Software Requirements (Lab 2)
+### Secure Software Concepts (Lectures 1 & 2)
+
+Security must be addressed at the application layer — network-level controls (firewalls, IDS) alone are insufficient. Real-world case studies (7Pay, SolarWinds, Bybit, Log4Shell) illustrate how security failures occur across the SDLC.
+
+See [[owasp-top-10]] for all 10 OWASP 2025 categories with scenarios and code examples.
+
+See [[vulnerability-tracking-frameworks]] for CVE, NVD, CAPEC, MITRE ATT&CK, CVSS, BSIMM, OpenSAMM, and Microsoft SDL.
+
+### Secure Software Requirements (Lectures 2 & Labs)
 
 Security requirements are derived from the six pillars: **Confidentiality, Integrity, Availability** (CIA) and **Authentication, Authorisation, Accountability** (AAA). Each pillar produces a structured set of requirements tied to the application's functional and non-functional baseline.
 
@@ -43,7 +51,9 @@ See [[securityrat]] for setup, the CRLF gotcha, and usage notes.
 | Concept | Description |
 |---------|-------------|
 | [[docker-compose]] | Docker Compose fundamentals — compose file, networking, volumes, all four services |
-| [[secure-software-requirements]] | CIA + AAA pillars, risk identification, SANS SWAT mapping |
+| [[secure-software-requirements]] | CIA + AAA pillars, OSA taxonomy, SSDLC requirement process, NIST SSDF, PCI SSF |
+| [[owasp-top-10]] | OWASP Top 10 (2025) — all 10 categories with scenarios, code examples, and mitigations |
+| [[vulnerability-tracking-frameworks]] | CVE, NVD, CAPEC, MITRE ATT&CK, CVSS, BSIMM, OpenSAMM, Microsoft SDL |
 
 ## Examples
 

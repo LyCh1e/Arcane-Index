@@ -60,6 +60,27 @@
         "wiki/concepts/needfinding-and-task-analysis.md"
       ]
     },
+    "raw/ICT2216 Lecture 1 Secure Software Development.md": {
+      "ingested": "2026-05-11",
+      "course": "ICT2216",
+      "title": "Secure Software Development — Lecture 1",
+      "domain": "secure-software-development",
+      "source_index": "wiki/sources/ICT2216-secure-software-development.md",
+      "concept_pages": [
+        "wiki/concepts/owasp-top-10.md"
+      ]
+    },
+    "raw/ICT2216 Lecture 2 Secure Software Development.md": {
+      "ingested": "2026-05-11",
+      "course": "ICT2216",
+      "title": "Secure Software Development — Lecture 2",
+      "domain": "secure-software-development",
+      "source_index": "wiki/sources/ICT2216-secure-software-development.md",
+      "concept_pages": [
+        "wiki/concepts/vulnerability-tracking-frameworks.md",
+        "wiki/concepts/secure-software-requirements.md"
+      ]
+    },
     "raw/INF1004 Mathematics 2 Notes.md": {
       "ingested": "2026-05-11",
       "course": "INF1004",
@@ -119,6 +140,8 @@
     "wiki/concepts/probability-theory.md": "c-000020",
     "wiki/concepts/probability-distributions.md": "c-000021",
     "wiki/concepts/linear-algebra-matrices.md": "c-000022",
-    "wiki/concepts/eigenvalues-and-svd.md": "c-000023"
+    "wiki/concepts/eigenvalues-and-svd.md": "c-000023",
+    "wiki/concepts/owasp-top-10.md": "c-000024",
+    "wiki/concepts/vulnerability-tracking-frameworks.md": "c-000025"
   }
 }

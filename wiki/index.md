@@ -46,6 +46,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/needfinding-and-task-analysis\|Needfinding and Task Analysis]] | hci | medium |
 | [[concepts/docker-compose\|Docker and Docker Compose]] | devops | medium |
 | [[concepts/secure-software-requirements\|Secure Software Requirements (CIA + AAA)]] | secure-software-development | high |
+| [[concepts/owasp-top-10\|OWASP Top 10 (2025)]] | secure-software-development | high |
+| [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking & Software Assurance Frameworks]] | secure-software-development | medium |
 | [[concepts/discrete-mathematics-foundations\|Discrete Mathematics Foundations]] | mathematics | medium |
 | [[concepts/combinatorics\|Combinatorics]] | mathematics | medium |
 | [[concepts/propositional-logic\|Propositional Logic]] | mathematics | medium |

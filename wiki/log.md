@@ -11,6 +11,19 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 ---
 
+## 2026-05-11 — Ingest: ICT2216 Lectures 1 & 2
+
+- Action: INGEST
+- Sources: `raw/ICT2216 Lecture 1 Secure Software Development.md`, `raw/ICT2216 Lecture 2 Secure Software Development.md`
+- Created: `wiki/concepts/owasp-top-10.md` — OWASP Top 10 (2025): all 10 categories with scenarios, code examples, case studies (Instagram, SolarWinds, Bybit, Log4Shell), mitigations, and vulnerability category taxonomy
+- Created: `wiki/concepts/vulnerability-tracking-frameworks.md` — CVE, NVD, CAPEC, MITRE ATT&CK, CVSS; BSIMM-16 (goals, SSF domains, 2026 trends), OpenSAMM (maturity levels 0–3), Microsoft SDL; comparison table
+- Updated: `wiki/concepts/secure-software-requirements.md` — added IEEE 729 definition, OSA taxonomy (4 requirement types), full SSDLC requirement process (feasibility → gathering → specification → validation), detailed CIA-AAA content (SingHealth case study, DDoS mitigations, SLA terminology, NIST 800-63 password guidelines), PCI SSF and NIST SSDF frameworks
+- Updated: `wiki/sources/ICT2216-secure-software-development.md` — added Secure Software Concepts section, linked new concept pages
+- Updated: `wiki/index.md`, `raw/.manifest.json`
+- Status: Complete
+
+---
+
 ## 2026-05-11 — Ingest: INF1004 Mathematics 2
 
 - Action: INGEST

@@ -18,6 +18,20 @@
               "icon": "bot",
               "title": "Claudian"
             }
+          },
+          {
+            "id": "1b36c5e61172decb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ATTRIBUTION.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ATTRIBUTION"
+            }
           }
         ]
       }
@@ -122,6 +136,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "ATTRIBUTION.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +146,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for ATTRIBUTION"
             }
           },
           {
@@ -140,11 +155,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "ATTRIBUTION.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from ATTRIBUTION"
             }
           },
           {
@@ -182,12 +198,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "ATTRIBUTION.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of ATTRIBUTION"
             }
           },
           {
@@ -224,8 +241,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3f41e16c8ccd1064",
+  "active": "845678323c6133f0",
   "lastOpenFiles": [
+    "wiki/concepts/secure-software-requirements.md.tmp.13020.296e832cc4bb",
+    "wiki/concepts/vulnerability-tracking-frameworks.md",
+    "wiki/concepts/owasp-top-10.md",
+    "wiki/concepts/owasp-top-10.md.tmp.13020.8b73ad2e482c",
+    "ATTRIBUTION.md",
+    "raw/ICT2216 Lecture 2 Secure Software Development.md",
+    "raw/ICT2216 Lecture 1 Secure Software Development.md",
+    "wiki/index.md",
+    "wiki/log.md",
+    "wiki/hot.md",
     "New folder",
     "Arcane-Index/hooks/README.md",
     "Arcane-Index/hooks/hooks.json",
@@ -243,8 +270,6 @@
     "Arcane-Index/commands",
     "Arcane-Index/bin/setup-dragonscale.sh",
     "Arcane-Index/bin/setup-vault.sh",
-    "Arcane-Index/bin/setup-multi-agent.sh",
-    "Arcane-Index/bin",
     "Arcane-Index/agents/wiki-lint.md",
     "Arcane-Index/agents/wiki-ingest.md",
     "Arcane-Index/wiki/sources/INF2007-mobile-app-development.md",
@@ -254,14 +279,6 @@
     "Arcane-Index/wiki/sources/INF1009-object-oriented-programming.md",
     "Arcane-Index/wiki/sources/INF1004-mathematics-2.md",
     "Arcane-Index/wiki/sources/INF1003-mathematics-1.md",
-    "Arcane-Index/wiki/sources/ICT2216-secure-software-development.md",
-    "Arcane-Index/wiki/sources/ICT2113-software-modelling.md",
-    "Arcane-Index/wiki/synthesis/_index.md",
-    "Arcane-Index/wiki/resources/_index.md",
-    "Arcane-Index/wiki/resources/securityrat.md",
-    "Arcane-Index/wiki/learning/_index.md",
-    "Arcane-Index/wiki/learning/docker-windows-crlf.md",
-    "Arcane-Index/wiki/gaps/_index.md",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",

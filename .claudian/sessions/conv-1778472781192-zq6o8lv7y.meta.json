@@ -4,8 +4,8 @@
   "title": "Hello! I'm ready to help. \n\nSince you've just g...",
   "titleGenerationStatus": "success",
   "createdAt": 1778472781193,
-  "updatedAt": 1778498061829,
-  "lastResponseAt": 1778498061829,
+  "updatedAt": 1778512600746,
+  "lastResponseAt": 1778512600746,
   "sessionId": "16df94b0-fe87-40a9-86f3-2efed6c81759",
   "providerState": {
     "providerSessionId": "16df94b0-fe87-40a9-86f3-2efed6c81759",
@@ -302,11 +302,11 @@
   "usage": {
     "model": "sonnet",
     "inputTokens": 1,
-    "cacheCreationInputTokens": 643,
-    "cacheReadInputTokens": 65714,
+    "cacheCreationInputTokens": 607,
+    "cacheReadInputTokens": 94298,
     "contextWindow": 200000,
-    "contextTokens": 66358,
-    "percentage": 33,
+    "contextTokens": 94906,
+    "percentage": 47,
     "contextWindowIsAuthoritative": true
   }
 }
