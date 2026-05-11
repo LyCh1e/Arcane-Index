@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 scripts/boundary-score.py --json --top 5)",
+      "Bash(python scripts/boundary-score.py --json --top 5)",
+      "WebSearch",
+      "WebFetch(domain:algocademy.com)",
+      "WebFetch(domain:cp-algorithms.com)",
+      "WebFetch(domain:owasp.org)",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\" -Force | Select-Object Name, @{Name=\"Type\";Expression={if\\($_.PSIsContainer\\){\"DIR\"}else{\"FILE\"}}} | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\skills\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\_templates\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\commands\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\.claude\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\agents\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\raw\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\bin\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\docs\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\scripts\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\hooks\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\tests\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\.claude\\\\agents\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\.claude\\\\commands\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\.claude\\\\skills\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "styles": {
+    "source": {
+      "textColor": "#0cb800"
+    },
+    "concepts": {
+      "textColor": "#c4c700"
+    },
+    "example-use-cases": {
+      "textColor": "#ce7dd8"
+    },
+    "wiki/examples": {
+      "textColor": "#8979c3"
+    }
+  },
+  "presets": {},
+  "presetOrder": []
+}

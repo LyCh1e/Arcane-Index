@@ -1,0 +1,23 @@
+{
+  "id": "conv-1778325908852-s3nq543sh",
+  "providerId": "claude",
+  "title": "Set up wiki with Mode D and Mode E",
+  "titleGenerationStatus": "success",
+  "createdAt": 1778325908855,
+  "updatedAt": 1778471672811,
+  "lastResponseAt": 1778471667081,
+  "sessionId": "1ae46e1a-8d0e-4566-84db-1d238fe8fcde",
+  "providerState": {
+    "providerSessionId": "1ae46e1a-8d0e-4566-84db-1d238fe8fcde"
+  },
+  "currentNote": "WIKI.md",
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 0,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 0,
+    "percentage": 0
+  }
+}

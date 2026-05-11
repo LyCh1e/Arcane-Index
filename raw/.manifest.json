@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "created": "2026-04-23",
+  "description": "Ingest delta tracker and address map for the claude-obsidian vault. Do not hand-edit; wiki-ingest maintains this.",
+  "sources": {
+    "raw/ICT2113 Software Modelling & Analysis Notes.md": {
+      "ingested": "2026-05-11",
+      "course": "ICT2113",
+      "title": "Software Modelling & Analysis",
+      "domain": "software-engineering",
+      "source_index": "wiki/sources/ICT2113-software-modelling.md",
+      "concept_pages": [
+        "wiki/concepts/requirements-engineering.md",
+        "wiki/concepts/lightweight-rcm.md"
+      ]
+    },
+    "raw/INF1008 Data Structures and Algorithms Notes.md": {
+      "ingested": "2026-05-11",
+      "course": "INF1008",
+      "title": "Data Structures & Algorithms",
+      "domain": "computer-science",
+      "source_index": "wiki/sources/INF1008-data-structures-algorithms.md",
+      "concept_pages": [
+        "wiki/concepts/algorithm-complexity.md",
+        "wiki/concepts/data-structures-fundamentals.md",
+        "wiki/concepts/sorting-and-searching.md",
+        "wiki/concepts/graph-algorithms.md"
+      ]
+    },
+    "raw/INF1009 Object Orientated Programming Notes.md": {
+      "ingested": "2026-05-11",
+      "course": "INF1009",
+      "title": "Object-Oriented Programming",
+      "domain": "software-engineering",
+      "source_index": "wiki/sources/INF1009-object-oriented-programming.md",
+      "concept_pages": [
+        "wiki/concepts/oop-four-pillars.md",
+        "wiki/concepts/solid-and-design-patterns.md"
+      ]
+    },
+    "raw/INF2007 Mobile Application Development Notes.md": {
+      "ingested": "2026-05-11",
+      "course": "INF2007",
+      "title": "Mobile Application Development",
+      "domain": "mobile-development",
+      "source_index": "wiki/sources/INF2007-mobile-app-development.md",
+      "concept_pages": [
+        "wiki/concepts/android-architecture.md",
+        "wiki/concepts/kotlin-coroutines.md"
+      ]
+    },
+    "raw/INF2002 Human Computer Interactions Notes.md": {
+      "ingested": "2026-05-11",
+      "course": "INF2002",
+      "title": "Human Computer Interaction",
+      "domain": "hci",
+      "source_index": "wiki/sources/INF2002-human-computer-interaction.md",
+      "concept_pages": [
+        "wiki/concepts/hci-fundamentals.md",
+        "wiki/concepts/needfinding-and-task-analysis.md"
+      ]
+    },
+    "raw/INF1004 Mathematics 2 Notes.md": {
+      "ingested": "2026-05-11",
+      "course": "INF1004",
+      "title": "Mathematics 2",
+      "domain": "mathematics",
+      "source_index": "wiki/sources/INF1004-mathematics-2.md",
+      "concept_pages": [
+        "wiki/concepts/descriptive-statistics.md",
+        "wiki/concepts/probability-theory.md",
+        "wiki/concepts/probability-distributions.md",
+        "wiki/concepts/linear-algebra-matrices.md",
+        "wiki/concepts/eigenvalues-and-svd.md"
+      ]
+    },
+    "raw/INF1003 Mathematics 1 Notes.md": {
+      "ingested": "2026-05-11",
+      "course": "INF1003",
+      "title": "Mathematics 1",
+      "domain": "mathematics",
+      "source_index": "wiki/sources/INF1003-mathematics-1.md",
+      "concept_pages": [
+        "wiki/concepts/discrete-mathematics-foundations.md",
+        "wiki/concepts/combinatorics.md",
+        "wiki/concepts/propositional-logic.md",
+        "wiki/concepts/predicate-logic-and-proofs.md",
+        "wiki/concepts/sets-functions-relations.md"
+      ]
+    }
+  },
+  "address_map": {
+    "wiki/concepts/DragonScale Memory.md": "c-000001",
+    "wiki/sources/ICT2113-software-modelling.md": "s-000001",
+    "wiki/sources/INF1008-data-structures-algorithms.md": "s-000002",
+    "wiki/sources/INF1009-object-oriented-programming.md": "s-000003",
+    "wiki/sources/INF2007-mobile-app-development.md": "s-000004",
+    "wiki/sources/INF2002-human-computer-interaction.md": "s-000005",
+    "wiki/concepts/requirements-engineering.md": "c-000002",
+    "wiki/concepts/lightweight-rcm.md": "c-000003",
+    "wiki/concepts/algorithm-complexity.md": "c-000004",
+    "wiki/concepts/data-structures-fundamentals.md": "c-000005",
+    "wiki/concepts/sorting-and-searching.md": "c-000006",
+    "wiki/concepts/graph-algorithms.md": "c-000007",
+    "wiki/concepts/oop-four-pillars.md": "c-000008",
+    "wiki/concepts/solid-and-design-patterns.md": "c-000009",
+    "wiki/concepts/android-architecture.md": "c-000010",
+    "wiki/concepts/kotlin-coroutines.md": "c-000011",
+    "wiki/concepts/hci-fundamentals.md": "c-000012",
+    "wiki/concepts/needfinding-and-task-analysis.md": "c-000013",
+    "wiki/sources/INF1003-mathematics-1.md": "s-000006",
+    "wiki/concepts/discrete-mathematics-foundations.md": "c-000014",
+    "wiki/concepts/combinatorics.md": "c-000015",
+    "wiki/concepts/propositional-logic.md": "c-000016",
+    "wiki/concepts/predicate-logic-and-proofs.md": "c-000017",
+    "wiki/concepts/sets-functions-relations.md": "c-000018",
+    "wiki/sources/INF1004-mathematics-2.md": "s-000007",
+    "wiki/concepts/descriptive-statistics.md": "c-000019",
+    "wiki/concepts/probability-theory.md": "c-000020",
+    "wiki/concepts/probability-distributions.md": "c-000021",
+    "wiki/concepts/linear-algebra-matrices.md": "c-000022",
+    "wiki/concepts/eigenvalues-and-svd.md": "c-000023"
+  }
+}

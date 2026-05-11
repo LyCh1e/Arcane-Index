@@ -1,0 +1,66 @@
+/* ============================================================
+   claude-obsidian vault colors
+   10-color scheme — each wiki folder has a distinct colour
+   ============================================================ */
+
+:root {
+  --cb-blue:    #4fc1ff;   /* concepts — knowledge nodes             */
+  --cb-yellow:  #f1c40f;   /* synthesis — cross-concept connections  */
+  --cb-green:   #6a9955;   /* sources — raw content                  */
+  --cb-purple:  #c586c0;   /* examples — real-world examples & labs  */
+  --cb-pink:    #ff79c6;   /* entities — people, organisations, tools */
+  --cb-gold:    #dcdcaa;   /* areas — topic domains                  */
+  --cb-orange:  #ce9178;   /* resources — external refs              */
+  --cb-red:     #d16969;   /* gaps — open questions                  */
+  --cb-teal:    #4ec9b0;   /* learning — study notes & lessons       */
+  --cb-meta:    #569cd6;   /* wiki meta: overview, hot, log          */
+  --cb-dim:     #606060;   /* templates, raw — de-emphasized         */
+}
+
+/* ── Wiki root & meta (steel blue) ── */
+.nav-folder-title[data-path="wiki"]               { color: var(--cb-meta); }
+
+/* ── Mode E: Research ── */
+.nav-folder-title[data-path^="wiki/concepts"]     { color: var(--cb-blue); }
+.nav-folder-title[data-path^="wiki/synthesis"]    { color: var(--cb-yellow); }
+.nav-folder-title[data-path^="wiki/sources"]      { color: var(--cb-green); }
+.nav-folder-title[data-path^="wiki/examples"]     { color: var(--cb-purple); }
+.nav-folder-title[data-path^="wiki/entities"]     { color: var(--cb-pink); }
+.nav-folder-title[data-path^="wiki/cases"]        { color: var(--cb-purple); }
+.nav-folder-title[data-path^="wiki/gaps"]         { color: var(--cb-red); }
+
+/* ── Mode D: Personal / Second Brain ── */
+.nav-folder-title[data-path^="wiki/areas"]        { color: var(--cb-gold); }
+.nav-folder-title[data-path^="wiki/learning"]     { color: var(--cb-teal); }
+.nav-folder-title[data-path^="wiki/resources"]    { color: var(--cb-orange); }
+
+/* ── De-emphasized ── */
+.nav-folder-title[data-path="_templates"]        { color: var(--cb-dim); opacity: 0.55; }
+.nav-folder-title[data-path="agents"]            { color: var(--cb-dim); opacity: 0.55; }
+.nav-folder-title[data-path="commands"]          { color: var(--cb-dim); opacity: 0.55; }
+.nav-folder-title[data-path="hooks"]             { color: var(--cb-dim); opacity: 0.55; }
+.nav-folder-title[data-path="skills"]            { color: var(--cb-dim); opacity: 0.55; }
+
+/* ── Custom callouts ── */
+.callout[data-callout='contradiction'] {
+  --callout-color: 209, 105, 105;
+  --callout-icon: lucide-alert-triangle;
+}
+.callout[data-callout='gap'] {
+  --callout-color: 220, 220, 170;
+  --callout-icon: lucide-help-circle;
+}
+.callout[data-callout='key-insight'] {
+  --callout-color: 79, 193, 255;
+  --callout-icon: lucide-lightbulb;
+}
+.callout[data-callout='stale'] {
+  --callout-color: 128, 128, 128;
+  --callout-icon: lucide-clock;
+}
+
+/* ── Canvas card accents (match graph node colors) ── */
+.canvas-node[data-color="1"] { --canvas-color: 79, 193, 255; }   /* blue   */
+.canvas-node[data-color="3"] { --canvas-color: 197, 134, 192; }  /* purple */
+.canvas-node[data-color="4"] { --canvas-color: 106, 153, 85; }   /* green  */
+.canvas-node[data-color="5"] { --canvas-color: 86, 156, 214; }   /* meta   */

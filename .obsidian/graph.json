@@ -1,0 +1,107 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": true,
+  "showOrphans": true,
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "path:wiki/index.md OR path:wiki/hot.md OR path:wiki/log.md OR path:wiki/overview.md",
+      "color": {
+        "a": 1,
+        "rgb": 5676246
+      }
+    },
+    {
+      "query": "path:wiki/concepts",
+      "color": {
+        "a": 1,
+        "rgb": 5227007
+      }
+    },
+    {
+      "query": "path:wiki/synthesis",
+      "color": {
+        "a": 1,
+        "rgb": 15844367
+      }
+    },
+    {
+      "query": "path:wiki/sources",
+      "color": {
+        "a": 1,
+        "rgb": 6986069
+      }
+    },
+    {
+      "query": "path:wiki/examples",
+      "color": {
+        "a": 1,
+        "rgb": 9009603
+      }
+    },
+    {
+      "query": "path:wiki/entities",
+      "color": {
+        "a": 1,
+        "rgb": 16742854
+      }
+    },
+    {
+      "query": "path:wiki/gaps",
+      "color": {
+        "a": 1,
+        "rgb": 13724009
+      }
+    },
+    {
+      "query": "path:wiki/areas",
+      "color": {
+        "a": 1,
+        "rgb": 14474410
+      }
+    },
+    {
+      "query": "path:wiki/learning",
+      "color": {
+        "a": 1,
+        "rgb": 5163440
+      }
+    },
+    {
+      "query": "path:wiki/resources",
+      "color": {
+        "a": 1,
+        "rgb": 13537656
+      }
+    },
+    {
+      "query": "path:raw",
+      "color": {
+        "a": 1,
+        "rgb": 6316128
+      }
+    },
+    {
+      "query": "path:_templates",
+      "color": {
+        "a": 1,
+        "rgb": 6316128
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": true,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 0.3242333124405644,
+  "close": true
+}

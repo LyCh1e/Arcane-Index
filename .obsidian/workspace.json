@@ -1,0 +1,270 @@
+{
+  "main": {
+    "id": "3b667d1cf87dc7c3",
+    "type": "split",
+    "children": [
+      {
+        "id": "f6ce6fcb6a81f9ca",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6492dbdec43436fa",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "pinned": true,
+              "icon": "bot",
+              "title": "Claudian"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6132c8e3ccb91e99",
+    "type": "split",
+    "children": [
+      {
+        "id": "4efd391921547ad4",
+        "type": "tabs",
+        "dimension": 66.70746634026928,
+        "children": [
+          {
+            "id": "3f41e16c8ccd1064",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "b2370d56079651bc",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "7ce17006ac938539",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      },
+      {
+        "id": "4285391b9df40be6",
+        "type": "tabs",
+        "dimension": 33.29253365973072,
+        "children": [
+          {
+            "id": "845678323c6133f0",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "graph",
+              "state": {},
+              "pinned": true,
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 304.5026054382324
+  },
+  "right": {
+    "id": "6a9b36797fc4f8a3",
+    "type": "split",
+    "children": [
+      {
+        "id": "d744d1b3b140407f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "04c15e29e5a3cbd6",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          },
+          {
+            "id": "261fa606c70ada51",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "567e4e0f0856094a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "31a056453c35dd1e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e9d67a0c09675b65",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "047433f9bd1281ec",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          },
+          {
+            "id": "466d4655f9e0094c",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "omnisearch:Omnisearch": false,
+      "command-palette:Open command palette": false,
+      "graph:Open graph view": false,
+      "claudian:Open Claudian": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-memos:Thino": false,
+      "obsidian-memos:Thino Super": false,
+      "templater-obsidian:Templater": false,
+      "switcher:Open quick switcher": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "3f41e16c8ccd1064",
+  "lastOpenFiles": [
+    "New folder",
+    "Arcane-Index/hooks/README.md",
+    "Arcane-Index/hooks/hooks.json",
+    "Arcane-Index/hooks",
+    "Arcane-Index/docs/releases/v1.6.0.md",
+    "Arcane-Index/docs/install-guide.md",
+    "Arcane-Index/docs/releases",
+    "Arcane-Index/docs/install-guide.pdf",
+    "Arcane-Index/docs/dragonscale-guide.md",
+    "Arcane-Index/docs",
+    "Arcane-Index/commands/wiki.md",
+    "Arcane-Index/commands/save.md",
+    "Arcane-Index/commands/canvas.md",
+    "Arcane-Index/commands/autoresearch.md",
+    "Arcane-Index/commands",
+    "Arcane-Index/bin/setup-dragonscale.sh",
+    "Arcane-Index/bin/setup-vault.sh",
+    "Arcane-Index/bin/setup-multi-agent.sh",
+    "Arcane-Index/bin",
+    "Arcane-Index/agents/wiki-lint.md",
+    "Arcane-Index/agents/wiki-ingest.md",
+    "Arcane-Index/wiki/sources/INF2007-mobile-app-development.md",
+    "Arcane-Index/wiki/sources/_index.md",
+    "Arcane-Index/wiki/sources/INF2002-human-computer-interaction.md",
+    "Arcane-Index/wiki/sources/INF1008-data-structures-algorithms.md",
+    "Arcane-Index/wiki/sources/INF1009-object-oriented-programming.md",
+    "Arcane-Index/wiki/sources/INF1004-mathematics-2.md",
+    "Arcane-Index/wiki/sources/INF1003-mathematics-1.md",
+    "Arcane-Index/wiki/sources/ICT2216-secure-software-development.md",
+    "Arcane-Index/wiki/sources/ICT2113-software-modelling.md",
+    "Arcane-Index/wiki/synthesis/_index.md",
+    "Arcane-Index/wiki/resources/_index.md",
+    "Arcane-Index/wiki/resources/securityrat.md",
+    "Arcane-Index/wiki/learning/_index.md",
+    "Arcane-Index/wiki/learning/docker-windows-crlf.md",
+    "Arcane-Index/wiki/gaps/_index.md",
+    "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
+    "claude-obsidian-main/wiki/Wiki Map.canvas",
+    "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",
+    "claude-obsidian-main/wiki/canvases/main.canvas"
+  ]
+}
