@@ -57,6 +57,8 @@ When you need context not in this project:
 1. Read `wiki/hot.md` first — recent context, ~500 words
 2. If not enough, read `wiki/index.md` for the full catalogue
 3. Drill into `wiki/concepts/<page>.md` for specifics
+4. With the information found try to solve what the user is asking for
+5. If the information is not substantial enough, then source from outside
 Do NOT read the wiki for general coding questions already answered here.
 
 ### Writing back to the wiki
