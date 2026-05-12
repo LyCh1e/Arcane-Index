@@ -11,6 +11,22 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 ---
 
+## 2026-05-12 — Example: Stock Prediction Neural Network ingested
+
+- Action: INGEST
+- Trigger: user opened project and requested wiki write-back
+- Created: `wiki/examples/stock-prediction-neural-network.md`
+  - Custom two-layer NumPy neural network with He init, adaptive LR, Monte Carlo uncertainty
+  - SOLID + DIP architecture: interfaces in `core/interfaces.py`, concrete wiring at `ui/app.py`
+  - 12-feature data pipeline from Yahoo Finance via yfinance
+  - Composite 0–100 accuracy scoring (MAPE 50% + directional 30% + in-range 20%)
+  - Band calibration from historical residuals targeting 75% in-range rate
+  - Background threading pattern with message-queue UI bridge (Tkinter never freezes)
+  - Key bugs: inconsistent data parsing (commit 00552e7) was root cause of occasional wrong predictions
+- Updated: `wiki/index.md` (Examples table), `wiki/hot.md`
+
+---
+
 ## 2026-05-12 — Synthesis: ICT2112 × INF2007 Knowledge Gaps Resolved
 
 - Action: SYNTHESISE

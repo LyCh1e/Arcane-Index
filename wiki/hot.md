@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-11T00:00:00
+updated: 2026-05-12T00:00:00
 tags: [meta, hot-cache]
 ---
 
@@ -9,7 +9,7 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
-2026-05-12. Session: ICT2112 Software Design fully ingested — design process pipeline, GoF patterns (all 23), architectural/layer patterns, SOA, ATAM, design smells.
+2026-05-12. Sessions: (1) ICT2112 Software Design fully ingested — design process pipeline, GoF patterns (all 23), architectural/layer patterns, SOA, ATAM, design smells. (2) Stock Prediction Neural Network project ingested — custom NumPy two-layer NN, SOLID/DIP architecture, 12-feature yfinance pipeline, composite accuracy scoring, band calibration, background threading.
 
 ## Key Recent Facts
 
@@ -37,6 +37,7 @@ tags: [meta, hot-cache]
 
 ## Recent Changes
 
+- Created: `wiki/examples/stock-prediction-neural-network.md` (custom NN project — SOLID ML + Tkinter GUI)
 - Created: `wiki/sources/ICT2112-software-design.md`
 - Created: `wiki/concepts/software-design-process.md` (design pipeline, quality attributes, coupling/cohesion, ATAM, design smells, construction design)
 - Created: `wiki/concepts/software-architecture-patterns.md` (layered, domain/data-source/presentation patterns, SOA)
