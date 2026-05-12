@@ -11,6 +11,45 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 ---
 
+## 2026-05-12 — Synthesis: ICT2112 × INF2007 Knowledge Gaps Resolved
+
+- Action: SYNTHESISE
+- Trigger: two gaps identified during ICT2112 ingest (same session)
+- Created: `wiki/synthesis/dip-hilt-dependency-injection.md`
+  - Maps ICT2112 Dependency Inversion Principle → INF2007 Hilt framework, annotation by annotation
+  - Covers: @Inject constructor = DIP declaration; @Binds = binding abstraction to concrete; @Provides = IoC container provision; @Singleton = managed singleton vs GoF Singleton; Hilt component hierarchy = scope/lifetime management; testability argument (fake injection vs untestable direct instantiation); design smell diagnosis table
+- Created: `wiki/synthesis/data-mapper-repository-room-retrofit.md`
+  - Maps ICT2112 data source patterns (Active Record, TDG, Data Mapper) → Android Room + Retrofit stack
+  - Active Record = Room @Entity used directly as domain model (acceptable for simple CRUD)
+  - Table Data Gateway = Room @Dao (method-by-method mapping shown)
+  - Remote Data Gateway = Retrofit annotated interface
+  - Data Mapper = Repository class + mapper extension functions (Entity↔Domain, DTO↔Domain)
+  - Facade = Repository hiding both DAO and Retrofit behind one interface
+  - Includes: full stack diagram with patterns named at each layer, when-to-use table (Active Record vs Data Mapper), leaky abstraction smell, quality attribute mapping
+- Updated: `wiki/synthesis/_index.md`, `wiki/index.md`, `wiki/hot.md`, `wiki/log.md`
+- Status: Complete
+
+---
+
+## 2026-05-12 — Ingest: ICT2112 Software Design
+
+- Action: INGEST
+- Source: `raw/ICT2112 Software Design Notes.md` (Topics 1–8, Asst. Prof. Alex Q. Chen, AY2025/26)
+- Created: `wiki/sources/ICT2112-software-design.md`
+- Created: 2 concept pages in `wiki/concepts/`
+  - `software-design-process` — Software design pipeline (Architecture → Detailed → Construction), four roles of architecture, quality attributes (Microsoft model: 10 attributes across user-facing/run-time/design), architecture drivers, coupling scale (Content → Data), cohesion scale (Informational → Coincidental), ATAM (9-step process, sensitivity points, tradeoffs, risks), design smells (Rigidity, Fragility, Immobility, Viscosity, Needless Complexity, Needless Repetition, Opacity), construction design (flow-based: pseudocode/flowcharts; table-based: decision tables, state transition tables)
+  - `software-architecture-patterns` — Layered 3-Tier architecture (benefits, rules), domain layer patterns (Transaction Script / Table Module / Domain Model), data source patterns (Table Data Gateway / Row Data Gateway / Active Record / Data Mapper with comparison table), presentation patterns (MVC / MVP / MVVM with testability comparison), SOA/Microservices patterns (Gateway / Service Registry / Circuit Breaker three-state model / Adapter), end-to-end design pipeline, Library Books Management System case study
+- Updated: `wiki/concepts/solid-and-design-patterns.md`
+  - Added Builder and Prototype (creational) with C# examples
+  - Added all 7 structural patterns: Adapter, Decorator, Facade, Composite, Proxy, Bridge, Flyweight (with C# examples for Adapter, Decorator, Facade)
+  - Added all 11 behavioural patterns: Observer, Strategy, Command, Iterator, Template Method, State, Chain of Responsibility, Mediator, Memento, Visitor (with C# examples for Observer, Strategy, Iterator, Template Method)
+  - Expanded Pattern Selection Guide to all 23 GoF patterns
+  - Updated course tag from INF1009 → ICT2112; updated See Also links
+- Updated: `wiki/index.md` (new source row, 2 new concept rows), `wiki/hot.md`, `wiki/log.md`
+- Status: Complete
+
+---
+
 ## 2026-05-11 — Ingest: INF2008 Machine Learning
 
 - Action: INGEST

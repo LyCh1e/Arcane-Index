@@ -28,6 +28,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/INF1003-mathematics-1\|INF1003 Mathematics 1]] | course | mathematics | 2026-05-11 |
 | [[sources/INF1004-mathematics-2\|INF1004 Mathematics 2]] | course | mathematics | 2026-05-11 |
 | [[sources/INF2008-machine-learning\|INF2008 Machine Learning]] | course | machine-learning | 2026-05-11 |
+| [[sources/ICT2112-software-design\|ICT2112 Software Design]] | course | software-engineering | 2026-05-12 |
 
 ## Concepts
 
@@ -40,7 +41,9 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/sorting-and-searching\|Sorting and Searching Algorithms]] | computer-science | high |
 | [[concepts/graph-algorithms\|Graph Algorithms]] | computer-science | high |
 | [[concepts/oop-four-pillars\|OOP Four Pillars]] | software-engineering | medium |
-| [[concepts/solid-and-design-patterns\|SOLID Principles and Design Patterns]] | software-engineering | high |
+| [[concepts/software-design-process\|Software Design Process]] | software-engineering | high |
+| [[concepts/software-architecture-patterns\|Software Architecture Patterns]] | software-engineering | high |
+| [[concepts/solid-and-design-patterns\|SOLID Principles and Design Patterns (Full GoF)]] | software-engineering | high |
 | [[concepts/android-architecture\|Android Architecture]] | mobile-development | high |
 | [[concepts/kotlin-coroutines\|Kotlin, Coroutines, and Android Async]] | mobile-development | high |
 | [[concepts/hci-fundamentals\|HCI Fundamentals]] | hci | medium |
@@ -90,7 +93,8 @@ Master catalog of all pages. Updated on every ingest.
 
 | Page | Domain | Maturity |
 |------|--------|---------|
-| *(none yet)* | | |
+| [[synthesis/dip-hilt-dependency-injection\|DIP in Practice: Hilt Implements the Dependency Inversion Principle]] | software-engineering / mobile-development | established |
+| [[synthesis/data-mapper-repository-room-retrofit\|Data Mapper & Repository: ICT2112 Patterns → Android Room + Retrofit]] | software-engineering / mobile-development | established |
 
 ## Gaps
 

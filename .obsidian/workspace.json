@@ -18,34 +18,6 @@
               "icon": "bot",
               "title": "Claudian"
             }
-          },
-          {
-            "id": "1b36c5e61172decb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ATTRIBUTION.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ATTRIBUTION"
-            }
-          },
-          {
-            "id": "0a8cfbe2955ac252",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CLAUDE.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "CLAUDE"
-            }
           }
         ]
       }
@@ -240,9 +212,10 @@
   "left-ribbon": {
     "hiddenItems": {
       "omnisearch:Omnisearch": false,
-      "command-palette:Open command palette": false,
-      "graph:Open graph view": false,
       "claudian:Open Claudian": false,
+      "graph:Open graph view": false,
+      "obsidian-git:Open Git source control": false,
+      "command-palette:Open command palette": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
@@ -251,12 +224,29 @@
       "obsidian-memos:Thino": false,
       "obsidian-memos:Thino Super": false,
       "templater-obsidian:Templater": false,
-      "switcher:Open quick switcher": false,
-      "obsidian-git:Open Git source control": false
+      "switcher:Open quick switcher": false
     }
   },
-  "active": "845678323c6133f0",
+  "active": "6492dbdec43436fa",
   "lastOpenFiles": [
+    "wiki/synthesis/_index.md.tmp.15312.caf829bdf645",
+    "wiki/synthesis/data-mapper-repository-room-retrofit.md",
+    "wiki/synthesis/dip-hilt-dependency-injection.md",
+    "wiki/concepts/software-architecture-patterns.md",
+    "wiki/concepts/software-design-process.md",
+    "wiki/sources/ICT2112-software-design.md",
+    "raw/ICT2112 Software Design Notes.md",
+    "wiki/log.md",
+    "wiki/hot.md",
+    "hooks/README.md",
+    "skills/wiki-lint/SKILL.md",
+    "CLAUDE.md",
+    "commands/wiki.md",
+    "WIKI.md",
+    "README.md",
+    "wiki/gaps/_index.md",
+    "wiki/areas/_index.md",
+    "wiki/index.md",
     "wiki/sources/INF2008-machine-learning.md",
     "wiki/concepts/clustering-and-dimensionality-reduction.md",
     "wiki/concepts/neural-networks-linear-models.md",
@@ -264,35 +254,17 @@
     "wiki/concepts/ml-model-training-evaluation.md",
     "wiki/concepts/ml-data-understanding.md",
     "wiki/concepts/ml-foundations.md",
-    "CLAUDE.md",
     "raw/INF2008 Machine Learning Notes.md",
     "wiki/concepts/secure-software-requirements.md.tmp.13020.296e832cc4bb",
-    "wiki/concepts/vulnerability-tracking-frameworks.md",
-    "wiki/concepts/owasp-top-10.md",
     "wiki/concepts/owasp-top-10.md.tmp.13020.8b73ad2e482c",
-    "ATTRIBUTION.md",
-    "raw/ICT2216 Lecture 2 Secure Software Development.md",
-    "raw/ICT2216 Lecture 1 Secure Software Development.md",
-    "wiki/index.md",
-    "wiki/log.md",
-    "wiki/hot.md",
     "New folder",
-    "Arcane-Index/hooks/README.md",
     "Arcane-Index/hooks/hooks.json",
     "Arcane-Index/hooks",
-    "Arcane-Index/docs/releases/v1.6.0.md",
-    "Arcane-Index/docs/install-guide.md",
     "Arcane-Index/docs/releases",
     "Arcane-Index/docs/install-guide.pdf",
-    "Arcane-Index/docs/dragonscale-guide.md",
     "Arcane-Index/docs",
-    "Arcane-Index/commands/wiki.md",
-    "Arcane-Index/commands/save.md",
-    "Arcane-Index/commands/canvas.md",
-    "Arcane-Index/commands/autoresearch.md",
     "Arcane-Index/commands",
     "Arcane-Index/bin/setup-dragonscale.sh",
-    "Arcane-Index/agents/wiki-lint.md",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",

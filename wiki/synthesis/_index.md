@@ -11,7 +11,8 @@ Evolving "state of my understanding" pages — where disparate concepts, sources
 
 | Page | Domain | Last Updated | Maturity |
 |------|--------|-------------|---------|
-| *(empty — synthesis pages are written after several related sources are ingested)* | | | |
+| [[synthesis/dip-hilt-dependency-injection\|DIP in Practice: How Hilt Implements the Dependency Inversion Principle]] | software-engineering / mobile-development | 2026-05-12 | established |
+| [[synthesis/data-mapper-repository-room-retrofit\|Data Mapper & Repository: Bridging ICT2112 Patterns and Android's Room + Retrofit]] | software-engineering / mobile-development | 2026-05-12 | established |
 
 ## How Synthesis Pages Work
 
@@ -25,4 +26,6 @@ It is:
 
 ## Synthesis Pages
 
-*(none yet — start one after ingesting 3+ related sources)*
+**ICT2112 × INF2007 — Software Design meets Android**
+
+Two synthesis pages connect the theoretical patterns from Software Design (ICT2112) to their concrete implementations in the Android Jetpack stack (INF2007). Together they cover the full data and dependency wiring of a production Android app.
