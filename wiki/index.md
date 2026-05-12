@@ -29,6 +29,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/INF1004-mathematics-2\|INF1004 Mathematics 2]] | course | mathematics | 2026-05-11 |
 | [[sources/INF2008-machine-learning\|INF2008 Machine Learning]] | course | machine-learning | 2026-05-11 |
 | [[sources/ICT2112-software-design\|ICT2112 Software Design]] | course | software-engineering | 2026-05-12 |
+| [[sources/INF2003-database-systems\|INF2003 Database Systems]] | course | database-systems | 2026-05-12 |
 
 ## Concepts
 
@@ -41,6 +42,12 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/sorting-and-searching\|Sorting and Searching Algorithms]] | computer-science | high |
 | [[concepts/graph-algorithms\|Graph Algorithms]] | computer-science | high |
 | [[concepts/oop-four-pillars\|OOP Four Pillars]] | software-engineering | medium |
+| [[concepts/relational-database-fundamentals\|Relational Database Fundamentals]] | database-systems | medium |
+| [[concepts/relational-algebra-and-sql\|Relational Algebra and SQL]] | database-systems | high |
+| [[concepts/database-normalisation\|Database Normalisation]] | database-systems | high |
+| [[concepts/er-diagrams\|Entity-Relationship Diagrams]] | database-systems | medium |
+| [[concepts/database-indexing-transactions\|Database Indexing and Transactions]] | database-systems | high |
+| [[concepts/nosql-and-data-warehousing\|NoSQL and Data Warehousing]] | database-systems | medium |
 | [[concepts/software-design-process\|Software Design Process]] | software-engineering | high |
 | [[concepts/software-architecture-patterns\|Software Architecture Patterns]] | software-engineering | high |
 | [[concepts/solid-and-design-patterns\|SOLID Principles and Design Patterns (Full GoF)]] | software-engineering | high |

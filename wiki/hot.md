@@ -9,9 +9,19 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
-2026-05-12. Sessions: (1) ICT2112 Software Design fully ingested — design process pipeline, GoF patterns (all 23), architectural/layer patterns, SOA, ATAM, design smells. (2) Stock Prediction Neural Network project ingested — custom NumPy two-layer NN, SOLID/DIP architecture, 12-feature yfinance pipeline, composite accuracy scoring, band calibration, background threading.
+2026-05-12. Sessions: (1) ICT2112 Software Design — design process, GoF patterns (all 23), architectural/layer patterns, SOA, ATAM. (2) INF2003 Database Systems — relational model, full SQL, BCNF normalisation, ER diagrams, B+ tree indexing, ACID transactions, NoSQL, data warehousing.
 
 ## Key Recent Facts
+
+- **INF2003 Relational Model**: DB/DBMS 3-level abstraction (view/logical/physical). Physical independence easier than logical. Relation = table of unordered tuples; keys: superkey → candidate key → primary key → foreign key. ACID (Atomicity/Consistency/Isolation/Durability). 6 design stages: Requirements → Conceptual (ER) → Logical → Refinement (BCNF) → Physical → Security.
+- **INF2003 Relational Algebra**: 6 fundamental operators — σ (select rows), π (select columns), ∪, −, × (cartesian product), ρ (rename). Extended: ∩, ⋈ (natural join), outer joins (⟕⟖⟗), ÷ (division — "for all" queries), ← (assignment). Push σ/π before joins for efficiency.
+- **INF2003 SQL**: DDL (`CREATE TABLE`, `ALTER`, `DROP`). DML: `SELECT … FROM … WHERE … GROUP BY … HAVING … ORDER BY`. Aggregate: SUM/COUNT/AVG/MIN/MAX. NULL semantics: use `IS NULL` not `= NULL`. Set ops: `UNION`/`INTERSECT`/`EXCEPT` (+ ALL variants). Subqueries: `IN`, `EXISTS`, `ANY`, `ALL`. Optimisation: `EXISTS` > `COUNT(*)>0`; JOINs > correlated subqueries; avoid leading wildcards.
+- **INF2003 Normalisation**: Anomalies: insertion/update/deletion/redundancy. FD: X→Y. Armstrong's axioms: Reflexivity, Augmentation, Transitivity (+ Union/Decomposition/PseudoTransitivity). Closure X⁺: iteratively add attributes. BCNF: every non-trivial FD X→Y must have X as superkey. Decomposition: lossless (BCNF guarantees) ✓; dependency-preserving (BCNF does NOT guarantee) ✗.
+- **INF2003 ER Diagrams**: Entity (rectangle), relationship (diamond), attribute (oval). Attribute types: key/composite/multivalued/derived. Participation: total (double line) vs partial (single). Cardinality: 1:1/M:1/1:N/M:N. Weak entity = depends on owner for identity. ISA = subclass with overlap/covering constraints. ER→schema: entity→table, composite→flatten, multivalued→separate table, M:N relationship→table with composite PK, weak entity→merged with identifying relationship.
+- **INF2003 Indexing**: Heap/sorted/indexed file organisations. Hash index: O(1) equality only. B+ tree: all data in leaves (linked list); internal nodes route; min 50% occupancy; O(log n) search/insert/delete; supports range queries; insert splits leaves upward; delete borrows from sibling or merges.
+- **INF2003 Transactions**: ACID deep-dive. Serial schedule = safest. Serializable = equivalent to some serial. Interleaving → dirty reads/lost updates. TCL: COMMIT/ROLLBACK/SAVEPOINT. Lock granularity: DB→table→page→row→field. Deadlock: prevent by ordering; detect by timeout. Optimistic 3-phase: read (private copy) → validate → write. Recovery: write-ahead transaction log on separate device; checkpoint + redo/undo.
+- **INF2003 NoSQL**: Key-value (Redis, O(1) get/set/del); Document (MongoDB, schema-less JSON/BSON, no joins); Columnar (Cassandra, column-wise storage, compression, fast aggregation); Graph (Neo4j, node+edge+property, traversal). Use NoSQL when ACID not needed, data is large/diverse, or high availability required.
+- **INF2003 Data Warehouse**: ETL (Extract→Transform→Load). Star schema: 1 fact table + N dimension tables (denormalised, simple queries). Snowflake: normalised dimensions (storage savings, slower queries). OLAP cube operations: Slice (fix dimension), Dice (sub-cube), Drill Down (summary→detail), Roll Up (detail→summary), Pivot (rotate). OLTP vs OLAP: OLTP normalised+fast writes; OLAP denormalised+complex reads.
 
 - **ICT2112 Design Process**: Architecture → Detailed → Construction. Architecture serves 4 roles (Structural, Communication, Quality, Foundation). Detailed design = Interface Design + Component Design. Construction design produces pseudocode/flowcharts (flow-based) and decision/state-transition tables (table-based).
 - **Quality attributes** (Microsoft model): Usability; Availability, Performance, Reliability, Scalability, Security (run-time); Conceptual Integrity, Maintainability, Reusability, Testability (design).
@@ -22,6 +32,8 @@ tags: [meta, hot-cache]
 - **Design Evaluation — ATAM**: 9-step process; outputs sensitivity points, tradeoffs, risks, non-risks. **Design Smells**: Rigidity, Fragility, Immobility, Viscosity, Needless Complexity, Needless Repetition, Opacity.
 
 ## Domain Summaries
+
+**Database Systems** (INF2003): Full relational model from ACID to normalisation. The 6-stage design process runs: requirements → ER diagram → relational schema → BCNF refinement → physical design (B+ tree indexes) → security. SQL is the declarative layer over relational algebra; every SELECT maps to σ/π/⋈. Normalisation uses FD closure and BCNF to eliminate all anomalies while guaranteeing lossless decomposition (but not always dependency preservation). B+ tree is the universal index: O(log n) equality and range, dynamic insert/delete. ACID transactions are enforced via write-ahead logging + locking (or optimistic 3-phase). NoSQL trades ACID for scale and flexibility; choose the model (KV/document/columnar/graph) based on query patterns. Data warehouses deliberately de-normalise into star/snowflake schemas for OLAP analytics.
 
 **Software Design** (ICT2112): Full design pipeline from architecture to construction. Coupling/cohesion are the two key internal quality metrics. The 3-Tier layered architecture separates Presentation, Domain, and Data Source concerns; each layer has specific patterns (MVC, Domain Model, Data Mapper). SOLID + GoF patterns are applied at the detailed design level. ATAM evaluates architecture against quality attributes. Design smells (Rigidity, Fragility …) signal SOLID violations.
 
@@ -38,6 +50,10 @@ tags: [meta, hot-cache]
 ## Recent Changes
 
 - Created: `wiki/examples/stock-prediction-neural-network.md` (custom NN project — SOLID ML + Tkinter GUI)
+- Created: `wiki/sources/INF2003-database-systems.md`
+- Created: 6 concept pages — `relational-database-fundamentals`, `relational-algebra-and-sql`, `database-normalisation`, `er-diagrams`, `database-indexing-transactions`, `nosql-and-data-warehousing`
+- Updated: `wiki/index.md`, `wiki/hot.md`, `wiki/log.md`
+
 - Created: `wiki/sources/ICT2112-software-design.md`
 - Created: `wiki/concepts/software-design-process.md` (design pipeline, quality attributes, coupling/cohesion, ATAM, design smells, construction design)
 - Created: `wiki/concepts/software-architecture-patterns.md` (layered, domain/data-source/presentation patterns, SOA)

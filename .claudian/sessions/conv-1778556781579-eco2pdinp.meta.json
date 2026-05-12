@@ -4,8 +4,8 @@
   "title": "Ingest ICT2112 Software Design Notes",
   "titleGenerationStatus": "success",
   "createdAt": 1778556781580,
-  "updatedAt": 1778557338355,
-  "lastResponseAt": 1778557338355,
+  "updatedAt": 1778571406182,
+  "lastResponseAt": 1778571406181,
   "sessionId": "37180632-d9d1-43de-9991-321dfeaf52f4",
   "providerState": {
     "providerSessionId": "37180632-d9d1-43de-9991-321dfeaf52f4"
@@ -13,12 +13,12 @@
   "currentNote": "wiki/log.md",
   "usage": {
     "model": "sonnet",
-    "inputTokens": 1,
-    "cacheCreationInputTokens": 728,
-    "cacheReadInputTokens": 76135,
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 21833,
+    "cacheReadInputTokens": 15372,
     "contextWindow": 200000,
-    "contextTokens": 76864,
-    "percentage": 38,
+    "contextTokens": 37208,
+    "percentage": 19,
     "contextWindowIsAuthoritative": true
   }
 }
