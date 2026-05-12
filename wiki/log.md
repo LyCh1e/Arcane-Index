@@ -11,6 +11,30 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 ---
 
+## 2026-05-12 — Synthesis: RE×Security and RE×HCI gaps filled
+
+- Action: SYNTHESISE
+- Trigger: user requested both open gaps be filled
+- Created: `wiki/synthesis/re-elicitation-cia-aaa-security-requirements.md`
+  - McCall's Integrity as the bridge: CIA+AAA unpacks what "resist unauthorised access" means in practice
+  - RE lifecycle (Eliciting → Analysing → Specifying → Validating → Managing) mapped step-by-step onto SSDLC requirement phases
+  - BCIC framework applied to security: "the system shall be secure" decomposed into atomic, verifiable statements
+  - OSA taxonomy (Secure Functional / Functional Security / Non-Functional Security / Secure Development) mapped onto RE functional/non-functional split
+  - iRTM extended with Threat column linking each security requirement back to its CIA-AAA pillar and attacker model risk
+  - Mag7 quality attributes assessed against the specific challenges of security requirements (ambiguity of "encrypted", completeness of misuse cases, consistency tension between Availability and Confidentiality)
+  - McCall's other features (Reliability, Correctness, Maintainability, Testability) mapped to adjacent security concerns
+- Created: `wiki/synthesis/re-elicitation-hci-needfinding.md`
+  - Method-by-method mapping table: RE interviews ↔ HCI semi-structured interviews; RE observation ↔ HCI direct/indirect observation; RE surveys ↔ HCI Likert/Semantic Differential; RE JAD workshops ↔ HCI focus groups; ethnography as unnamed-but-present in RE
+  - Key divergence: RE produces formal SRS (complete, traceable, verifiable); HCI produces research artefacts (personas, HTA, insight reports)
+  - Output connection pipeline: Needfinding → HTA/TDH → Use Cases → SRS requirements → iRTM
+  - Concrete example tracing "Submit assignment" from HTA leaf to functional requirement to iRTM entry
+  - Pain points → BCIC Interpret step → hidden requirements (with 3 worked examples)
+  - Declarative/procedural knowledge distinction → differentiated non-functional usability requirements for novices vs experts
+  - UCD "Specify requirements" phase identified as the handoff point from HCI to RE
+- Updated: `wiki/synthesis/_index.md` (2 new rows + 2 domain sections), `wiki/index.md` (Synthesis table), `wiki/hot.md`, `wiki/log.md`
+
+---
+
 ## 2026-05-12 — Example: Stock Prediction Neural Network ingested
 
 - Action: INGEST

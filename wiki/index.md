@@ -103,6 +103,8 @@ Master catalog of all pages. Updated on every ingest.
 |------|--------|---------|
 | [[synthesis/dip-hilt-dependency-injection\|DIP in Practice: Hilt Implements the Dependency Inversion Principle]] | software-engineering / mobile-development | established |
 | [[synthesis/data-mapper-repository-room-retrofit\|Data Mapper & Repository: ICT2112 Patterns → Android Room + Retrofit]] | software-engineering / mobile-development | established |
+| [[synthesis/re-elicitation-cia-aaa-security-requirements\|Security Requirements Are RE: McCall's Integrity ↔ CIA-AAA]] | software-engineering / secure-software-development | established |
+| [[synthesis/re-elicitation-hci-needfinding\|Same Questions, Different Lenses: RE Elicitation ↔ HCI Needfinding]] | software-engineering / hci | established |
 
 ## Gaps
 

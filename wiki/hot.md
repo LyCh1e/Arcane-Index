@@ -9,7 +9,7 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
-2026-05-12. Sessions: (1) ICT2112 Software Design — design process, GoF patterns (all 23), architectural/layer patterns, SOA, ATAM. (2) INF2003 Database Systems — relational model, full SQL, BCNF normalisation, ER diagrams, B+ tree indexing, ACID transactions, NoSQL, data warehousing.
+2026-05-12. Sessions: (1) ICT2112 Software Design — design process, GoF patterns (all 23), architectural/layer patterns, SOA, ATAM. (2) INF2003 Database Systems — relational model, full SQL, BCNF normalisation, ER diagrams, B+ tree indexing, ACID transactions, NoSQL, data warehousing. (3) Synthesis gaps filled — RE×Security (McCall Integrity ↔ CIA-AAA) and RE×HCI (elicitation ↔ needfinding).
 
 ## Key Recent Facts
 
@@ -49,6 +49,10 @@ tags: [meta, hot-cache]
 
 ## Recent Changes
 
+- Created: `wiki/synthesis/re-elicitation-cia-aaa-security-requirements.md` (McCall Integrity ↔ CIA-AAA; RE lifecycle ↔ SSDLC; BCIC for security; Mag7 on security requirements)
+- Created: `wiki/synthesis/re-elicitation-hci-needfinding.md` (method mapping table; HTA/TDH → requirements pipeline; personas → stakeholder profiles; pain points → BCIC Interpret)
+- Updated: `wiki/synthesis/_index.md`, `wiki/index.md`, `wiki/hot.md`, `wiki/log.md`
+
 - Created: `wiki/examples/stock-prediction-neural-network.md` (custom NN project — SOLID ML + Tkinter GUI)
 - Created: `wiki/sources/INF2003-database-systems.md`
 - Created: 6 concept pages — `relational-database-fundamentals`, `relational-algebra-and-sql`, `database-normalisation`, `er-diagrams`, `database-indexing-transactions`, `nosql-and-data-warehousing`
@@ -64,7 +68,7 @@ tags: [meta, hot-cache]
 
 - ICT2216 Lab 2 Steps 5–7 (browser UI / artifact exploration) — user to complete independently
 - Next: create learning/study notes (flashcard-style summaries for exam prep)
-- Gap: no synthesis page connecting ICT2113 RE elicitation ↔ ICT2216 CIA+AAA (McCall's Integrity maps directly to CIA Integrity)
-- Gap: no synthesis page connecting ICT2113 RE elicitation ↔ INF2002 HCI needfinding
 - ✓ Resolved: [[synthesis/dip-hilt-dependency-injection]] — DIP → Hilt mapping written
 - ✓ Resolved: [[synthesis/data-mapper-repository-room-retrofit]] — Data Mapper → Repository/Room/Retrofit mapping written
+- ✓ Resolved: [[synthesis/re-elicitation-cia-aaa-security-requirements]] — McCall Integrity ↔ CIA+AAA; RE lifecycle ↔ SSDLC requirements phases; BCIC applied to security requirements
+- ✓ Resolved: [[synthesis/re-elicitation-hci-needfinding]] — Needfinding methods ↔ RE elicitation; HTA/TDH → use cases → SRS; personas → stakeholder profiles; pain points → BCIC Interpret → hidden requirements

@@ -13,6 +13,8 @@ Evolving "state of my understanding" pages — where disparate concepts, sources
 |------|--------|-------------|---------|
 | [[synthesis/dip-hilt-dependency-injection\|DIP in Practice: How Hilt Implements the Dependency Inversion Principle]] | software-engineering / mobile-development | 2026-05-12 | established |
 | [[synthesis/data-mapper-repository-room-retrofit\|Data Mapper & Repository: Bridging ICT2112 Patterns and Android's Room + Retrofit]] | software-engineering / mobile-development | 2026-05-12 | established |
+| [[synthesis/re-elicitation-cia-aaa-security-requirements\|Security Requirements Are RE: McCall's Integrity ↔ CIA-AAA]] | software-engineering / secure-software-development | 2026-05-12 | established |
+| [[synthesis/re-elicitation-hci-needfinding\|Same Questions, Different Lenses: RE Elicitation ↔ HCI Needfinding]] | software-engineering / hci | 2026-05-12 | established |
 
 ## How Synthesis Pages Work
 
@@ -29,3 +31,11 @@ It is:
 **ICT2112 × INF2007 — Software Design meets Android**
 
 Two synthesis pages connect the theoretical patterns from Software Design (ICT2112) to their concrete implementations in the Android Jetpack stack (INF2007). Together they cover the full data and dependency wiring of a production Android app.
+
+**ICT2113 × ICT2216 — Requirements Engineering meets Secure Software Development**
+
+McCall's Integrity feature is the bridge: CIA+AAA unpacks what "integrity" means in practice. The RE lifecycle (BCIC, iRTM, SRS) is the process through which security requirements are elicited, analysed, and specified.
+
+**ICT2113 × INF2002 — Requirements Engineering meets HCI**
+
+RE elicitation and HCI needfinding ask the same upstream questions using overlapping methods. Their outputs are complementary: needfinding produces human understanding; RE converts that understanding into a formal, verifiable, traceable specification.
