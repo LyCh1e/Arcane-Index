@@ -30,6 +30,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/INF2008-machine-learning\|INF2008 Machine Learning]] | course | machine-learning | 2026-05-11 |
 | [[sources/ICT2112-software-design\|ICT2112 Software Design]] | course | software-engineering | 2026-05-12 |
 | [[sources/INF2003-database-systems\|INF2003 Database Systems]] | course | database-systems | 2026-05-12 |
+| [[sources/ICT1011-computer-organisation-architecture\|ICT1011 Computer Organisation and Architecture]] | course | computer-architecture | 2026-05-13 |
 
 ## Concepts
 
@@ -75,6 +76,9 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/decision-trees-and-ensembles\|Decision Trees & Ensemble Methods]] | machine-learning | high |
 | [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] | machine-learning | high |
 | [[concepts/clustering-and-dimensionality-reduction\|Clustering & Dimensionality Reduction]] | machine-learning | high |
+| [[concepts/computer-architecture-fundamentals\|Computer Architecture Fundamentals]] | computer-architecture | medium |
+| [[concepts/assembly-programming-msp430\|Assembly Programming (MSP430)]] | computer-architecture | high |
+| [[concepts/io-and-memory-systems\|I/O Interfacing and Memory Systems]] | computer-architecture | high |
 
 ## Examples
 

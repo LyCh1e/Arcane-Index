@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Examples Index"
-updated: 2026-05-11
+updated: 2026-05-13
 tags: [meta, index, examples]
 ---
 
@@ -27,6 +27,7 @@ This folder contains two categories of grounded, applied content that sit alongs
 |------|------|-----------------|---------|
 | [[ict2216-lab1-docker-compose\|ICT2216 Lab 1 — Multi-Container Docker Compose Stack]] | lab | ICT2216 | [[concepts/docker-compose\|Docker Compose]] |
 | [[ict2216-lab2-securityrat\|ICT2216 Lab 2 — SecurityRAT: Defining Secure Software Requirements]] | lab | ICT2216 | [[concepts/secure-software-requirements\|Secure Software Requirements]] |
+| [[stock-prediction-neural-network\|Stock Prediction Neural Network — SOLID ML App with Tkinter GUI]] | project | machine-learning | [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] |
 
 ---
 

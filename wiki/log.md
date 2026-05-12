@@ -1,13 +1,71 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-05-11
+updated: 2026-05-13
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+---
+
+## 2026-05-13 — Ingest: ICT1011 Computer Organisation and Architecture
+
+- Action: INGEST
+- Source: `raw/ICT1011 Computer Organisation Architecture Notes.md` (15,297 lines, OCR'd slide deck, 10 chapters)
+- Authors: Steven Wong & Xin Lou, Singapore Institute of Technology, ©2024
+- Created: `wiki/sources/ICT1011-computer-organisation-architecture.md`
+  - Chapter map, concept page cross-references, key module themes
+- Created: `wiki/concepts/computer-architecture-fundamentals.md`
+  - Architecture vs organisation distinction
+  - Von Neumann stored-program concept, Fetch–Decode–Execute cycle, Von Neumann bottleneck
+  - Computer classes: supercomputer → mainframe → minicomputer → microcomputer → embedded/SoC
+  - Three basic operations: Store / Transform / Transfer
+  - Memory hierarchy: Registers (<1 ns) → Cache (8–35 ns, SRAM) → Main Memory (20–100 ns, DRAM) → Secondary (5–20 ms)
+  - Clock (synchronous design) and Reset (PC→0)
+  - MSP430: 16-bit RISC MCU, 27 instructions, 7 addressing modes, 16 registers
+  - Register map: R0=PC, R1=SP (pre-decrement/post-increment), R2=SR/CG1 (N/Z/C/V + GIE + power bits), R3=CG2, R4–R15 GPR
+  - SR flags: N (MSB=1), Z (result=0), C (unsigned overflow), V (signed overflow)
+  - Memory map: 0x0000–0x01FF (8-bit peripherals), 0x2400 (RAM start), 0x4400 (Flash start), 0xFF80–0xFFFF (interrupt vectors)
+  - Little-endian byte ordering
+  - Instruction formats: Format I (double operand), Format II (single operand), Format III (10-bit signed jump, ±512 words)
+  - 7 addressing modes: Register, Indexed, Indirect, Indirect Auto-increment, Symbolic, Absolute, Immediate
+- Created: `wiki/concepts/assembly-programming-msp430.md`
+  - 4-column assembly syntax (label / mnemonic / operands / comment)
+  - Assembler directives: section (.text/.data/.bss/.sect/.usect), memory (.byte/.word/.string/.space), symbol (.equ/.set), linking (.global/.ref/.def/.end)
+  - 2-pass assembly: Pass 1 → symbol table; Pass 2 → machine code
+  - Executable instructions: MOV (no flags), ADD/ADDC/DADD/SUB/SUBC (arithmetic), AND/BIS/XOR/BIC (logical), RRC/RLC/RRA (rotation), CMP/BIT (comparison, flags only), JEQ/JNE/JC/JNC/JN/JGE/JL/JMP (control flow), PUSH/CALL/RETI (stack/subroutine)
+  - Emulated instructions: NOP, CLR, INC, DEC, INV, TST, SETC/CLRC, EINT/DINT, RET, BR, POP
+  - CALL mechanism: SP−2; Mem[SP]←PC+2; PC←target
+  - RET mechanism: PC←Mem[SP]; SP+2 (= MOV @SP+,PC)
+  - Parameter passing: (1) registers — fast/limited; (2) memory block — not re-entrant; (3) stack — general, supports recursion
+  - Pass by value vs pass by reference
+  - Stack frames for local variables: SUB #N,SP at entry; ADD #N,SP at exit; stack frame layout diagram
+- Created: `wiki/concepts/io-and-memory-systems.md`
+  - Parallel vs serial, simplex/half-duplex/full-duplex
+  - Async serial format: start(Space=0) + 7/8 data bits LSB-first + optional parity + stop(Mark=1)
+  - Baud rate = 1/T; data rate < baud rate due to framing overhead
+  - RS-232: DTE↔DCE, inverted logic (Mark=−3 to −15 V, Space=+3 to +15 V)
+  - Memory-mapped I/O (MSP430/ARM) vs isolated I/O (x86 IN/OUT instructions)
+  - Polled I/O: busy-wait loop; CPU-inefficient
+  - Interrupt-driven I/O: IRQ → push PC+SR → ISR → RETI; CPU free between events
+  - Bluetooth: 2402–2480 MHz, 79 × 1 MHz channels, FHSS 1600 hops/s, TDD-TDMA, piconet (1 master + ≤7 active slaves), scatternet, BLE for IoT
+  - HDD structure: platters/tracks/cylinders/sectors; access time = Ts + Tr (avg = 0.5/RPS) + Tt = N/(RPS×DT×DS)
+  - RAID 0 (striping, performance), RAID 1 (mirroring, fault-tolerance), RAID 10 (stripe+mirror)
+  - Bus: data (bits/transfer width), address (log₂ max memory), control (R/W, IRQ, clock, reset)
+  - Synchronous bus (clocked, simple, inflexible) vs asynchronous bus (handshake, flexible, slow device bottleneck)
+  - Memory performance: access time, cycle time (> access time), transfer rate = 1/cycle time
+  - SRAM: cross-coupled inverter latch + 2 transistors; fast, low density, cache
+  - DRAM: 1 transistor + 1 capacitor; needs periodic refresh; high density, main memory
+  - ROM/Flash family: ROM (manufacture) → PROM (fuse burn) → EPROM (UV erase) → EEPROM (electrical byte erase) → Flash (electrical block erase, high density, SSDs/phones)
+  - Memory management: uni-program vs multi-program; swapping (disk ↔ main memory, I/O cost)
+  - Fixed partitioning: internal fragmentation; dynamic partitioning: external fragmentation → coalesce / compact
+  - Paging: process → pages; memory → frames; page table maps page# → frame#; logical address = page# + offset → frame# + offset; eliminates external fragmentation; enables virtual memory; MMU performs translation
+- Updated: `wiki/index.md` (1 new source row, 3 new concept rows)
+- Updated: `wiki/hot.md` (new session summary, 10 new key facts, new domain summary, recent changes)
+- Updated: `wiki/log.md` (this entry)
 
 ---
 

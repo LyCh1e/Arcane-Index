@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-12T00:00:00
+updated: 2026-05-13T00:00:00
 tags: [meta, hot-cache]
 ---
 
@@ -9,9 +9,22 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
-2026-05-12. Sessions: (1) ICT2112 Software Design — design process, GoF patterns (all 23), architectural/layer patterns, SOA, ATAM. (2) INF2003 Database Systems — relational model, full SQL, BCNF normalisation, ER diagrams, B+ tree indexing, ACID transactions, NoSQL, data warehousing. (3) Synthesis gaps filled — RE×Security (McCall Integrity ↔ CIA-AAA) and RE×HCI (elicitation ↔ needfinding).
+2026-05-13. Sessions: (1) ICT2112 Software Design — design process, GoF patterns (all 23), architectural/layer patterns, SOA, ATAM. (2) INF2003 Database Systems — relational model, full SQL, BCNF normalisation, ER diagrams, B+ tree indexing, ACID transactions, NoSQL, data warehousing. (3) Synthesis gaps filled — RE×Security (McCall Integrity ↔ CIA-AAA) and RE×HCI (elicitation ↔ needfinding). (4) ICT1011 Computer Organisation and Architecture — Von Neumann, MSP430 ISA/assembly/modular programming, I/O interfacing, memory technologies, memory management.
 
 ## Key Recent Facts
+
+- **ICT1011 Computer Architecture**: Von Neumann stored-program concept, common bus. Computer classes: supercomputer → mainframe → minicomputer → microcomputer → embedded/SoC. 3 basic operations: Store/Transform/Transfer.
+- **ICT1011 Memory Hierarchy**: Registers (< 1 ns) → Cache (8–35 ns, SRAM) → Main Memory (20–100 ns, DRAM) → Secondary (5–20 ms). Volatile vs non-volatile.
+- **ICT1011 MSP430 ISA**: 16-bit RISC MCU, 27 core instructions, 7 addressing modes, 16 registers. R0=PC, R1=SP (pre-decrement/post-increment), R2=SR (N/Z/C/V flags + GIE + power), R3=CG2 (constant generator), R4–R15 GPR. Little-endian. Memory map: 0x0000–0x01FF (8-bit peripherals), 0x2400 (RAM), 0x4400 (Flash), 0xFF80–0xFFFF (interrupt vectors).
+- **ICT1011 Instruction Formats**: Format I (double operand), Format II (single operand), Format III (10-bit signed jump offset, ±512 words). 7 modes: Register, Indexed, Indirect, Indirect Auto-increment, Symbolic, Absolute, Immediate.
+- **ICT1011 Assembly**: 4 columns (label/mnemonic/operand/comment). Directives: .text/.data/.bss/.byte/.word/.equ/.global. 2-pass assembly: Pass 1 → symbol table; Pass 2 → machine code. Emulated instructions map to core instructions (NOP=MOV R3,R3; CLR=MOV #0; RET=MOV @SP+,PC).
+- **ICT1011 Modular Programming**: CALL = push PC+2 (SP−2) then jump; RET = MOV @SP+,PC. 3 parameter-passing strategies: registers (fast), memory block (not re-entrant), stack (general, supports recursion). Local variables via SUB #N,SP at entry; ADD #N,SP at exit.
+- **ICT1011 I/O**: Parallel vs serial; simplex/half-duplex/full-duplex. Async serial: start(0) + 7/8 data bits (LSB first) + parity + stop(1); baud = 1/T. RS-232 for DTE↔DCE. Memory-mapped I/O (MSP430) vs isolated I/O (x86). Polled (busy-wait, CPU inefficient) vs interrupt-driven (ISR, efficient). Bluetooth: 2402–2480 MHz, FHSS 1600 hops/s, piconet (1 master + ≤7 slaves), BLE for IoT.
+- **ICT1011 Secondary Memory**: HDD platters/tracks/cylinders/sectors. Access time = Ts + Tr + Tt. RAID 0 (stripe, performance), RAID 1 (mirror, fault-tolerance), RAID 10 (both).
+- **ICT1011 Primary Memory**: Bus: data (width = bits/transfer), address (width = log₂ max memory), control. Synchronous bus (clocked, simple) vs asynchronous (handshake, flexible). SRAM (latch, fast, cache); DRAM (capacitor+refresh, high density, main memory). ROM→PROM→EPROM→EEPROM→Flash (block-erase, SSDs/phones).
+- **ICT1011 Memory Management**: Uni-program (1 process) vs multi-program (concurrent). Swapping: long-term queue/intermediate queue ↔ main memory. Partitioning: fixed (internal fragmentation) vs dynamic (external fragmentation → coalesce/compact). Paging: process split into pages, memory into frames (same size); page table maps page# → frame#; logical address = page#+offset → physical = frame#+offset; eliminates external fragmentation.
+
+
 
 - **INF2003 Relational Model**: DB/DBMS 3-level abstraction (view/logical/physical). Physical independence easier than logical. Relation = table of unordered tuples; keys: superkey → candidate key → primary key → foreign key. ACID (Atomicity/Consistency/Isolation/Durability). 6 design stages: Requirements → Conceptual (ER) → Logical → Refinement (BCNF) → Physical → Security.
 - **INF2003 Relational Algebra**: 6 fundamental operators — σ (select rows), π (select columns), ∪, −, × (cartesian product), ρ (rename). Extended: ∩, ⋈ (natural join), outer joins (⟕⟖⟗), ÷ (division — "for all" queries), ← (assignment). Push σ/π before joins for efficiency.
@@ -41,6 +54,8 @@ tags: [meta, hot-cache]
 
 **Software Engineering** (ICT2113 + INF1009): Requirements Engineering covers the full RE lifecycle — BCIC analysis, PS/SRS documents, McCall's quality model (3 perspectives, 11 features), iRTM for traceability. Lightweight RCM covers User Stories (3C's, INVEST, Connextra) and UseCase 2.0 (parent-UC, Stories, Slices, 8-step process). OOP covers the 4 pillars with Java/C++ comparison, OOP relationships (Association/Aggregation/Composition), and UML class diagrams.
 
+**Computer Architecture** (ICT1011): Full hardware stack from Von Neumann fundamentals through MSP430 assembly to memory management. The MSP430 RISC MCU is the teaching platform throughout: 16-bit, 27 instructions, 7 addressing modes, 16 registers (R0=PC, R1=SP, R2=SR, R3=CG2). I/O chapter covers serial communications (async framing, RS-232), polled vs interrupt-driven I/O, and Bluetooth (FHSS piconet). Memory chapters cover SRAM (cache) vs DRAM (main memory), ROM/Flash (non-volatile), and memory management (swapping → partitioning → paging). Paging is the capstone concept bridging into OS (ICT1007).
+
 **Computer Science** (INF1008): Algorithm complexity from Big-Oh through Master Theorem. Data structures from arrays to B-Trees with a full complexity comparison table. Sorting (Bubble/Selection/Insertion/Merge/Quick) and string algorithms (Brute Force/KMP/Boyer-Moore) with when-to-use guidance. Graph algorithms: DFS/BFS/Topological Sort, MST (Prim's vs Kruskal's), shortest paths (Dijkstra vs Bellman-Ford).
 
 **Mobile Development** (INF2007): Android OS stack, 4 app components, Activity lifecycle. Jetpack Compose declarative UI with recomposition and state hoisting. Full MVVM architecture (UI → ViewModel → Repository → Room/Retrofit). Kotlin coroutines (launch/async, Dispatchers, Structured Concurrency), Flow/StateFlow, Hilt DI, Retrofit, WorkManager.
@@ -48,6 +63,14 @@ tags: [meta, hot-cache]
 **HCI** (INF2002): Definition, UI vs UX distinction. History from Memex (1945) to ubiquitous computing (Weiser 1991) to touchscreens. Real-world design failures (Air Inter 148, Anton Yelchin, Hawaii missile alert). UCD principles, personas, paper prototyping. Needfinding methods (observation, ethnography, surveys/Likert/Semantic Differential, interviews, focus groups). Task analysis (HTA, TDH with XOR/AND/OR, knowledge-based / declarative vs procedural).
 
 ## Recent Changes
+
+- Created: `wiki/sources/ICT1011-computer-organisation-architecture.md`
+- Created: `wiki/concepts/computer-architecture-fundamentals.md` (Von Neumann, computer classes, memory hierarchy, MSP430 registers/memory map/ISA formats/addressing modes)
+- Created: `wiki/concepts/assembly-programming-msp430.md` (syntax, directives, 2-pass assembly, executable instructions, emulated instructions, CALL/RET, parameter passing, stack frames)
+- Created: `wiki/concepts/io-and-memory-systems.md` (serial/parallel I/O, async framing, polled vs interrupt, Bluetooth, HDD, RAID, bus interconnect, SRAM vs DRAM, ROM/Flash, memory management: swapping/partitioning/paging)
+- Updated: `wiki/index.md`, `wiki/hot.md`, `wiki/log.md`
+
+
 
 - Created: `wiki/synthesis/re-elicitation-cia-aaa-security-requirements.md` (McCall Integrity ↔ CIA-AAA; RE lifecycle ↔ SSDLC; BCIC for security; Mag7 on security requirements)
 - Created: `wiki/synthesis/re-elicitation-hci-needfinding.md` (method mapping table; HTA/TDH → requirements pipeline; personas → stakeholder profiles; pain points → BCIC Interpret)
