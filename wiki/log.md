@@ -11,6 +11,79 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 ---
 
+## 2026-05-13 — Ingest: ICT1012 Operating Systems
+
+- Action: INGEST
+- Source: `raw/ICT1012 Operating Systems Notes.md` (7,856 lines, compiled lecture notes, 10 chapters)
+- Authors: Dr. David Sanan & Assoc. Prof. Shang-Wei Lin, Singapore Institute of Technology
+- Textbook: A. Silberschatz, P. Galvin, G. Gagne, *Operating System Concepts* (10th Ed.), Wiley, 2019
+- Created: `wiki/sources/ICT1012-operating-systems.md`
+  - Chapter map (Chapters 1–10), concept page cross-references, explicit note on ICT1011→ICT1012 paging handover
+- Created: `wiki/concepts/os-processes-and-threads.md` (Chapters 1–4)
+  - OS roles: hardware abstraction, resource allocator, synchronisation, communication, protection
+  - Kernel, bootstrap (ROM), DMA (one interrupt per block), interrupt cycle (fetch→execute→check interrupts)
+  - System calls: `int 0x80` (old Linux) vs `syscall` (modern); parameter passing (registers/memory block/stack); POSIX/Win32 APIs
+  - Privilege modes: CPL bit in CS register; privileged ISA instructions (LGDT, MOV CRx, HLT, VMRUN)
+  - OS design approaches: layered, modular, microkernel (Mach), monolithic (UNIX), hybrid (Darwin/Windows NT)
+  - Process: text/data/BSS/heap/stack layout; 5-state diagram; PCB fields; long-/medium-/short-term schedulers
+  - Process creation: fork/exec/wait/exit; zombie vs orphan; process tree (PID 1 = systemd)
+  - IPC: shared memory (mmap, shm_open, ftruncate, munmap); message passing (mq_open/send/receive/close/unlink); blocking/non-blocking; buffer capacity (zero/bounded/unbounded)
+  - Threads: economy/resource sharing/scalability/responsiveness; user vs kernel threads; M:1, 1:1, M:M, two-level models; Pthreads API; TLS; thread safety; Linux clone()
+- Created: `wiki/concepts/cpu-scheduling-and-synchronisation.md` (Chapters 5–6)
+  - CPU/I/O burst cycle; I/O-bound vs CPU-bound; dispatcher latency; preemptive vs non-preemptive
+  - Scheduling criteria table: utilisation/throughput/turnaround/waiting/response
+  - FCFS (convoy effect, worked avg-wait example); SJF (optimal, exponential averaging formula); SRTF; Priority+ageing; RR (quantum, (n−1)q bound); Multilevel Queue; Multilevel Feedback Queue (3-queue example)
+  - Real-Time: soft vs hard; Rate Monotonic (shorter period = higher priority, ~69% utilisation limit); algorithm comparison table
+  - Linux CFS: vruntime, nice −20→+19 maps to priorities 100–139
+  - Race condition: counter++ / counter-- non-atomic worked example
+  - Critical section: 3 requirements (mutual exclusion, progress, bounded waiting)
+  - Hardware sync: test_and_set (full C code + both cases explained); compare_and_swap (C code, fewer cache invalidations)
+  - Mutex locks: spinlock vs sleep-based; acquire/release C code
+  - Semaphores: binary vs counting; wait/signal with blocking queue; synchronisation pattern; bounded-buffer solution (3 semaphores)
+  - Semaphore misuse table; deadlock via circular wait; starvation; priority inversion → priority-inheritance protocol
+- Created: `wiki/concepts/file-systems.md` (Chapters 7–7b)
+  - File attributes, 8 file operations, open-file table
+  - Access methods: sequential (tape/logs), direct/random (databases), indexed (large files)
+  - Directory structures: single-level → two-level → tree → acyclic-graph (reference count) → general graph
+  - Unix permissions: rwx per owner/group/others; r=4/w=2/x=1; chmod/chown/chgrp
+  - Layered FS diagram: logical FS → file-org module → basic FS → I/O control → hardware
+  - On-disk structures: boot control block, volume control block/superblock, directory, FCB/inode
+  - Directory implementation: linear list O(n), ordered O(log n), hash table O(1)
+  - Allocation methods: contiguous (start+length, best read perf, external fragmentation), linked (FAT variant), indexed (inode with direct/single-indirect/double-indirect/triple-indirect)
+  - Performance table: sequential → contiguous/linked; random → indexed; growing → linked/indexed
+  - Fragmentation: external (compaction) vs internal (smaller blocks); 50% rule
+  - Free-space: bit vector (fast contiguous, 32 MB overhead for 1 TB at 4 KB blocks) vs linked list
+  - Buffer cache; synchronous vs asynchronous writes
+- Created: `wiki/concepts/memory-and-virtual-memory.md` (Chapters 8–9)
+  - Base/limit registers; memory protection check
+  - Address binding stages (compile/load/execution); logical vs physical address distinction
+  - MMU relocation register; dynamic loading; dynamic linking (stubs, shared libraries)
+  - Contiguous allocation: first-fit/best-fit/worst-fit; 50% rule; external fragmentation (compaction) vs internal fragmentation
+  - Paging fundamentals: frame/page/page table definitions; address translation formula; hardware registers vs PTBR vs TLB
+  - TLB: EAT formula (EAT = hit×mem + (1−hit)×2×mem); 99% hit example (10.1 ns); ASIDs
+  - Memory protection: valid-invalid bit, protection bits, shared pages
+  - Page table structures: two-level hierarchical (32-bit: 10+10+12); hashed (clustered, >32-bit); inverted (one global table, indexed by frame number)
+  - Swapping: increases multiprogramming; swap individual pages in modern OS
+  - Virtual memory benefits: logical > physical; efficient sharing; faster startup
+  - Virtual address space: stack↓/hole/heap↑/data/BSS/text
+  - Demand paging: valid-invalid bit; page fault 6 steps (trap → check → free frame → disk read → update PTE → restart)
+  - EAT with page faults: EAT = 200 + p×7,999,800; p < 1/400,000 for <10% degradation
+  - Page replacement: dirty bit; FIFO (Belady's anomaly); OPT (benchmark); LRU (counter or doubly-linked list); second-chance/clock (ref bit); enhanced second-chance (0,0)/(0,1)/(1,0)/(1,1) priority table; LFU/MFU
+  - Frame allocation: equal/proportional; global (higher throughput) vs local (consistent per-process); reapers
+  - Thrashing: cause and locality model; working-set WSSᵢ(Δ); D=ΣWSSᵢ; policy (suspend process if D > total frames)
+  - PFF: too-low → remove frames; too-high → add frames
+  - Prepaging; TLB reach; page pinning (I/O interlock); programme structure impact on page faults
+- Created: `wiki/concepts/deadlocks.md` (Chapter 10)
+  - 4 necessary conditions: mutual exclusion, hold-and-wait, no preemption, circular wait
+  - Resource allocation graph: request edges (P→R), assignment edges (R→P); cycle+single instance → deadlock; cycle+multiple instances → possible
+  - Prevention: break one condition structurally; ordered resource acquisition (prevents circular wait, most practical)
+  - Avoidance: safe state = safe sequence exists; Banker's algorithm (Available/Max/Allocation/Need matrices); Safety Algorithm O(m×n²); Resource-Request Algorithm (pretend allocate → run safety → grant or rollback); worked example with 5 processes/3 resource types
+  - Detection: wait-for graph (single instance, O(n²) cycle detection); detection algorithm (multiple instances, similar to Safety Algorithm, O(m×n²)); invocation strategies (every request / periodic / CPU utilisation threshold)
+  - Recovery: terminate all deadlocked processes or one at a time (selection criteria: priority/progress/resources/impact); resource preemption with rollback and starvation counter
+- Updated: `wiki/index.md`, `wiki/hot.md`, `wiki/log.md`
+
+---
+
 ## 2026-05-13 — Ingest: ICT1011 Computer Organisation and Architecture
 
 - Action: INGEST

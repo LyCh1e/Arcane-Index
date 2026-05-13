@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-05-11
+updated: 2026-05-13
 tags: [meta, index]
 ---
 
@@ -31,6 +31,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ICT2112-software-design\|ICT2112 Software Design]] | course | software-engineering | 2026-05-12 |
 | [[sources/INF2003-database-systems\|INF2003 Database Systems]] | course | database-systems | 2026-05-12 |
 | [[sources/ICT1011-computer-organisation-architecture\|ICT1011 Computer Organisation and Architecture]] | course | computer-architecture | 2026-05-13 |
+| [[sources/ICT1012-operating-systems\|ICT1012 Operating Systems]] | course | operating-systems | 2026-05-13 |
 
 ## Concepts
 
@@ -79,6 +80,11 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/computer-architecture-fundamentals\|Computer Architecture Fundamentals]] | computer-architecture | medium |
 | [[concepts/assembly-programming-msp430\|Assembly Programming (MSP430)]] | computer-architecture | high |
 | [[concepts/io-and-memory-systems\|I/O Interfacing and Memory Systems]] | computer-architecture | high |
+| [[concepts/os-processes-and-threads\|OS Fundamentals, Processes, and Threads]] | operating-systems | high |
+| [[concepts/cpu-scheduling-and-synchronisation\|CPU Scheduling and Synchronisation]] | operating-systems | high |
+| [[concepts/file-systems\|File Systems (Interface and Implementation)]] | operating-systems | high |
+| [[concepts/memory-and-virtual-memory\|Memory Management and Virtual Memory]] | operating-systems | high |
+| [[concepts/deadlocks\|Deadlocks]] | operating-systems | high |
 
 ## Examples
 

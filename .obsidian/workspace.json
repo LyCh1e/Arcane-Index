@@ -18,20 +18,6 @@
               "icon": "bot",
               "title": "Claudian"
             }
-          },
-          {
-            "id": "e0d25e2fbdfdc104",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/examples/_index.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "_index"
-            }
           }
         ]
       }
@@ -45,7 +31,7 @@
       {
         "id": "4efd391921547ad4",
         "type": "tabs",
-        "dimension": 66.70746634026928,
+        "dimension": 60.66997518610422,
         "children": [
           {
             "id": "3f41e16c8ccd1064",
@@ -90,9 +76,9 @@
         ]
       },
       {
-        "id": "4285391b9df40be6",
+        "id": "16d1044f0b9bf245",
         "type": "tabs",
-        "dimension": 33.29253365973072,
+        "dimension": 39.33002481389578,
         "children": [
           {
             "id": "845678323c6133f0",
@@ -241,8 +227,23 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "6492dbdec43436fa",
+  "active": "845678323c6133f0",
   "lastOpenFiles": [
+    "wiki/log.md.tmp.19936.f11ef2f9a168",
+    "wiki/hot.md.tmp.19936.a8a46dba1ce7",
+    "wiki/hot.md.tmp.19936.93e4c0fbeda6",
+    "wiki/concepts/deadlocks.md",
+    "wiki/concepts/memory-and-virtual-memory.md",
+    "wiki/concepts/file-systems.md",
+    "wiki/concepts/cpu-scheduling-and-synchronisation.md",
+    "wiki/concepts/os-processes-and-threads.md",
+    "wiki/concepts/os-processes-and-threads.md.tmp.19936.8b2d90dde0b4",
+    "wiki/sources/ICT1012-operating-systems.md",
+    "raw/ICT1012 Operating Systems Notes.md",
+    "wiki/index.md",
+    "wiki/hot.md",
+    "wiki/sources/_index.md",
+    "wiki/examples/_index.md",
     "wiki/concepts/io-and-memory-systems.md",
     "wiki/concepts/assembly-programming-msp430.md",
     "wiki/concepts/computer-architecture-fundamentals.md",
@@ -253,22 +254,10 @@
     "wiki/synthesis/re-elicitation-hci-needfinding.md",
     "WIKI.md",
     "wiki/concepts/nosql-and-data-warehousing.md",
-    "wiki/sources/_index.md",
     "wiki/concepts/database-indexing-transactions.md",
     "wiki/concepts/er-diagrams.md",
     "wiki/concepts/database-normalisation.md",
     "wiki/concepts/relational-algebra-and-sql.md",
-    "wiki/concepts/relational-database-fundamentals.md",
-    "wiki/sources/INF2003-database-systems.md",
-    "raw/INF2003 Database Systems Notes.md",
-    "AGENTS.md",
-    "ATTRIBUTION.md",
-    "CHANGELOG.md",
-    "README.md",
-    "wiki/hot.md",
-    "wiki/index.md",
-    "wiki/examples/stock-prediction-neural-network.md",
-    "CLAUDE.md",
     "wiki/synthesis/_index.md.tmp.15312.caf829bdf645",
     "wiki/concepts/secure-software-requirements.md.tmp.13020.296e832cc4bb",
     "wiki/concepts/owasp-top-10.md.tmp.13020.8b73ad2e482c",
@@ -276,9 +265,6 @@
     "Arcane-Index/hooks/hooks.json",
     "Arcane-Index/hooks",
     "Arcane-Index/docs/releases",
-    "Arcane-Index/docs/install-guide.pdf",
-    "Arcane-Index/docs",
-    "Arcane-Index/commands",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",
