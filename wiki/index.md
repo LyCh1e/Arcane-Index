@@ -124,9 +124,9 @@ Master catalog of all pages. Updated on every ingest.
 
 ## Gaps
 
-| Page | Domain | Priority |
-|------|--------|----------|
-| *(none yet)* | | |
+| Page         | Domain | Priority |
+| ------------ | ------ | -------- |
+| *(none yet)* |        |          |
 
 ## Resources
 

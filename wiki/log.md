@@ -11,6 +11,38 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 ---
 
+## 2026-05-14 — Synthesis: Four Cross-Domain Pages Created
+
+- Action: SYNTHESIS
+- Scope: 4 new pages in `wiki/synthesis/`
+- Pages created:
+  - `maths-to-ml-bridge.md` (171 lines) — linear algebra → neural networks; SVD/eigenvalues → PCA; probability → Gaussian Naive Bayes; statistics → feature scaling; module dependency chain
+  - `web-security-ssdlc-bridge.md` (159 lines) — INF1005 code-level attacks (SQLi, XSS, CSRF, brute force) mapped to OWASP 2025 categories, ASVS verification levels (V2/V4/V5), and STRIDE threats; code vs process perspectives compared
+  - `ict1011-ict1012-architecture-bridge.md` (199 lines) — ICT1011 paging data structure → ICT1012 TLB/EAT, page table structures, demand paging, page replacement algorithms, thrashing; full dependency chain documented
+  - `rest-api-cross-stack.md` (288 lines) — Express CRUD routes ↔ Retrofit annotations; full HTTP request lifecycle; coroutine integration; error handling divergence; MVVM layer mapping
+- Updated: `wiki/gaps/_index.md` — 4 missing synthesis gaps marked resolved; 2 open questions closed
+- Sources read: 15 concept pages
+
+---
+
+## 2026-05-14 — Lint: Gap Detection
+
+- Action: LINT
+- Scope: All 52 concept pages, 15 source pages, 4 synthesis pages, meta indexes
+- Updated: `wiki/gaps/_index.md` — populated from empty template with full gap report
+- Updated: `wiki/sources/_index.md` — was missing 7 of 15 sources; now complete with all 15 by domain
+- Findings:
+  - No broken wikilinks found (suspected backslash was terminal rendering artefact)
+  - ~20 older concept pages use short-form links (`[[page-name]]`) vs. vault standard (`[[concepts/page-name|Label]]`) — functional but inconsistent
+  - 2 stale index pages: concepts/_index.md (placeholder), sources/_index.md (now fixed)
+  - 4 missing synthesis pages documented: maths→ML, web security×SSDLC, ICT1011→ICT1012, REST API cross-stack
+  - 3 orphaned concept clusters: mathematics (10 pages), machine learning (6 pages), partial software-engineering (3 pages)
+  - learning/ folder near-empty (only 1 page); no study notes for any of 15 modules
+  - areas/ folder empty; no domain overview pages exist
+  - 3 open questions documented in gaps index
+
+---
+
 ## 2026-05-14 — Ingest: INF1005 Web Systems & Technologies
 
 - Action: INGEST
