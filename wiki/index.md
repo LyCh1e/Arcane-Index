@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-05-13
+updated: 2026-05-14
 tags: [meta, index]
 ---
 
@@ -32,6 +32,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/INF2003-database-systems\|INF2003 Database Systems]] | course | database-systems | 2026-05-12 |
 | [[sources/ICT1011-computer-organisation-architecture\|ICT1011 Computer Organisation and Architecture]] | course | computer-architecture | 2026-05-13 |
 | [[sources/ICT1012-operating-systems\|ICT1012 Operating Systems]] | course | operating-systems | 2026-05-13 |
+| [[sources/INF1005-web-systems-technologies\|INF1005 Web Systems & Technologies]] | course | web-development | 2026-05-14 |
 
 ## Concepts
 
@@ -85,6 +86,11 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/file-systems\|File Systems (Interface and Implementation)]] | operating-systems | high |
 | [[concepts/memory-and-virtual-memory\|Memory Management and Virtual Memory]] | operating-systems | high |
 | [[concepts/deadlocks\|Deadlocks]] | operating-systems | high |
+| [[concepts/web-fundamentals\|Web Fundamentals (Internet, HTTP, DNS)]] | web-development | medium |
+| [[concepts/html-and-css\|HTML and CSS]] | web-development | medium |
+| [[concepts/javascript-fundamentals\|JavaScript Fundamentals]] | web-development | high |
+| [[concepts/server-side-web-development\|Server-Side Web Development (PHP, Node.js, Databases)]] | web-development | high |
+| [[concepts/web-security-and-devops\|Web Security and DevOps]] | web-development | high |
 
 ## Examples
 

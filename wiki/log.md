@@ -11,6 +11,125 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 ---
 
+## 2026-05-14 — Ingest: INF1005 Web Systems & Technologies
+
+- Action: INGEST
+- Source: `raw/INF1005 Web Systems & Technologies Notes.md` (2,111 lines, 21 chapters)
+- Textbook: Connolly & Hoar, *Fundamentals of Web Development* (3rd Edition)
+- Created: `wiki/sources/INF1005-web-systems-technologies.md`
+  - 21-chapter map, concept page cross-references
+- Created: `wiki/concepts/web-fundamentals.md` (Chapters 1–4)
+  - Internet vs Web distinction (ARPANET 1969, Berners-Lee 1989)
+  - Packet switching vs circuit switching
+  - TCP/IP 4-layer model: Application/Transport/Internet/Link
+  - TCP (reliable, ACKs) vs UDP (fast, no guarantee)
+  - IPv4 (exhausted 2011) vs IPv6; PAT
+  - DNS: TLD types (gTLD/ccTLD/IDN), ICANN; 10-step resolution process
+  - URL components: protocol/domain/port/path/query/fragment; relative URL types
+  - HTTP methods (GET/POST/PUT/DELETE/HEAD); idempotency and safety
+  - HTTP status codes: 200/301/304/401/404/500
+  - Browser rendering metrics: TTFB/FP/FCP/LCP/TTI/CLS
+  - Web stacks: LAMP/MERN/WISA/JAM
+  - Web 2.0 and client-server architecture
+- Created: `wiki/concepts/html-and-css.md` (Chapters 5–9)
+  - HTML5 document structure: DOCTYPE/html/head/body; charset; lang
+  - Semantic philosophy: structure and meaning, not presentation
+  - Text/inline elements: p, div, span, strong, em, a, img, br, hr
+  - Link types: absolute, relative, anchor, mailto; relative path variants
+  - HTML5 structural elements: header/nav/main/section/article/aside/figure/footer/details/address
+  - Tables: caption/thead/tbody/tfoot, colspan/rowspan, border-collapse; tables for data only
+  - Forms: action/method, GET vs POST comparison; full form controls table; input types
+  - Accessibility: fieldset/legend, label for, scope on th
+  - Input validation layers: HTML5 (hint) → JS (UX) → server-side (guaranteed)
+  - CSS syntax, placement (inline/embedded/external)
+  - Selectors: element/universal/class/ID/group; attribute selectors; pseudo-class/element; combinators
+  - Cascade: inheritance, specificity (ID>class>element), location
+  - Box model: content/padding/border/margin; collapsing margins; border-box
+  - CSS custom properties (variables)
+  - Colour: named/RGB/hex/RGBa/HSL
+  - Float, positioning (static/relative/absolute/fixed/sticky)
+  - Flexbox: one-axis; flex-direction/flex-wrap/justify-content/align-items
+  - Grid: two-axis; fr units; repeat(); grid-column/row placement
+  - Responsive design: viewport meta tag, mobile-first, min-width media queries, responsive images
+  - CSS effects: transitions, keyframe animations, transforms, filters
+  - Sass: variables, nesting, mixins
+  - WCAG POUR principles; W3C validator; accessibility practices
+- Created: `wiki/concepts/javascript-fundamentals.md` (Chapters 10–12)
+  - History: Netscape 1996 → ECMAScript 1997 → ES6 2015
+  - var (hoisted, function-scoped) vs let/const (block-scoped)
+  - Primitive types: Boolean/Number/String/Null/Undefined/Symbol
+  - Truthy/Falsy values
+  - Operators: `===` strict equality preferred
+  - Control flow: if/else if/else, switch, ternary, while/do-while/for/for-of
+  - Arrays: push/pop/length/destructuring; functional methods (forEach/find/filter/map/reduce/sort)
+  - Objects: literal notation, dot/bracket access, destructuring, spread
+  - JSON: JSON.parse() / JSON.stringify()
+  - Functions: declaration (hoisted), expression, arrow syntax, default/rest parameters
+  - Scope: global/function/block; hoisting; modules
+  - Closures: inner function retains enclosing scope after execution
+  - ES6 classes: constructor, inheritance (extends, super), prototype basis
+  - DOM: tree of nodes; getElementById/querySelector/querySelectorAll
+  - DOM properties: innerHTML (XSS risk)/textContent/classList/style/value
+  - DOM manipulation: createElement/appendChild/insertBefore/removeChild
+  - Event handling: addEventListener, DOMContentLoaded; event object (preventDefault/stopPropagation/target)
+  - Event propagation: capturing → target → bubbling
+  - Event delegation pattern
+  - Regular expressions: /pattern/flags, .test()
+  - Asynchronous: Fetch API → Promises (.then/.catch) → async/await
+  - CORS: `Access-Control-Allow-Origin` header
+  - Web Storage: localStorage (persistent) / sessionStorage (session)
+  - Geolocation API: getCurrentPosition()
+  - ES6 modules: export/import syntax; `type="module"` script attribute
+- Created: `wiki/concepts/server-side-web-development.md` (Chapters 13–18, 21)
+  - PHP: `<?php … ?>` tags; `$` prefix; `.` concatenation; dynamic typing
+  - PHP control flow: if/elseif/else, switch, while/for/foreach ($arr as $k => $v)
+  - PHP include/require (include_once/require_once)
+  - PHP functions: default params, pass-by-reference (&$var), type declarations (PHP 7+)
+  - PHP indexed arrays ($arr[]) and associative arrays ($arr["key"]); multidimensional
+  - PHP OOP: __construct, $this->, public/private/protected, extends, parent::__construct()
+  - PHP Superglobals: $_GET/$_POST/$_REQUEST/$_SESSION/$_COOKIE/$_FILES/$_SERVER/$_ENV
+  - Form security: htmlspecialchars() (XSS), filter_var() (validate/sanitise), POST vs GET
+  - LAMP stack: Linux/Apache/MySQL/PHP; Ubuntu setup commands
+  - PDO: connect with error handling, prepare → bindValue → execute → fetch → null to close
+  - SQL CRUD: SELECT/INSERT/UPDATE/DELETE; JOIN (INNER JOIN ON); GROUP BY + aggregate; transactions
+  - Table relationships: one-to-many, one-to-one, many-to-many (junction table)
+  - NoSQL: Key-Value/Document/Column/Graph; use cases; MongoDB with Mongoose schema/model/find
+  - Node.js: V8 engine, event-driven non-blocking, single event-loop thread
+  - Blocking (PHP/Apache: thread per request) vs non-blocking (Node.js: event loop continues)
+  - Basic Node HTTP server; Express: routing, static files, route params
+  - REST API: GET/GET:id/POST/PUT/DELETE mapped to CRUD
+  - WebSockets (Socket.io): io.on('connection'), socket.on/io.emit; bidirectional real-time
+  - EJS view engine: `<%= %>` for output, `<% %>` for code
+  - Serverless: DBaaS/PaaS/FaaS; auto-scaling, reduced complexity
+  - Modern frameworks: React (JSX, components), Next.js (React + SSR + routing), Remix (nested routing, parallel server loads), ASP.NET Core (C#/Razor), Blazor (WebAssembly/SignalR)
+- Created: `wiki/concepts/web-security-and-devops.md` (Chapters 19–20)
+  - CIA Triad: Confidentiality/Integrity/Availability
+  - STRIDE: Spoofing/Tampering/Repudiation/Information Disclosure/DoS/Elevation of Privilege
+  - Auth factors: Knowledge/Ownership/Inherence; MFA
+  - Auth strategies: HTTP Basic, Form+Session, JWT Bearer, OAuth
+  - Cryptography: AES (symmetric), RSA (asymmetric); public/private key pair
+  - Digital signatures: authenticity + integrity + non-repudiation
+  - TLS/HTTPS: successor to SSL; CA certificates (DV/OV/EV)
+  - Credential storage: plain text (BAD) → MD5 (BAD) → bcrypt password_hash() + salting (GOOD)
+  - SQL injection: `' OR '1'='1` attack; defence = prepared statements
+  - XSS (reflected vs stored): defence = htmlspecialchars() + CSP headers
+  - CSRF: hidden token in every state-changing form
+  - Brute force: rate limiting + lockout + CAPTCHA
+  - DoS/DDoS: CDN + load balancers + DDoS protection
+  - Security misconfiguration: out-of-date software, default credentials, verbose errors
+  - CI/CD: CI (tests on commit), CD Delivery (auto-release-ready), CD Deployment (auto-deploy)
+  - Testing: unit/integration/functional/non-functional/penetration (Selenium)
+  - Infrastructure as Code: Ansible/Vagrant/Terraform
+  - Hosting: shared → VPS → dedicated → collocated → cloud
+  - Cloud models: IaaS (servers) / PaaS (platform) / SaaS (software)
+  - Server virtualisation: hypervisor, Docker (containers), Kubernetes (orchestration)
+  - DNS records: A/AAAA/CNAME/MX/NS/TXT/SPF/PTR
+  - Apache: httpd.conf, .htaccess, VirtualHost, URL rewriting with RewriteEngine
+  - Monolithic vs Microservices architecture
+- Updated: `wiki/index.md`, `wiki/hot.md`, `wiki/log.md`
+
+---
+
 ## 2026-05-13 — Ingest: ICT1012 Operating Systems
 
 - Action: INGEST
