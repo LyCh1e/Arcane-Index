@@ -1,28 +1,35 @@
 ---
 type: index
 title: "Learning Index"
-updated: 2026-05-11
+updated: 2026-05-15
 tags: [index, learning]
 ---
 
 # Learning
 
-Skills being developed, mastery tracking, and structured knowledge pathways.
+Exam-prep summaries, study notes, and structured knowledge pathways for each module.
 
-| Skill / Subject | Area | Level | Status |
-|-----------------|------|-------|--------|
-| *(empty — add a learning note to populate)* | | | |
+| Page | Module | Area | Updated |
+|------|--------|------|---------|
+| [[learning/ict1012-operating-systems-study-notes\|ICT1012 Study Notes]] | ICT1012 — Operating Systems | operating-systems | 2026-05-15 |
+| [[learning/inf2003-database-systems-study-notes\|INF2003 Study Notes]] | INF2003 — Database Systems | database-systems | 2026-05-15 |
+| [[learning/inf1008-data-structures-algorithms-study-notes\|INF1008 Study Notes]] | INF1008 — Data Structures & Algorithms | computer-science | 2026-05-15 |
+| [[learning/inf1005-web-systems-study-notes\|INF1005 Study Notes]] | INF1005 — Web Systems & Technologies | web-development | 2026-05-15 |
+| [[learning/docker-windows-crlf\|Docker CRLF Fix on Windows]] | ICT2216 — Secure Software Development | secure-software-development | 2026-05-11 |
 
-## Active Learning Tracks
+## How to Use These Notes
 
-*(none yet)*
-
-## Completed / Shelved
-
-*(none yet)*
+Each study-notes page contains:
+- **Key formulas and definitions** — the exact facts likely to appear in assessments
+- **Common exam patterns** — question types and worked examples
+- **Quick-reference tables** — for algorithms, complexity, SQL syntax, etc.
+- **Common pitfalls** — errors frequently made under exam conditions
 
 ## Skill Map
 
-A dependency graph of skills and the concepts they require.
+Cross-concept dependencies — read these before the linked study notes:
 
-*(build this out as learning notes accumulate)*
+- **ICT1012 OS** → requires [[concepts/computer-architecture-fundamentals]] (hardware context for scheduling/memory)
+- **INF2003 DB** → requires [[concepts/relational-algebra-and-sql]] (theory before optimisation)
+- **INF1008 DSA** → requires [[concepts/algorithm-complexity]] (Big-Oh before data structures)
+- **INF1005 Web** → requires [[concepts/web-fundamentals]] (TCP/IP and HTTP before frameworks)

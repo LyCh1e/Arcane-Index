@@ -1,13 +1,57 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-05-13
+updated: 2026-05-15
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## 2026-05-15 | Ingest — ICT2216 Lecture 3: Extended Security Requirements + Threat Modeling
+
+- **Source**: `raw/ICT2216 Lecture 3 Secure Software Development.md`
+- **Summary**: [[sources/ICT2216-secure-software-development]]
+- **Pages updated**:
+  - [[concepts/secure-software-requirements]] — added: General App Security Requirements (session/error/config/code management), Operational Requirements (deployment/archiving/anti-piracy), Other Requirements (TOC/TOU, procurement, GDPR), Anti-Requirements technique, Abuse/Misuse Case Modelling with ATM worked example
+- **Pages created**:
+  - [[concepts/threat-modeling]] — threat agents (8 human types + non-human), 5 threat identification steps (trust boundaries/DFDs/entry-exit/privileged functions/mis-actors), mis-actor network categories (web/network/co-located), 5-step threat modeling process, attack trees, full Microsoft STRIDE breakdown with countermeasures and OWASP cross-reference
+- **Pages updated** (indexes):
+  - [[concepts/_index]] — 53→54 pages; Secure Software Dev 4→5; threat-modeling row added
+  - [[index]] — threat-modeling row added to Concepts section
+  - [[sources/ICT2216-secure-software-development]] — Lecture 3 topic entries added; threat-modeling concept cross-reference added
+  - [[areas/secure-software-development]] — threat-modeling row added to Concept Pages table
+- **Key insight**: Threat modeling answers the question requirements cannot — not *what* to protect, but *how* an attacker will actually try to break the system. STRIDE maps attacker goals to CIA+AAA violations, closing the loop between Part 1 (requirements) and Part 2 (adversarial analysis) of Lecture 3.
+
+---
+
+## 2026-05-15 | Gap Resolution — Areas, Synthesis, Learning, Skill Files
+
+- **Trigger**: Comprehensive lint pass identified orphaned concept clusters, empty `areas/` folder, stale sub-indexes, missing synthesis pages, empty learning index, and vague ingest skill step 6.
+- **Pages created**:
+  - [[areas/computer-architecture]] (ICT1011 — Von Neumann, MSP430, I/O & memory)
+  - [[areas/mobile-development]] (INF2007 + INF1009 — MVVM, Jetpack Compose, coroutines)
+  - [[areas/hci]] (INF2002 — Norman, Fitts, Gestalt, needfinding, usability evaluation)
+  - [[synthesis/maths-to-ml-bridge]] (6 sections: matrix multiply→forward pass, OLS/GD duality, SVD→PCA, Gaussian NB, Z-score, beyond-maths table)
+  - [[synthesis/web-security-ssdlc-bridge]] (INF1005 attack → OWASP 2025 → ASVS chapter → STRIDE threat, full mapping table)
+  - [[synthesis/ict1011-ict1012-architecture-bridge]] (hardware handover from fixed partitioning to TLB, demand paging, replacement, thrashing)
+  - [[synthesis/rest-api-cross-stack]] (Retrofit→OkHttp→Express→res.json() full lifecycle, verb mapping table, coroutine integration)
+  - [[learning/ict1012-operating-systems-study-notes]]
+  - [[learning/inf2003-database-systems-study-notes]]
+  - [[learning/inf1008-data-structures-algorithms-study-notes]]
+  - [[learning/inf1005-web-systems-study-notes]]
+- **Pages updated**:
+  - [[synthesis/_index]] — 4 new synthesis rows added
+  - [[learning/_index]] — rebuilt from empty placeholder; 5 study-notes rows
+  - [[areas/_index]] — date updated
+  - [[index]] — synthesis and learning sections updated; date updated to 2026-05-15
+  - [[hot]] — session entry added; Active Threads updated with all resolved items
+  - [[log]] — this entry
+- **Skill files updated**:
+  - `skills/wiki-ingest/SKILL.md` — Step 6 rewritten: now enumerates all 6 `_index.md` files to update per ingest (sources, concepts, synthesis, learning, areas domain page, areas _index)
+  - `skills/wiki-lint/SKILL.md` — Added Check 8a (Stale sub-index files): count pages on disk vs rows in each `_index.md`; report missing pages by name
+- **Key insight**: Sub-index files are the vault's navigation backbone. Every ingest must update them or pages become silently orphaned — visible in Obsidian but unreachable from the index layer.
 
 ---
 

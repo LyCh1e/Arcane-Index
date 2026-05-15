@@ -1,13 +1,15 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-14T00:00:00
+updated: 2026-05-15T00:00:00
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-05-15. Sessions: (1) Vault gap resolution — 11 domain areas pages, 4 synthesis pages, 4 study-notes pages, skill file updates, index rebuilds. (2) ICT2216 Lecture 3 — extended security requirements (session/error/config/code management, anti-requirements, misuse cases) + full threat modelling (threat agents, DFDs, STRIDE, attack trees).
 
 2026-05-14. Sessions: (1) INF1005 Web Systems & Technologies — Internet/HTTP/DNS, HTML5/CSS, JavaScript, PHP/Node.js, MySQL, security, DevOps.
 
@@ -126,7 +128,14 @@ tags: [meta, hot-cache]
 ## Active Threads
 
 - ICT2216 Lab 2 Steps 5–7 (browser UI / artifact exploration) — user to complete independently
-- Next: create learning/study notes (flashcard-style summaries for exam prep)
+- ✓ Resolved: [[learning/ict1012-operating-systems-study-notes]] — exam-prep summary for ICT1012
+- ✓ Resolved: [[learning/inf2003-database-systems-study-notes]] — exam-prep summary for INF2003
+- ✓ Resolved: [[learning/inf1008-data-structures-algorithms-study-notes]] — exam-prep summary for INF1008
+- ✓ Resolved: [[learning/inf1005-web-systems-study-notes]] — exam-prep summary for INF1005
+- ✓ Resolved: [[synthesis/maths-to-ml-bridge]] — matrix multiplication as forward pass; OLS vs gradient descent; SVD→PCA; Gaussian NB; Z-score scaling
+- ✓ Resolved: [[synthesis/web-security-ssdlc-bridge]] — SQLi/XSS/CSRF → OWASP 2025 → ASVS chapter → STRIDE threat mapping
+- ✓ Resolved: [[synthesis/ict1011-ict1012-architecture-bridge]] — hardware handover: paging (ICT1011) → TLB/demand paging/replacement/thrashing (ICT1012)
+- ✓ Resolved: [[synthesis/rest-api-cross-stack]] — Retrofit → OkHttp → Express → res.json() full HTTP lifecycle with coroutine integration
 - ✓ Resolved: [[synthesis/dip-hilt-dependency-injection]] — DIP → Hilt mapping written
 - ✓ Resolved: [[synthesis/data-mapper-repository-room-retrofit]] — Data Mapper → Repository/Room/Retrofit mapping written
 - ✓ Resolved: [[synthesis/re-elicitation-cia-aaa-security-requirements]] — McCall Integrity ↔ CIA+AAA; RE lifecycle ↔ SSDLC requirements phases; BCIC applied to security requirements

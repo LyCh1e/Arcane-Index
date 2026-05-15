@@ -48,3 +48,9 @@ Three modules cover the full software engineering pipeline: from eliciting and s
 - [[synthesis/data-mapper-repository-room-retrofit|Data Mapper → Room + Retrofit]] — ICT2112 patterns applied to Android data layer
 - [[synthesis/re-elicitation-cia-aaa-security-requirements|RE × Security]] — McCall's Integrity ↔ CIA+AAA; RE lifecycle ↔ SSDLC
 - [[synthesis/re-elicitation-hci-needfinding|RE × HCI]] — elicitation methods ↔ needfinding methods
+
+---
+
+## Study Notes
+
+*(none yet — ICT2113 and ICT2112 study-notes pages not yet created)*

@@ -25,6 +25,13 @@ Work through these in order:
 6. **Frontmatter gaps**. Pages missing required fields (type, status, created, updated, tags).
 7. **Empty sections**. Headings with no content underneath.
 8. **Stale index entries**. Items in `wiki/index.md` pointing to renamed or deleted pages.
+8a. **Stale sub-index files**. For every sub-directory that contains an `_index.md`, count the actual `.md` files in that folder (excluding `_index.md` itself) and compare against the rows listed in the index. Flag any mismatch as a lint warning. Sub-indexes to check:
+    - `wiki/concepts/_index.md` — must list every page in `wiki/concepts/` (exclude `_index.md`)
+    - `wiki/sources/_index.md` — must list every page in `wiki/sources/` (exclude `_index.md`)
+    - `wiki/synthesis/_index.md` — must list every page in `wiki/synthesis/` (exclude `_index.md`)
+    - `wiki/learning/_index.md` — must list every page in `wiki/learning/` (exclude `_index.md`)
+    - `wiki/areas/_index.md` — must list every page in `wiki/areas/` (exclude `_index.md`)
+    Report format: `<path>/_index.md: lists N pages, found M on disk. Missing: [[page-a]], [[page-b]]`
 9. **Address validity** (DragonScale Mechanism 2). For every page that has an `address:` frontmatter field, validate the format. See the **Address Validation** section below.
 10. **Semantic tiling** (DragonScale Mechanism 3, opt-in). Flag candidate duplicate pages (across all scanned types, not just concepts) via embedding cosine similarity. See the **Semantic Tiling** section below.
 

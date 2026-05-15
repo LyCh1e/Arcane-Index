@@ -45,3 +45,9 @@ Foundational computer science: how to measure algorithmic efficiency and choose 
 - [[concepts/database-indexing-transactions|Database Indexing]] — B+ trees are the algorithmic engine behind database indexes; B-Tree theory from INF1008 applies directly
 - [[concepts/nosql-and-data-warehousing|NoSQL]] — hash tables underpin key-value stores; graph traversal algorithms underpin graph databases
 - [[synthesis/maths-to-ml-bridge|Mathematics → ML]] — algorithm complexity determines training feasibility for ML models
+
+---
+
+## Study Notes
+
+[[learning/inf1008-data-structures-algorithms-study-notes|INF1008 Study Notes]] — exam-prep summaries

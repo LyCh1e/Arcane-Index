@@ -49,3 +49,9 @@ ML is the practice of building systems that learn patterns from data rather than
 - [[concepts/eigenvalues-and-svd|Eigenvalues & SVD]] — PCA's mathematical engine
 - [[concepts/probability-distributions|Probability Distributions]] — Gaussian Naive Bayes, model evaluation statistics
 - [[concepts/algorithm-complexity|Algorithm Complexity]] — training complexity varies: linear regression O(n·d²), k-means O(n·k·d·i)
+
+---
+
+## Study Notes
+
+*(none yet — INF2008 study-notes page not yet created)*

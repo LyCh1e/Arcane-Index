@@ -7,7 +7,7 @@ tags: [index, concepts]
 
 # Concepts
 
-53 concept pages across 11 domains, extracted from 15 ingested sources.
+54 concept pages across 11 domains, extracted from 15 ingested sources.
 
 | Domain | Pages |
 |--------|-------|
@@ -16,7 +16,7 @@ tags: [index, concepts]
 | Mathematics | 10 |
 | Machine Learning | 6 |
 | Database Systems | 6 |
-| Secure Software Development | 4 |
+| Secure Software Development | 5 |
 | Computer Architecture | 3 |
 | Operating Systems | 5 |
 | Web Development | 5 |
@@ -99,6 +99,7 @@ tags: [index, concepts]
 | Page | Source | Complexity |
 |------|--------|------------|
 | [[concepts/secure-software-requirements\|Secure Software Requirements (CIA + AAA)]] | ICT2216 | high |
+| [[concepts/threat-modeling\|Threat Modeling]] | ICT2216 | high |
 | [[concepts/owasp-top-10\|OWASP Top 10 (2025)]] | ICT2216 | high |
 | [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking & Software Assurance Frameworks]] | ICT2216 | medium |
 | [[concepts/docker-compose\|Docker and Docker Compose]] | ICT2216 | medium |

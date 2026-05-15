@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-05-14
+updated: 2026-05-15
 tags: [meta, index]
 ---
 
@@ -60,6 +60,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/needfinding-and-task-analysis\|Needfinding and Task Analysis]] | hci | medium |
 | [[concepts/docker-compose\|Docker and Docker Compose]] | devops | medium |
 | [[concepts/secure-software-requirements\|Secure Software Requirements (CIA + AAA)]] | secure-software-development | high |
+| [[concepts/threat-modeling\|Threat Modeling]] | secure-software-development | high |
 | [[concepts/owasp-top-10\|OWASP Top 10 (2025)]] | secure-software-development | high |
 | [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking & Software Assurance Frameworks]] | secure-software-development | medium |
 | [[concepts/discrete-mathematics-foundations\|Discrete Mathematics Foundations]] | mathematics | medium |
@@ -110,6 +111,10 @@ Master catalog of all pages. Updated on every ingest.
 
 | Page | Skill | Status |
 |------|-------|--------|
+| [[learning/ict1012-operating-systems-study-notes\|ICT1012 Operating Systems Study Notes]] | operating-systems | active |
+| [[learning/inf2003-database-systems-study-notes\|INF2003 Database Systems Study Notes]] | database-systems | active |
+| [[learning/inf1008-data-structures-algorithms-study-notes\|INF1008 Data Structures & Algorithms Study Notes]] | computer-science | active |
+| [[learning/inf1005-web-systems-study-notes\|INF1005 Web Systems & Technologies Study Notes]] | web-development | active |
 | [[learning/docker-windows-crlf\|Docker on Windows: CRLF Breaks Linux Container Scripts]] | devops | resolved |
 
 
@@ -121,6 +126,10 @@ Master catalog of all pages. Updated on every ingest.
 | [[synthesis/data-mapper-repository-room-retrofit\|Data Mapper & Repository: ICT2112 Patterns → Android Room + Retrofit]] | software-engineering / mobile-development | established |
 | [[synthesis/re-elicitation-cia-aaa-security-requirements\|Security Requirements Are RE: McCall's Integrity ↔ CIA-AAA]] | software-engineering / secure-software-development | established |
 | [[synthesis/re-elicitation-hci-needfinding\|Same Questions, Different Lenses: RE Elicitation ↔ HCI Needfinding]] | software-engineering / hci | established |
+| [[synthesis/maths-to-ml-bridge\|Mathematics → Machine Learning: The Full Bridge]] | mathematics / machine-learning | established |
+| [[synthesis/web-security-ssdlc-bridge\|Web Security ↔ SSDLC: Code-Level Attacks Map to Process-Level Defences]] | web-development / secure-software-development | established |
+| [[synthesis/ict1011-ict1012-architecture-bridge\|Computer Architecture → Operating Systems: The Hardware–OS Handover]] | computer-architecture / operating-systems | established |
+| [[synthesis/rest-api-cross-stack\|REST APIs Across the Full Stack: Android ↔ Express ↔ HTTP]] | mobile-development / web-development | established |
 
 ## Gaps
 

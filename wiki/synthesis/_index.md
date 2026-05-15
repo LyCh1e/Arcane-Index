@@ -1,7 +1,7 @@
 ---
 type: index
 title: "Synthesis Index"
-updated: 2026-05-11
+updated: 2026-05-15
 tags: [index, synthesis]
 ---
 
@@ -15,6 +15,10 @@ Evolving "state of my understanding" pages — where disparate concepts, sources
 | [[synthesis/data-mapper-repository-room-retrofit\|Data Mapper & Repository: Bridging ICT2112 Patterns and Android's Room + Retrofit]] | software-engineering / mobile-development | 2026-05-12 | established |
 | [[synthesis/re-elicitation-cia-aaa-security-requirements\|Security Requirements Are RE: McCall's Integrity ↔ CIA-AAA]] | software-engineering / secure-software-development | 2026-05-12 | established |
 | [[synthesis/re-elicitation-hci-needfinding\|Same Questions, Different Lenses: RE Elicitation ↔ HCI Needfinding]] | software-engineering / hci | 2026-05-12 | established |
+| [[synthesis/maths-to-ml-bridge\|Mathematics → Machine Learning: The Full Bridge]] | mathematics / machine-learning | 2026-05-15 | established |
+| [[synthesis/web-security-ssdlc-bridge\|Web Security ↔ SSDLC: Code-Level Attacks Map to Process-Level Defences]] | web-development / secure-software-development | 2026-05-15 | established |
+| [[synthesis/ict1011-ict1012-architecture-bridge\|Computer Architecture → Operating Systems: The Hardware–OS Handover]] | computer-architecture / operating-systems | 2026-05-15 | established |
+| [[synthesis/rest-api-cross-stack\|REST APIs Across the Full Stack: Android ↔ Express ↔ HTTP]] | mobile-development / web-development | 2026-05-15 | established |
 
 ## How Synthesis Pages Work
 

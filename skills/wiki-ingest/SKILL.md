@@ -114,7 +114,14 @@ Steps:
 3. **Create** source summary in `wiki/sources/`. Use the source frontmatter schema from `references/frontmatter.md`. Assign an address per the **Address Assignment** section below.
 4. **Create or update** entity pages for every person, org, product, and repo mentioned. One page per entity. Assign addresses to new entity pages.
 5. **Create or update** concept pages for significant ideas and frameworks. Assign addresses to new concept pages.
-6. **Update** relevant domain page(s) and their `_index.md` sub-indexes.
+6. **Update sub-index and domain files** — after every ingest, update ALL of the following that are affected:
+   - `wiki/sources/_index.md` — add a row for every new source page created
+   - `wiki/concepts/_index.md` — add a row for every new concept page, under the correct domain group
+   - `wiki/synthesis/_index.md` — add a row if a new synthesis page was created
+   - `wiki/learning/_index.md` — add a row if a new study-notes or learning page was created
+   - `wiki/areas/<domain>.md` — add the new concept page(s) to the Concept Pages table of the matching domain area page; create the area page if the domain is new
+   - `wiki/areas/_index.md` — add a row if a new domain area page was created
+   Never skip a sub-index update: stale `_index.md` files are the leading cause of orphaned pages going undetected.
 7. **Update** `wiki/overview.md` if the big picture changed.
 8. **Update** `wiki/index.md`. Add entries for all new pages.
 9. **Update** `wiki/hot.md` with this ingest's context.

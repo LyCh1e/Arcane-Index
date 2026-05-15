@@ -27,11 +27,19 @@ See [[owasp-top-10]] for all 10 OWASP 2025 categories with scenarios and code ex
 
 See [[vulnerability-tracking-frameworks]] for CVE, NVD, CAPEC, MITRE ATT&CK, CVSS, BSIMM, OpenSAMM, and Microsoft SDL.
 
-### Secure Software Requirements (Lectures 2 & Labs)
+### Secure Software Requirements (Lectures 2–3 & Labs)
 
 Security requirements are derived from the six pillars: **Confidentiality, Integrity, Availability** (CIA) and **Authentication, Authorisation, Accountability** (AAA). Each pillar produces a structured set of requirements tied to the application's functional and non-functional baseline.
 
-See [[secure-software-requirements]] for the full framework including risk identification and SANS SWAT checklist mapping.
+Lecture 3 extends this with: General Application Security Requirements (session, error, configuration, and code management); Operational Requirements (deployment environment, archiving, anti-piracy); Other Requirements (TOC/TOU race conditions, procurement, GDPR); and adversarial artefacts — anti-requirements and abuse/misuse case modelling.
+
+See [[secure-software-requirements]] for the full framework including risk identification, SANS SWAT checklist mapping, anti-requirements, and misuse case modelling.
+
+### Threat Modeling (Lecture 3)
+
+Requirements tell you *what* to protect; threat modeling tells you *how* attackers will actually break your system. Covers: threat agents (8 human types + non-human), identifying threats via trust boundaries / DFDs / entry-exit points / mis-actors, the 5-step threat modeling process, attack trees, and Microsoft STRIDE.
+
+See [[threat-modeling]] for the full framework including STRIDE applied to DFD elements and STRIDE–OWASP mapping.
 
 ### SecurityRAT
 
@@ -51,7 +59,8 @@ See [[securityrat]] for setup, the CRLF gotcha, and usage notes.
 | Concept | Description |
 |---------|-------------|
 | [[docker-compose]] | Docker Compose fundamentals — compose file, networking, volumes, all four services |
-| [[secure-software-requirements]] | CIA + AAA pillars, OSA taxonomy, SSDLC requirement process, NIST SSDF, PCI SSF |
+| [[secure-software-requirements]] | CIA + AAA pillars, OSA taxonomy, SSDLC requirement process, general/operational/other requirements, anti-requirements, abuse/misuse case modelling |
+| [[threat-modeling]] | Threat agents, trust boundaries, DFDs, mis-actor categories, 5-step process, attack trees, Microsoft STRIDE |
 | [[owasp-top-10]] | OWASP Top 10 (2025) — all 10 categories with scenarios, code examples, and mitigations |
 | [[vulnerability-tracking-frameworks]] | CVE, NVD, CAPEC, MITRE ATT&CK, CVSS, BSIMM, OpenSAMM, Microsoft SDL |
 

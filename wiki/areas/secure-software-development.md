@@ -23,7 +23,8 @@ Security is not a feature — it is a quality attribute built in from requiremen
 
 | Page | What It Covers |
 |------|---------------|
-| [[concepts/secure-software-requirements\|Secure Software Requirements]] | CIA triad, AAA (Authentication/Authorisation/Audit), BCIC security requirements analysis, McCall's model |
+| [[concepts/secure-software-requirements\|Secure Software Requirements]] | CIA triad, AAA (Authentication/Authorisation/Audit), BCIC analysis, general/operational/other requirements, anti-requirements, misuse case modelling |
+| [[concepts/threat-modeling\|Threat Modeling]] | Threat agents (8 human types), trust boundaries, DFDs, mis-actor network categories, attack trees, Microsoft STRIDE |
 | [[concepts/owasp-top-10\|OWASP Top 10 (2025)]] | Top 10 web application security risks, ASVS verification levels 1–3, SecurityRAT |
 | [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking Frameworks]] | CVE/CWE/NVD/CVSS, software assurance frameworks |
 | [[concepts/docker-compose\|Docker & Docker Compose]] | Containers, images, Compose multi-service stacks, volume mounts, networking |
@@ -45,3 +46,9 @@ Security is not a feature — it is a quality attribute built in from requiremen
 - [[synthesis/web-security-ssdlc-bridge|Web Security ↔ SSDLC]] — INF1005's code-level attack defences map to ICT2216's ASVS requirements and SSDLC process
 - [[synthesis/re-elicitation-cia-aaa-security-requirements|RE × Security]] — McCall Integrity ↔ CIA+AAA; RE lifecycle ↔ SSDLC requirements phase
 - [[concepts/web-security-and-devops|Web Security & DevOps]] — INF1005's practical security perspective (XSS, SQLi, bcrypt)
+
+---
+
+## Study Notes
+
+*(none yet — ICT2216 study-notes page not yet created)*

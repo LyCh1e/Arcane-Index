@@ -2,7 +2,7 @@
 type: meta
 title: "Vault Overview"
 created: 2026-05-11
-updated: 2026-05-11
+updated: 2026-05-15
 tags: [meta, overview]
 ---
 
@@ -33,7 +33,7 @@ A persistent, compounding knowledge base. Every source ingested, every question 
 | [[wiki/entities/_index\|entities/]] | People, tools, technologies, organisations, methods |
 | [[wiki/learning/_index\|learning/]] | Skills being developed and structured knowledge pathways |
 | [[wiki/goals/_index\|goals/]] | Personal and professional goals with progress tracking |
-| [[wiki/areas/_index\|areas/]] | Standing life/work domains: career, health, finance, creative |
+| [[wiki/areas/_index\|areas/]] | Knowledge domain overview pages — one per academic discipline |
 | [[wiki/synthesis/_index\|synthesis/]] | Evolving "state of my understanding" pages across domains |
 | [[wiki/gaps/_index\|gaps/]] | Open questions, contradictions, and missing knowledge |
 | [[wiki/resources/_index\|resources/]] | Books, courses, tools worth returning to |
@@ -42,13 +42,36 @@ A persistent, compounding knowledge base. Every source ingested, every question 
 
 ## Current Focus
 
-*(update this section at the start of each session)*
+Academic knowledge base for SIT modules — 14 courses ingested across 11 domains. Vault is in active use for exam preparation and cross-domain synthesis.
+
+**Domains covered**: Computer Architecture · Operating Systems · Computer Science · Database Systems · Software Engineering · Secure Software Development · Web Development · Mobile Development · Machine Learning · Mathematics · HCI
 
 ---
 
-## Key Stats
+## Key Stats (as of 2026-05-15)
 
-- Sources ingested: 0
-- Concept pages: 0
-- Synthesis pages: 0
-- Open gaps: 0
+- Sources ingested: 14
+- Concept pages: 53
+- Areas pages: 11
+- Synthesis pages: 8
+- Study-notes pages: 5
+- Open gaps: resolved (see [[wiki/gaps/_index]])
+
+---
+
+## Domain Map
+
+```
+[Mathematics] ──────────────────────────► [Machine Learning]
+    ↑ (algebra/stats)                           ↑ (algorithms)
+[Computer Science] ──────────────────► [Database Systems]
+    ↑ (B+ trees)                                ↑ (SQL)
+[Computer Architecture] ──────────► [Operating Systems]
+    ↑ (paging/hardware)                         ↑ (scheduling/sync)
+[Software Engineering] ──────────► [Secure Software Dev]
+    ↑ (design patterns)                         ↑ (ASVS/OWASP)
+[Web Development] ────────────────► [Mobile Development]
+    ↑ (REST APIs)                               ↑ (Retrofit)
+[HCI] ────────────────────────────► [Software Engineering]
+    ↑ (needfinding → RE)
+```

@@ -4,7 +4,7 @@ title: "Secure Software Requirements"
 domain: secure-software-development
 complexity: high
 tags: [security, requirements, CIA, AAA, confidentiality, integrity, availability, authentication, authorisation, accountability, owasp, swat, NIST, SSDLC]
-updated: 2026-05-11
+updated: 2026-05-15
 ---
 
 # Secure Software Requirements
@@ -219,6 +219,157 @@ A set of fundamental, sound, and secure software development practices. Organise
 | Protect the Software | PS | Source code and artefact protection |
 | Produce Well-Secured Software | PW | Design, implementation, testing |
 | Respond to Vulnerabilities | RV | Identifying, fixing, and disclosing vulnerabilities |
+
+---
+
+## General Application Security Requirements
+
+Once CIA and AAA pillars are addressed, four additional application-level concerns must be specified:
+
+### Session Management
+
+Sessions maintain authenticated state across the stateless HTTP protocol.
+
+- On successful authentication, a **Session ID** is issued
+- Requirements must define:
+  - **Uniqueness and randomness** — Session IDs must be non-guessable
+  - **Expiry** — maximum idle and absolute session lifetime
+  - **Non-reusability** — Session IDs must be invalidated on logout and not reused
+
+**Design questions to resolve in requirements:**
+- Does the application allow **concurrent login**? If not: how is the prior session invalidated? If yes: how are multiple sessions tracked and notified?
+- What is the **session timeout** duration, and what is the UX impact?
+
+### Error Management
+
+Unexpected conditions produce errors and stack traces. Requirements must define:
+- The **level of detail** disclosed in error messages to end users
+- Prevent **information disclosure** — stack traces revealing framework versions, file paths, or database structure must not be shown to end users
+
+> Bad practice: a full stack trace exposed in a browser response reveals internal application architecture and attack surface.
+
+### Configuration Management
+
+Applications depend on configuration files for features and settings. Requirements must specify:
+- **Initialisation and disposal** of global variables
+- **Encryption or hashing** of sensitive configuration values
+- Prevention of sensitive data leakage from configuration files
+
+### Code Management
+
+- How is source code stored and access-controlled? (e.g., private repositories, branch protection)
+- How is the project deployed? (CI/CD pipeline security — who can trigger deploys?)
+- How are **hardcoded credentials** prevented from being committed to version control?
+
+> Real risk: developers accidentally pushing API keys, passwords, or tokens to public repositories — a major source of credential exposure incidents.
+
+---
+
+## Operational Security Requirements
+
+Once deployed, software must meet ongoing security requirements during operations:
+
+### Deployment Environment
+
+- Security requirements must capture the **environment** in which software is deployed and who will use it
+- Drives **environment compliance** and **industry standard** adherence
+- Covers not just production, but also **development and test environments** (e.g., no real customer data in UAT)
+
+### Archiving
+
+Required for business continuity, regulatory compliance, and organisational retention policy. Requirements must specify:
+- **Where** data will be stored (media type, location)
+- **How** data will be stored (online/offline, format, encryption at rest)
+- **Data retrieval policy** (how quickly can archived data be restored?)
+- Compliance with organisational and regulatory **retention periods**
+
+### Anti-Piracy
+
+Part of Commercial Off-The-Shelf (COTS) software requirements. Includes:
+- **Code obfuscation** — makes reverse engineering harder
+- **Code signing** — verifies authenticity of released software
+- **Anti-tampering** mechanisms — detects or prevents modification at runtime
+- **Licensing enforcement** — prevents unauthorised use or redistribution
+- **IP protection** mechanisms
+
+> Anti-piracy requirements must be captured during requirement gathering to avoid legal liability later.
+
+---
+
+## Other Security Requirements
+
+### Sequencing and Timing
+
+Design flaws in sequencing and timing can lead to:
+- **Race conditions** — shared state accessed by concurrent threads with order-dependent outcomes
+- **TOC/TOU (Time-of-Check / Time-of-Use) attacks** — an attacker modifies a resource between the check and the use (e.g., checking file permissions then reading the file — file is swapped in between)
+
+Requirements should identify: race windows, atomic operation needs, mutex (mutual exclusion / resource locking) requirements.
+
+### Procurement Needs
+
+When obtaining proposals from contractors, requirements must specify:
+- **Scope of procurement** and evaluation criteria
+- Expected **deliverables**
+- Mandated **IDE, libraries, and programming language** choices (to enforce consistency and reduce supply chain risk)
+
+### International Regulation
+
+International compliance requirements must be captured during requirements gathering. Example: **GDPR** (General Data Protection Regulation) — if users are EU residents, requirements must address data subject rights (access, erasure, portability), lawful basis for processing, and breach notification obligations.
+
+---
+
+## Developing Adversarial Artefacts
+
+> Once you know what a system does, look at it from the adversary's perspective: how can they disrupt it? How can they profit from it?
+
+Two complementary techniques:
+
+### Anti-Requirements
+
+Standard requirements state what the system *shall* do. **Anti-requirements** state what it *shall not* do — they describe undesirable outcomes and the inputs that could cause them.
+
+**Process:**
+1. Take each functional requirement
+2. Enumerate **undesirable outcomes** (what should never happen?)
+3. Enumerate **problematic inputs** that could lead to those outcomes
+
+**Example:**
+
+*Requirement:* The system shall produce a unique identifier valid for N days, given a time, an integer N (0 < N ≤ 7), and a valid authorisation token.
+
+| Undesirable Outcome | Problematic Input |
+|---------------------|-------------------|
+| System crash | Time mis-formatted or null |
+| Non-unique identifier | N ≤ 0 or N > 7 |
+| Identifier with wrong validity period | Invalid or expired authorisation token |
+
+Anti-requirements drive boundary condition testing and input validation requirements.
+
+### Abuse / Misuse Case Modelling
+
+**Use cases** describe what the system *should* do. **Abuse cases** describe what it *should not* do — they model how an attacker could exploit or disrupt each use case.
+
+**Process:**
+1. Start with existing functional use cases
+2. Consider how each process can be **interdicted or corrupted**
+3. Identify **attackers** (analogous to actors in use cases)
+4. Model using UML diagrams
+5. Derive corresponding **security requirements** from each abuse case
+
+**Example — ATM System:**
+
+Functional use cases: Login, Withdraw Money, Logout.
+Abuse cases: Shoulder snooping (PIN observation), Steal card, Copy card (skimming).
+
+Security requirements derived from abuse case analysis:
+
+| Security Concern | Requirement |
+|-----------------|-------------|
+| Input validation | PIN field: digits 0–9 only; withdrawal amounts: positive numbers only (syntactic); total withdrawal ≤ balance (semantic) |
+| Velocity checking | Block PIN after 3 failed attempts; limit transactions per minute and withdrawals per day |
+| Transaction integrity | Operations can be interrupted; alert user if card not removed; swallow card after timeout |
+| Visibility | Mask PIN input; clear account display once card is removed |
 
 ---
 

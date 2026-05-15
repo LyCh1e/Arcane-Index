@@ -53,3 +53,9 @@ Two modules cover the mathematical foundations of computing. INF1003 focuses on 
 - [[synthesis/maths-to-ml-bridge|Mathematics → Machine Learning]] — explicit mapping of every maths topic to its ML application
 - [[concepts/algorithm-complexity|Algorithm Complexity]] — recurrence relations (INF1003) feed directly into Master Theorem analysis
 - [[concepts/data-structures-fundamentals|Data Structures]] — combinatorics and graph theory underpin tree/graph data structures
+
+---
+
+## Study Notes
+
+*(none yet — INF1003 and INF1004 study-notes pages not yet created)*
