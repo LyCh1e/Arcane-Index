@@ -59,7 +59,7 @@ Course notes, papers, books, articles, and any material ingested into this vault
 ### Secure Software Development
 | Source | Concepts |
 |--------|---------|
-| [[sources/ICT2216-secure-software-development\|ICT2216]] | [[concepts/secure-software-requirements\|Secure Software Requirements]], [[concepts/owasp-top-10\|OWASP Top 10]], [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking Frameworks]], [[concepts/docker-compose\|Docker & Docker Compose]] |
+| [[sources/ICT2216-secure-software-development\|ICT2216]] | [[concepts/secure-software-requirements\|Secure Software Requirements]], [[concepts/threat-modeling\|Threat Modeling]], [[concepts/owasp-top-10\|OWASP Top 10]], [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking Frameworks]], [[concepts/docker-compose\|Docker & Docker Compose]] |
 
 ### Mobile Development
 | Source | Concepts |

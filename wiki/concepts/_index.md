@@ -64,6 +64,8 @@ tags: [index, concepts]
 | [[concepts/linear-algebra-matrices\|Linear Algebra & Matrices]] | INF1004 | high |
 | [[concepts/eigenvalues-and-svd\|Eigenvalues, Diagonalisation & SVD]] | INF1004 | high |
 
+**Synthesis**: [[synthesis/maths-to-ml-bridge\|Mathematics Foundations → Machine Learning]]
+
 ---
 
 ## Machine Learning
