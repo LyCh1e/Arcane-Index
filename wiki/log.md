@@ -9,6 +9,18 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-16 | Ingest — ICT2216 Lab 3: Microsoft Threat Modeling Tool
+
+- **Source**: Lab 03 PDF — Introduction to Microsoft Threat Modeling Tool
+- **Pages created**:
+  - [[resources/microsoft-threat-modeling-tool]] — tool reference: install, 4-step workflow (Build→Analyze→Triage→Report), DFD stencils, STRIDE auto-generation, threat status system
+  - [[examples/ict2216-lab3-threat-modeling-tool]] — Lab 03 walkthrough: 5 sequential steps, sample diagram, STRIDE checklist for project deliverable
+- **Pages updated** (indexes):
+  - [[index]] — added to Examples and Resources tables
+  - [[log]] — this entry
+
+---
+
 ## 2026-05-15 | Ingest — ICT2216 Lecture 3: Extended Security Requirements + Threat Modeling
 
 - **Source**: `raw/ICT2216 Lecture 3 Secure Software Development.md`

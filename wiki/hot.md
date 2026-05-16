@@ -1,13 +1,15 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-15T00:00:00
+updated: 2026-05-16T00:00:00
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-05-16. Session: ICT2216 Lab 3 — Microsoft Threat Modeling Tool ingested. Created resource page for the tool (4-step workflow, DFD stencils, threat status system) and lab example page (5 sequential steps, sample DFD, STRIDE project checklist).
 
 2026-05-15. Sessions: (1) Vault gap resolution — 11 domain areas pages, 4 synthesis pages, 4 study-notes pages, skill file updates, index rebuilds. (2) ICT2216 Lecture 3 — extended security requirements (session/error/config/code management, anti-requirements, misuse cases) + full threat modelling (threat agents, DFDs, STRIDE, attack trees).
 
