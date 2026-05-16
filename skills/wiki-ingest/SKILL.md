@@ -114,14 +114,23 @@ Steps:
 3. **Create** source summary in `wiki/sources/`. Use the source frontmatter schema from `references/frontmatter.md`. Assign an address per the **Address Assignment** section below.
 4. **Create or update** entity pages for every person, org, product, and repo mentioned. One page per entity. Assign addresses to new entity pages.
 5. **Create or update** concept pages for significant ideas and frameworks. Assign addresses to new concept pages.
-6. **Update sub-index and domain files** — after every ingest, update ALL of the following that are affected:
-   - `wiki/sources/_index.md` — add a row for every new source page created
-   - `wiki/concepts/_index.md` — add a row for every new concept page, under the correct domain group
-   - `wiki/synthesis/_index.md` — add a row if a new synthesis page was created
-   - `wiki/learning/_index.md` — add a row if a new study-notes or learning page was created
-   - `wiki/areas/<domain>.md` — add the new concept page(s) to the Concept Pages table of the matching domain area page; create the area page if the domain is new
-   - `wiki/areas/_index.md` — add a row if a new domain area page was created
-   Never skip a sub-index update: stale `_index.md` files are the leading cause of orphaned pages going undetected.
+6. **Update every `_index.md`** — this step is **mandatory after every ingest, no exceptions**. Update each of the following:
+
+   | File | What to update |
+   |------|---------------|
+   | `wiki/sources/_index.md` | Add a row for the new source page (always — every ingest creates one) |
+   | `wiki/concepts/_index.md` | Add a row per new concept page under the correct domain group; update the domain page-count in the summary table |
+   | `wiki/areas/<domain>.md` | Add new concept pages to the Concept Pages table; create this file if the domain is new |
+   | `wiki/areas/_index.md` | Add a row if a new domain area page was created |
+   | `wiki/synthesis/_index.md` | Add a row for every new synthesis page created during this ingest |
+   | `wiki/learning/_index.md` | Add a row for every new study-notes or learning page created during this ingest |
+   | `wiki/resources/_index.md` | Add a row for every new resource page created during this ingest |
+
+   **Rules:**
+   - Do not skip this step even if the ingest only updates an existing source (e.g., adding a new lecture to an existing module). Check every `_index.md` and update if content changed.
+   - For `concepts/_index.md`: also update the domain count in the summary table at the top of the file.
+   - For `areas/<domain>.md`: if the domain page does not yet exist, create it following the structure of existing area pages before updating `areas/_index.md`.
+   - Stale `_index.md` files are the primary cause of orphaned pages — a page that exists on disk but appears in no index is effectively invisible.
 7. **Update** `wiki/overview.md` if the big picture changed.
 8. **Update** `wiki/index.md`. Add entries for all new pages.
 9. **Update** `wiki/hot.md` with this ingest's context.
@@ -148,7 +157,7 @@ Steps:
 1. List all files to process. Confirm with user before starting.
 2. Process each source following the single ingest flow. Defer cross-referencing between sources until step 3.
 3. After all sources: do a cross-reference pass. Look for connections between the newly ingested sources.
-4. Update index, hot cache, and log once at the end (not per-source).
+4. Update all `_index.md` files, `wiki/index.md`, `wiki/hot.md`, and `wiki/log.md` once at the end (not per-source). Every `_index.md` that covers a folder touched by any source in the batch must be updated — see the mandatory `_index.md` table in step 6 of **Single Source Ingest**.
 5. Report: "Processed N sources. Created X pages, updated Y pages. Here are the key connections I found."
 
 Batch ingest is less interactive. For 30+ sources, expect significant processing time. Check in with the user after every 10 sources.
