@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-05-15
+updated: 2026-05-19
 tags: [meta, index]
 ---
 
@@ -63,6 +63,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/threat-modeling\|Threat Modeling]] | secure-software-development | high |
 | [[concepts/owasp-top-10\|OWASP Top 10 (2025)]] | secure-software-development | high |
 | [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking & Software Assurance Frameworks]] | secure-software-development | medium |
+| [[concepts/security-by-design-principles\|Security by Design Principles (OWASP 10)]] | secure-software-development | high |
 | [[concepts/discrete-mathematics-foundations\|Discrete Mathematics Foundations]] | mathematics | medium |
 | [[concepts/combinatorics\|Combinatorics]] | mathematics | medium |
 | [[concepts/propositional-logic\|Propositional Logic]] | mathematics | medium |

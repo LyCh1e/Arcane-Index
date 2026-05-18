@@ -5,7 +5,7 @@ course: ICT2216
 institution: SIT
 raw: ""
 domain: secure-software-development
-topics: [security-requirements, confidentiality, integrity, availability, authentication, authorisation, accountability, securityrat, owasp, BSIMM, OpenSAMM, CVE, NVD, MITRE-ATTCK]
+topics: [security-requirements, confidentiality, integrity, availability, authentication, authorisation, accountability, securityrat, owasp, BSIMM, OpenSAMM, CVE, NVD, MITRE-ATTCK, security-by-design, least-privilege, defence-in-depth, fail-secure, attack-surface, security-architecture]
 ingested: 2026-05-11
 ---
 
@@ -41,6 +41,14 @@ Requirements tell you *what* to protect; threat modeling tells you *how* attacke
 
 See [[threat-modeling]] for the full framework including STRIDE applied to DFD elements and STRIDE–OWASP mapping.
 
+### Secure Software Design (Lecture 4)
+
+Lecture 4 addresses the *design* phase of the SSDLC, arguing that **50% of security problems are design flaws** (not implementation bugs — McGraw, 2006). Even perfect code cannot fix a flawed design; security thinking must be embedded before a single line of code is written. The Banana Token hack (September 2023, $8.70 → $0.02 in under 3 hours) illustrates the catastrophic consequences of design-level vulnerabilities in the real world.
+
+The lecture covers the ten **OWASP Security by Design Principles** — Minimise Attack Surface Area, Establish Secure Defaults, Least Privilege, Defence in Depth, Fail Securely, Don't Trust Services, Separation of Duties, Avoid Security by Obscurity, Keep Security Simple, and Fix Security Issues Correctly — and introduces **Security Architecture** (physical vs. logical views).
+
+See [[security-by-design-principles]] for the full framework with worked examples and code snippets for each principle.
+
 ### SecurityRAT
 
 SecurityRAT is an OWASP tool that automates security requirement selection based on the declared artifact type (web app, API, etc.) and compliance level. It maps requirements to OWASP ASVS 3.x identifiers and integrates with issue trackers.
@@ -53,6 +61,7 @@ See [[securityrat]] for setup, the CRLF gotcha, and usage notes.
 |-----|-------|
 | Lab 1 | Docker and Docker Compose — Nginx, MySQL, Git server, Selenium Grid |
 | Lab 2 | Defining Secure Software Requirements — CIA + AAA framework, SecurityRAT |
+| Lab 3 | Microsoft Threat Modeling Tool — DFD creation, STRIDE auto-generation, threat triage |
 
 ## Concept Pages
 
@@ -63,6 +72,7 @@ See [[securityrat]] for setup, the CRLF gotcha, and usage notes.
 | [[threat-modeling]] | Threat agents, trust boundaries, DFDs, mis-actor categories, 5-step process, attack trees, Microsoft STRIDE |
 | [[owasp-top-10]] | OWASP Top 10 (2025) — all 10 categories with scenarios, code examples, and mitigations |
 | [[vulnerability-tracking-frameworks]] | CVE, NVD, CAPEC, MITRE ATT&CK, CVSS, BSIMM, OpenSAMM, Microsoft SDL |
+| [[security-by-design-principles]] | 10 OWASP Security by Design Principles, design flaws vs. bugs, Security Architecture (physical vs. logical) |
 
 ## Examples
 

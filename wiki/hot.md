@@ -1,13 +1,15 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-16T00:00:00
+updated: 2026-05-19T00:00:00
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-05-19. Session: ICT2216 Lecture 4 — Secure Software Design ingested. Created [[concepts/security-by-design-principles]]: Gary McGraw's 50% finding (half of all security problems are design *flaws*, not bugs), the Banana Token smart contract hack as a real-world design-level failure, all 10 OWASP Security by Design Principles with code snippets and worked examples, and Security Architecture (physical vs. logical views).
 
 2026-05-16. Session: ICT2216 Lab 3 — Microsoft Threat Modeling Tool ingested. Created resource page for the tool (4-step workflow, DFD stencils, threat status system) and lab example page (5 sequential steps, sample DFD, STRIDE project checklist).
 
@@ -70,7 +72,7 @@ tags: [meta, hot-cache]
 
 **Software Design** (ICT2112): Full design pipeline from architecture to construction. Coupling/cohesion are the two key internal quality metrics. The 3-Tier layered architecture separates Presentation, Domain, and Data Source concerns; each layer has specific patterns (MVC, Domain Model, Data Mapper). SOLID + GoF patterns are applied at the detailed design level. ATAM evaluates architecture against quality attributes. Design smells (Rigidity, Fragility …) signal SOLID violations.
 
-**Secure Software Development** (ICT2216): Security requirements derived from CIA + AAA pillars. OWASP ASVS provides tiered verification (Level 1–3). SecurityRAT automates requirement selection. Docker Compose is the primary deployment tool across all labs. Windows Docker deployments require CRLF-to-LF conversion for shell scripts; use PowerShell for `docker exec` with Linux paths.
+**Secure Software Development** (ICT2216): Security requirements derived from CIA + AAA pillars. OWASP ASVS provides tiered verification (Level 1–3). SecurityRAT automates requirement selection. Docker Compose is the primary deployment tool across all labs. Windows Docker deployments require CRLF-to-LF conversion for shell scripts; use PowerShell for `docker exec` with Linux paths. **Lecture 4 — Security by Design**: 50% of security problems are design *flaws* not bugs (McGraw 2006) — even perfect code cannot fix a flawed design. The 10 OWASP Security by Design Principles are: (1) Minimise attack surface, (2) Secure defaults, (3) Least privilege, (4) Defence in depth, (5) Fail securely (initialise `isAdmin = false`), (6) Don't trust services, (7) Separation of duties, (8) Avoid obscurity, (9) Keep it simple, (10) Fix correctly (root cause + broad testing). Security architecture has two views: physical (infrastructure topology) and logical (service/trust boundaries).
 
 **Software Engineering** (ICT2113 + INF1009): Requirements Engineering covers the full RE lifecycle — BCIC analysis, PS/SRS documents, McCall's quality model (3 perspectives, 11 features), iRTM for traceability. Lightweight RCM covers User Stories (3C's, INVEST, Connextra) and UseCase 2.0 (parent-UC, Stories, Slices, 8-step process). OOP covers the 4 pillars with Java/C++ comparison, OOP relationships (Association/Aggregation/Composition), and UML class diagrams.
 
@@ -87,6 +89,10 @@ tags: [meta, hot-cache]
 **HCI** (INF2002): Definition, UI vs UX distinction. History from Memex (1945) to ubiquitous computing (Weiser 1991) to touchscreens. Real-world design failures (Air Inter 148, Anton Yelchin, Hawaii missile alert). UCD principles, personas, paper prototyping. Needfinding methods (observation, ethnography, surveys/Likert/Semantic Differential, interviews, focus groups). Task analysis (HTA, TDH with XOR/AND/OR, knowledge-based / declarative vs procedural).
 
 ## Recent Changes
+
+- Created: `wiki/concepts/security-by-design-principles.md` (10 OWASP principles, design flaws vs bugs, Banana Token case study, Security Architecture physical vs logical)
+- Updated: `wiki/sources/ICT2216-secure-software-development.md` (Lecture 4 section, Lab 3 entry, new concept link)
+- Updated: `wiki/index.md`, `wiki/hot.md`, `wiki/log.md`
 
 - Created: `wiki/sources/INF1005-web-systems-technologies.md` (chapter map, concept page cross-references)
 - Created: `wiki/concepts/web-fundamentals.md` (Internet/Web history, TCP/IP model, DNS 10-step resolution, URLs, HTTP methods/status codes, browser rendering metrics, web stacks)

@@ -9,6 +9,19 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-19 | Ingest — ICT2216 Lecture 4: Secure Software Design
+
+- **Source**: `raw/ICT2216 Lecture 4 Secure Software Development.md`
+- **Pages created**:
+  - [[concepts/security-by-design-principles]] — design flaws vs. bugs (McGraw 50% finding), Banana Token case study, all 10 OWASP Security by Design Principles with worked examples and code, Security Architecture (physical vs. logical)
+- **Pages updated**:
+  - [[sources/ICT2216-secure-software-development]] — added Lecture 4 section (Secure Software Design), Lab 3 to Labs table, new concept to Concept Pages table, updated frontmatter topics
+  - [[index]] — added `security-by-design-principles` to Concepts table
+  - [[log]] — this entry
+  - [[hot]] — updated session summary
+
+---
+
 ## 2026-05-16 | Ingest — ICT2216 Lab 3: Microsoft Threat Modeling Tool
 
 - **Source**: Lab 03 PDF — Introduction to Microsoft Threat Modeling Tool
