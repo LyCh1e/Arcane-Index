@@ -121,6 +121,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/inf1005-web-systems-study-notes\|INF1005 Web Systems & Technologies Study Notes]] | web-development | active |
 | [[learning/docker-windows-crlf\|Docker on Windows: CRLF Breaks Linux Container Scripts]] | devops | resolved |
 | [[learning/scrum-open-assessment-study-notes\|Scrum Open Assessment Study Notes]] | agile-project-management | active |
+| [[learning/scrum-master-exam-study-notes\|Scrum Master Exam Study Notes (80 Questions)]] | agile-project-management | active |
 
 
 ## Synthesis

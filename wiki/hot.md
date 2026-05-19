@@ -9,7 +9,7 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
-2026-05-19. Session: (1) Scrum Open Assessment quiz bank ingested (29/30, 96.7%) — created study notes page with 15 common traps, role/event/artifact Q&A tables, and 25-fact key-reference table. (2) 2020 Scrum Guide ingested — new domain agile-project-management added to vault. Created source index and full concept page covering Scrum theory (empiricism + lean, three pillars), five values (CFORC), three accountabilities (Developers/PO/SM), five events with timeboxes, three artifacts with commitments (Product Goal/Sprint Goal/Definition of Done). (2) ICT2216 Lecture 4 — Secure Software Design ingested. Created [[concepts/security-by-design-principles]]: Gary McGraw's 50% finding (half of all security problems are design *flaws*, not bugs), the Banana Token smart contract hack as a real-world design-level failure, all 10 OWASP Security by Design Principles with code snippets and worked examples, and Security Architecture (physical vs. logical views).
+2026-05-19. Session: (1) Scrum Master Exam 80-question YouTube transcript ingested — created study notes with waterfall vs Scrum comparison, empiricism precision, formal inspection events, servant leadership distinction, self-managing team rules, PB/Sprint Backlog ownership, DoD rules, velocity myth, burn-down interpretation, retro vs review distinction, 40-row quick-reference table. Fixed three stale _index.md files (learning, concepts, sources). (2) Scrum Open Assessment quiz bank ingested (29/30, 96.7%). (3) 2020 Scrum Guide ingested — new domain agile-project-management added to vault. Created source index and full concept page covering Scrum theory (empiricism + lean, three pillars), five values (CFORC), three accountabilities (Developers/PO/SM), five events with timeboxes, three artifacts with commitments (Product Goal/Sprint Goal/Definition of Done). (2) ICT2216 Lecture 4 — Secure Software Design ingested. Created [[concepts/security-by-design-principles]]: Gary McGraw's 50% finding (half of all security problems are design *flaws*, not bugs), the Banana Token smart contract hack as a real-world design-level failure, all 10 OWASP Security by Design Principles with code snippets and worked examples, and Security Architecture (physical vs. logical views).
 
 2026-05-16. Session: ICT2216 Lab 3 — Microsoft Threat Modeling Tool ingested. Created resource page for the tool (4-step workflow, DFD stencils, threat status system) and lab example page (5 sequential steps, sample DFD, STRIDE project checklist).
 
@@ -91,6 +91,9 @@ tags: [meta, hot-cache]
 **HCI** (INF2002): Definition, UI vs UX distinction. History from Memex (1945) to ubiquitous computing (Weiser 1991) to touchscreens. Real-world design failures (Air Inter 148, Anton Yelchin, Hawaii missile alert). UCD principles, personas, paper prototyping. Needfinding methods (observation, ethnography, surveys/Likert/Semantic Differential, interviews, focus groups). Task analysis (HTA, TDH with XOR/AND/OR, knowledge-based / declarative vs procedural).
 
 ## Recent Changes
+
+- Created: `wiki/learning/scrum-master-exam-study-notes.md` (80-question CSM/PSM/ACP prep, 40-row reference table)
+- Fixed: `wiki/learning/_index.md`, `wiki/concepts/_index.md`, `wiki/sources/_index.md` — all three were stale
 
 - Created: `wiki/learning/scrum-open-assessment-study-notes.md` (15 traps + role/event/artifact Q&A + 25-fact reference table)
 - Updated: `wiki/sources/scrum-guide-2020.md`, `wiki/index.md`, `wiki/log.md`, `wiki/hot.md`

@@ -9,6 +9,21 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-19 | Ingest — Scrum Master Exam (80 Questions, YouTube Transcript)
+
+- **Source**: YouTube — "80 Scrum Master Exam Questions" (CSM / PSM / ACP prep)
+- **Pages created**:
+  - [[learning/scrum-master-exam-study-notes]] — 80-question study notes: waterfall vs Scrum, empiricism precision, formal inspection events, framework composition, servant leadership distinction, SM as management position, self-managing teams, PO continuous collaboration, PB rules, backlog refinement (no development), Sprint Backlog ownership (Developers only), DoD rules, cross-functionality, velocity not a metric, burn-down interpretation, estimation unit freedom, testing strategy freedom, retro vs review distinction, end-of-product handling, 40-row key rules table
+- **Pages updated**:
+  - [[learning/_index.md]] — added scrum-open-assessment-study-notes (previously missing), scrum-master-exam-study-notes, Scrum skill-map entry
+  - [[concepts/_index.md]] — added Agile Project Management domain section (scrum-framework), added security-by-design-principles to Secure Software Dev section, updated counts (54→58 pages, 11→12 domains, 15→17 sources)
+  - [[sources/_index.md]] — added Scrum Guide to sources table and By Domain section
+  - [[index]] — learning page added
+  - [[log]] — this entry
+  - [[hot]] — session summary and Recent Changes updated
+
+---
+
 ## 2026-05-19 | Ingest — Scrum Open Assessment Quiz Bank
 
 - **Source**: `raw/scrum-open-quiz-questions.md` — classmarker.com Scrum Open Quiz, 29/30 (96.7%)

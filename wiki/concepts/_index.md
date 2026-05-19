@@ -1,13 +1,13 @@
 ---
 type: index
 title: "Concepts Index"
-updated: 2026-05-14
+updated: 2026-05-19
 tags: [index, concepts]
 ---
 
 # Concepts
 
-54 concept pages across 11 domains, extracted from 15 ingested sources.
+58 concept pages across 12 domains, extracted from 17 ingested sources.
 
 | Domain | Pages |
 |--------|-------|
@@ -16,12 +16,13 @@ tags: [index, concepts]
 | Mathematics | 10 |
 | Machine Learning | 6 |
 | Database Systems | 6 |
-| Secure Software Development | 5 |
+| Secure Software Development | 7 |
 | Computer Architecture | 3 |
 | Operating Systems | 5 |
 | Web Development | 5 |
 | Mobile Development | 2 |
 | HCI | 2 |
+| Agile Project Management | 1 |
 
 ---
 
@@ -105,6 +106,7 @@ tags: [index, concepts]
 | [[concepts/owasp-top-10\|OWASP Top 10 (2025)]] | ICT2216 | high |
 | [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking & Software Assurance Frameworks]] | ICT2216 | medium |
 | [[concepts/docker-compose\|Docker and Docker Compose]] | ICT2216 | medium |
+| [[concepts/security-by-design-principles\|Security by Design Principles (OWASP 10)]] | ICT2216 | high |
 
 **Synthesis**: [[synthesis/web-security-ssdlc-bridge\|Attack Patterns ↔ SSDLC Process]]
 
@@ -169,6 +171,14 @@ tags: [index, concepts]
 | [[concepts/needfinding-and-task-analysis\|Needfinding and Task Analysis]] | INF2002 | medium |
 
 **Synthesis**: [[synthesis/re-elicitation-hci-needfinding\|RE Elicitation ↔ HCI Needfinding]]
+
+---
+
+## Agile Project Management
+
+| Page | Source | Complexity |
+|------|--------|------------|
+| [[concepts/scrum-framework\|Scrum Framework]] | 2020 Scrum Guide | high |
 
 ---
 

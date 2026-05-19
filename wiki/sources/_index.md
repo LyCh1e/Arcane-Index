@@ -1,7 +1,7 @@
 ---
 type: index
 title: "Sources Index"
-updated: 2026-05-14
+updated: 2026-05-19
 tags: [index, sources]
 ---
 
@@ -25,6 +25,7 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/ICT1011-computer-organisation-architecture\|ICT1011 Computer Organisation and Architecture]] | course notes | computer-architecture | 2026-05-13 |
 | [[sources/ICT1012-operating-systems\|ICT1012 Operating Systems]] | course notes | operating-systems | 2026-05-13 |
 | [[sources/INF1005-web-systems-technologies\|INF1005 Web Systems & Technologies]] | course notes | web-development | 2026-05-14 |
+| [[sources/scrum-guide-2020\|The 2020 Scrum Guide]] | reference | agile-project-management | 2026-05-19 |
 
 ## By Domain
 
@@ -85,6 +86,11 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | Source | Concepts |
 |--------|---------|
 | [[sources/INF1005-web-systems-technologies\|INF1005]] | [[concepts/web-fundamentals\|Web Fundamentals]], [[concepts/html-and-css\|HTML & CSS]], [[concepts/javascript-fundamentals\|JavaScript Fundamentals]], [[concepts/server-side-web-development\|Server-Side Development]], [[concepts/web-security-and-devops\|Web Security & DevOps]] |
+
+### Agile Project Management
+| Source | Concepts |
+|--------|---------|
+| [[sources/scrum-guide-2020\|2020 Scrum Guide]] | [[concepts/scrum-framework\|Scrum Framework]] |
 
 ## Papers & Articles
 *(none yet)*
