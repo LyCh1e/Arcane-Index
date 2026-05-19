@@ -9,7 +9,7 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
-2026-05-19. Session: ICT2216 Lecture 4 — Secure Software Design ingested. Created [[concepts/security-by-design-principles]]: Gary McGraw's 50% finding (half of all security problems are design *flaws*, not bugs), the Banana Token smart contract hack as a real-world design-level failure, all 10 OWASP Security by Design Principles with code snippets and worked examples, and Security Architecture (physical vs. logical views).
+2026-05-19. Session: (1) Scrum Open Assessment quiz bank ingested (29/30, 96.7%) — created study notes page with 15 common traps, role/event/artifact Q&A tables, and 25-fact key-reference table. (2) 2020 Scrum Guide ingested — new domain agile-project-management added to vault. Created source index and full concept page covering Scrum theory (empiricism + lean, three pillars), five values (CFORC), three accountabilities (Developers/PO/SM), five events with timeboxes, three artifacts with commitments (Product Goal/Sprint Goal/Definition of Done). (2) ICT2216 Lecture 4 — Secure Software Design ingested. Created [[concepts/security-by-design-principles]]: Gary McGraw's 50% finding (half of all security problems are design *flaws*, not bugs), the Banana Token smart contract hack as a real-world design-level failure, all 10 OWASP Security by Design Principles with code snippets and worked examples, and Security Architecture (physical vs. logical views).
 
 2026-05-16. Session: ICT2216 Lab 3 — Microsoft Threat Modeling Tool ingested. Created resource page for the tool (4-step workflow, DFD stencils, threat status system) and lab example page (5 sequential steps, sample DFD, STRIDE project checklist).
 
@@ -68,6 +68,8 @@ tags: [meta, hot-cache]
 
 ## Domain Summaries
 
+**Scrum / Agile** (2020 Scrum Guide): Scrum is an empirical framework (not a methodology) built on transparency, inspection, and adaptation. Three roles: Developers (create the Increment, own the Sprint Backlog), Product Owner (one person; owns the Product Backlog and Product Goal; sole authority to cancel a Sprint), Scrum Master (servant-leader; establishes Scrum; removes impediments). Five events: Sprint (≤1 month, fixed — container for all others), Sprint Planning (≤8 hrs; defines Sprint Goal + selects items + creates plan), Daily Scrum (15 min; Developers only; progress toward Sprint Goal), Sprint Review (≤4 hrs; inspect Increment with stakeholders; not a release gate), Sprint Retrospective (≤3 hrs; closes the Sprint; improves team effectiveness). Three artifacts + commitments: Product Backlog (→ Product Goal), Sprint Backlog (→ Sprint Goal), Increment (→ Definition of Done). Key rules: Scrum is immutable (partial Scrum is not Scrum); Sprint Goal is fixed but scope is negotiable; Increment may be released at any time without waiting for Sprint Review; Definition of Done is shared across all teams on the same product.
+
 **Database Systems** (INF2003): Full relational model from ACID to normalisation. The 6-stage design process runs: requirements → ER diagram → relational schema → BCNF refinement → physical design (B+ tree indexes) → security. SQL is the declarative layer over relational algebra; every SELECT maps to σ/π/⋈. Normalisation uses FD closure and BCNF to eliminate all anomalies while guaranteeing lossless decomposition (but not always dependency preservation). B+ tree is the universal index: O(log n) equality and range, dynamic insert/delete. ACID transactions are enforced via write-ahead logging + locking (or optimistic 3-phase). NoSQL trades ACID for scale and flexibility; choose the model (KV/document/columnar/graph) based on query patterns. Data warehouses deliberately de-normalise into star/snowflake schemas for OLAP analytics.
 
 **Software Design** (ICT2112): Full design pipeline from architecture to construction. Coupling/cohesion are the two key internal quality metrics. The 3-Tier layered architecture separates Presentation, Domain, and Data Source concerns; each layer has specific patterns (MVC, Domain Model, Data Mapper). SOLID + GoF patterns are applied at the detailed design level. ATAM evaluates architecture against quality attributes. Design smells (Rigidity, Fragility …) signal SOLID violations.
@@ -89,6 +91,9 @@ tags: [meta, hot-cache]
 **HCI** (INF2002): Definition, UI vs UX distinction. History from Memex (1945) to ubiquitous computing (Weiser 1991) to touchscreens. Real-world design failures (Air Inter 148, Anton Yelchin, Hawaii missile alert). UCD principles, personas, paper prototyping. Needfinding methods (observation, ethnography, surveys/Likert/Semantic Differential, interviews, focus groups). Task analysis (HTA, TDH with XOR/AND/OR, knowledge-based / declarative vs procedural).
 
 ## Recent Changes
+
+- Created: `wiki/learning/scrum-open-assessment-study-notes.md` (15 traps + role/event/artifact Q&A + 25-fact reference table)
+- Updated: `wiki/sources/scrum-guide-2020.md`, `wiki/index.md`, `wiki/log.md`, `wiki/hot.md`
 
 - Created: `wiki/concepts/security-by-design-principles.md` (10 OWASP principles, design flaws vs bugs, Banana Token case study, Security Architecture physical vs logical)
 - Updated: `wiki/sources/ICT2216-secure-software-development.md` (Lecture 4 section, Lab 3 entry, new concept link)

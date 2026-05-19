@@ -9,6 +9,32 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-19 | Ingest — Scrum Open Assessment Quiz Bank
+
+- **Source**: `raw/scrum-open-quiz-questions.md` — classmarker.com Scrum Open Quiz, 29/30 (96.7%)
+- **Pages created**:
+  - [[learning/scrum-open-assessment-study-notes]] — 30-question study notes grouped by theme: 15 common traps/misconceptions, roles Q&A tables, events timebox table, artifacts+commitments table, full key-facts reference (25 facts)
+- **Pages updated**:
+  - [[sources/scrum-guide-2020]] — Learning section added
+  - [[index]] — learning page added to Learning table
+  - [[log]] — this entry
+  - [[hot]] — session summary updated
+
+---
+
+## 2026-05-19 | Ingest — The 2020 Scrum Guide
+
+- **Source**: 2020 Scrum Guide (Ken Schwaber & Jeff Sutherland) — CC BY-SA 4.0
+- **Pages created**:
+  - [[sources/scrum-guide-2020]] — source index: key facts, canonical reference metadata, related concept links
+  - [[concepts/scrum-framework]] — complete Scrum framework: theory (empiricism + lean, three pillars), five values, three accountabilities (Developers/PO/SM), five events with timeboxes, three artifacts with commitments (Product Goal/Sprint Goal/Definition of Done), quick-reference tables
+- **Pages updated**:
+  - [[index]] — new source and concept added (domain: agile-project-management)
+  - [[log]] — this entry
+  - [[hot]] — session summary and domain summary updated
+
+---
+
 ## 2026-05-19 | Ingest — ICT2216 Lecture 4: Secure Software Design
 
 - **Source**: `raw/ICT2216 Lecture 4 Secure Software Development.md`

@@ -4,8 +4,8 @@
   "title": "Ingest ICT2216 Lecture 4",
   "titleGenerationStatus": "success",
   "createdAt": 1779129910673,
-  "updatedAt": 1779130103703,
-  "lastResponseAt": 1779130103703,
+  "updatedAt": 1779181388344,
+  "lastResponseAt": 1779181388344,
   "sessionId": "1e9152b7-6375-46ff-8dac-1627dcdba2ee",
   "providerState": {
     "providerSessionId": "1e9152b7-6375-46ff-8dac-1627dcdba2ee"
@@ -13,11 +13,11 @@
   "usage": {
     "model": "sonnet",
     "inputTokens": 1,
-    "cacheCreationInputTokens": 439,
-    "cacheReadInputTokens": 54361,
+    "cacheCreationInputTokens": 287,
+    "cacheReadInputTokens": 80986,
     "contextWindow": 200000,
-    "contextTokens": 54801,
-    "percentage": 27,
+    "contextTokens": 81274,
+    "percentage": 41,
     "contextWindowIsAuthoritative": true
   }
 }

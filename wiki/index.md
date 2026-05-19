@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-05-19
+updated: 2026-05-19T00:00:00
 tags: [meta, index]
 ---
 
@@ -33,6 +33,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ICT1011-computer-organisation-architecture\|ICT1011 Computer Organisation and Architecture]] | course | computer-architecture | 2026-05-13 |
 | [[sources/ICT1012-operating-systems\|ICT1012 Operating Systems]] | course | operating-systems | 2026-05-13 |
 | [[sources/INF1005-web-systems-technologies\|INF1005 Web Systems & Technologies]] | course | web-development | 2026-05-14 |
+| [[sources/scrum-guide-2020\|The 2020 Scrum Guide]] | reference | agile-project-management | 2026-05-19 |
 
 ## Concepts
 
@@ -64,6 +65,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/owasp-top-10\|OWASP Top 10 (2025)]] | secure-software-development | high |
 | [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking & Software Assurance Frameworks]] | secure-software-development | medium |
 | [[concepts/security-by-design-principles\|Security by Design Principles (OWASP 10)]] | secure-software-development | high |
+| [[concepts/scrum-framework\|Scrum Framework]] | agile-project-management | high |
 | [[concepts/discrete-mathematics-foundations\|Discrete Mathematics Foundations]] | mathematics | medium |
 | [[concepts/combinatorics\|Combinatorics]] | mathematics | medium |
 | [[concepts/propositional-logic\|Propositional Logic]] | mathematics | medium |
@@ -118,6 +120,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/inf1008-data-structures-algorithms-study-notes\|INF1008 Data Structures & Algorithms Study Notes]] | computer-science | active |
 | [[learning/inf1005-web-systems-study-notes\|INF1005 Web Systems & Technologies Study Notes]] | web-development | active |
 | [[learning/docker-windows-crlf\|Docker on Windows: CRLF Breaks Linux Container Scripts]] | devops | resolved |
+| [[learning/scrum-open-assessment-study-notes\|Scrum Open Assessment Study Notes]] | agile-project-management | active |
 
 
 ## Synthesis
