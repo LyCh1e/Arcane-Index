@@ -26,6 +26,8 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/ICT1012-operating-systems\|ICT1012 Operating Systems]] | course notes | operating-systems | 2026-05-13 |
 | [[sources/INF1005-web-systems-technologies\|INF1005 Web Systems & Technologies]] | course notes | web-development | 2026-05-14 |
 | [[sources/scrum-guide-2020\|The 2020 Scrum Guide]] | reference | agile-project-management | 2026-05-19 |
+| [[sources/istqb-ctfl-v4\|ISTQB CTFL v4.0 (2024)]] | reference | software-engineering | 2026-05-21 |
+| [[sources/fowler-practical-test-pyramid\|The Practical Test Pyramid — Martin Fowler]] | article | software-engineering | 2026-05-21 |
 
 ## By Domain
 
@@ -60,7 +62,7 @@ Course notes, papers, books, articles, and any material ingested into this vault
 ### Secure Software Development
 | Source | Concepts |
 |--------|---------|
-| [[sources/ICT2216-secure-software-development\|ICT2216]] | [[concepts/secure-software-requirements\|Secure Software Requirements]], [[concepts/threat-modeling\|Threat Modeling]], [[concepts/owasp-top-10\|OWASP Top 10]], [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking Frameworks]], [[concepts/docker-compose\|Docker & Docker Compose]] |
+| [[sources/ICT2216-secure-software-development\|ICT2216]] | [[concepts/secure-software-requirements\|Secure Software Requirements]], [[concepts/threat-modeling\|Threat Modeling]], [[concepts/owasp-top-10\|OWASP Top 10]], [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking Frameworks]], [[concepts/docker-compose\|Docker & Docker Compose]], [[concepts/security-by-design-principles\|Security by Design Principles]] |
 
 ### Mobile Development
 | Source | Concepts |

@@ -34,6 +34,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ICT1012-operating-systems\|ICT1012 Operating Systems]] | course | operating-systems | 2026-05-13 |
 | [[sources/INF1005-web-systems-technologies\|INF1005 Web Systems & Technologies]] | course | web-development | 2026-05-14 |
 | [[sources/scrum-guide-2020\|The 2020 Scrum Guide]] | reference | agile-project-management | 2026-05-19 |
+| [[sources/istqb-ctfl-v4\|ISTQB CTFL v4.0 (2024)]] | reference | software-engineering | 2026-05-21 |
+| [[sources/fowler-practical-test-pyramid\|The Practical Test Pyramid — Martin Fowler]] | article | software-engineering | 2026-05-21 |
 
 ## Concepts
 
@@ -66,6 +68,9 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking & Software Assurance Frameworks]] | secure-software-development | medium |
 | [[concepts/security-by-design-principles\|Security by Design Principles (OWASP 10)]] | secure-software-development | high |
 | [[concepts/scrum-framework\|Scrum Framework]] | agile-project-management | high |
+| [[concepts/software-testing-fundamentals\|Software Testing Fundamentals]] | software-engineering | high |
+| [[concepts/test-driven-development\|Test-Driven Development (TDD) and BDD]] | software-engineering | high |
+| [[concepts/test-design-techniques\|Test Design Techniques]] | software-engineering | high |
 | [[concepts/discrete-mathematics-foundations\|Discrete Mathematics Foundations]] | mathematics | medium |
 | [[concepts/combinatorics\|Combinatorics]] | mathematics | medium |
 | [[concepts/propositional-logic\|Propositional Logic]] | mathematics | medium |
@@ -137,6 +142,12 @@ Master catalog of all pages. Updated on every ingest.
 | [[synthesis/web-security-ssdlc-bridge\|Web Security ↔ SSDLC: Code-Level Attacks Map to Process-Level Defences]] | web-development / secure-software-development | established |
 | [[synthesis/ict1011-ict1012-architecture-bridge\|Computer Architecture → Operating Systems: The Hardware–OS Handover]] | computer-architecture / operating-systems | established |
 | [[synthesis/rest-api-cross-stack\|REST APIs Across the Full Stack: Android ↔ Express ↔ HTTP]] | mobile-development / web-development | established |
+
+## Questions / Research
+
+| Page | Domain |
+|------|--------|
+| [[questions/research-software-testing\|Research: Software Testing]] | software-engineering |
 
 ## Gaps
 

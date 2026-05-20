@@ -9,6 +9,26 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-21 | autoresearch | Software Testing
+
+- Rounds: 3
+- Sources found: 2 (ISTQB CTFL v4.0, Fowler Practical Test Pyramid)
+- Pages created: [[concepts/software-testing-fundamentals]], [[concepts/test-driven-development]], [[concepts/test-design-techniques]], [[sources/istqb-ctfl-v4]], [[sources/fowler-practical-test-pyramid]], [[questions/research-software-testing]]
+- Synthesis: [[questions/research-software-testing]]
+- Key finding: Software testing is a three-layer pyramid (unit/integration/E2E) governed by seven ISTQB principles; TDD drives design through Red-Green-Refactor; BDD extends this to business-readable Gherkin specs; EP and BVA systematically reduce test volume while preserving defect detection.
+
+---
+
+## 2026-05-21 | wiki-lint | Health Check
+
+- Pages scanned: 117
+- Issues found: 28
+- Auto-fixed: 5 (examples/_index.md, concepts/_index.md count, sources/_index.md cross-ref, areas/agile-project-management.md created, areas/_index.md updated)
+- Needs review: counter drift (address-counter.txt=3 vs max observed c-000031; requires WSL --rebuild), dead manifest entry (DragonScale Memory.md), ~18 address-map frontmatter mismatches, mass `status:` + `created:` backfill
+- Report: [[meta/lint-report-2026-05-21]]
+
+---
+
 ## 2026-05-19 | Ingest — PSM I Cheatsheet (github.com/ambaena/scrum-psm1-cheatsheet)
 
 - **Source**: ambaena/scrum-psm1-cheatsheet — README.md + how-to-face.md

@@ -7,16 +7,16 @@ tags: [index, concepts]
 
 # Concepts
 
-58 concept pages across 12 domains, extracted from 17 ingested sources.
+59 concept pages across 12 domains, extracted from 17 ingested sources.
 
 | Domain | Pages |
 |--------|-------|
-| Software Engineering | 6 |
+| Software Engineering | 9 |
 | Computer Science | 4 |
 | Mathematics | 10 |
 | Machine Learning | 6 |
 | Database Systems | 6 |
-| Secure Software Development | 7 |
+| Secure Software Development | 6 |
 | Computer Architecture | 3 |
 | Operating Systems | 5 |
 | Web Development | 5 |
@@ -36,6 +36,9 @@ tags: [index, concepts]
 | [[concepts/solid-and-design-patterns\|SOLID Principles and Design Patterns (Full GoF)]] | INF1009 / ICT2112 | high |
 | [[concepts/software-design-process\|Software Design Process]] | ICT2112 | high |
 | [[concepts/software-architecture-patterns\|Software Architecture Patterns]] | ICT2112 | high |
+| [[concepts/software-testing-fundamentals\|Software Testing Fundamentals]] | autoresearch | high |
+| [[concepts/test-driven-development\|Test-Driven Development (TDD) and BDD]] | autoresearch | high |
+| [[concepts/test-design-techniques\|Test Design Techniques]] | autoresearch | high |
 
 ---
 

@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779280399944-3d2bok1ha",
+  "providerId": "claude",
+  "title": "Explain cross-functional Scrum teams",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779280399944,
+  "updatedAt": 1779300168508,
+  "lastResponseAt": 1779300168508,
+  "sessionId": "fc8b68b1-f060-4cf4-938f-2877cf0d176c",
+  "providerState": {
+    "providerSessionId": "fc8b68b1-f060-4cf4-938f-2877cf0d176c"
+  },
+  "currentNote": "CLAUDE.md",
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 65,
+    "cacheCreationInputTokens": 1819,
+    "cacheReadInputTokens": 115870,
+    "contextWindow": 200000,
+    "contextTokens": 117754,
+    "percentage": 59
+  }
+}
