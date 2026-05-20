@@ -18,6 +18,7 @@ Exam-prep summaries, study notes, and structured knowledge pathways for each mod
 | [[learning/docker-windows-crlf\|Docker CRLF Fix on Windows]] | ICT2216 — Secure Software Development | secure-software-development | 2026-05-11 |
 | [[learning/scrum-open-assessment-study-notes\|Scrum Open Assessment Study Notes]] | Scrum Guide 2020 | agile-project-management | 2026-05-19 |
 | [[learning/scrum-master-exam-study-notes\|Scrum Master Exam Study Notes (80 Questions)]] | Scrum Guide 2020 | agile-project-management | 2026-05-19 |
+| [[learning/psm1-cheatsheet-study-notes\|PSM I Cheatsheet Study Notes]] | ambaena/scrum-psm1-cheatsheet | agile-project-management | 2026-05-19 |
 
 ## How to Use These Notes
 

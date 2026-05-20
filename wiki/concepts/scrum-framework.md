@@ -3,7 +3,7 @@ type: concept
 title: "Scrum Framework"
 domain: agile-project-management
 complexity: high
-tags: [scrum, agile, empiricism, sprints, product-backlog, sprint-backlog, increment, definition-of-done, product-goal, sprint-goal, scrum-master, product-owner, developers, transparency, inspection, adaptation]
+tags: [scrum, agile, empiricism, sprints, product-backlog, sprint-backlog, increment, definition-of-done, product-goal, sprint-goal, scrum-master, product-owner, developers, transparency, inspection, adaptation, scaled-scrum, agile-manifesto]
 updated: 2026-05-19
 ---
 
@@ -155,6 +155,17 @@ Shorter Sprints generate more learning cycles and limit risk to a smaller time f
 
 A Sprint may be **cancelled** only by the Product Owner, and only if the Sprint Goal becomes obsolete.
 
+### Invalid Sprint Types
+
+The following are **not valid Scrum constructs** — they do not exist in the framework and indicate a misapplication of Scrum:
+
+| Invalid Type | Why It Violates Scrum |
+|---|---|
+| **Hardening / Stabilisation Sprint** | Quality is built in every Sprint via the DoD; deferring quality to a separate Sprint defeats empiricism |
+| **Sprint 0** | The first Sprint must produce a usable Increment — there is no pre-Sprint warm-up |
+| **Release Sprint** | Increments may be released at any time; releasing is not a Sprint-end gate |
+| **Design Sprint** | Design is an ongoing activity within every Sprint, not a dedicated phase |
+
 ---
 
 ### Sprint Planning
@@ -189,6 +200,11 @@ The Daily Scrum inspects progress toward the Sprint Goal and adapts the Sprint B
 | Location | Same time and place every day |
 
 Developers choose whatever structure they want, as long as the Daily Scrum focuses on progress toward the Sprint Goal and produces an actionable plan for the next day.
+
+**Role clarity:**
+- The Scrum Master **ensures the Daily Scrum occurs** — they do **not** conduct or run it
+- The Product Owner **does not attend** — unless actively working on Sprint Backlog items, in which case they participate *as a Developer*
+- The Daily Scrum is **not** a technical problem-solving meeting — problem-solving happens separately afterwards
 
 The Daily Scrum is not the only time Developers may adjust their plan — they meet throughout the day for more detailed discussions. It improves communication, identifies impediments, and promotes quick decision-making.
 
@@ -332,6 +348,22 @@ The Definition of Done is a **formal description of the state of the Increment**
 5. **Releasing need not wait for Sprint Review** — Increments may be released at any time
 6. **50% of effort should be self-managing** — Scrum Teams decide internally who does what, when, and how
 7. **The Sprint Retrospective closes the Sprint**, not the Sprint Review
+
+---
+
+## Scaled Scrum
+
+When multiple Scrum Teams work on the **same product**:
+
+| Rule | Detail |
+|---|---|
+| Product Owner | **One** per Product Goal / Product Backlog — shared across all teams |
+| Product Backlog | **One** — single source of truth regardless of team count |
+| Increment | **One integrated Increment** — all teams contribute to a single combined Increment |
+| Synchronisation | Teams **need not synchronise** with each other — coordination happens through the shared backlog and events |
+| Definition of Done | **Shared minimum** — all teams must comply; individual teams may make their DoD stricter but not weaker |
+
+> Multiple Scrum Teams working on the same product must share the same Product Owner, the same Product Backlog, and the same (or stricter) Definition of Done.
 
 ---
 

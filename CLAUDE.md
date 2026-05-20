@@ -54,6 +54,10 @@ Vault: C:\Arcane-Index
 
 Always read from the wiki and project to get context first to reduce token usage, after reading from the wiki, try to solve or help the user with the information found. If the information is not substantial enough then you may find a solution.
 
+If the wiki is not accessible, prompt the user to run
+`cd C:\Arcane-Index && python -m http.server 8000` 
+in the command prompt so that you can access it via a local host server.
+
 ### Reading from the wiki
 When you need context not in this project:
 1. Read `wiki/hot.md` first — recent context, ~500 words

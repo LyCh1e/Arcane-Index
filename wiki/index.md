@@ -122,6 +122,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/docker-windows-crlf\|Docker on Windows: CRLF Breaks Linux Container Scripts]] | devops | resolved |
 | [[learning/scrum-open-assessment-study-notes\|Scrum Open Assessment Study Notes]] | agile-project-management | active |
 | [[learning/scrum-master-exam-study-notes\|Scrum Master Exam Study Notes (80 Questions)]] | agile-project-management | active |
+| [[learning/psm1-cheatsheet-study-notes\|PSM I Cheatsheet Study Notes]] | agile-project-management | active |
 
 
 ## Synthesis

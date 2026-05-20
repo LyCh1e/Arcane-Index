@@ -9,6 +9,20 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-19 | Ingest — PSM I Cheatsheet (github.com/ambaena/scrum-psm1-cheatsheet)
+
+- **Source**: ambaena/scrum-psm1-cheatsheet — README.md + how-to-face.md
+- **Pages created**:
+  - [[learning/psm1-cheatsheet-study-notes]] — PSM I study notes: readiness check, Agile Manifesto (4 categories/12 principles), Scrum big picture diagram, invalid Sprint types (Hardening/Sprint 0/Release/Design), PB ordering factors (Value+Risk+Size+Dependencies), three progress monitoring methods (burn-down/burn-up/cumulative flow), Daily Scrum role clarity, Sprint Review undone-work rule, Retrospective full scope, SM startup actions, Scaled Scrum rules, IKIWISI/YAGNI, full definitions glossary (20 terms), two-computer open-book exam strategy, pre-exam quick-reference checklist
+- **Pages updated**:
+  - [[concepts/scrum-framework]] — added: Invalid Sprint Types section, Scaled Scrum section, Daily Scrum role clarity (SM ensures but doesn't conduct; PO doesn't attend)
+  - [[learning/_index.md]] — added PSM I cheatsheet entry
+  - [[index]] — learning page added
+  - [[log]] — this entry
+  - [[hot]] — session summary updated
+
+---
+
 ## 2026-05-19 | Ingest — Scrum Master Exam (80 Questions, YouTube Transcript)
 
 - **Source**: YouTube — "80 Scrum Master Exam Questions" (CSM / PSM / ACP prep)
