@@ -6,6 +6,8 @@ course: INF2003
 complexity: medium
 tags: [database, dbms, relational-model, acid, keys, integrity-constraints, data-abstraction, data-independence]
 updated: 2026-05-12
+status: established
+created: 2026-05-12
 ---
 
 # Relational Database Fundamentals

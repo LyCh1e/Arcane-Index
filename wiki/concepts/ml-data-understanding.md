@@ -7,6 +7,8 @@ complexity: medium
 address: c-000027
 tags: [machine-learning, EDA, data-types, leakage, feature-engineering, data-quality]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
 ---
 
 # ML Data Understanding

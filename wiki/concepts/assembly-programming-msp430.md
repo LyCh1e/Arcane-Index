@@ -6,6 +6,8 @@ source: [[sources/ICT1011-computer-organisation-architecture]]
 complexity: high
 updated: 2026-05-13
 tags: [concept, computer-architecture, msp430, assembly, modular-programming]
+status: established
+created: 2026-05-13
 ---
 
 # Assembly Programming (MSP430)

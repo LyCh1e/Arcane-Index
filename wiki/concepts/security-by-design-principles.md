@@ -5,6 +5,8 @@ domain: secure-software-development
 complexity: high
 tags: [security-design, owasp, secure-defaults, least-privilege, defence-in-depth, fail-secure, attack-surface, separation-of-duties, security-architecture, SSDLC]
 updated: 2026-05-19
+status: established
+created: 2026-05-19
 ---
 
 # Security by Design Principles

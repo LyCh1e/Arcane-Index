@@ -6,6 +6,8 @@ course: INF2003
 complexity: high
 tags: [relational-algebra, sql, ddl, dml, select, join, aggregates, subquery, query-optimisation, group-by]
 updated: 2026-05-12
+status: established
+created: 2026-05-12
 ---
 
 # Relational Algebra and SQL

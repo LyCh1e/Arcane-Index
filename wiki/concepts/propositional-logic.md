@@ -6,6 +6,9 @@ course: INF1003
 complexity: medium
 tags: [logic, propositional-logic, truth-tables, de-morgan, logical-equivalence]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000016
 ---
 
 # Propositional Logic

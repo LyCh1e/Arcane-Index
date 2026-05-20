@@ -6,6 +6,9 @@ course: INF1009
 complexity: medium
 tags: [oop, encapsulation, inheritance, polymorphism, abstraction, java, uml, relationships]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000008
 ---
 
 # OOP Four Pillars

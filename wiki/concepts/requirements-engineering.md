@@ -6,6 +6,9 @@ course: ICT2113
 complexity: high
 tags: [re, srs, bcic, mccall, irtm, heavyweight-rcm]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000002
 ---
 
 # Requirements Engineering

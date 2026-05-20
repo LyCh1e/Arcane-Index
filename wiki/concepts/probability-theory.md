@@ -7,6 +7,8 @@ complexity: medium
 address: c-000020
 tags: [probability, bayes, conditional-probability, independence]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
 ---
 
 # Probability Theory

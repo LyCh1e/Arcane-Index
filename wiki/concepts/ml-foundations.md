@@ -7,6 +7,8 @@ complexity: medium
 address: c-000026
 tags: [machine-learning, AI, supervised, unsupervised, reinforcement, CRISP-DM, business-value]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
 ---
 
 # Machine Learning Foundations

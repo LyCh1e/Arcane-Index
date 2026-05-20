@@ -6,6 +6,9 @@ course: ICT2112
 complexity: high
 tags: [solid, design-patterns, singleton, factory, abstract-factory, builder, prototype, adapter, decorator, facade, composite, proxy, observer, strategy, command, template-method, state, gof, creational, structural, behavioural]
 updated: 2026-05-12
+status: established
+created: 2026-05-12
+address: c-000009
 ---
 
 # SOLID Principles and Design Patterns

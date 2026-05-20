@@ -6,6 +6,8 @@ source: [[sources/ICT1011-computer-organisation-architecture]]
 complexity: high
 updated: 2026-05-13
 tags: [concept, computer-architecture, io, serial-communication, memory, sram, dram, paging, msp430]
+status: established
+created: 2026-05-13
 ---
 
 # I/O Interfacing and Memory Systems

@@ -21,7 +21,8 @@
       "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\tests\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
       "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\.claude\\\\agents\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
       "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\.claude\\\\commands\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
-      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\.claude\\\\skills\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})"
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Arcane-Index\\\\.claude\\\\skills\" -Recurse -Force | Select-Object FullName | ForEach-Object {$_.FullName.Substring\\(14\\)})",
+      "Bash(cd \"C:/Arcane-Index\" && for f in wiki/concepts/*.md; do\n  [ \"$f\" = \"wiki/concepts/_index.md\" ] && continue\n  has_status=$\\(grep -c \"^status:\" \"$f\" 2>/dev/null || echo 0\\)\n  has_created=$\\(grep -c \"^created:\" \"$f\" 2>/dev/null || echo 0\\)\n  if [ \"$has_status\" -eq 0 ] || [ \"$has_created\" -eq 0 ]; then\n    updated=$\\(grep \"^updated:\" \"$f\" | head -1 | sed 's/updated: *//' | tr -d '\"'\\)\n    awk -v hs=\"$has_status\" -v hc=\"$has_created\" -v upd=\"$updated\" '\n      BEGIN{cnt=0}\n      /^---$/{\n        cnt++\n        if\\(cnt==2\\){\n          if\\(hs+0==0\\) print \"status: established\"\n          if\\(hc+0==0\\) print \"created: \" upd\n        }\n      }\n      {print}\n    ' \"$f\" > /tmp/_concept_tmp.md && mv /tmp/_concept_tmp.md \"$f\"\n  fi\ndone && echo \"Done\")"
     ]
   }
 }

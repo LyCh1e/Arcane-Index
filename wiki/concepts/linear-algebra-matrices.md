@@ -7,6 +7,8 @@ complexity: high
 address: c-000022
 tags: [linear-algebra, matrices, vectors, SLE, determinants, transformations]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
 ---
 
 # Linear Algebra & Matrices

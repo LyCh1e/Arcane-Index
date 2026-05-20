@@ -6,6 +6,9 @@ course: INF2007
 complexity: high
 tags: [kotlin, coroutines, flow, stateflow, hilt, retrofit, workmanager, dependency-injection]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000011
 ---
 
 # Kotlin, Coroutines, and Android Async

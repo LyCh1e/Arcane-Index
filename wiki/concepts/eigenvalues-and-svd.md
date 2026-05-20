@@ -7,6 +7,8 @@ complexity: high
 address: c-000023
 tags: [linear-algebra, eigenvalues, eigenvectors, diagonalisation, SVD, PCA]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
 ---
 
 # Eigenvalues, Diagonalisation & Singular Value Decomposition

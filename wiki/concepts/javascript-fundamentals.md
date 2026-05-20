@@ -6,6 +6,8 @@ source: [[sources/INF1005-web-systems-technologies]]
 complexity: high
 updated: 2026-05-14
 tags: [concept, web-development, javascript, dom, events, async, es6, fetch-api]
+status: established
+created: 2026-05-14
 ---
 
 # JavaScript Fundamentals

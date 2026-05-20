@@ -6,6 +6,9 @@ course: INF1008
 complexity: high
 tags: [sorting, searching, bubble-sort, merge-sort, quick-sort, binary-search, kmp, boyer-moore]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000006
 ---
 
 # Sorting and Searching Algorithms

@@ -6,6 +6,9 @@ course: INF1003
 complexity: medium
 tags: [sets, functions, relations, equivalence-relations, partial-order, injective, surjective, bijective]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000018
 ---
 
 # Sets, Functions & Relations

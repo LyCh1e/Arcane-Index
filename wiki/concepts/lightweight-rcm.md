@@ -6,6 +6,9 @@ course: ICT2113
 complexity: medium
 tags: [agile, user-stories, usecase-2.0, xp, invest, connextra, jacobson]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000003
 ---
 
 # Lightweight Requirements Change Management

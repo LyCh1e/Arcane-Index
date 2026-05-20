@@ -6,6 +6,8 @@ source: [[sources/ICT1011-computer-organisation-architecture]]
 complexity: medium
 updated: 2026-05-13
 tags: [concept, computer-architecture, von-neumann, msp430, isa]
+status: established
+created: 2026-05-13
 ---
 
 # Computer Architecture Fundamentals

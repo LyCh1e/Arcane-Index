@@ -6,6 +6,8 @@ course: INF2003
 complexity: medium
 tags: [er-diagram, entity, relationship, cardinality, participation, weak-entity, isa, subclass, schema-conversion]
 updated: 2026-05-12
+status: established
+created: 2026-05-12
 ---
 
 # Entity-Relationship Diagrams

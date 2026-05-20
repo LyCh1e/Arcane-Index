@@ -5,6 +5,8 @@ domain: secure-software-development
 complexity: high
 tags: [security, requirements, CIA, AAA, confidentiality, integrity, availability, authentication, authorisation, accountability, owasp, swat, NIST, SSDLC]
 updated: 2026-05-15
+status: established
+created: 2026-05-15
 ---
 
 # Secure Software Requirements

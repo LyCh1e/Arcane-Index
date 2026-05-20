@@ -5,6 +5,8 @@ domain: secure-software-development
 complexity: high
 tags: [security, threat-modeling, STRIDE, attack-trees, DFD, trust-boundaries, threat-agents]
 updated: 2026-05-15
+status: established
+created: 2026-05-15
 ---
 
 # Threat Modeling

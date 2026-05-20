@@ -6,6 +6,9 @@ course: INF1008
 complexity: high
 tags: [adt, arrays, stacks, queues, linked-lists, hash-tables, trees, bst, avl, red-black, b-tree]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000005
 ---
 
 # Data Structures Fundamentals

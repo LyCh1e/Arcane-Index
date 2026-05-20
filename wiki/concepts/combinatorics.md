@@ -6,6 +6,9 @@ course: INF1003
 complexity: medium
 tags: [combinatorics, counting, permutations, combinations, pigeonhole]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000015
 ---
 
 # Combinatorics

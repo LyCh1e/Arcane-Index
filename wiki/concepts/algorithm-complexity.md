@@ -6,6 +6,9 @@ course: INF1008
 complexity: medium
 tags: [big-oh, complexity, asymptotic, master-theorem, recursion]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000004
 ---
 
 # Algorithm Complexity

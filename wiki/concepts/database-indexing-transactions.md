@@ -6,6 +6,8 @@ course: INF2003
 complexity: high
 tags: [indexing, b-plus-tree, hash-index, transactions, acid, concurrency, locking, deadlock, recovery, serializable, tcl]
 updated: 2026-05-12
+status: established
+created: 2026-05-12
 ---
 
 # Database Indexing and Transactions

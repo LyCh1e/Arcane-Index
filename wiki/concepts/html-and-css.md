@@ -6,6 +6,8 @@ source: [[sources/INF1005-web-systems-technologies]]
 complexity: medium
 updated: 2026-05-14
 tags: [concept, web-development, html, css, flexbox, grid, responsive-design, accessibility]
+status: established
+created: 2026-05-14
 ---
 
 # HTML and CSS

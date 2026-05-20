@@ -7,6 +7,8 @@ complexity: high
 address: c-000030
 tags: [machine-learning, linear-regression, gradient-descent, backpropagation, neural-networks, activation-functions, encoding]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
 ---
 
 # Neural Networks & Linear Models

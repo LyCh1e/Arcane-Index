@@ -6,6 +6,9 @@ course: INF2007
 complexity: high
 tags: [android, mvvm, jetpack-compose, room, viewmodel, navigation, lifecycle, activity]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000010
 ---
 
 # Android Architecture

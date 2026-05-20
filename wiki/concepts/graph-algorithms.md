@@ -6,6 +6,9 @@ course: INF1008
 complexity: high
 tags: [graphs, dfs, bfs, topological-sort, dijkstra, bellman-ford, prims, kruskals, mst, shortest-path]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000007
 ---
 
 # Graph Algorithms

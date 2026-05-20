@@ -6,6 +6,8 @@ course: ICT2112
 complexity: high
 tags: [software-design, quality-attributes, coupling, cohesion, atam, design-smells, construction-design, architecture-drivers]
 updated: 2026-05-12
+status: established
+created: 2026-05-12
 ---
 
 # Software Design Process

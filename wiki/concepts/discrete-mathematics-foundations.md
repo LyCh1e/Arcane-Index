@@ -6,6 +6,9 @@ course: INF1003
 complexity: medium
 tags: [sequences, number-theory, modular-arithmetic, gcd, primes, recurrence]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000014
 ---
 
 # Discrete Mathematics Foundations

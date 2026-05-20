@@ -7,6 +7,8 @@ complexity: high
 address: c-000028
 tags: [machine-learning, evaluation, cross-validation, bias-variance, confusion-matrix, precision, recall, F1, baseline]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
 ---
 
 # ML Model Training & Evaluation

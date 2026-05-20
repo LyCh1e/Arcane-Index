@@ -7,6 +7,8 @@ complexity: medium
 address: c-000019
 tags: [statistics, data, descriptive, measures]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
 ---
 
 # Descriptive Statistics

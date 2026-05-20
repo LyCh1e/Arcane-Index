@@ -7,6 +7,8 @@ complexity: high
 address: c-000024
 tags: [owasp, vulnerabilities, web-security, injection, XSS, supply-chain, cryptography]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
 ---
 
 # OWASP Top 10 (2025)

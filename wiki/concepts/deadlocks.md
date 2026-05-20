@@ -6,6 +6,8 @@ source: [[sources/ICT1012-operating-systems]]
 complexity: high
 updated: 2026-05-13
 tags: [concept, operating-systems, deadlocks, bankers-algorithm, resource-allocation, synchronisation]
+status: established
+created: 2026-05-13
 ---
 
 # Deadlocks

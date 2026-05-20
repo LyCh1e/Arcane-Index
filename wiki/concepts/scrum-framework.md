@@ -5,6 +5,8 @@ domain: agile-project-management
 complexity: high
 tags: [scrum, agile, empiricism, sprints, product-backlog, sprint-backlog, increment, definition-of-done, product-goal, sprint-goal, scrum-master, product-owner, developers, transparency, inspection, adaptation, scaled-scrum, agile-manifesto]
 updated: 2026-05-19
+status: established
+created: 2026-05-19
 ---
 
 # Scrum Framework

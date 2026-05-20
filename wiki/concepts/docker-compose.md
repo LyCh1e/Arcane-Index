@@ -5,6 +5,7 @@ domain: devops
 complexity: medium
 tags: [docker, docker-compose, containers, nginx, mysql, git, selenium, networking, volumes]
 created: 2026-05-11
+status: established
 ---
 
 # Docker and Docker Compose

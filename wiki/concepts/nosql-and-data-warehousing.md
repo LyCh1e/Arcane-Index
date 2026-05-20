@@ -6,6 +6,8 @@ course: INF2003
 complexity: medium
 tags: [nosql, mongodb, redis, cassandra, graph-database, data-warehouse, etl, star-schema, snowflake-schema, olap, oltp, blockchain]
 updated: 2026-05-12
+status: established
+created: 2026-05-12
 ---
 
 # NoSQL and Data Warehousing

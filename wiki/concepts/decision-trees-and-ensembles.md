@@ -7,6 +7,8 @@ complexity: high
 address: c-000029
 tags: [machine-learning, decision-trees, random-forest, boosting, bagging, ensemble, Gini, gradient-boosting]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
 ---
 
 # Decision Trees & Ensemble Methods

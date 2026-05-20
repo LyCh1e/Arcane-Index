@@ -7,6 +7,8 @@ complexity: high
 address: c-000021
 tags: [probability, distributions, binomial, normal, CLT, sampling]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
 ---
 
 # Probability Distributions

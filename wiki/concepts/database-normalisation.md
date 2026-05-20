@@ -6,6 +6,8 @@ course: INF2003
 complexity: high
 tags: [normalisation, functional-dependency, bcnf, 1nf, armstrong-axioms, closure, decomposition, anomalies, redundancy]
 updated: 2026-05-12
+status: established
+created: 2026-05-12
 ---
 
 # Database Normalisation

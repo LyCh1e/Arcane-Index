@@ -6,6 +6,9 @@ course: INF2002
 complexity: medium
 tags: [needfinding, observation, ethnography, surveys, interviews, focus-groups, task-analysis, hta, tdh]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000013
 ---
 
 # Needfinding and Task Analysis

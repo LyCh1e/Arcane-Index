@@ -6,6 +6,8 @@ source: [[sources/INF1005-web-systems-technologies]]
 complexity: high
 updated: 2026-05-14
 tags: [concept, web-development, security, devops, authentication, cryptography, tls, sql-injection, xss, csrf, hosting, ci-cd]
+status: established
+created: 2026-05-14
 ---
 
 # Web Security and DevOps

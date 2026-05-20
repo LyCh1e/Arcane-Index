@@ -6,6 +6,8 @@ source: [[sources/INF1005-web-systems-technologies]]
 complexity: medium
 updated: 2026-05-14
 tags: [concept, web-development, internet, http, dns, tcp-ip, networking]
+status: established
+created: 2026-05-14
 ---
 
 # Web Fundamentals (Internet, HTTP, DNS)

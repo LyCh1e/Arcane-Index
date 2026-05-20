@@ -6,6 +6,9 @@ course: INF2002
 complexity: medium
 tags: [hci, ucd, ux, ui, history, wimp, ubiquitous-computing, personas, prototyping, usability]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
+address: c-000012
 ---
 
 # HCI Fundamentals

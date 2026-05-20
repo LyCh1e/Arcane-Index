@@ -7,6 +7,8 @@ complexity: high
 address: c-000031
 tags: [machine-learning, unsupervised, k-means, DBSCAN, PCA, t-SNE, clustering, dimensionality-reduction]
 updated: 2026-05-11
+status: established
+created: 2026-05-11
 ---
 
 # Clustering & Dimensionality Reduction

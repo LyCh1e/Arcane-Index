@@ -6,6 +6,8 @@ course: ICT2112
 complexity: high
 tags: [architecture, layered-architecture, mvc, mvvm, mvp, soa, microservices, data-mapper, active-record, circuit-breaker, patterns]
 updated: 2026-05-12
+status: established
+created: 2026-05-12
 ---
 
 # Software Architecture Patterns
