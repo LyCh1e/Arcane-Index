@@ -26,7 +26,7 @@ Popularised by Kent Beck as part of Extreme Programming (XP); described in *Test
 ### The Red-Green-Refactor Cycle
 
 ```
-  ┌─────────────────────────────────────────────────────┐
+  ┌──────────────────────────────────────────────────────┐
   │                                                      │
   │   1. RED  → Write a small failing test               │
   │      ↓                                               │
@@ -36,7 +36,7 @@ Popularised by Kent Beck as part of Extreme Programming (XP); described in *Test
   │      ↓                                               │
   │   (repeat for the next behaviour)                    │
   │                                                      │
-  └─────────────────────────────────────────────────────┘
+  └──────────────────────────────────────────────────────┘
 ```
 
 | Phase | Goal | Rule |
