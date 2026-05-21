@@ -147,7 +147,7 @@ Master catalog of all pages. Updated on every ingest.
 
 | Page | Domain |
 |------|--------|
-| [[questions/research-software-testing\|Research: Software Testing]] | software-engineering |
+| [[research-software-testing\|Research: Software Testing]] | software-engineering |
 
 ## Gaps
 

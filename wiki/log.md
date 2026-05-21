@@ -13,8 +13,8 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 - Rounds: 3
 - Sources found: 2 (ISTQB CTFL v4.0, Fowler Practical Test Pyramid)
-- Pages created: [[concepts/software-testing-fundamentals]], [[concepts/test-driven-development]], [[concepts/test-design-techniques]], [[sources/istqb-ctfl-v4]], [[sources/fowler-practical-test-pyramid]], [[questions/research-software-testing]]
-- Synthesis: [[questions/research-software-testing]]
+- Pages created: [[concepts/software-testing-fundamentals]], [[concepts/test-driven-development]], [[concepts/test-design-techniques]], [[sources/istqb-ctfl-v4]], [[sources/fowler-practical-test-pyramid]], [[research-software-testing]]
+- Synthesis: [[research-software-testing]]
 - Key finding: Software testing is a three-layer pyramid (unit/integration/E2E) governed by seven ISTQB principles; TDD drives design through Red-Green-Refactor; BDD extends this to business-readable Gherkin specs; EP and BVA systematically reduce test volume while preserving defect detection.
 
 ---
