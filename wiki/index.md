@@ -36,6 +36,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/scrum-guide-2020\|The 2020 Scrum Guide]] | reference | agile-project-management | 2026-05-19 |
 | [[sources/istqb-ctfl-v4\|ISTQB CTFL v4.0 (2024)]] | reference | software-engineering | 2026-05-21 |
 | [[sources/fowler-practical-test-pyramid\|The Practical Test Pyramid — Martin Fowler]] | article | software-engineering | 2026-05-21 |
+| [[sources/INF1006-computer-networks\|INF1006 Computer Networks]] | course | computer-networks | 2026-05-22 |
 
 ## Concepts
 
@@ -100,6 +101,13 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/javascript-fundamentals\|JavaScript Fundamentals]] | web-development | high |
 | [[concepts/server-side-web-development\|Server-Side Web Development (PHP, Node.js, Databases)]] | web-development | high |
 | [[concepts/web-security-and-devops\|Web Security and DevOps]] | web-development | high |
+| [[concepts/tcp-ip-network-model\|TCP/IP Network Model]] | computer-networks | medium |
+| [[concepts/data-link-layer-ethernet\|Data Link Layer & Ethernet]] | computer-networks | high |
+| [[concepts/ip-addressing\|IP Addressing (IPv4 & IPv6)]] | computer-networks | high |
+| [[concepts/network-layer-protocols\|Network Layer Protocols (OSPF, BGP, ICMP, ARP)]] | computer-networks | high |
+| [[concepts/transport-layer-tcp-udp\|Transport Layer — TCP & UDP]] | computer-networks | high |
+| [[concepts/wireless-and-iot\|Wireless Networking & IoT]] | computer-networks | medium |
+| [[concepts/application-layer-dhcp-dns\|Application Layer — DHCP & DNS]] | computer-networks | medium |
 
 ## Examples
 

@@ -33,8 +33,7 @@
               "title": "secure-software-requirements"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -242,8 +241,26 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "0cda60d0fde4b94a",
+  "active": "6492dbdec43436fa",
   "lastOpenFiles": [
+    "wiki/hot.md.tmp.22716.c265efe7bd91",
+    "wiki/index.md.tmp.22716.158542c2168f",
+    "wiki/areas/computer-networks.md",
+    "wiki/areas/computer-networks.md.tmp.22716.0ee26843e6a1",
+    "wiki/concepts/application-layer-dhcp-dns.md",
+    "wiki/concepts/wireless-and-iot.md",
+    "wiki/concepts/transport-layer-tcp-udp.md",
+    "wiki/concepts/network-layer-protocols.md",
+    "wiki/concepts/network-layer-protocols.md.tmp.22716.698165c74a7d",
+    "wiki/concepts/ip-addressing.md",
+    "wiki/concepts/ip-addressing.md.tmp.22716.9e6e6600950e",
+    "wiki/concepts/data-link-layer-ethernet.md",
+    "wiki/concepts/tcp-ip-network-model.md",
+    "wiki/concepts/tcp-ip-network-model.md.tmp.22716.3909bacfa36e",
+    "wiki/sources/INF1006-computer-networks.md",
+    "wiki/sources/INF1006-computer-networks.md.tmp.22716.f6f5ae6b73c3",
+    "raw/INF1006 Computer Networks Notes.md",
+    "wiki/concepts/secure-software-requirements.md",
     "wiki/areas/secure-software-development.md",
     "wiki/concepts/test-driven-development.md",
     "wiki/sources/fowler-practical-test-pyramid.md",
@@ -262,24 +279,6 @@
     "wiki/learning/psm1-cheatsheet-study-notes.md",
     "wiki/learning/scrum-master-exam-study-notes.md",
     "wiki/learning/scrum-open-assessment-study-notes.md",
-    "CLAUDE.md",
-    "wiki/learning/inf1008-data-structures-algorithms-study-notes.md",
-    "wiki/learning/inf1005-web-systems-study-notes.md",
-    "wiki/index.md",
-    "wiki/overview.md",
-    "AGENTS.md",
-    "wiki/log.md",
-    "wiki/hot.md.tmp.23972.0efda22745e2",
-    "wiki/learning/_index.md.tmp.23972.d569c6f427fc",
-    "wiki/learning/psm1-cheatsheet-study-notes.md.tmp.23972.777ac9cc5790",
-    "wiki/sources/_index.md.tmp.33232.1db9b3ddc1f8",
-    "wiki/learning/_index.md.tmp.33232.c6af5668e8c7",
-    "wiki/learning/scrum-master-exam-study-notes.md.tmp.33232.3072e3d8f21a",
-    "wiki/learning/_index.md",
-    "wiki/concepts/scrum-framework.md",
-    "raw/scrum-open-quiz-questions.md",
-    "wiki/sources/scrum-guide-2020.md",
-    "wiki/concepts/security-by-design-principles.md",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",

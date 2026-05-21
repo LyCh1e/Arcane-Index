@@ -7,7 +7,7 @@ tags: [index, concepts]
 
 # Concepts
 
-59 concept pages across 12 domains, extracted from 17 ingested sources.
+66 concept pages across 13 domains, extracted from 18 ingested sources.
 
 | Domain | Pages |
 |--------|-------|
@@ -23,6 +23,7 @@ tags: [index, concepts]
 | Mobile Development | 2 |
 | HCI | 2 |
 | Agile Project Management | 1 |
+| Computer Networks | 7 |
 
 ---
 
@@ -182,6 +183,20 @@ tags: [index, concepts]
 | Page | Source | Complexity |
 |------|--------|------------|
 | [[concepts/scrum-framework\|Scrum Framework]] | 2020 Scrum Guide | high |
+
+---
+
+## Computer Networks
+
+| Page | Source | Complexity |
+|------|--------|------------|
+| [[concepts/tcp-ip-network-model\|TCP/IP Network Model]] | INF1006 | medium |
+| [[concepts/data-link-layer-ethernet\|Data Link Layer & Ethernet]] | INF1006 | high |
+| [[concepts/ip-addressing\|IP Addressing (IPv4 & IPv6)]] | INF1006 | high |
+| [[concepts/network-layer-protocols\|Network Layer Protocols (OSPF, BGP, ICMP, ARP)]] | INF1006 | high |
+| [[concepts/transport-layer-tcp-udp\|Transport Layer — TCP & UDP]] | INF1006 | high |
+| [[concepts/wireless-and-iot\|Wireless Networking & IoT]] | INF1006 | medium |
+| [[concepts/application-layer-dhcp-dns\|Application Layer — DHCP & DNS]] | INF1006 | medium |
 
 ---
 

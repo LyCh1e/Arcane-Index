@@ -9,6 +9,26 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-22 | ingest | INF1006 Computer Networks
+
+- Source: `raw/INF1006 Computer Networks Notes.md`
+- Source index: [[sources/INF1006-computer-networks]] (c-000032)
+- Concept pages created (7):
+  - [[concepts/tcp-ip-network-model]] (c-000033)
+  - [[concepts/data-link-layer-ethernet]] (c-000034)
+  - [[concepts/ip-addressing]] (c-000035)
+  - [[concepts/network-layer-protocols]] (c-000036)
+  - [[concepts/transport-layer-tcp-udp]] (c-000037)
+  - [[concepts/wireless-and-iot]] (c-000038)
+  - [[concepts/application-layer-dhcp-dns]] (c-000039)
+- Area page created: [[areas/computer-networks]] (c-000040)
+- Address counter updated: 41
+- Manifest updated with 9 new address_map entries + INF1006 sources entry
+- Indexes updated: wiki/index.md, wiki/concepts/_index.md, wiki/areas/_index.md
+- Domain added: computer-networks (13th domain)
+
+---
+
 ## 2026-05-21 | autoresearch | Software Testing
 
 - Rounds: 3

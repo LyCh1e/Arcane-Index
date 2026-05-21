@@ -123,6 +123,22 @@
         "wiki/concepts/predicate-logic-and-proofs.md",
         "wiki/concepts/sets-functions-relations.md"
       ]
+    },
+    "raw/INF1006 Computer Networks Notes.md": {
+      "ingested": "2026-05-22",
+      "course": "INF1006",
+      "title": "Computer Networks",
+      "domain": "computer-networks",
+      "source_index": "wiki/sources/INF1006-computer-networks.md",
+      "concept_pages": [
+        "wiki/concepts/tcp-ip-network-model.md",
+        "wiki/concepts/data-link-layer-ethernet.md",
+        "wiki/concepts/ip-addressing.md",
+        "wiki/concepts/network-layer-protocols.md",
+        "wiki/concepts/transport-layer-tcp-udp.md",
+        "wiki/concepts/wireless-and-iot.md",
+        "wiki/concepts/application-layer-dhcp-dns.md"
+      ]
     }
   },
   "address_map": {
@@ -163,6 +179,15 @@
     "wiki/concepts/ml-model-training-evaluation.md": "c-000028",
     "wiki/concepts/decision-trees-and-ensembles.md": "c-000029",
     "wiki/concepts/neural-networks-linear-models.md": "c-000030",
-    "wiki/concepts/clustering-and-dimensionality-reduction.md": "c-000031"
+    "wiki/concepts/clustering-and-dimensionality-reduction.md": "c-000031",
+    "wiki/sources/INF1006-computer-networks.md": "c-000032",
+    "wiki/concepts/tcp-ip-network-model.md": "c-000033",
+    "wiki/concepts/data-link-layer-ethernet.md": "c-000034",
+    "wiki/concepts/ip-addressing.md": "c-000035",
+    "wiki/concepts/network-layer-protocols.md": "c-000036",
+    "wiki/concepts/transport-layer-tcp-udp.md": "c-000037",
+    "wiki/concepts/wireless-and-iot.md": "c-000038",
+    "wiki/concepts/application-layer-dhcp-dns.md": "c-000039",
+    "wiki/areas/computer-networks.md": "c-000040"
   }
 }
