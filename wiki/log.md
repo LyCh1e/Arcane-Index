@@ -9,6 +9,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-22 | ingest | Learnix CTk teardown + file refactor
+
+- Source: ICT2114 ITP project (Learnix), `src/ui/auth_ui.py` + `src/ui/chat_ui.py`
+- Learning page created: [[learning/customtkinter-after-teardown]] — root cause analysis and 3-layer fix for CTk 5.2.2 `invalid command name` / `application has been destroyed` Tcl errors; includes `sys.path` / `load_dotenv` path update notes for moved files
+- Concept page created: [[concepts/customtkinter-window-lifecycle]] — reusable teardown pattern: `quit()` → `after_cancel` loop → `destroy()` + Tcl `bgerror` override; covers plain `CTk()` wrapper and `CTk` subclass variants
+- Indexes updated: `wiki/index.md` (Concepts + Learning tables), `wiki/hot.md`
+
+---
+
 ## 2026-05-22 | ingest | INF1006 Computer Networks
 
 - Source: `raw/INF1006 Computer Networks Notes.md`

@@ -108,6 +108,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/transport-layer-tcp-udp\|Transport Layer — TCP & UDP]] | computer-networks | high |
 | [[concepts/wireless-and-iot\|Wireless Networking & IoT]] | computer-networks | medium |
 | [[concepts/application-layer-dhcp-dns\|Application Layer — DHCP & DNS]] | computer-networks | medium |
+| [[concepts/customtkinter-window-lifecycle\|CustomTkinter Window Lifecycle & Teardown]] | python-gui | medium |
 
 ## Examples
 
@@ -136,6 +137,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/scrum-open-assessment-study-notes\|Scrum Open Assessment Study Notes]] | agile-project-management | active |
 | [[learning/scrum-master-exam-study-notes\|Scrum Master Exam Study Notes (80 Questions)]] | agile-project-management | active |
 | [[learning/psm1-cheatsheet-study-notes\|PSM I Cheatsheet Study Notes]] | agile-project-management | active |
+| [[learning/customtkinter-after-teardown\|CustomTkinter: `invalid command name` on Window Teardown]] | python-gui | resolved |
 
 
 ## Synthesis
