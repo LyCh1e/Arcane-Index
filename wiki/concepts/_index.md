@@ -7,11 +7,11 @@ tags: [index, concepts]
 
 # Concepts
 
-71 concept pages across 14 domains, extracted from 19 ingested sources.
+75 concept pages across 14 domains, extracted from 20 ingested sources.
 
 | Domain | Pages |
 |--------|-------|
-| Software Engineering | 9 |
+| Software Engineering | 13 |
 | Computer Science | 4 |
 | Mathematics | 10 |
 | Machine Learning | 6 |
@@ -41,6 +41,10 @@ tags: [index, concepts]
 | [[concepts/software-testing-fundamentals\|Software Testing Fundamentals]] | autoresearch | high |
 | [[concepts/test-driven-development\|Test-Driven Development (TDD) and BDD]] | autoresearch | high |
 | [[concepts/test-design-techniques\|Test Design Techniques]] | autoresearch | high |
+| [[concepts/sdlc-models\|SDLC Models]] | INF2001 | medium |
+| [[concepts/uml-modelling\|UML Modelling]] | INF2001 | high |
+| [[concepts/software-project-management\|Software Project Management]] | INF2001 | medium |
+| [[concepts/software-configuration-management\|Software Configuration Management]] | INF2001 | medium |
 
 ---
 

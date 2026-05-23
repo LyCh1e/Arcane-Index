@@ -9,6 +9,24 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-23 | ingest | INF2001 Introduction to Software Engineering
+
+- Source: `raw/INF2001 Intro To Software Engineering Notes.md`
+- Source index: [[sources/INF2001-intro-software-engineering]] (c-000048)
+- Concept pages created (4):
+  - [[concepts/sdlc-models]] (c-000049)
+  - [[concepts/uml-modelling]] (c-000050)
+  - [[concepts/software-project-management]] (c-000051)
+  - [[concepts/software-configuration-management]] (c-000052)
+- Note: Weeks 2 (RE), 8–9 (design/architecture/GoF), 10–11 (testing/refactoring) cross-reference existing concept pages rather than duplicating them
+- Address counter updated: 53
+- Manifest updated with 5 new address_map entries + INF2001 sources entry
+- Indexes updated: wiki/index.md, wiki/concepts/_index.md
+- Domain: software-engineering (existing domain, +4 pages → 13 total)
+- Cross-domain connections: SCM + CI/CD → DevOps/web-development; SDLC models → agile project management; UML → all SE concept pages
+
+---
+
 ## 2026-05-23 | ingest | INF1002 Programming Fundamentals
 
 - Source: `raw/INF1002 Programming Fundamentals Notes.md`

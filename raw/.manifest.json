@@ -124,6 +124,19 @@
         "wiki/concepts/sets-functions-relations.md"
       ]
     },
+    "raw/INF2001 Intro To Software Engineering Notes.md": {
+      "ingested": "2026-05-23",
+      "course": "INF2001",
+      "title": "Introduction to Software Engineering",
+      "domain": "software-engineering",
+      "source_index": "wiki/sources/INF2001-intro-software-engineering.md",
+      "concept_pages": [
+        "wiki/concepts/sdlc-models.md",
+        "wiki/concepts/uml-modelling.md",
+        "wiki/concepts/software-project-management.md",
+        "wiki/concepts/software-configuration-management.md"
+      ]
+    },
     "raw/INF1002 Programming Fundamentals Notes.md": {
       "ingested": "2026-05-23",
       "course": "INF1002",
@@ -209,6 +222,11 @@
     "wiki/concepts/python-functions-and-modules.md": "c-000044",
     "wiki/concepts/c-programming-fundamentals.md": "c-000045",
     "wiki/concepts/c-pointers-memory-and-data-structures.md": "c-000046",
-    "wiki/areas/programming-fundamentals.md": "c-000047"
+    "wiki/areas/programming-fundamentals.md": "c-000047",
+    "wiki/sources/INF2001-intro-software-engineering.md": "c-000048",
+    "wiki/concepts/sdlc-models.md": "c-000049",
+    "wiki/concepts/uml-modelling.md": "c-000050",
+    "wiki/concepts/software-project-management.md": "c-000051",
+    "wiki/concepts/software-configuration-management.md": "c-000052"
   }
 }

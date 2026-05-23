@@ -38,6 +38,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/fowler-practical-test-pyramid\|The Practical Test Pyramid — Martin Fowler]] | article | software-engineering | 2026-05-21 |
 | [[sources/INF1006-computer-networks\|INF1006 Computer Networks]] | course | computer-networks | 2026-05-22 |
 | [[sources/INF1002-programming-fundamentals\|INF1002 Programming Fundamentals]] | course | programming-fundamentals | 2026-05-23 |
+| [[sources/INF2001-intro-software-engineering\|INF2001 Introduction to Software Engineering]] | course | software-engineering | 2026-05-23 |
 
 ## Concepts
 
@@ -115,6 +116,10 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/python-functions-and-modules\|Python Functions, Modules & Functional Programming]] | programming-fundamentals | medium |
 | [[concepts/c-programming-fundamentals\|C Programming Fundamentals]] | programming-fundamentals | high |
 | [[concepts/c-pointers-memory-and-data-structures\|C Pointers, Memory & Data Structures]] | programming-fundamentals | high |
+| [[concepts/sdlc-models\|SDLC Models]] | software-engineering | medium |
+| [[concepts/uml-modelling\|UML Modelling]] | software-engineering | high |
+| [[concepts/software-project-management\|Software Project Management]] | software-engineering | medium |
+| [[concepts/software-configuration-management\|Software Configuration Management]] | software-engineering | medium |
 
 ## Examples
 
