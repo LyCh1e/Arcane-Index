@@ -9,6 +9,25 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-23 | ingest | INF2004 Embedded Systems Programming
+
+- Source: `raw/INF2004 Embedded Systems Programming Notes.md`
+- Source index: [[sources/INF2004-embedded-systems-programming]] (c-000053)
+- Concept pages created (5):
+  - [[concepts/embedded-systems-fundamentals]] (c-000054)
+  - [[concepts/embedded-io-and-interrupts]] (c-000055)
+  - [[concepts/embedded-timers-and-rtos]] (c-000056)
+  - [[concepts/embedded-testing-and-optimisation]] (c-000057)
+  - [[concepts/embedded-sensor-fusion-and-edge]] (c-000058)
+- Area page created: [[areas/embedded-systems]] (c-000059)
+- Address counter updated: 60
+- Manifest updated with 7 new address_map entries + INF2004 sources entry
+- Indexes updated: wiki/index.md, wiki/concepts/_index.md, wiki/areas/_index.md
+- Domain: embedded-systems (new domain #15, 5 concept pages)
+- Coverage: Raspberry Pi Pico (RP2040), real-time taxonomy, hardware taxonomy, build pipeline, startup code, V-model, case studies (Therac-25/Ariane 5/Toyota), interrupt handling (IVT/ISR/stack), polling vs interrupts, timers/PWM/WDT, RTOS (task lifecycle/context switch/scheduling), FSM, testing (traceability/unit/integration/system), optimisation (power/performance/memory), sensor fusion, edge computing, TinyML
+
+---
+
 ## 2026-05-23 | ingest | INF2001 Introduction to Software Engineering
 
 - Source: `raw/INF2001 Intro To Software Engineering Notes.md`

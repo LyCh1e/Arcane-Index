@@ -166,6 +166,20 @@
         "wiki/concepts/wireless-and-iot.md",
         "wiki/concepts/application-layer-dhcp-dns.md"
       ]
+    },
+    "raw/INF2004 Embedded Systems Programming Notes.md": {
+      "ingested": "2026-05-23",
+      "course": "INF2004",
+      "title": "Embedded Systems Programming",
+      "domain": "embedded-systems",
+      "source_index": "wiki/sources/INF2004-embedded-systems-programming.md",
+      "concept_pages": [
+        "wiki/concepts/embedded-systems-fundamentals.md",
+        "wiki/concepts/embedded-io-and-interrupts.md",
+        "wiki/concepts/embedded-timers-and-rtos.md",
+        "wiki/concepts/embedded-testing-and-optimisation.md",
+        "wiki/concepts/embedded-sensor-fusion-and-edge.md"
+      ]
     }
   },
   "address_map": {
@@ -227,6 +241,13 @@
     "wiki/concepts/sdlc-models.md": "c-000049",
     "wiki/concepts/uml-modelling.md": "c-000050",
     "wiki/concepts/software-project-management.md": "c-000051",
-    "wiki/concepts/software-configuration-management.md": "c-000052"
+    "wiki/concepts/software-configuration-management.md": "c-000052",
+    "wiki/sources/INF2004-embedded-systems-programming.md": "c-000053",
+    "wiki/concepts/embedded-systems-fundamentals.md": "c-000054",
+    "wiki/concepts/embedded-io-and-interrupts.md": "c-000055",
+    "wiki/concepts/embedded-timers-and-rtos.md": "c-000056",
+    "wiki/concepts/embedded-testing-and-optimisation.md": "c-000057",
+    "wiki/concepts/embedded-sensor-fusion-and-edge.md": "c-000058",
+    "wiki/areas/embedded-systems.md": "c-000059"
   }
 }

@@ -1,13 +1,13 @@
 ---
 type: index
 title: "Concepts Index"
-updated: 2026-05-19
+updated: 2026-05-23
 tags: [index, concepts]
 ---
 
 # Concepts
 
-75 concept pages across 14 domains, extracted from 20 ingested sources.
+80 concept pages across 15 domains, extracted from 21 ingested sources.
 
 | Domain | Pages |
 |--------|-------|
@@ -25,6 +25,7 @@ tags: [index, concepts]
 | Agile Project Management | 1 |
 | Computer Networks | 7 |
 | Programming Fundamentals | 5 |
+| Embedded Systems | 5 |
 
 ---
 
@@ -217,6 +218,18 @@ tags: [index, concepts]
 
 ---
 
+## Embedded Systems
+
+| Page | Source | Complexity |
+|------|--------|------------|
+| [[concepts/embedded-systems-fundamentals\|Embedded Systems Fundamentals]] | INF2004 | high |
+| [[concepts/embedded-io-and-interrupts\|Embedded I/O and Interrupts]] | INF2004 | high |
+| [[concepts/embedded-timers-and-rtos\|Timers, PWM, RTOS, and FSM]] | INF2004 | high |
+| [[concepts/embedded-testing-and-optimisation\|Embedded Testing and Optimisation]] | INF2004 | high |
+| [[concepts/embedded-sensor-fusion-and-edge\|Sensor Fusion and Edge Computing]] | INF2004 | high |
+
+---
+
 ## Connections Map
 
 ```
@@ -243,4 +256,10 @@ Database Systems ─────────────────────
 
 Computer Science ─────────────────────────► Database Systems
   (B-Trees algorithmic view)                  (B+ tree index structures)
+
+C Programming ────────────────────────────► Embedded Systems
+  (pointers, structs, memory management)      (bare-metal firmware, ISRs, device drivers)
+
+Machine Learning ─────────────────────────► Embedded Systems
+  (model quantisation, CNNs, inference)       (TinyML, on-device inference)
 ```

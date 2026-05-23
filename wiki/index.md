@@ -39,6 +39,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/INF1006-computer-networks\|INF1006 Computer Networks]] | course | computer-networks | 2026-05-22 |
 | [[sources/INF1002-programming-fundamentals\|INF1002 Programming Fundamentals]] | course | programming-fundamentals | 2026-05-23 |
 | [[sources/INF2001-intro-software-engineering\|INF2001 Introduction to Software Engineering]] | course | software-engineering | 2026-05-23 |
+| [[sources/INF2004-embedded-systems-programming\|INF2004 Embedded Systems Programming]] | course | embedded-systems | 2026-05-23 |
 
 ## Concepts
 
@@ -120,6 +121,11 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/uml-modelling\|UML Modelling]] | software-engineering | high |
 | [[concepts/software-project-management\|Software Project Management]] | software-engineering | medium |
 | [[concepts/software-configuration-management\|Software Configuration Management]] | software-engineering | medium |
+| [[concepts/embedded-systems-fundamentals\|Embedded Systems Fundamentals]] | embedded-systems | high |
+| [[concepts/embedded-io-and-interrupts\|Embedded I/O and Interrupts]] | embedded-systems | high |
+| [[concepts/embedded-timers-and-rtos\|Timers, PWM, RTOS, and FSM]] | embedded-systems | high |
+| [[concepts/embedded-testing-and-optimisation\|Embedded Testing and Optimisation]] | embedded-systems | high |
+| [[concepts/embedded-sensor-fusion-and-edge\|Sensor Fusion and Edge Computing]] | embedded-systems | high |
 
 ## Examples
 

@@ -1,7 +1,7 @@
 ---
 type: index
 title: "Areas Index"
-updated: 2026-05-14
+updated: 2026-05-23
 tags: [index, areas]
 ---
 
@@ -25,3 +25,4 @@ Domain overview pages — one per academic discipline or knowledge area. Each ar
 | [[areas/agile-project-management\|Agile Project Management]] | 1 | Scrum Guide 2020 | 2026-05-21 |
 | [[areas/computer-networks\|Computer Networks]] | 7 | INF1006 | 2026-05-22 |
 | [[areas/programming-fundamentals\|Programming Fundamentals]] | 5 | INF1002 | 2026-05-23 |
+| [[areas/embedded-systems\|Embedded Systems]] | 5 | INF2004 | 2026-05-23 |

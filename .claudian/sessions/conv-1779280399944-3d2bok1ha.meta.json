@@ -4,8 +4,8 @@
   "title": "Explain cross-functional Scrum teams",
   "titleGenerationStatus": "success",
   "createdAt": 1779280399944,
-  "updatedAt": 1779550294978,
-  "lastResponseAt": 1779550294978,
+  "updatedAt": 1779551491887,
+  "lastResponseAt": 1779551491887,
   "sessionId": "fc8b68b1-f060-4cf4-938f-2877cf0d176c",
   "providerState": {
     "providerSessionId": "fc8b68b1-f060-4cf4-938f-2877cf0d176c"
@@ -14,11 +14,11 @@
   "usage": {
     "model": "sonnet",
     "inputTokens": 1,
-    "cacheCreationInputTokens": 1010,
-    "cacheReadInputTokens": 153461,
+    "cacheCreationInputTokens": 2125,
+    "cacheReadInputTokens": 106923,
     "contextWindow": 200000,
-    "contextTokens": 154472,
-    "percentage": 77,
+    "contextTokens": 109049,
+    "percentage": 55,
     "contextWindowIsAuthoritative": true
   }
 }
