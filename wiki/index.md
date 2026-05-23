@@ -37,6 +37,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/istqb-ctfl-v4\|ISTQB CTFL v4.0 (2024)]] | reference | software-engineering | 2026-05-21 |
 | [[sources/fowler-practical-test-pyramid\|The Practical Test Pyramid — Martin Fowler]] | article | software-engineering | 2026-05-21 |
 | [[sources/INF1006-computer-networks\|INF1006 Computer Networks]] | course | computer-networks | 2026-05-22 |
+| [[sources/INF1002-programming-fundamentals\|INF1002 Programming Fundamentals]] | course | programming-fundamentals | 2026-05-23 |
 
 ## Concepts
 
@@ -109,6 +110,11 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/wireless-and-iot\|Wireless Networking & IoT]] | computer-networks | medium |
 | [[concepts/application-layer-dhcp-dns\|Application Layer — DHCP & DNS]] | computer-networks | medium |
 | [[concepts/customtkinter-window-lifecycle\|CustomTkinter Window Lifecycle & Teardown]] | python-gui | medium |
+| [[concepts/python-fundamentals\|Python Fundamentals]] | programming-fundamentals | medium |
+| [[concepts/python-data-structures-and-io\|Python Data Structures & File I/O]] | programming-fundamentals | medium |
+| [[concepts/python-functions-and-modules\|Python Functions, Modules & Functional Programming]] | programming-fundamentals | medium |
+| [[concepts/c-programming-fundamentals\|C Programming Fundamentals]] | programming-fundamentals | high |
+| [[concepts/c-pointers-memory-and-data-structures\|C Pointers, Memory & Data Structures]] | programming-fundamentals | high |
 
 ## Examples
 

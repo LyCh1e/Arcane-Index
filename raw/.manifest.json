@@ -124,6 +124,20 @@
         "wiki/concepts/sets-functions-relations.md"
       ]
     },
+    "raw/INF1002 Programming Fundamentals Notes.md": {
+      "ingested": "2026-05-23",
+      "course": "INF1002",
+      "title": "Programming Fundamentals",
+      "domain": "programming-fundamentals",
+      "source_index": "wiki/sources/INF1002-programming-fundamentals.md",
+      "concept_pages": [
+        "wiki/concepts/python-fundamentals.md",
+        "wiki/concepts/python-data-structures-and-io.md",
+        "wiki/concepts/python-functions-and-modules.md",
+        "wiki/concepts/c-programming-fundamentals.md",
+        "wiki/concepts/c-pointers-memory-and-data-structures.md"
+      ]
+    },
     "raw/INF1006 Computer Networks Notes.md": {
       "ingested": "2026-05-22",
       "course": "INF1006",
@@ -188,6 +202,13 @@
     "wiki/concepts/transport-layer-tcp-udp.md": "c-000037",
     "wiki/concepts/wireless-and-iot.md": "c-000038",
     "wiki/concepts/application-layer-dhcp-dns.md": "c-000039",
-    "wiki/areas/computer-networks.md": "c-000040"
+    "wiki/areas/computer-networks.md": "c-000040",
+    "wiki/sources/INF1002-programming-fundamentals.md": "c-000041",
+    "wiki/concepts/python-fundamentals.md": "c-000042",
+    "wiki/concepts/python-data-structures-and-io.md": "c-000043",
+    "wiki/concepts/python-functions-and-modules.md": "c-000044",
+    "wiki/concepts/c-programming-fundamentals.md": "c-000045",
+    "wiki/concepts/c-pointers-memory-and-data-structures.md": "c-000046",
+    "wiki/areas/programming-fundamentals.md": "c-000047"
   }
 }

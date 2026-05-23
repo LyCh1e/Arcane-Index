@@ -24,3 +24,4 @@ Domain overview pages — one per academic discipline or knowledge area. Each ar
 | [[areas/hci\|Human-Computer Interaction]] | 2 | INF2002 | 2026-05-15 |
 | [[areas/agile-project-management\|Agile Project Management]] | 1 | Scrum Guide 2020 | 2026-05-21 |
 | [[areas/computer-networks\|Computer Networks]] | 7 | INF1006 | 2026-05-22 |
+| [[areas/programming-fundamentals\|Programming Fundamentals]] | 5 | INF1002 | 2026-05-23 |

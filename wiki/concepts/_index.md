@@ -7,7 +7,7 @@ tags: [index, concepts]
 
 # Concepts
 
-66 concept pages across 13 domains, extracted from 18 ingested sources.
+71 concept pages across 14 domains, extracted from 19 ingested sources.
 
 | Domain | Pages |
 |--------|-------|
@@ -24,6 +24,7 @@ tags: [index, concepts]
 | HCI | 2 |
 | Agile Project Management | 1 |
 | Computer Networks | 7 |
+| Programming Fundamentals | 5 |
 
 ---
 
@@ -197,6 +198,18 @@ tags: [index, concepts]
 | [[concepts/transport-layer-tcp-udp\|Transport Layer — TCP & UDP]] | INF1006 | high |
 | [[concepts/wireless-and-iot\|Wireless Networking & IoT]] | INF1006 | medium |
 | [[concepts/application-layer-dhcp-dns\|Application Layer — DHCP & DNS]] | INF1006 | medium |
+
+---
+
+## Programming Fundamentals
+
+| Page | Source | Complexity |
+|------|--------|------------|
+| [[concepts/python-fundamentals\|Python Fundamentals]] | INF1002 | medium |
+| [[concepts/python-data-structures-and-io\|Python Data Structures & File I/O]] | INF1002 | medium |
+| [[concepts/python-functions-and-modules\|Python Functions, Modules & Functional Programming]] | INF1002 | medium |
+| [[concepts/c-programming-fundamentals\|C Programming Fundamentals]] | INF1002 | high |
+| [[concepts/c-pointers-memory-and-data-structures\|C Pointers, Memory & Data Structures]] | INF1002 | high |
 
 ---
 

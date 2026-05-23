@@ -9,6 +9,25 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-23 | ingest | INF1002 Programming Fundamentals
+
+- Source: `raw/INF1002 Programming Fundamentals Notes.md`
+- Source index: [[sources/INF1002-programming-fundamentals]] (c-000041)
+- Concept pages created (5):
+  - [[concepts/python-fundamentals]] (c-000042)
+  - [[concepts/python-data-structures-and-io]] (c-000043)
+  - [[concepts/python-functions-and-modules]] (c-000044)
+  - [[concepts/c-programming-fundamentals]] (c-000045)
+  - [[concepts/c-pointers-memory-and-data-structures]] (c-000046)
+- Area page created: [[areas/programming-fundamentals]] (c-000047)
+- Address counter updated: 48
+- Manifest updated with 7 new address_map entries + INF1002 sources entry
+- Indexes updated: wiki/index.md, wiki/concepts/_index.md, wiki/areas/_index.md
+- Domain added: programming-fundamentals (14th domain)
+- Cross-domain connections: computer-science (linked lists, recursion), operating-systems (C + memory), computer-architecture (compilation pipeline)
+
+---
+
 ## 2026-05-22 | ingest | Learnix CTk teardown + file refactor
 
 - Source: ICT2114 ITP project (Learnix), `src/ui/auth_ui.py` + `src/ui/chat_ui.py`

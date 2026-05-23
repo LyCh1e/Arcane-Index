@@ -47,8 +47,7 @@
               "title": "log"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -256,8 +255,18 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b57b10fbd19771fd",
+  "active": "6492dbdec43436fa",
   "lastOpenFiles": [
+    "wiki/index.md.tmp.15784.4ac47a75b55e",
+    "wiki/areas/programming-fundamentals.md",
+    "wiki/concepts/c-pointers-memory-and-data-structures.md",
+    "wiki/concepts/c-programming-fundamentals.md",
+    "wiki/concepts/python-functions-and-modules.md",
+    "wiki/concepts/python-data-structures-and-io.md",
+    "wiki/concepts/python-fundamentals.md",
+    "wiki/sources/INF1002-programming-fundamentals.md",
+    "wiki/sources/INF1002-programming-fundamentals.md.tmp.15784.37156955c669",
+    "raw/INF1002 Programming Fundamentals Notes.md",
     "wiki/index.md.tmp.7988.6d99479d8dc0",
     "wiki/index.md.tmp.7988.d95f4808bc11",
     "wiki/hot.md.tmp.7988.da3f4fb38766",
@@ -275,10 +284,8 @@
     "wiki/concepts/network-layer-protocols.md",
     "wiki/concepts/network-layer-protocols.md.tmp.22716.698165c74a7d",
     "wiki/concepts/ip-addressing.md",
-    "wiki/concepts/ip-addressing.md.tmp.22716.9e6e6600950e",
     "wiki/concepts/data-link-layer-ethernet.md",
     "wiki/concepts/tcp-ip-network-model.md",
-    "wiki/concepts/tcp-ip-network-model.md.tmp.22716.3909bacfa36e",
     "wiki/sources/INF1006-computer-networks.md",
     "raw/INF1006 Computer Networks Notes.md",
     "wiki/concepts/secure-software-requirements.md",
@@ -286,14 +293,6 @@
     "wiki/concepts/test-driven-development.md",
     "wiki/sources/fowler-practical-test-pyramid.md",
     "wiki/meta/lint-report-2026-05-21.md",
-    "wiki/entities/_index.md",
-    "wiki/meta/dashboard.md",
-    "wiki/learning/research-software-testing.md",
-    "wiki/sources/istqb-ctfl-v4.md",
-    "wiki/concepts/test-design-techniques.md",
-    "wiki/concepts/software-testing-fundamentals.md",
-    "wiki/areas/agile-project-management.md",
-    "wiki/learning/psm1-cheatsheet-study-notes.md",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",
