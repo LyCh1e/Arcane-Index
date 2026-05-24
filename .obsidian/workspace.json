@@ -18,34 +18,6 @@
               "icon": "bot",
               "title": "Claudian"
             }
-          },
-          {
-            "id": "0cda60d0fde4b94a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/concepts/secure-software-requirements.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "secure-software-requirements"
-            }
-          },
-          {
-            "id": "b57b10fbd19771fd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/log.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "log"
-            }
           }
         ]
       }
@@ -255,17 +227,21 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "6492dbdec43436fa",
+  "active": "845678323c6133f0",
   "lastOpenFiles": [
+    "wiki/sources/_index.md",
+    "wiki/concepts/_index.md",
+    "wiki/concepts/secure-software-requirements.md",
+    "wiki/log.md",
+    "wiki/concepts/ethical-frameworks.md",
+    "wiki/concepts/ai-ethics-and-digital-society.md",
     "wiki/hot.md.tmp.19164.1bf0a5b59f9e",
     "wiki/index.md.tmp.19164.a77260946a8c",
     "wiki/concepts/_index.md.tmp.19164.4b6fab5f20d6",
     "wiki/areas/it-ethics.md",
     "wiki/areas/it-ethics.md.tmp.19164.4501d8ff69dd",
-    "wiki/concepts/ai-ethics-and-digital-society.md",
     "wiki/concepts/privacy-data-protection-and-ip.md",
     "wiki/concepts/behavioural-ethics-and-workplace.md",
-    "wiki/concepts/ethical-frameworks.md",
     "wiki/sources/INF1007-ethics-professional-conduct.md",
     "wiki/sources/INF1007-ethics-professional-conduct.md.tmp.19164.2bd27410d2e4",
     "raw/INF1007 Ethics & Professional Conduct Notes.md",
@@ -277,7 +253,6 @@
     "wiki/concepts/embedded-systems-fundamentals.md",
     "wiki/sources/INF2004-embedded-systems-programming.md",
     "raw/INF2004 Embedded Systems Programming Notes.md",
-    "wiki/log.md",
     "wiki/log.md.tmp.15784.85f092908d8b",
     "wiki/concepts/software-configuration-management.md",
     "wiki/concepts/software-project-management.md",
@@ -287,12 +262,9 @@
     "raw/INF2001 Intro To Software Engineering Notes.md",
     "wiki/index.md.tmp.15784.4ac47a75b55e",
     "wiki/areas/programming-fundamentals.md",
-    "wiki/concepts/c-pointers-memory-and-data-structures.md",
-    "wiki/concepts/c-programming-fundamentals.md",
     "wiki/sources/INF1002-programming-fundamentals.md.tmp.15784.37156955c669",
     "wiki/index.md.tmp.7988.6d99479d8dc0",
     "wiki/index.md.tmp.7988.d95f4808bc11",
-    "wiki/hot.md.tmp.7988.da3f4fb38766",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",
