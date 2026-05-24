@@ -40,6 +40,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/INF1002-programming-fundamentals\|INF1002 Programming Fundamentals]] | course | programming-fundamentals | 2026-05-23 |
 | [[sources/INF2001-intro-software-engineering\|INF2001 Introduction to Software Engineering]] | course | software-engineering | 2026-05-23 |
 | [[sources/INF2004-embedded-systems-programming\|INF2004 Embedded Systems Programming]] | course | embedded-systems | 2026-05-23 |
+| [[sources/INF1007-ethics-professional-conduct\|INF1007 Ethics & Professional Conduct]] | course | it-ethics | 2026-05-24 |
 
 ## Concepts
 
@@ -126,6 +127,10 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/embedded-timers-and-rtos\|Timers, PWM, RTOS, and FSM]] | embedded-systems | high |
 | [[concepts/embedded-testing-and-optimisation\|Embedded Testing and Optimisation]] | embedded-systems | high |
 | [[concepts/embedded-sensor-fusion-and-edge\|Sensor Fusion and Edge Computing]] | embedded-systems | high |
+| [[concepts/ethical-frameworks\|Ethical Frameworks]] | it-ethics | high |
+| [[concepts/behavioural-ethics-and-workplace\|Behavioural Ethics and Workplace Ethics]] | it-ethics | medium |
+| [[concepts/privacy-data-protection-and-ip\|Privacy, Data Protection, and Intellectual Property]] | it-ethics | high |
+| [[concepts/ai-ethics-and-digital-society\|AI Ethics and the Digital Society]] | it-ethics | high |
 
 ## Examples
 

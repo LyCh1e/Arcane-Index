@@ -180,6 +180,19 @@
         "wiki/concepts/embedded-testing-and-optimisation.md",
         "wiki/concepts/embedded-sensor-fusion-and-edge.md"
       ]
+    },
+    "raw/INF1007 Ethics & Professional Conduct Notes.md": {
+      "ingested": "2026-05-24",
+      "course": "INF1007",
+      "title": "Ethics & Professional Conduct",
+      "domain": "it-ethics",
+      "source_index": "wiki/sources/INF1007-ethics-professional-conduct.md",
+      "concept_pages": [
+        "wiki/concepts/ethical-frameworks.md",
+        "wiki/concepts/behavioural-ethics-and-workplace.md",
+        "wiki/concepts/privacy-data-protection-and-ip.md",
+        "wiki/concepts/ai-ethics-and-digital-society.md"
+      ]
     }
   },
   "address_map": {
@@ -248,6 +261,12 @@
     "wiki/concepts/embedded-timers-and-rtos.md": "c-000056",
     "wiki/concepts/embedded-testing-and-optimisation.md": "c-000057",
     "wiki/concepts/embedded-sensor-fusion-and-edge.md": "c-000058",
-    "wiki/areas/embedded-systems.md": "c-000059"
+    "wiki/areas/embedded-systems.md": "c-000059",
+    "wiki/sources/INF1007-ethics-professional-conduct.md": "c-000060",
+    "wiki/concepts/ethical-frameworks.md": "c-000061",
+    "wiki/concepts/behavioural-ethics-and-workplace.md": "c-000062",
+    "wiki/concepts/privacy-data-protection-and-ip.md": "c-000063",
+    "wiki/concepts/ai-ethics-and-digital-society.md": "c-000064",
+    "wiki/areas/it-ethics.md": "c-000065"
   }
 }

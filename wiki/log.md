@@ -9,6 +9,24 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-24 | ingest | INF1007 Ethics & Professional Conduct
+
+- Source: `raw/INF1007 Ethics & Professional Conduct Notes.md`
+- Source index: [[sources/INF1007-ethics-professional-conduct]] (c-000060)
+- Concept pages created (4):
+  - [[concepts/ethical-frameworks]] (c-000061)
+  - [[concepts/behavioural-ethics-and-workplace]] (c-000062)
+  - [[concepts/privacy-data-protection-and-ip]] (c-000063)
+  - [[concepts/ai-ethics-and-digital-society]] (c-000064)
+- Area page created: [[areas/it-ethics]] (c-000065)
+- Address counter updated: 66
+- Manifest updated with 6 new address_map entries + INF1007 sources entry
+- Indexes updated: wiki/index.md, wiki/concepts/_index.md, wiki/areas/_index.md
+- Domain: it-ethics (new domain #16, 4 concept pages)
+- Coverage: ethical frameworks (Kantianism, Utilitarianism, Social Contract, Virtue Ethics, SCS/ACM codes), behavioural ethics (Milgram/obedience, Stanford Prison/roles, moral licensing, anonymity, cognitive biases), workplace ethics (conflict of interest, whistleblowing, CSR), privacy (PDPA, government surveillance), hacker ethics, malware taxonomy, IP law (copyright/patent/trademark/trade secret/fair use), AI ethics (bias/fairness, deepfakes, accountability/explainability, 6 AI ethics principles), digital divide, automation, outsourcing
+
+---
+
 ## 2026-05-23 | ingest | INF2004 Embedded Systems Programming
 
 - Source: `raw/INF2004 Embedded Systems Programming Notes.md`

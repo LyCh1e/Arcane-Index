@@ -1,7 +1,7 @@
 ---
 type: index
 title: "Areas Index"
-updated: 2026-05-23
+updated: 2026-05-24
 tags: [index, areas]
 ---
 
@@ -26,3 +26,4 @@ Domain overview pages — one per academic discipline or knowledge area. Each ar
 | [[areas/computer-networks\|Computer Networks]] | 7 | INF1006 | 2026-05-22 |
 | [[areas/programming-fundamentals\|Programming Fundamentals]] | 5 | INF1002 | 2026-05-23 |
 | [[areas/embedded-systems\|Embedded Systems]] | 5 | INF2004 | 2026-05-23 |
+| [[areas/it-ethics\|IT Ethics]] | 4 | INF1007 | 2026-05-24 |

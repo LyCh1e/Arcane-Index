@@ -7,7 +7,7 @@ tags: [index, concepts]
 
 # Concepts
 
-80 concept pages across 15 domains, extracted from 21 ingested sources.
+84 concept pages across 16 domains, extracted from 22 ingested sources.
 
 | Domain | Pages |
 |--------|-------|
@@ -26,6 +26,7 @@ tags: [index, concepts]
 | Computer Networks | 7 |
 | Programming Fundamentals | 5 |
 | Embedded Systems | 5 |
+| IT Ethics | 4 |
 
 ---
 
@@ -230,6 +231,17 @@ tags: [index, concepts]
 
 ---
 
+## IT Ethics
+
+| Page | Source | Complexity |
+|------|--------|------------|
+| [[concepts/ethical-frameworks\|Ethical Frameworks]] | INF1007 | high |
+| [[concepts/behavioural-ethics-and-workplace\|Behavioural Ethics and Workplace Ethics]] | INF1007 | medium |
+| [[concepts/privacy-data-protection-and-ip\|Privacy, Data Protection, and Intellectual Property]] | INF1007 | high |
+| [[concepts/ai-ethics-and-digital-society\|AI Ethics and the Digital Society]] | INF1007 | high |
+
+---
+
 ## Connections Map
 
 ```
@@ -262,4 +274,11 @@ C Programming ──────────────────────
 
 Machine Learning ─────────────────────────► Embedded Systems
   (model quantisation, CNNs, inference)       (TinyML, on-device inference)
+
+IT Ethics ────────────────────────────────► Machine Learning
+  (bias, fairness, explainability)            (model evaluation, fairness metrics)
+
+IT Ethics ────────────────────────────────► Secure Software Development
+  (ACM Code, professional duty to build       (security-by-design, responsible disclosure)
+   secure systems)
 ```
