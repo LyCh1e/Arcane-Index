@@ -9,6 +9,18 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-25 | project | ICT2216 Project — Vite + React SPA Refactor (TrialGuard)
+
+- Project: TrialGuard — Secure Clinical Trial Participant Portal (ICT2216 Secure Software Development)
+- Example page created: [[examples/ict2216-project-vite-refactor]]
+- Learning page created: [[learning/vite-react-spa-migration]] (3 bugs + migration patterns)
+- Resource page created: [[resources/vite]] (Vite build tool)
+- Updated: [[examples/_index.md]], [[resources/_index.md]]
+- Key migrations: UMD/CDN React → Vite; `Object.assign(window,{})` → ES modules; multi-page HTML → React Router v6 SPA
+- Build verified: 42 modules, 0 errors, `npm run dev` functional
+
+---
+
 ## 2026-05-25 | update | ICT2216 Lecture — Secure Software Requirements (transcript)
 
 - Source: ICT2216 lecture transcript (SSDLC requirements process — CIA+AAA deep-dive)

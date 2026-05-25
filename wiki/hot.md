@@ -1,13 +1,15 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-25T00:00:00
+updated: 2026-05-25T22:00:00
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-05-25 (evening). **Session: project — ICT2216 TrialGuard, Vite + React SPA refactor.** Migrated a 6-page vanilla HTML/UMD React prototype into a proper Vite + React 18 + React Router v6 SPA. All CDN script tags and Babel standalone removed; `Object.assign(window,{})` global exposure replaced with ES module named/default exports; `<a href="page.html">` links replaced with `<Link to="/route">` and `useNavigate`. Folder structure: `src/main.jsx` (entry) → `src/App.jsx` (routes) → `src/data/` (landing.js, portal.js) → `src/components/` (shared.jsx, portal-shell.jsx) → `src/pages/` (6 pages). Three bugs found and fixed during migration: (1) `React.Fragment` with `key` requires `import { Fragment }` — not namespace access via `React.Fragment`; (2) `useState` mistakenly used instead of `useEffect` for form-reset-on-modal-open side effect — `useState`'s second argument is silently ignored; (3) `.pa-modal-bg` used `position: absolute` which broke in SPA context where the containing `pa-root` div is positioned — fixed to `position: fixed`. Old prototype files (17 files + design-canvas state) deleted from root. Build: 42 modules, 0 errors. Created [[examples/ict2216-project-vite-refactor]], [[learning/vite-react-spa-migration]], [[resources/vite]].
 
 2026-05-25. **Session: update — ICT2216 Lecture Transcript (Secure Software Requirements).** No new files created. Three targeted additions made to [[concepts/secure-software-requirements]], which was already comprehensive. Additions:
 - **Data-in-processing technologies**: Homomorphic Encryption (compute on ciphertext without decryption; computationally expensive, specialist use only) and Differential Privacy (calibrated statistical noise on query results; output is approximate) added to the Confidentiality section's data-states discussion.
