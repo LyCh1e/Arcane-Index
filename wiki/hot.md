@@ -1,13 +1,18 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-23T00:00:00
+updated: 2026-05-25T00:00:00
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-05-25. **Session: update — ICT2216 Lecture Transcript (Secure Software Requirements).** No new files created. Three targeted additions made to [[concepts/secure-software-requirements]], which was already comprehensive. Additions:
+- **Data-in-processing technologies**: Homomorphic Encryption (compute on ciphertext without decryption; computationally expensive, specialist use only) and Differential Privacy (calibrated statistical noise on query results; output is approximate) added to the Confidentiality section's data-states discussion.
+- **Usability vs. security tension**: DBS 6-digit PIN example added to Authentication — a 6-digit PIN has 10⁶ = 1,000,000 combinations vs. 10⁴ = 10,000 for 4-digit (100× more brute-force resistant); requirement must explicitly document the chosen balance and its rationale so the decision is auditable.
+- **NIST SSDF stakeholder roles**: Three-role table added under the SSDF framework entry: Business Owner (defines context, approves requirements, accepts residual risk), Developer (implements secure coding, performs security testing), Security Professional (provides expertise, conducts threat modelling, validates assurance). Each role owns a distinct phase: what/why → how built securely → assurance.
 
 2026-05-24. **Session: ingest — INF1007 Ethics & Professional Conduct.** New domain `it-ethics` (16th domain) added. Created 1 source index ([[sources/INF1007-ethics-professional-conduct]], c-000060), 4 concept pages, and 1 area page. Address counter updated to 66. Textbook: *Ethics for the Information Age, 9th ed.* (Quinn, Pearson). Concept pages:
 - [[concepts/ethical-frameworks]] (c-000061) — Three levels of moral guidance (rules/principles/frameworks). Non-workable theories: Subjective Relativism (no universal standard), Cultural Relativism (variance ≠ correctness), Divine Command (secular/multicultural society; not reason-based), Ethical Egoism (justifies patently immoral acts). Workable theories: **Kantianism** (Immanuel Kant — deontological; Categorical Imperative 1st formulation universality test ["can I will my maxim to be a universal law?" — borrowing-without-repaying self-defeats, plagiarism self-defeats] + 2nd formulation humanity ["never treat persons merely as means to an end"]); **Act Utilitarianism** (Bentham/Mill — consequentialist; sum all happiness changes for all affected parties, maximise; highway-routing worked example); **Rule Utilitarianism** (adopt rules that maximise happiness if universally followed); **Social Contract Theory** (Hobbes/Locke/Rousseau/Rawls — rational mutual agreement; Rawls' two principles of justice: equal basic liberties + difference principle [inequalities must benefit least advantaged]; veil of ignorance — choose rules without knowing your social position); **Virtue Ethics** (Aristotle — character-focused; identify relevant virtues, ask what a virtuous person would do). Full 9-row framework summary table. SCS Code (4 pillars: Integrity/Responsibility/Competence/Professionalism with sub-duties). ACM Code (4 sections: 7 general ethical principles, 9 professional responsibilities, 7 leadership principles, 2 compliance obligations).

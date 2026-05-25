@@ -4,7 +4,7 @@ title: "Secure Software Requirements"
 domain: secure-software-development
 complexity: high
 tags: [security, requirements, CIA, AAA, confidentiality, integrity, availability, authentication, authorisation, accountability, owasp, swat, NIST, SSDLC]
-updated: 2026-05-15
+updated: 2026-05-25
 status: established
 created: 2026-05-15
 ---
@@ -100,6 +100,17 @@ Sensitive information must not be disclosed to unauthorised parties.
 - **In transit** — transmitted over a network
 - **In processing** — being computed or transformed
 
+**Protecting data in processing:**
+
+Data-in-processing is the hardest state to protect because the system must be able to read the data to compute with it. Two emerging privacy-preserving techniques address this:
+
+| Technique | Description | Trade-off |
+|-----------|-------------|-----------|
+| **Homomorphic Encryption** | Performs computations directly on ciphertext — the processor never sees plaintext | Extremely computationally expensive; impractical for high-throughput systems today |
+| **Differential Privacy** | Adds calibrated statistical noise to query results so individual records cannot be identified, even by the querier | Output is approximate; unsuitable where exact values are required |
+
+These are specialist controls used when even the processing environment is untrusted (e.g., cloud analytics on personal health data).
+
 **Direct vs. indirect data leakage:**
 - **Direct:** Alice hacks the database to read Bob's balance.
 - **Indirect (side channel):** Alice determines Bob has a DBS account because the login failure response is slightly *slower* for valid usernames.
@@ -170,6 +181,14 @@ Verifies that a user is who they claim to be.
 
 > The traditional approach (complex rules + frequent expiration) causes more harm: passwords are written down, reused, or follow predictable patterns (e.g., `r@Ymond1`). The average enterprise password is reused **2.7 times**.
 
+**Usability vs. security tension in authentication:**
+
+Requirements must navigate the conflict between usability and security. A longer PIN provides greater security but may frustrate users, leading to compensating behaviours (e.g., writing the PIN down) that reduce overall security. Requirements should document the chosen balance and its rationale.
+
+*Example:* Singapore's DBS Bank migrated from a 4-digit to a 6-digit ATM PIN. A 6-digit PIN has 10⁶ = 1,000,000 possible combinations vs. 10⁴ = 10,000 for a 4-digit PIN — a 100× improvement in brute-force resistance. The usability cost (slightly harder to memorise) was accepted because the security gain was substantial.
+
+> The requirement cannot simply say "use a secure PIN." It must specify the minimum length, accepted character set, and the explicit trade-off rationale so the decision is auditable.
+
 **Design questions to answer:**
 - How are passwords stored? (bcrypt / Argon2 with salt — never MD5/SHA-1 unsalted)
 - What is the maximum password length? (ensure the hashing function handles it)
@@ -221,6 +240,18 @@ A set of fundamental, sound, and secure software development practices. Organise
 | Protect the Software | PS | Source code and artefact protection |
 | Produce Well-Secured Software | PW | Design, implementation, testing |
 | Respond to Vulnerabilities | RV | Identifying, fixing, and disclosing vulnerabilities |
+
+**NIST SSDF Stakeholder Roles:**
+
+The SSDF assigns responsibility across three roles:
+
+| Role | Responsibilities |
+|------|-----------------|
+| **Business Owner** | Defines business context and objectives; approves security requirements; allocates budget and resources; accepts residual risk |
+| **Developer** | Implements secure coding practices; performs unit and integration security testing; follows secure development guidelines (e.g., OWASP Secure Coding Practices) |
+| **Security Professional** | Provides security expertise and threat intelligence; conducts threat modelling and security architecture review; validates that requirements are complete and correctly implemented |
+
+Each role has accountability for a distinct phase: the business owner owns *what* is protected and *why*, the developer owns *how* it is built securely, and the security professional owns *assurance* that it actually is.
 
 ---
 

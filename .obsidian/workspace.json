@@ -227,8 +227,13 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "845678323c6133f0",
+  "active": "6492dbdec43436fa",
   "lastOpenFiles": [
+    "wiki/hot.md.tmp.20952.f57eb55ecc4d",
+    "wiki/log.md.tmp.20952.626404ea474f",
+    "wiki/concepts/secure-software-requirements.md.tmp.20952.1818bb9f0c85",
+    "wiki/concepts/secure-software-requirements.md.tmp.20952.fb94be1bfe57",
+    "wiki/concepts/secure-software-requirements.md.tmp.20952.5a2ddc0fd61c",
     "wiki/sources/_index.md",
     "wiki/concepts/_index.md",
     "wiki/concepts/secure-software-requirements.md",
@@ -260,11 +265,6 @@
     "wiki/concepts/sdlc-models.md",
     "wiki/sources/INF2001-intro-software-engineering.md",
     "raw/INF2001 Intro To Software Engineering Notes.md",
-    "wiki/index.md.tmp.15784.4ac47a75b55e",
-    "wiki/areas/programming-fundamentals.md",
-    "wiki/sources/INF1002-programming-fundamentals.md.tmp.15784.37156955c669",
-    "wiki/index.md.tmp.7988.6d99479d8dc0",
-    "wiki/index.md.tmp.7988.d95f4808bc11",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",

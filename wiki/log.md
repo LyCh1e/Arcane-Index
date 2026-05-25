@@ -1,13 +1,26 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-05-15
+updated: 2026-05-25
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## 2026-05-25 | update | ICT2216 Lecture — Secure Software Requirements (transcript)
+
+- Source: ICT2216 lecture transcript (SSDLC requirements process — CIA+AAA deep-dive)
+- Updated: [[concepts/secure-software-requirements]] (dated 2026-05-25)
+- Additions (3 targeted additions to avoid duplicating already-comprehensive content):
+  1. **Data-in-processing protection technologies** — Homomorphic Encryption (compute on ciphertext; computationally expensive) and Differential Privacy (statistical noise to prevent individual identification; approximate output) added to Confidentiality section
+  2. **Usability vs. security tension** — DBS 6-digit PIN worked example added to Authentication section (10⁶ vs 10⁴ combinations; auditable rationale requirement)
+  3. **NIST SSDF stakeholder roles** — three-role table added (Business Owner: approve/resource/accept risk; Developer: implement/test; Security Professional: expertise/threat model/assurance)
+- No new files created; all content absorbed into existing concept page
+- No address counter change (update only)
+
+---
 
 ## 2026-05-24 | ingest | INF1007 Ethics & Professional Conduct
 
