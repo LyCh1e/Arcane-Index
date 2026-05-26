@@ -162,6 +162,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/psm1-cheatsheet-study-notes\|PSM I Cheatsheet Study Notes]] | agile-project-management | active |
 | [[learning/customtkinter-after-teardown\|CustomTkinter: `invalid command name` on Window Teardown]] | python-gui | resolved |
 | [[learning/docker-compose-build-context\|Docker Compose: Build Context Controls What COPY Can See]] | devops | resolved |
+| [[learning/docker-named-volume-stale-content\|Docker Named Volumes: Rebuilding the Image Does NOT Update an Existing Volume]] | devops | resolved |
 
 
 ## Synthesis

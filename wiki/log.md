@@ -9,6 +9,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-26 | project | ICT2216 Project — Frontend Volume Bug Fix + start.py Refresh Automation
+
+- Root cause identified: `frontend_dist` named volume is only seeded from image on first creation; rebuilding the image never updates an existing volume
+- Fix: `purge_frontend_volume()` added to `start.py` — stops nginx/frontend-build, removes stopped containers holding the volume, deletes the volume, then `docker compose up -d --build` re-seeds it fresh
+- Footer cleanup: removed Privacy/Terms/Security/HIPAA/GDPR/SOC 2 links from all four footer locations (Login.jsx, Signup.jsx, Landing.jsx, subpage-shell.jsx); each now shows only `© 2026 TRIALGUARD`
+- Learning page created: [[learning/docker-named-volume-stale-content]] (named volume stale content gotcha, fix, and alternative patterns)
+- Updated: [[concepts/docker-compose]] cross-reference added
+
+---
+
 ## 2026-05-26 | project | ICT2216 Project — Phase 4 Authentication + Docker Stack Verification
 
 - Project: TrialGuard — Secure Clinical Trial Participant Portal (ICT2216 Secure Software Development)
