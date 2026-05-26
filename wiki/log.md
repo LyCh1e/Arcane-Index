@@ -9,6 +9,20 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-26 | project | ICT2216 Project — Phase 4 Authentication + Docker Stack Verification
+
+- Project: TrialGuard — Secure Clinical Trial Participant Portal (ICT2216 Secure Software Development)
+- Tasks completed: 4.1 Register, 4.2 Login (step 1), 4.3 Verify MFA (step 2), 4.4 Logout, 4.5 Audit log
+- Example page created: [[examples/ict2216-project-phase4-auth]] (full auth blueprint, two-step MFA, session fixation prevention, audit log, CSRF approach, smoke test)
+- Learning page created: [[learning/docker-compose-build-context]] (build context controls COPY visibility — fix for moved requirements.txt)
+- Updated: [[concepts/docker-compose]] (added "Build Context — Shared Files Across Services" section)
+- Docker build context change: `build: ./backend` → `build: { context: ., dockerfile: backend/Dockerfile }` in compose; `COPY . .` → `COPY backend/ .` in Dockerfile
+- Frontend plumbing: `frontend/src/api.js` fetch wrapper; Vite dev proxy `/api` → `http://localhost:8080`
+- start.py launcher created at repo root: builds stack, polls until ready, opens browser; full error handling
+- Stack verified: all 6 containers healthy, `https://localhost` serves React SPA, `POST /api/auth/register` returns 201
+
+---
+
 ## 2026-05-25 | project | ICT2216 Project — Vite + React SPA Refactor (TrialGuard)
 
 - Project: TrialGuard — Secure Clinical Trial Participant Portal (ICT2216 Secure Software Development)

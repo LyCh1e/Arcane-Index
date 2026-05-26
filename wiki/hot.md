@@ -1,13 +1,15 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-25T22:00:00
+updated: 2026-05-26T00:00:00
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-05-26. **Session: project — ICT2216 TrialGuard, Phase 4 Authentication + Docker stack verification.** Completed Phase 4 (tasks 4.1–4.5) in full: register, login (step 1), verify-mfa (step 2), logout endpoints, and hash-chained audit log. Key design decisions: (1) Two-step login via intermediate session key `mfa_pending_user_id` — no full session issued until TOTP verified; (2) `session.clear()` before issuing the real session to prevent session fixation; (3) Same generic `401 Invalid credentials.` for locked accounts and wrong passwords — no timing oracle; (4) Auth blueprint CSRF-exempted (Flask-WTF) because JSON API — protection via SameSite=Strict + CORS; (5) bcrypt cost 12 + pyotp TOTP; (6) Account lockout at 5 failures → 15 min. Audit log uses SHA-256 hash chain: each row hashes `prev_hash + timestamp + user_id + action_type + outcome`. **Docker build context fix:** moving `requirements.txt` to repo root broke `COPY requirements.txt .` in both Dockerfiles — fixed by changing compose build contexts to `.` (repo root) with explicit `dockerfile:` paths, and scoping app-code COPY to `COPY backend/ .` / `COPY pii_vault/ .`. **Frontend API plumbing:** `frontend/src/api.js` central fetch wrapper (credentials, JSON, error throw). **Vite dev proxy:** `/api` → `http://localhost:8080`. **start.py launcher:** single file at repo root — runs `docker compose up -d --build`, polls `https://localhost` every 2 s until ready (up to 2 min), opens browser; full error handling for missing docker, daemon not running, compose failure, unhealthy containers, browser open failure. **Smoke test verified:** `https://localhost` serves React SPA; `POST /api/auth/register` returns 201 with `totp_uri`. Created [[examples/ict2216-project-phase4-auth]], [[learning/docker-compose-build-context]]. Updated [[concepts/docker-compose]] (build context split pattern).
 
 2026-05-25 (evening). **Session: project — ICT2216 TrialGuard, Vite + React SPA refactor.** Migrated a 6-page vanilla HTML/UMD React prototype into a proper Vite + React 18 + React Router v6 SPA. All CDN script tags and Babel standalone removed; `Object.assign(window,{})` global exposure replaced with ES module named/default exports; `<a href="page.html">` links replaced with `<Link to="/route">` and `useNavigate`. Folder structure: `src/main.jsx` (entry) → `src/App.jsx` (routes) → `src/data/` (landing.js, portal.js) → `src/components/` (shared.jsx, portal-shell.jsx) → `src/pages/` (6 pages). Three bugs found and fixed during migration: (1) `React.Fragment` with `key` requires `import { Fragment }` — not namespace access via `React.Fragment`; (2) `useState` mistakenly used instead of `useEffect` for form-reset-on-modal-open side effect — `useState`'s second argument is silently ignored; (3) `.pa-modal-bg` used `position: absolute` which broke in SPA context where the containing `pa-root` div is positioned — fixed to `position: fixed`. Old prototype files (17 files + design-canvas state) deleted from root. Build: 42 modules, 0 errors. Created [[examples/ict2216-project-vite-refactor]], [[learning/vite-react-spa-migration]], [[resources/vite]].
 

@@ -215,8 +215,35 @@ A **bind mount** maps a specific host directory into the container. Data written
 
 ---
 
+---
+
+## Build Context — Shared Files Across Services
+
+When a shared file (e.g. a root-level `requirements.txt`) needs to be accessible to multiple Dockerfiles, set the build context to the repo root and scope each service's `COPY` explicitly:
+
+```yaml
+services:
+  flask:
+    build:
+      context: .                      # repo root is the build context
+      dockerfile: backend/Dockerfile  # Dockerfile is inside a subdirectory
+```
+
+```dockerfile
+# backend/Dockerfile
+COPY requirements.txt .   # root-level file — visible because context is repo root
+COPY backend/ .           # copy contents of backend/ into WORKDIR
+```
+
+> `COPY` paths are relative to the **build context**, not the Dockerfile location. A file outside the context is invisible to `COPY` regardless of where the Dockerfile lives.
+
+See [[learning/docker-compose-build-context]] for the full gotcha and fix.
+
+---
+
 ## Related
 
 - [[securityrat]] — a more complex Docker Compose stack (Spring Boot + MariaDB); introduces the CRLF gotcha
-- [[docker-windows-crlf]] — Windows-specific pitfall when shell scripts are copied into Linux containers
+- [[learning/docker-windows-crlf]] — Windows-specific pitfall when shell scripts are copied into Linux containers
+- [[learning/docker-compose-build-context]] — build context controls what COPY can see
 - [[ICT2216-secure-software-development]] — source course

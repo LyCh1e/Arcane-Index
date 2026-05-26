@@ -227,8 +227,13 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "6492dbdec43436fa",
+  "active": "04c15e29e5a3cbd6",
   "lastOpenFiles": [
+    "wiki/index.md.tmp.37344.7baa86c5cd31",
+    "wiki/hot.md.tmp.37344.82ca03092dc1",
+    "wiki/learning/docker-compose-build-context.md",
+    "wiki/examples/ict2216-project-phase4-auth.md",
+    "wiki/examples/ict2216-project-phase4-auth.md.tmp.37344.7f0ff35b8131",
     "CLAUDE.md",
     "wiki/hot.md.tmp.8596.14f9f4d117d1",
     "wiki/hot.md.tmp.8596.a8afcac68f04",
@@ -241,8 +246,6 @@
     "wiki/examples/ict2216-project-vite-refactor.md",
     "wiki/hot.md.tmp.20952.f57eb55ecc4d",
     "wiki/log.md.tmp.20952.626404ea474f",
-    "wiki/concepts/secure-software-requirements.md.tmp.20952.1818bb9f0c85",
-    "wiki/concepts/secure-software-requirements.md.tmp.20952.fb94be1bfe57",
     "wiki/sources/_index.md",
     "wiki/concepts/_index.md",
     "wiki/concepts/secure-software-requirements.md",
@@ -262,9 +265,6 @@
     "wiki/concepts/embedded-systems-fundamentals.md",
     "wiki/sources/INF2004-embedded-systems-programming.md",
     "raw/INF2004 Embedded Systems Programming Notes.md",
-    "wiki/concepts/software-configuration-management.md",
-    "wiki/concepts/software-project-management.md",
-    "wiki/concepts/uml-modelling.md",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",
