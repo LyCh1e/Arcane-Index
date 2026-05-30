@@ -41,7 +41,13 @@ Requirements tell you *what* to protect; threat modeling tells you *how* attacke
 
 See [[threat-modeling]] for the full framework including STRIDE applied to DFD elements and STRIDE–OWASP mapping.
 
-### Secure Software Design (Lecture 4)
+### Secure Software Design — Design Implementation (Lecture 5)
+
+Lecture 5 translates CIA-AAA security requirements into concrete design decisions. It covers: symmetric vs. asymmetric cryptography (key count formulae N(N−1)/2 vs. N key pairs, speed, non-repudiation), the hybrid TLS approach, X.509 v3 digital certificate structure, client-side password hashing design, salted/iterated hashing (bcrypt/PBKDF2), a password storage comparison table (plaintext → unsalted MD5/SHA-256 → salted SHA-256 → bcrypt+iterations+metadata), referential integrity design, resource locking for concurrent operations, replication/failover/horizontal-vs-vertical scaling, passwordless authentication (WhatsApp/SingPass/Apple/Google examples), RBAC vs. UBAC, Data Access Control Matrix, secure audit logging (who/what/where/when, never log sensitive data), Secure Agile Development (security activities across all sprint phases), the 4-step Secure Design Architecture process (architecture → identify threats → implement controls → document/validate), physical topology zones (Internet/DMZ/Intranet/Dev), logical topology (ports/protocols/services), human and non-human actors, external dependencies and security techniques table.
+
+See [[secure-design-implementation]] for the full framework.
+
+### Secure Software Design — Principles (Lecture 4)
 
 Lecture 4 addresses the *design* phase of the SSDLC, arguing that **50% of security problems are design flaws** (not implementation bugs — McGraw, 2006). Even perfect code cannot fix a flawed design; security thinking must be embedded before a single line of code is written. The Banana Token hack (September 2023, $8.70 → $0.02 in under 3 hours) illustrates the catastrophic consequences of design-level vulnerabilities in the real world.
 
@@ -73,6 +79,7 @@ See [[securityrat]] for setup, the CRLF gotcha, and usage notes.
 | [[owasp-top-10]] | OWASP Top 10 (2025) — all 10 categories with scenarios, code examples, and mitigations |
 | [[vulnerability-tracking-frameworks]] | CVE, NVD, CAPEC, MITRE ATT&CK, CVSS, BSIMM, OpenSAMM, Microsoft SDL |
 | [[security-by-design-principles]] | 10 OWASP Security by Design Principles, design flaws vs. bugs, Security Architecture (physical vs. logical) |
+| [[secure-design-implementation]] | CIA-AAA at design level — cryptography (symmetric/asymmetric/X.509), salted hashing, passwordless auth, replication/failover, RBAC, audit logging, Secure Agile, DMZ zones, Data Access Control Matrix |
 
 ## Examples
 

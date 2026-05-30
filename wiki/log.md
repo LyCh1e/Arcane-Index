@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-05-25
+updated: 2026-05-30
 tags: [meta, log]
 ---
 
@@ -42,6 +42,20 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Updated: [[examples/_index.md]], [[resources/_index.md]]
 - Key migrations: UMD/CDN React → Vite; `Object.assign(window,{})` → ES modules; multi-page HTML → React Router v6 SPA
 - Build verified: 42 modules, 0 errors, `npm run dev` functional
+
+---
+
+## 2026-05-30 | ingest | ICT2216 Lecture 5 — Secure Software Design (Part 2) & Secure Agile Development
+
+- Source: `raw/ICT2216 Lecture 5 Secure Software Development.md`
+- Concept page created (1):
+  - [[concepts/secure-design-implementation]] (c-000066)
+- Source index updated: [[sources/ICT2216-secure-software-development]] (Lecture 5 section + new concept row)
+- Address counter updated: 67
+- Manifest updated with 1 new address_map entry
+- Indexes updated: wiki/index.md, wiki/concepts/_index.md (85 pages, SSD now 7)
+- Domain: secure-software-development (existing domain, +1 concept page)
+- Coverage: CIA-AAA translated to design decisions — Confidentiality (masking, symmetric/asymmetric crypto comparison [key count N(N−1)/2 vs N, speed, non-repudiation], hybrid TLS approach, X.509 v3 certificate structure, client-side hashing), Integrity (salted/iterated hashing, bcrypt/PBKDF2, password storage comparison table, referential integrity, resource locking), Availability (replication/primary-secondary, failover clusters, vertical vs horizontal scaling), Authentication (MFA, SSO, passwordless authentication [WhatsApp/SingPass/Apple/Google examples]), Authorisation (RBAC vs UBAC, Data Access Control Matrix, least privilege/separation of duties/performance), Accountability (who/what/where/when, never log sensitive data, log rotation/write-once), Secure Agile Development (security activities across 6 sprint phases: Modelling/Sprint Planning/Sprint/Dynamic Testing/Release/Operations), 4-step Secure Design Architecture (architecture→threats→controls→document/validate), Physical Topology zones (Internet/DMZ/Intranet/Dev, layered firewall pattern), Logical Topology, Human and Non-Human Actors, External Dependencies security techniques table (8 areas)
 
 ---
 

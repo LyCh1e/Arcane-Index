@@ -1,13 +1,23 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-26T00:00:00
+updated: 2026-05-30T00:00:00
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-05-30. **Session: ingest — ICT2216 Lecture 5 (Secure Software Design Part 2 & Secure Agile Development).** Created 1 concept page [[concepts/secure-design-implementation]] (c-000066). Address counter updated to 67. This page bridges the CIA-AAA requirements (what to protect) and the Security by Design Principles (how to think) by providing the *concrete design decisions* for each of the six pillars:
+- **Confidentiality Design**: Two disclosure-protection categories — *masking* (display layer, e.g., `**** **** **** 1234`) and *cryptographic techniques* (transit, at-rest, archives). Symmetric vs. asymmetric comparison: symmetric uses N(N−1)/2 keys for N parties, fast, no non-repudiation (AES, 3DES); asymmetric uses N key pairs for N parties, slow, provides non-repudiation (RSA, ECC). Hybrid approach (TLS): asymmetric for key exchange + symmetric for bulk transfer. X.509 v3 certificate: 9 fields (version/serial/algorithm/issuer DN/validity/subject/public key/extensions/CA signature). Client-side hashing + challenge-response design options.
+- **Integrity Design**: Rainbow table attacks defeated by per-user random salts. Key stretching (bcrypt/PBKDF2): ~60,000 iterations. Password storage comparison table (plaintext ❌ → unsalted MD5/SHA-256 ❌ → salted SHA-256 ✅ → salted+iterated+metadata ✅). Metadata: creation date, last login, failed login count, password history. Referential integrity (no orphaned FK records). Resource locking for concurrent access (e.g., simultaneous bank transfers).
+- **Availability Design**: Replication (primary-secondary). Failover (auto switch, transparent). Vertical scaling (more resources, still SPOF) vs. horizontal scaling (more nodes, preferred — eliminates SPOF).
+- **Authentication Design**: MFA + SSO design considerations. Passwordless: register device (something-you-have) → OTP for initial identity validation → device approval for subsequent logins. Examples: WhatsApp, Microsoft Accounts, SingPass, Apple ID, Google.
+- **Authorisation Design**: RBAC (roles → permissions, scales) vs. UBAC (direct user-permission, for tiny user sets only). Data Access Control Matrix (who × what × which data). Least privilege + separation of duties + performance impact of complex checks.
+- **Accountability Design**: Who/what/where/when. Never log PII or credentials in plaintext. Write-once/WORM or append-only storage. Log rotation and retention policy.
+- **Secure Agile Development**: 6-phase security integration — Modelling → Sprint Planning (DoR includes security criteria) → Sprint (SAST/code review/CI) → Dynamic Testing (DAST/pen test) → Release (red teaming/automated deploy) → Operations (vulnerability tracking/monitoring).
+- **Secure Design Architecture (4 steps)**: (1) Document architecture (topology/services/actors/data/auth/authorisation/auditing) → (2) Identify threats (trust boundaries/DFDs/STRIDE/OWASP Top 10/CWE Top 25/attack trees) → (3) Implement controls (validation/encryption/replication/ACLs/MFA/logging) → (4) Document & validate (threat profile/residual risk/V&V report). Physical zones: Internet (highest exposure) → DMZ (app servers, between two firewalls) → Intranet → Dev (also secured). External dependencies security techniques table: 8 areas (auth/password mgmt/cert mgmt/flow control/auditing/IDS/database security/sandboxing).
 
 2026-05-26 (continued). **Session: project — ICT2216 TrialGuard, frontend volume bug fix + start.py refresh automation.** Clarification added: the stale volume problem only affects services that use a named volume as a build-artifact hand-off between two containers (frontend-build → nginx). Flask and pii_vault bake code directly into the image and run from it — no intermediate volume, no stale risk. MySQL/MongoDB named volumes hold persistent data, not build artifacts, so they must not be purged. Updated [[learning/docker-named-volume-stale-content]] with a service-by-service risk table.
 

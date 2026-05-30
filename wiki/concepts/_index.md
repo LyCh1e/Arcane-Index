@@ -1,13 +1,13 @@
 ---
 type: index
 title: "Concepts Index"
-updated: 2026-05-23
+updated: 2026-05-30
 tags: [index, concepts]
 ---
 
 # Concepts
 
-84 concept pages across 16 domains, extracted from 22 ingested sources.
+85 concept pages across 16 domains, extracted from 22 ingested sources.
 
 | Domain | Pages |
 |--------|-------|
@@ -16,7 +16,7 @@ tags: [index, concepts]
 | Mathematics | 10 |
 | Machine Learning | 6 |
 | Database Systems | 6 |
-| Secure Software Development | 6 |
+| Secure Software Development | 7 |
 | Computer Architecture | 3 |
 | Operating Systems | 5 |
 | Web Development | 5 |
@@ -118,6 +118,7 @@ tags: [index, concepts]
 | [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking & Software Assurance Frameworks]] | ICT2216 | medium |
 | [[concepts/docker-compose\|Docker and Docker Compose]] | ICT2216 | medium |
 | [[concepts/security-by-design-principles\|Security by Design Principles (OWASP 10)]] | ICT2216 | high |
+| [[concepts/secure-design-implementation\|Secure Design Implementation (CIA-AAA at Design Level)]] | ICT2216 | high |
 
 **Synthesis**: [[synthesis/web-security-ssdlc-bridge\|Attack Patterns ↔ SSDLC Process]]
 
