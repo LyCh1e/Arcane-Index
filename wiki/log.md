@@ -9,6 +9,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-31 | project | ICT2216 TrialGuard — Phases 9–12 Deployment and Hardening
+
+- Created: [[examples/ict2216-project-deployment-phases-9-12]] — full EC2 deployment workflow (git archive + SCP for private repos, PEM permissions, cert generation on Linux, docker compose, health checks, compliance report endpoint, daily backup service)
+- Created: [[learning/docker-volume-host-dir-created-as-root]] — Docker creates bind-mount host dirs as root if missing; fix: `sudo chown <user>:<user>` or `mkdir -p` before first compose up
+- Created: [[learning/docker-ro-mount-chmod-fails]] — `chmod` fails on `:ro` mounted scripts; fix: call `sh /backup.sh` instead of making file executable
+- Created: [[learning/git-amend-remove-sensitive-push]] — remove sensitive info from latest pushed commit: edit file → `git add` → `git commit --amend --no-edit` → `git push --force origin main`
+- Created: [[learning/windows-openssl-strawberry-broken]] — Strawberry Perl's OpenSSL maps config to non-existent Z: drive; generate TLS certs on EC2/Linux and SCP back instead
+- Updated: [[index.md]] (1 example row, 4 learning rows)
+
 ## 2026-05-30 | lab | ICT2216 Lab 4 — OWASP Threat Dragon
 
 - Lab file: `Lab4/Lab04 - OWASP Threat Dragon-2025.pdf`

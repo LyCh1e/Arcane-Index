@@ -145,6 +145,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict2216-lab4-owasp-threat-dragon\|ICT2216 Lab 4 — OWASP Threat Dragon]] | lab | ICT2216 / secure-software-development | [[concepts/threat-modeling\|Threat Modeling]] |
 | [[examples/ict2216-lab5-github-actions\|ICT2216 Lab 5 — Nginx Reverse Proxy + GitHub Actions CI/CD]] | lab | ICT2216 / devops | [[concepts/github-actions-cicd\|GitHub Actions CI/CD]] |
 | [[examples/ict2216-project-phase4-auth\|ICT2216 Project — Phase 4: Authentication (Register/Login/MFA/Logout)]] | project | ICT2216 / secure-software-development | [[concepts/secure-software-requirements\|Secure Software Requirements]] |
+| [[examples/ict2216-project-deployment-phases-9-12\|ICT2216 Project — Phases 9–12: Frontend Wiring, Hardening & EC2 Deployment]] | project | ICT2216 / devops | [[concepts/docker-compose\|Docker Compose]] |
 | [[examples/stock-prediction-neural-network\|Stock Prediction Neural Network — SOLID ML App with Tkinter GUI]] | project | machine-learning | [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] |
 
 ## Entities
@@ -168,6 +169,10 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/customtkinter-after-teardown\|CustomTkinter: `invalid command name` on Window Teardown]] | python-gui | resolved |
 | [[learning/docker-compose-build-context\|Docker Compose: Build Context Controls What COPY Can See]] | devops | resolved |
 | [[learning/docker-named-volume-stale-content\|Docker Named Volumes: Rebuilding the Image Does NOT Update an Existing Volume]] | devops | resolved |
+| [[learning/docker-volume-host-dir-created-as-root\|Docker Bind Mount: Host Dir Created as Root if Missing]] | devops | resolved |
+| [[learning/docker-ro-mount-chmod-fails\|Docker: chmod Fails on :ro Mounted Files — Use sh script.sh Instead]] | devops | resolved |
+| [[learning/git-amend-remove-sensitive-push\|Git: Remove Sensitive Info from a Pushed Commit (amend + force-push)]] | git | resolved |
+| [[learning/windows-openssl-strawberry-broken\|Windows: Strawberry Perl OpenSSL Broken Config — Generate Certs on Linux]] | devops | resolved |
 
 
 ## Synthesis
