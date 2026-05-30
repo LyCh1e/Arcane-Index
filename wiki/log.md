@@ -9,6 +9,19 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-30 | lab | ICT2216 Lab 5 — Nginx Reverse Proxy, Let's Encrypt TLS, GitHub Actions CI/CD
+
+- Lab file: `Lab5/X05-Github-Actions.pdf`
+- Step 4.1–4.2: Created `Lab5/nginx-proxy/` with Nginx Docker Compose; updated `nginx.conf` for `localhost`; started with `docker compose up -d`; verified with `curl http://localhost/` → Hello World HTML
+- Step 4.3–4.5: Prepared TLS config files (`nginx-compose-tls.yml` + `nginx-tls.conf`) with certbot entrypoint (ACME webroot challenge, email: lcslayer22@gmail.com); created `certbot/www/` and `certbot/conf/` directories; TLS config ready for deployment on team VM with real domain (replace `yourdomain.com`)
+- Step 5: Created `Lab5/lab5-cicd/` standalone git repo with `index.html` at root and `.github/workflows/test-nginx.yml`; initialized git on `main` branch; GitHub CLI (gh) installed via winget; pending `gh auth login` + push
+- Auto-renewal cron pattern documented (Step 4.6, optional): `0 3 * * * docker compose run --rm certbot renew && docker compose restart nginx`
+- Created: [[concepts/nginx-reverse-proxy-and-tls]] (Nginx config, Let's Encrypt two challenge methods, TLS compose, nginx-tls.conf, auto-renewal)
+- Created: [[concepts/github-actions-cicd]] (workflow YAML anatomy, triggers, runners, Docker in Actions, secrets, job dependencies, full pipeline stages for secure software)
+- Created: [[examples/ict2216-lab5-github-actions]] (full lab walkthrough, all config files, key gotchas)
+- Updated: [[sources/ICT2216-secure-software-development]] (Lab 5 entry, two new concept links, new example link)
+- Updated: [[index.md]] (2 concept rows, 1 example row)
+
 ## 2026-05-26 | project | ICT2216 Project — Frontend Volume Bug Fix + start.py Refresh Automation
 
 - Root cause identified: `frontend_dist` named volume is only seeded from image on first creation; rebuilding the image never updates an existing volume

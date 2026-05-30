@@ -1,13 +1,19 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-30T00:00:00
+updated: 2026-05-30T12:30:00
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-05-30 (afternoon). **Session: lab — ICT2216 Lab 5 (Nginx Reverse Proxy + GitHub Actions).** Created 2 concept pages and 1 example page. Address counter not incremented (lab session, not address-tracked domain). Key outputs:
+- **Nginx Reverse Proxy** ([[concepts/nginx-reverse-proxy-and-tls]]): Nginx serves as a reverse proxy handling TLS termination. HTTP-only compose: `nginx:latest` image, port 80:80, `nginx.conf` mounted as read-only, `index.html` mounted at `/var/www/html/`. TLS compose adds certbot service sharing two volumes: `certbot/www` (served by Nginx at `/.well-known/acme-challenge/`) and `certbot/conf` (holds issued certs at `/etc/letsencrypt/live/domain/`). Certbot runs in `certonly --webroot` mode (ACME HTTP-01 challenge) or `--manual --preferred-challenges dns` (DNS-01 when port 80 not public). cert paths go into `nginx-tls.conf` as `ssl_certificate fullchain.pem` and `ssl_certificate_key privkey.pem`. HTTP server block redirects all traffic to HTTPS (`return 301 https://$host$request_uri`) except `/.well-known/acme-challenge/`. Auto-renewal: cron at 03:00 daily (`certbot renew` + `nginx restart`); Let's Encrypt certs expire every 90 days; certbot only renews within 30 days of expiry.
+- **GitHub Actions CI/CD** ([[concepts/github-actions-cicd]]): Workflows live in `.github/workflows/*.yml`. Anatomy: `on:` (triggers: push/pull_request/schedule/workflow_dispatch) → `jobs:` (parallel by default, `needs:` for sequencing) → `steps:` (`uses:` for Marketplace Actions, `run:` for shell). Ubuntu runners have Docker pre-installed — use `docker run`/`docker compose` directly in `run:` steps. Key context vars: `${{ github.workspace }}` (repo checkout path), `${{ secrets.NAME }}` (repo secrets). Self-hosted runners (`runs-on: self-hosted`) allow deployment to team VM. Secure pipeline stages: Build → Unit Test → SAST → Dependency Scan → Container Push → Deploy to Staging → DAST → Release. Lab 5 workflow tests Nginx by mounting `index.html` from workspace, waiting 5 s, curling, and grepping for "Hello World" — non-zero exit from `grep` fails the workflow.
+- **Lab 5 completed work** ([[examples/ict2216-lab5-github-actions]]): `Lab5/nginx-proxy/` created locally with HTTP Nginx running on `localhost:80` (verified with `curl`). TLS config files prepared with certbot entrypoint (email lcslayer22@gmail.com); real cert requires team VM with public domain. `Lab5/lab5-cicd/` git repo initialized on `main` branch with `index.html` + `.github/workflows/test-nginx.yml`; GitHub CLI installed (gh 2.93.0 via winget); push pending `gh auth login`.
+- **Gotchas**: `index.html` must be at repo root (workflow mounts `${{ github.workspace }}/index.html`); Let's Encrypt cannot issue certs for `localhost`; certbot uses `certonly` mode — does NOT edit nginx.conf; CRLF on Windows breaks shell scripts inside containers (use LF).
 
 2026-05-30. **Session: ingest — ICT2216 Lecture 5 (Secure Software Design Part 2 & Secure Agile Development).** Created 1 concept page [[concepts/secure-design-implementation]] (c-000066). Address counter updated to 67. This page bridges the CIA-AAA requirements (what to protect) and the Security by Design Principles (how to think) by providing the *concrete design decisions* for each of the six pillars:
 - **Confidentiality Design**: Two disclosure-protection categories — *masking* (display layer, e.g., `**** **** **** 1234`) and *cryptographic techniques* (transit, at-rest, archives). Symmetric vs. asymmetric comparison: symmetric uses N(N−1)/2 keys for N parties, fast, no non-repudiation (AES, 3DES); asymmetric uses N key pairs for N parties, slow, provides non-repudiation (RSA, ECC). Hybrid approach (TLS): asymmetric for key exchange + symmetric for bulk transfer. X.509 v3 certificate: 9 fields (version/serial/algorithm/issuer DN/validity/subject/public key/extensions/CA signature). Client-side hashing + challenge-response design options.

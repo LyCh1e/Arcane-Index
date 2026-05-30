@@ -68,6 +68,7 @@ See [[securityrat]] for setup, the CRLF gotcha, and usage notes.
 | Lab 1 | Docker and Docker Compose — Nginx, MySQL, Git server, Selenium Grid |
 | Lab 2 | Defining Secure Software Requirements — CIA + AAA framework, SecurityRAT |
 | Lab 3 | Microsoft Threat Modeling Tool — DFD creation, STRIDE auto-generation, threat triage |
+| Lab 5 | Web Proxy and GitHub Actions — Nginx reverse proxy, Let's Encrypt TLS, GitHub Actions CI/CD |
 
 ## Concept Pages
 
@@ -80,6 +81,8 @@ See [[securityrat]] for setup, the CRLF gotcha, and usage notes.
 | [[vulnerability-tracking-frameworks]] | CVE, NVD, CAPEC, MITRE ATT&CK, CVSS, BSIMM, OpenSAMM, Microsoft SDL |
 | [[security-by-design-principles]] | 10 OWASP Security by Design Principles, design flaws vs. bugs, Security Architecture (physical vs. logical) |
 | [[secure-design-implementation]] | CIA-AAA at design level — cryptography (symmetric/asymmetric/X.509), salted hashing, passwordless auth, replication/failover, RBAC, audit logging, Secure Agile, DMZ zones, Data Access Control Matrix |
+| [[nginx-reverse-proxy-and-tls]] | Nginx as reverse proxy — HTTP config, Let's Encrypt TLS, Certbot ACME/DNS challenge, auto-renewal |
+| [[github-actions-cicd]] | GitHub Actions CI/CD — workflow syntax, triggers, jobs, Docker integration, self-hosted runners, pipeline stages |
 
 ## Examples
 
@@ -87,6 +90,7 @@ See [[securityrat]] for setup, the CRLF gotcha, and usage notes.
 |---------|-------------|
 | [[examples/ict2216-lab1-docker-compose]] | Full Lab 1 compose files, step-by-step build, port map |
 | [[examples/ict2216-lab2-securityrat]] | Full Lab 2 SecurityRAT setup, CRLF fix, artifact generation walkthrough |
+| [[examples/ict2216-lab5-github-actions]] | Full Lab 5 Nginx + TLS + GitHub Actions walkthrough, all config files, gotchas |
 
 ## Resources
 
