@@ -142,6 +142,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict2216-lab1-docker-compose\|ICT2216 Lab 1 — Multi-Container Docker Compose Stack]] | lab | ICT2216 / devops | [[concepts/docker-compose\|Docker Compose]] |
 | [[examples/ict2216-lab2-securityrat\|ICT2216 Lab 2 — SecurityRAT: Defining Secure Software Requirements]] | lab | ICT2216 / secure-software-development | [[concepts/secure-software-requirements\|Secure Software Requirements]] |
 | [[examples/ict2216-lab3-threat-modeling-tool\|ICT2216 Lab 3 — Microsoft Threat Modeling Tool]] | lab | ICT2216 / secure-software-development | [[concepts/threat-modeling\|Threat Modeling]] |
+| [[examples/ict2216-lab4-owasp-threat-dragon\|ICT2216 Lab 4 — OWASP Threat Dragon]] | lab | ICT2216 / secure-software-development | [[concepts/threat-modeling\|Threat Modeling]] |
 | [[examples/ict2216-lab5-github-actions\|ICT2216 Lab 5 — Nginx Reverse Proxy + GitHub Actions CI/CD]] | lab | ICT2216 / devops | [[concepts/github-actions-cicd\|GitHub Actions CI/CD]] |
 | [[examples/ict2216-project-phase4-auth\|ICT2216 Project — Phase 4: Authentication (Register/Login/MFA/Logout)]] | project | ICT2216 / secure-software-development | [[concepts/secure-software-requirements\|Secure Software Requirements]] |
 | [[examples/stock-prediction-neural-network\|Stock Prediction Neural Network — SOLID ML App with Tkinter GUI]] | project | machine-learning | [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] |

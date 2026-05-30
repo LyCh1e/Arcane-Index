@@ -68,6 +68,7 @@ See [[securityrat]] for setup, the CRLF gotcha, and usage notes.
 | Lab 1 | Docker and Docker Compose — Nginx, MySQL, Git server, Selenium Grid |
 | Lab 2 | Defining Secure Software Requirements — CIA + AAA framework, SecurityRAT |
 | Lab 3 | Microsoft Threat Modeling Tool — DFD creation, STRIDE auto-generation, threat triage |
+| Lab 4 | OWASP Threat Dragon — DFD diagramming, STRIDE rule engine, out-of-scope marking, threat report |
 | Lab 5 | Web Proxy and GitHub Actions — Nginx reverse proxy, Let's Encrypt TLS, GitHub Actions CI/CD |
 
 ## Concept Pages
@@ -90,6 +91,7 @@ See [[securityrat]] for setup, the CRLF gotcha, and usage notes.
 |---------|-------------|
 | [[examples/ict2216-lab1-docker-compose]] | Full Lab 1 compose files, step-by-step build, port map |
 | [[examples/ict2216-lab2-securityrat]] | Full Lab 2 SecurityRAT setup, CRLF fix, artifact generation walkthrough |
+| [[examples/ict2216-lab4-owasp-threat-dragon]] | Full Lab 4 Threat Dragon walkthrough — DFD creation, threat triage, report, vs MS TMT comparison |
 | [[examples/ict2216-lab5-github-actions]] | Full Lab 5 Nginx + TLS + GitHub Actions walkthrough, all config files, gotchas |
 
 ## Resources
@@ -97,6 +99,7 @@ See [[securityrat]] for setup, the CRLF gotcha, and usage notes.
 | Resource | Description |
 |----------|-------------|
 | [[securityrat]] | OWASP SecurityRAT — Docker setup, default creds, usage |
+| [[owasp-threat-dragon]] | OWASP Threat Dragon — web/desktop variants, stencil elements, UI mechanics, comparison with MS TMT |
 
 ## Related Courses
 

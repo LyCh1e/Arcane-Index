@@ -9,6 +9,14 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-05-30 | lab | ICT2216 Lab 4 — OWASP Threat Dragon
+
+- Lab file: `Lab4/Lab04 - OWASP Threat Dragon-2025.pdf`
+- Created: [[resources/owasp-threat-dragon]] — two delivery variants (web/desktop/Docker), full stencil element table (Process/Store/Actor/DataFlow/TrustBoundary), both data-flow creation methods (drag + grey link tool), out-of-scope marking (dashed lines, reason field, threat generation disabled), red highlighting for open threats, customisable report, MS TMT vs Threat Dragon comparison table
+- Created: [[examples/ict2216-lab4-owasp-threat-dragon]] — step-by-step lab walkthrough (5 steps: add elements → add flows/boundaries → out-of-scope → triage threats → report), key differences from Lab 3 MS TMT table, 4 gotchas (grey link ≠ red delete; trust boundaries drive threat count; out-of-scope ≠ delete; save frequently)
+- Updated: [[sources/ICT2216-secure-software-development]] (Lab 4 row, new example, new resource)
+- Updated: [[index.md]] (1 example row)
+
 ## 2026-05-30 | lab | ICT2216 Lab 5 — Nginx Reverse Proxy, Let's Encrypt TLS, GitHub Actions CI/CD
 
 - Lab file: `Lab5/X05-Github-Actions.pdf`
