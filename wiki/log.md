@@ -66,6 +66,19 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 ---
 
+## 2026-05-30 | update | ICT2216 Lecture Transcript — Threat Modelling & Security by Design (recap lecture)
+
+- Source: ICT2216 lecture transcript (threat modelling + all 10 OWASP Security by Design Principles)
+- Updated: [[concepts/threat-modeling]] (dated 2026-05-30)
+- Additions (3 targeted — existing pages already comprehensive):
+  1. **Threat → Attack → Risk triangle** — Attack defined as the *realisation* of a threat; Risk clarified as the consequence that can be zero even when an attack occurs if the system is well-protected; SQL injection worked example illustrating the principle
+  2. **AI threat specifics** — data poisoning (malicious training data) and prompt injection (overriding AI chatbot system instructions) added to Non-Human Threats section
+  3. **Concrete STRIDE worked examples** — Spoofing (typosquatting: `amazom.com` impersonating `amazon.com`); Tampering (modifying `user_code` at checkout to charge a victim's credit card); Repudiation (signed delivery receipt as non-repudiation mechanism, with software equivalent: digital signatures + hash-chained audit logs)
+- No new files created; all content absorbed into existing concept page
+- No address counter change (update only)
+
+---
+
 ## 2026-05-30 | ingest | ICT2216 Lecture 5 — Secure Software Design (Part 2) & Secure Agile Development
 
 - Source: `raw/ICT2216 Lecture 5 Secure Software Development.md`

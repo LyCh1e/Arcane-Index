@@ -243,8 +243,11 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "04c15e29e5a3cbd6",
+  "active": "6492dbdec43436fa",
   "lastOpenFiles": [
+    "wiki/log.md.tmp.30404.222b4d0586ca",
+    "wiki/concepts/threat-modeling.md.tmp.30404.807c259620dc",
+    "wiki/concepts/threat-modeling.md.tmp.30404.f52b3c934b40",
     "wiki/hot.md.tmp.31084.9beba9964354",
     "wiki/log.md.tmp.31084.43cc88091731",
     "wiki/sources/ICT2216-secure-software-development.md.tmp.31084.4c65d8834123",
@@ -256,11 +259,8 @@
     "wiki/hot.md.tmp.31084.8cc3a4b9b6a1",
     "wiki/sources/ICT2216-secure-software-development.md.tmp.31084.2b44533caba4",
     "wiki/examples/ict2216-lab5-github-actions.md",
-    "wiki/examples/ict2216-lab5-github-actions.md.tmp.31084.cd94dfa9f112",
     "wiki/concepts/github-actions-cicd.md",
-    "wiki/concepts/github-actions-cicd.md.tmp.31084.ee75b2c01267",
     "wiki/concepts/nginx-reverse-proxy-and-tls.md",
-    "wiki/concepts/nginx-reverse-proxy-and-tls.md.tmp.31084.6978b0849e7b",
     "wiki/concepts/secure-design-implementation.md",
     "CHANGELOG.md",
     "CLAUDE.md",

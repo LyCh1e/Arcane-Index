@@ -4,7 +4,7 @@ title: "Threat Modeling"
 domain: secure-software-development
 complexity: high
 tags: [security, threat-modeling, STRIDE, attack-trees, DFD, trust-boundaries, threat-agents]
-updated: 2026-05-15
+updated: 2026-05-30
 status: established
 created: 2026-05-15
 ---
@@ -21,9 +21,18 @@ Security requirements tell you *what* to protect. Threat modeling tells you *how
 
 | Term | Definition |
 |------|-----------|
-| **Threat** | A potential negative event or action that could exploit a vulnerability |
-| **Risk** | The *likelihood × impact* of a threat being realised |
+| **Threat** | A potential negative event or action that could exploit a vulnerability — a *possibility*, not yet realised |
+| **Attack** | The *realisation* of a threat — when a threat agent acts and the threat becomes concrete |
+| **Risk** | The consequence or probability of harm that arises when an attack occurs |
 | **Vulnerability** | A weakness that a threat can exploit |
+
+**Threat → Attack → Risk: the conceptual triangle**
+
+These three terms are related but distinct. A threat is a possibility. An attack is that possibility acted upon. Risk is the resulting consequence — and crucially, **risk can be zero even when an attack occurs**, if the system is sufficiently protected.
+
+*Example:* A SQL injection attempt (attack) is made against your login form. If your system uses parameterised queries and returns only a generic error message, the risk of sensitive data disclosure is zero — the attack occurred but your controls rendered it harmless. Risk is the product of likelihood *and* impact; strong controls reduce both.
+
+This distinction matters for threat modelling: you model threats (possibilities) to design controls that reduce risk (consequences) — you cannot prevent all attacks, but you can ensure that when attacks happen, the consequences are negligible.
 
 **Threat categories (by CIA triad):**
 - **Disclosure threats** — against confidentiality (information exposure)
@@ -54,7 +63,10 @@ Additional threat types: authentication bypass, privilege escalation, impersonat
 - **OS Threats** — vulnerabilities at the operating system level
 - **Malware** — viruses, ransomware, spyware, worms
 - **Network Threats** — interception, spoofing, flooding
-- **AI Threats** — emerging category of AI-driven and AI-assisted attacks
+- **AI Threats** — emerging and growing category; key attack vectors:
+  - **Data poisoning** — injecting malicious training data to corrupt an AI model's outputs or decision boundaries
+  - **Prompt injection** — crafting user inputs that override an AI chatbot's system instructions, causing it to disclose restricted information or execute unintended actions
+  - Applications using AI chatbots are exposed to both: a malicious user can use prompt injection to extract sensitive data or manipulate the system's behaviour in ways the developer never anticipated
 
 ---
 
@@ -194,15 +206,21 @@ STRIDE is a **goal-based threat categorisation framework** — it classifies thr
 Illegally accessing and using another user's authentication information.
 - **Countermeasures:** strong authentication, MFA, certificate-based identity, anti-phishing controls
 
+*Worked example — typosquatting:* An attacker registers `amazom.com` (double letter) — a domain visually indistinguishable from `amazon.com` at a glance. The site is an exact replica of the legitimate login page. Users enter their credentials, believing they are on the real site. The attacker harvests credentials. The user was spoofed by an identity that looked legitimate.
+
 ### T — Tampering
 Malicious modification of data — in a database, in transit, or in configuration.
 - **Countermeasures:** input validation, integrity checks (hashing/digital signatures), TLS in transit, immutable audit logs
 
+*Worked example — checkout parameter tampering:* At checkout, an application sends a `user_code` field in the POST request identifying whose payment method to charge. An attacker discovers this parameter and modifies `user_code=126` (their own account) to `user_code=123` (a victim's account). The payment is charged to the victim's linked credit card; the attacker receives the goods. The server trusted client-supplied data it should have derived from the authenticated session.
+
 ### R — Repudiation
 A user performs an action and later denies it, with no evidence to prove otherwise.
 
-> *Repudiation* is the threat. *Non-repudiation* is the countermeasure property.
+> *Repudiation* is the threat. *Non-repudiation* is the countermeasure property — the system's ability to prove what happened despite the attacker's denial.
 - **Countermeasures:** comprehensive audit logs with timestamps and user IDs, digital signatures on critical transactions, log tamper protection
+
+*Worked example — signed delivery receipt:* When a parcel is delivered, the recipient signs a receipt confirming delivery. If the customer later claims the parcel never arrived, the signed receipt constitutes non-repudiable proof — the customer's own signature makes denial impossible. The software equivalent: a digital signature on a fund transfer, or a hash-chained audit log entry, provides the same non-repudiable evidence that a specific authenticated user performed a specific action at a specific time.
 
 ### I — Information Disclosure
 Exposure of information to parties who should not have access.
