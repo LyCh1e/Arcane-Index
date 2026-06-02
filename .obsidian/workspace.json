@@ -18,6 +18,16 @@
               "icon": "bot",
               "title": "Claudian"
             }
+          },
+          {
+            "id": "845678323c6133f0",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
           }
         ]
       }
@@ -31,7 +41,6 @@
       {
         "id": "4efd391921547ad4",
         "type": "tabs",
-        "dimension": 60.66997518610422,
         "children": [
           {
             "id": "3f41e16c8ccd1064",
@@ -71,25 +80,6 @@
               "state": {},
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
-            }
-          }
-        ]
-      },
-      {
-        "id": "16d1044f0b9bf245",
-        "type": "tabs",
-        "dimension": 39.33002481389578,
-        "children": [
-          {
-            "id": "845678323c6133f0",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "graph",
-              "state": {},
-              "pinned": true,
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
             }
           }
         ]
@@ -231,24 +221,25 @@
   },
   "active": "6492dbdec43436fa",
   "lastOpenFiles": [
+    "skills/canvas/SKILL.md",
+    "wiki/concepts/secure-design-implementation.md",
+    "canvases/password-hashing.canvas",
+    "canvases/password-hashing.canvas.tmp.10512.a1dc9ba951ea",
+    "canvases",
+    "CLAUDE.md",
+    "wiki/concepts/secure-design-implementation.md.tmp.10512.a2aa51bdefda",
     "ICT2216-Quiz.html",
     "ICT2216-Quiz.html.tmp.40828.cb9714607081",
-    "CLAUDE.md",
     "wiki/log.md.tmp.30404.222b4d0586ca",
     "wiki/concepts/threat-modeling.md.tmp.30404.807c259620dc",
     "wiki/concepts/threat-modeling.md.tmp.30404.f52b3c934b40",
     "wiki/hot.md.tmp.31084.9beba9964354",
     "wiki/log.md.tmp.31084.43cc88091731",
-    "wiki/sources/ICT2216-secure-software-development.md.tmp.31084.4c65d8834123",
-    "wiki/sources/ICT2216-secure-software-development.md.tmp.31084.ca75b4304840",
     "wiki/examples/ict2216-lab4-owasp-threat-dragon.md",
-    "wiki/examples/ict2216-lab4-owasp-threat-dragon.md.tmp.31084.686c00df1647",
     "wiki/resources/owasp-threat-dragon.md",
-    "wiki/resources/owasp-threat-dragon.md.tmp.31084.5d1e0da9212f",
     "wiki/examples/ict2216-lab5-github-actions.md",
     "wiki/concepts/github-actions-cicd.md",
     "wiki/concepts/nginx-reverse-proxy-and-tls.md",
-    "wiki/concepts/secure-design-implementation.md",
     "CHANGELOG.md",
     "wiki/learning/docker-named-volume-stale-content.md",
     "wiki/learning/docker-compose-build-context.md",
@@ -266,7 +257,6 @@
     "wiki/concepts/privacy-data-protection-and-ip.md",
     "wiki/concepts/behavioural-ethics-and-workplace.md",
     "wiki/sources/INF1007-ethics-professional-conduct.md",
-    "raw/INF1007 Ethics & Professional Conduct Notes.md",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",

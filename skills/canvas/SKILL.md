@@ -96,10 +96,31 @@ Create a text node:
   "type": "text",
   "text": "[content]",
   "x": [auto], "y": [auto],
-  "width": 300, "height": 120,
+  "width": 300, "height": [calculated],
   "color": "4"
 }
 ```
+
+**Height calculation — always estimate, never guess 120 and move on:**
+
+Count the logical display lines the text will produce at the chosen width, then apply:
+
+```
+height = (line_count × 28) + 50
+```
+
+Line-count rules:
+- Each `\n` is one additional line.
+- A body-text line longer than `width / 7` characters wraps; add one extra line per wrap.
+- A `##` heading counts as 1.4 lines (larger font); `###` counts as 1.2 lines.
+- A blank line (`\n\n`) counts as 0.6 lines.
+
+Examples at width 280 (≈ 40 chars/line):
+- Two-line heading + body → `(1.2 + 1) × 28 + 50 ≈ 112` → use **120**
+- Heading + blank + 80-char body (wraps once) → `(1.2 + 0.6 + 2) × 28 + 50 ≈ 161` → use **170**
+- Heading + blank + 3-line body → `(1.2 + 0.6 + 3) × 28 + 50 ≈ 183` → use **200**
+
+Always round up to the nearest 10 and add a 20-pixel breathing margin. Never use a height below 80.
 
 Position using auto-layout. Write and report.
 
@@ -269,6 +290,7 @@ When `/banana` finishes generating images, suggest:
 3. Create `_attachments/images/canvas/` for downloaded/copied images.
 4. Update `wiki/index.md` when creating new canvases.
 5. Report position and zone after every add operation.
+6. **Text nodes must always have enough height to show all wrapped content.** Use the height formula in the `add text` section for every text node you create or edit — including nodes inside groups and banner nodes. Never hard-code a height without estimating line count first. A node whose text is clipped is a broken node.
 
 ## See Also
 

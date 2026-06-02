@@ -159,6 +159,90 @@ Each iteration adds negligible time for the legitimate user but multiplies the c
 
 **Design question:** Are you generating one salt for all users or a unique salt per user? Where and when is the salt generated?
 
+---
+
+#### Visual: Password Registration and Storage
+
+```mermaid
+flowchart TD
+    A["User registers
+    Enters password: 'hunter2'"]
+    A --> B["Generate random salt
+    e.g. 'x7k2m9'
+    Unique per user — generated fresh at signup"]
+    B --> C["Concatenate password + salt
+    'hunter2x7k2m9'"]
+    C --> D["Apply hash function
+    bcrypt / PBKDF2"]
+    D --> E["Key stretching
+    Hash the result again
+    Repeat ~60,000 times"]
+    E --> F["Final digest
+    '2b.12.XxXxX...'"]
+    F --> G[("Database stores:
+    username  |  hash digest  |  salt
+    The plaintext password is NEVER stored")]
+    B --> G
+
+    style A fill:#3b82f6,color:#fff,stroke:#2563eb
+    style B fill:#8b5cf6,color:#fff,stroke:#7c3aed
+    style E fill:#f59e0b,color:#fff,stroke:#d97706
+    style F fill:#f97316,color:#fff,stroke:#ea580c
+    style G fill:#16a34a,color:#fff,stroke:#15803d
+```
+
+#### Visual: Password Verification at Login
+
+```mermaid
+flowchart TD
+    A["User logs in Enters password: 'hunter2'"]
+    DB[("Database Stored hash Stored salt for this user")]
+
+    DB --> B["Retrieve stored salt 'x7k2m9'"]
+    A --> C
+    B --> C["Concatenate input + stored salt 'hunter2' + 'x7k2m9'"]
+    C --> D["Apply the SAME hash function Same algorithm — same iterations"]
+    D --> E["Computed digest '2b.12.XxXxX...'"]
+    E --> F{"Compare with stored hash"}
+    DB --> F
+    F -- "Match" --> G["Login granted"]
+    F -- "No match" --> H["Login rejected Generic error — never reveal WHY"]
+
+    style A fill:#3b82f6,color:#fff,stroke:#2563eb
+    style DB fill:#6b7280,color:#fff,stroke:#4b5563
+    style G fill:#16a34a,color:#fff,stroke:#15803d
+    style H fill:#dc2626,color:#fff,stroke:#b91c1c
+```
+
+> The login flow never decrypts — hashing is one-way. The system re-hashes the input with the stored salt and checks whether the result matches. Decryption is impossible by design.
+
+#### Visual: Why Salting Defeats Rainbow Tables
+
+```mermaid
+flowchart TD
+    subgraph UNSAFE["Without Salt — Vulnerable"]
+        direction TB
+        U1["Alice: 'abc123'"] --> H1["SHA-256"] --> D1["900150..."]
+        U2["Bob:   'abc123'"] --> H2["SHA-256"] --> D2["900150..."]
+        D1 & D2 --> R1["Same hash for the same password One precomputed rainbow table cracks BOTH accounts instantly"]
+    end
+
+    subgraph SAFE["With Unique Salt per User — Protected"]
+        direction TB
+        U3["Alice: 'abc123' + salt 'xk9p2'"] --> H3["bcrypt x60000"] --> D3["2b.a7f3m..."]
+        U4["Bob:   'abc123' + salt 'm2p8r'"] --> H4["bcrypt x60000"] --> D4["2b.k3n9q..."]
+        D3 & D4 --> R2["Different hash for the same password Rainbow tables useless 
+        Attacker must brute-force each account individually"]
+    end
+
+    style R1 fill:#dc2626,color:#fff,stroke:#b91c1c
+    style R2 fill:#16a34a,color:#fff,stroke:#15803d
+```
+
+> 🗺️ **Interactive canvas:** [[canvases/password-hashing.canvas|Password Hashing — Visual Canvas]]
+
+---
+
 ### Referential Integrity
 
 **Referential integrity** requires that every foreign key value in a table has a corresponding primary key in the referenced table. Without it, "orphaned" records accumulate — e.g., an ORDER with no corresponding CUSTOMER.
