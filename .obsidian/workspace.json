@@ -20,16 +20,24 @@
             }
           },
           {
-            "id": "845678323c6133f0",
+            "id": "d979e1d0c38c2159",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "canvas",
+              "state": {
+                "file": "canvases/password-hashing.canvas",
+                "viewState": {
+                  "x": -54.25698958172632,
+                  "y": 242.52867920893365,
+                  "zoom": -0.5126771400143811
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "password-hashing"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -86,7 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 304.5026054382324
+    "width": 213.50260543823242
   },
   "right": {
     "id": "6a9b36797fc4f8a3",
@@ -219,7 +227,7 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "6492dbdec43436fa",
+  "active": "d979e1d0c38c2159",
   "lastOpenFiles": [
     "skills/canvas/SKILL.md",
     "wiki/concepts/secure-design-implementation.md",
