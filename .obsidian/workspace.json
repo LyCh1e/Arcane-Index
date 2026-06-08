@@ -18,26 +18,8 @@
               "icon": "bot",
               "title": "Claudian"
             }
-          },
-          {
-            "id": "d979e1d0c38c2159",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "canvases/password-hashing.canvas",
-                "viewState": {
-                  "x": -54.25698958172632,
-                  "y": 242.52867920893365,
-                  "zoom": -0.5126771400143811
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "password-hashing"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -227,8 +209,9 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "d979e1d0c38c2159",
+  "active": "6492dbdec43436fa",
   "lastOpenFiles": [
+    "wiki/concepts/secure-design-implementation.md.tmp.9236.ce9a3a5d5790",
     "skills/canvas/SKILL.md",
     "wiki/concepts/secure-design-implementation.md",
     "canvases/password-hashing.canvas",

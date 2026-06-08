@@ -251,6 +251,8 @@ Enforcing referential integrity prevents phantom records, data inconsistencies, 
 
 **Design question:** Does your application allow deleting a customer who still has orders? What happens to those records?
 
+**Recommended pattern — deactivate, not delete:** Rather than physically removing a customer row (which orphans all related orders), add an `active` column (Boolean or status flag) to the user table. When a customer closes their account, set `active = false`. The row and all referencing records remain intact. The application presents the account as non-existent to other users ("User not found") without exposing whether it is inactive or truly absent. This preserves audit history, protects referential integrity, and simplifies data recovery.
+
 ### Resource Locking
 
 Two concurrent operations must not be allowed on the same object simultaneously.
@@ -299,6 +301,8 @@ Horizontal scaling is generally preferred — it eliminates single-node failure 
 **Design questions:**
 - What happens if an admin forgets their password? How is account recovery handled securely?
 - How is the initial admin account created and who has access to that process?
+
+**Recommended pattern — installation-wizard model:** Do not pre-seed an admin account in the database with hard-coded credentials. Instead, prompt for the initial administrator's username and password during the first application launch (the same pattern used by Windows and Linux installations). The credentials entered are hashed and stored, and that account is granted administrator privileges. This avoids shipping or committing default credentials and ensures the admin identity is established interactively by the deployer.
 
 ### Passwordless Authentication
 
