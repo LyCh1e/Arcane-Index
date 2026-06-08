@@ -5,7 +5,7 @@ address: c-000066
 domain: secure-software-development
 complexity: high
 tags: [security-design, cryptography, symmetric, asymmetric, x509, hashing, salting, passwordless, mfa, sso, rbac, rbac-ubac, replication, failover, dmz, secure-agile, data-access-control, SSDLC]
-updated: 2026-05-30
+updated: 2026-06-08
 status: established
 created: 2026-05-30
 ---
@@ -140,6 +140,8 @@ A dictionary attack tries hashed versions of known passwords against stored hash
 4. Repeat (e.g., 60,000 iterations)
 
 Each iteration adds negligible time for the legitimate user but multiplies the cost for an attacker attempting millions of guesses.
+
+> **Non-functional requirement:** The iteration count must be specified as a non-functional security requirement — not chosen arbitrarily. Too high a count introduces unacceptable authentication latency; too low a count provides insufficient protection. The chosen value must be justified (e.g., "bcrypt cost factor 12 — authentication completes in < 300 ms on target hardware and raises per-guess cost above 100 ms for an attacker").
 
 **Password storage comparison:**
 

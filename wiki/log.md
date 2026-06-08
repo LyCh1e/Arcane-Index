@@ -1,13 +1,22 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-05-30
+updated: 2026-06-08
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## 2026-06-08 | ingest | ICT2216 Lecture 5 — Secure Software Design (transcript re-ingest)
+
+- Source: spoken lecture transcript (Lecture 5 — same content as 2026-05-30 ingest, reviewed for new details)
+- Three additions made to [[concepts/secure-design-implementation]]:
+  - **Deactivate vs delete pattern** (referential integrity section) — add `active` column rather than physically removing user rows; preserves audit history and referential links
+  - **Admin account installation-wizard model** (authentication design section) — prompt for admin credentials on first launch (Windows/Linux install pattern); never pre-seed hard-coded credentials
+  - **NFR governing hash iteration count** (hashing section) — iteration count must be specified as a non-functional security requirement with hardware-based justification, not chosen arbitrarily
+- Updated: [[concepts/secure-design-implementation]] (updated field, 3 additions)
 
 ## 2026-05-31 | project | ICT2216 TrialGuard — Phases 9–12 Deployment and Hardening
 
