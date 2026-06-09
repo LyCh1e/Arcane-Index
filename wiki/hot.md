@@ -1,13 +1,19 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-30T12:30:00
+updated: 2026-06-08T00:00:00
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-06-08. **Session: ingest — ICT2216 Lecture 5 transcript (Secure Software Design Part 2 & Secure Agile Development).** No new files created. Three targeted additions to [[concepts/secure-design-implementation]], which was already comprehensive from the 2026-05-30 ingest. Additions extracted from the live lecture transcript:
+
+- **Deactivate vs delete** (referential integrity): Rather than deleting a customer record (which orphans orders/order-detail rows), set an `active` flag. The row persists; the application treats the account as non-existent externally. Preserves referential integrity, audit history, and allows recovery.
+- **Admin account — installation-wizard model**: Never pre-seed hard-coded admin credentials in the database. Prompt for the initial admin username and password on first application launch (same pattern as Windows/Linux OS installation). Credentials are hashed and stored by the setup routine; no default password is ever shipped or committed.
+- **NFR for hash iteration count**: The bcrypt/PBKDF2 cost factor/iteration count must be specified as a non-functional security requirement with a hardware-justified rationale (e.g., "cost factor 12 → authentication < 300 ms on target hardware → attacker cost > 100 ms per guess"). An arbitrary iteration count is not acceptable; too high causes UX latency, too low is insecure.
 
 2026-05-31. **Session: project — ICT2216 TrialGuard, Phases 9–12 completion and EC2 deployment.** Created 1 example page and 4 learning pages. Key outputs:
 

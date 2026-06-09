@@ -4,6 +4,20 @@
   "title": "Secure software design from start",
   "titleGenerationStatus": "success",
   "createdAt": 1780918090569,
-  "updatedAt": 1780918105532,
-  "sessionId": null
+  "updatedAt": 1780936494745,
+  "lastResponseAt": 1780936494745,
+  "sessionId": "a729c3a9-2b4b-49e4-8701-084b9236811f",
+  "providerState": {
+    "providerSessionId": "a729c3a9-2b4b-49e4-8701-084b9236811f"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 1169,
+    "cacheReadInputTokens": 85558,
+    "contextWindow": 200000,
+    "contextTokens": 86730,
+    "percentage": 43,
+    "contextWindowIsAuthoritative": true
+  }
 }
