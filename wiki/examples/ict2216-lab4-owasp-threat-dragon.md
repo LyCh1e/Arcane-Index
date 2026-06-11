@@ -1,12 +1,11 @@
 ---
-name: ict2216-lab4-owasp-threat-dragon
-description: ICT2216 Lab 4 — OWASP Threat Dragon walkthrough: install, create DFD, generate STRIDE threats, mitigate, report
-metadata:
-  type: example
+type: example
+title: "ICT2216 Lab 4 — OWASP Threat Dragon"
 domain: secure-software-development
 course: ICT2216
+tags: [ict2216, owasp, threat-dragon, threat-modeling, dfd, stride, lab]
 created: 2026-05-30
-tags: [owasp, threat-dragon, threat-modeling, dfd, stride, lab]
+updated: 2026-05-30
 ---
 
 # ICT2216 Lab 4 — OWASP Threat Dragon

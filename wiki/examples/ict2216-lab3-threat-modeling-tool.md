@@ -6,9 +6,9 @@ tags: [ICT2216, threat-modeling, STRIDE, DFD, microsoft-threat-modeling-tool]
 updated: 2026-05-16
 ---
 
-# ICT2216 Lab 3 — Microsoft Threat Modeling Tool
+# ICT2216 Lab 3 — Microsoft Threat Modelling Tool
 
-**Goal:** Use the Microsoft Threat Modeling Tool to draw a DFD for a project application, then analyze and document threats using STRIDE.
+**Goal:** Use the Microsoft Threat Modelling Tool to draw a DFD for a project application, then analyse and document threats using STRIDE.
 
 ---
 

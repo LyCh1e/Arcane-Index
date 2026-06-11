@@ -9,6 +9,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-11 | ingest | ICT2216 Labs 1–5 instruction files
+
+- Source: `instructions_lab1.md` through `instructions_lab5.md` (step-by-step lab guides created from PDF lab sheets)
+- No new example pages created — all five labs already had comprehensive pages in `wiki/examples/`
+- Updated [[examples/ict2216-lab2-securityrat]]: added **Part 1 — CIA+AAA security requirements framework discussion** (this section was completely absent; the page only covered the SecurityRAT tool)
+- Updated [[examples/_index.md]]: added four missing entries — Lab 4 (OWASP Threat Dragon), Lab 5 (GitHub Actions), Project Phase 4 Auth, Project Deployment Phases 9–12
+
 ## 2026-06-08 | ingest | ICT2216 Lecture 5 — Secure Software Design (transcript re-ingest)
 
 - Source: spoken lecture transcript (Lecture 5 — same content as 2026-05-30 ingest, reviewed for new details)
