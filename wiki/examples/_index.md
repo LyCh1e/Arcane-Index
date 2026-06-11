@@ -28,6 +28,10 @@ This folder contains two categories of grounded, applied content that sit alongs
 | [[ict2216-lab1-docker-compose\|ICT2216 Lab 1 — Multi-Container Docker Compose Stack]] | lab | ICT2216 | [[concepts/docker-compose\|Docker Compose]] |
 | [[ict2216-lab2-securityrat\|ICT2216 Lab 2 — SecurityRAT: Defining Secure Software Requirements]] | lab | ICT2216 | [[concepts/secure-software-requirements\|Secure Software Requirements]] |
 | [[ict2216-lab3-threat-modeling-tool\|ICT2216 Lab 3 — Microsoft Threat Modeling Tool]] | lab | ICT2216 | [[concepts/threat-modeling\|Threat Modeling]] |
+| [[ict2216-lab4-owasp-threat-dragon\|ICT2216 Lab 4 — OWASP Threat Dragon]] | lab | ICT2216 | [[concepts/threat-modeling\|Threat Modeling]] |
+| [[ict2216-lab5-github-actions\|ICT2216 Lab 5 — Web Proxy and GitHub Actions with Docker]] | lab | ICT2216 | [[concepts/nginx-reverse-proxy-and-tls\|Nginx TLS]], [[concepts/github-actions-cicd\|GitHub Actions]] |
+| [[ict2216-project-phase4-auth\|ICT2216 Project — Phase 4 Authentication & Docker Stack]] | project | ICT2216 | [[concepts/secure-design-implementation\|Secure Design]] |
+| [[ict2216-project-deployment-phases-9-12\|ICT2216 Project — Deployment Phases 9–12 (EC2)]] | project | ICT2216 | [[concepts/docker-compose\|Docker Compose]] |
 | [[stock-prediction-neural-network\|Stock Prediction Neural Network — SOLID ML App with Tkinter GUI]] | project | machine-learning | [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] |
 | [[ict2216-project-vite-refactor\|ICT2216 Project — UMD Prototype to Vite + React SPA Refactor]] | project | ICT2216 / web-development | [[resources/vite\|Vite]], [[concepts/javascript-fundamentals\|JavaScript]] |
 

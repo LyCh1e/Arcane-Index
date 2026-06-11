@@ -8,11 +8,59 @@ created: 2026-05-11
 
 # ICT2216 Lab 2 — SecurityRAT: Defining Secure Software Requirements
 
-Hands-on lab deploying OWASP SecurityRAT via Docker Compose, loading the OWASP ASVS requirements database, and using the tool to generate a tailored security requirement checklist for a declared software artifact.
+Two-part lab: (1) Team discussion to define security requirements using the CIA+AAA framework; (2) Deploying OWASP SecurityRAT to auto-generate an ASVS-based checklist for a declared software artifact.
 
 Parent concepts: [[secure-software-requirements]], [[securityrat]], [[docker-compose]]
 
 ---
+
+## Part 1 — Team Security Requirements Discussion
+
+Work through each security pillar as a team. For each, answer the three sub-questions.
+
+### Functional Requirements (2–3 only)
+The core features your application must perform.
+
+### Non-Functional Requirements (2–3 only)
+Quality attributes: performance, scalability, maintainability, etc.
+
+### Security Requirements (CIA + AAA)
+
+Reference: SANS SWAT Checklist — https://www.sans.org/cloud-security/swat/
+
+#### Confidentiality
+1. What data must be protected? (passwords, PII, payment data)
+2. What are the confidentiality risks? (data leakage, unencrypted storage)
+3. What requirements protect it? (encrypt at rest and in transit, mask PII in logs)
+
+#### Integrity
+1. What data must maintain integrity? (transaction records, user roles)
+2. What are the integrity risks? (SQL injection, parameter tampering)
+3. What requirements ensure integrity? (input validation, parameterised queries)
+
+#### Availability
+1. How will you ensure availability? (redundancy, load balancing)
+2. What are the availability risks? (DDoS, server crashes)
+3. What are your availability requirements? (uptime SLA, failover)
+
+#### Authentication
+1. Who are the users? (admin, regular user, guest)
+2. What are the authentication risks? (brute force, credential stuffing)
+3. What will you implement? (MFA, account lockout after N attempts)
+
+#### Authorization
+1. Are there different user types with different permissions?
+2. What are the authorization risks? (privilege escalation, IDOR)
+3. What permission model will you use? (RBAC, least privilege)
+
+#### Accountability
+1. What actions need to be logged? (login events, data changes, admin actions)
+2. What are the accountability risks? (log tampering, no audit trail)
+3. What logging requirements will you define? (immutable logs, all admin actions)
+
+---
+
+## Part 2 — OWASP SecurityRAT
 
 ## Repository
 

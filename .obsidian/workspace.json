@@ -18,8 +18,23 @@
               "icon": "bot",
               "title": "Claudian"
             }
+          },
+          {
+            "id": "79c4ddfbe39ee57f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/examples/_index.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "_index"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -76,7 +91,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 213.50260543823242
+    "width": 351.5026054382324
   },
   "right": {
     "id": "6a9b36797fc4f8a3",
@@ -209,8 +224,16 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "04c15e29e5a3cbd6",
+  "active": "79c4ddfbe39ee57f",
   "lastOpenFiles": [
+    "wiki/examples/ict2216-lab5-github-actions.md",
+    "wiki/examples/ict2216-project-deployment-phases-9-12.md",
+    "wiki/examples/ict2216-project-phase4-auth.md",
+    "wiki/examples/ict2216-project-vite-refactor.md",
+    "wiki/examples/ict2216-lab4-owasp-threat-dragon.md",
+    "wiki/examples/ict2216-lab3-threat-modeling-tool.md",
+    "wiki/examples/ict2216-lab2-securityrat.md",
+    "wiki/examples/ict2216-lab1-docker-compose.md",
     "wiki/hot.md.tmp.9236.63ac45810bb7",
     "wiki/hot.md.tmp.9236.5240dbdfc72d",
     "wiki/log.md.tmp.9236.90e94f22be6e",
@@ -225,19 +248,14 @@
     "wiki/concepts/secure-design-implementation.md.tmp.10512.a2aa51bdefda",
     "ICT2216-Quiz.html",
     "ICT2216-Quiz.html.tmp.40828.cb9714607081",
-    "wiki/log.md.tmp.30404.222b4d0586ca",
-    "wiki/examples/ict2216-lab4-owasp-threat-dragon.md",
     "wiki/resources/owasp-threat-dragon.md",
-    "wiki/examples/ict2216-lab5-github-actions.md",
     "wiki/concepts/github-actions-cicd.md",
     "wiki/concepts/nginx-reverse-proxy-and-tls.md",
     "CHANGELOG.md",
     "wiki/learning/docker-named-volume-stale-content.md",
     "wiki/learning/docker-compose-build-context.md",
-    "wiki/examples/ict2216-project-phase4-auth.md",
     "wiki/resources/vite.md",
     "wiki/learning/vite-react-spa-migration.md",
-    "wiki/examples/ict2216-project-vite-refactor.md",
     "wiki/sources/_index.md",
     "wiki/concepts/_index.md",
     "wiki/concepts/secure-software-requirements.md",
@@ -245,9 +263,6 @@
     "wiki/concepts/ethical-frameworks.md",
     "wiki/concepts/ai-ethics-and-digital-society.md",
     "wiki/areas/it-ethics.md",
-    "wiki/concepts/privacy-data-protection-and-ip.md",
-    "wiki/concepts/behavioural-ethics-and-workplace.md",
-    "wiki/sources/INF1007-ethics-professional-conduct.md",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",
