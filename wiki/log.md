@@ -9,6 +9,23 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-12 | autoresearch | Blockchain Technology
+
+- Rounds: 3 | Searches: 9 | Sources fetched: 7 | Pages created: 8
+- Sources: [[sources/hacken-smart-contract-vulnerabilities-2025]], [[sources/atlantic-council-cbdc-tracker-2026]], [[sources/chainalysis-crypto-crime-report-2025]], [[sources/layer2-scaling-comparison-2025]]
+- Entities: [[entities/satoshi-nakamoto]], [[entities/vitalik-buterin]], [[entities/nick-szabo]]
+- Synthesis: [[questions/research-blockchain-technology]]
+- Concept updated: [[concepts/blockchain-technology]] (added §17 Live Statistics — 2025/2026 figures)
+- Key finding: The biggest blockchain losses are no longer smart contract bugs but private key theft — the weakest link has moved from code to people; DPRK stole ≥$2.02B in 2025 alone
+
+## 2026-06-12 | research | Blockchain Technology
+
+- Created [[concepts/blockchain-technology]] (c-000067) — comprehensive research note
+- Covers: block anatomy, cryptographic foundations (SHA-256, ECDSA, Merkle trees), transaction lifecycle, all major consensus mechanisms (PoW/PoS/DPoS/PBFT/PoA), UTXO vs account model, smart contracts (EVM, Solidity, risks), network architecture (node types), security threat model (51% attack, eclipse, long-range, quantum risk, privacy), scalability trilemma and Layer-2 rollups, real-world implementations (Bitcoin, Ethereum, Hyperledger Fabric), and cross-domain connections
+- Diagrams: block chain linkage, Merkle tree, transaction flow sequence, PoW mining loop, PoS attestation flow, consensus quadrant chart, mindmap threat model, full transaction lifecycle, network architecture, EVM deployment pipeline
+- Domain `blockchain` added (17th domain)
+- Updated [[index.md]], [[hot.md]]
+
 ## 2026-06-11 | ingest | ICT2216 Labs 1–5 instruction files
 
 - Source: `instructions_lab1.md` through `instructions_lab5.md` (step-by-step lab guides created from PDF lab sheets)

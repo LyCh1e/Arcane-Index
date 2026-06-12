@@ -1,13 +1,38 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-06-08T00:00:00
+updated: 2026-06-12T00:00:00
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-06-12. **Session: autoresearch — Blockchain Technology (3 rounds, 9 searches, 8 pages).** Full autoresearch loop executed. Key live findings (2025–2026 data):
+
+- **Security**: Crypto theft >$3.4B in 2025; single Bybit hack = $1.5B (44 % of annual total); DPRK stole ≥$2.02B; DeFi losses improving (median incident down 75 % since 2022) but Q1 2026 shows spike ($482M, 44 incidents); attack vector shifted from smart contract bugs → private key / social engineering.
+- **Layer 2**: Arbitrum ($15B+ TVL, 500+ apps), Optimism ($10B+), ZK rollups ($6.27B total TVL); Polygon PoS 7,000+ TPS; cross-rollup interoperability emerging 2025–2026; ZK STARKs are additionally quantum-resistant.
+- **CBDCs**: 146 countries (98 % GDP) exploring; only 3 launched; China e-CNY at 16.7 trillion RMB / 3.4B transactions; mBridge volume 2,500× growth; US GENIUS Act (July 2025) bans Fed retail CBDC; EU decision pending 2026.
+- **Post-Quantum**: NIST FIPS 204 (Dilithium / ML-DSA) is the signature standard; 2026–2030 is the critical hybrid migration window; Dilithium signatures are 40–70× larger than ECDSA — significant L1 block-size impact; Polkadot published Dilithium migration roadmap.
+- **RWA tokenisation**: ~$32B on-chain (excl. stablecoins, May 2026); >$300B incl. stablecoins; Standard Chartered projects $30T by 2034.
+
+Created: [[sources/hacken-smart-contract-vulnerabilities-2025]], [[sources/atlantic-council-cbdc-tracker-2026]], [[sources/chainalysis-crypto-crime-report-2025]], [[sources/layer2-scaling-comparison-2025]], [[entities/satoshi-nakamoto]], [[entities/vitalik-buterin]], [[entities/nick-szabo]], [[questions/research-blockchain-technology]].
+
+2026-06-12. **Session: research — Blockchain Technology.** Created 1 concept page [[concepts/blockchain-technology]] (c-000067). Domain `blockchain` added as the 17th domain. The page is a deep-dive reference covering the full blockchain stack:
+
+- **Block anatomy**: header fields (prev hash, Merkle root, nonce, target, timestamp), double-SHA-256 hashing, block size
+- **Cryptographic foundations**: SHA-256 avalanche/pre-image/collision resistance; ECDSA over `secp256k1` — private key → public key (EC point multiplication) → address (RIPEMD-160 ∘ SHA-256); Merkle trees (O(log n) inclusion proofs; SPV nodes)
+- **Transaction lifecycle**: sign → broadcast → mempool → miner selection → candidate block → consensus → append → confirmations
+- **Consensus mechanisms**: PoW (nonce mining loop, difficulty adjustment, 51% attack economics), PoS (Ethereum Gasper/Casper FFG, RANDAO beacon, slashing), DPoS (EOS 21 delegates), PBFT (BFT, deterministic finality, O(n²) messages), PoA (permissioned chains)
+- **UTXO vs Account model**: Bitcoin UTXO (parallel validation, privacy) vs Ethereum account (persistent balance, nonce, simpler smart contracts)
+- **Smart contracts**: EVM bytecode/ABI, gas pricing, Solidity escrow example, re-entrancy (DAO hack), integer overflow, front-running, oracle manipulation
+- **Security threats**: 51%/34% attack, eclipse attack, long-range PoS attack, Sybil, BGP hijacking; cryptographic quantum risk (Grover's on SHA-256 → safe; Shor's on ECDSA → vulnerable; post-quantum: CRYSTALS-Dilithium/Falcon); privacy (chain analysis, CoinJoin, zk-SNARKs, stealth addresses)
+- **Scalability trilemma**: decentralisation × security × scalability; Optimistic Rollups (7-day fraud proof window) vs ZK Rollups (instant cryptographic finality); DPoS trade-off
+- **Implementations**: Bitcoin (7 TPS, 21M cap, UTXO, Script), Ethereum (12s slots, EVM, PoS, rollup-native), Hyperledger Fabric (permissioned, Raft, X.509 MSP, channels)
+- **10+ Mermaid diagrams**: block linkage, Merkle tree, sequence diagram, PoW flowchart, PoS attestation, quadrant chart, threat mindmap, full lifecycle, network topology, EVM deployment pipeline
+
+## Last Updated (previous)
 
 2026-06-08. **Session: ingest — ICT2216 Lecture 5 transcript (Secure Software Design Part 2 & Secure Agile Development).** No new files created. Three targeted additions to [[concepts/secure-design-implementation]], which was already comprehensive from the 2026-05-30 ingest. Additions extracted from the live lecture transcript:
 

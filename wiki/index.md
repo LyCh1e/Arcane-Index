@@ -41,6 +41,10 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/INF2001-intro-software-engineering\|INF2001 Introduction to Software Engineering]] | course | software-engineering | 2026-05-23 |
 | [[sources/INF2004-embedded-systems-programming\|INF2004 Embedded Systems Programming]] | course | embedded-systems | 2026-05-23 |
 | [[sources/INF1007-ethics-professional-conduct\|INF1007 Ethics & Professional Conduct]] | course | it-ethics | 2026-05-24 |
+| [[sources/hacken-smart-contract-vulnerabilities-2025\|Hacken: Top 10 Smart Contract Vulnerabilities (2025)]] | report | blockchain | 2026-06-12 |
+| [[sources/atlantic-council-cbdc-tracker-2026\|Atlantic Council: CBDC Tracker (2026)]] | tracker | blockchain | 2026-06-12 |
+| [[sources/chainalysis-crypto-crime-report-2025\|Chainalysis: Crypto Crime Report (2025)]] | report | blockchain | 2026-06-12 |
+| [[sources/layer2-scaling-comparison-2025\|Layer 2 Scaling Solutions Comparison (2025)]] | analysis | blockchain | 2026-06-12 |
 
 ## Concepts
 
@@ -134,6 +138,13 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/behavioural-ethics-and-workplace\|Behavioural Ethics and Workplace Ethics]] | it-ethics | medium |
 | [[concepts/privacy-data-protection-and-ip\|Privacy, Data Protection, and Intellectual Property]] | it-ethics | high |
 | [[concepts/ai-ethics-and-digital-society\|AI Ethics and the Digital Society]] | it-ethics | high |
+| [[concepts/blockchain-technology\|Blockchain Technology]] | blockchain | high |
+
+## Questions / Research Syntheses
+
+| Page | Topic | Date |
+|---|---|---|
+| [[questions/research-blockchain-technology\|Research: Blockchain Technology]] | blockchain | 2026-06-12 |
 
 ## Examples
 
