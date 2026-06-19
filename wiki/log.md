@@ -9,6 +9,12 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-19 | project | ICT2216 TrialGuard — CD Pipeline (GitHub Actions → EC2)
+
+- Updated: [[concepts/github-actions-cicd]] — added "CD: Deploying to EC2 via SSH" section covering the full deploy job pattern, `gh secret set` for adding secrets via CLI, the `git archive` approach for private repos, and the `-o LogLevel=ERROR` fix
+- Created: [[learning/ssh-stdout-known-hosts-warning]] — SSH "Permanently added to known hosts" warning contaminates stdout when using `2>&1`; fix is `-o LogLevel=ERROR` on all SSH/SCP calls
+- Key: GitHub repo secrets (EC2_HOST, EC2_SSH_KEY) added via `gh secret set` — encrypted at rest, masked in logs, write-only after creation, safe for school projects
+
 ## 2026-06-12 | autoresearch | Blockchain Technology
 
 - Rounds: 3 | Searches: 9 | Sources fetched: 7 | Pages created: 8

@@ -254,8 +254,122 @@ DAST — Dynamic Analysis (OWASP ZAP)                    ← Lab 11
 Release / Tag
 ```
 
+## CD: Deploying to EC2 via SSH
+
+When CI jobs all pass, a `deploy` job can SSH into a remote server and restart the application. This is the standard CD pattern for EC2/VPS targets that cannot be reached via Docker registry push.
+
+### Required GitHub Secrets
+
+Add these via **Settings → Secrets and variables → Actions** or via the CLI:
+
+```bash
+gh secret set EC2_HOST    --body "ubuntu@<ip>"
+gh secret set EC2_SSH_KEY --body "$(cat path/to/key.pem)"
+```
+
+Secrets are encrypted at rest (libsodium), masked in logs, and inaccessible to fork PRs. They cannot be read back after being set — write-only.
+
+### Only deploy on push, not on PRs
+
+Use an `if:` condition on the deploy job to prevent it running on pull requests:
+
+```yaml
+deploy:
+  needs: [security-scan]
+  if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+```
+
+### Full Deploy Job Pattern
+
+```yaml
+deploy:
+  name: Deploy to EC2
+  runs-on: ubuntu-latest
+  needs: [security-scan]
+  if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+  env:
+    REMOTE_DIR: ~/my-repo
+
+  steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Write SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/deploy.pem
+        chmod 600 ~/.ssh/deploy.pem
+
+    - name: Test SSH connection
+      run: |
+        result=$(ssh -i ~/.ssh/deploy.pem \
+          -o StrictHostKeyChecking=no \
+          -o LogLevel=ERROR \
+          -o ConnectTimeout=10 \
+          "${{ secrets.EC2_HOST }}" "echo ok")
+        if [[ "$result" != "ok" ]]; then
+          echo "SSH failed: $result"
+          exit 1
+        fi
+
+    - name: Create git archive
+      run: git archive --format=tar HEAD -o /tmp/app.tar
+
+    - name: Upload archive to EC2
+      run: |
+        scp -i ~/.ssh/deploy.pem \
+          -o StrictHostKeyChecking=no \
+          -o LogLevel=ERROR \
+          /tmp/app.tar "${{ secrets.EC2_HOST }}:~/app.tar"
+
+    - name: Extract and restart
+      run: |
+        ssh -i ~/.ssh/deploy.pem \
+          -o StrictHostKeyChecking=no \
+          -o LogLevel=ERROR \
+          "${{ secrets.EC2_HOST }}" \
+          "mkdir -p $REMOTE_DIR && cd $REMOTE_DIR && tar xf ~/app.tar &&
+           docker compose up -d --build 2>&1 | tail -20"
+
+    - name: Health check
+      run: |
+        health=$(ssh -i ~/.ssh/deploy.pem \
+          -o StrictHostKeyChecking=no \
+          -o LogLevel=ERROR \
+          "${{ secrets.EC2_HOST }}" \
+          "curl -sk https://localhost/api/health")
+        echo "Health: $health"
+
+    - name: Clean up SSH key
+      if: always()
+      run: rm -f ~/.ssh/deploy.pem
+```
+
+### Why `git archive` instead of `git clone`?
+
+Private repos cannot be cloned on EC2 without credentials. `git archive --format=tar HEAD` bundles only the committed files from the current HEAD — no `.git` directory, no history — and is uploaded via SCP. Files in `.gitignore` (`.env`, TLS certs) must be pushed separately on first-time setup.
+
+### SSH stdout contamination — the `-o LogLevel=ERROR` fix
+
+Without `LogLevel=ERROR`, SSH prints `Warning: Permanently added '<host>' (ED25519) to the list of known hosts.` to **stderr**. If you redirect stderr to stdout with `2>&1` to capture the result of a command, this warning gets mixed into the variable and breaks equality checks:
+
+```bash
+# BROKEN — warning contaminates $result
+result=$(ssh ... "$HOST" "echo ok" 2>&1)
+[[ "$result" == "ok" ]]  # fails: $result = "Warning: Permanently added...\nok"
+
+# FIXED — warning suppressed at source
+result=$(ssh -o LogLevel=ERROR ... "$HOST" "echo ok")
+[[ "$result" == "ok" ]]  # passes
+```
+
+Always add `-o LogLevel=ERROR` (and `-o StrictHostKeyChecking=no`) to SSH/SCP calls in CI pipelines. See [[learning/ssh-stdout-known-hosts-warning]].
+
 ## Related
 
 - [[concepts/software-configuration-management]] — CI/CD theory (Booch/Fowler), git workflow
 - [[concepts/nginx-reverse-proxy-and-tls]] — Nginx setup tested by the Actions workflow
 - [[examples/ict2216-lab5-github-actions]] — Full Lab 5 walkthrough
+- [[examples/ict2216-project-deployment-phases-9-12]] — EC2 deployment context (deploy.sh / deploy.ps1)

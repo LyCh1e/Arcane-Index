@@ -1,13 +1,25 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-06-12T00:00:00
+updated: 2026-06-19T00:00:00
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-06-19. **Session: project — ICT2216 TrialGuard, CD pipeline added to GitHub Actions CI/CD workflow.** Updated [[concepts/github-actions-cicd]] and created 1 learning page.
+
+- **CD deploy job pattern**: Added a fourth job `deploy` to `.github/workflows/ci-cd.yml` that runs only on `push` to `main` (not PRs), gated on all CI and security scan jobs passing. Uses `if: github.event_name == 'push' && github.ref == 'refs/heads/main'` to suppress deployment on PR runs.
+- **Step sequence mirrors deploy.sh/deploy.ps1**: Write PEM key from secret → test SSH → `git archive --format=tar HEAD` → SCP to EC2 → extract → `docker compose build --no-cache frontend-build` + volume purge + `docker compose up -d` → health check via `curl -sk https://localhost/api/health` → always-cleanup of PEM.
+- **GitHub secrets via CLI**: `gh secret set EC2_HOST --body "student21@18.223.111.152"` and `gh secret set EC2_SSH_KEY --body "$(cat *.pem)"`. Secrets are encrypted with libsodium, masked in logs, inaccessible to fork PRs, and write-only after creation — safe to store SSH keys here.
+- **Bug: SSH "Permanently added" warning contaminates stdout** ([[learning/ssh-stdout-known-hosts-warning]]): With `-o StrictHostKeyChecking=no` and `2>&1`, the SSH informational message `Warning: Permanently added '<host>' (ED25519) to the list of known hosts.` merges into the captured variable, breaking `[[ "$result" == "ok" ]]`. Fix: add `-o LogLevel=ERROR` to all SSH/SCP calls and drop `2>&1` from variable capture.
+- **Why `git archive` not `git clone`**: Private repo cannot be cloned on EC2 without credentials. `git archive` bundles committed files from HEAD only (no `.git`, no history) and is pushed via SCP.
+
+Created: [[learning/ssh-stdout-known-hosts-warning]]. Updated: [[concepts/github-actions-cicd]], [[wiki/index.md]], [[wiki/log.md]].
+
+## Last Updated (previous)
 
 2026-06-12. **Session: autoresearch — Blockchain Technology (3 rounds, 9 searches, 8 pages).** Full autoresearch loop executed. Key live findings (2025–2026 data):
 

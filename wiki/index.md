@@ -184,6 +184,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/docker-ro-mount-chmod-fails\|Docker: chmod Fails on :ro Mounted Files — Use sh script.sh Instead]] | devops | resolved |
 | [[learning/git-amend-remove-sensitive-push\|Git: Remove Sensitive Info from a Pushed Commit (amend + force-push)]] | git | resolved |
 | [[learning/windows-openssl-strawberry-broken\|Windows: Strawberry Perl OpenSSL Broken Config — Generate Certs on Linux]] | devops | resolved |
+| [[learning/ssh-stdout-known-hosts-warning\|SSH: "Permanently added" Warning Contaminates stdout — Use -o LogLevel=ERROR]] | devops | resolved |
 
 
 ## Synthesis
