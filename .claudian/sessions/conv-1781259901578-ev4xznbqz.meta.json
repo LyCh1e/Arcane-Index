@@ -4,20 +4,19 @@
   "title": "Research blockchain architecture and diagrams",
   "titleGenerationStatus": "success",
   "createdAt": 1781259901578,
-  "updatedAt": 1781260839411,
-  "lastResponseAt": 1781260839411,
+  "updatedAt": 1782014477114,
+  "lastResponseAt": 1782014448019,
   "sessionId": "1d5acb53-5fa3-4f6e-a804-4fb6d0c4af0a",
   "providerState": {
     "providerSessionId": "1d5acb53-5fa3-4f6e-a804-4fb6d0c4af0a"
   },
   "usage": {
     "model": "sonnet",
-    "inputTokens": 1,
-    "cacheCreationInputTokens": 764,
-    "cacheReadInputTokens": 94013,
+    "inputTokens": 0,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
     "contextWindow": 200000,
-    "contextTokens": 94778,
-    "percentage": 47,
-    "contextWindowIsAuthoritative": true
+    "contextTokens": 0,
+    "percentage": 0
   }
 }
