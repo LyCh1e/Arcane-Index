@@ -45,7 +45,8 @@
               "title": "research-mcp-servers"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -234,11 +235,11 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b1e0856db03cc76e",
+  "active": "50e6ee9f9f44e819",
   "lastOpenFiles": [
+    "wiki/synthesis/research-mcp-servers.md",
     "wiki/questions/research-rag.md",
     "wiki/synthesis/research-rag.md",
-    "wiki/synthesis/research-mcp-servers.md",
     "wiki/synthesis/research-context-compression-llm.md",
     "wiki/synthesis/research-blockchain-technology.md",
     "wiki/questions/research-mcp-servers.md",
