@@ -59,8 +59,7 @@
               "title": "log"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -250,8 +249,9 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "7db4e614739d5790",
+  "active": "6492dbdec43436fa",
   "lastOpenFiles": [
+    "wiki/log.md",
     "wiki/concepts/context-compression-llm.md",
     "wiki/hot.md.tmp.23588.8f4fa32f2136",
     "wiki/hot.md.tmp.23588.9c73bd3baecd",
@@ -271,7 +271,6 @@
     "wiki/entities/llmlingua.md",
     "wiki/concepts/prompt-compression.md",
     "wiki/concepts/kv-cache-compression.md",
-    "wiki/log.md",
     "wiki/concepts/blockchain-technology.md",
     "skills/autoresearch/SKILL.md",
     "wiki/resources/_index.md",
