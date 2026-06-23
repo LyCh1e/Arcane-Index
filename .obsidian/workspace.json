@@ -264,6 +264,8 @@
   },
   "active": "477d24468535af82",
   "lastOpenFiles": [
+    "wiki/questions/research-mcp-servers.md",
+    "wiki/entities/agentic-ai-foundation-aaif.md",
     "wiki/sources/mcp-first-year-2025.md",
     "wiki/sources/mcp-spec-2025-11-25.md",
     "wiki/sources/anthropic-mcp-launch-2024.md",
@@ -298,8 +300,6 @@
     "AGENTS.md",
     "wiki/entities/vitalik-buterin.md",
     "agents/wiki-lint.md",
-    "agents/wiki-ingest.md",
-    "wiki/entities/satoshi-nakamoto.md",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",

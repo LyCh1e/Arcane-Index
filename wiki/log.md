@@ -9,6 +9,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-23 | autoresearch | MCP Servers (Model Context Protocol)
+
+- Rounds: 3 | Searches: 5 | Sources fetched: 5 | Pages created: 7
+- Concepts: [[concepts/mcp-model-context-protocol]], [[concepts/mcp-security]]
+- Entities: [[entities/agentic-ai-foundation-aaif]]
+- Sources: [[sources/anthropic-mcp-launch-2024]], [[sources/mcp-spec-2025-11-25]], [[sources/mcp-first-year-2025]]
+- Synthesis: [[questions/research-mcp-servers]]
+- Key finding: MCP is a provider-agnostic JSON-RPC 2.0 protocol (Host → Client → Server) that replaced fragmented LLM tool integrations; donated to the Linux Foundation's AAIF in Dec 2025; the Nov 2025 spec added async Tasks, CIMD OAuth, and M2M OAuth for headless agents; security risks include prompt injection, tool poisoning, and rug pull attacks.
+
 ## 2026-06-21 | autoresearch | Context Compression of Chats with Large Language Models
 
 - Rounds: 2 | Searches: 8 | Sources fetched: 7 | Pages created: 8

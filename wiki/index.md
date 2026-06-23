@@ -49,6 +49,9 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/anthropic-effective-context-engineering\|Effective Context Engineering for AI Agents (Anthropic)]] | article | ai-engineering | 2026-06-21 |
 | [[sources/factory-ai-compression-evaluation-2025\|Evaluating Context Compression for AI Agents (Factory.ai, 2025)]] | article | ai-engineering | 2026-06-21 |
 | [[sources/kv-cache-compression-review-2025\|KV Cache Compression for Inference Efficiency in LLMs: A Review]] | paper | ai-engineering | 2026-06-21 |
+| [[sources/anthropic-mcp-launch-2024\|Introducing the Model Context Protocol — Anthropic]] | article | ai-engineering | 2026-06-23 |
+| [[sources/mcp-spec-2025-11-25\|MCP 2025-11-25 Specification Release]] | article | ai-engineering | 2026-06-23 |
+| [[sources/mcp-first-year-2025\|One Year of MCP — MCP Blog Anniversary Post]] | article | ai-engineering | 2026-06-23 |
 
 ## Concepts
 
@@ -146,6 +149,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/context-compression-llm\|Context Compression for LLMs]] | ai-engineering | high |
 | [[concepts/kv-cache-compression\|KV Cache Compression]] | ai-engineering | high |
 | [[concepts/prompt-compression\|Prompt Compression]] | ai-engineering | high |
+| [[concepts/mcp-model-context-protocol\|Model Context Protocol (MCP)]] | ai-engineering | high |
+| [[concepts/mcp-security\|MCP Security]] | ai-engineering | high |
 
 ## Questions / Research Syntheses
 
@@ -153,6 +158,7 @@ Master catalog of all pages. Updated on every ingest.
 |---|---|---|
 | [[questions/research-blockchain-technology\|Research: Blockchain Technology]] | blockchain | 2026-06-12 |
 | [[questions/research-context-compression-llm\|Research: Context Compression of Chats with LLMs]] | ai-engineering | 2026-06-21 |
+| [[questions/research-mcp-servers\|Research: MCP Servers (Model Context Protocol)]] | ai-engineering | 2026-06-23 |
 
 ## Examples
 

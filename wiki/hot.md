@@ -1,13 +1,37 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-06-21T00:00:00
+updated: 2026-06-23T00:00:00
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-06-23. **Session: autoresearch — MCP Servers (Model Context Protocol).** Created 7 new wiki pages: 2 concepts, 1 entity, 3 sources, 1 synthesis.
+
+**Topic summary**: The Model Context Protocol (MCP) is an open standard launched by Anthropic on 25 November 2024 to standardise how LLMs connect to external tools, data sources, and systems. Within 12 months it became the industry-wide default, adopted by OpenAI, Google DeepMind, and Microsoft.
+
+**Architecture**: Three-layer — Host (LLM application), Client (session manager, lives inside the Host), Server (exposes tools/resources/prompts). Communication via JSON-RPC 2.0. One Host runs many Clients in parallel. Transport options: Stdio (local), HTTP+SSE (legacy remote), Streamable HTTP (modern remote, March 2025).
+
+**Three primitives**: Tools (callable functions the LLM invokes), Resources (static data context), Prompts (interaction templates).
+
+**Ecosystem**: MCP Registry launched September 2025; ~2,000 entries by November 2025, 500+ public servers by April 2026. Official reference servers split in May 2025 (active: filesystem/git/fetch/memory; archived: GitHub/Postgres/Slack/Brave). Recommended starter set: Filesystem, GitHub, Context7, Playwright, Sequential Thinking.
+
+**November 2025 spec** (biggest update since launch): async Tasks primitive (call-now, fetch-later with state machine), CIMD-based OAuth (DNS-anchored client identity, replaces Dynamic Client Registration), Machine-to-Machine OAuth for headless agents, Cross App Access (XAA) for enterprise IdP controls, composable extensions framework.
+
+**Governance**: Donated to the Agentic AI Foundation (AAIF) under the Linux Foundation, December 2025. Co-founders: Anthropic, OpenAI, Block. Supporting members: AWS, Google, Microsoft, Cloudflare, GitHub, Bloomberg.
+
+**Security risks**: Prompt injection (model reads tool responses without provenance checks), tool poisoning (adversarial directives in tool descriptions — CVE-2025-54136), rug pull attacks (server mutates tool definitions post-install), supply chain vulnerabilities (CVE-2025-6514 in mcp-remote, 437,000+ downloads), over-privileged access (blast radius scales with agent credentials). The Nov 2025 spec mitigates some via CIMD and client security requirements.
+
+**MCP vs function calling**: MCP is provider-agnostic and reusable across clients; function calling is simpler for lightweight single-app integrations. Production architectures use both.
+
+**Key pages**: [[concepts/mcp-model-context-protocol]] (master reference), [[concepts/mcp-security]] (vulnerability taxonomy), [[entities/agentic-ai-foundation-aaif]], [[questions/research-mcp-servers]] (synthesis).
+
+---
+
+## Last Updated (previous)
 
 2026-06-21. **Session: autoresearch — Context Compression of Chats with Large Language Models.** Created 8 new wiki pages: 3 concepts, 1 entity, 4 sources, 1 synthesis.
 
