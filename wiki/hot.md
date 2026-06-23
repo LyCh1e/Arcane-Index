@@ -97,6 +97,28 @@ tags: [meta, hot-cache]
 
 ## Last Updated (previous)
 
+2026-06-23. **Session: autoresearch — Retrieval-Augmented Generation (RAG).** Created 6 new wiki pages: 2 concepts, 1 entity, 2 sources, 1 synthesis.
+
+**Topic summary**: RAG is the dominant pattern for knowledge-intensive LLM applications, solving knowledge cutoff, hallucination, and private-data access in one framework. It is a four-stage pipeline — **Index** (chunk → embed → store), **Retrieve** (embed query → ANN search → top-k), **Augment** (inject into prompt), **Generate** — built on top of a vector database.
+
+**Four generations of architecture**: Naive RAG (fixed pipeline) → Advanced RAG (HyDE, re-ranking, corrective, self-RAG, FLARE, parent-child chunking) → Modular/Adaptive RAG (swappable components, query routing) → Agentic RAG (LLM controls retrieval in a tool loop, Document Agents per source) and GraphRAG (Microsoft, knowledge graph + Leiden community detection + hierarchical summaries).
+
+**Chunking**: Recursive chunking is the safe default. Semantic chunking is corpus-dependent — outperforms in clinical document studies but underperforms in general benchmarks. Always evaluate on your own data.
+
+**Retrieval**: Hybrid search (dense semantic + sparse BM25) + cross-encoder re-ranking is the production default. Dense alone misses exact terms; sparse alone misses paraphrasing.
+
+**Evaluation (RAGAS)**: Faithfulness (claims supported by context), Context Precision (retrieved relevance), Context Recall (coverage), Answer Relevancy. Target faithfulness ≥ 0.8 in production.
+
+**GraphRAG**: 72–83% comprehensiveness improvement over vector RAG on holistic/relational queries. LazyGraphRAG (June 2025) cuts indexing cost to 0.1% of original. Best for large corpora with thematic/relationship questions.
+
+**RAG vs fine-tuning**: Complementary, not competing. Fine-tune for behaviour/style; use RAG for current facts. Hybrid is the 2025 consensus.
+
+**Cross-domain connections**: MCP Resources primitive = protocol-level RAG; context compression techniques apply to retrieved chunks that overflow the context window.
+
+**Key pages**: [[concepts/retrieval-augmented-generation]] (pipeline + evaluation), [[concepts/rag-architectures]] (full taxonomy), [[entities/graphrag-microsoft]], [[questions/research-rag]] (synthesis).
+
+---
+
 2026-06-23. **Session: autoresearch — MCP Servers (Model Context Protocol).** Created 7 new wiki pages: 2 concepts, 1 entity, 3 sources, 1 synthesis.
 
 **Topic summary**: The Model Context Protocol (MCP) is an open standard launched by Anthropic on 25 November 2024 to standardise how LLMs connect to external tools, data sources, and systems. Within 12 months it became the industry-wide default, adopted by OpenAI, Google DeepMind, and Microsoft.
