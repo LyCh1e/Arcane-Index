@@ -59,7 +59,8 @@
               "title": "log"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -248,7 +249,7 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "50e6ee9f9f44e819",
   "lastOpenFiles": [
     "wiki/log.md",
     "wiki/concepts/context-compression-llm.md",
