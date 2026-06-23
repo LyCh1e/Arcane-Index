@@ -14,11 +14,13 @@
   "sharedEnvironmentVariables": "",
   "envSnippets": [],
   "customContextLimits": {},
+  "customModelAliases": {},
   "keyboardNavigation": {
     "scrollUpKey": "w",
     "scrollDownKey": "s",
     "focusInputKey": "i"
   },
+  "requireCommandOrControlEnterToSend": false,
   "locale": "en",
   "providerConfigs": {
     "claude": {
@@ -45,7 +47,7 @@
       "environmentVariables": "",
       "environmentHash": "",
       "installationMethodsByHost": {
-        "CYUNG": "native-windows"
+        "device:2ba3e116-c117-48cc-b3e5-fdefe60dea09": "native-windows"
       },
       "wslDistroOverridesByHost": {}
     },
@@ -58,6 +60,19 @@
       "modelAliases": {},
       "preferredThinkingByModel": {},
       "selectedMode": "",
+      "thinkingOptionsByModel": {},
+      "visibleModels": []
+    },
+    "pi": {
+      "cliPath": "",
+      "cliPathsByHost": {},
+      "discoveredModels": [],
+      "enabled": false,
+      "environmentHash": "",
+      "environmentVariables": "",
+      "modelAliases": {},
+      "preferredThinkingByModel": {},
+      "toolMode": "all",
       "visibleModels": []
     }
   },
@@ -77,9 +92,10 @@
   },
   "lastCustomModel": "",
   "maxTabs": 3,
-  "tabBarPosition": "input",
   "enableAutoScroll": true,
   "deferMathRenderingDuringStreaming": true,
+  "expandFileEditsByDefault": false,
   "chatViewPlacement": "right-sidebar",
-  "hiddenProviderCommands": {}
+  "hiddenProviderCommands": {},
+  "tabBarPosition": "input"
 }

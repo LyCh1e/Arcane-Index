@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "6492dbdec43436fa",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "claudian-view",
-              "state": {},
-              "pinned": true,
-              "icon": "bot",
-              "title": "Claudian"
-            }
-          },
-          {
             "id": "50e6ee9f9f44e819",
             "type": "leaf",
             "pinned": true,
@@ -127,24 +115,11 @@
         "type": "tabs",
         "children": [
           {
-            "id": "04c15e29e5a3cbd6",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "pinned": true,
-              "icon": "git-pull-request",
-              "title": "Source Control"
-            }
-          },
-          {
             "id": "1d680f3168399da5",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CLAUDE.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -154,7 +129,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for CLAUDE"
+              "title": "Backlinks"
             }
           },
           {
@@ -224,8 +199,19 @@
               "icon": "calendar-with-checkmark",
               "title": "Calendar"
             }
+          },
+          {
+            "id": "477d24468535af82",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -233,14 +219,14 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "realclaudian:Open Claudian": false,
       "omnisearch:Omnisearch": false,
-      "claudian:Open Claudian": false,
       "graph:Open graph view": false,
-      "obsidian-git:Open Git source control": false,
       "command-palette:Open command palette": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
+      "obsidian-git:Open Git source control": false,
       "bases:Create new base": false,
       "obsidian-excalidraw-plugin:New drawing": false,
       "obsidian-memos:Thino": false,
@@ -249,7 +235,7 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "6492dbdec43436fa",
+  "active": "1d680f3168399da5",
   "lastOpenFiles": [
     "wiki/log.md",
     "wiki/concepts/context-compression-llm.md",

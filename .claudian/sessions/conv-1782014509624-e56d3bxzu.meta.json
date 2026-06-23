@@ -4,8 +4,8 @@
   "title": "autoresearch  on context compression of chats with...",
   "titleGenerationStatus": "failed",
   "createdAt": 1782014509624,
-  "updatedAt": 1782022292638,
-  "lastResponseAt": 1782022292638,
+  "updatedAt": 1782197629151,
+  "lastResponseAt": 1782197419627,
   "sessionId": "50258551-35c6-40ee-97c4-62baad5534bb",
   "providerState": {
     "providerSessionId": "50258551-35c6-40ee-97c4-62baad5534bb"
@@ -13,11 +13,11 @@
   "usage": {
     "model": "sonnet",
     "inputTokens": 1,
-    "cacheCreationInputTokens": 914,
-    "cacheReadInputTokens": 62365,
+    "cacheCreationInputTokens": 501,
+    "cacheReadInputTokens": 69266,
     "contextWindow": 200000,
-    "contextTokens": 63280,
-    "percentage": 32,
+    "contextTokens": 69768,
+    "percentage": 35,
     "contextWindowIsAuthoritative": true
   }
 }
