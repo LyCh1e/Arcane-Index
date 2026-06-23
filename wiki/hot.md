@@ -1,13 +1,31 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-06-19T00:00:00
+updated: 2026-06-21T00:00:00
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-06-21. **Session: autoresearch — Context Compression of Chats with Large Language Models.** Created 8 new wiki pages: 3 concepts, 1 entity, 4 sources, 1 synthesis.
+
+**Topic summary**: Context compression addresses the token-limit problem in LLM conversations and agentic tasks. Five technique families exist, operating at different layers of the stack:
+
+1. **Dialogue memory summarisation** (LangChain, LlamaIndex, Anthropic compaction, Mem0): periodically compress chat history into a summary. Mem0's selective memory formation achieves 80–90% token cost reduction and 26% response quality improvement vs basic chat history.
+2. **Prompt compression / token-level** (LLMLingua-2, Evaluator Heads): remove low-information tokens from the input before sending to the target LLM. LLMLingua-2 (Microsoft, ACL 2024) achieves 1.6–2.9× end-to-end latency reduction at 2–5× compression ratios, task-agnostically.
+3. **KV cache compression** (PyramidKV, ChunkKV, KVQuant): reduce memory consumed by the key-value tensors already inside the model. KV cache can consume up to 70% of GPU memory; three strategies: selective eviction, quantisation, layer sharing.
+4. **Soft / latent compression** (Gist Tokens, AutoCompressor, 500xCompressor): encode prompts into continuous summary vectors rather than discrete tokens. Up to 26× compression and 40% FLOPs reduction; requires fine-tuning.
+5. **Retrieval-based / just-in-time** (vector stores, structured notes): store information externally, retrieve only what is relevant per inference step. Most scalable approach for long-running agents.
+
+**Key counterintuitive finding**: higher compression ratio ≠ better quality. In the Factory.ai evaluation (2025), OpenAI's 99.3%-compression method scored 0.35 points *lower* than Factory's 98.6%-compression anchored iterative method on production software engineering tasks. Preservation of structure matters more than minimising tokens.
+
+**Open problem**: artifact tracking (knowing which files were modified in an agentic session) scores only 2.19–2.45 / 5 across all current methods. Summaries alone cannot reliably preserve this; structured external logs are needed.
+
+**Key pages**: [[concepts/context-compression-llm]] (master taxonomy), [[concepts/prompt-compression]], [[concepts/kv-cache-compression]], [[entities/llmlingua]], [[questions/research-context-compression-llm]] (synthesis).
+
+---
 
 2026-06-19. **Session: project — ICT2216 TrialGuard, CD pipeline added to GitHub Actions CI/CD workflow.** Updated [[concepts/github-actions-cicd]] and created 1 learning page.
 

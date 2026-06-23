@@ -9,6 +9,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-21 | autoresearch | Context Compression of Chats with Large Language Models
+
+- Rounds: 2 | Searches: 8 | Sources fetched: 7 | Pages created: 8
+- Concepts: [[concepts/context-compression-llm]], [[concepts/kv-cache-compression]], [[concepts/prompt-compression]]
+- Entities: [[entities/llmlingua]]
+- Sources: [[sources/acon-context-compression-agents]], [[sources/anthropic-effective-context-engineering]], [[sources/factory-ai-compression-evaluation-2025]], [[sources/kv-cache-compression-review-2025]]
+- Synthesis: [[questions/research-context-compression-llm]]
+- Key finding: Five distinct technique families exist (dialogue summarisation, prompt compression, KV cache compression, soft/latent compression, retrieval-based); higher compression ratio does NOT equal higher quality — Factory's 98.6% compression scored 0.35 points higher than OpenAI's 99.3% compression on production tasks; artifact tracking remains an open problem across all methods
+
 ## 2026-06-19 | project | ICT2216 TrialGuard — CD Pipeline (GitHub Actions → EC2)
 
 - Updated: [[concepts/github-actions-cicd]] — added "CD: Deploying to EC2 via SSH" section covering the full deploy job pattern, `gh secret set` for adding secrets via CLI, the `git archive` approach for private repos, and the `-o LogLevel=ERROR` fix

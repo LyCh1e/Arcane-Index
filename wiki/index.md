@@ -45,6 +45,10 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/atlantic-council-cbdc-tracker-2026\|Atlantic Council: CBDC Tracker (2026)]] | tracker | blockchain | 2026-06-12 |
 | [[sources/chainalysis-crypto-crime-report-2025\|Chainalysis: Crypto Crime Report (2025)]] | report | blockchain | 2026-06-12 |
 | [[sources/layer2-scaling-comparison-2025\|Layer 2 Scaling Solutions Comparison (2025)]] | analysis | blockchain | 2026-06-12 |
+| [[sources/acon-context-compression-agents\|ACON: Optimising Context Compression for Long-Horizon LLM Agents]] | paper | ai-engineering | 2026-06-21 |
+| [[sources/anthropic-effective-context-engineering\|Effective Context Engineering for AI Agents (Anthropic)]] | article | ai-engineering | 2026-06-21 |
+| [[sources/factory-ai-compression-evaluation-2025\|Evaluating Context Compression for AI Agents (Factory.ai, 2025)]] | article | ai-engineering | 2026-06-21 |
+| [[sources/kv-cache-compression-review-2025\|KV Cache Compression for Inference Efficiency in LLMs: A Review]] | paper | ai-engineering | 2026-06-21 |
 
 ## Concepts
 
@@ -139,12 +143,16 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/privacy-data-protection-and-ip\|Privacy, Data Protection, and Intellectual Property]] | it-ethics | high |
 | [[concepts/ai-ethics-and-digital-society\|AI Ethics and the Digital Society]] | it-ethics | high |
 | [[concepts/blockchain-technology\|Blockchain Technology]] | blockchain | high |
+| [[concepts/context-compression-llm\|Context Compression for LLMs]] | ai-engineering | high |
+| [[concepts/kv-cache-compression\|KV Cache Compression]] | ai-engineering | high |
+| [[concepts/prompt-compression\|Prompt Compression]] | ai-engineering | high |
 
 ## Questions / Research Syntheses
 
 | Page | Topic | Date |
 |---|---|---|
 | [[questions/research-blockchain-technology\|Research: Blockchain Technology]] | blockchain | 2026-06-12 |
+| [[questions/research-context-compression-llm\|Research: Context Compression of Chats with LLMs]] | ai-engineering | 2026-06-21 |
 
 ## Examples
 
@@ -163,7 +171,7 @@ Master catalog of all pages. Updated on every ingest.
 
 | Page | Category |
 |------|----------|
-| *(none yet)* | |
+| [[entities/llmlingua\|LLMLingua]] | tool |
 
 ## Learning
 
