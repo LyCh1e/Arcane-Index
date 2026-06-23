@@ -73,8 +73,7 @@
               "title": "context-compression-llm"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -263,8 +262,13 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "50e6ee9f9f44e819",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
+    "wiki/sources/mcp-first-year-2025.md",
+    "wiki/sources/mcp-spec-2025-11-25.md",
+    "wiki/sources/anthropic-mcp-launch-2024.md",
+    "wiki/concepts/mcp-security.md",
+    "wiki/concepts/mcp-security.md.tmp.8088.2dedf13841c3",
     "wiki/concepts/mcp-model-context-protocol.md",
     "wiki/concepts/context-compression-llm.md",
     "wiki/log.md",
@@ -282,7 +286,6 @@
     "wiki/sources/anthropic-effective-context-engineering.md",
     "wiki/sources/anthropic-effective-context-engineering.md.tmp.23588.fe964d0623be",
     "wiki/sources/acon-context-compression-agents.md",
-    "wiki/sources/acon-context-compression-agents.md.tmp.23588.62d782c405a9",
     "wiki/entities/llmlingua.md",
     "wiki/concepts/prompt-compression.md",
     "wiki/concepts/kv-cache-compression.md",
@@ -297,10 +300,6 @@
     "agents/wiki-lint.md",
     "agents/wiki-ingest.md",
     "wiki/entities/satoshi-nakamoto.md",
-    "skills/wiki-lint/SKILL.md",
-    "wiki/sources/layer2-scaling-comparison-2025.md",
-    "wiki/sources/chainalysis-crypto-crime-report-2025.md",
-    "wiki/sources/atlantic-council-cbdc-tracker-2026.md",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
