@@ -9,6 +9,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-23 | ingest | ICT2216 Lab 6 — OWASP Dependency Check
+
+- Pages created: 2
+- Resources: [[resources/owasp-dependency-check]]
+- Examples: [[examples/ict2216-lab6-owasp-dependency-check]]
+- Key content: Docker-based local SCA scan, GitHub Actions workflow with artifact upload, Dependabot/Renovate alternatives
+
 ## 2026-06-23 | autoresearch | MCP Servers (Model Context Protocol)
 
 - Rounds: 3 | Searches: 5 | Sources fetched: 5 | Pages created: 7

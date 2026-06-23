@@ -9,6 +9,22 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-06-23. **Session: ingest — ICT2216 Lab 6 (OWASP Dependency Check).** Created 2 wiki pages: 1 resource, 1 example.
+
+**Topic summary**: OWASP Dependency-Check is an SCA tool that scans third-party dependencies for publicly disclosed vulnerabilities using CPE → NVD matching. Generates CVE-linked HTML reports. Addresses OWASP Proactive Control C2 (Leverage Security Frameworks and Libraries).
+
+**Local scan via Docker**: Pull `owasp/dependency-check`, mount project as `/src`, output dir as `/report`, and NVD cache as `/usr/share/dependency-check/data`. Run `--scan /src --format HTML --out /report`. Report saved to `odc-reports/`.
+
+**GitHub Actions integration**: Use `dependency-check/Dependency-Check_Action@main` action, then `actions/upload-artifact@v4` to expose the HTML report as a downloadable artifact on the Actions run page. Triggers on `push` and `pull_request`.
+
+**Alternative tools**: Dependabot (GitHub-native, auto-raises PRs for outdated packages, checks registries not CVE DB) and Renovate (similar, more scheduling options). Configured via `.github/dependabot.yml`. Neither replaces OWASP DC for CVE scanning — they complement it.
+
+**Key pages**: [[resources/owasp-dependency-check]] (tool reference), [[examples/ict2216-lab6-owasp-dependency-check]] (lab walkthrough).
+
+---
+
+## Last Updated (previous)
+
 2026-06-23. **Session: autoresearch — MCP Servers (Model Context Protocol).** Created 7 new wiki pages: 2 concepts, 1 entity, 3 sources, 1 synthesis.
 
 **Topic summary**: The Model Context Protocol (MCP) is an open standard launched by Anthropic on 25 November 2024 to standardise how LLMs connect to external tools, data sources, and systems. Within 12 months it became the industry-wide default, adopted by OpenAI, Google DeepMind, and Microsoft.
