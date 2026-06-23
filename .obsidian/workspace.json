@@ -8,6 +8,18 @@
         "type": "tabs",
         "children": [
           {
+            "id": "b1e0856db03cc76e",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "pinned": true,
+              "icon": "bot",
+              "title": "Claudian"
+            }
+          },
+          {
             "id": "50e6ee9f9f44e819",
             "type": "leaf",
             "pinned": true,
@@ -235,7 +247,7 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "1d680f3168399da5",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
     "wiki/log.md",
     "wiki/concepts/context-compression-llm.md",
