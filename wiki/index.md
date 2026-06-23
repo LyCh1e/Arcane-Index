@@ -170,6 +170,9 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict2216-lab4-owasp-threat-dragon\|ICT2216 Lab 4 — OWASP Threat Dragon]] | lab | ICT2216 / secure-software-development | [[concepts/threat-modeling\|Threat Modeling]] |
 | [[examples/ict2216-lab5-github-actions\|ICT2216 Lab 5 — Nginx Reverse Proxy + GitHub Actions CI/CD]] | lab | ICT2216 / devops | [[concepts/github-actions-cicd\|GitHub Actions CI/CD]] |
 | [[examples/ict2216-lab6-owasp-dependency-check\|ICT2216 Lab 6 — Integrating OWASP Dependency Check]] | lab | ICT2216 / secure-software-development | [[resources/owasp-dependency-check\|OWASP Dependency-Check]] |
+| [[examples/ict2216-lab7-automated-testing\|ICT2216 Lab 7 — GitHub Actions with Automated Testing (Mocha + Selenium)]] | lab | ICT2216 / devops | [[concepts/github-actions-cicd\|GitHub Actions CI/CD]] |
+| [[examples/ict2216-lab8-static-code-analysis\|ICT2216 Lab 8 — Static Code Analysis (ESLint + SARIF + CodeQL)]] | lab | ICT2216 / secure-software-development | [[concepts/github-actions-cicd\|GitHub Actions CI/CD]] |
+| [[examples/ict2216-lab9-sonarqube\|ICT2216 Lab 9 — Static Analysis Using SonarQube]] | lab | ICT2216 / secure-software-development | [[concepts/docker-compose\|Docker Compose]] |
 | [[examples/ict2216-project-phase4-auth\|ICT2216 Project — Phase 4: Authentication (Register/Login/MFA/Logout)]] | project | ICT2216 / secure-software-development | [[concepts/secure-software-requirements\|Secure Software Requirements]] |
 | [[examples/ict2216-project-deployment-phases-9-12\|ICT2216 Project — Phases 9–12: Frontend Wiring, Hardening & EC2 Deployment]] | project | ICT2216 / devops | [[concepts/docker-compose\|Docker Compose]] |
 | [[examples/stock-prediction-neural-network\|Stock Prediction Neural Network — SOLID ML App with Tkinter GUI]] | project | machine-learning | [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] |

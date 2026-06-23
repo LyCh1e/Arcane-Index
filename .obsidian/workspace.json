@@ -262,8 +262,13 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b1e0856db03cc76e",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
+    "wiki/log.md.tmp.3100.d94b2892bf93",
+    "wiki/examples/ict2216-lab9-sonarqube.md",
+    "wiki/index.md.tmp.3100.3a798d2ed6d7",
+    "wiki/examples/ict2216-lab8-static-code-analysis.md",
+    "wiki/examples/ict2216-lab7-automated-testing.md",
     "wiki/questions/research-mcp-servers.md",
     "wiki/entities/agentic-ai-foundation-aaif.md",
     "wiki/sources/mcp-first-year-2025.md",
@@ -286,7 +291,6 @@
     "wiki/sources/kv-cache-compression-review-2025.md.tmp.23588.a3350dcf4e7f",
     "wiki/sources/factory-ai-compression-evaluation-2025.md",
     "wiki/sources/anthropic-effective-context-engineering.md",
-    "wiki/sources/anthropic-effective-context-engineering.md.tmp.23588.fe964d0623be",
     "wiki/sources/acon-context-compression-agents.md",
     "wiki/entities/llmlingua.md",
     "wiki/concepts/prompt-compression.md",
@@ -296,10 +300,6 @@
     "wiki/resources/_index.md",
     "wiki/gaps/_index.md",
     "wiki/questions/research-blockchain-technology.md",
-    "wiki/entities/nick-szabo.md",
-    "AGENTS.md",
-    "wiki/entities/vitalik-buterin.md",
-    "agents/wiki-lint.md",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",

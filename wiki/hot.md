@@ -9,6 +9,62 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-06-23. **Session: ingest — ICT2216 Lab 9 (SonarQube).** Created 1 wiki example page + instructions_lab9.md.
+
+**Topic summary**: Lab 9 sets up SonarQube as a self-hosted SAST platform via Docker Compose, runs a local scan using the sonar-scanner-cli Docker image, and integrates results into GitHub Actions via the `sonarsource/sonarqube-scan-action`.
+
+**Docker Compose setup**: Two services — `sonarqube:latest` (port 9000/9092) + `postgres:latest`. Four named volumes for persistence. Default login `admin/admin`. Start: `docker-compose -f sonarqube-compose.yml up`.
+
+**Local scan flow**: Create local project in UI → Use global settings → Locally → Generate project token → Run `sonarsource/sonar-scanner-cli` Docker image with `-Dsonar.projectKey`, `-Dsonar.sources`, `-Dsonar.host.url`, `-Dsonar.login`. View results at `http://localhost:9000/dashboard?id=<project-key>`. Dashboard shows Quality Gate, Security/Reliability/Maintainability issue counts, Coverage %, Duplications %, Security Hotspots.
+
+**GitHub Actions**: SonarQube must be publicly reachable (not localhost). Store `SONAR_TOKEN` and `SONAR_HOST_URL` as GitHub Secrets. Use `sonarsource/sonarqube-scan-action@master` — results pushed to SonarQube dashboard on every push/PR to `master`.
+
+**OOM fix**: SonarQube needs >2 GB RAM in Docker — add `--memory=3g` to the `docker run` command if it crashes.
+
+**Key comparison**: SonarQube (Lab 9) does deep semantic SAST across 25+ languages with a dashboard; ESLint (Lab 8) is lighter linting + security plugins outputting SARIF to GitHub Code Scanning. Use both in a pipeline for complementary coverage.
+
+**Key pages**: [[examples/ict2216-lab9-sonarqube]] (lab walkthrough).
+
+---
+
+## Last Updated (previous)
+
+2026-06-23. **Session: ingest — ICT2216 Lab 8 (Static Code Analysis).** Created 1 wiki example page + instructions_lab8.md.
+
+**Topic summary**: Lab 8 covers SAST using ESLint with security plugins, outputting SARIF reports for GitHub Code Scanning, and GitHub CodeQL for deeper semantic analysis.
+
+**ESLint setup**: Modern Flat Config (`eslint.config.mjs`) — array of config objects with direct plugin imports. Install `eslint@latest` + `@microsoft/eslint-formatter-sarif`. Run `npx eslint --init` to scaffold config. Run locally: `npx eslint . --format=@microsoft/eslint-formatter-sarif --output-file=reports/eslint-results.sarif`.
+
+**GitHub Actions** (`cda-eslint.yml`): Single job — checkout → cache → npm install → ESLint with SARIF → `github/codeql-action/upload-sarif@v3`. Results appear under **Security → Code Scanning**. Use `|| true` on the ESLint run so a non-zero exit doesn't block the upload step.
+
+**Three security plugins**: (1) `eslint-plugin-security` — detects `eval()`, ReDoS, insecure `Buffer()`; (2) `eslint-plugin-security-node` — Node.js-specific (insecure HTTP headers, improper user input); (3) `eslint-plugin-no-unsanitized` — prevents XSS via improper DOM manipulation. All added to `eslint.config.mjs` plugins/rules blocks.
+
+**CodeQL** (`codeql.yml`): GitHub's semantic analysis engine. Uses `github/codeql-action/init` + `analyze` steps with a language matrix. Requires `permissions: security-events: write`.
+
+**Lab note**: ESLint ≠ full SAST. Dedicated tools: Semgrep (lightweight), SonarQube (next lab — Lab 9). Other SARIF tools: Flake8 (Python), Checkstyle/PMD (Java), SonarCloud (multi-language).
+
+**Key pages**: [[examples/ict2216-lab8-static-code-analysis]] (lab walkthrough).
+
+---
+
+## Last Updated (previous)
+
+2026-06-23. **Session: ingest — ICT2216 Lab 7 (GitHub Actions with Automated Testing).** Created 1 wiki example page + instructions_lab7.md.
+
+**Topic summary**: Lab 7 integrates automated unit and integration/UI testing into GitHub Actions. Two test layers: (1) **Mocha + Chai** unit tests on `getCurrentTimestamp()` — run locally with `npx mocha tests/test.js` or `npm test`; (2) **Selenium + ChromeDriver** integration tests that open a real (headless) Chrome browser and assert DOM content.
+
+**Selenium setup via Docker**: `docker run -d -p 4444:4444 --name selenium-server --network host selenium/standalone-chrome`. The `SeleniumTest.mjs` script takes a `local` vs `github` CLI arg to switch between localhost and container network URLs.
+
+**GitHub Actions workflow** (`selenium-tests.yml`): Two-job pipeline — `build` (npm install → tar artifact → upload) and `test` (`needs: build`, uses `node:20` container with `--network-alias=testserver`, plus a `selenium/standalone-chrome` service sidecar reachable at `http://selenium:4444/wd/hub`). Artifact hand-off via `upload-artifact` / `download-artifact`.
+
+**Key design**: `SeleniumTest.mjs` switches URLs based on CLI arg so the same test file works locally and in CI. The test waits for `#timestamp` element with a 5 s timeout before asserting ISO 8601 format.
+
+**Key pages**: [[examples/ict2216-lab7-automated-testing]] (lab walkthrough).
+
+---
+
+## Last Updated (previous)
+
 2026-06-23. **Session: ingest — ICT2216 Lab 6 (OWASP Dependency Check).** Created 2 wiki pages: 1 resource, 1 example.
 
 **Topic summary**: OWASP Dependency-Check is an SCA tool that scans third-party dependencies for publicly disclosed vulnerabilities using CPE → NVD matching. Generates CVE-linked HTML reports. Addresses OWASP Proactive Control C2 (Leverage Security Frameworks and Libraries).

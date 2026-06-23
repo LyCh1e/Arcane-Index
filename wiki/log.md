@@ -9,6 +9,24 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-23 | ingest | ICT2216 Lab 9 — SonarQube
+
+- Pages created: 2 (instructions_lab9.md + wiki example)
+- Examples: [[examples/ict2216-lab9-sonarqube]]
+- Key content: SonarQube + PostgreSQL via Docker Compose (port 9000), local scanner via sonarsource/sonar-scanner-cli Docker image, project token → GitHub Secrets (SONAR_TOKEN + SONAR_HOST_URL), sonarsource/sonarqube-scan-action GitHub Actions workflow, OOM fix (--memory=3g)
+
+## 2026-06-23 | ingest | ICT2216 Lab 8 — Static Code Analysis
+
+- Pages created: 2 (instructions_lab8.md + wiki example)
+- Examples: [[examples/ict2216-lab8-static-code-analysis]]
+- Key content: ESLint with Modern Flat Config (eslint.config.mjs), SARIF output via @microsoft/eslint-formatter-sarif, three security plugins (eslint-plugin-security / security-node / no-unsanitized), GitHub Actions workflow uploading SARIF to Code Scanning, GitHub CodeQL workflow
+
+## 2026-06-23 | ingest | ICT2216 Lab 7 — GitHub Actions with Automated Testing
+
+- Pages created: 2 (instructions_lab7.md + wiki example)
+- Examples: [[examples/ict2216-lab7-automated-testing]]
+- Key content: Mocha/Chai unit tests on Node.js, Selenium + ChromeDriver integration/UI tests via Docker, two-job GitHub Actions workflow (build → test) with selenium sidecar service and artifact hand-off via tar
+
 ## 2026-06-23 | ingest | ICT2216 Lab 6 — OWASP Dependency Check
 
 - Pages created: 2
