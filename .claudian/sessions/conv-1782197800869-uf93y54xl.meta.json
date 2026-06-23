@@ -4,6 +4,20 @@
   "title": "Research MCP servers",
   "titleGenerationStatus": "success",
   "createdAt": 1782197800871,
-  "updatedAt": 1782197817973,
-  "sessionId": null
+  "updatedAt": 1782202115207,
+  "lastResponseAt": 1782202115207,
+  "sessionId": "da65d688-68dc-461f-8e63-1122053a92b7",
+  "providerState": {
+    "providerSessionId": "da65d688-68dc-461f-8e63-1122053a92b7"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 338,
+    "cacheReadInputTokens": 86047,
+    "contextWindow": 200000,
+    "contextTokens": 86386,
+    "percentage": 43,
+    "contextWindowIsAuthoritative": true
+  }
 }

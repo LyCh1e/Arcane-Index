@@ -178,6 +178,7 @@ Master catalog of all pages. Updated on every ingest.
 | Page | Category |
 |------|----------|
 | [[entities/llmlingua\|LLMLingua]] | tool |
+| [[entities/agentic-ai-foundation-aaif\|Agentic AI Foundation (AAIF)]] | organisation |
 
 ## Learning
 
