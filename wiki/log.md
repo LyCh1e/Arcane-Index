@@ -39,6 +39,15 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Examples: [[examples/ict2216-lab6-owasp-dependency-check]]
 - Key content: Docker-based local SCA scan, GitHub Actions workflow with artifact upload, Dependabot/Renovate alternatives
 
+## 2026-06-23 | autoresearch | Retrieval-Augmented Generation (RAG)
+
+- Rounds: 3 | Searches: 6 | Sources fetched: 3 | Pages created: 6
+- Concepts: [[concepts/retrieval-augmented-generation]], [[concepts/rag-architectures]]
+- Entities: [[entities/graphrag-microsoft]]
+- Sources: [[sources/humanloop-rag-architectures-2025]], [[sources/pinecone-rag-guide]]
+- Synthesis: [[questions/research-rag]]
+- Key finding: RAG is a four-stage pipeline (chunk → embed → retrieve → generate) that has evolved through four generations; hybrid search + re-ranking is the production default; GraphRAG (Microsoft) achieves 72–83% comprehensiveness improvement over vector RAG on holistic queries; chunking strategy performance is corpus-dependent — evaluate on your own data; RAG and MCP are converging at the agent layer.
+
 ## 2026-06-23 | autoresearch | MCP Servers (Model Context Protocol)
 
 - Rounds: 3 | Searches: 5 | Sources fetched: 5 | Pages created: 7

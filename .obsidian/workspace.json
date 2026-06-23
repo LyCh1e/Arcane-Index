@@ -32,45 +32,17 @@
             }
           },
           {
-            "id": "dd6dea2e30cbcf32",
+            "id": "c6b89a9c62ee5939",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "skills/autoresearch/SKILL.md",
+                "file": "wiki/index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SKILL"
-            }
-          },
-          {
-            "id": "7db4e614739d5790",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/log.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "log"
-            }
-          },
-          {
-            "id": "0c65cc04f4aaa57f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/concepts/context-compression-llm.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "context-compression-llm"
+              "title": "index"
             }
           }
         ]
@@ -262,8 +234,19 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "3f41e16c8ccd1064",
   "lastOpenFiles": [
+    "wiki/questions/research-rag.md",
+    "wiki/sources/pinecone-rag-guide.md",
+    "wiki/sources/humanloop-rag-architectures-2025.md",
+    "wiki/entities/graphrag-microsoft.md",
+    "wiki/concepts/rag-architectures.md",
+    "wiki/concepts/retrieval-augmented-generation.md",
+    "wiki/hot.md",
+    "wiki/concepts/context-compression-llm.md",
+    "wiki/log.md",
+    "skills/autoresearch/SKILL.md",
+    "wiki/hot.md.tmp.34132.97cbdaa1aa73",
     "wiki/log.md.tmp.3100.d94b2892bf93",
     "wiki/examples/ict2216-lab9-sonarqube.md",
     "wiki/index.md.tmp.3100.3a798d2ed6d7",
@@ -277,8 +260,6 @@
     "wiki/concepts/mcp-security.md",
     "wiki/concepts/mcp-security.md.tmp.8088.2dedf13841c3",
     "wiki/concepts/mcp-model-context-protocol.md",
-    "wiki/concepts/context-compression-llm.md",
-    "wiki/log.md",
     "wiki/hot.md.tmp.23588.8f4fa32f2136",
     "wiki/hot.md.tmp.23588.9c73bd3baecd",
     "wiki/log.md.tmp.23588.a031d74642bf",
@@ -286,20 +267,11 @@
     "wiki/index.md.tmp.23588.9c452f7a2407",
     "wiki/index.md.tmp.23588.8e7a2889205d",
     "wiki/questions/research-context-compression-llm.md",
-    "wiki/questions/research-context-compression-llm.md.tmp.23588.8df772671f92",
     "wiki/sources/kv-cache-compression-review-2025.md",
-    "wiki/sources/kv-cache-compression-review-2025.md.tmp.23588.a3350dcf4e7f",
     "wiki/sources/factory-ai-compression-evaluation-2025.md",
     "wiki/sources/anthropic-effective-context-engineering.md",
     "wiki/sources/acon-context-compression-agents.md",
     "wiki/entities/llmlingua.md",
-    "wiki/concepts/prompt-compression.md",
-    "wiki/concepts/kv-cache-compression.md",
-    "wiki/concepts/blockchain-technology.md",
-    "skills/autoresearch/SKILL.md",
-    "wiki/resources/_index.md",
-    "wiki/gaps/_index.md",
-    "wiki/questions/research-blockchain-technology.md",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",

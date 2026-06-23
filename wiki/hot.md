@@ -9,6 +9,22 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-06-23. **Session: project — ICT2216 Lab 8 ESLint SAST, TrialGuard integration.** Updated [[examples/ict2216-lab8-static-code-analysis]] with real implementation learnings.
+
+**GitHub Code Scanning limitation**: `github/codeql-action/upload-sarif` and CodeQL require Code Scanning, only available on public repos or private repos with GitHub Advanced Security (paid, orgs only). Workaround for personal private repos: replace `upload-sarif` with `actions/upload-artifact` — SARIF file becomes a downloadable artifact. CodeQL removed entirely.
+
+**Permissions gotcha**: Any explicit `permissions:` block on a GitHub Actions job drops all unspecified permissions to `none`. Without `contents: read`, `actions/checkout` fails with `fatal: repository not found`. Always pair `security-events: write` with `contents: read`.
+
+**Vite + React ESLint config**: No Babel parser needed — use `parserOptions.ecmaFeatures.jsx: true` with the default parser. Plugins: `eslint-plugin-react` + `eslint-plugin-security` + `eslint-plugin-no-unsanitized`. Skip `eslint-plugin-security-node` for browser apps. Disable `react/prop-types` and `react/no-unescaped-entities` (cosmetic noise). Security scan found a real `detect-possible-timing-attacks` warning in `Signup.jsx`.
+
+**Node 20 deprecated on GitHub runners**: Updated all `setup-node` steps to `node-version: "24"`.
+
+**Key page**: [[examples/ict2216-lab8-static-code-analysis]].
+
+---
+
+## Last Updated (previous)
+
 2026-06-23. **Session: ingest — ICT2216 Lab 9 (SonarQube).** Created 1 wiki example page + instructions_lab9.md.
 
 **Topic summary**: Lab 9 sets up SonarQube as a self-hosted SAST platform via Docker Compose, runs a local scan using the sonar-scanner-cli Docker image, and integrates results into GitHub Actions via the `sonarsource/sonarqube-scan-action`.
