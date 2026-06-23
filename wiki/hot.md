@@ -1,4 +1,4 @@
----
+﻿---
 type: meta
 title: "Hot Cache"
 updated: 2026-06-23T00:00:00
@@ -115,7 +115,7 @@ tags: [meta, hot-cache]
 
 **Cross-domain connections**: MCP Resources primitive = protocol-level RAG; context compression techniques apply to retrieved chunks that overflow the context window.
 
-**Key pages**: [[concepts/retrieval-augmented-generation]] (pipeline + evaluation), [[concepts/rag-architectures]] (full taxonomy), [[entities/graphrag-microsoft]], [[questions/research-rag]] (synthesis).
+**Key pages**: [[concepts/retrieval-augmented-generation]] (pipeline + evaluation), [[concepts/rag-architectures]] (full taxonomy), [[entities/graphrag-microsoft]], [[synthesis/research-rag]] (synthesis).
 
 ---
 
@@ -137,7 +137,7 @@ tags: [meta, hot-cache]
 
 **MCP vs function calling**: MCP is provider-agnostic and reusable across clients; function calling is simpler for lightweight single-app integrations. Production architectures use both.
 
-**Key pages**: [[concepts/mcp-model-context-protocol]] (master reference), [[concepts/mcp-security]] (vulnerability taxonomy), [[entities/agentic-ai-foundation-aaif]], [[questions/research-mcp-servers]] (synthesis).
+**Key pages**: [[concepts/mcp-model-context-protocol]] (master reference), [[concepts/mcp-security]] (vulnerability taxonomy), [[entities/agentic-ai-foundation-aaif]], [[synthesis/research-mcp-servers]] (synthesis).
 
 ---
 
@@ -157,7 +157,7 @@ tags: [meta, hot-cache]
 
 **Open problem**: artifact tracking (knowing which files were modified in an agentic session) scores only 2.19–2.45 / 5 across all current methods. Summaries alone cannot reliably preserve this; structured external logs are needed.
 
-**Key pages**: [[concepts/context-compression-llm]] (master taxonomy), [[concepts/prompt-compression]], [[concepts/kv-cache-compression]], [[entities/llmlingua]], [[questions/research-context-compression-llm]] (synthesis).
+**Key pages**: [[concepts/context-compression-llm]] (master taxonomy), [[concepts/prompt-compression]], [[concepts/kv-cache-compression]], [[entities/llmlingua]], [[synthesis/research-context-compression-llm]] (synthesis).
 
 ---
 
@@ -181,7 +181,7 @@ Created: [[learning/ssh-stdout-known-hosts-warning]]. Updated: [[concepts/github
 - **Post-Quantum**: NIST FIPS 204 (Dilithium / ML-DSA) is the signature standard; 2026–2030 is the critical hybrid migration window; Dilithium signatures are 40–70× larger than ECDSA — significant L1 block-size impact; Polkadot published Dilithium migration roadmap.
 - **RWA tokenisation**: ~$32B on-chain (excl. stablecoins, May 2026); >$300B incl. stablecoins; Standard Chartered projects $30T by 2034.
 
-Created: [[sources/hacken-smart-contract-vulnerabilities-2025]], [[sources/atlantic-council-cbdc-tracker-2026]], [[sources/chainalysis-crypto-crime-report-2025]], [[sources/layer2-scaling-comparison-2025]], [[entities/satoshi-nakamoto]], [[entities/vitalik-buterin]], [[entities/nick-szabo]], [[questions/research-blockchain-technology]].
+Created: [[sources/hacken-smart-contract-vulnerabilities-2025]], [[sources/atlantic-council-cbdc-tracker-2026]], [[sources/chainalysis-crypto-crime-report-2025]], [[sources/layer2-scaling-comparison-2025]], [[entities/satoshi-nakamoto]], [[entities/vitalik-buterin]], [[entities/nick-szabo]], [[synthesis/research-blockchain-technology]].
 
 2026-06-12. **Session: research — Blockchain Technology.** Created 1 concept page [[concepts/blockchain-technology]] (c-000067). Domain `blockchain` added as the 17th domain. The page is a deep-dive reference covering the full blockchain stack:
 

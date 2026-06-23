@@ -1,4 +1,4 @@
----
+﻿---
 type: source
 title: "Introducing the Model Context Protocol — Anthropic"
 source_type: article
@@ -19,7 +19,7 @@ key_claims:
   - Includes SDKs, Claude Desktop support, and a pre-built server repository
 related:
   - "[[concepts/mcp-model-context-protocol]]"
-  - "[[questions/research-mcp-servers]]"
+  - "[[synthesis/research-mcp-servers]]"
 ---
 
 # Introducing the Model Context Protocol — Anthropic

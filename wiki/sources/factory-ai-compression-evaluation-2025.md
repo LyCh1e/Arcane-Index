@@ -1,4 +1,4 @@
----
+﻿---
 type: source
 source_type: article
 title: "Evaluating Context Compression for AI Agents"
@@ -16,7 +16,7 @@ tags:
   - agentic-ai
 related:
   - "[[concepts/context-compression-llm]]"
-  - "[[questions/research-context-compression-llm]]"
+  - "[[synthesis/research-context-compression-llm]]"
 ---
 
 # Evaluating Context Compression for AI Agents (Factory.ai, 2025)
@@ -91,4 +91,4 @@ Graded across six dimensions (0–5 scale) using GPT-5.2 as an LLM judge:
 
 ## Relevance to Wiki
 
-Empirical grounding for the "Production Strategy Comparison" table in [[concepts/context-compression-llm]] and the open questions on artifact tracking in [[questions/research-context-compression-llm]].
+Empirical grounding for the "Production Strategy Comparison" table in [[concepts/context-compression-llm]] and the open questions on artifact tracking in [[synthesis/research-context-compression-llm]].

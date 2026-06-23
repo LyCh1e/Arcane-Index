@@ -1,4 +1,4 @@
----
+﻿---
 type: concept
 title: "Context Compression for LLMs"
 created: 2026-06-21
@@ -13,7 +13,7 @@ related:
   - "[[concepts/kv-cache-compression]]"
   - "[[concepts/prompt-compression]]"
   - "[[entities/llmlingua]]"
-  - "[[questions/research-context-compression-llm]]"
+  - "[[synthesis/research-context-compression-llm]]"
 sources:
   - "[[sources/acon-context-compression-agents]]"
   - "[[sources/anthropic-effective-context-engineering]]"

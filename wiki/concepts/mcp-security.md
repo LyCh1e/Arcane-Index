@@ -1,4 +1,4 @@
----
+﻿---
 type: concept
 title: "MCP Security"
 created: 2026-06-23
@@ -15,7 +15,7 @@ related:
   - "[[concepts/mcp-model-context-protocol]]"
   - "[[concepts/owasp-top-10]]"
   - "[[concepts/threat-modeling]]"
-  - "[[questions/research-mcp-servers]]"
+  - "[[synthesis/research-mcp-servers]]"
 sources:
   - "[[sources/mcp-spec-2025-11-25]]"
 ---

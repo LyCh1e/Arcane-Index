@@ -1,4 +1,4 @@
----
+﻿---
 type: concept
 title: "RAG Architectures"
 created: 2026-06-23
@@ -15,7 +15,7 @@ related:
   - "[[concepts/retrieval-augmented-generation]]"
   - "[[entities/graphrag-microsoft]]"
   - "[[concepts/mcp-model-context-protocol]]"
-  - "[[questions/research-rag]]"
+  - "[[synthesis/research-rag]]"
 sources:
   - "[[sources/humanloop-rag-architectures-2025]]"
 ---

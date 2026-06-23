@@ -1,4 +1,4 @@
----
+﻿---
 type: source
 title: "8 RAG Architectures You Should Know — Humanloop"
 source_type: article
@@ -21,7 +21,7 @@ key_claims:
 related:
   - "[[concepts/rag-architectures]]"
   - "[[concepts/retrieval-augmented-generation]]"
-  - "[[questions/research-rag]]"
+  - "[[synthesis/research-rag]]"
 ---
 
 # 8 RAG Architectures You Should Know — Humanloop

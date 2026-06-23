@@ -1,4 +1,4 @@
----
+﻿---
 type: source
 source_type: paper
 title: "ACON: Optimising Context Compression for Long-Horizon LLM Agents"
@@ -18,7 +18,7 @@ tags:
   - research-paper
 related:
   - "[[concepts/context-compression-llm]]"
-  - "[[questions/research-context-compression-llm]]"
+  - "[[synthesis/research-context-compression-llm]]"
 ---
 
 # ACON: Optimising Context Compression for Long-Horizon LLM Agents

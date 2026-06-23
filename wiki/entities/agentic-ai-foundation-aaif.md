@@ -1,4 +1,4 @@
----
+﻿---
 type: entity
 title: "Agentic AI Foundation (AAIF)"
 category: organisation
@@ -11,7 +11,7 @@ tags:
   - linux-foundation
 related:
   - "[[concepts/mcp-model-context-protocol]]"
-  - "[[questions/research-mcp-servers]]"
+  - "[[synthesis/research-mcp-servers]]"
 url: "https://aaif.io"
 ---
 

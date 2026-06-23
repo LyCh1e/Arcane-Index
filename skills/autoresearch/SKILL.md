@@ -105,7 +105,7 @@ After research is complete, create these pages:
 **wiki/entities/**. One page per significant person, org, or product identified
 - Check the index first: update existing entity pages
 
-**wiki/questions/**. One synthesis page titled "Research: [Topic]"
+**wiki/synthesis/**. One synthesis page titled "Research: [Topic]"
 - This is the master synthesis. Everything comes together here.
 - Sections: Overview, Key Findings, Entities, Concepts, Contradictions, Open Questions, Sources
 - Full frontmatter with related links to all pages created in this session
@@ -187,7 +187,7 @@ Research complete: [Topic]
 Rounds: N | Searches: N | Pages created: N
 
 Created:
-  wiki/questions/Research: [Topic].md (synthesis)
+  wiki/synthesis/research-[topic-slug].md (synthesis)
   wiki/sources/[Source 1].md
   wiki/concepts/[Concept 1].md
   wiki/entities/[Entity 1].md

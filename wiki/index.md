@@ -1,4 +1,4 @@
----
+﻿---
 type: meta
 title: "Wiki Index"
 updated: 2026-05-19T00:00:00
@@ -156,15 +156,6 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/mcp-model-context-protocol\|Model Context Protocol (MCP)]] | ai-engineering | high |
 | [[concepts/mcp-security\|MCP Security]] | ai-engineering | high |
 
-## Questions / Research Syntheses
-
-| Page | Topic | Date |
-|---|---|---|
-| [[questions/research-blockchain-technology\|Research: Blockchain Technology]] | blockchain | 2026-06-12 |
-| [[questions/research-context-compression-llm\|Research: Context Compression of Chats with LLMs]] | ai-engineering | 2026-06-21 |
-| [[questions/research-rag\|Research: Retrieval-Augmented Generation (RAG)]] | ai-engineering | 2026-06-23 |
-| [[questions/research-mcp-servers\|Research: MCP Servers (Model Context Protocol)]] | ai-engineering | 2026-06-23 |
-
 ## Examples
 
 | Page | Type | Course / Domain | Concept |
@@ -224,12 +215,10 @@ Master catalog of all pages. Updated on every ingest.
 | [[synthesis/web-security-ssdlc-bridge\|Web Security ↔ SSDLC: Code-Level Attacks Map to Process-Level Defences]] | web-development / secure-software-development | established |
 | [[synthesis/ict1011-ict1012-architecture-bridge\|Computer Architecture → Operating Systems: The Hardware–OS Handover]] | computer-architecture / operating-systems | established |
 | [[synthesis/rest-api-cross-stack\|REST APIs Across the Full Stack: Android ↔ Express ↔ HTTP]] | mobile-development / web-development | established |
-
-## Questions / Research
-
-| Page | Domain |
-|------|--------|
-| [[research-software-testing\|Research: Software Testing]] | software-engineering |
+| [[synthesis/research-blockchain-technology\|Research: Blockchain Technology]] | blockchain | developing |
+| [[synthesis/research-context-compression-llm\|Research: Context Compression of Chats with LLMs]] | ai-engineering | developing |
+| [[synthesis/research-mcp-servers\|Research: MCP Servers (Model Context Protocol)]] | ai-engineering | developing |
+| [[synthesis/research-rag\|Research: Retrieval-Augmented Generation (RAG)]] | ai-engineering | developing |
 
 ## Gaps
 

@@ -1,4 +1,4 @@
----
+﻿---
 type: source
 source_type: article
 title: "Effective Context Engineering for AI Agents"
@@ -16,7 +16,7 @@ tags:
   - anthropic
 related:
   - "[[concepts/context-compression-llm]]"
-  - "[[questions/research-context-compression-llm]]"
+  - "[[synthesis/research-context-compression-llm]]"
 ---
 
 # Effective Context Engineering for AI Agents (Anthropic)
@@ -104,4 +104,4 @@ Rather than pre-loading all data into the system prompt:
 
 ## Relevance to Wiki
 
-Primary reference for the "Practical Recommendations" section in [[concepts/context-compression-llm]] and the Anthropic compaction approach in [[questions/research-context-compression-llm]].
+Primary reference for the "Practical Recommendations" section in [[concepts/context-compression-llm]] and the Anthropic compaction approach in [[synthesis/research-context-compression-llm]].

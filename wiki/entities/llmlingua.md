@@ -1,4 +1,4 @@
----
+﻿---
 type: entity
 entity_type: tool
 title: "LLMLingua"
@@ -13,7 +13,7 @@ status: active
 related:
   - "[[concepts/prompt-compression]]"
   - "[[concepts/context-compression-llm]]"
-  - "[[questions/research-context-compression-llm]]"
+  - "[[synthesis/research-context-compression-llm]]"
 ---
 
 # LLMLingua

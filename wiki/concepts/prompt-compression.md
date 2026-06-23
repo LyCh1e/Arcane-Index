@@ -1,4 +1,4 @@
----
+﻿---
 type: concept
 title: "Prompt Compression"
 created: 2026-06-21
@@ -13,7 +13,7 @@ related:
   - "[[concepts/context-compression-llm]]"
   - "[[concepts/kv-cache-compression]]"
   - "[[entities/llmlingua]]"
-  - "[[questions/research-context-compression-llm]]"
+  - "[[synthesis/research-context-compression-llm]]"
 ---
 
 # Prompt Compression

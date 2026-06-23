@@ -1,4 +1,4 @@
----
+﻿---
 type: meta
 title: "Operation Log"
 updated: 2026-06-08
@@ -45,7 +45,7 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Concepts: [[concepts/retrieval-augmented-generation]], [[concepts/rag-architectures]]
 - Entities: [[entities/graphrag-microsoft]]
 - Sources: [[sources/humanloop-rag-architectures-2025]], [[sources/pinecone-rag-guide]]
-- Synthesis: [[questions/research-rag]]
+- Synthesis: [[synthesis/research-rag]]
 - Key finding: RAG is a four-stage pipeline (chunk → embed → retrieve → generate) that has evolved through four generations; hybrid search + re-ranking is the production default; GraphRAG (Microsoft) achieves 72–83% comprehensiveness improvement over vector RAG on holistic queries; chunking strategy performance is corpus-dependent — evaluate on your own data; RAG and MCP are converging at the agent layer.
 
 ## 2026-06-23 | autoresearch | MCP Servers (Model Context Protocol)
@@ -54,7 +54,7 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Concepts: [[concepts/mcp-model-context-protocol]], [[concepts/mcp-security]]
 - Entities: [[entities/agentic-ai-foundation-aaif]]
 - Sources: [[sources/anthropic-mcp-launch-2024]], [[sources/mcp-spec-2025-11-25]], [[sources/mcp-first-year-2025]]
-- Synthesis: [[questions/research-mcp-servers]]
+- Synthesis: [[synthesis/research-mcp-servers]]
 - Key finding: MCP is a provider-agnostic JSON-RPC 2.0 protocol (Host → Client → Server) that replaced fragmented LLM tool integrations; donated to the Linux Foundation's AAIF in Dec 2025; the Nov 2025 spec added async Tasks, CIMD OAuth, and M2M OAuth for headless agents; security risks include prompt injection, tool poisoning, and rug pull attacks.
 
 ## 2026-06-21 | autoresearch | Context Compression of Chats with Large Language Models
@@ -63,7 +63,7 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Concepts: [[concepts/context-compression-llm]], [[concepts/kv-cache-compression]], [[concepts/prompt-compression]]
 - Entities: [[entities/llmlingua]]
 - Sources: [[sources/acon-context-compression-agents]], [[sources/anthropic-effective-context-engineering]], [[sources/factory-ai-compression-evaluation-2025]], [[sources/kv-cache-compression-review-2025]]
-- Synthesis: [[questions/research-context-compression-llm]]
+- Synthesis: [[synthesis/research-context-compression-llm]]
 - Key finding: Five distinct technique families exist (dialogue summarisation, prompt compression, KV cache compression, soft/latent compression, retrieval-based); higher compression ratio does NOT equal higher quality — Factory's 98.6% compression scored 0.35 points higher than OpenAI's 99.3% compression on production tasks; artifact tracking remains an open problem across all methods
 
 ## 2026-06-19 | project | ICT2216 TrialGuard — CD Pipeline (GitHub Actions → EC2)
@@ -77,7 +77,7 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Rounds: 3 | Searches: 9 | Sources fetched: 7 | Pages created: 8
 - Sources: [[sources/hacken-smart-contract-vulnerabilities-2025]], [[sources/atlantic-council-cbdc-tracker-2026]], [[sources/chainalysis-crypto-crime-report-2025]], [[sources/layer2-scaling-comparison-2025]]
 - Entities: [[entities/satoshi-nakamoto]], [[entities/vitalik-buterin]], [[entities/nick-szabo]]
-- Synthesis: [[questions/research-blockchain-technology]]
+- Synthesis: [[synthesis/research-blockchain-technology]]
 - Concept updated: [[concepts/blockchain-technology]] (added §17 Live Statistics — 2025/2026 figures)
 - Key finding: The biggest blockchain losses are no longer smart contract bugs but private key theft — the weakest link has moved from code to people; DPRK stole ≥$2.02B in 2025 alone
 

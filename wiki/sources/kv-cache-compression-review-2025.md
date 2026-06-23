@@ -1,4 +1,4 @@
----
+﻿---
 type: source
 source_type: paper
 title: "KV Cache Compression for Inference Efficiency in LLMs: A Review"
@@ -18,7 +18,7 @@ tags:
 related:
   - "[[concepts/kv-cache-compression]]"
   - "[[concepts/context-compression-llm]]"
-  - "[[questions/research-context-compression-llm]]"
+  - "[[synthesis/research-context-compression-llm]]"
 ---
 
 # KV Cache Compression for Inference Efficiency in LLMs: A Review (2025)

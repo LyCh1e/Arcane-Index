@@ -1,4 +1,4 @@
----
+﻿---
 type: concept
 title: "Model Context Protocol (MCP)"
 created: 2026-06-23
@@ -14,7 +14,7 @@ complexity: high
 related:
   - "[[concepts/mcp-security]]"
   - "[[entities/agentic-ai-foundation-aaif]]"
-  - "[[questions/research-mcp-servers]]"
+  - "[[synthesis/research-mcp-servers]]"
 sources:
   - "[[sources/anthropic-mcp-launch-2024]]"
   - "[[sources/mcp-spec-2025-11-25]]"

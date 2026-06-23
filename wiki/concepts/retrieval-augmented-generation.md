@@ -1,4 +1,4 @@
----
+﻿---
 type: concept
 title: "Retrieval-Augmented Generation (RAG)"
 created: 2026-06-23
@@ -17,7 +17,7 @@ related:
   - "[[concepts/mcp-model-context-protocol]]"
   - "[[concepts/prompt-compression]]"
   - "[[entities/graphrag-microsoft]]"
-  - "[[questions/research-rag]]"
+  - "[[synthesis/research-rag]]"
 sources:
   - "[[sources/humanloop-rag-architectures-2025]]"
   - "[[sources/pinecone-rag-guide]]"

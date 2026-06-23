@@ -1,4 +1,4 @@
----
+﻿---
 type: source
 title: "Retrieval-Augmented Generation — Pinecone"
 source_type: reference
@@ -19,7 +19,7 @@ key_claims:
   - Embeddings convert text into high-dimensional vector representations of meaning
 related:
   - "[[concepts/retrieval-augmented-generation]]"
-  - "[[questions/research-rag]]"
+  - "[[synthesis/research-rag]]"
 ---
 
 # Retrieval-Augmented Generation — Pinecone

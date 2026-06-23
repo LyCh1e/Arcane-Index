@@ -1,4 +1,4 @@
----
+﻿---
 type: entity
 title: "GraphRAG (Microsoft Research)"
 category: tool
@@ -14,7 +14,7 @@ github: "https://github.com/microsoft/graphrag"
 related:
   - "[[concepts/rag-architectures]]"
   - "[[concepts/retrieval-augmented-generation]]"
-  - "[[questions/research-rag]]"
+  - "[[synthesis/research-rag]]"
 ---
 
 # GraphRAG (Microsoft Research)

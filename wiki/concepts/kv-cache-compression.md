@@ -1,4 +1,4 @@
----
+﻿---
 type: concept
 title: "KV Cache Compression"
 created: 2026-06-21
@@ -12,7 +12,7 @@ status: complete
 related:
   - "[[concepts/context-compression-llm]]"
   - "[[concepts/prompt-compression]]"
-  - "[[questions/research-context-compression-llm]]"
+  - "[[synthesis/research-context-compression-llm]]"
 sources:
   - "[[sources/kv-cache-compression-review-2025]]"
 ---

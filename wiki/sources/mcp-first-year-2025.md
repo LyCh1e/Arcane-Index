@@ -1,4 +1,4 @@
----
+﻿---
 type: source
 title: "One Year of MCP — MCP Blog Anniversary Post"
 source_type: article
@@ -21,7 +21,7 @@ key_claims:
 related:
   - "[[concepts/mcp-model-context-protocol]]"
   - "[[entities/agentic-ai-foundation-aaif]]"
-  - "[[questions/research-mcp-servers]]"
+  - "[[synthesis/research-mcp-servers]]"
 ---
 
 # One Year of MCP — MCP Blog Anniversary Post

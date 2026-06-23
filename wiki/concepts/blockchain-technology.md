@@ -1,4 +1,4 @@
----
+﻿---
 type: concept
 title: "Blockchain Technology"
 aliases: ["blockchain", "distributed ledger", "DLT"]
@@ -692,7 +692,7 @@ flowchart TD
 
 ## 17. Live Statistics (2025–2026)
 
-> Data sourced from autoresearch session 2026-06-12. See [[questions/research-blockchain-technology]] for full synthesis.
+> Data sourced from autoresearch session 2026-06-12. See [[synthesis/research-blockchain-technology]] for full synthesis.
 
 ### Security & Losses
 
