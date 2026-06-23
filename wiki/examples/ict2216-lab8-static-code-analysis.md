@@ -121,6 +121,86 @@ Requires `permissions: security-events: write`.
 - Dedicated SAST alternatives: **Semgrep** (lightweight, customisable), **SonarQube** (next lab).
 - Other SARIF-compatible tools: Flake8 (Python), Checkstyle (Java), PMD (Java/Apex), SonarCloud (multi-language).
 
+## Project Implementation (TrialGuard)
+
+ESLint SAST was integrated into the existing `ci-cd.yml` pipeline as a new parallel job. Key differences from the lab template:
+
+### GitHub Code Scanning not available on personal private repos
+
+`github/codeql-action/upload-sarif` and CodeQL both require **GitHub Code Scanning**, which is only available for:
+- Public repositories (any plan)
+- Private repositories with **GitHub Advanced Security** (paid, org accounts only)
+
+**Workaround for personal private repos:** replace `upload-sarif` with `upload-artifact`. The SARIF file is then downloadable from the Actions run Artifacts section instead of appearing in Security → Code Scanning.
+
+```yaml
+# Instead of:
+- uses: github/codeql-action/upload-sarif@v3
+  with:
+    sarif_file: reports/eslint-results.sarif
+
+# Use:
+- uses: actions/upload-artifact@v4
+  if: always()
+  with:
+    name: eslint-sast-report
+    path: reports/eslint-results.sarif
+    retention-days: 30
+```
+
+CodeQL was removed entirely — it has no output path that works without Code Scanning.
+
+### Permissions gotcha: explicit block drops all defaults
+
+Setting **any** `permissions:` block on a job resets all unspecified permissions to `none`. Forgetting `contents: read` causes `actions/checkout` to fail with `fatal: repository not found`:
+
+```yaml
+# BROKEN — checkout fails, contents: read dropped to none
+permissions:
+  security-events: write
+
+# FIXED
+permissions:
+  contents: read
+  security-events: write
+```
+
+### Vite + React — no Babel parser needed
+
+The lab template uses `@babel/eslint-parser` for JSX. For a Vite project (which uses esbuild internally, not Babel), the default ESLint parser handles JSX natively via `parserOptions.ecmaFeatures.jsx`:
+
+```js
+languageOptions: {
+  ecmaVersion: 'latest',
+  sourceType: 'module',
+  parserOptions: {
+    ecmaFeatures: { jsx: true },
+  },
+},
+```
+
+Plugins used: `eslint-plugin-react`, `eslint-plugin-security`, `eslint-plugin-no-unsanitized`. The `eslint-plugin-security-node` plugin was skipped — it targets Node.js server code; the TrialGuard frontend is a browser React app.
+
+React rules disabled in project config (not security-related, just noise):
+- `react/prop-types: off` — project uses no PropTypes
+- `react/no-unescaped-entities: off` — apostrophes in JSX text content
+
+### Real finding detected
+
+`eslint-plugin-security` flagged a genuine issue on first run:
+
+```
+src/pages/Signup.jsx:107  warning  Potential timing attack, left side: true  security/detect-possible-timing-attacks
+```
+
+### Node 20 deprecation
+
+GitHub Actions runners now default to Node 24. Specifying `node-version: "20"` produces a deprecation warning. Updated all `setup-node` steps to `node-version: "24"`.
+
+### Final pipeline position
+
+`eslint-sast` runs in parallel with `backend-ci` and `frontend-ci`. The `security-scan` job `needs` all three before running, so SAST results are in before the deploy gate.
+
 ## Related
 
 - [[concepts/github-actions-cicd]] — CI/CD pipeline; where SAST jobs fit

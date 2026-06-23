@@ -9,6 +9,11 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-23 | project | ICT2216 Lab 8 — ESLint SAST integrated into TrialGuard CI/CD
+
+- Pages updated: [[examples/ict2216-lab8-static-code-analysis]] (added "Project Implementation" section)
+- Key findings: GitHub Code Scanning unavailable on personal private repos → replaced upload-sarif with upload-artifact; explicit permissions block drops contents:read (breaks checkout); Vite+React needs no Babel parser for ESLint JSX; eslint-plugin-security detected real timing attack in Signup.jsx; Node 20 deprecated on runners → Node 24; CodeQL removed (requires Code Scanning)
+
 ## 2026-06-23 | ingest | ICT2216 Lab 9 — SonarQube
 
 - Pages created: 2 (instructions_lab9.md + wiki example)
