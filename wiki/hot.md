@@ -97,6 +97,26 @@ tags: [meta, hot-cache]
 
 ## Last Updated (previous)
 
+2026-06-23. **Session: autoresearch — AI Workflows.** Created 5 new wiki pages: 2 concepts, 2 sources, 1 synthesis.
+
+**Topic summary**: AI workflows are intelligent, end-to-end systems using LLMs, tools, memory, and retrieval to execute tasks with minimal human supervision. The key architectural distinction is workflow (predefined code paths) vs. agent (LLM dynamically controls its own process) — start with workflows, only escalate to agents when task steps cannot be predicted.
+
+**Anthropic's 5 core patterns** (*Building Effective Agents*, Dec 2024): (1) **Prompt Chaining** — sequential LLM calls, each processing the prior output; (2) **Routing** — classifier dispatches input to a specialised handler or model tier; (3) **Parallelisation** — concurrent calls via sectioning (independent subtasks) or voting (multiple attempts); (4) **Orchestrator–Workers** — central LLM dynamically decomposes and delegates, then synthesises; (5) **Evaluator–Optimiser** — generator + evaluator loop until quality criteria are met.
+
+**Foundational building block**: the augmented LLM — a model + retrieval (RAG) + tools (MCP servers) + memory. All five patterns compose from this unit.
+
+**Tool taxonomy** (three distinct categories — wrong category = wrong tool): Agent orchestration (LangGraph, LlamaIndex, CrewAI, AutoGen), Durable execution (Temporal, Prefect), Data/batch pipelines (Airflow, Dagster). Production consensus: Dagster/Airflow for data side, Temporal for application durability, LangGraph agent loop inside the service.
+
+**AI vs. RPA**: Complementary, not competing. RPA = "hands" (deterministic execution on structured data). AI workflows = "brain" (reasoning on unstructured inputs). Combined: 2–3× automation coverage. AI agents market growing 46.3% CAGR toward $52.6B by 2030.
+
+**Observability** (LLM-native required): Smallest unit = span (one LLM call/tool call/retrieval/handoff). Tools: LangSmith (deepest LangGraph integration), Helicone (proxy, zero SDK changes), Langfuse (open-source).
+
+**Cross-domain**: MCP servers are the standardised tool layer beneath orchestration frameworks; RAG is the retrieval component of every augmented LLM; context compression applies when workflow history overflows the context window.
+
+**Key pages**: [[concepts/ai-workflows]] (patterns, components, RPA comparison), [[concepts/ai-workflow-orchestration]] (tool taxonomy, observability, decision guide), [[synthesis/research-ai-workflows]].
+
+---
+
 2026-06-23. **Session: autoresearch — Retrieval-Augmented Generation (RAG).** Created 6 new wiki pages: 2 concepts, 1 entity, 2 sources, 1 synthesis.
 
 **Topic summary**: RAG is the dominant pattern for knowledge-intensive LLM applications, solving knowledge cutoff, hallucination, and private-data access in one framework. It is a four-stage pipeline — **Index** (chunk → embed → store), **Retrieve** (embed query → ANN search → top-k), **Augment** (inject into prompt), **Generate** — built on top of a vector database.

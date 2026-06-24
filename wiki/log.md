@@ -39,6 +39,14 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Examples: [[examples/ict2216-lab6-owasp-dependency-check]]
 - Key content: Docker-based local SCA scan, GitHub Actions workflow with artifact upload, Dependabot/Renovate alternatives
 
+## 2026-06-23 | autoresearch | AI Workflows
+
+- Rounds: 3 | Searches: 6 | Sources fetched: 2 | Pages created: 5
+- Concepts: [[concepts/ai-workflows]], [[concepts/ai-workflow-orchestration]]
+- Sources: [[sources/anthropic-building-effective-agents]], [[sources/aws-agentic-ai-patterns-2025]]
+- Synthesis: [[synthesis/research-ai-workflows]]
+- Key finding: AI workflows are distinguished from agents by whether the LLM controls its own process (agent) or follows predefined code paths (workflow); Anthropic's 5 patterns (Prompt Chaining, Routing, Parallelisation, Orchestrator-Workers, Evaluator-Optimiser) cover the majority of production use cases; the orchestration tool landscape splits into three distinct categories (agent orchestration, durable execution, data pipelines) and picking the wrong category is the most common architectural mistake.
+
 ## 2026-06-23 | autoresearch | Retrieval-Augmented Generation (RAG)
 
 - Rounds: 3 | Searches: 6 | Sources fetched: 3 | Pages created: 6
