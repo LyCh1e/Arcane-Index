@@ -1,5 +1,6 @@
----
+﻿---
 type: synthesis
+status: established
 title: "Hardware Paging → OS Virtual Memory: The ICT1011 → ICT1012 Handover"
 domain: computer-architecture × operating-systems
 sources:

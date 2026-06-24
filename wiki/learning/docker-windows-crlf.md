@@ -1,5 +1,6 @@
----
+﻿---
 type: learning
+status: established
 title: "Docker on Windows: CRLF Line Endings Break Linux Container Scripts"
 domain: devops
 tags: [docker, windows, crlf, line-endings, git-bash, powershell, linux]

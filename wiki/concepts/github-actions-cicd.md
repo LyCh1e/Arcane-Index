@@ -1,11 +1,14 @@
 ---
+type: concept
+status: established
+created: 2026-05-30
+updated: 2026-05-30
 name: github-actions-cicd
 description: GitHub Actions CI/CD — workflow syntax, triggers, jobs, steps, secrets, Docker integration, and pipeline design
 metadata:
   type: concept
 domain: devops
 complexity: medium
-created: 2026-05-30
 tags: [github-actions, ci-cd, devops, docker, automation, yaml]
 ---
 

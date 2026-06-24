@@ -1,11 +1,14 @@
 ---
+type: example
+status: established
+created: 2026-06-23
+updated: 2026-06-23
 name: ict2216-lab8-static-code-analysis
 description: ICT2216 Lab 8 — Static Code Analysis with ESLint, security plugins (eslint-plugin-security, security-node, no-unsanitized), SARIF output, and GitHub CodeQL
 metadata:
   type: example
 domain: secure-software-development
 course: ICT2216
-created: 2026-06-23
 tags: [sast, eslint, codeql, sarif, static-analysis, github-actions, security-plugins, lab]
 ---
 

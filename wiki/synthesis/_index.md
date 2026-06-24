@@ -1,5 +1,6 @@
----
+﻿---
 type: index
+status: established
 title: "Synthesis Index"
 updated: 2026-06-23
 tags: [index, synthesis]

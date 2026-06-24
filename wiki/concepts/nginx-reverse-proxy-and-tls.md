@@ -1,11 +1,14 @@
 ---
+type: concept
+status: established
+created: 2026-05-30
+updated: 2026-05-30
 name: nginx-reverse-proxy-and-tls
 description: Nginx as a reverse proxy — configuration, Docker deployment, Let's Encrypt TLS/SSL termination with Certbot, and auto-renewal
 metadata:
   type: concept
 domain: devops
 complexity: medium
-created: 2026-05-30
 tags: [nginx, reverse-proxy, tls, ssl, lets-encrypt, certbot, docker]
 ---
 

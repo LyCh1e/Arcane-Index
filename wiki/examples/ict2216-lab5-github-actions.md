@@ -1,11 +1,14 @@
 ---
+type: example
+status: established
+created: 2026-05-30
+updated: 2026-05-30
 name: ict2216-lab5-github-actions
 description: ICT2216 Lab 5 — Nginx reverse proxy with Docker, Let's Encrypt TLS via Certbot, and GitHub Actions CI/CD pipeline
 metadata:
   type: example
 domain: devops
 course: ICT2216
-created: 2026-05-30
 tags: [nginx, docker, lets-encrypt, certbot, github-actions, ci-cd, tls, lab]
 ---
 

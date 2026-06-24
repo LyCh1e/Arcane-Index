@@ -1,5 +1,6 @@
----
+﻿---
 type: source-index
+status: established
 title: "INF1008 Data Structures & Algorithms"
 course: INF1008
 institution: SIT

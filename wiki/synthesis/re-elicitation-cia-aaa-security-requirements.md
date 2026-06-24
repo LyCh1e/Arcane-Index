@@ -1,5 +1,6 @@
----
+﻿---
 type: synthesis
+status: established
 title: "Security Requirements Are RE: McCall's Integrity ↔ CIA-AAA"
 domains: [software-engineering, secure-software-development]
 courses: [ICT2113, ICT2216]

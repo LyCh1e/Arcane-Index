@@ -1,5 +1,6 @@
----
+﻿---
 type: concept
+status: established
 title: "C Pointers, Memory & Data Structures"
 domain: programming-fundamentals
 complexity: high

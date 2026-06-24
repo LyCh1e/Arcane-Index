@@ -1,5 +1,6 @@
----
+﻿---
 type: source
+status: established
 title: "INF1004 Mathematics 2"
 course: INF1004
 institution: SIT

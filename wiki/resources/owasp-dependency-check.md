@@ -1,11 +1,14 @@
 ---
+type: resource
+status: established
+created: 2026-06-23
+updated: 2026-06-23
 name: owasp-dependency-check
 description: OWASP Dependency-Check — SCA tool that scans project dependencies for publicly disclosed CVE vulnerabilities via CPE matching; Docker and GitHub Actions support
 metadata:
   type: reference
 domain: secure-software-development
 tags: [owasp, dependency-check, sca, cve, cpe, docker, github-actions, tool]
-created: 2026-06-23
 ---
 
 # OWASP Dependency-Check

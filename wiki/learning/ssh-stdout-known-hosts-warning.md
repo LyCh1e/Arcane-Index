@@ -1,11 +1,13 @@
 ---
+type: learning
+status: established
+created: 2026-06-19
+updated: 2026-06-19
 name: ssh-stdout-known-hosts-warning
 description: SSH "Permanently added to known hosts" warning contaminates stdout when using 2>&1, breaking equality checks in CI scripts
 metadata:
   type: feedback
 domain: devops
-status: resolved
-created: 2026-06-19
 tags: [ssh, ci-cd, github-actions, debugging]
 ---
 

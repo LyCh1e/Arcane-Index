@@ -1,5 +1,6 @@
----
+﻿---
 type: concept
+status: established
 title: "Software Configuration Management"
 domain: software-engineering
 complexity: medium

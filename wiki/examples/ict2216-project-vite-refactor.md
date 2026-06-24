@@ -1,5 +1,6 @@
----
+﻿---
 type: example
+status: established
 title: "ICT2216 Project — UMD Prototype to Vite + React SPA Refactor"
 course: ICT2216
 tags: [example, lab, ict2216, vite, react, react-router, spa, refactor]

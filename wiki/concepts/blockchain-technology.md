@@ -4,7 +4,8 @@ title: "Blockchain Technology"
 aliases: ["blockchain", "distributed ledger", "DLT"]
 tags: [blockchain, cryptography, distributed-systems, consensus, security, web3]
 created: 2026-06-12
-status: complete
+updated: 2026-06-12
+status: established
 domain: blockchain
 address: c-000067
 ---

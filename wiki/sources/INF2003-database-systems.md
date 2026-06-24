@@ -1,5 +1,6 @@
----
+﻿---
 type: source
+status: established
 title: "INF2003 Database Systems"
 domain: database-systems
 course: INF2003

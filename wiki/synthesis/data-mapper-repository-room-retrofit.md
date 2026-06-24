@@ -1,5 +1,6 @@
----
+﻿---
 type: synthesis
+status: established
 title: "Data Mapper & Repository: Bridging ICT2112 Patterns and Android's Room + Retrofit"
 domains: [software-engineering, mobile-development]
 courses: [ICT2112, INF2007]

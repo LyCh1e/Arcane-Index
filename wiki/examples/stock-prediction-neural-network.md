@@ -1,5 +1,6 @@
----
+﻿---
 type: example
+status: established
 title: "Stock Prediction Neural Network — SOLID ML App with Tkinter GUI"
 domain: machine-learning
 project: Stock-Prediction-Neural-Network

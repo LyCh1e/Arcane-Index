@@ -1,5 +1,6 @@
----
+﻿---
 type: learning
+status: established
 title: "ICT1012 Operating Systems — Exam Study Notes"
 domain: operating-systems
 source: "[[sources/ICT1012-operating-systems|ICT1012 Source]]"

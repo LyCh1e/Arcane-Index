@@ -1,5 +1,6 @@
----
+﻿---
 type: area
+status: established
 title: "Operating Systems"
 domain: operating-systems
 source: [[sources/ICT1012-operating-systems]]

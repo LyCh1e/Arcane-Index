@@ -1,11 +1,14 @@
 ---
+type: resource
+status: established
+created: 2026-05-30
+updated: 2026-05-30
 name: owasp-threat-dragon
 description: OWASP Threat Dragon — free open-source threat modeling tool with DFD diagramming and STRIDE rule engine; web and desktop variants
 metadata:
   type: reference
 domain: secure-software-development
 tags: [owasp, threat-dragon, threat-modeling, dfd, stride, tool]
-created: 2026-05-30
 ---
 
 # OWASP Threat Dragon

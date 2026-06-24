@@ -1,5 +1,6 @@
----
+﻿---
 type: area
+status: established
 title: "Computer Science"
 domain: computer-science
 source: [[sources/INF1008-data-structures-algorithms]]

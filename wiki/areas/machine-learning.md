@@ -1,5 +1,6 @@
----
+﻿---
 type: area
+status: established
 title: "Machine Learning"
 domain: machine-learning
 source: [[sources/INF2008-machine-learning]]

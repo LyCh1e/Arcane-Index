@@ -1,5 +1,6 @@
----
+﻿---
 type: synthesis
+status: established
 title: "REST API: Server Design (INF1005) ↔ Android Client (INF2007)"
 domain: web-development × mobile-development
 sources:

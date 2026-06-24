@@ -1,5 +1,6 @@
----
+﻿---
 type: source
+status: established
 title: "CBDC Tracker — Atlantic Council (2026)"
 source_type: research-tracker
 author: Atlantic Council GeoEconomics Center

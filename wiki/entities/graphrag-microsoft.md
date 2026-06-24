@@ -1,5 +1,6 @@
 ﻿---
 type: entity
+status: established
 title: "GraphRAG (Microsoft Research)"
 category: tool
 created: 2026-06-23

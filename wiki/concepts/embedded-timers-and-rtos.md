@@ -1,6 +1,7 @@
----
+﻿---
 address: c-000056
 type: concept
+status: established
 title: "Timers, PWM, RTOS, and Finite State Machines"
 domain: embedded-systems
 source: INF2004

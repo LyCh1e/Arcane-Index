@@ -1,5 +1,6 @@
 ﻿---
 type: source
+status: established
 title: "8 RAG Architectures You Should Know — Humanloop"
 source_type: article
 author: Humanloop

@@ -1,5 +1,6 @@
----
+﻿---
 type: source
+status: established
 title: "ICT1012 Operating Systems"
 course: ICT1012
 domain: operating-systems

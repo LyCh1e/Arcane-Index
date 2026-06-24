@@ -1,5 +1,6 @@
----
+﻿---
 type: concept
+status: established
 title: "Python Fundamentals"
 domain: programming-fundamentals
 complexity: medium

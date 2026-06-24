@@ -1,6 +1,7 @@
----
+﻿---
 address: c-000057
 type: concept
+status: established
 title: "Embedded Testing and Optimisation"
 domain: embedded-systems
 source: INF2004

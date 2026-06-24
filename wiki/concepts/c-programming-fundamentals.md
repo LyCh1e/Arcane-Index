@@ -1,5 +1,6 @@
----
+﻿---
 type: concept
+status: established
 title: "C Programming Fundamentals"
 domain: programming-fundamentals
 complexity: high

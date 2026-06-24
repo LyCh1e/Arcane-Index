@@ -1,5 +1,6 @@
----
+﻿---
 type: area
+status: established
 title: "Database Systems"
 domain: database-systems
 source: [[sources/INF2003-database-systems]]

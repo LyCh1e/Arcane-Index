@@ -1,4 +1,8 @@
 ---
+type: learning
+status: established
+created: 2026-05-31
+updated: 2026-05-31
 name: docker-ro-mount-chmod-fails
 description: chmod fails on files mounted read-only (:ro) into a Docker container — use sh script.sh instead of chmod +x
 metadata:

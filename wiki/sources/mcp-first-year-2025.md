@@ -1,5 +1,6 @@
 ﻿---
 type: source
+status: established
 title: "One Year of MCP — MCP Blog Anniversary Post"
 source_type: article
 author: MCP Team / Anthropic

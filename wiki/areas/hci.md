@@ -1,5 +1,6 @@
----
+﻿---
 type: area
+status: established
 title: "Human-Computer Interaction"
 domain: hci
 source: [[sources/INF2002-human-computer-interaction]]

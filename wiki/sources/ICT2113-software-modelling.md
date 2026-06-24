@@ -1,5 +1,6 @@
----
+﻿---
 type: source-index
+status: established
 title: "ICT2113 Software Modelling & Analysis"
 course: ICT2113
 institution: SIT

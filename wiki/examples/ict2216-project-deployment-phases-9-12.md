@@ -1,4 +1,8 @@
 ---
+type: example
+status: established
+created: 2026-05-31
+updated: 2026-05-31
 name: ict2216-project-deployment-phases-9-12
 description: TrialGuard EC2 deployment — git archive SCP method, health checks, compliance report, daily backups, cert generation, sensitive-info cleanup from git history
 metadata:

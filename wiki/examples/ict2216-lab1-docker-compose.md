@@ -1,5 +1,6 @@
----
+﻿---
 type: lab
+status: established
 title: "ICT2216 Lab 1 — Multi-Container Stack with Docker Compose"
 course: ICT2216
 tags: [lab, ict2216, docker, docker-compose, nginx, mysql, git, selenium]

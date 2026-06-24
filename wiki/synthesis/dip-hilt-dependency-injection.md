@@ -1,5 +1,6 @@
----
+﻿---
 type: synthesis
+status: established
 title: "DIP in Practice: How Hilt Implements the Dependency Inversion Principle"
 domains: [software-engineering, mobile-development]
 courses: [ICT2112, INF2007]

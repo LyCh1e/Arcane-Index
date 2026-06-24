@@ -1,4 +1,8 @@
 ---
+type: learning
+status: established
+created: 2026-05-31
+updated: 2026-05-31
 name: docker-volume-host-dir-created-as-root
 description: Docker creates the host-side bind-mount directory as root if it does not already exist — fix with sudo chown
 metadata:

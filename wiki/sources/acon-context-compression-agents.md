@@ -1,5 +1,6 @@
 ﻿---
 type: source
+status: established
 source_type: paper
 title: "ACON: Optimising Context Compression for Long-Horizon LLM Agents"
 created: 2026-06-21

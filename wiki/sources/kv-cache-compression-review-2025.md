@@ -1,5 +1,6 @@
 ﻿---
 type: source
+status: established
 source_type: paper
 title: "KV Cache Compression for Inference Efficiency in LLMs: A Review"
 created: 2026-06-21

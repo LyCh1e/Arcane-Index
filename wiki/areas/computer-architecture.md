@@ -1,5 +1,6 @@
----
+﻿---
 type: area
+status: established
 title: "Computer Architecture"
 domain: computer-architecture
 source: [[sources/ICT1011-computer-organisation-architecture]]

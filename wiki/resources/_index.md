@@ -1,5 +1,6 @@
----
+﻿---
 type: index
+status: established
 title: "Resources Index"
 updated: 2026-05-15
 tags: [index, resources]

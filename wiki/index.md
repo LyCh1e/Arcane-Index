@@ -1,5 +1,6 @@
 ﻿---
 type: meta
+status: established
 title: "Wiki Index"
 updated: 2026-05-19T00:00:00
 tags: [meta, index]

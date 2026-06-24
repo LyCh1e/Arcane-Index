@@ -1,5 +1,6 @@
----
+﻿---
 type: index
+status: established
 title: "Gaps Index"
 updated: 2026-05-14
 tags: [index, gaps]

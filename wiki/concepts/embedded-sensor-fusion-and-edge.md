@@ -1,6 +1,7 @@
----
+﻿---
 address: c-000058
 type: concept
+status: established
 title: "Sensor Fusion and Edge Computing"
 domain: embedded-systems
 source: INF2004

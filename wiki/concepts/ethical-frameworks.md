@@ -1,6 +1,7 @@
----
+﻿---
 address: c-000061
 type: concept
+status: established
 title: "Ethical Frameworks"
 domain: it-ethics
 source: INF1007

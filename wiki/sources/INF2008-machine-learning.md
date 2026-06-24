@@ -1,5 +1,6 @@
----
+﻿---
 type: source
+status: established
 title: "INF2008 Machine Learning"
 course: INF2008
 institution: SIT

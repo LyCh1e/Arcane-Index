@@ -1,5 +1,6 @@
----
+﻿---
 type: learning
+status: established
 title: "INF1005 Web Systems and Technologies — Exam Study Notes"
 domain: web-development
 source: "[[sources/INF1005-web-systems-technologies|INF1005 Source]]"

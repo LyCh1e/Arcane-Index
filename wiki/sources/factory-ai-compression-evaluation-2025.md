@@ -1,5 +1,6 @@
 ﻿---
 type: source
+status: established
 source_type: article
 title: "Evaluating Context Compression for AI Agents"
 created: 2026-06-21

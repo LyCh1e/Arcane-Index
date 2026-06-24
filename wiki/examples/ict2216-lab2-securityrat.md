@@ -1,5 +1,6 @@
----
+﻿---
 type: lab
+status: established
 title: "ICT2216 Lab 2 — SecurityRAT: Defining Secure Software Requirements"
 course: ICT2216
 tags: [lab, ict2216, docker, securityrat, owasp, asvs, security-requirements, mariadb]

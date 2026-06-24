@@ -1,6 +1,7 @@
----
+﻿---
 address: c-000054
 type: concept
+status: established
 title: "Embedded Systems Fundamentals"
 domain: embedded-systems
 source: INF2004

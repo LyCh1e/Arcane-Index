@@ -1,5 +1,6 @@
----
+﻿---
 type: source
+status: established
 title: "Agentic AI Patterns and Workflows on AWS — AWS Prescriptive Guidance"
 source_type: reference
 author: Aaron Sempf and Andrew Hooker, Amazon Web Services

@@ -1,5 +1,6 @@
----
+﻿---
 type: area
+status: established
 title: "Mobile Development"
 domain: mobile-development
 sources: [[[sources/INF2007-mobile-app-development]], [[sources/INF1009-object-oriented-programming]]]

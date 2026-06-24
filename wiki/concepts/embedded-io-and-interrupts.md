@@ -1,6 +1,7 @@
----
+﻿---
 address: c-000055
 type: concept
+status: established
 title: "Embedded I/O and Interrupts"
 domain: embedded-systems
 source: INF2004

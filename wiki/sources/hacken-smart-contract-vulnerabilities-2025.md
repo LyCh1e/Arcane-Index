@@ -1,5 +1,6 @@
----
+﻿---
 type: source
+status: established
 title: "Top 10 Smart Contract Vulnerabilities (Hacken, 2025)"
 source_type: security-report
 author: Hacken Research

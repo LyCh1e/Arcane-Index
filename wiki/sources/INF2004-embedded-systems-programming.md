@@ -1,6 +1,7 @@
----
+﻿---
 address: c-000053
 type: source
+status: established
 title: "INF2004 Embedded Systems Programming"
 course: INF2004
 domain: embedded-systems

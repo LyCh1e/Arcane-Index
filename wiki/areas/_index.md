@@ -1,5 +1,6 @@
----
+﻿---
 type: index
+status: established
 title: "Areas Index"
 updated: 2026-05-24
 tags: [index, areas]

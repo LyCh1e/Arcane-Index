@@ -1,5 +1,6 @@
----
+﻿---
 type: learning
+status: established
 title: "INF1008 Data Structures and Algorithms — Exam Study Notes"
 domain: computer-science
 source: "[[sources/INF1008-data-structures-algorithms|INF1008 Source]]"

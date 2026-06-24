@@ -1,11 +1,14 @@
 ---
+type: example
+status: established
+created: 2026-06-23
+updated: 2026-06-23
 name: ict2216-lab7-automated-testing
 description: ICT2216 Lab 7 — GitHub Actions with automated unit testing (Mocha/Chai) and Selenium integration/UI testing on a Node.js app
 metadata:
   type: example
 domain: secure-software-development
 course: ICT2216
-created: 2026-06-23
 tags: [github-actions, unit-testing, selenium, mocha, chai, node-js, integration-testing, lab]
 ---
 

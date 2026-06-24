@@ -1,5 +1,6 @@
----
+﻿---
 type: concept
+status: established
 title: "AI Workflows"
 created: 2026-06-23
 updated: 2026-06-23

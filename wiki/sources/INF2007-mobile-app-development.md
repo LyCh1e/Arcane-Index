@@ -1,5 +1,6 @@
----
+﻿---
 type: source-index
+status: established
 title: "INF2007 Mobile Application Development"
 course: INF2007
 institution: SIT

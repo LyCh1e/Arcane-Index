@@ -1,5 +1,6 @@
----
+﻿---
 type: synthesis
+status: established
 title: "Attack Patterns at Code Level ↔ SSDLC Process: INF1005 × ICT2216"
 domain: web-development × secure-software-development
 sources:

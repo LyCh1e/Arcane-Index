@@ -1,5 +1,6 @@
 ﻿---
 type: source
+status: established
 title: "Retrieval-Augmented Generation — Pinecone"
 source_type: reference
 author: Pinecone

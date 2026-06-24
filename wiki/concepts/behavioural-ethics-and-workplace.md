@@ -1,6 +1,7 @@
----
+﻿---
 address: c-000062
 type: concept
+status: established
 title: "Behavioural Ethics and Workplace Ethics"
 domain: it-ethics
 source: INF1007

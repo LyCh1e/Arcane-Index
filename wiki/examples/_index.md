@@ -1,5 +1,6 @@
----
+﻿---
 type: meta
+status: established
 title: "Examples Index"
 updated: 2026-05-13
 tags: [meta, index, examples]

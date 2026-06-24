@@ -1,4 +1,8 @@
 ---
+type: learning
+status: established
+created: 2026-05-31
+updated: 2026-05-31
 name: git-amend-remove-sensitive-push
 description: Remove sensitive info (IP, username, key filename) from the latest pushed commit using git commit --amend + git push --force
 metadata:

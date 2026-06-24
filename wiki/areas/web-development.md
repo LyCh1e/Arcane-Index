@@ -1,5 +1,6 @@
----
+﻿---
 type: area
+status: established
 title: "Web Development"
 domain: web-development
 source: [[sources/INF1005-web-systems-technologies]]

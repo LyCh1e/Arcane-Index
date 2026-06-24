@@ -1,5 +1,6 @@
----
+﻿---
 type: concept
+status: established
 title: "Python Data Structures & File I/O"
 domain: programming-fundamentals
 complexity: medium

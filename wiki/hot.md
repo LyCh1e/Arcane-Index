@@ -1,5 +1,6 @@
 ﻿---
 type: meta
+status: established
 title: "Hot Cache"
 updated: 2026-06-23T00:00:00
 tags: [meta, hot-cache]

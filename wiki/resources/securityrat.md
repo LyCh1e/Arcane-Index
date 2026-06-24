@@ -1,5 +1,6 @@
----
+﻿---
 type: resource
+status: established
 title: "SecurityRAT"
 category: tool
 domain: secure-software-development

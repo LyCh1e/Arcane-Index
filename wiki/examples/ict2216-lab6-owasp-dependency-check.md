@@ -1,11 +1,14 @@
 ---
+type: example
+status: established
+created: 2026-06-23
+updated: 2026-06-23
 name: ict2216-lab6-owasp-dependency-check
 description: ICT2216 Lab 6 — Integrating OWASP Dependency Check locally via Docker and into GitHub Actions CI/CD pipeline
 metadata:
   type: example
 domain: secure-software-development
 course: ICT2216
-created: 2026-06-23
 tags: [owasp, dependency-check, sca, cve, docker, github-actions, lab]
 ---
 

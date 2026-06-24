@@ -1,5 +1,6 @@
----
+﻿---
 type: entity
+status: established
 entity_type: person
 title: "Vitalik Buterin"
 aliases: ["Vitalik"]

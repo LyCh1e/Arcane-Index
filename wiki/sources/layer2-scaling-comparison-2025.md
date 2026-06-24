@@ -1,5 +1,6 @@
----
+﻿---
 type: source
+status: established
 title: "Layer 2 Scaling Solutions Comparison 2025"
 source_type: market-analysis
 author: CoinCryptoRank Research

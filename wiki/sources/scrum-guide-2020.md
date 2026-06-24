@@ -1,5 +1,6 @@
----
+﻿---
 type: source-index
+status: established
 title: "The 2020 Scrum Guide"
 authors: [Ken Schwaber, Jeff Sutherland]
 domain: agile-project-management

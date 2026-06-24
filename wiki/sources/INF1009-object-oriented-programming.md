@@ -1,5 +1,6 @@
----
+﻿---
 type: source-index
+status: established
 title: "INF1009 Object-Oriented Programming"
 course: INF1009
 institution: SIT

@@ -1,5 +1,6 @@
----
+﻿---
 type: example
+status: established
 title: "ICT2216 Lab 3 — Microsoft Threat Modeling Tool"
 domain: secure-software-development
 tags: [ICT2216, threat-modeling, STRIDE, DFD, microsoft-threat-modeling-tool]

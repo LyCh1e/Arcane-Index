@@ -1,4 +1,8 @@
 ---
+type: learning
+status: established
+created: 2026-05-22
+updated: 2026-05-22
 name: customtkinter-after-teardown
 description: Bug lesson — CustomTkinter 5.x fires 'invalid command name' Tcl errors on window destroy because internal after() callbacks aren't cancelled; three-layer fix.
 metadata:

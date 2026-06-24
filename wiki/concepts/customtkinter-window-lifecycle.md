@@ -1,4 +1,8 @@
 ---
+type: concept
+status: established
+created: 2026-05-22
+updated: 2026-05-22
 name: customtkinter-window-lifecycle
 description: Correct CTk window teardown pattern — quit()+cancel_afters()+destroy() with bgerror override; covers sequential multi-window flows and CTk subclass overrides.
 metadata:

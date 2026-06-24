@@ -1,11 +1,14 @@
 ---
+type: example
+status: established
+created: 2026-06-23
+updated: 2026-06-23
 name: ict2216-lab9-sonarqube
 description: ICT2216 Lab 9 — Static analysis using SonarQube via Docker Compose (PostgreSQL backend), local scanner, and GitHub Actions integration
 metadata:
   type: example
 domain: secure-software-development
 course: ICT2216
-created: 2026-06-23
 tags: [sonarqube, sast, static-analysis, docker-compose, github-actions, quality-gate, lab]
 ---
 

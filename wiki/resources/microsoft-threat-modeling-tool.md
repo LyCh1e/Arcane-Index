@@ -1,4 +1,8 @@
 ---
+type: resource
+status: established
+created: 2026-05-15
+updated: 2026-05-15
 name: microsoft-threat-modeling-tool
 description: Microsoft Threat Modeling Tool — install, workflow (Build→Analyze→Report), DFD stencils, STRIDE generation, and threat status system
 metadata:

@@ -1,5 +1,6 @@
----
+﻿---
 type: source
+status: established
 title: "Crypto Crime Report 2025 — Chainalysis"
 source_type: industry-report
 author: Chainalysis

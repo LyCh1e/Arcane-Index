@@ -1,6 +1,7 @@
----
+﻿---
 address: c-000063
 type: concept
+status: established
 title: "Privacy, Data Protection, and Intellectual Property"
 domain: it-ethics
 source: INF1007

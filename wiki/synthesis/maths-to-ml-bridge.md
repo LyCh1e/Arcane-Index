@@ -1,5 +1,6 @@
----
+﻿---
 type: synthesis
+status: established
 title: "Mathematics Foundations → Machine Learning: The Hidden Curriculum"
 domain: mathematics × machine-learning
 sources:

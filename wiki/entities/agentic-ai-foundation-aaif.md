@@ -1,5 +1,6 @@
 ﻿---
 type: entity
+status: established
 title: "Agentic AI Foundation (AAIF)"
 category: organisation
 created: 2026-06-23

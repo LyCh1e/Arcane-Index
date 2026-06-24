@@ -1,5 +1,6 @@
----
+﻿---
 type: resource
+status: established
 title: "Vite — Frontend Build Tool"
 tags: [resource, tool, vite, react, frontend, build-tool]
 created: 2026-05-25

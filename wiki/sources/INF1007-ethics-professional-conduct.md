@@ -1,6 +1,7 @@
----
+﻿---
 address: c-000060
 type: source
+status: established
 title: "INF1007 Ethics & Professional Conduct"
 course: INF1007
 domain: it-ethics

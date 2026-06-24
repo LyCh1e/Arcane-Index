@@ -1,5 +1,6 @@
----
+﻿---
 type: source-index
+status: established
 title: "INF2002 Human Computer Interaction"
 course: INF2002
 institution: SIT

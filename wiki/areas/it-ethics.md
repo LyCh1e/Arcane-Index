@@ -1,6 +1,7 @@
----
+﻿---
 address: c-000065
 type: area
+status: established
 title: "IT Ethics"
 domain: it-ethics
 tags: [area, it-ethics, professional-ethics, privacy, ai-ethics]

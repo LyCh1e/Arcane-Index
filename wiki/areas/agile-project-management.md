@@ -1,5 +1,6 @@
----
+﻿---
 type: area
+status: established
 title: "Agile Project Management"
 domain: agile-project-management
 source: [[sources/scrum-guide-2020]]

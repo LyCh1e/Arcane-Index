@@ -1,5 +1,6 @@
----
+﻿---
 type: index
+status: established
 title: "Entities Index"
 updated: 2026-06-25
 tags: [index, entities]

@@ -1,5 +1,6 @@
 ﻿---
 type: source
+status: established
 title: "Introducing the Model Context Protocol — Anthropic"
 source_type: article
 author: Anthropic

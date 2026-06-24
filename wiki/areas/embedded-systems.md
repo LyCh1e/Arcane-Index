@@ -1,6 +1,7 @@
----
+﻿---
 address: c-000059
 type: area
+status: established
 title: "Embedded Systems"
 domain: embedded-systems
 tags: [area, embedded-systems, rtos, real-time, microcontroller]

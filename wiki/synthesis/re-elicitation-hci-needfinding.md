@@ -1,5 +1,6 @@
----
+﻿---
 type: synthesis
+status: established
 title: "Same Questions, Different Lenses: RE Elicitation ↔ HCI Needfinding"
 domains: [software-engineering, hci]
 courses: [ICT2113, INF2002]

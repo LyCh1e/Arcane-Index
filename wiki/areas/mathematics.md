@@ -1,5 +1,6 @@
----
+﻿---
 type: area
+status: established
 title: "Mathematics"
 domain: mathematics
 sources: [[[sources/INF1003-mathematics-1]], [[sources/INF1004-mathematics-2]]]

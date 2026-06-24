@@ -1,4 +1,8 @@
 ---
+type: learning
+status: established
+created: 2026-05-31
+updated: 2026-05-31
 name: windows-openssl-strawberry-broken
 description: Strawberry Perl's OpenSSL on Windows maps config to a non-existent Z: drive — generate TLS certs on Linux/EC2 instead
 metadata:

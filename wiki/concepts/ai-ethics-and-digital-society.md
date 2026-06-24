@@ -1,6 +1,7 @@
----
+﻿---
 address: c-000064
 type: concept
+status: established
 title: "AI Ethics and the Digital Society"
 domain: it-ethics
 source: INF1007

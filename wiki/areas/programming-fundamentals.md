@@ -1,5 +1,6 @@
----
+﻿---
 type: area
+status: established
 title: "Programming Fundamentals"
 domain: programming-fundamentals
 address: c-000047

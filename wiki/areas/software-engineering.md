@@ -1,5 +1,6 @@
----
+﻿---
 type: area
+status: established
 title: "Software Engineering"
 domain: software-engineering
 sources: [[[sources/ICT2113-software-modelling]], [[sources/INF1009-object-oriented-programming]], [[sources/ICT2112-software-design]]]

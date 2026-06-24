@@ -1,5 +1,6 @@
----
+﻿---
 type: learning
+status: established
 title: "INF2003 Database Systems — Exam Study Notes"
 domain: database-systems
 source: "[[sources/INF2003-database-systems|INF2003 Source]]"

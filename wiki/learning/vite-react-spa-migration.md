@@ -1,5 +1,6 @@
----
+﻿---
 type: learning
+status: established
 title: "Bugs and Lessons — Vite + React SPA Migration from UMD Prototype"
 tags: [learning, vite, react, react-router, spa, bugs]
 created: 2026-05-25

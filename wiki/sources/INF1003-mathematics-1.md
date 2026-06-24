@@ -1,5 +1,6 @@
----
+﻿---
 type: source-index
+status: established
 title: "INF1003 Mathematics 1"
 course: INF1003
 institution: SIT

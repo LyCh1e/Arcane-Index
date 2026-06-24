@@ -1,5 +1,6 @@
----
+﻿---
 type: source
+status: established
 title: "ICT1011 Computer Organisation and Architecture"
 course: ICT1011
 domain: computer-architecture
