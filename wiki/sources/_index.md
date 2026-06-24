@@ -1,7 +1,7 @@
 ---
 type: index
 title: "Sources Index"
-updated: 2026-05-19
+updated: 2026-06-25
 tags: [index, sources]
 ---
 
@@ -27,7 +27,27 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/INF1005-web-systems-technologies\|INF1005 Web Systems & Technologies]] | course notes | web-development | 2026-05-14 |
 | [[sources/scrum-guide-2020\|The 2020 Scrum Guide]] | reference | agile-project-management | 2026-05-19 |
 | [[sources/istqb-ctfl-v4\|ISTQB CTFL v4.0 (2024)]] | reference | software-engineering | 2026-05-21 |
+| [[sources/INF1002-programming-fundamentals\|INF1002 Programming Fundamentals]] | course notes | programming-fundamentals | 2026-05-23 |
+| [[sources/INF1006-computer-networks\|INF1006 Computer Networks]] | course notes | computer-networks | 2026-05-22 |
+| [[sources/INF1007-ethics-professional-conduct\|INF1007 Ethics and Professional Conduct]] | course notes | it-ethics | 2026-05-24 |
+| [[sources/INF2001-intro-software-engineering\|INF2001 Introduction to Software Engineering]] | course notes | software-engineering | 2026-05-30 |
+| [[sources/INF2004-embedded-systems-programming\|INF2004 Embedded Systems Programming]] | course notes | embedded-systems | 2026-05-23 |
 | [[sources/fowler-practical-test-pyramid\|The Practical Test Pyramid — Martin Fowler]] | article | software-engineering | 2026-05-21 |
+| [[sources/anthropic-mcp-launch-2024\|MCP Launch Announcement — Anthropic]] | article | ai-engineering | 2026-06-23 |
+| [[sources/mcp-spec-2025-11-25\|MCP Specification Nov 2025]] | reference | ai-engineering | 2026-06-23 |
+| [[sources/mcp-first-year-2025\|MCP: The First Year — Anthropic]] | article | ai-engineering | 2026-06-23 |
+| [[sources/anthropic-building-effective-agents\|Building Effective Agents — Anthropic]] | article | ai-engineering | 2026-06-23 |
+| [[sources/aws-agentic-ai-patterns-2025\|Agentic AI Patterns and Workflows on AWS]] | reference | ai-engineering | 2026-06-23 |
+| [[sources/anthropic-effective-context-engineering\|Effective Context Engineering — Anthropic]] | article | ai-engineering | 2026-06-21 |
+| [[sources/acon-context-compression-agents\|Context Compression for AI Agents — Acon]] | article | ai-engineering | 2026-06-21 |
+| [[sources/factory-ai-compression-evaluation-2025\|LLM Compression Evaluation — Factory AI]] | article | ai-engineering | 2026-06-21 |
+| [[sources/kv-cache-compression-review-2025\|KV Cache Compression: A Review]] | article | ai-engineering | 2026-06-21 |
+| [[sources/pinecone-rag-guide\|RAG Guide — Pinecone]] | reference | ai-engineering | 2026-06-23 |
+| [[sources/humanloop-rag-architectures-2025\|8 RAG Architectures You Should Know — Humanloop]] | article | ai-engineering | 2026-06-23 |
+| [[sources/atlantic-council-cbdc-tracker-2026\|Atlantic Council CBDC Tracker 2026]] | reference | blockchain | 2026-06-12 |
+| [[sources/chainalysis-crypto-crime-report-2025\|Chainalysis Crypto Crime Report 2025]] | reference | blockchain | 2026-06-12 |
+| [[sources/hacken-smart-contract-vulnerabilities-2025\|Hacken: Smart Contract Vulnerabilities 2025]] | article | blockchain | 2026-06-12 |
+| [[sources/layer2-scaling-comparison-2025\|Layer-2 Scaling Comparison 2025]] | article | blockchain | 2026-06-12 |
 
 ## By Domain
 
@@ -95,7 +115,38 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/scrum-guide-2020\|2020 Scrum Guide]] | [[concepts/scrum-framework\|Scrum Framework]] |
 
 ## Papers & Articles
-*(none yet)*
+
+### AI Engineering
+
+| Source | Concepts |
+|---|---|
+| [[sources/anthropic-mcp-launch-2024\|MCP Launch — Anthropic]] | [[concepts/mcp-model-context-protocol]] |
+| [[sources/mcp-spec-2025-11-25\|MCP Spec Nov 2025]] | [[concepts/mcp-model-context-protocol]], [[concepts/mcp-security]] |
+| [[sources/mcp-first-year-2025\|MCP: The First Year]] | [[concepts/mcp-model-context-protocol]] |
+| [[sources/anthropic-building-effective-agents\|Building Effective Agents]] | [[concepts/ai-workflows]], [[concepts/ai-workflow-orchestration]] |
+| [[sources/aws-agentic-ai-patterns-2025\|Agentic AI Patterns — AWS]] | [[concepts/ai-workflows]], [[concepts/ai-workflow-orchestration]] |
+| [[sources/anthropic-effective-context-engineering\|Effective Context Engineering]] | [[concepts/context-compression-llm]] |
+| [[sources/acon-context-compression-agents\|Context Compression for Agents]] | [[concepts/context-compression-llm]], [[concepts/kv-cache-compression]] |
+| [[sources/factory-ai-compression-evaluation-2025\|LLM Compression Evaluation]] | [[concepts/prompt-compression]], [[concepts/kv-cache-compression]] |
+| [[sources/kv-cache-compression-review-2025\|KV Cache Compression Review]] | [[concepts/kv-cache-compression]] |
+| [[sources/pinecone-rag-guide\|RAG Guide — Pinecone]] | [[concepts/retrieval-augmented-generation]] |
+| [[sources/humanloop-rag-architectures-2025\|8 RAG Architectures — Humanloop]] | [[concepts/rag-architectures]] |
+| [[sources/fowler-practical-test-pyramid\|Practical Test Pyramid — Fowler]] | [[concepts/software-testing-fundamentals]], [[concepts/test-design-techniques]] |
+
+### Blockchain
+
+| Source | Concepts |
+|---|---|
+| [[sources/atlantic-council-cbdc-tracker-2026\|CBDC Tracker — Atlantic Council]] | [[concepts/blockchain-technology]] |
+| [[sources/chainalysis-crypto-crime-report-2025\|Crypto Crime Report — Chainalysis]] | [[concepts/blockchain-technology]] |
+| [[sources/hacken-smart-contract-vulnerabilities-2025\|Smart Contract Vulnerabilities — Hacken]] | [[concepts/blockchain-technology]] |
+| [[sources/layer2-scaling-comparison-2025\|Layer-2 Scaling Comparison]] | [[concepts/blockchain-technology]] |
+
+### Software Engineering
+
+| Source | Concepts |
+|---|---|
+| [[sources/istqb-ctfl-v4\|ISTQB CTFL v4.0]] | [[concepts/software-testing-fundamentals]], [[concepts/test-design-techniques]], [[concepts/test-driven-development]] |
 
 ## Books & Resources
 *(none yet)*

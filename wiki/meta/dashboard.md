@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Dashboard"
-updated: 2026-05-21
+updated: 2026-06-25
 tags: [meta, dashboard]
 ---
 
@@ -25,10 +25,16 @@ LIST FROM "wiki" WHERE status = "seed" SORT updated ASC
 LIST FROM "wiki/entities" WHERE !sources OR length(sources) = 0
 ```
 
-## Open Questions
+## Research Syntheses
 
 ```dataview
-LIST FROM "wiki/questions" WHERE answer_quality = "draft" SORT created DESC
+TABLE status, updated FROM "wiki/synthesis" WHERE contains(file.name, "research-") SORT updated DESC
+```
+
+## Pages Missing Address (DragonScale)
+
+```dataview
+LIST FROM "wiki" WHERE !address AND type != "meta" AND type != "index" SORT created DESC LIMIT 20
 ```
 
 ## Active Learning Notes

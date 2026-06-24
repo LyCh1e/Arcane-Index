@@ -1,7 +1,7 @@
 ---
 type: index
 title: "Learning Index"
-updated: 2026-05-19
+updated: 2026-06-25
 tags: [index, learning]
 ---
 
@@ -19,6 +19,16 @@ Exam-prep summaries, study notes, and structured knowledge pathways for each mod
 | [[learning/scrum-open-assessment-study-notes\|Scrum Open Assessment Study Notes]] | Scrum Guide 2020 | agile-project-management | 2026-05-19 |
 | [[learning/scrum-master-exam-study-notes\|Scrum Master Exam Study Notes (80 Questions)]] | Scrum Guide 2020 | agile-project-management | 2026-05-19 |
 | [[learning/psm1-cheatsheet-study-notes\|PSM I Cheatsheet Study Notes]] | ambaena/scrum-psm1-cheatsheet | agile-project-management | 2026-05-19 |
+| [[learning/research-software-testing\|Research: Software Testing]] | autoresearch | software-engineering | — |
+| [[learning/vite-react-spa-migration\|Vite React SPA Migration]] | ICT2216 project | web-development | — |
+| [[learning/docker-compose-build-context\|Docker Build Context Pitfalls]] | ICT2216 / DevOps | devops | — |
+| [[learning/docker-named-volume-stale-content\|Docker Named Volume Stale Content]] | ICT2216 / DevOps | devops | — |
+| [[learning/docker-ro-mount-chmod-fails\|Docker Read-Only Mount chmod Fails]] | ICT2216 / DevOps | devops | — |
+| [[learning/docker-volume-host-dir-created-as-root\|Docker Volume Host Dir Created as Root]] | ICT2216 / DevOps | devops | — |
+| [[learning/git-amend-remove-sensitive-push\|Git Amend: Remove Sensitive Data Before Push]] | general | git | — |
+| [[learning/ssh-stdout-known-hosts-warning\|SSH stdout Known Hosts Warning]] | general | devops | — |
+| [[learning/windows-openssl-strawberry-broken\|Windows OpenSSL / Strawberry Perl Broken]] | general | devops | — |
+| [[learning/customtkinter-after-teardown\|CustomTkinter after() Teardown Bug]] | general | python | — |
 
 ## How to Use These Notes
 

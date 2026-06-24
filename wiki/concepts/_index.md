@@ -1,17 +1,18 @@
 ---
 type: index
 title: "Concepts Index"
-updated: 2026-05-30
+updated: 2026-06-25
 tags: [index, concepts]
 ---
 
 # Concepts
 
-85 concept pages across 16 domains, extracted from 22 ingested sources.
+98 concept pages across 17 domains, extracted from 37 ingested sources.
 
 | Domain | Pages |
 |--------|-------|
-| Software Engineering | 13 |
+| AI Engineering | 9 |
+| Software Engineering | 14 |
 | Computer Science | 4 |
 | Mathematics | 10 |
 | Machine Learning | 6 |
@@ -27,6 +28,25 @@ tags: [index, concepts]
 | Programming Fundamentals | 5 |
 | Embedded Systems | 5 |
 | IT Ethics | 4 |
+| Blockchain | 1 |
+
+---
+
+## AI Engineering
+
+| Page | Source | Complexity |
+|------|--------|------------|
+| [[concepts/ai-workflows\|AI Workflows]] | autoresearch | high |
+| [[concepts/ai-workflow-orchestration\|AI Workflow Orchestration Tools]] | autoresearch | high |
+| [[concepts/retrieval-augmented-generation\|Retrieval-Augmented Generation (RAG)]] | autoresearch | high |
+| [[concepts/rag-architectures\|RAG Architectures]] | autoresearch | high |
+| [[concepts/mcp-model-context-protocol\|Model Context Protocol (MCP)]] | autoresearch | high |
+| [[concepts/mcp-security\|MCP Security]] | autoresearch | high |
+| [[concepts/context-compression-llm\|Context Compression for LLMs]] | autoresearch | high |
+| [[concepts/kv-cache-compression\|KV Cache Compression]] | autoresearch | medium |
+| [[concepts/prompt-compression\|Prompt Compression]] | autoresearch | medium |
+
+**Synthesis**: [[synthesis/research-mcp-servers\|Research: MCP Servers]] · [[synthesis/research-rag\|Research: RAG]] · [[synthesis/research-ai-workflows\|Research: AI Workflows]]
 
 ---
 
@@ -47,6 +67,7 @@ tags: [index, concepts]
 | [[concepts/uml-modelling\|UML Modelling]] | INF2001 | high |
 | [[concepts/software-project-management\|Software Project Management]] | INF2001 | medium |
 | [[concepts/software-configuration-management\|Software Configuration Management]] | INF2001 | medium |
+| [[concepts/github-actions-cicd\|GitHub Actions and CI/CD]] | ICT2216 | medium |
 
 ---
 
@@ -159,6 +180,7 @@ tags: [index, concepts]
 | [[concepts/javascript-fundamentals\|JavaScript Fundamentals]] | INF1005 | high |
 | [[concepts/server-side-web-development\|Server-Side Web Development (PHP, Node.js, Databases)]] | INF1005 | high |
 | [[concepts/web-security-and-devops\|Web Security and DevOps]] | INF1005 | high |
+| [[concepts/nginx-reverse-proxy-and-tls\|Nginx Reverse Proxy and TLS]] | ICT2216 | medium |
 
 **Synthesis**: [[synthesis/web-security-ssdlc-bridge\|Attack Patterns ↔ SSDLC Process]] · [[synthesis/rest-api-cross-stack\|REST API Cross-Stack]]
 
@@ -217,6 +239,7 @@ tags: [index, concepts]
 | [[concepts/python-functions-and-modules\|Python Functions, Modules & Functional Programming]] | INF1002 | medium |
 | [[concepts/c-programming-fundamentals\|C Programming Fundamentals]] | INF1002 | high |
 | [[concepts/c-pointers-memory-and-data-structures\|C Pointers, Memory & Data Structures]] | INF1002 | high |
+| [[concepts/customtkinter-window-lifecycle\|CustomTkinter Window Lifecycle]] | personal project | low |
 
 ---
 
@@ -240,6 +263,16 @@ tags: [index, concepts]
 | [[concepts/behavioural-ethics-and-workplace\|Behavioural Ethics and Workplace Ethics]] | INF1007 | medium |
 | [[concepts/privacy-data-protection-and-ip\|Privacy, Data Protection, and Intellectual Property]] | INF1007 | high |
 | [[concepts/ai-ethics-and-digital-society\|AI Ethics and the Digital Society]] | INF1007 | high |
+
+---
+
+## Blockchain
+
+| Page | Source | Complexity |
+|------|--------|------------|
+| [[concepts/blockchain-technology\|Blockchain Technology]] | autoresearch | high |
+
+**Synthesis**: [[synthesis/research-blockchain-technology\|Research: Blockchain Technology]]
 
 ---
 
