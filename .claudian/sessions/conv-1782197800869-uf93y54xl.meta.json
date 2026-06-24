@@ -4,8 +4,8 @@
   "title": "Research MCP servers",
   "titleGenerationStatus": "success",
   "createdAt": 1782197800871,
-  "updatedAt": 1782322713972,
-  "lastResponseAt": 1782322713972,
+  "updatedAt": 1782323245478,
+  "lastResponseAt": 1782323245478,
   "sessionId": "da65d688-68dc-461f-8e63-1122053a92b7",
   "providerState": {
     "providerSessionId": "da65d688-68dc-461f-8e63-1122053a92b7"
@@ -13,11 +13,11 @@
   "usage": {
     "model": "sonnet",
     "inputTokens": 1,
-    "cacheCreationInputTokens": 284,
-    "cacheReadInputTokens": 80972,
+    "cacheCreationInputTokens": 411,
+    "cacheReadInputTokens": 113106,
     "contextWindow": 200000,
-    "contextTokens": 81257,
-    "percentage": 41,
+    "contextTokens": 113518,
+    "percentage": 57,
     "contextWindowIsAuthoritative": true
   }
 }
