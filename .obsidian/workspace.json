@@ -45,8 +45,7 @@
               "title": "research-mcp-servers"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -235,7 +234,7 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "50e6ee9f9f44e819",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
     "wiki/synthesis/research-mcp-servers.md",
     "wiki/questions/research-rag.md",
