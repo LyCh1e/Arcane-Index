@@ -1,7 +1,7 @@
 ---
 type: index
 title: "Synthesis Index"
-updated: 2026-05-15
+updated: 2026-06-23
 tags: [index, synthesis]
 ---
 
@@ -19,6 +19,11 @@ Evolving "state of my understanding" pages — where disparate concepts, sources
 | [[synthesis/web-security-ssdlc-bridge\|Web Security ↔ SSDLC: Code-Level Attacks Map to Process-Level Defences]] | web-development / secure-software-development | 2026-05-15 | established |
 | [[synthesis/ict1011-ict1012-architecture-bridge\|Computer Architecture → Operating Systems: The Hardware–OS Handover]] | computer-architecture / operating-systems | 2026-05-15 | established |
 | [[synthesis/rest-api-cross-stack\|REST APIs Across the Full Stack: Android ↔ Express ↔ HTTP]] | mobile-development / web-development | 2026-05-15 | established |
+| [[synthesis/research-blockchain-technology\|Research: Blockchain Technology]] | blockchain | 2026-06-12 | developing |
+| [[synthesis/research-context-compression-llm\|Research: Context Compression of Chats with LLMs]] | ai-engineering | 2026-06-21 | developing |
+| [[synthesis/research-mcp-servers\|Research: MCP Servers (Model Context Protocol)]] | ai-engineering | 2026-06-23 | developing |
+| [[synthesis/research-rag\|Research: Retrieval-Augmented Generation (RAG)]] | ai-engineering | 2026-06-23 | developing |
+| [[synthesis/research-ai-workflows\|Research: AI Workflows]] | ai-engineering | 2026-06-23 | developing |
 
 ## How Synthesis Pages Work
 
