@@ -58,6 +58,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/mcp-spec-2025-11-25\|MCP 2025-11-25 Specification Release]] | article | ai-engineering | 2026-06-23 |
 | [[sources/mcp-first-year-2025\|One Year of MCP — MCP Blog Anniversary Post]] | article | ai-engineering | 2026-06-23 |
 | [[sources/ICT2216-lecture6-secure-implementation\|ICT2216 Lecture 6 — Secure Software Implementation]] | course | secure-software-development | 2026-06-25 |
+| [[sources/airbyte-data-mapping-guide\|What is Data Mapping? — Airbyte]] | article | data-engineering | 2026-06-25 |
+| [[sources/atlan-data-mapping-guide\|What is Data Mapping? Steps, Techniques & More — Atlan]] | article | data-engineering | 2026-06-25 |
 
 ## Concepts
 
@@ -162,6 +164,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/mcp-model-context-protocol\|Model Context Protocol (MCP)]] | ai-engineering | high |
 | [[concepts/mcp-security\|MCP Security]] | ai-engineering | high |
 | [[concepts/fido-passkeys-passwordless\|FIDO, Passkeys, and Passwordless Authentication]] | secure-software-development | high |
+| [[concepts/data-mapping\|Data Mapping]] | data-engineering | high |
 
 ## Examples
 
@@ -227,6 +230,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[synthesis/research-mcp-servers\|Research: MCP Servers (Model Context Protocol)]] | ai-engineering | developing |
 | [[synthesis/research-ai-workflows\|Research: AI Workflows]] | ai-engineering | developing |
 | [[synthesis/research-rag\|Research: Retrieval-Augmented Generation (RAG)]] | ai-engineering | developing |
+| [[synthesis/research-data-mapping\|Research: Data Mapping]] | data-engineering | developing |
 
 ## Gaps
 

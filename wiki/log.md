@@ -10,6 +10,17 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-25 | autoresearch | Data Mapping
+
+- Rounds: 2 | Searches: 5 | Sources fetched: 4 | Pages created: 4
+- New concept: [[concepts/data-mapping]] — techniques (9 types), transformation types (8), 12-step process, mapping document structure, ETL vs ELT, object mapping (DTO/AutoMapper), tools landscape
+- New sources: [[sources/airbyte-data-mapping-guide]], [[sources/atlan-data-mapping-guide]]
+- Synthesis: [[synthesis/research-data-mapping]]
+- Addresses assigned: c-000069 – c-000072
+- Key finding: schema matching (are these equivalent?) ≠ schema mapping (how to transform one to the other) — conflating them is a common source of integration bugs
+
+---
+
 ## 2026-06-25 | ingest | ICT2216 Lecture 6 — Secure Software Implementation
 
 - Source: [[sources/ICT2216-lecture6-secure-implementation]]

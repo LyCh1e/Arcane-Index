@@ -8,7 +8,7 @@ tags: [index, concepts]
 
 # Concepts
 
-99 concept pages across 17 domains, extracted from 38 ingested sources.
+100 concept pages across 18 domains, extracted from 40 ingested sources.
 
 | Domain | Pages |
 |--------|-------|
@@ -30,6 +30,7 @@ tags: [index, concepts]
 | Embedded Systems | 5 |
 | IT Ethics | 4 |
 | Blockchain | 1 |
+| Data Engineering | 1 |
 
 ---
 
@@ -275,6 +276,16 @@ tags: [index, concepts]
 | [[concepts/blockchain-technology\|Blockchain Technology]] | autoresearch | high |
 
 **Synthesis**: [[synthesis/research-blockchain-technology\|Research: Blockchain Technology]]
+
+---
+
+## Data Engineering
+
+| Page | Source | Complexity |
+|------|--------|------------|
+| [[concepts/data-mapping\|Data Mapping]] | autoresearch | high |
+
+**Synthesis**: [[synthesis/research-data-mapping\|Research: Data Mapping]]
 
 ---
 

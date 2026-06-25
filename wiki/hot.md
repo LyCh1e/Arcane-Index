@@ -10,6 +10,28 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-06-25. **Session: autoresearch — Data Mapping.** 2 rounds, 5 searches, 4 sources fetched, 4 wiki pages created.
+
+**What data mapping is**: The discipline of defining how data fields in one system correspond to fields in another — covering field correspondence, transformation rules, and validation logic. Applies to ETL pipelines, data migrations, API integrations, and compliance data inventories (GDPR Article 30 "records of processing").
+
+**Key distinction — matching ≠ mapping**: Schema *matching* answers "are these two fields semantically equivalent?" (an algorithmic/ML question). Schema *mapping* defines how to transform one to the other (an engineering question). Conflating them is a common cause of integration bugs.
+
+**Techniques taxonomy** (Atlan, 10 types): manual · spreadsheet-based · ETL tools · code-based (SQL/Python) · metadata-driven · schema matching + profiling · rule-based (conditional logic) · template-based · semantic · visualisation. Separately: 4 automation tiers — manual → semi-automated → automated → AI/semantic.
+
+**Transformation types**: format conversion · type casting · aggregation · calculation/derivation · conditional logic · lookup enrichment · normalisation · splitting/merging.
+
+**Process (12 steps distilled to 9)**: define scope → identify source/target schemas → profile source data → document mapping rules → apply transformations → test on subset → iterate → deploy with monitoring → maintain documentation as schemas evolve.
+
+**ETL vs ELT**: in ETL, transformation runs in the pipeline (Talend, Informatica); in ELT, raw data loads first, then transforms in-place via SQL models (dbt). The mapping specification exists in both; it is just expressed differently.
+
+**Object mapping in software**: DTO pattern (Fowler, *PoEAA*) separates domain objects from transport representations. Libraries: AutoMapper (.NET), MapStruct (Java). Related to, but distinct from, the Data Mapper OOP pattern — see [[synthesis/data-mapper-repository-room-retrofit]].
+
+**Market consolidation (2025–2026)**: Salesforce acquired Informatica (May 2025); Fivetran and dbt merged (Oct 2025). Enterprise integration converging toward metadata-intelligence + cloud ELT.
+
+**Key pages**: [[concepts/data-mapping]] (new), [[synthesis/research-data-mapping]] (new).
+
+---
+
 2026-06-25. **Session: ingest — ICT2216 Lecture 6 (Secure Software Implementation).** Created 1 new concept page; updated 2 existing; created 1 source page.
 
 **Core insight — SSL/TLS Incompatibility Table**: Standard security measures do not compose the way developers assume. SSL/TLS encrypts the channel but not against phishing (the attacker *is* the server). Salted hashing is correct at-rest but forces cleartext transmission — a phishing server receives the plaintext before any hashing occurs. 2FA/OTP does not protect against real-time phishing proxies. Each measure protects against a specific attack vector only.

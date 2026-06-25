@@ -2,7 +2,7 @@
 type: index
 status: established
 title: "Synthesis Index"
-updated: 2026-06-23
+updated: 2026-06-25
 tags: [index, synthesis]
 ---
 
@@ -25,6 +25,7 @@ Evolving "state of my understanding" pages — where disparate concepts, sources
 | [[synthesis/research-mcp-servers\|Research: MCP Servers (Model Context Protocol)]] | ai-engineering | 2026-06-23 | developing |
 | [[synthesis/research-rag\|Research: Retrieval-Augmented Generation (RAG)]] | ai-engineering | 2026-06-23 | developing |
 | [[synthesis/research-ai-workflows\|Research: AI Workflows]] | ai-engineering | 2026-06-23 | developing |
+| [[synthesis/research-data-mapping\|Research: Data Mapping]] | data-engineering | 2026-06-25 | developing |
 
 ## How Synthesis Pages Work
 
