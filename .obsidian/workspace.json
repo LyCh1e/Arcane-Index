@@ -30,110 +30,8 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
-          },
-          {
-            "id": "84a42164c1430da3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/synthesis/research-mcp-servers.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "research-mcp-servers"
-            }
-          },
-          {
-            "id": "549852a5265ddc4b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "agents/wiki-ingest.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "wiki-ingest"
-            }
-          },
-          {
-            "id": "6cba53e5ea45a8a1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/synthesis/_index.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "_index"
-            }
-          },
-          {
-            "id": "b54716de1f10a2f7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/resources/owasp-threat-dragon.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "owasp-threat-dragon"
-            }
-          },
-          {
-            "id": "bc19b823f6cdb5c3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/index.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "index"
-            }
-          },
-          {
-            "id": "023acca5c2d6ba63",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "canvases/password-hashing.canvas",
-                "viewState": {
-                  "x": -163.6289490050935,
-                  "y": 27.607306264705954,
-                  "zoom": -1.1542467875845115
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "password-hashing"
-            }
-          },
-          {
-            "id": "e15c2de90d24491f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/hot.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "hot"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -322,8 +220,10 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "50e6ee9f9f44e819",
+  "active": "3f41e16c8ccd1064",
   "lastOpenFiles": [
+    "raw.zip",
+    "CLAUDE.md",
     "wiki/hot.md",
     "wiki/log.md",
     "canvases/password-hashing.canvas",
@@ -356,8 +256,6 @@
     "wiki/synthesis/research-context-compression-llm.md",
     "wiki/synthesis/research-blockchain-technology.md",
     "wiki/questions/research-mcp-servers.md",
-    "wiki/questions/research-context-compression-llm.md",
-    "wiki/questions/research-blockchain-technology.md",
     "wiki/hot.md.tmp.34132.97cbdaa1aa73",
     "wiki/log.md.tmp.3100.d94b2892bf93",
     "wiki/index.md.tmp.3100.3a798d2ed6d7",
