@@ -48,7 +48,8 @@
               "title": "password-hashing"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -237,8 +238,9 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b1e0856db03cc76e",
+  "active": "50e6ee9f9f44e819",
   "lastOpenFiles": [
+    "canvases/password-hashing.canvas",
     "skills/canvas/SKILL.md",
     "skills/defuddle/SKILL.md",
     "README.md",
@@ -247,7 +249,6 @@
     "CLAUDE.md",
     "wiki/hot.md",
     "wiki/log.md",
-    "canvases/password-hashing.canvas",
     "wiki/sources/ICT2216-lecture6-secure-implementation.md",
     "wiki/concepts/secure-design-implementation.md.tmp.14992.3bd962dc9972",
     "wiki/concepts/fido-passkeys-passwordless.md",
@@ -273,7 +274,6 @@
     "AGENTS.md",
     "wiki/synthesis/research-mcp-servers.md",
     "wiki/questions/research-rag.md",
-    "wiki/synthesis/research-rag.md",
     "wiki/hot.md.tmp.34132.97cbdaa1aa73",
     "wiki/log.md.tmp.3100.d94b2892bf93",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
