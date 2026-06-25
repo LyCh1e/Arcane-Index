@@ -220,8 +220,10 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "3f41e16c8ccd1064",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "README.md",
+    "ATTRIBUTION.md",
     "raw.zip",
     "CLAUDE.md",
     "wiki/hot.md",
@@ -255,10 +257,8 @@
     "wiki/synthesis/research-rag.md",
     "wiki/synthesis/research-context-compression-llm.md",
     "wiki/synthesis/research-blockchain-technology.md",
-    "wiki/questions/research-mcp-servers.md",
     "wiki/hot.md.tmp.34132.97cbdaa1aa73",
     "wiki/log.md.tmp.3100.d94b2892bf93",
-    "wiki/index.md.tmp.3100.3a798d2ed6d7",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",
