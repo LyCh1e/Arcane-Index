@@ -279,8 +279,9 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b1e0856db03cc76e",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
+    "wiki/learning/github-actions-version-deprecations.md",
     "wiki/concepts/_index.md.tmp.25116.72c15f499e66",
     "wiki/synthesis/research-data-mapping.md",
     "wiki/sources/atlan-data-mapping-guide.md",
@@ -317,7 +318,6 @@
     "wiki/synthesis/research-ai-workflows.md",
     "wiki/concepts/ai-workflows.md.tmp.19984.981fe20f4477",
     "wiki/hot.md.tmp.34132.97cbdaa1aa73",
-    "wiki/log.md.tmp.3100.d94b2892bf93",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",

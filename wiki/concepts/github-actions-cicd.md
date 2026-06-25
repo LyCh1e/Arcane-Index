@@ -390,6 +390,37 @@ result=$(ssh -o LogLevel=ERROR ... "$HOST" "echo ok")
 
 Always add `-o LogLevel=ERROR` (and `-o StrictHostKeyChecking=no`) to SSH/SCP calls in CI pipelines. See [[learning/ssh-stdout-known-hosts-warning]].
 
+## Action Version Management
+
+### Node 20 Deprecation (Sep 2025)
+
+GitHub runners stopped supporting Node 20 as a runner runtime in September 2025. Actions whose internal bundle still targets Node 20 produce a deprecation warning. Fix by pinning to newer minor/patch releases that bundle Node 24:
+
+| Action | Node 24-compatible version |
+|--------|---------------------------|
+| `actions/checkout` | `@v4.3.0` |
+| `actions/setup-node` | `@v4` (floating, auto-resolves) |
+| `actions/upload-artifact` | `@v4.6.2` |
+| `actions/setup-python` | `@v5.6.0` |
+| `github/codeql-action/*` | `@v4` |
+
+### CodeQL v3 → v4 (Dec 2026)
+
+`github/codeql-action` v3 is deprecated in December 2026. Bump all three occurrences:
+
+```yaml
+uses: github/codeql-action/init@v4
+uses: github/codeql-action/analyze@v4
+uses: github/codeql-action/upload-sarif@v4
+```
+
+### Pinned vs Floating Tags
+
+- **Floating major** (`@v4`) — always resolves to latest v4.x.x. Convenient but may lag after a new Node-runtime bump until GitHub's cache refreshes.
+- **Pinned minor** (`@v4.3.0`) — predictable, but beware linters that auto-bump to a non-existent patch version (e.g. `@v4.3.0` → `@v4.4.2` where `v4.4.2` does not exist).
+
+See [[learning/github-actions-version-deprecations]] for the full deprecation reference and the linter double-substitution trap.
+
 ## Related
 
 - [[concepts/software-configuration-management]] — CI/CD theory (Booch/Fowler), git workflow

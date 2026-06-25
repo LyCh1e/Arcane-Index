@@ -10,6 +10,22 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-06-25. **Session: project — ICT2216 TrialGuard CI/CD hardening + React gif fix.**
+
+**CodeQL restored**: Added back the `codeql-analysis` job (JOB 4) removed in commit d49f989 (GHAS unavailable on personal private repos). Uses `github/codeql-action/init@v4` + `analyze@v4` with `permissions: security-events: write, actions: read, contents: read`. ESLint SARIF now uploads to both Code Scanning (`upload-sarif`) and as a downloadable artifact.
+
+**CodeQL v3 → v4**: `github/codeql-action` v3 deprecated December 2026; all three steps (init, analyze, upload-sarif) bumped to v4.
+
+**Node 20 deprecation pattern**: Pin to specific minor versions bundling Node 24 — `actions/checkout@v4.3.0`, `actions/setup-python@v5.6.0`, `actions/upload-artifact@v4.6.2`. Leave `actions/setup-node` as `@v4` floating — linter auto-bumped to `@v4.4.2` (non-existent release).
+
+**Linter trap**: `replace_all` on `@v4` when `@v4.3.0` is already in the file matches the `v4` inside and doubles it to `@v4.3.0.3.0`. Always replace full version strings, not just major tags.
+
+**React image sizing**: Drop the fixed-aspect-ratio `PhotoSlot` wrapper; use `<img style={{ width: '100%', display: 'block' }} />` to let the gif's natural height determine the container.
+
+**Key pages**: [[learning/github-actions-version-deprecations]] (new), [[concepts/github-actions-cicd]] (updated — Action Version Management section).
+
+---
+
 2026-06-25. **Session: autoresearch — Data Mapping.** 2 rounds, 5 searches, 4 sources fetched, 4 wiki pages created.
 
 **What data mapping is**: The discipline of defining how data fields in one system correspond to fields in another — covering field correspondence, transformation rules, and validation logic. Applies to ETL pipelines, data migrations, API integrations, and compliance data inventories (GDPR Article 30 "records of processing").

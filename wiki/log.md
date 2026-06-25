@@ -10,6 +10,18 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-25 | project | ICT2216 TrialGuard — CodeQL restored + GitHub Actions action version deprecations
+
+- Restored `codeql-analysis` job to `.github/workflows/ci-cd.yml` (removed in commit d49f989 due to GHAS limitation on personal private repos)
+- Bumped `github/codeql-action` v3 → v4 across all three steps (init, analyze, upload-sarif); v3 deprecated December 2026
+- Fixed Node 20 deprecation warnings: pinned `actions/checkout` to `@v4.3.0`, `actions/setup-python` to `@v5.6.0`, `actions/upload-artifact` to `@v4.6.2`; left `actions/setup-node` as floating `@v4` (pinned `@v4.4.2` resolved to a non-existent release)
+- Key gotcha: linter auto-bumped `@v4.4.0` to `@v4.4.2` (non-existent); replace_all on `@v4` inside `@v4.3.0` doubled to `@v4.3.0.3.0`
+- Also: replaced `PhotoSlot` placeholder in `Researchers.jsx` with actual `cohort.gif`; learned `objectFit: 'contain'` vs `'cover'`; dropping the fixed-aspect-ratio wrapper and using bare `<img width: 100%>` lets the image set the container height naturally
+- Created: [[learning/github-actions-version-deprecations]]
+- Updated: [[concepts/github-actions-cicd]] (new "Action Version Management" section)
+
+---
+
 ## 2026-06-25 | autoresearch | Data Mapping
 
 - Rounds: 2 | Searches: 5 | Sources fetched: 4 | Pages created: 4

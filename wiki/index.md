@@ -211,6 +211,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/git-amend-remove-sensitive-push\|Git: Remove Sensitive Info from a Pushed Commit (amend + force-push)]] | git | resolved |
 | [[learning/windows-openssl-strawberry-broken\|Windows: Strawberry Perl OpenSSL Broken Config — Generate Certs on Linux]] | devops | resolved |
 | [[learning/ssh-stdout-known-hosts-warning\|SSH: "Permanently added" Warning Contaminates stdout — Use -o LogLevel=ERROR]] | devops | resolved |
+| [[learning/github-actions-version-deprecations\|GitHub Actions: Node 20 Deprecation, Floating vs Pinned Tags, CodeQL v3→v4]] | devops | resolved |
 
 
 ## Synthesis
