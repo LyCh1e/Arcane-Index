@@ -2,13 +2,31 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-06-23T00:00:00
+updated: 2026-06-25
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-06-25. **Session: ingest — ICT2216 Lecture 6 (Secure Software Implementation).** Created 1 new concept page; updated 2 existing; created 1 source page.
+
+**Core insight — SSL/TLS Incompatibility Table**: Standard security measures do not compose the way developers assume. SSL/TLS encrypts the channel but not against phishing (the attacker *is* the server). Salted hashing is correct at-rest but forces cleartext transmission — a phishing server receives the plaintext before any hashing occurs. 2FA/OTP does not protect against real-time phishing proxies. Each measure protects against a specific attack vector only.
+
+**Mitigations**: HSTS prevents MitM SSL stripping (forces HTTPS even on first redirect). PFS (via ECDHE cipher suites) prevents retrospective decryption of captured sessions. SRP (RFC 5054, 2007) addresses all three — phishing, MitM, and PFS — via zero-knowledge mutual authentication, but was not widely adopted due to a bootstrapping problem.
+
+**Security Theatre**: Always verify that a control addresses its stated threat model rather than merely appearing to. A padlock ≠ phishing protection.
+
+**FIDO/Passkeys**: FIDO2/WebAuthn is cryptographically sound (private key never leaves the device; origin-bound — phishing sites cannot trigger the registered key). Real-world UX is fragmented: cross-platform metadata doesn't exist in the spec, platforms steer users toward ecosystem lock-in, some browsers not supported on some services. Current verdict: elegantly designed, not yet "usable security".
+
+**Passwordless OTP constraints (ICT2216 standard)**: 3-minute expiry; max 3 failed attempts per code; only the most recently issued code is valid (previous codes invalidated on new issue; used codes immediately invalidated).
+
+**DevSecOps**: DevOps (Patrick Debois, 2009) extended with security embedded throughout the CI/CD pipeline — not as a final gate. CI vs Continuous Delivery (manual prod trigger) vs Continuous Deployment (fully automated) distinction now in [[concepts/github-actions-cicd]].
+
+**Key pages**: [[concepts/fido-passkeys-passwordless]] (new — FIDO, passkeys, OTP design), [[concepts/secure-design-implementation]] (updated — SSL/TLS analysis section), [[concepts/github-actions-cicd]] (updated — DevSecOps intro).
+
+---
 
 2026-06-23. **Session: project — ICT2216 Lab 8 ESLint SAST, TrialGuard integration.** Updated [[examples/ict2216-lab8-static-code-analysis]] with real implementation learnings.
 

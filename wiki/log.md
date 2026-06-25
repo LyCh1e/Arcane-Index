@@ -10,6 +10,14 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-25 | ingest | ICT2216 Lecture 6 — Secure Software Implementation
+
+- Source: [[sources/ICT2216-lecture6-secure-implementation]]
+- New concept: [[concepts/fido-passkeys-passwordless]] — FIDO Alliance, passkeys (registration/login flow), OTP/magic link design constraints, platform limitations (cross-platform inconsistency, lock-in)
+- Updated: [[concepts/secure-design-implementation]] — new "SSL/TLS Security Analysis" section: incompatibility table, why salted hashing forces cleartext transmission, why phishing survives TLS, MitM SSL stripping, HSTS, PFS, cipher suite selection, SRP (RFC 5054), Security Theatre
+- Updated: [[concepts/github-actions-cicd]] — DevSecOps definition, CI vs Continuous Delivery vs Continuous Deployment distinction table
+- Address assigned: c-000068 (fido-passkeys-passwordless)
+
 ## 2026-06-23 | project | ICT2216 Lab 8 — ESLint SAST integrated into TrialGuard CI/CD
 
 - Pages updated: [[examples/ict2216-lab8-static-code-analysis]] (added "Project Implementation" section)

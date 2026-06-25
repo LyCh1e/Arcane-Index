@@ -8,7 +8,7 @@ tags: [index, concepts]
 
 # Concepts
 
-98 concept pages across 17 domains, extracted from 37 ingested sources.
+99 concept pages across 17 domains, extracted from 38 ingested sources.
 
 | Domain | Pages |
 |--------|-------|
@@ -18,7 +18,7 @@ tags: [index, concepts]
 | Mathematics | 10 |
 | Machine Learning | 6 |
 | Database Systems | 6 |
-| Secure Software Development | 7 |
+| Secure Software Development | 8 |
 | Computer Architecture | 3 |
 | Operating Systems | 5 |
 | Web Development | 5 |
@@ -141,6 +141,7 @@ tags: [index, concepts]
 | [[concepts/docker-compose\|Docker and Docker Compose]] | ICT2216 | medium |
 | [[concepts/security-by-design-principles\|Security by Design Principles (OWASP 10)]] | ICT2216 | high |
 | [[concepts/secure-design-implementation\|Secure Design Implementation (CIA-AAA at Design Level)]] | ICT2216 | high |
+| [[concepts/fido-passkeys-passwordless\|FIDO, Passkeys, and Passwordless Authentication]] | ICT2216 | high |
 
 **Synthesis**: [[synthesis/web-security-ssdlc-bridge\|Attack Patterns ↔ SSDLC Process]]
 

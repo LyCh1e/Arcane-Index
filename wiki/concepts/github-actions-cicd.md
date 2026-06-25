@@ -2,7 +2,7 @@
 type: concept
 status: established
 created: 2026-05-30
-updated: 2026-05-30
+updated: 2026-06-25
 name: github-actions-cicd
 description: GitHub Actions CI/CD — workflow syntax, triggers, jobs, steps, secrets, Docker integration, and pipeline design
 metadata:
@@ -13,6 +13,26 @@ tags: [github-actions, ci-cd, devops, docker, automation, yaml]
 ---
 
 # GitHub Actions CI/CD
+
+## DevOps and DevSecOps
+
+**DevOps** — coined by Patrick Debois (DevOpsDays, 2009) — bridges developers and operations teams to achieve faster, lower-risk delivery: *continuously improving software with small changes and small risks, rather than big changes with big risks.*
+
+**DevSecOps** (also DevOpsSec or SecDevOps) embeds **security and compliance throughout the DevOps pipeline** rather than treating security as a final gate before release. Security is a shared responsibility from the first commit to production.
+
+> DevSecOps may be understood as **extending Agile beyond the software team** to include security and operations as continuous, automated concerns.
+
+### CI vs CD vs Continuous Deployment
+
+| Term | Description | Deployment |
+|------|-------------|------------|
+| **Continuous Integration (CI)** | Automated build and test on every code commit | No deployment |
+| **Continuous Delivery (CD)** | Automated up to a deployment-ready state | **Manual** trigger for production |
+| **Continuous Deployment** | Fully automated pipeline end-to-end | **Automatic** to production |
+
+> **Key distinction:** Continuous Delivery requires a human to approve the final production push; Continuous Deployment eliminates that gate entirely.
+
+---
 
 ## What is GitHub Actions?
 

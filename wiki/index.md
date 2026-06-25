@@ -57,6 +57,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/anthropic-mcp-launch-2024\|Introducing the Model Context Protocol — Anthropic]] | article | ai-engineering | 2026-06-23 |
 | [[sources/mcp-spec-2025-11-25\|MCP 2025-11-25 Specification Release]] | article | ai-engineering | 2026-06-23 |
 | [[sources/mcp-first-year-2025\|One Year of MCP — MCP Blog Anniversary Post]] | article | ai-engineering | 2026-06-23 |
+| [[sources/ICT2216-lecture6-secure-implementation\|ICT2216 Lecture 6 — Secure Software Implementation]] | course | secure-software-development | 2026-06-25 |
 
 ## Concepts
 
@@ -160,6 +161,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/rag-architectures\|RAG Architectures]] | ai-engineering | high |
 | [[concepts/mcp-model-context-protocol\|Model Context Protocol (MCP)]] | ai-engineering | high |
 | [[concepts/mcp-security\|MCP Security]] | ai-engineering | high |
+| [[concepts/fido-passkeys-passwordless\|FIDO, Passkeys, and Passwordless Authentication]] | secure-software-development | high |
 
 ## Examples
 

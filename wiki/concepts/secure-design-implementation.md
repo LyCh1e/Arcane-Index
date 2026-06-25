@@ -5,7 +5,7 @@ address: c-000066
 domain: secure-software-development
 complexity: high
 tags: [security-design, cryptography, symmetric, asymmetric, x509, hashing, salting, passwordless, mfa, sso, rbac, rbac-ubac, replication, failover, dmz, secure-agile, data-access-control, SSDLC]
-updated: 2026-06-08
+updated: 2026-06-25
 status: established
 created: 2026-05-30
 ---
@@ -286,6 +286,96 @@ Horizontal scaling is generally preferred — it eliminates single-node failure 
 
 ---
 
+## SSL/TLS Security Analysis
+
+Standard security measures are **not composable** in the way developers assume. Each protects against a specific threat, and combining them does not eliminate the threats each one misses.
+
+### The Fundamental Incompatibility Table
+
+| Security Measure | Protects Against | Does NOT Protect Against |
+|-----------------|------------------|--------------------------|
+| SSL/TLS | Eavesdropping (encrypts the channel) | Phishing (attacker controls the server at the other end) |
+| Salted hash password storage | Password database breach | Phishing (password is still transmitted in cleartext before hashing) |
+| 2FA / OTP | Replayed stolen passwords | Real-time phishing (attacker proxies the OTP live to the legitimate service) |
+
+### Why Salted Hashing Forces Cleartext Transmission
+
+Salted hashing is the correct approach to **storing** passwords — but it creates an unavoidable consequence for **transmission**:
+
+> **Hash is a one-way function.** The server needs the original plaintext password to produce the same hash for comparison against the stored value.
+
+Therefore, the client must send the plaintext password to the server before hashing occurs server-side. Even over HTTPS, the plaintext password crosses the network. A phishing site receives that plaintext directly.
+
+**Alternative approaches:**
+- Hash the password **client-side** before transmission — the server stores `hash(hash+salt)` and compares against a re-hash of the received value. This prevents the server from ever seeing plaintext, including during interception.
+- Use a **challenge-response** mechanism — server issues a nonce; client hashes `(password + nonce)`; server verifies without the plaintext ever being transmitted directly.
+- Use **SRP** (see below) — the gold standard for mutual authentication without transmitting passwords.
+
+### Why Phishing Remains Viable Despite SSL/TLS
+
+SSL/TLS encrypts the channel — but only between the client and **whichever server the client connected to**. If that server is an attacker's phishing site:
+
+- The TLS certificate belongs to the attacker's domain (easily obtainable from Let's Encrypt)
+- The browser shows the padlock — the connection is encrypted to the attacker
+- Password encryption added inside TLS is useless: the attacker's server receives the decrypted plaintext
+
+> **Phishing attacks remain feasible and attractive even when SSL/TLS is universal.**
+
+### MitM SSL Stripping
+
+An attacker positioned between the client and server can **intercept HTTP traffic before HTTPS is established**, downgrading the connection from HTTPS to HTTP. The user receives an unencrypted connection; the attacker sees plaintext.
+
+**Mitigation — HTTP Strict Transport Security (HSTS):**
+- Server sends an `HSTS` header instructing the browser to **only communicate via HTTPS** for a defined max-age period
+- Browser refuses to connect over HTTP even if directed to — prevents the downgrade
+- First-visit vulnerability: a user visiting for the first time over HTTP before receiving the HSTS header is still vulnerable. HSTS preload lists (maintained by browsers) solve this for well-known domains.
+
+### Perfect Forward Secrecy (PFS)
+
+In 2013, Snowden disclosures revealed that intelligence services had been recording encrypted internet traffic, intending to decrypt it later if private keys were ever obtained.
+
+> **Without PFS:** compromise of the server's private key in the future can decrypt all past recorded sessions.
+
+> **With PFS:** each session uses an **ephemeral key** derived independently. Compromising the long-term private key gives the attacker nothing about past sessions.
+
+**Implementation:** Only configure SSL/TLS to support **cipher suites that achieve PFS**:
+- Prefer suites using ECDHE or DHE key exchange (ephemeral Diffie-Hellman)
+- Avoid RSA key exchange (no PFS — decrypted retrospectively if key is compromised)
+
+**Example cipher suite:** `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
+
+| Component | Role |
+|-----------|------|
+| ECDHE | Ephemeral key exchange → PFS |
+| RSA | Authentication (certificate signature) |
+| AES_128_GCM | Symmetric encryption |
+| SHA256 | MAC / integrity |
+
+### Secure Remote Password (SRP) Protocol
+
+SRP addresses all three weaknesses simultaneously: phishing, MitM, and lack of PFS.
+
+**SRP flow (RFC 5054, standardised 2007):**
+1. User enters username and password **before contacting any server**
+2. A zero-knowledge proof is computed locally — the password is never transmitted
+3. If key establishment succeeds, **mutual authentication** is achieved: the server proved it knows the password verifier, and the client proved it knows the password, without either transmitting it
+4. If the server is a phishing site, SRP key establishment fails — the password is never exposed
+
+SRP has been standardised for TLS since 2007 (`TLS_SRP_SHA_WITH_AES_128_CBC_SHA`) but was **not widely adopted** because it prevents the server from authenticating users before they have registered an account — a bootstrapping problem for new user flows.
+
+### Security Theatre
+
+> **Security theatre:** a security measure implemented to make users *feel* secure rather than to actually *make* them more secure.
+
+Before implementing any security control, ask:
+- What specific threat does this mitigate?
+- Does it address the root cause, or only a symptom?
+- Can the same threat bypass this control via a different vector?
+
+*Example of security theatre:* Requiring a password to be transmitted over HTTPS to a server that stores it as a salted hash — does not protect against phishing, because the attacker's server receives the plaintext password before any hashing occurs.
+
+---
+
 ## Authentication Design
 
 ### Factor Types
@@ -308,12 +398,12 @@ Horizontal scaling is generally preferred — it eliminates single-node failure 
 
 ### Passwordless Authentication
 
-A growing pattern — removes the password entirely to eliminate the attack surface around credential theft.
+A growing pattern — removes the password entirely to eliminate the attack surface around credential theft. See [[concepts/fido-passkeys-passwordless]] for full coverage of FIDO, passkeys, OTP/magic link design constraints, and real-world platform limitations.
 
 **How it works:**
 1. User registers an authenticator app or trusted device (something you *have*)
 2. Initial identity validation via SMS or email OTP
-3. Subsequent logins require approval from the registered authenticator — no password is transmitted or stored
+3. Subsequent logins require cryptographic proof from the registered authenticator — no password is transmitted or stored
 
 **Real-world examples:**
 - **WhatsApp** — OTP only at device setup; no ongoing password
