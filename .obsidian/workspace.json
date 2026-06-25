@@ -30,6 +30,23 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
+          },
+          {
+            "id": "587c40a3ceee70c1",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "canvases/password-hashing.canvas",
+                "viewState": {
+                  "x": -145,
+                  "y": 95.91348647620319,
+                  "zoom": -1.1542467875845115
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "password-hashing"
+            }
           }
         ]
       }
@@ -222,6 +239,8 @@
   },
   "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "skills/canvas/SKILL.md",
+    "skills/defuddle/SKILL.md",
     "README.md",
     "ATTRIBUTION.md",
     "raw.zip",
@@ -255,8 +274,6 @@
     "wiki/synthesis/research-mcp-servers.md",
     "wiki/questions/research-rag.md",
     "wiki/synthesis/research-rag.md",
-    "wiki/synthesis/research-context-compression-llm.md",
-    "wiki/synthesis/research-blockchain-technology.md",
     "wiki/hot.md.tmp.34132.97cbdaa1aa73",
     "wiki/log.md.tmp.3100.d94b2892bf93",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
