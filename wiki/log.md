@@ -22,6 +22,17 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 ---
 
+## 2026-06-26 | setup | Epistemic Critique Skills
+
+- New template: [[_templates/argument.md]] — structured argument note (claim, premises, evidence, counterarguments, falsifiability, belief history)
+- New skill: `/critique` — full epistemic audit (18 fallacies, premise table, 8 cognitive biases, evidence quality, contradiction check against vault, steelman, falsifiability rating, verdict with confidence revision)
+- New skill: `/steelman` — constructs the strongest opposing case then attacks your position; delivers clear verdict (argument survives / steelman wins / draw)
+- New skill: `/track-belief` — snapshots confidence + position into Belief History table; tracks revision and abandonment; review mode shows trajectory across all snapshots
+- New folder: [[wiki/arguments/_index.md]] — index with Active / Revised / Abandoned tables
+- Updated: CLAUDE.md Plugin Skills table and vault structure
+
+---
+
 ## 2026-06-26 | autoresearch | Kubernetes
 
 - Rounds: 2 | Searches: 8 | Sources fetched: 4 | Pages created: 3

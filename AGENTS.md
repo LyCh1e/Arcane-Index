@@ -37,6 +37,9 @@ bash bin/setup-multi-agent.sh
 | `defuddle` | clean this url, defuddle |
 | `obsidian-markdown` | obsidian syntax, wikilink, callout |
 | `obsidian-bases` | obsidian bases, .base file, dynamic table |
+| `critique` | /critique, critique this, find flaws in, review my reasoning, pick this apart |
+| `steelman` | /steelman, steelman this, devil's advocate, strongest opposing view, argue against this |
+| `track-belief` | /track-belief, track my belief, snapshot my position, I've changed my mind on, show belief history |
 
 ## Key Conventions
 

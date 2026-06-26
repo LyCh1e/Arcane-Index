@@ -25,6 +25,7 @@ wiki/               Claude-generated knowledge base
   gaps/             open questions and knowledge gaps
   resources/        external references
   entities/         people, organisations, tools
+  arguments/        tracked positions and beliefs with critique history
 _templates/         Obsidian Templater templates
 _attachments/       images and PDFs referenced by wiki pages
 ```
@@ -164,6 +165,9 @@ Add to the project's `.vscode/tasks.json`:
 | `/save` | File the current conversation as a structured wiki note |
 | `/autoresearch [topic]` | Autonomous research loop: search, fetch, synthesize, file |
 | `/canvas` | Visual layer: add images, PDFs, notes to Obsidian canvas |
+| `/critique [topic\|note]` | Structured epistemic critique: fallacies, premise analysis, bias detection, steelman; appends to argument note |
+| `/steelman [topic\|claim]` | Constructs the strongest opposing case and attacks your position from it; adversarial chat response |
+| `/track-belief [topic]` | Snapshots current confidence and position into the Belief History table; tracks evolution over time |
 
 ## Writing Style
 

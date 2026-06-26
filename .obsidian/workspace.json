@@ -86,9 +86,50 @@
               "icon": "lucide-file",
               "title": "kubernetes"
             }
+          },
+          {
+            "id": "70985ef3155fdb25",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "AGENTS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "AGENTS"
+            }
+          },
+          {
+            "id": "3401616c030d397c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "skills/critique/SKILL.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "SKILL"
+            }
+          },
+          {
+            "id": "80bda5a37957f632",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "AGENTS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "AGENTS"
+            }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "vertical"
@@ -277,11 +318,22 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "f31c404bbfca8696",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "CLAUDE.md.tmp.2468.c9e3f9b81dae",
+    "skills/track-belief/SKILL.md",
+    "skills/track-belief",
+    "skills/critique/SKILL.md",
+    "skills/steelman/SKILL.md",
+    "skills/steelman",
+    "AGENTS.md",
+    "skills/critique",
+    "wiki/arguments/_index.md",
+    "wiki/arguments",
+    "_templates/argument.md",
+    "wiki/concepts/kubernetes.md",
     "wiki/synthesis/research-kubernetes.md",
     "wiki/sources/kubernetes-official-docs.md",
-    "wiki/concepts/kubernetes.md",
     "CLAUDE.md",
     "canvases/password-hashing.canvas",
     "wiki/learning/github-actions-version-deprecations.md",
@@ -292,7 +344,6 @@
     "wiki/concepts/data-mapping.md",
     "wiki/overview.md",
     "WIKI.md",
-    "AGENTS.md",
     "skills/wiki/SKILL.md",
     "skills/autoresearch/references/program.md",
     "skills/defuddle/SKILL.md",
@@ -302,20 +353,10 @@
     "raw.zip",
     "wiki/hot.md",
     "wiki/log.md",
-    "wiki/sources/ICT2216-lecture6-secure-implementation.md",
     "wiki/concepts/secure-design-implementation.md.tmp.14992.3bd962dc9972",
-    "wiki/concepts/fido-passkeys-passwordless.md",
     "wiki/resources/owasp-threat-dragon.md.tmp.19984.0d114b6db926",
-    "wiki/index.md",
-    "wiki/resources/owasp-threat-dragon.md",
     "wiki/learning/_index.md.tmp.19984.ce480e80289d",
-    "wiki/meta/lint-report-2026-06-25.md",
-    "wiki/resources/owasp-dependency-check.md",
     "wiki/index.md.tmp.19984.78c446f3d6db",
-    "wiki/index.md.tmp.19984.79e131440087",
-    "wiki/log.md.tmp.19984.9922b8f37686",
-    "wiki/concepts/ai-workflows.md.tmp.19984.981fe20f4477",
-    "wiki/hot.md.tmp.34132.97cbdaa1aa73",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",
