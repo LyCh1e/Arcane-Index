@@ -8,7 +8,7 @@ tags: [index, concepts]
 
 # Concepts
 
-100 concept pages across 18 domains, extracted from 40 ingested sources.
+101 concept pages across 19 domains, extracted from 41 ingested sources.
 
 | Domain | Pages |
 |--------|-------|
@@ -31,6 +31,7 @@ tags: [index, concepts]
 | IT Ethics | 4 |
 | Blockchain | 1 |
 | Data Engineering | 1 |
+| DevOps | 4 |
 
 ---
 
@@ -286,6 +287,19 @@ tags: [index, concepts]
 | [[concepts/data-mapping\|Data Mapping]] | autoresearch | high |
 
 **Synthesis**: [[synthesis/research-data-mapping\|Research: Data Mapping]]
+
+---
+
+## DevOps
+
+| Page | Source | Complexity |
+|------|--------|------------|
+| [[concepts/docker-compose\|Docker and Docker Compose]] | ICT2216 | medium |
+| [[concepts/nginx-reverse-proxy-and-tls\|Nginx Reverse Proxy and TLS]] | ICT2216 | medium |
+| [[concepts/github-actions-cicd\|GitHub Actions and CI/CD (DevSecOps)]] | ICT2216 | medium |
+| [[concepts/kubernetes\|Kubernetes]] | autoresearch | high |
+
+**Synthesis**: [[synthesis/research-kubernetes\|Research: Kubernetes]]
 
 ---
 

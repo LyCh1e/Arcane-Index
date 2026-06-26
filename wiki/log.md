@@ -22,6 +22,17 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 ---
 
+## 2026-06-26 | autoresearch | Kubernetes
+
+- Rounds: 2 | Searches: 8 | Sources fetched: 4 | Pages created: 3
+- New concept: [[concepts/kubernetes]] — full reference: architecture (control plane + worker nodes), all 7 workload types, Service types (ClusterIP/NodePort/LoadBalancer/ExternalName), Ingress, ConfigMap/Secret/PVC, RBAC, Pod Security Standards, Helm 4.0, managed services (GKE/EKS/AKS), kubectl commands, Kubernetes vs Docker Compose decision framework
+- New source: [[sources/kubernetes-official-docs]]
+- Synthesis: [[synthesis/research-kubernetes]]
+- Addresses assigned: c-000073 – c-000075
+- Key finding: Secrets are NOT encrypted in etcd by default (only base64-encoded); EncryptionConfiguration must be explicitly enabled for production clusters
+
+---
+
 ## 2026-06-25 | autoresearch | Data Mapping
 
 - Rounds: 2 | Searches: 5 | Sources fetched: 4 | Pages created: 4

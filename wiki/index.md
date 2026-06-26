@@ -60,6 +60,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ICT2216-lecture6-secure-implementation\|ICT2216 Lecture 6 — Secure Software Implementation]] | course | secure-software-development | 2026-06-25 |
 | [[sources/airbyte-data-mapping-guide\|What is Data Mapping? — Airbyte]] | article | data-engineering | 2026-06-25 |
 | [[sources/atlan-data-mapping-guide\|What is Data Mapping? Steps, Techniques & More — Atlan]] | article | data-engineering | 2026-06-25 |
+| [[sources/kubernetes-official-docs\|Kubernetes Official Documentation — Components and Workloads]] | documentation | devops | 2026-06-26 |
 
 ## Concepts
 
@@ -165,6 +166,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/mcp-security\|MCP Security]] | ai-engineering | high |
 | [[concepts/fido-passkeys-passwordless\|FIDO, Passkeys, and Passwordless Authentication]] | secure-software-development | high |
 | [[concepts/data-mapping\|Data Mapping]] | data-engineering | high |
+| [[concepts/kubernetes\|Kubernetes]] | devops | high |
 
 ## Examples
 
@@ -232,6 +234,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[synthesis/research-ai-workflows\|Research: AI Workflows]] | ai-engineering | developing |
 | [[synthesis/research-rag\|Research: Retrieval-Augmented Generation (RAG)]] | ai-engineering | developing |
 | [[synthesis/research-data-mapping\|Research: Data Mapping]] | data-engineering | developing |
+| [[synthesis/research-kubernetes\|Research: Kubernetes]] | devops | developing |
 
 ## Gaps
 

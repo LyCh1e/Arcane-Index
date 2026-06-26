@@ -2,7 +2,7 @@
 type: index
 status: established
 title: "Synthesis Index"
-updated: 2026-06-25
+updated: 2026-06-26
 tags: [index, synthesis]
 ---
 
@@ -26,6 +26,7 @@ Evolving "state of my understanding" pages — where disparate concepts, sources
 | [[synthesis/research-rag\|Research: Retrieval-Augmented Generation (RAG)]] | ai-engineering | 2026-06-23 | developing |
 | [[synthesis/research-ai-workflows\|Research: AI Workflows]] | ai-engineering | 2026-06-23 | developing |
 | [[synthesis/research-data-mapping\|Research: Data Mapping]] | data-engineering | 2026-06-25 | developing |
+| [[synthesis/research-kubernetes\|Research: Kubernetes]] | devops | 2026-06-26 | developing |
 
 ## How Synthesis Pages Work
 

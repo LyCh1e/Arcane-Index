@@ -32,23 +32,6 @@
             }
           },
           {
-            "id": "587c40a3ceee70c1",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "canvases/password-hashing.canvas",
-                "viewState": {
-                  "x": -145,
-                  "y": 95.91348647620319,
-                  "zoom": -1.1542467875845115
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "password-hashing"
-            }
-          },
-          {
             "id": "ac840d513af0b509",
             "type": "leaf",
             "state": {
@@ -279,8 +262,13 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "wiki/synthesis/research-kubernetes.md",
+    "wiki/sources/kubernetes-official-docs.md",
+    "wiki/concepts/kubernetes.md",
+    "CLAUDE.md",
+    "canvases/password-hashing.canvas",
     "wiki/learning/github-actions-version-deprecations.md",
     "wiki/concepts/_index.md.tmp.25116.72c15f499e66",
     "wiki/synthesis/research-data-mapping.md",
@@ -289,12 +277,10 @@
     "wiki/concepts/data-mapping.md",
     "wiki/overview.md",
     "WIKI.md",
-    "CLAUDE.md",
     "AGENTS.md",
     "skills/wiki/SKILL.md",
     "skills/autoresearch/references/program.md",
     "skills/defuddle/SKILL.md",
-    "canvases/password-hashing.canvas",
     "skills/canvas/SKILL.md",
     "README.md",
     "ATTRIBUTION.md",
@@ -310,12 +296,9 @@
     "wiki/learning/_index.md.tmp.19984.ce480e80289d",
     "wiki/meta/lint-report-2026-06-25.md",
     "wiki/resources/owasp-dependency-check.md",
-    "wiki/resources/_index.md",
-    "wiki/synthesis/_index.md",
     "wiki/index.md.tmp.19984.78c446f3d6db",
     "wiki/index.md.tmp.19984.79e131440087",
     "wiki/log.md.tmp.19984.9922b8f37686",
-    "wiki/synthesis/research-ai-workflows.md",
     "wiki/concepts/ai-workflows.md.tmp.19984.981fe20f4477",
     "wiki/hot.md.tmp.34132.97cbdaa1aa73",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",

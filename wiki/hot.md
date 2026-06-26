@@ -26,6 +26,28 @@ tags: [meta, hot-cache]
 
 ---
 
+2026-06-26. **Session: autoresearch — Kubernetes.** 2 rounds, 8 searches, 4 sources fetched, 3 wiki pages created.
+
+**What Kubernetes is**: A desired-state container orchestration system. You declare what you want; the control plane reconciles actual cluster state to match. Originally Google's internal Borg/Omega system, open-sourced 2014, donated to CNCF.
+
+**Architecture**: Control plane (kube-apiserver → etcd → kube-scheduler + kube-controller-manager) + worker nodes (kubelet + kube-proxy + container runtime). etcd is the single source of truth — HA production clusters require a 3- or 5-node etcd cluster with backups.
+
+**Workload types**: Deployment (stateless, rolling updates, rollbacks) · StatefulSet (stateful — databases, Kafka; stable ordinal pod names, per-pod PVCs) · DaemonSet (one pod per node — CNI plugins, log collectors) · Job (one-off batch) · CronJob (scheduled batch). **Anti-pattern**: using a Deployment for a database — pods are rescheduled to different nodes and lose storage.
+
+**Networking**: Services give pods a stable virtual IP + DNS. Service types: ClusterIP (internal only) / NodePort (external via static port) / LoadBalancer (cloud-provisioned LB). **Ingress ≠ Service** — it is a separate API object requiring a deployed Ingress controller (NGINX, Traefik, Envoy); without a controller, Ingress resources are inert.
+
+**Critical security finding**: Kubernetes Secrets are base64-encoded, NOT encrypted, in etcd by default. Any user with etcd read access or Kubernetes `get` on a Secret reads the plaintext. Production clusters must enable `EncryptionConfiguration` with AES-GCM. RBAC: prefer `Role + RoleBinding` (namespace-scoped) over `ClusterRoleBinding`.
+
+**Helm 4.0 (November 2025)**: Introduced server-side apply — delegates manifest merge to the Kubernetes API server, resolving field-ownership conflicts when multiple tools (ArgoCD, kubectl, Helm) manage the same resources.
+
+**Kubernetes vs Docker Compose**: Compose is single-host (~50 MB), for local dev. Kubernetes is multi-node (~2 GB control plane), for production HA. They are complementary, not competing.
+
+**Managed services**: GKE (fastest version adoption, ~2 weeks) / EKS (AWS-native) / AKS (Azure/Microsoft). All support K8s 1.33 as of Oct 2025.
+
+**Key pages**: [[concepts/kubernetes]] (new — full reference), [[synthesis/research-kubernetes]] (new).
+
+---
+
 2026-06-25. **Session: autoresearch — Data Mapping.** 2 rounds, 5 searches, 4 sources fetched, 4 wiki pages created.
 
 **What data mapping is**: The discipline of defining how data fields in one system correspond to fields in another — covering field correspondence, transformation rules, and validation logic. Applies to ETL pipelines, data migrations, API integrations, and compliance data inventories (GDPR Article 30 "records of processing").
