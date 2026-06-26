@@ -85,10 +85,17 @@
       }
     },
     {
+      "query": "path:wiki/arguments",
+      "color": {
+        "a": 1,
+        "rgb": 15022389
+      }
+    },
+    {
       "query": "path:_templates",
       "color": {
         "a": 1,
-        "rgb": 6316128
+        "rgb": 7430283
       }
     }
   ],
@@ -102,6 +109,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.40698249480404547,
+  "scale": 0.23174189089791192,
   "close": true
 }

@@ -15,6 +15,7 @@
   --cb-teal:    #4ec9b0;   /* learning — study notes & lessons       */
   --cb-meta:    #569cd6;   /* wiki meta: overview, hot, log          */
   --cb-dim:     #606060;   /* templates, raw — de-emphasized         */
+  --cb-violet:  #8b74d8;   /* arguments — tracked beliefs & critique */
 }
 
 /* ── Wiki root & meta (steel blue) ── */
@@ -28,6 +29,7 @@
 .nav-folder-title[data-path^="wiki/entities"]     { color: var(--cb-pink); }
 .nav-folder-title[data-path^="wiki/cases"]        { color: var(--cb-purple); }
 .nav-folder-title[data-path^="wiki/gaps"]         { color: var(--cb-red); }
+.nav-folder-title[data-path^="wiki/arguments"]    { color: var(--cb-violet); }
 
 /* ── Mode D: Personal / Second Brain ── */
 .nav-folder-title[data-path^="wiki/areas"]        { color: var(--cb-gold); }

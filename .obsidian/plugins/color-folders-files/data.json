@@ -16,6 +16,9 @@
       "isBold": true,
       "textColor": "#ffffff"
     },
+    "wiki/arguments": {
+      "textColor": "#e53935"
+    },
     "bin": {
       "opacity": 1
     }
