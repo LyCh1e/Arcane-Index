@@ -234,8 +234,9 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "3f41e16c8ccd1064",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "skills/wiki-ingest/SKILL.md",
     "commands/track-belief.md",
     "commands/steelman.md",
     "commands/critique.md",
@@ -268,7 +269,6 @@
     "wiki/overview.md",
     "skills/wiki/SKILL.md",
     "skills/autoresearch/references/program.md",
-    "skills/defuddle/SKILL.md",
     "raw.zip",
     "wiki/concepts/secure-design-implementation.md.tmp.14992.3bd962dc9972",
     "wiki/resources/owasp-threat-dragon.md.tmp.19984.0d114b6db926",
