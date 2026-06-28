@@ -32,6 +32,7 @@ Foundational computer science: how to measure algorithmic efficiency and choose 
 | [[concepts/simulation-patterns\|Simulation Patterns]] | Greedy stream simulation with early exit; state-machine and grid simulation (placeholders) |
 | [[concepts/greedy-patterns\|Greedy Patterns]] | Sort + greedy constraint propagation; interval greedy and two-pass greedy (placeholders) |
 | [[concepts/linked-list-patterns\|Linked List Patterns]] | Dummy head node, simultaneous traversal with carry; fast/slow pointer and in-place reversal (placeholders) |
+| [[concepts/sliding-window-patterns\|Sliding Window Patterns]] | Variable-size window (shrink-left / jump-left); fixed-size and at-most-k windows (placeholders) |
 
 ---
 

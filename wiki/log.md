@@ -10,6 +10,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-28 | ingest | LeetCode 3 — Longest Substring Without Repeating Characters
+
+- Source: `raw/leetcode-longest-substring-2026-06-28.md`
+- Summary: [[sources/leetcode-longest-substring]]
+- Pages created: [[sources/leetcode-longest-substring]] (c-000091), [[concepts/sliding-window-patterns]] (c-000092), [[examples/leetcode-longest-substring-python]] (c-000093)
+- Pages updated: [[wiki/areas/computer-science]], [[wiki/index.md]], [[wiki/sources/_index.md]]
+- Key insight: Sliding window reduces O(N²) brute force to O(N) by maintaining a valid window `[left, right]` rather than restarting from every index. The shrink-left (set) and jump-left (last-index map) variants are identical asymptotically; the map variant is faster in practice and handles the "stale duplicate outside current window" edge case via a `>= start` guard.
+
+---
+
 ## 2026-06-28 | ingest | LeetCode 2 — Add Two Numbers
 
 - Source: `raw/leetcode-add-two-numbers-2026-06-28.md`

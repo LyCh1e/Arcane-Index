@@ -284,6 +284,9 @@
     "wiki/examples/leetcode-max-element-rearranging-python.md": "c-000087",
     "wiki/sources/leetcode-add-two-numbers.md": "c-000088",
     "wiki/concepts/linked-list-patterns.md": "c-000089",
-    "wiki/examples/leetcode-add-two-numbers-python.md": "c-000090"
+    "wiki/examples/leetcode-add-two-numbers-python.md": "c-000090",
+    "wiki/sources/leetcode-longest-substring.md": "c-000091",
+    "wiki/concepts/sliding-window-patterns.md": "c-000092",
+    "wiki/examples/leetcode-longest-substring-python.md": "c-000093"
   }
 }

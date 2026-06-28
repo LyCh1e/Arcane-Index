@@ -248,8 +248,12 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b1e0856db03cc76e",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
+    "wiki/examples/leetcode-longest-substring-python.md",
+    "wiki/concepts/sliding-window-patterns.md",
+    "wiki/sources/leetcode-longest-substring.md",
+    "raw/leetcode-longest-substring-2026-06-28.md",
     "wiki/examples/leetcode-add-two-numbers-python.md",
     "wiki/concepts/linked-list-patterns.md",
     "wiki/sources/leetcode-add-two-numbers.md",
@@ -274,10 +278,6 @@
     "wiki/index.md.tmp.20744.9c58e399552b",
     "wiki/concepts/array-manipulation-patterns.md",
     "wiki/sources/leetcode-array-basics.md",
-    "raw/leetcode-array-basics-2026-06-28.md",
-    "commands/wiki.md",
-    "skills/wiki-ingest/SKILL.md",
-    "commands/track-belief.md",
     "CLAUDE.md.tmp.2468.c9e3f9b81dae",
     "skills/track-belief",
     "skills/steelman",

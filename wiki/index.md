@@ -52,6 +52,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/leetcode-stack-ops\|LeetCode 1441 — Build an Array With Stack Operations]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/leetcode-max-element-rearranging\|LeetCode 1946 — Maximum Element After Decreasing and Rearranging]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/leetcode-add-two-numbers\|LeetCode 2 — Add Two Numbers]] | chat-session | computer-science | 2026-06-28 |
+| [[sources/leetcode-longest-substring\|LeetCode 3 — Longest Substring Without Repeating Characters]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/acon-context-compression-agents\|ACON: Optimising Context Compression for Long-Horizon LLM Agents]] | paper | ai-engineering | 2026-06-21 |
 | [[sources/anthropic-effective-context-engineering\|Effective Context Engineering for AI Agents (Anthropic)]] | article | ai-engineering | 2026-06-21 |
 | [[sources/factory-ai-compression-evaluation-2025\|Evaluating Context Compression for AI Agents (Factory.ai, 2025)]] | article | ai-engineering | 2026-06-21 |
@@ -177,6 +178,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/simulation-patterns\|Simulation Patterns]] | computer-science | medium |
 | [[concepts/greedy-patterns\|Greedy Patterns]] | computer-science | medium |
 | [[concepts/linked-list-patterns\|Linked List Patterns]] | computer-science | medium |
+| [[concepts/sliding-window-patterns\|Sliding Window Patterns]] | computer-science | medium |
 
 ## Examples
 
@@ -200,6 +202,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/leetcode-stack-ops-python\|LeetCode 1441 — Build an Array With Stack Operations (Python)]] | practice | computer-science | [[concepts/simulation-patterns\|Simulation Patterns]] |
 | [[examples/leetcode-max-element-rearranging-python\|LeetCode 1946 — Maximum Element After Decreasing and Rearranging (Python)]] | practice | computer-science | [[concepts/greedy-patterns\|Greedy Patterns]] |
 | [[examples/leetcode-add-two-numbers-python\|LeetCode 2 — Add Two Numbers (Python)]] | practice | computer-science | [[concepts/linked-list-patterns\|Linked List Patterns]] |
+| [[examples/leetcode-longest-substring-python\|LeetCode 3 — Longest Substring Without Repeating Characters (Python)]] | practice | computer-science | [[concepts/sliding-window-patterns\|Sliding Window Patterns]] |
 
 ## Entities
 

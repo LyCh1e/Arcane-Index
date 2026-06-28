@@ -10,6 +10,18 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-06-28. **Session: ingest — LeetCode 3 (Longest Substring Without Repeating Characters).** 1 source, 1 new concept page, 1 example created. First sliding-window problem in the wiki.
+
+**Core sliding window invariant**: window `[left, right]` is always valid at the point `res` is updated. Expand `right` greedily; restore validity by advancing `left` when a duplicate enters the window.
+
+**Pattern 1 — Shrink-Left with Set**: `while s[right] in seen: seen.remove(s[left]); left += 1`. Looks O(N²) but `left` only moves forward, so total operations ≤ 2N → O(N). Simplest form; use this by default.
+
+**Pattern 2 — Jump-Left with Last-Index Map**: `if char in last_seen and last_seen[char] >= start: start = last_seen[char] + 1`. Eliminates the inner while loop entirely. The `>= start` guard is critical — without it, a duplicate that was already outside the window (stale entry in the dict) causes `start` to jump backward, widening the window and admitting a duplicate. Verified with "abba": at index 3, `last_seen['a'] = 0 < start(2)` → skip.
+
+**Key pages**: [[concepts/sliding-window-patterns]] (new — Patterns 1 & 2 documented; fixed-window Pattern 3 and at-most-k Pattern 4 as placeholders), [[examples/leetcode-longest-substring-python]] (all three approaches with full step traces).
+
+---
+
 2026-06-28. **Session: ingest — LeetCode 2 (Add Two Numbers).** 1 source, 1 new concept page, 1 example created. First linked-list problem in the wiki.
 
 **Pattern 1 — Dummy Head Node**: create `ListNode(0)` as a sentinel before the loop so `current.next = ListNode(digit)` is valid for every node including the first. Return `dummy.next` to skip it. Eliminates a first-node special case in all list-construction loops.
