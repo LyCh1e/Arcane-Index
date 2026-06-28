@@ -6,7 +6,7 @@ domain: computer-science
 complexity: medium
 created: 2026-06-28
 updated: 2026-06-28
-tags: [concept, arrays, algorithms, python, computer-science]
+tags: [concept, arrays, algorithms, python, frequency-count, computer-science]
 related:
   - concepts/data-structures-fundamentals
   - concepts/algorithm-complexity
@@ -99,7 +99,70 @@ return max_count
 
 ---
 
-## Pattern 4 — Two-Pointer Merge (Reference)
+## Pattern 4 — Frequency Count
+
+**Problem shape**: detect which values appear too many times or not at all by building a count of every value in one pass, then scanning the counts for anomalies in a second pass.
+
+```python
+# Manual dict — clearest intent
+seen = {}
+for num in nums:
+    seen[num] = seen.get(num, 0) + 1   # .get(key, 0) avoids KeyError on first occurrence
+
+for i in range(1, n + 1):
+    if seen.get(i, 0) == 2:   # appeared twice → duplicate
+        duplicate = i
+    elif seen.get(i, 0) == 0: # never appeared → missing
+        missing = i
+
+# stdlib shorthand — identical semantics, Counter returns 0 for absent keys
+from collections import Counter
+count = Counter(nums)
+```
+
+**When to use**: any problem that reduces to "how many times does each value appear?" — duplicates, missing values, majority elements, anagram detection.
+
+**Key Python detail**: `dict.get(key, 0)` vs `Counter[key]` — both return 0 for absent keys; `Counter` is a `dict` subclass so the behaviour is guaranteed. Raw `dict[key]` raises `KeyError` for absent keys.
+
+**Complexity**: O(n) time, O(n) space (the count structure).
+
+**LeetCode**: 645 — Set Mismatch; 169 — Majority Element; 242 — Valid Anagram.
+
+---
+
+## Pattern 5 — Math Sum Identity
+
+**Problem shape**: when the expected sum of a range is known and one anomaly (duplicate or missing) has shifted the actual sum, arithmetic alone identifies the anomaly in O(1) extra space.
+
+```python
+n = len(nums)
+expected   = n * (n + 1) // 2    # Gauss formula: sum of 1→n
+actual_sum = sum(set(nums))       # sum of unique values actually present
+
+duplicate = sum(nums) - actual_sum  # nums double-counts the duplicate; set removes one copy
+missing   = expected  - actual_sum  # expected − actual unique sum = what is absent
+```
+
+**Why it works**:
+
+| Expression | What it equals |
+|-----------|---------------|
+| `sum(nums)` | Correct sum + duplicate |
+| `sum(set(nums))` | Correct sum − missing |
+| `sum(nums) − sum(set(nums))` | = duplicate |
+| `n*(n+1)//2 − sum(set(nums))` | = missing |
+
+**Limitation**: `set()` still allocates O(n) here. True O(1) requires XOR or in-place index-negation (see LeetCode 287).
+
+**When to use**: problems over the range 1→n where the expected aggregate (sum, XOR, product) is computable from a closed-form formula and only one or two elements deviate.
+
+**Complexity**: O(n) time, O(n) space for `set()` (logically O(1) extra beyond input).
+
+**LeetCode**: 645 — Set Mismatch; 268 — Missing Number; 136 — Single Number (XOR variant).
+
+---
+
+## Pattern 6 — Two-Pointer Merge (Reference)
 
 For interleaving two *separate* arrays of equal length into one output:
 
@@ -134,8 +197,10 @@ Distinct from Pattern 2 because the inputs are separate arrays, not logical halv
 | Concatenation (dual-write) | O(n) | O(1) |
 | Split-midpoint interleave | O(n) | O(1) |
 | Linear scan / running counter | O(n) | O(1) |
+| Frequency count | O(n) | O(n) |
+| Math sum identity | O(n) | O(n)* |
 
-Output arrays are O(n) in all cases but are not counted as "extra" space.
+*`set()` is O(n); true O(1) requires XOR or index-negation variants. Output arrays are not counted as "extra" space.
 
 ---
 
@@ -145,3 +210,4 @@ Output arrays are O(n) in all cases but are not counted as "extra" space.
 - [[concepts/algorithm-complexity]] — Big-O analysis
 - [[concepts/sorting-and-searching]] — patterns requiring ordered arrays
 - [[examples/leetcode-array-basics-python]] — worked examples for patterns 1–3
+- [[examples/leetcode-set-mismatch-python]] — worked examples for patterns 4–5

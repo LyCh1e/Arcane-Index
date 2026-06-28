@@ -271,6 +271,8 @@
     "wiki/concepts/secure-design-implementation.md": "c-000066",
     "wiki/sources/leetcode-array-basics.md": "c-000075",
     "wiki/concepts/array-manipulation-patterns.md": "c-000076",
-    "wiki/examples/leetcode-array-basics-python.md": "c-000077"
+    "wiki/examples/leetcode-array-basics-python.md": "c-000077",
+    "wiki/sources/leetcode-set-mismatch.md": "c-000078",
+    "wiki/examples/leetcode-set-mismatch-python.md": "c-000079"
   }
 }

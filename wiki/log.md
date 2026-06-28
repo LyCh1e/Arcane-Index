@@ -10,6 +10,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-28 | ingest | LeetCode 645 — Set Mismatch
+
+- Source: `raw/leetcode-set-mismatch-2026-06-28.md`
+- Summary: [[sources/leetcode-set-mismatch]]
+- Pages created: [[sources/leetcode-set-mismatch]] (c-000078), [[examples/leetcode-set-mismatch-python]] (c-000079)
+- Pages updated: [[concepts/array-manipulation-patterns]] (Pattern 4 Frequency Count + Pattern 5 Math Sum Identity added), [[wiki/index.md]], [[wiki/sources/_index.md]]
+- Key insight: `dict.get(key, 0)` and `Counter` are two expressions of the same frequency-count pattern; the math sum identity (`sum(nums) - sum(set(nums))`) solves duplicate/missing in O(1) extra space when the expected aggregate is known.
+
+---
+
 ## 2026-06-28 | ingest | LeetCode Array Basics — chat session (1929, 1470, 485)
 
 - Source: `raw/leetcode-array-basics-2026-06-28.md`

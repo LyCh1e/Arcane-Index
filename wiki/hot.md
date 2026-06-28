@@ -10,6 +10,16 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-06-28. **Session: ingest — LeetCode 645 (Set Mismatch).** 1 source, 1 example created; [[concepts/array-manipulation-patterns]] extended with 2 new patterns.
+
+**Pattern 4 — Frequency Count**: build a `dict` or `Counter` of occurrences in one pass, then scan for values with count ≠ 1 in a second pass. `dict.get(key, 0)` avoids `KeyError` on absent keys; `Counter` returns 0 for missing keys by default. Applies to duplicates, missing values, majority elements, anagram detection.
+
+**Pattern 5 — Math Sum Identity**: when the expected sum is known (`n*(n+1)//2` for 1→n), `sum(nums) - sum(set(nums))` gives the duplicate and `n*(n+1)//2 - sum(set(nums))` gives the missing number. O(1) extra space conceptually, though `set()` is O(n); true O(1) needs XOR or index-negation.
+
+**Key pages**: [[examples/leetcode-set-mismatch-python]] (new — three annotated approaches with traces), [[concepts/array-manipulation-patterns]] (updated — now covers 5 patterns + reference pattern 6).
+
+---
+
 2026-06-28. **Session: ingest — LeetCode Array Basics (Python, 3 problems).** 1 source, 1 concept, 1 example created.
 
 Three Easy-tier LeetCode array problems ingested as named patterns rather than one-off solutions.
