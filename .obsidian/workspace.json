@@ -248,8 +248,12 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b1e0856db03cc76e",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
+    "wiki/examples/leetcode-max-element-rearranging-python.md",
+    "wiki/concepts/greedy-patterns.md",
+    "wiki/sources/leetcode-max-element-rearranging.md",
+    "raw/leetcode-max-element-rearranging-2026-06-28.md",
     "wiki/examples/leetcode-stack-ops-python.md",
     "wiki/concepts/simulation-patterns.md",
     "wiki/sources/leetcode-stack-ops.md",
@@ -274,10 +278,6 @@
     "commands/critique.md",
     "commands/save.md",
     "commands/canvas.md",
-    "commands/autoresearch.md",
-    "wiki/arguments/_index.md",
-    "AGENTS.md",
-    "skills/critique/SKILL.md",
     "CLAUDE.md.tmp.2468.c9e3f9b81dae",
     "skills/track-belief",
     "skills/steelman",

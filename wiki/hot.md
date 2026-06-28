@@ -10,6 +10,22 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-06-28. **Session: ingest — LeetCode 1946 (Maximum Element After Decreasing and Rearranging).** 1 source, 1 new concept page, 1 example created.
+
+Problem introduces the **Sort + Greedy Constraint Propagation** paradigm — new concept page [[concepts/greedy-patterns]] created.
+
+**Core pattern**: `arr.sort()` → `arr[0] = 1` → `arr[i] = min(arr[i], arr[i-1] + 1)` → `return arr[-1]`. Three decisions: (1) sort to make the optimal rearrangement trivial; (2) set the hard boundary at index 0; (3) propagate the adjacency cap left-to-right. Each step is O(1); only the sort is O(n log n).
+
+**Why greedy is correct here**: at each position, `arr[i-1] + 1` is the maximum permitted value. Taking anything less can only reduce all future maxima — there is no future benefit to under-using the budget. Taking more violates the constraint. Therefore the greedy choice is uniquely optimal.
+
+**Greedy vs DP heuristic**: if sorting the input and making one left-to-right pass solves the problem, it is almost certainly greedy. DP is needed when past choices interact with future options in non-trivial ways.
+
+**Concept page structure**: Pattern 1 (Sort + Constraint Propagation) fully documented; Patterns 2 (Interval Greedy) and 3 (Two-Pass Greedy) left as placeholders.
+
+**Key pages**: [[concepts/greedy-patterns]] (new), [[examples/leetcode-max-element-rearranging-python]] (new — traces for all three examples, step-by-step justification).
+
+---
+
 2026-06-28. **Session: ingest — LeetCode 1441 (Build an Array With Stack Operations).** 1 source, 1 new concept page, 1 example created.
 
 Problem introduces the **greedy stream simulation** paradigm — distinct enough from array manipulation to warrant its own concept page: [[concepts/simulation-patterns]].

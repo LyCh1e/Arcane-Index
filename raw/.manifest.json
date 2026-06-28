@@ -278,6 +278,9 @@
     "wiki/examples/leetcode-count-missing-python.md": "c-000081",
     "wiki/sources/leetcode-stack-ops.md": "c-000082",
     "wiki/concepts/simulation-patterns.md": "c-000083",
-    "wiki/examples/leetcode-stack-ops-python.md": "c-000084"
+    "wiki/examples/leetcode-stack-ops-python.md": "c-000084",
+    "wiki/sources/leetcode-max-element-rearranging.md": "c-000085",
+    "wiki/concepts/greedy-patterns.md": "c-000086",
+    "wiki/examples/leetcode-max-element-rearranging-python.md": "c-000087"
   }
 }

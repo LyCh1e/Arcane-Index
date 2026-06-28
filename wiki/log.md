@@ -10,6 +10,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-28 | ingest | LeetCode 1946 — Maximum Element After Decreasing and Rearranging
+
+- Source: `raw/leetcode-max-element-rearranging-2026-06-28.md`
+- Summary: [[sources/leetcode-max-element-rearranging]]
+- Pages created: [[sources/leetcode-max-element-rearranging]] (c-000085), [[concepts/greedy-patterns]] (c-000086), [[examples/leetcode-max-element-rearranging-python]] (c-000087)
+- Pages updated: [[wiki/areas/computer-science]], [[wiki/index.md]], [[wiki/sources/_index.md]]
+- Key insight: Sort eliminates the rearrangement degree of freedom in O(n log n); the greedy cap `arr[i] = min(arr[i], arr[i-1] + 1)` applied left-to-right on a sorted array is provably optimal because taking less never helps and taking more violates the constraint.
+
+---
+
 ## 2026-06-28 | ingest | LeetCode 1441 — Build an Array With Stack Operations
 
 - Source: `raw/leetcode-stack-ops-2026-06-28.md`

@@ -30,6 +30,7 @@ Foundational computer science: how to measure algorithmic efficiency and choose 
 | [[concepts/graph-algorithms\|Graph Algorithms]] | DFS/BFS, topological sort, MST (Prim's/Kruskal's), shortest paths (Dijkstra/Bellman-Ford) |
 | [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] | Concatenation, split-midpoint interleaving, linear scan with running counter; Python idioms |
 | [[concepts/simulation-patterns\|Simulation Patterns]] | Greedy stream simulation with early exit; state-machine and grid simulation (placeholders) |
+| [[concepts/greedy-patterns\|Greedy Patterns]] | Sort + greedy constraint propagation; interval greedy and two-pass greedy (placeholders) |
 
 ---
 

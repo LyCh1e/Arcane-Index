@@ -50,6 +50,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/leetcode-set-mismatch\|LeetCode 645 — Set Mismatch]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/leetcode-count-missing\|LeetCode 1365 & 448 — Count Smaller / Find Disappeared]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/leetcode-stack-ops\|LeetCode 1441 — Build an Array With Stack Operations]] | chat-session | computer-science | 2026-06-28 |
+| [[sources/leetcode-max-element-rearranging\|LeetCode 1946 — Maximum Element After Decreasing and Rearranging]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/acon-context-compression-agents\|ACON: Optimising Context Compression for Long-Horizon LLM Agents]] | paper | ai-engineering | 2026-06-21 |
 | [[sources/anthropic-effective-context-engineering\|Effective Context Engineering for AI Agents (Anthropic)]] | article | ai-engineering | 2026-06-21 |
 | [[sources/factory-ai-compression-evaluation-2025\|Evaluating Context Compression for AI Agents (Factory.ai, 2025)]] | article | ai-engineering | 2026-06-21 |
@@ -173,6 +174,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/kubernetes\|Kubernetes]] | devops | high |
 | [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] | computer-science | medium |
 | [[concepts/simulation-patterns\|Simulation Patterns]] | computer-science | medium |
+| [[concepts/greedy-patterns\|Greedy Patterns]] | computer-science | medium |
 
 ## Examples
 
@@ -194,6 +196,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/leetcode-set-mismatch-python\|LeetCode 645 — Set Mismatch (Python)]] | practice | computer-science | [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] |
 | [[examples/leetcode-count-missing-python\|LeetCode 1365 & 448 — Count Smaller / Find Disappeared (Python)]] | practice | computer-science | [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] |
 | [[examples/leetcode-stack-ops-python\|LeetCode 1441 — Build an Array With Stack Operations (Python)]] | practice | computer-science | [[concepts/simulation-patterns\|Simulation Patterns]] |
+| [[examples/leetcode-max-element-rearranging-python\|LeetCode 1946 — Maximum Element After Decreasing and Rearranging (Python)]] | practice | computer-science | [[concepts/greedy-patterns\|Greedy Patterns]] |
 
 ## Entities
 

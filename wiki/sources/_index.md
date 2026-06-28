@@ -53,6 +53,7 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/leetcode-set-mismatch\|LeetCode 645 — Set Mismatch]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/leetcode-count-missing\|LeetCode 1365 & 448 — Count Smaller / Find Disappeared]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/leetcode-stack-ops\|LeetCode 1441 — Build an Array With Stack Operations]] | chat-session | computer-science | 2026-06-28 |
+| [[sources/leetcode-max-element-rearranging\|LeetCode 1946 — Maximum Element After Decreasing and Rearranging]] | chat-session | computer-science | 2026-06-28 |
 
 ## By Domain
 
