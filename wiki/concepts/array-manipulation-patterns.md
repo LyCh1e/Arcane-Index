@@ -222,18 +222,67 @@ return list(set(range(1, len(nums) + 1)) - set(nums))
 
 ---
 
-## Pattern 6 — Two-Pointer Merge (Reference)
+## Pattern 6 — Two-Pointer Merge
 
-For interleaving two *separate* arrays of equal length into one output:
+**Problem shape**: interleave two *separate* sequences — strings or arrays — character by character (or element by element). If they are the same length, a single shared index works. If they may differ in length, use two independent pointers so each can be exhausted separately.
+
+### Variant A — Equal-length inputs (shared index)
 
 ```python
-i, j, k = 0, 0, 0
-while i < len(a) and j < len(b):
-    result[k] = a[i]; k += 1; i += 1
-    result[k] = b[j]; k += 1; j += 1
+result = []
+for i in range(len(a)):   # safe only when len(a) == len(b)
+    result.append(a[i])
+    result.append(b[i])
+return "".join(result)    # or result if the output is a list
 ```
 
-Distinct from Pattern 2 because the inputs are separate arrays, not logical halves of one.
+### Variant B — Unequal-length inputs (two independent pointers)
+
+```python
+result = []
+i, j = 0, 0
+
+while i < len(a) or j < len(b):
+    if i < len(a):          # a has characters remaining
+        result.append(a[i])
+        i += 1
+    if j < len(b):          # b has characters remaining
+        result.append(b[j])
+        j += 1
+
+return "".join(result)
+```
+
+**Why two `if` statements and not `if/elif`**: both `a[i]` and `b[j]` may be appended in the same iteration when both inputs still have characters. `elif` would skip `b[j]` on every step where `a[i]` was also appended — producing the wrong output.
+
+**Why `or` in the while condition**: the loop must continue until *both* inputs are exhausted. `and` would stop as soon as the shorter one runs out, dropping the tail of the longer one.
+
+### Variant C — Pythonic one-liner via `zip_longest`
+
+```python
+from itertools import zip_longest
+
+return "".join(
+    a + b
+    for a, b in zip_longest(word1, word2, fillvalue="")
+)
+```
+
+`fillvalue=""` means the exhausted string contributes an empty string, so `a + b` appends nothing extra — clean, correct, and idiomatic.
+
+**Distinct from Pattern 2**: Pattern 2 splits a *single* array at its midpoint into two logical halves; Pattern 6 operates on two genuinely separate inputs.
+
+**Common bugs** (from LeetCode 1768 debugging session):
+
+| Bug | Cause | Fix |
+|-----|-------|-----|
+| `TypeError` | `list + str` (e.g. `newWord + word1[i]`) | `newWord.append(word1[i])` |
+| `IndexError` | Single index `i` for both strings when lengths differ | Two independent pointers |
+| Wrong return type | `return result` when `str` expected | `return "".join(result)` |
+
+**Complexity**: O(m + n) time, O(m + n) space (the output).
+
+**LeetCode**: 1768 — Merge Strings Alternately; 21 — Merge Two Sorted Lists (linked-list analogue).
 
 ---
 

@@ -56,6 +56,7 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/leetcode-max-element-rearranging\|LeetCode 1946 — Maximum Element After Decreasing and Rearranging]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/leetcode-add-two-numbers\|LeetCode 2 — Add Two Numbers]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/leetcode-longest-substring\|LeetCode 3 — Longest Substring Without Repeating Characters]] | chat-session | computer-science | 2026-06-28 |
+| [[sources/leetcode-merge-alternately\|LeetCode 1768 — Merge Strings Alternately]] | chat-session | computer-science | 2026-06-28 |
 
 ## By Domain
 

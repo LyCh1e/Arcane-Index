@@ -10,6 +10,19 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-06-28. **Session: ingest — LeetCode 1768 (Merge Strings Alternately).** Debugging case study. 1 source, 1 example created. Pattern 6 in [[concepts/array-manipulation-patterns]] expanded from stub to full pattern.
+
+**Pattern 6 — Two-Pointer Merge**: use two independent pointers `i`, `j` when the two input sequences may differ in length. Loop condition is `while i < len(a) or j < len(b)` (`or`, not `and` — must drain both). Inner structure is `if/if`, not `if/elif` — both characters are appended in the same iteration, so `elif` would interleave incorrectly.
+
+**Three bugs dissected**:
+1. `newWord + word1[i]` → `TypeError`: `list + str` is illegal; use `newWord.append(word1[i])`
+2. Single index `i` used for both strings → `IndexError` once the shorter string is exhausted; fix with two independent pointers
+3. `return newWord` → returns `list` not `str`; fix with `return "".join(newWord)`
+
+**Pythonic shorthand**: `"".join(a + b for a, b in zip_longest(word1, word2, fillvalue=""))` — `fillvalue=""` means the exhausted string contributes `""`, so concatenation silently adds nothing.
+
+---
+
 2026-06-28. **Session: ingest — LeetCode 3 (Longest Substring Without Repeating Characters).** 1 source, 1 new concept page, 1 example created. First sliding-window problem in the wiki.
 
 **Core sliding window invariant**: window `[left, right]` is always valid at the point `res` is updated. Expand `right` greedily; restore validity by advancing `left` when a duplicate enters the window.

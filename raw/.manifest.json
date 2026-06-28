@@ -287,6 +287,8 @@
     "wiki/examples/leetcode-add-two-numbers-python.md": "c-000090",
     "wiki/sources/leetcode-longest-substring.md": "c-000091",
     "wiki/concepts/sliding-window-patterns.md": "c-000092",
-    "wiki/examples/leetcode-longest-substring-python.md": "c-000093"
+    "wiki/examples/leetcode-longest-substring-python.md": "c-000093",
+    "wiki/sources/leetcode-merge-alternately.md": "c-000094",
+    "wiki/examples/leetcode-merge-alternately-python.md": "c-000095"
   }
 }

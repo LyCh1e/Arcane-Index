@@ -10,6 +10,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-28 | ingest | LeetCode 1768 — Merge Strings Alternately (debugging case study)
+
+- Source: `raw/leetcode-merge-alternately-2026-06-28.md`
+- Summary: [[sources/leetcode-merge-alternately]]
+- Pages created: [[sources/leetcode-merge-alternately]] (c-000094), [[examples/leetcode-merge-alternately-python]] (c-000095)
+- Pages updated: [[concepts/array-manipulation-patterns]] (Pattern 6 expanded from stub to full pattern), [[wiki/index.md]], [[wiki/sources/_index.md]]
+- Key insight: No new concept page — this problem fills out the existing Pattern 6 stub (Two-Pointer Merge). Three classic beginner Python bugs documented: `list + str` TypeError, shared-index IndexError, and list-vs-string return type mismatch. The `or` vs `and` loop condition and `if/if` vs `if/elif` branch structure are the key correctness details.
+
+---
+
 ## 2026-06-28 | ingest | LeetCode 3 — Longest Substring Without Repeating Characters
 
 - Source: `raw/leetcode-longest-substring-2026-06-28.md`
