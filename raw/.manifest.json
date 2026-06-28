@@ -275,6 +275,9 @@
     "wiki/sources/leetcode-set-mismatch.md": "c-000078",
     "wiki/examples/leetcode-set-mismatch-python.md": "c-000079",
     "wiki/sources/leetcode-count-missing.md": "c-000080",
-    "wiki/examples/leetcode-count-missing-python.md": "c-000081"
+    "wiki/examples/leetcode-count-missing-python.md": "c-000081",
+    "wiki/sources/leetcode-stack-ops.md": "c-000082",
+    "wiki/concepts/simulation-patterns.md": "c-000083",
+    "wiki/examples/leetcode-stack-ops-python.md": "c-000084"
   }
 }

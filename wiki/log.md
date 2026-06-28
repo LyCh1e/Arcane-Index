@@ -10,6 +10,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-28 | ingest | LeetCode 1441 — Build an Array With Stack Operations
+
+- Source: `raw/leetcode-stack-ops-2026-06-28.md`
+- Summary: [[sources/leetcode-stack-ops]]
+- Pages created: [[sources/leetcode-stack-ops]] (c-000082), [[concepts/simulation-patterns]] (c-000083), [[examples/leetcode-stack-ops-python]] (c-000084)
+- Pages updated: [[wiki/areas/computer-science]], [[wiki/index.md]], [[wiki/sources/_index.md]]
+- Key insight: Simulation problems translate rules directly into code. The two sub-patterns here — converting a list to a set for O(1) membership, and using `not target_set` as a clean early-exit guard — are reusable across all stream-simulation problems.
+
+---
+
 ## 2026-06-28 | ingest | LeetCode 1365 & 448 — Count Smaller / Find Disappeared
 
 - Source: `raw/leetcode-count-missing-2026-06-28.md`

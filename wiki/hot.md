@@ -10,6 +10,20 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-06-28. **Session: ingest — LeetCode 1441 (Build an Array With Stack Operations).** 1 source, 1 new concept page, 1 example created.
+
+Problem introduces the **greedy stream simulation** paradigm — distinct enough from array manipulation to warrant its own concept page: [[concepts/simulation-patterns]].
+
+**Core pattern**: iterate stream 1→n with a `target_set`. If the current number is in the set → Push + remove. If not → Push + Pop (mandatory discard, not a skip). Break when `target_set` is empty. Three sub-insights: (1) convert target list to set before the loop for O(1) membership; (2) `not target_set` is a one-liner early-exit guard that works because matched elements are removed; (3) Push is always mandatory — Pop is optional immediately after.
+
+**Practical bound**: the loop always exits at `number == target[-1]` (target is strictly increasing), so `n` is irrelevant in practice.
+
+**Concept page structure**: Pattern 1 fully documented; Patterns 2 (state-machine) and 3 (grid simulation) left as placeholders to fill from future problems.
+
+**Key pages**: [[concepts/simulation-patterns]] (new), [[examples/leetcode-stack-ops-python]] (new — full traces for all three examples).
+
+---
+
 2026-06-28. **Session: ingest — LeetCode 1365 & 448 (Count Smaller / Find Disappeared).** 1 source, 1 example created; [[concepts/array-manipulation-patterns]] extended with 2 more patterns (now 8 total).
 
 **Pattern 7 — Prefix Sum on Frequency Array**: when values are bounded to a fixed range R (hint: `0 <= nums[i] <= 100`), build a freq array of size R+1, then accumulate prefix sums so `freq[i]` = count of values ≤ i. "How many values < x?" is `freq[x-1]` in O(1). Complexity O(n + R) time, O(R) space — effectively O(n)/O(1) when R is constant. Beats sort (O(n log n)) and brute force (O(n²)).
