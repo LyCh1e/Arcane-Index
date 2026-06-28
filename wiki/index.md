@@ -46,6 +46,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/atlantic-council-cbdc-tracker-2026\|Atlantic Council: CBDC Tracker (2026)]] | tracker | blockchain | 2026-06-12 |
 | [[sources/chainalysis-crypto-crime-report-2025\|Chainalysis: Crypto Crime Report (2025)]] | report | blockchain | 2026-06-12 |
 | [[sources/layer2-scaling-comparison-2025\|Layer 2 Scaling Solutions Comparison (2025)]] | analysis | blockchain | 2026-06-12 |
+| [[sources/leetcode-array-basics\|LeetCode Array Basics (1929, 1470, 485)]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/acon-context-compression-agents\|ACON: Optimising Context Compression for Long-Horizon LLM Agents]] | paper | ai-engineering | 2026-06-21 |
 | [[sources/anthropic-effective-context-engineering\|Effective Context Engineering for AI Agents (Anthropic)]] | article | ai-engineering | 2026-06-21 |
 | [[sources/factory-ai-compression-evaluation-2025\|Evaluating Context Compression for AI Agents (Factory.ai, 2025)]] | article | ai-engineering | 2026-06-21 |
@@ -167,6 +168,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/fido-passkeys-passwordless\|FIDO, Passkeys, and Passwordless Authentication]] | secure-software-development | high |
 | [[concepts/data-mapping\|Data Mapping]] | data-engineering | high |
 | [[concepts/kubernetes\|Kubernetes]] | devops | high |
+| [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] | computer-science | medium |
 
 ## Examples
 
@@ -184,6 +186,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict2216-project-phase4-auth\|ICT2216 Project — Phase 4: Authentication (Register/Login/MFA/Logout)]] | project | ICT2216 / secure-software-development | [[concepts/secure-software-requirements\|Secure Software Requirements]] |
 | [[examples/ict2216-project-deployment-phases-9-12\|ICT2216 Project — Phases 9–12: Frontend Wiring, Hardening & EC2 Deployment]] | project | ICT2216 / devops | [[concepts/docker-compose\|Docker Compose]] |
 | [[examples/stock-prediction-neural-network\|Stock Prediction Neural Network — SOLID ML App with Tkinter GUI]] | project | machine-learning | [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] |
+| [[examples/leetcode-array-basics-python\|LeetCode Array Basics — Python Solutions]] | practice | computer-science | [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] |
 
 ## Entities
 

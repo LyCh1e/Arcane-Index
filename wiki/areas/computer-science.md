@@ -28,6 +28,7 @@ Foundational computer science: how to measure algorithmic efficiency and choose 
 | [[concepts/data-structures-fundamentals\|Data Structures Fundamentals]] | Arrays, linked lists, stacks, queues, trees (BST/AVL/Heap), hash tables, B-Trees — with complexity tables |
 | [[concepts/sorting-and-searching\|Sorting and Searching]] | Bubble/Selection/Insertion/Merge/Quick sort; brute-force, KMP, Boyer-Moore string search |
 | [[concepts/graph-algorithms\|Graph Algorithms]] | DFS/BFS, topological sort, MST (Prim's/Kruskal's), shortest paths (Dijkstra/Bellman-Ford) |
+| [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] | Concatenation, split-midpoint interleaving, linear scan with running counter; Python idioms |
 
 ---
 

@@ -10,6 +10,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-28 | ingest | LeetCode Array Basics — chat session (1929, 1470, 485)
+
+- Source: `raw/leetcode-array-basics-2026-06-28.md`
+- Summary: [[sources/leetcode-array-basics]]
+- Pages created: [[concepts/array-manipulation-patterns]] (c-000076), [[examples/leetcode-array-basics-python]] (c-000077), [[sources/leetcode-array-basics]] (c-000075)
+- Pages updated: [[wiki/index.md]], [[wiki/sources/_index.md]], [[wiki/areas/computer-science]]
+- Key insight: Three named array patterns — concatenation, split-midpoint interleave, and linear scan with running counter — cover a large fraction of Easy-tier array problems.
+
+---
+
 ## 2026-06-25 | project | ICT2216 TrialGuard — CodeQL restored + GitHub Actions action version deprecations
 
 - Restored `codeql-analysis` job to `.github/workflows/ci-cd.yml` (removed in commit d49f989 due to GHAS limitation on personal private repos)

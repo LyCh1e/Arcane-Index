@@ -49,6 +49,7 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/chainalysis-crypto-crime-report-2025\|Chainalysis Crypto Crime Report 2025]] | reference | blockchain | 2026-06-12 |
 | [[sources/hacken-smart-contract-vulnerabilities-2025\|Hacken: Smart Contract Vulnerabilities 2025]] | article | blockchain | 2026-06-12 |
 | [[sources/layer2-scaling-comparison-2025\|Layer-2 Scaling Comparison 2025]] | article | blockchain | 2026-06-12 |
+| [[sources/leetcode-array-basics\|LeetCode Array Basics (1929, 1470, 485)]] | chat-session | computer-science | 2026-06-28 |
 
 ## By Domain
 

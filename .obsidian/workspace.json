@@ -32,17 +32,17 @@
             }
           },
           {
-            "id": "7786dbdbe66069b4",
+            "id": "1ce838d35562ed5f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "commands/wiki.md",
+                "file": "CLAUDE.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "wiki"
+              "title": "CLAUDE"
             }
           }
         ]
@@ -236,6 +236,13 @@
   },
   "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "CLAUDE.md",
+    "wiki/index.md.tmp.20744.9c58e399552b",
+    "wiki/examples/leetcode-array-basics-python.md",
+    "wiki/concepts/array-manipulation-patterns.md",
+    "wiki/sources/leetcode-array-basics.md",
+    "raw/leetcode-array-basics-2026-06-28.md",
+    "commands/wiki.md",
     "skills/wiki-ingest/SKILL.md",
     "commands/track-belief.md",
     "commands/steelman.md",
@@ -247,7 +254,6 @@
     "AGENTS.md",
     "skills/critique/SKILL.md",
     "wiki/concepts/kubernetes.md",
-    "CLAUDE.md",
     "WIKI.md",
     "CLAUDE.md.tmp.2468.c9e3f9b81dae",
     "skills/track-belief/SKILL.md",
@@ -263,16 +269,9 @@
     "wiki/learning/github-actions-version-deprecations.md",
     "wiki/concepts/_index.md.tmp.25116.72c15f499e66",
     "wiki/synthesis/research-data-mapping.md",
-    "wiki/sources/atlan-data-mapping-guide.md",
-    "wiki/sources/airbyte-data-mapping-guide.md",
-    "wiki/concepts/data-mapping.md",
-    "wiki/overview.md",
-    "skills/wiki/SKILL.md",
-    "skills/autoresearch/references/program.md",
     "raw.zip",
     "wiki/concepts/secure-design-implementation.md.tmp.14992.3bd962dc9972",
     "wiki/resources/owasp-threat-dragon.md.tmp.19984.0d114b6db926",
-    "wiki/learning/_index.md.tmp.19984.ce480e80289d",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",

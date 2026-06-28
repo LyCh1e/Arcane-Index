@@ -2,11 +2,27 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-06-25
+updated: 2026-06-28
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
+
+## Last Updated
+
+2026-06-28. **Session: ingest — LeetCode Array Basics (Python, 3 problems).** 1 source, 1 concept, 1 example created.
+
+Three Easy-tier LeetCode array problems ingested as named patterns rather than one-off solutions.
+
+**Pattern 1 — Concatenation** (LeetCode 1929): `nums + nums` in Python; language-agnostic equivalent pre-allocates `[0] * (2 * n)` and dual-writes each index `i` and `i + n`. O(n) time, O(1) extra space.
+
+**Pattern 2 — Split-Midpoint Interleaving** (LeetCode 1470): a single array of 2n elements encodes two logical arrays side by side. Access them with `nums[i]` (first half) and `nums[i + n]` (second half). Interleave with a loop or nested list comprehension. Key idiom: `[val for i in range(n) for val in (nums[i], nums[i + n])]`. O(n) time, O(1) extra.
+
+**Pattern 3 — Linear Scan with Running Counter** (LeetCode 485): track `current` streak, reset to 0 on mismatch, update `max_count` **inside** the match branch only (the maximum only grows when `current` grows). O(n) time, O(1) space. Extends naturally to the k-flip variant (LeetCode 1004 — sliding window).
+
+**Key pages**: [[concepts/array-manipulation-patterns]] (new — pattern catalogue with Python idioms), [[examples/leetcode-array-basics-python]] (new — annotated solutions with traces).
+
+---
 
 ## Last Updated
 
