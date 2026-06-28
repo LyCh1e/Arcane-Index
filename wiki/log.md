@@ -10,6 +10,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-28 | ingest | LeetCode 2 — Add Two Numbers
+
+- Source: `raw/leetcode-add-two-numbers-2026-06-28.md`
+- Summary: [[sources/leetcode-add-two-numbers]]
+- Pages created: [[sources/leetcode-add-two-numbers]] (c-000088), [[concepts/linked-list-patterns]] (c-000089), [[examples/leetcode-add-two-numbers-python]] (c-000090)
+- Pages updated: [[wiki/areas/computer-science]], [[wiki/index.md]], [[wiki/sources/_index.md]]
+- Key insight: Two canonical linked-list techniques combined — the dummy head node eliminates the first-node special case; the `or carry != 0` loop guard handles the final carry that outlives both input lists. Both are reusable across virtually all linked-list construction problems.
+
+---
+
 ## 2026-06-28 | ingest | LeetCode 1946 — Maximum Element After Decreasing and Rearranging
 
 - Source: `raw/leetcode-max-element-rearranging-2026-06-28.md`

@@ -10,6 +10,20 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-06-28. **Session: ingest — LeetCode 2 (Add Two Numbers).** 1 source, 1 new concept page, 1 example created. First linked-list problem in the wiki.
+
+**Pattern 1 — Dummy Head Node**: create `ListNode(0)` as a sentinel before the loop so `current.next = ListNode(digit)` is valid for every node including the first. Return `dummy.next` to skip it. Eliminates a first-node special case in all list-construction loops.
+
+**Pattern 2 — Simultaneous Traversal with Carry**: `while l1 or l2 or carry` — the three-part condition handles unequal-length lists and a final carry in one guard. Exhausted lists default to digit 0 (`l1.val if l1 else 0`). Carry propagated as `total // 10`; stored digit is `total % 10`.
+
+**Why LSB-first is convenient**: digits are already in the order grade-school addition processes them (ones first), so no reversal is needed before or after the loop.
+
+**Concept page structure**: Patterns 1 (dummy head) and 2 (traversal with carry) fully documented; Patterns 3 (fast/slow pointer) and 4 (in-place reversal) left as placeholders for 141, 876, 206.
+
+**Key pages**: [[concepts/linked-list-patterns]] (new), [[examples/leetcode-add-two-numbers-python]] (new — full traces for all three examples including the 7-step carry propagation case).
+
+---
+
 2026-06-28. **Session: ingest — LeetCode 1946 (Maximum Element After Decreasing and Rearranging).** 1 source, 1 new concept page, 1 example created.
 
 Problem introduces the **Sort + Greedy Constraint Propagation** paradigm — new concept page [[concepts/greedy-patterns]] created.

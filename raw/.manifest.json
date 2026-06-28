@@ -281,6 +281,9 @@
     "wiki/examples/leetcode-stack-ops-python.md": "c-000084",
     "wiki/sources/leetcode-max-element-rearranging.md": "c-000085",
     "wiki/concepts/greedy-patterns.md": "c-000086",
-    "wiki/examples/leetcode-max-element-rearranging-python.md": "c-000087"
+    "wiki/examples/leetcode-max-element-rearranging-python.md": "c-000087",
+    "wiki/sources/leetcode-add-two-numbers.md": "c-000088",
+    "wiki/concepts/linked-list-patterns.md": "c-000089",
+    "wiki/examples/leetcode-add-two-numbers-python.md": "c-000090"
   }
 }
