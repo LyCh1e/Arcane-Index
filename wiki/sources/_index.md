@@ -51,6 +51,7 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/layer2-scaling-comparison-2025\|Layer-2 Scaling Comparison 2025]] | article | blockchain | 2026-06-12 |
 | [[sources/leetcode-array-basics\|LeetCode Array Basics (1929, 1470, 485)]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/leetcode-set-mismatch\|LeetCode 645 — Set Mismatch]] | chat-session | computer-science | 2026-06-28 |
+| [[sources/leetcode-count-missing\|LeetCode 1365 & 448 — Count Smaller / Find Disappeared]] | chat-session | computer-science | 2026-06-28 |
 
 ## By Domain
 

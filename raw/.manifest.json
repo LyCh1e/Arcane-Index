@@ -273,6 +273,8 @@
     "wiki/concepts/array-manipulation-patterns.md": "c-000076",
     "wiki/examples/leetcode-array-basics-python.md": "c-000077",
     "wiki/sources/leetcode-set-mismatch.md": "c-000078",
-    "wiki/examples/leetcode-set-mismatch-python.md": "c-000079"
+    "wiki/examples/leetcode-set-mismatch-python.md": "c-000079",
+    "wiki/sources/leetcode-count-missing.md": "c-000080",
+    "wiki/examples/leetcode-count-missing-python.md": "c-000081"
   }
 }

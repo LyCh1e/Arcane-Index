@@ -48,6 +48,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/layer2-scaling-comparison-2025\|Layer 2 Scaling Solutions Comparison (2025)]] | analysis | blockchain | 2026-06-12 |
 | [[sources/leetcode-array-basics\|LeetCode Array Basics (1929, 1470, 485)]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/leetcode-set-mismatch\|LeetCode 645 — Set Mismatch]] | chat-session | computer-science | 2026-06-28 |
+| [[sources/leetcode-count-missing\|LeetCode 1365 & 448 — Count Smaller / Find Disappeared]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/acon-context-compression-agents\|ACON: Optimising Context Compression for Long-Horizon LLM Agents]] | paper | ai-engineering | 2026-06-21 |
 | [[sources/anthropic-effective-context-engineering\|Effective Context Engineering for AI Agents (Anthropic)]] | article | ai-engineering | 2026-06-21 |
 | [[sources/factory-ai-compression-evaluation-2025\|Evaluating Context Compression for AI Agents (Factory.ai, 2025)]] | article | ai-engineering | 2026-06-21 |
@@ -189,6 +190,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/stock-prediction-neural-network\|Stock Prediction Neural Network — SOLID ML App with Tkinter GUI]] | project | machine-learning | [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] |
 | [[examples/leetcode-array-basics-python\|LeetCode Array Basics — Python Solutions]] | practice | computer-science | [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] |
 | [[examples/leetcode-set-mismatch-python\|LeetCode 645 — Set Mismatch (Python)]] | practice | computer-science | [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] |
+| [[examples/leetcode-count-missing-python\|LeetCode 1365 & 448 — Count Smaller / Find Disappeared (Python)]] | practice | computer-science | [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] |
 
 ## Entities
 

@@ -10,6 +10,17 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-06-28 | ingest | LeetCode 1365 & 448 — Count Smaller / Find Disappeared
+
+- Source: `raw/leetcode-count-missing-2026-06-28.md`
+- Summary: [[sources/leetcode-count-missing]]
+- Pages created: [[sources/leetcode-count-missing]] (c-000080), [[examples/leetcode-count-missing-python]] (c-000081)
+- Pages updated: [[concepts/array-manipulation-patterns]] (Pattern 7 Prefix Sum on Frequency Array + Pattern 8 Set Difference added), [[wiki/index.md]], [[wiki/sources/_index.md]]
+- Note: LeetCode 645 (Set Mismatch) appeared again in the same session but was already ingested as c-000078/079 — skipped.
+- Key insight: Bounded value ranges (0–100 constraint) unlock the prefix sum trick — O(R) space + O(1) per query beats sorting. Python `set` difference (`A - B`) is the idiomatic tool for "what's in the universe but not the array?"
+
+---
+
 ## 2026-06-28 | ingest | LeetCode 645 — Set Mismatch
 
 - Source: `raw/leetcode-set-mismatch-2026-06-28.md`

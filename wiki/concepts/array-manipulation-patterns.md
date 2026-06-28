@@ -162,6 +162,66 @@ missing   = expected  - actual_sum  # expected − actual unique sum = what is a
 
 ---
 
+## Pattern 7 — Prefix Sum on Frequency Array
+
+**Problem shape**: values are constrained to a small fixed range [0, R]. Count occurrences of every value into a freq array of size R+1, then accumulate a prefix sum so that `freq[i]` answers "how many values are ≤ i?" in O(1). "How many values are < x?" is then `freq[x - 1]`.
+
+```python
+R = 100                       # upper bound of value range
+freq = [0] * (R + 1)
+
+# Pass 1 — count occurrences
+for num in nums:
+    freq[num] += 1
+
+# Pass 2 — prefix sum: freq[i] = count of values <= i
+for i in range(1, R + 1):
+    freq[i] += freq[i - 1]
+
+# Query — how many values < x?
+def count_less_than(x):
+    return freq[x - 1] if x > 0 else 0
+```
+
+**Key insight**: the prefix sum converts a frequency table into a cumulative distribution in one O(R) pass. All subsequent per-element queries are O(1) lookups rather than O(n) scans.
+
+**When to use**: values are bounded to a known small range (constraint clue: `0 <= nums[i] <= 100`). Outperforms the sort+index trick (O(n log n)) and the brute force (O(n²)) when R is small.
+
+**Complexity**: O(n + R) time, O(R) space — effectively O(n) and O(1) when R is a fixed constant.
+
+**LeetCode**: 1365 — How Many Numbers Are Smaller Than the Current Number; 315 — Count of Smaller Numbers After Self (generalised, harder).
+
+---
+
+## Pattern 8 — Set Difference
+
+**Problem shape**: find all values from an expected universe that are absent from a given array. The universe is computable (e.g., `range(1, n+1)`), and the array may contain duplicates.
+
+```python
+full_set = set(range(1, len(nums) + 1))   # expected universe
+present  = set(nums)                       # values actually seen
+missing  = full_set - present              # set difference: in full but not in present
+return list(missing)
+
+# One-liner
+return list(set(range(1, len(nums) + 1)) - set(nums))
+```
+
+**Python `set` operators**:
+
+| Operator | Method | Meaning |
+|----------|--------|---------|
+| `A - B` | `A.difference(B)` | Elements in A not in B |
+| `A & B` | `A.intersection(B)` | Elements in both |
+| `A \| B` | `A.union(B)` | Elements in either |
+| `A ^ B` | `A.symmetric_difference(B)` | Elements in one but not both |
+
+**Complexity**: O(n) time, O(n) space (both sets).
+
+**LeetCode**: 448 — Find All Numbers Disappeared in an Array; 349 — Intersection of Two Arrays.
+
+---
+
 ## Pattern 6 — Two-Pointer Merge (Reference)
 
 For interleaving two *separate* arrays of equal length into one output:
@@ -199,8 +259,12 @@ Distinct from Pattern 2 because the inputs are separate arrays, not logical halv
 | Linear scan / running counter | O(n) | O(1) |
 | Frequency count | O(n) | O(n) |
 | Math sum identity | O(n) | O(n)* |
+| Prefix sum on freq array | O(n + R) | O(R)† |
+| Set difference | O(n) | O(n) |
 
-*`set()` is O(n); true O(1) requires XOR or index-negation variants. Output arrays are not counted as "extra" space.
+*`set()` is O(n); true O(1) requires XOR or index-negation variants.
+†R = value range (e.g. 101 for 0–100 constraint); effectively O(n) / O(1) when R is a fixed constant.
+Output arrays are not counted as "extra" space.
 
 ---
 
@@ -211,3 +275,4 @@ Distinct from Pattern 2 because the inputs are separate arrays, not logical halv
 - [[concepts/sorting-and-searching]] — patterns requiring ordered arrays
 - [[examples/leetcode-array-basics-python]] — worked examples for patterns 1–3
 - [[examples/leetcode-set-mismatch-python]] — worked examples for patterns 4–5
+- [[examples/leetcode-count-missing-python]] — worked examples for patterns 7–8

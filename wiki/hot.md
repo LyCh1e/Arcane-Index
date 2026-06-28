@@ -10,6 +10,18 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-06-28. **Session: ingest — LeetCode 1365 & 448 (Count Smaller / Find Disappeared).** 1 source, 1 example created; [[concepts/array-manipulation-patterns]] extended with 2 more patterns (now 8 total).
+
+**Pattern 7 — Prefix Sum on Frequency Array**: when values are bounded to a fixed range R (hint: `0 <= nums[i] <= 100`), build a freq array of size R+1, then accumulate prefix sums so `freq[i]` = count of values ≤ i. "How many values < x?" is `freq[x-1]` in O(1). Complexity O(n + R) time, O(R) space — effectively O(n)/O(1) when R is constant. Beats sort (O(n log n)) and brute force (O(n²)).
+
+**Pattern 8 — Set Difference**: `set(range(1, n+1)) - set(nums)` finds all values in the expected universe absent from the array in O(n) time. Python's `-` operator on sets is `A.difference(B)` — elements in A not in B. Also useful: `&` (intersection), `|` (union), `^` (symmetric difference).
+
+**LeetCode 645 note**: appeared again in the same session; already ingested as c-000078/079 — skipped without re-processing.
+
+**Key pages**: [[examples/leetcode-count-missing-python]] (new — prefix sum trace + set difference walkthrough).
+
+---
+
 2026-06-28. **Session: ingest — LeetCode 645 (Set Mismatch).** 1 source, 1 example created; [[concepts/array-manipulation-patterns]] extended with 2 new patterns.
 
 **Pattern 4 — Frequency Count**: build a `dict` or `Counter` of occurrences in one pass, then scan for values with count ≠ 1 in a second pass. `dict.get(key, 0)` avoids `KeyError` on absent keys; `Counter` returns 0 for missing keys by default. Applies to duplicates, missing values, majority elements, anagram detection.

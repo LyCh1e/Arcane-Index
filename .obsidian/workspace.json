@@ -234,8 +234,12 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b1e0856db03cc76e",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
+    "wiki/examples/leetcode-count-missing-python.md",
+    "wiki/sources/leetcode-count-missing.md",
+    "raw/leetcode-count-missing-2026-06-28.md",
+    "raw/leetcode-count-missing-2026-06-28.md.tmp.20744.c981a60455be",
     "wiki/examples/leetcode-set-mismatch-python.md",
     "wiki/sources/leetcode-set-mismatch.md",
     "raw/leetcode-set-mismatch-2026-06-28.md",
@@ -265,14 +269,10 @@
     "skills/steelman",
     "skills/critique",
     "wiki/arguments",
-    "_templates/argument.md",
-    "wiki/synthesis/research-kubernetes.md",
-    "wiki/sources/kubernetes-official-docs.md",
     "canvases/password-hashing.canvas",
     "wiki/concepts/_index.md.tmp.25116.72c15f499e66",
     "raw.zip",
     "wiki/concepts/secure-design-implementation.md.tmp.14992.3bd962dc9972",
-    "wiki/resources/owasp-threat-dragon.md.tmp.19984.0d114b6db926",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",
