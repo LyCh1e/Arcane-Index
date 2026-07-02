@@ -29,6 +29,8 @@ Security is not a feature — it is a quality attribute built in from requiremen
 | [[concepts/owasp-top-10\|OWASP Top 10 (2025)]] | Top 10 web application security risks, ASVS verification levels 1–3, SecurityRAT |
 | [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking Frameworks]] | CVE/CWE/NVD/CVSS, software assurance frameworks |
 | [[concepts/docker-compose\|Docker & Docker Compose]] | Containers, images, Compose multi-service stacks, volume mounts, networking |
+| [[concepts/secure-input-validation\|Secure Input Validation]] | Allow-list vs block-list, Unicode normalisation, ReDoS, SQL injection prevention (prepared statements, allow-list, escaping) |
+| [[concepts/secure-deployment-practices\|Secure Deployment Practices]] | Component security (OWASP Dependency-Check, SBOM), security logging rules (log injection, PII exclusion, centralisation), GitHub Secrets, Docker security best practices |
 
 ---
 

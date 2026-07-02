@@ -20,6 +20,17 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 ---
 
+## 2026-07-02 | ingest | ICT2216 Lecture 7 — Secure Software Implementation (Part 2)
+
+- Source: `raw/ICT2216 Lecture 7 Secure Software Development.md`
+- Summary: [[sources/ICT2216-lecture-7-secure-coding]]
+- Pages created: [[sources/ICT2216-lecture-7-secure-coding]] (c-000096), [[concepts/secure-input-validation]] (c-000097), [[concepts/secure-deployment-practices]] (c-000098)
+- Pages updated: [[wiki/areas/secure-software-development]], [[wiki/index.md]], [[wiki/sources/_index.md]]
+- Key insight (input validation): Allow-list always beats block-list; ReDoS is a genuine DoS vector from evil regex patterns with nested quantifiers — mitigation is RE2 (linear-time) or timeout; SQL injection prevention gold standard is parameterised queries + least-privilege DB account.
+- Key insight (deployment): Never log sensitive data or set TRACE in production (OpenAI Codex case: 37 TB/21 days); log injection is a real attack — sanitise before logging; never hardcode secrets anywhere in committed files — use GitHub Secrets → env vars at runtime; pin Docker image tags and run as non-root.
+
+---
+
 ## 2026-06-28 | ingest | LeetCode 3 — Longest Substring Without Repeating Characters
 
 - Source: `raw/leetcode-longest-substring-2026-06-28.md`

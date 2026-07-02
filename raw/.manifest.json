@@ -289,6 +289,9 @@
     "wiki/concepts/sliding-window-patterns.md": "c-000092",
     "wiki/examples/leetcode-longest-substring-python.md": "c-000093",
     "wiki/sources/leetcode-merge-alternately.md": "c-000094",
-    "wiki/examples/leetcode-merge-alternately-python.md": "c-000095"
+    "wiki/examples/leetcode-merge-alternately-python.md": "c-000095",
+    "wiki/sources/ICT2216-lecture-7-secure-coding.md": "c-000096",
+    "wiki/concepts/secure-input-validation.md": "c-000097",
+    "wiki/concepts/secure-deployment-practices.md": "c-000098"
   }
 }

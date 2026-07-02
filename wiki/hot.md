@@ -10,6 +10,22 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-02. **Session: ingest — ICT2216 Lecture 7 (Secure Software Implementation Part 2).** 1 source, 2 new concept pages covering input validation + secure deployment.
+
+**ReDoS**: a DoS attack exploiting NFA backtracking in regex engines. Pattern `(a+)+` on 16 `a` + `X` explores 65,536 paths. Evil patterns: nested quantifiers `(a+)+`, `([a-zA-Z]+)*`, overlapping alternation `(a|aa)+`. Mitigation: RE2 (linear-time), no nested quantifiers, set timeouts. Attack surfaces: web servers, WAFs, DBs, user-supplied regex fields.
+
+**Allow-list over block-list**: block lists are bypassed by encoding/case/alternate forms; allow lists reject everything not explicitly permitted. Anchor regex with `^` and `$`, specify allowed character set, set min/max lengths, avoid `.`/`\S`.
+
+**SQL injection prevention**: parameterised queries are the gold standard (`cursor.execute(sql, (param,))`) — query structure compiled before params are bound, no SQL interpretation possible. For non-parameterisable parts (column names, sort direction), validate against a strict set. Least privilege on the DB account is a mandatory secondary control.
+
+**Log injection + logging discipline**: sanitise user input before writing to logs (attackers insert newlines to fake entries). Never log passwords, session tokens, PII. Default TRACE in production caused OpenAI Codex to write 37 TB in 21 days — set WARNING or ERROR for production. Centralise logs; protect integrity (append-only/WORM storage).
+
+**Secrets in CI/CD**: GitHub Secrets → env vars at runtime. Never commit `.env`, hardcode in `Dockerfile` (`ENV`/`ARG`), or set in `docker-compose.yml` directly. Docker: pin image tags, run as non-root (`USER`), use `.dockerignore`, no `ENV` for secrets (visible in `docker inspect`).
+
+**Key pages**: [[concepts/secure-input-validation]] (new), [[concepts/secure-deployment-practices]] (new).
+
+---
+
 2026-06-28. **Session: ingest — LeetCode 1768 (Merge Strings Alternately).** Debugging case study. 1 source, 1 example created. Pattern 6 in [[concepts/array-manipulation-patterns]] expanded from stub to full pattern.
 
 **Pattern 6 — Two-Pointer Merge**: use two independent pointers `i`, `j` when the two input sequences may differ in length. Loop condition is `while i < len(a) or j < len(b)` (`or`, not `and` — must drain both). Inner structure is `if/if`, not `if/elif` — both characters are appended in the same iteration, so `elif` would interleave incorrectly.
