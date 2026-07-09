@@ -2,11 +2,29 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-06-28
+updated: 2026-07-09
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
+
+## Last Updated
+
+2026-07-09. **Session: ingest — ICT2216 Lab 11 (Vulnerability Assessment with OWASP ZAP + Fuzzing with Burp Suite).** 2 sources (local lab PDFs), 1 concept page updated, 1 new example page.
+
+**DAST vs SAST**: DAST (ZAP, Burp) exercises a *running* app from the outside; SAST (SonarQube, ESLint — [[examples/ict2216-lab9-sonarqube]]) analyses source without executing it. Both are needed — DAST catches runtime/config issues (missing headers, weak sessions) that never appear in source.
+
+**OWASP ZAP Automated Scan** = spider (traditional: HTML links, fast; Ajax: browser-driven, needed for JS-generated links) → passive scan (every found page, no extra requests) → active scan (attacks discovered params). Findings land in the Alerts tab with risk ratings, exportable as an HTML report — same shape as a WSTG-style report ([[concepts/security-testing-and-verification]]).
+
+**Burp Intruder attack types**: Sniper (1 payload set, cycled per position) · Battering ram (1 set, same value everywhere) · Pitchfork (multiple sets, lockstep) · **Cluster bomb** (multiple sets, full Cartesian product — used for independent username×password brute-forcing).
+
+**Grep-Extract pattern**: when response `Status`/`Length` don't distinguish success from failure, define a snippet to pull out of each response (e.g. the `Location:` redirect header) into its own results column — turns per-response manual inspection into a one-time config + sort. Reusable any time Intruder results look identical at a glance but differ in an embedded field.
+
+**Legal note (both tools)**: scanning/fuzzing a system without authorised permission is a criminal offence — only ever target systems you own or have explicit permission for (e.g. local DVWA).
+
+**Key pages**: [[concepts/security-testing-and-verification]] (updated — new DAST Tools section), [[examples/ict2216-lab11-zap-burp]] (new — full walkthrough).
+
+---
 
 ## Last Updated
 

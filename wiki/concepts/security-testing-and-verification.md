@@ -6,13 +6,14 @@ domain: secure-software-development
 complexity: high
 created: 2026-07-09
 updated: 2026-07-09
-tags: [concept, security-testing, ASVS, WSTG, test-automation, authentication-testing, owasp, penetration-testing, SDLC]
+tags: [concept, security-testing, ASVS, WSTG, test-automation, authentication-testing, owasp, penetration-testing, SDLC, DAST, zap, burp-suite, fuzzing]
 related:
   - concepts/secure-input-validation
   - concepts/secure-deployment-practices
   - concepts/owasp-top-10
   - concepts/secure-design-implementation
   - concepts/software-testing-fundamentals
+  - examples/ict2216-lab11-zap-burp
 ---
 
 # Security Testing and Verification
@@ -311,6 +312,54 @@ The second format confirms that the username `foo` exists, allowing an attacker 
 
 ---
 
+## DAST Tools: OWASP ZAP and Burp Suite
+
+**DAST (Dynamic Application Security Testing)** exercises a *running* application from the outside — as opposed to SAST (e.g. SonarQube, ESLint — see [[examples/ict2216-lab9-sonarqube]]) which analyses source code without executing it. DAST tools implement WSTG test procedures automatically: spidering discovers the site map, passive/active scanning and fuzzing probe it for weaknesses.
+
+### OWASP ZAP — Automated Vulnerability Scanning
+
+ZAP (Zed Attack Proxy) is a free, open-source DAST tool. The **Automated Scan** workflow:
+
+1. Enter target URL → ZAP **spiders** the app to build a site map:
+   - **Traditional spider** — parses HTML links; fast, misses JS-generated (AJAX) links
+   - **Ajax spider** — drives a real/headless browser so JS-rendered links are followed; slower, needed for SPA-style apps
+2. **Passive scan** — analyses each discovered response without sending extra requests (headers, cookies, information leakage)
+3. **Active scan** — actively attacks discovered pages/parameters (injects payloads, similar to WSTG input-validation and config tests)
+4. Findings land in the **Alerts** tab, each with a risk rating (High/Medium/Low/Informational) — directly usable in the **Findings** section of a WSTG-style report (see Security Test Reporting above)
+5. **Report** menu exports an HTML/other-format report with a Summary-of-Alerts table by risk level plus per-finding detail — structurally the same shape as the report format described above
+
+Common findings ZAP surfaces via passive scanning: missing `X-Frame-Options` (clickjacking), absent anti-CSRF tokens, cookies missing `HttpOnly`/`SameSite`, information leakage via `X-Powered-By`, missing `X-Content-Type-Options`.
+
+### Burp Suite — Manual/Targeted Fuzz Testing
+
+Burp Suite (Community Edition, free) is a proxy-centric toolkit. Where ZAP automates discovery+scanning, Burp's **Intruder** is used for *targeted* fuzzing — e.g. brute-forcing a login form:
+
+1. Configure the browser to proxy through Burp (`127.0.0.1:8080`); submit a request through the app so Burp captures it
+2. **Send to Intruder** → **Positions** tab: mark the fields to fuzz with `§...§` markers (clear the auto-selected ones and mark only the fields of interest, e.g. username + password)
+3. Choose an **attack type**:
+   - **Sniper** — one payload set, cycled through each position in turn
+   - **Battering ram** — one payload set, same value in every position simultaneously
+   - **Pitchfork** — multiple payload sets, iterated in lockstep (position *i* takes item *i* from each set)
+   - **Cluster bomb** — multiple payload sets, every combination tried (Cartesian product) — used for independent username×password brute-forcing
+4. **Payloads** tab: assign a payload set per position (e.g. a wordlist file via "Runtime file" payload type — see [1N3/IntruderPayloads](https://github.com/1N3/IntruderPayloads) for ready-made fuzzing lists)
+5. **Start attack** — results table shows response status/length per payload combination
+6. **Grep-Extract** (Options tab): define a snippet to pull out of each response (e.g. the `Location:` redirect header) into its own results column — turns "manually inspect every response" into "sort one column" to spot the interesting outcome (e.g. a redirect to `index.php` instead of back to `login.php` signals a successful login)
+
+### ZAP vs Burp — Complementary, Not Competing
+
+| | OWASP ZAP | Burp Suite (Community) |
+|---|---|---|
+| Primary mode | Automated crawl + scan | Manual/scripted proxy-driven testing |
+| Best for | Broad coverage, quick baseline VA | Targeted fuzzing of a specific parameter/flow |
+| Output | Alerts tab + exportable report | Intruder results table (no built-in report in Community edition) |
+| Cost | Free, fully open source | Free tier limited (no scanner); Pro adds active scanning |
+
+### Legal Note
+
+Both tools actively send attack traffic to the target. **Scanning or fuzzing a system without authorisation is a criminal offence** in most jurisdictions (e.g. under the Computer Misuse Act) — only ever point these at systems you own or have explicit written permission to test, such as a locally hosted DVWA instance.
+
+---
+
 ## Security Test Reporting
 
 Reference: https://owasp.org/www-project-web-security-testing-guide/stable/5-Reporting/README
@@ -350,3 +399,4 @@ A security test report must be easy to understand and must highlight all risks f
 - [[concepts/secure-design-implementation]] — authentication design, cryptography, session management
 - [[concepts/software-testing-fundamentals]] — general testing theory (ISTQB); security testing applies the same rigour
 - [[sources/ICT2216-lecture-8-secure-testing]] — source lecture
+- [[examples/ict2216-lab11-zap-burp]] — hands-on: OWASP ZAP vulnerability assessment + Burp Suite fuzzing against DVWA

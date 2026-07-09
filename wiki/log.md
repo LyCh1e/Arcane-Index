@@ -10,6 +10,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-09 | ingest | ICT2216 Lab 11 (OWASP ZAP + Burp Suite)
+
+- Source: `X11a - Vulnerability Assessment with OWASP ZAP.pdf`, `X11b - Fuzzing with Burp Suite.pdf` (local lab files)
+- Updated: [[concepts/security-testing-and-verification]] — new "DAST Tools: OWASP ZAP and Burp Suite" section (ZAP Automated Scan workflow, Burp Intruder attack types + Grep-Extract, ZAP vs Burp comparison table)
+- Created: [[examples/ict2216-lab11-zap-burp]] — full lab walkthrough (DVWA target, ZAP alerts, Cluster bomb fuzzing, Grep-Extract for redirect-based success detection)
+- Updated: `wiki/index.md` Examples table, `wiki/hot.md`
+
 ## 2026-07-09 | ingest | OWASP Security Terminology Cheat Sheet (web source)
 
 - Source: https://cheatsheetseries.owasp.org/cheatsheets/Security_Terminology_Cheat_Sheet.html
