@@ -32,6 +32,7 @@ Security is not a feature — it is a quality attribute built in from requiremen
 | [[concepts/secure-input-validation\|Secure Input Validation]] | Allow-list vs block-list, Unicode normalisation, ReDoS, SQL injection prevention (prepared statements, allow-list, escaping) |
 | [[concepts/secure-deployment-practices\|Secure Deployment Practices]] | Component security (OWASP Dependency-Check, SBOM), security logging rules (log injection, PII exclusion, centralisation), GitHub Secrets, Docker security best practices, logging testing considerations |
 | [[concepts/security-testing-and-verification\|Security Testing and Verification]] | Testing pyramid, SDLC security integration, OWASP ASVS (14 categories, 3 levels), ASVS V2.1 password rules, V2.4 storage, V2.5 recovery, V10 malicious code, WSTG 11 test categories, authentication testing (lockout, CAPTCHA, account enumeration), security test report structure |
+| [[concepts/security-terminology\|Security Terminology]] | Encoding vs escaping vs sanitisation vs serialisation; encryption vs hashing vs digital signatures; authentication vs authorisation; federated identity (IdP, RP/SP, Principal) |
 
 ---
 

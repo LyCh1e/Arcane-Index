@@ -10,6 +10,35 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-09. **Session: ingest — OWASP Security Terminology Cheat Sheet.** 1 source (c-000104), 1 new concept page (c-000105).
+
+**Data handling distinctions** (the ones always mixed up):
+- **Encoding** — format conversion only; Base64 is reversible and provides *no* security; wrong context → injection
+- **Escaping** — marks characters safe for a specific parser context (SQL `\'`, HTML `&lt;`, JS `\n`); *context-specific*; primary injection defence
+- **Sanitisation** — destroys or modifies content; secondary defence; prefer parameterised queries or escaping first; validation (reject bad input) is generally better than sanitisation (modify bad input)
+- **Serialisation** — object-to-bytes; untrusted deserialisation → RCE (OWASP A08)
+
+**Cryptography distinctions**:
+- **Encryption** — confidentiality; reversible with key; *never* use for password storage
+- **Hashing** — one-way; integrity + password storage; *must salt* (unique per-credential random value) to defeat rainbow tables; use Argon2 / bcrypt / PBKDF2
+- **Digital signature** — authenticity + non-repudiation; private key *signs* hash of message; public key *verifies*; HMAC uses shared secret (both parties trusted), digital signature uses asymmetric keys (only signer knows private key)
+
+**Identity distinctions**:
+- **AuthN** ("Who are you?") vs **AuthZ** ("Are you allowed?"); AuthZ always *after* AuthN; failure → 401 (not authenticated) vs 403 (authenticated but not authorised)
+- **Federated**: IdP creates/manages identity and provides authentication; RP (OAuth2/OIDC) or SP (SAML) is the consuming application; Principal is the entity being authenticated
+
+**Key page**: [[concepts/security-terminology]] (new — full precision reference with comparison tables).
+
+---
+
+## Last Updated
+
+2026-07-09. **Session: ingest — OWASP Cheat Sheet Series Alphabetical Index (https://cheatsheetseries.owasp.org/Glossary.html).** 1 source (c-000102), 1 resource page (c-000103). Note: URL path is `Glossary.html` but the page is the alphabetical index of all 120 cheat sheets — not a security term glossary. The security terminology cheat sheet lives at `/cheatsheets/Security_Terminology_Cheat_Sheet.html`. Resource page [[resources/owasp-cheat-sheet-series]] contains the full A–Z catalogue with direct URLs and a relevance map to vault concept pages. Seven AI-era cheat sheets highlighted: AI Agent Security, LLM Prompt Injection Prevention, RAG Security, Secure AI Model Ops, Secure Coding with AI, MCP Security, AML Sanctions AI Agent Payments.
+
+---
+
+## Last Updated
+
 2026-07-09. **Session: ingest — ICT2216 Lecture 8 (Secure Software Implementation Part 3: Test Automation & Security Testing References).** 1 source (c-000100), 1 new concept page (c-000101), 1 updated concept page.
 
 **Testing pyramid**: unit tests (bulk, fast, cheap) → integration/API tests (some) → UI/end-to-end tests (few, brittle, slow). Security tests are integrated at every SDLC phase — not bolted on at the end.

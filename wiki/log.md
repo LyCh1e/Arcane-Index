@@ -10,6 +10,29 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-09 | ingest | OWASP Security Terminology Cheat Sheet (web source)
+
+- Source: https://cheatsheetseries.owasp.org/cheatsheets/Security_Terminology_Cheat_Sheet.html
+- Source page: [[sources/owasp-security-terminology-cheat-sheet]] (c-000104)
+- New concept page: [[concepts/security-terminology]] (c-000105)
+  - **Data handling**: Encoding (format conversion, not a security control) vs Escaping (context-specific, prevents injection) vs Sanitisation (destroys content, secondary defence) vs Serialisation (object persistence; insecure deserialisation → RCE)
+  - **Cryptography**: Encryption (confidentiality, reversible with key) vs Hashing (integrity/passwords, one-way, must salt) vs Digital Signatures (authenticity + non-repudiation; private key signs, public key verifies)
+  - **Identity**: Authentication AuthN ("Who are you?") vs Authorisation AuthZ ("Are you allowed?"; 401 vs 403 distinction)
+  - **Federated identity**: IdP (manages identity, provides AuthN), RP (OAuth2/OIDC consumer), SP (SAML consumer = RP equivalent), Principal (entity being authenticated)
+  - Includes HMAC vs digital signature distinction (shared secret vs asymmetric)
+- Counter: 104 → 106
+
+## 2026-07-09 | ingest | OWASP Cheat Sheet Series — Alphabetical Index (web source)
+
+- Source: https://cheatsheetseries.owasp.org/Glossary.html
+- Source page: [[sources/owasp-cheat-sheet-series-index]] (c-000102)
+- Resource page: [[resources/owasp-cheat-sheet-series]] (c-000103)
+  - Complete A–Z catalogue of all 120 OWASP cheat sheets with direct URLs and language tags
+  - Relevance map linking each cheat sheet to existing vault concept pages
+  - AI-era additions table (7 new cheat sheets: AI Agent Security, LLM Prompt Injection, RAG Security, Secure AI Model Ops, Secure Coding with AI, MCP Security, AML Sanctions AI Agent Payments)
+  - Note: URL says `Glossary.html` but the page is actually the alphabetical index — security terminology is at `Security_Terminology_Cheat_Sheet.html`
+- Counter: 102 → 104
+
 ## 2026-07-09 | ingest | ICT2216 Lecture 8 — Secure Software Implementation (Part 3): Test Automation & Security Testing References
 
 - Source: `raw/ICT2216 Lecture 8 Secure Software Development.md`

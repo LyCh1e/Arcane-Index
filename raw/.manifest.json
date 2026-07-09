@@ -306,6 +306,10 @@
     "wiki/concepts/secure-deployment-practices.md": "c-000098",
     "wiki/sources/ICT2216-lecture-7-transcript.md": "c-000099",
     "wiki/sources/ICT2216-lecture-8-secure-testing.md": "c-000100",
-    "wiki/concepts/security-testing-and-verification.md": "c-000101"
+    "wiki/concepts/security-testing-and-verification.md": "c-000101",
+    "wiki/sources/owasp-cheat-sheet-series-index.md": "c-000102",
+    "wiki/resources/owasp-cheat-sheet-series.md": "c-000103",
+    "wiki/sources/owasp-security-terminology-cheat-sheet.md": "c-000104",
+    "wiki/concepts/security-terminology.md": "c-000105"
   }
 }

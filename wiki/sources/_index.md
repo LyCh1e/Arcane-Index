@@ -60,6 +60,8 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/ICT2216-lecture-7-secure-coding\|ICT2216 Lecture 7 — Secure Software Implementation (Part 2)]] | lecture-notes | secure-software-development | 2026-07-02 |
 | [[sources/ICT2216-lecture-7-transcript\|ICT2216 Lecture 7 — Spoken Lecture Transcript]] | lecture-transcript | secure-software-development | 2026-07-09 |
 | [[sources/ICT2216-lecture-8-secure-testing\|ICT2216 Lecture 8 — Test Automation & Security Testing References]] | lecture-notes | secure-software-development | 2026-07-09 |
+| [[sources/owasp-cheat-sheet-series-index\|OWASP Cheat Sheet Series — Alphabetical Index]] | web-reference | secure-software-development | 2026-07-09 |
+| [[sources/owasp-security-terminology-cheat-sheet\|OWASP Security Terminology Cheat Sheet]] | web-reference | secure-software-development | 2026-07-09 |
 
 ## By Domain
 
