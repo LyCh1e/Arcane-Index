@@ -10,6 +10,24 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-09 | ingest | ICT2216 Lecture 8 — Secure Software Implementation (Part 3): Test Automation & Security Testing References
+
+- Source: `raw/ICT2216 Lecture 8 Secure Software Development.md`
+- Source page: [[sources/ICT2216-lecture-8-secure-testing]] (c-000100)
+- New concept page: [[concepts/security-testing-and-verification]] (c-000101)
+  - Testing pyramid, SDLC security integration
+  - OWASP ASVS: 14 verification categories, 3 assurance levels
+  - ASVS V2.1 password rules (12 requirements aligned with NIST SP 800-63)
+  - ASVS V2.4 credential storage (bcrypt ≥10 / PBKDF2 ≥100,000; salt ≥32 bits)
+  - ASVS V2.5 credential recovery (no secret questions; TOTP/push)
+  - ASVS V10 malicious code (backdoors, time bombs, phone-home)
+  - OWASP WSTG: 11 test categories, how ASVS → WSTG workflow operates
+  - Authentication testing: lockout mechanism (step-by-step test), CAPTCHA 10-point evaluation, generic error messages (account enumeration prevention)
+  - Security test report structure (4 sections + severity ratings)
+- Updated: [[concepts/secure-deployment-practices]] (c-000098)
+  - Added logging testing section: what logs must not contain, log rotation testing, log access control, anomaly detection via log review (40x/50x patterns)
+- Counter: 100 → 102
+
 ## 2026-06-28 | ingest | LeetCode 1768 — Merge Strings Alternately (debugging case study)
 
 - Source: `raw/leetcode-merge-alternately-2026-06-28.md`

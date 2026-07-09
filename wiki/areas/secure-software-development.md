@@ -30,7 +30,8 @@ Security is not a feature — it is a quality attribute built in from requiremen
 | [[concepts/vulnerability-tracking-frameworks\|Vulnerability Tracking Frameworks]] | CVE/CWE/NVD/CVSS, software assurance frameworks |
 | [[concepts/docker-compose\|Docker & Docker Compose]] | Containers, images, Compose multi-service stacks, volume mounts, networking |
 | [[concepts/secure-input-validation\|Secure Input Validation]] | Allow-list vs block-list, Unicode normalisation, ReDoS, SQL injection prevention (prepared statements, allow-list, escaping) |
-| [[concepts/secure-deployment-practices\|Secure Deployment Practices]] | Component security (OWASP Dependency-Check, SBOM), security logging rules (log injection, PII exclusion, centralisation), GitHub Secrets, Docker security best practices |
+| [[concepts/secure-deployment-practices\|Secure Deployment Practices]] | Component security (OWASP Dependency-Check, SBOM), security logging rules (log injection, PII exclusion, centralisation), GitHub Secrets, Docker security best practices, logging testing considerations |
+| [[concepts/security-testing-and-verification\|Security Testing and Verification]] | Testing pyramid, SDLC security integration, OWASP ASVS (14 categories, 3 levels), ASVS V2.1 password rules, V2.4 storage, V2.5 recovery, V10 malicious code, WSTG 11 test categories, authentication testing (lockout, CAPTCHA, account enumeration), security test report structure |
 
 ---
 

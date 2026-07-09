@@ -10,6 +10,31 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-09. **Session: ingest — ICT2216 Lecture 8 (Secure Software Implementation Part 3: Test Automation & Security Testing References).** 1 source (c-000100), 1 new concept page (c-000101), 1 updated concept page.
+
+**Testing pyramid**: unit tests (bulk, fast, cheap) → integration/API tests (some) → UI/end-to-end tests (few, brittle, slow). Security tests are integrated at every SDLC phase — not bolted on at the end.
+
+**OWASP ASVS**: 14 verification categories (V1 Architecture → V14 Configuration), 3 assurance levels (L1 pen-testable, L2 recommended for most apps, L3 for critical systems). ASVS bridges security requirements to test cases; WSTG provides the concrete procedures.
+
+**ASVS V2.1 password rules (12 requirements, aligned with NIST SP 800-63)**: min 12 chars, max 128, no complexity rules, no forced rotation, all Unicode including emoji permitted, check against breached password lists, allow paste and password managers, show password strength meter. All of these are *prohibitions* on common but insecure practices — the standard tells you what not to do as much as what to do.
+
+**ASVS V2.4 storage**: bcrypt work factor ≥ 10 *or* PBKDF2 iterations ≥ 100,000; salt ≥ 32 bits, unique per credential. Optional: additional iteration with a secret salt stored in an HSM — not mandatory but highest assurance.
+
+**Authentication testing patterns**:
+- **Lockout**: test at 3, 4, and 5 failed attempts; test time-based unlock after 10–15 minutes; separate test for admin unlock
+- **CAPTCHA**: 10-point evaluation; critical failure modes — not validated server-side, solution is the alt-text or a hidden field, cookies cleared to bypass, mobile API endpoint skips CAPTCHA
+- **Account enumeration**: `"Login for User foo: invalid password"` is **wrong** — reveals the username exists; must return identical messages for all invalid combinations
+
+**Logging testing (added to [[concepts/secure-deployment-practices]])**: test that logs exclude debug traces, usernames, internal IPs, PII; log rotation maintains correct retention period, compression, and permissions; log access is strictly separated from application RBAC; 40x volume spikes indicate scanners, 50x bursts indicate early-stage injection attacks.
+
+**Security test report structure**: Introduction → Executive Summary → Findings (name, component, severity, PoC, remediation, CVE/CWE refs) → Appendices (WSTG checklist). For ICT2216 D3: also include security and usability ratings (1–5) with justification.
+
+**Key pages**: [[concepts/security-testing-and-verification]] (new — full ASVS/WSTG reference), [[concepts/secure-deployment-practices]] (updated — logging testing section added).
+
+---
+
+## Last Updated
+
 2026-07-09. **Session: ingest — ICT2216 Lecture 7 transcript (supplement to structured notes).** 1 source (c-000099). Updated [[concepts/secure-input-validation]] and [[concepts/secure-deployment-practices]] with 5 new insights from the spoken lecture.
 
 **Stored procedures hide schema**: prepared statements embed SQL in source code — if source leaks, attacker sees table/column names. Stored procedures expose only function names; internal SQL is hidden in the DB. Additional benefit: app DB account needs only `EXECUTE` on procedures, not `SELECT/INSERT/UPDATE` on base tables.

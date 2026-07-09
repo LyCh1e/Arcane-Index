@@ -415,6 +415,54 @@ Libraries: Python `zipfile` does not protect against ZIP bombs by default — im
 
 ---
 
+## Security Logging — Testing Considerations
+
+Implementing security logging is covered above. Testing that logging is implemented correctly requires its own verification pass.
+
+### What Logs Must NOT Contain
+
+Event logs often contain data useful to attackers (information leakage) that can also be used in exploits. Review logs for the presence of:
+
+| Data Type | Risk if Exposed |
+|---|---|
+| Debug information and stack traces | Reveals internal code paths, library versions, file paths |
+| Usernames | Enables account enumeration and targeted attacks |
+| System component names | Reveals internal architecture |
+| Internal IP addresses | Enables targeted network attacks |
+| Email addresses, postal addresses, phone numbers | PII leakage — privacy and regulatory breach |
+| Business data | Competitive intelligence or GDPR/PDPA exposure |
+
+Any of the above in logs creates an **information disclosure** risk: if an attacker gains log access, they gain reconnaissance data about the system.
+
+### Log Rotation Testing
+
+Most servers rotate logs to prevent filling the filesystem. Log rotation must be tested to ensure:
+
+1. Logs are kept for the **time defined in the security policy** — not more, not less
+2. Logs are **compressed once rotated** (more logs stored in the same disk space)
+3. File system permissions on rotated log files are the **same or stricter** than the active log file (e.g., the web server process must not be able to write to rotated logs)
+4. An attacker cannot **force log rotation** to erase their tracks — generating excessive log volume to trigger size-based rotation is a known anti-forensics technique
+
+### Log Access Control
+
+| Rule | Rationale |
+|------|-----------|
+| End users must never see event logs | Even a glimpse of log data provides reconnaissance |
+| Web administrators must not view raw application logs | This would break separation of duties |
+| Log access control must be **independent** of the application's general access control schema | Role-based application ACLs and log ACLs must be separate enforcement points |
+| Unauthenticated users must never see any log data | Unauthenticated access to logs = unauthenticated reconnaissance |
+
+### Anomaly Detection via Log Review
+
+Reviewing HTTP status code patterns in logs can reveal attacks in progress:
+
+| Log Pattern | Likely Explanation |
+|---|---|
+| **Large volume of 40x (Not Found) errors** from the same source IP | CGI scanner or directory enumeration tool being used against the server |
+| **50x (Server Error) messages** in bursts | Attacker abusing parts of the application that fail unexpectedly — early-stage SQL injection produces 500 errors when the malformed query causes a backend failure |
+
+---
+
 ## OWASP Proactive Controls Reference (C1–C10)
 
 | Control | Focus Area | Primary Concept Page |
@@ -437,4 +485,6 @@ Libraries: Python `zipfile` does not protect against ZIP bombs by default — im
 - [[concepts/secure-input-validation]] — input validation, ReDoS, SQL injection prevention in depth
 - [[concepts/secure-design-implementation]] — cryptography design, authentication, authorisation, accountability
 - [[concepts/owasp-top-10]] — the vulnerability risk list; proactive controls are the corresponding defences
-- [[sources/ICT2216-lecture-7-secure-coding]] — source lecture
+- [[concepts/security-testing-and-verification]] — ASVS, WSTG, authentication testing, lockout testing, log testing verification
+- [[sources/ICT2216-lecture-7-secure-coding]] — source lecture (implementation)
+- [[sources/ICT2216-lecture-8-secure-testing]] — source lecture (testing and verification)

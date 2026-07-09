@@ -193,6 +193,17 @@
         "wiki/concepts/privacy-data-protection-and-ip.md",
         "wiki/concepts/ai-ethics-and-digital-society.md"
       ]
+    },
+    "raw/ICT2216 Lecture 8 Secure Software Development.md": {
+      "ingested": "2026-07-09",
+      "course": "ICT2216",
+      "title": "Secure Software Development — Lecture 8: Test Automation & Security Testing References",
+      "domain": "secure-software-development",
+      "source_index": "wiki/sources/ICT2216-lecture-8-secure-testing.md",
+      "concept_pages": [
+        "wiki/concepts/security-testing-and-verification.md",
+        "wiki/concepts/secure-deployment-practices.md"
+      ]
     }
   },
   "address_map": {
@@ -293,6 +304,8 @@
     "wiki/sources/ICT2216-lecture-7-secure-coding.md": "c-000096",
     "wiki/concepts/secure-input-validation.md": "c-000097",
     "wiki/concepts/secure-deployment-practices.md": "c-000098",
-    "wiki/sources/ICT2216-lecture-7-transcript.md": "c-000099"
+    "wiki/sources/ICT2216-lecture-7-transcript.md": "c-000099",
+    "wiki/sources/ICT2216-lecture-8-secure-testing.md": "c-000100",
+    "wiki/concepts/security-testing-and-verification.md": "c-000101"
   }
 }
