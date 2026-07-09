@@ -4,8 +4,8 @@
   "title": "Change folder and graph node colours",
   "titleGenerationStatus": "success",
   "createdAt": 1782478317642,
-  "updatedAt": 1782966715613,
-  "lastResponseAt": 1782966715613,
+  "updatedAt": 1783575756804,
+  "lastResponseAt": 1783575756804,
   "sessionId": "b210d08b-7a77-4450-bf76-f83542abf814",
   "providerState": {
     "providerSessionId": "b210d08b-7a77-4450-bf76-f83542abf814"
@@ -13,11 +13,11 @@
   "usage": {
     "model": "sonnet",
     "inputTokens": 1,
-    "cacheCreationInputTokens": 230,
-    "cacheReadInputTokens": 132775,
+    "cacheCreationInputTokens": 236,
+    "cacheReadInputTokens": 162882,
     "contextWindow": 200000,
-    "contextTokens": 133006,
-    "percentage": 67,
+    "contextTokens": 163119,
+    "percentage": 82,
     "contextWindowIsAuthoritative": true
   }
 }

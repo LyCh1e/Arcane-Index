@@ -10,6 +10,20 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-09. **Session: ingest — ICT2216 Lecture 7 transcript (supplement to structured notes).** 1 source (c-000099). Updated [[concepts/secure-input-validation]] and [[concepts/secure-deployment-practices]] with 5 new insights from the spoken lecture.
+
+**Stored procedures hide schema**: prepared statements embed SQL in source code — if source leaks, attacker sees table/column names. Stored procedures expose only function names; internal SQL is hidden in the DB. Additional benefit: app DB account needs only `EXECUTE` on procedures, not `SELECT/INSERT/UPDATE` on base tables.
+
+**Version pinning debate**: patch/minor updates → auto-apply (almost always security fixes); major updates → manual review (breaking changes). Prerequisite: sufficient automated test coverage. Without it, version pinning is safer; with it, frequent small updates are more secure than infrequent large ones.
+
+**POSIX/Unix epoch time solves leap seconds**: counts seconds since 1970-01-01T00:00:00Z — leap second just increments the counter. Timestamp-format storage (`HH:MM:SS`) creates a `23:59:60` edge case that regex validators typically reject or accept incorrectly. Unix designers anticipated non-constant Earth rotation in the 1970s.
+
+**Log injection → reverse shell**: unsanitised log writes allow payload injection; if a log-processing script executes log content, the attacker gains a shell. Attacker then deletes the log entry to erase the audit trail. This is why sanitise-before-logging and centralised-append-only forwarding are both required — not either/or.
+
+**ZIP bomb (CPOM attack)**: small archive decompresses to enormous size (42 KB → 4.5 PB), causing disk/RAM exhaustion. File upload security must check decompressed size and compression ratio, not just file type header. Python `zipfile` has no built-in protection — implement manual size tracking.
+
+---
+
 2026-07-02. **Session: ingest — ICT2216 Lecture 7 (Secure Software Implementation Part 2).** 1 source, 2 new concept pages covering input validation + secure deployment.
 
 **ReDoS**: a DoS attack exploiting NFA backtracking in regex engines. Pattern `(a+)+` on 16 `a` + `X` explores 65,536 paths. Evil patterns: nested quantifiers `(a+)+`, `([a-zA-Z]+)*`, overlapping alternation `(a|aa)+`. Mitigation: RE2 (linear-time), no nested quantifiers, set timeouts. Attack surfaces: web servers, WAFs, DBs, user-supplied regex fields.

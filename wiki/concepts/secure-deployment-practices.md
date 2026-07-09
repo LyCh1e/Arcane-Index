@@ -42,6 +42,19 @@ Third-party components receive new CVE disclosures regularly. Your dependency ve
 - **Monitored** — receive notifications when a CVE is disclosed against a version you use
 - **Updated** — patch in a timely fashion; prioritise by CVSS severity
 
+**Version pinning — the debate:**
+
+| Position | Argument |
+|----------|----------|
+| **Pin versions** | Prevents unexpected breaking changes; safe if test coverage is insufficient |
+| **Update freely** | Delays leave you on a vulnerable version; minor updates are almost always safe; sufficient automated tests catch regressions |
+
+Recommended policy (balancing both):
+- **Patch and minor updates** (e.g., `1.2.3 → 1.2.4`, `1.2.x → 1.3.0`): allow CI/CD to auto-apply — these are almost always bug fixes and security patches
+- **Major updates** (e.g., `1.x → 2.0`): require manual review — may introduce breaking API changes that automated tests may not cover
+
+The underlying principle: **automated test coverage is the prerequisite for safe automatic updates**. If your test suite does not cover sufficient functionality, version pinning is the safer fallback. If it does, frequent small updates are more secure than infrequent large ones.
+
 ### Key Tools
 
 | Tool | Purpose |
@@ -101,6 +114,17 @@ safe_username = username.replace('\n', ' ').replace('\r', ' ')
 logging.info("Login attempt for: %s", safe_username)
 # Or: use a structured logger that serialises to JSON — newlines cannot break JSON fields
 ```
+
+**Log injection → reverse shell (why this matters beyond forensic contamination):**
+
+In Ethical Hacking courses, IS students learn to use log injection as a vector for obtaining a reverse shell:
+1. Attacker identifies that user input is written to a log file without sanitisation
+2. Attacker injects a newline followed by a shell command payload
+3. If the log is processed by a script, aggregator, or SIEM that evaluates log content (e.g., a shell script that `tail`s the log and pipes to a processor), the injected command executes
+4. The attacker then connects back on the reverse shell port
+5. Finally, the attacker deletes or modifies the log entry to remove the audit trail — which is why log integrity protection (append-only storage, centralised forwarding) is a mandatory companion to log encoding
+
+This sequence illustrates why sanitising before logging is a **security control**, not just a data quality measure.
 
 **Rule 2 — Never log sensitive information**
 
@@ -377,6 +401,17 @@ networks:
 | Disable execution on upload directories | Set `noexec` on the filesystem mount; configure web server to deny execution |
 | Scan uploads for malware | Integrate a virus scanner (ClamAV, cloud AV API) on ingest |
 | Never send the absolute server path to the client | Path disclosure enables directory traversal and targeted attacks |
+| Detect and reject ZIP bombs | ZIP bombs (decompression bombs) are small compressed files that expand to enormous sizes — a 42 KB file can decompress to 4.5 PB, exhausting disk space and RAM (DoS). Implement decompressed-size limits and nested-compression-ratio checking before extracting any archive |
+
+**ZIP bomb (CPOM attack) detail:**
+
+When your application accepts ZIP or archive uploads and decompresses them automatically:
+- Check the reported uncompressed size in the ZIP metadata before extracting — reject if it exceeds a safe threshold
+- Check the compression ratio — legitimate files rarely compress beyond 95%; ratios above 99% are suspicious
+- Recursively check nested archives (ZIP within ZIP within ZIP) — each layer compounds the decompression ratio
+- Set a hard limit on the total decompressed output size and abort extraction when the limit is reached
+
+Libraries: Python `zipfile` does not protect against ZIP bombs by default — implement manual size tracking. The `defusedxml` pattern (safe-by-default parsing) does not exist for ZIP; you must add checks explicitly.
 
 ---
 

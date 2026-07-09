@@ -58,6 +58,7 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/leetcode-longest-substring\|LeetCode 3 — Longest Substring Without Repeating Characters]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/leetcode-merge-alternately\|LeetCode 1768 — Merge Strings Alternately]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/ICT2216-lecture-7-secure-coding\|ICT2216 Lecture 7 — Secure Software Implementation (Part 2)]] | lecture-notes | secure-software-development | 2026-07-02 |
+| [[sources/ICT2216-lecture-7-transcript\|ICT2216 Lecture 7 — Spoken Lecture Transcript]] | lecture-transcript | secure-software-development | 2026-07-09 |
 
 ## By Domain
 

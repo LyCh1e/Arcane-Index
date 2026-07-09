@@ -55,6 +55,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/leetcode-longest-substring\|LeetCode 3 — Longest Substring Without Repeating Characters]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/leetcode-merge-alternately\|LeetCode 1768 — Merge Strings Alternately]] | chat-session | computer-science | 2026-06-28 |
 | [[sources/ICT2216-lecture-7-secure-coding\|ICT2216 Lecture 7 — Secure Software Implementation (Part 2)]] | lecture-notes | secure-software-development | 2026-07-02 |
+| [[sources/ICT2216-lecture-7-transcript\|ICT2216 Lecture 7 — Spoken Lecture Transcript]] | lecture-transcript | secure-software-development | 2026-07-09 |
 | [[sources/acon-context-compression-agents\|ACON: Optimising Context Compression for Long-Horizon LLM Agents]] | paper | ai-engineering | 2026-06-21 |
 | [[sources/anthropic-effective-context-engineering\|Effective Context Engineering for AI Agents (Anthropic)]] | article | ai-engineering | 2026-06-21 |
 | [[sources/factory-ai-compression-evaluation-2025\|Evaluating Context Compression for AI Agents (Factory.ai, 2025)]] | article | ai-engineering | 2026-06-21 |

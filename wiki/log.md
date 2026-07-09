@@ -20,6 +20,16 @@ Chronological record of all vault operations. Append-only — never edit past en
 
 ---
 
+## 2026-07-09 | ingest | ICT2216 Lecture 7 — Spoken Lecture Transcript (supplement)
+
+- Source: `raw/ICT2216-lecture-7-transcript-2026-07-09.md`
+- Summary: [[sources/ICT2216-lecture-7-transcript]]
+- Pages created: [[sources/ICT2216-lecture-7-transcript]] (c-000099)
+- Pages updated (appended): [[concepts/secure-input-validation]], [[concepts/secure-deployment-practices]], [[wiki/index.md]], [[wiki/sources/_index.md]]
+- New insights: (1) Stored procedures protect schema from source code leakage — prepared statements expose table/column names in source; procedures only expose function names. (2) Version pinning debate — patch/minor: auto-update; major: manual review; sufficient test coverage is the prerequisite. (3) POSIX epoch time sidesteps leap seconds (23:59:60) — timestamp-format storage does not. (4) Log injection enables reverse shell — attacker injects shell payload into unsanitised log, executes via log processor, then deletes the entry. (5) ZIP bomb / CPOM attack — decompression must check size and compression ratio, not just file type.
+
+---
+
 ## 2026-07-02 | ingest | ICT2216 Lecture 7 — Secure Software Implementation (Part 2)
 
 - Source: `raw/ICT2216 Lecture 7 Secure Software Development.md`

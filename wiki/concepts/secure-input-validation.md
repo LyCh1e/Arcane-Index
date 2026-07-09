@@ -302,6 +302,14 @@ AS
     EXEC('SELECT * FROM Users WHERE Username = ''' + @Username + '''')   ← still injectable
 ```
 
+**Security advantage over prepared statements — schema leakage protection:**
+
+If an attacker obtains a copy of your application's source code (via a vulnerability, insider threat, or repository exposure), prepared statement queries reveal your database schema: table names, column names, and data structure are all visible in the SQL strings embedded in the code. This intelligence significantly aids targeted attacks.
+
+Stored procedures only expose the function name (`GetUser`, `InsertOrder`) — the internal SQL, table structure, and column names remain hidden inside the database. Even with full source code access, the attacker cannot reconstruct the schema from the application layer alone.
+
+Additional privilege reduction: with stored procedures, the application's database account needs only `EXECUTE` permission on the procedures — not `SELECT`, `INSERT`, or `UPDATE` on the underlying tables. This satisfies least privilege more completely than parameterised queries alone.
+
 ### Defence 3 — Allow-List for Non-Parameterisable Query Parts
 
 Table names, column names, and sort direction **cannot be parameterised** in most database drivers. Validate against a strict allow-list.
@@ -328,6 +336,43 @@ Database-specific character escaping. Error-prone, easy to forget, not portable 
 - **Input validation as secondary defence.** Even with parameterised queries, validating format and length adds a layer of defence-in-depth.
 
 Reference: https://bobby-tables.com/python — practical code examples by language.
+
+---
+
+## Real-World Edge Cases in Input Validation
+
+Input validation failures are not always caused by attackers — real-world data can also produce unexpected values that naive validators reject or accept incorrectly. Two canonical examples:
+
+### Leap Seconds — `23:59:60`
+
+Earth's rotation speed is not constant. Periodically, a **leap second** is inserted to keep UTC aligned with astronomical time, causing a clock to display `23:59:60` — a value that does not exist in normal time.
+
+Most regex-based time validators fail this edge case:
+
+```python
+# Too restrictive — rejects the valid leap-second timestamp 23:59:60
+TIME_RE = re.compile(r'^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$')
+#                                                   ^^^^^^ seconds 00–59 only
+
+# Too permissive — accepts nonsense like 99:99:99
+LOOSE_RE = re.compile(r'^\d{2}:\d{2}:\d{2}$')
+
+# Correct for leap-second-aware systems — allow :60 only for 23:59
+LEAP_AWARE = re.compile(r'^([01]\d|2[0-3]):([0-5]\d):([0-5]\d|60)$')
+# But 01:30:60 would still be accepted — true leap-second validation requires temporal context
+```
+
+**The practical solution — POSIX/Unix epoch time:**
+
+POSIX time counts the number of seconds elapsed since `1970-01-01 00:00:00 UTC`. When a leap second is inserted, the counter simply increments by 1 — no special handling is required at the storage or validation layer. The `23:59:60` edge case never arises because time is stored as an integer, not as a formatted string.
+
+Unix/Linux designers anticipated non-constant Earth rotation when designing the epoch format in the 1970s. For any application where timestamp accuracy and audit integrity matter, store time as epoch seconds (or a database timestamp type that handles timezone and leap-second semantics correctly), not as a formatted HH:MM:SS string.
+
+**Lesson for validators:** Input validation edge cases come from **real-world data**, not only from attack patterns. Documenting known edge cases (leap seconds, international names with apostrophes, emoji in text fields) and explicitly deciding how to handle them is part of secure implementation.
+
+### Irish Names — `O'Brian`
+
+The apostrophe `'` is a legitimate character in surnames (O'Brian, O'Connor, D'Angelo). A block-list that rejects `'` to prevent SQL injection will reject valid names. The correct fix is parameterised queries (which make the character harmless), not blocking it from input.
 
 ---
 
