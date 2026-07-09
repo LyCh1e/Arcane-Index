@@ -168,6 +168,8 @@ Add to the project's `.vscode/tasks.json`:
 | `/critique [topic\|note]` | Structured epistemic critique: fallacies, premise analysis, bias detection, steelman; appends to argument note |
 | `/steelman [topic\|claim]` | Constructs the strongest opposing case and attacks your position from it; adversarial chat response |
 | `/track-belief [topic]` | Snapshots current confidence and position into the Belief History table; tracks evolution over time |
+| `/affirm [topic\|note]` | Structured epistemic affirmation: identifies sound premises, valid reasoning, strong evidence; inverse of /critique |
+| `/workflow-loop [goal]` | Designs a complete workflow loop: interviews for goal/pattern/agent/tools/prompt/stopping condition; writes vault note + ready-to-run /loop invocation |
 
 ## Writing Style
 
