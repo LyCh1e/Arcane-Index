@@ -204,6 +204,25 @@
         "wiki/concepts/security-testing-and-verification.md",
         "wiki/concepts/secure-deployment-practices.md"
       ]
+    },
+    "https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes": {
+      "ingested": "2026-07-12",
+      "title": "Learn LaTeX in 30 Minutes — Overleaf",
+      "domain": "academic-writing",
+      "source_index": "wiki/sources/overleaf-learn-latex-30min.md",
+      "concept_pages": [
+        "wiki/concepts/latex-formatting.md"
+      ]
+    },
+    "https://patrickemonts.com/post/latex_best_practice/": {
+      "ingested": "2026-07-12",
+      "title": "LaTeX Best Practices — Patrick Emonts",
+      "domain": "academic-writing",
+      "source_index": "wiki/sources/emonts-latex-best-practices.md",
+      "concept_pages": [
+        "wiki/concepts/latex-formatting.md",
+        "wiki/resources/latex-essential-packages.md"
+      ]
     }
   },
   "address_map": {
@@ -310,6 +329,11 @@
     "wiki/sources/owasp-cheat-sheet-series-index.md": "c-000102",
     "wiki/resources/owasp-cheat-sheet-series.md": "c-000103",
     "wiki/sources/owasp-security-terminology-cheat-sheet.md": "c-000104",
-    "wiki/concepts/security-terminology.md": "c-000105"
+    "wiki/concepts/security-terminology.md": "c-000105",
+    "wiki/concepts/latex-formatting.md": "c-000107",
+    "wiki/resources/latex-essential-packages.md": "c-000108",
+    "wiki/sources/overleaf-learn-latex-30min.md": "c-000109",
+    "wiki/sources/emonts-latex-best-practices.md": "c-000110",
+    "wiki/synthesis/research-latex-formatting.md": "c-000111"
   }
 }

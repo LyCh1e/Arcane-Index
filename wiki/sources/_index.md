@@ -62,6 +62,8 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/ICT2216-lecture-8-secure-testing\|ICT2216 Lecture 8 — Test Automation & Security Testing References]] | lecture-notes | secure-software-development | 2026-07-09 |
 | [[sources/owasp-cheat-sheet-series-index\|OWASP Cheat Sheet Series — Alphabetical Index]] | web-reference | secure-software-development | 2026-07-09 |
 | [[sources/owasp-security-terminology-cheat-sheet\|OWASP Security Terminology Cheat Sheet]] | web-reference | secure-software-development | 2026-07-09 |
+| [[sources/overleaf-learn-latex-30min\|Overleaf — Learn LaTeX in 30 Minutes]] | web-article | academic-writing | 2026-07-12 |
+| [[sources/emonts-latex-best-practices\|Patrick Emonts — LaTeX Best Practices]] | blog-post | academic-writing | 2026-07-12 |
 
 ## By Domain
 

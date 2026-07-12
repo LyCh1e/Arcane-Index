@@ -59,6 +59,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ICT2216-lecture-8-secure-testing\|ICT2216 Lecture 8 — Test Automation & Security Testing References]] | lecture-notes | secure-software-development | 2026-07-09 |
 | [[sources/owasp-cheat-sheet-series-index\|OWASP Cheat Sheet Series — Alphabetical Index (120 cheat sheets)]] | web-reference | secure-software-development | 2026-07-09 |
 | [[sources/owasp-security-terminology-cheat-sheet\|OWASP Security Terminology Cheat Sheet]] | web-reference | secure-software-development | 2026-07-09 |
+| [[sources/overleaf-learn-latex-30min\|Overleaf — Learn LaTeX in 30 Minutes]] | web-article | academic-writing | 2026-07-12 |
+| [[sources/emonts-latex-best-practices\|Patrick Emonts — LaTeX Best Practices]] | blog-post | academic-writing | 2026-07-12 |
 | [[sources/acon-context-compression-agents\|ACON: Optimising Context Compression for Long-Horizon LLM Agents]] | paper | ai-engineering | 2026-06-21 |
 | [[sources/anthropic-effective-context-engineering\|Effective Context Engineering for AI Agents (Anthropic)]] | article | ai-engineering | 2026-06-21 |
 | [[sources/factory-ai-compression-evaluation-2025\|Evaluating Context Compression for AI Agents (Factory.ai, 2025)]] | article | ai-engineering | 2026-06-21 |
@@ -189,6 +191,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/secure-deployment-practices\|Secure Deployment Practices]] | secure-software-development | high |
 | [[concepts/security-testing-and-verification\|Security Testing and Verification]] | secure-software-development | high |
 | [[concepts/security-terminology\|Security Terminology]] | secure-software-development | medium |
+| [[concepts/latex-formatting\|LaTeX Formatting]] | academic-writing | medium |
 
 ## Examples
 
@@ -266,6 +269,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[synthesis/research-rag\|Research: Retrieval-Augmented Generation (RAG)]] | ai-engineering | developing |
 | [[synthesis/research-data-mapping\|Research: Data Mapping]] | data-engineering | developing |
 | [[synthesis/research-kubernetes\|Research: Kubernetes]] | devops | developing |
+| [[synthesis/research-latex-formatting\|Research: LaTeX Formatting]] | academic-writing | complete |
 
 ## Gaps
 
@@ -282,3 +286,4 @@ Master catalog of all pages. Updated on every ingest.
 | [[resources/owasp-threat-dragon\|OWASP Threat Dragon]] | tool |
 | [[resources/owasp-dependency-check\|OWASP Dependency-Check]] | tool |
 | [[resources/owasp-cheat-sheet-series\|OWASP Cheat Sheet Series]] | reference |
+| [[resources/latex-essential-packages\|LaTeX Essential Packages]] | reference |

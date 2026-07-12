@@ -10,6 +10,14 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-12. **Session: autoresearch — LaTeX Formatting.** 2 sources ingested (Overleaf tutorial, Emonts best practices blog), 5 pages created: concept page, package catalogue, 2 source pages, 1 synthesis page.
+
+**LaTeX anti-patterns to know:** Never use `$$...$$` for display math (use `\[...\]` or `equation`); never use `eqnarray` (use `align`); never hardcode equation numbers (use `\label` + `\eqref`); always put `\caption` *before* `\label` in float environments; always use `booktabs` rules (`\toprule`/`\midrule`/`\bottomrule`) over `\hline`; always use `\mid` not `|` for conditional probability (`p(x \mid y)`).
+
+**Key package load order:** `geometry` → `siunitx` → `hyperref` → `cleveref` (always last). BibLaTeX compile order: `pdflatex → biber → pdflatex → pdflatex`. See [[concepts/latex-formatting]] and [[resources/latex-essential-packages]].
+
+## Last Updated
+
 2026-07-09. **Session: ingest — ICT2216 Lab 11 (Vulnerability Assessment with OWASP ZAP + Fuzzing with Burp Suite).** 2 sources (local lab PDFs), 1 concept page updated, 1 new example page.
 
 **DAST vs SAST**: DAST (ZAP, Burp) exercises a *running* app from the outside; SAST (SonarQube, ESLint — [[examples/ict2216-lab9-sonarqube]]) analyses source without executing it. Both are needed — DAST catches runtime/config issues (missing headers, weak sessions) that never appear in source.

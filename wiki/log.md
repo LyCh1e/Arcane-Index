@@ -10,6 +10,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-12 | autoresearch | LaTeX Formatting
+
+- Rounds: 2
+- Searches: 5 | Sources fetched: 5
+- Pages created: [[concepts/latex-formatting]], [[resources/latex-essential-packages]], [[sources/overleaf-learn-latex-30min]], [[sources/emonts-latex-best-practices]], [[synthesis/research-latex-formatting]]
+- Key finding: `eqnarray` and `$$...$$` are deprecated in modern LaTeX; BibLaTeX + biber replaces BibTeX; `cleveref` must always load after `hyperref`; `\caption` before `\label` in floats
+
 ## 2026-07-09 | ingest | ICT2216 Lab 11 (OWASP ZAP + Burp Suite)
 
 - Source: `X11a - Vulnerability Assessment with OWASP ZAP.pdf`, `X11b - Fuzzing with Burp Suite.pdf` (local lab files)

@@ -101,8 +101,7 @@
               "title": "CLAUDE"
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "vertical"
@@ -291,8 +290,13 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "afe34046fce756e2",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
+    "wiki/synthesis/research-latex-formatting.md",
+    "wiki/sources/emonts-latex-best-practices.md",
+    "wiki/sources/overleaf-learn-latex-30min.md",
+    "wiki/resources/latex-essential-packages.md",
+    "wiki/concepts/latex-formatting.md",
     "AGENTS.md",
     "_templates/workflow.md",
     "_templates/workflow-loop.md",
@@ -318,11 +322,6 @@
     "wiki/sources/_index.md.tmp.29676.ebc6220305e9",
     "wiki/concepts/secure-deployment-practices.md",
     "wiki/concepts/secure-input-validation.md",
-    "wiki/sources/ICT2216-lecture-7-secure-coding.md",
-    "raw/ICT2216 Lecture 7 Secure Software Development.md",
-    "CLAUDE.md",
-    "wiki/examples/leetcode-set-mismatch-python.md",
-    "skills/steelman/SKILL.md",
     "skills/affirm",
     "raw/leetcode-count-missing-2026-06-28.md.tmp.20744.c981a60455be",
     "wiki/index.md.tmp.20744.9c58e399552b",
