@@ -10,6 +10,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-16 | ingest | ICT2216 Lecture 9 — Static Code Analysis (Part 1)
+
+- Source: `raw/ICT2216 Lecture 9 Secure Software Development.md` (local file)
+- Pages created: [[sources/ICT2216-lecture-9-static-code-analysis]], [[concepts/static-code-analysis]]
+- Pages updated: [[concepts/security-testing-and-verification]] (penetration testing methodologies + code inspection sections added)
+- Key finding: Static analysis covers all paths simultaneously; 6 techniques from pattern matching to theorem proving; false positives drive alert fatigue; the heap is the primary limitation
+
 ## 2026-07-12 | autoresearch | LaTeX Formatting
 
 - Rounds: 2

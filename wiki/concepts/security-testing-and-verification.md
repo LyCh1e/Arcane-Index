@@ -70,6 +70,50 @@ Security testing is integrated at every phase — not bolted on at the end. The 
 
 ---
 
+## Penetration Testing Methodologies
+
+The OWASP Testing Framework defines **5 phases** integrated throughout the SDLC (Before Development, During Definition/Design, During Development, During Deployment, During Maintenance).
+
+Major methodologies for structured penetration tests:
+
+| Methodology | Description |
+|---|---|
+| **OWASP Testing Guide (WSTG)** | Comprehensive web application security testing guide — the primary reference for this course |
+| **PTES** | Penetration Testing Execution Standard — standardised methodology covering all phases of a full penetration test |
+| **NIST 800-115** | Technical guide to information security testing and assessment |
+| **PTF** | Penetration Testing Framework — structured framework for all phases |
+| **ISSAF** | Information Systems Security Assessment Framework (draft 0.2.1) — peer-reviewed; covers security processes and hardening across many domains (Unix, Windows, database, wireless, web, VPN, IDS, etc.) |
+| **OSSTMM** | Open Source Security Testing Methodology Manual v3 — covers operational security: physical, workflow, human (social engineering), wireless, telecom, data networks, compliance. Best used as a **supporting reference for ISO 27001** rather than a hands-on pen testing guide. |
+| **PCI Penetration Testing Guide** | Requirements for penetration testing in payment card environments |
+
+> **Why ISO 27001?** ISO 27001 is the international standard for Information Security Management Systems (ISMS). Enterprise clients and government contracts commonly require ISO 27001 certification as a prerequisite.
+
+---
+
+## Code Inspection (Security Audit)
+
+**Code inspection / security audit** involves a systematic review of source code by a **third party** (not the original developer) to discover bugs, security breaches, and violations of programming conventions.
+
+| Aspect | Detail |
+|---|---|
+| **Benefit** | Humans generalise beyond single runs; experienced reviewers recognise patterns from past vulnerabilities |
+| **Drawback** | Expensive, time-consuming, requires skilled reviewers, provides no completeness guarantee |
+| **Key principle** | Must be done by someone other than the original author — the author is too close to spot their own assumptions |
+
+**Code review workflow (e.g., Gerrit):**
+
+| Role | Responsibility |
+|---|---|
+| **Submitter** | Submits code for review |
+| **Code Reviewer** | Reviews changes; approves or requests changes |
+| **Verifier** | Runs automated checks |
+| **Approver** | Final approval gate before merge |
+| **Committer** | Merges approved changes into the target branch |
+
+Reference: Trail of Bits — Auditing Source Code: https://trailofbits.github.io/ctf/vulnerabilities/source.html
+
+---
+
 ## Test Frameworks
 
 ### Unit Testing
@@ -393,10 +437,12 @@ A security test report must be easy to understand and must highlight all risks f
 
 ## See Also
 
+- [[concepts/static-code-analysis]] — SAST deep dive: pipeline, 6 techniques (pattern matching → theorem proving), false positives/negatives, heap limitation, tool catalogue
 - [[concepts/secure-input-validation]] — input validation, ReDoS, SQL injection prevention
 - [[concepts/secure-deployment-practices]] — security logging implementation and logging testing considerations
 - [[concepts/owasp-top-10]] — the vulnerability risk list; ASVS requirements address each risk
 - [[concepts/secure-design-implementation]] — authentication design, cryptography, session management
 - [[concepts/software-testing-fundamentals]] — general testing theory (ISTQB); security testing applies the same rigour
-- [[sources/ICT2216-lecture-8-secure-testing]] — source lecture
+- [[sources/ICT2216-lecture-8-secure-testing]] — Lecture 8 source
+- [[sources/ICT2216-lecture-9-static-code-analysis]] — Lecture 9 source: static analysis techniques, pen testing methodologies, case studies
 - [[examples/ict2216-lab11-zap-burp]] — hands-on: OWASP ZAP vulnerability assessment + Burp Suite fuzzing against DVWA

@@ -205,6 +205,17 @@
         "wiki/concepts/secure-deployment-practices.md"
       ]
     },
+    "raw/ICT2216 Lecture 9 Secure Software Development.md": {
+      "ingested": "2026-07-16",
+      "course": "ICT2216",
+      "title": "Secure Software Development — Lecture 9: Static Code Analysis (Part 1)",
+      "domain": "secure-software-development",
+      "source_index": "wiki/sources/ICT2216-lecture-9-static-code-analysis.md",
+      "concept_pages": [
+        "wiki/concepts/static-code-analysis.md",
+        "wiki/concepts/security-testing-and-verification.md"
+      ]
+    },
     "https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes": {
       "ingested": "2026-07-12",
       "title": "Learn LaTeX in 30 Minutes — Overleaf",
@@ -334,6 +345,8 @@
     "wiki/resources/latex-essential-packages.md": "c-000108",
     "wiki/sources/overleaf-learn-latex-30min.md": "c-000109",
     "wiki/sources/emonts-latex-best-practices.md": "c-000110",
-    "wiki/synthesis/research-latex-formatting.md": "c-000111"
+    "wiki/synthesis/research-latex-formatting.md": "c-000111",
+    "wiki/sources/ICT2216-lecture-9-static-code-analysis.md": "c-000112",
+    "wiki/concepts/static-code-analysis.md": "c-000113"
   }
 }

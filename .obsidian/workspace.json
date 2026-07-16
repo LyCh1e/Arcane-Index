@@ -290,8 +290,11 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "wiki/log.md.tmp.26120.1ee3735542b7",
+    "wiki/concepts/static-code-analysis.md",
+    "wiki/sources/ICT2216-lecture-9-static-code-analysis.md",
     "wiki/synthesis/research-latex-formatting.md",
     "wiki/sources/emonts-latex-best-practices.md",
     "wiki/sources/overleaf-learn-latex-30min.md",
@@ -317,11 +320,8 @@
     "raw/ICT2216 Lecture 8 Secure Software Development.md",
     "wiki/concepts/secure-deployment-practices.md.tmp.9152.2a98af5968f1",
     "wiki/sources/ICT2216-lecture-7-transcript.md",
-    "raw/ICT2216-lecture-7-transcript-2026-07-09.md",
     "wiki/hot.md.tmp.29676.8a778271725b",
     "wiki/sources/_index.md.tmp.29676.ebc6220305e9",
-    "wiki/concepts/secure-deployment-practices.md",
-    "wiki/concepts/secure-input-validation.md",
     "skills/affirm",
     "raw/leetcode-count-missing-2026-06-28.md.tmp.20744.c981a60455be",
     "wiki/index.md.tmp.20744.9c58e399552b",

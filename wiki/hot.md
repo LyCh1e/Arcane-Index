@@ -10,6 +10,14 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-16. **Session: ingest — ICT2216 Lecture 9 (Static Code Analysis Part 1).** 1 source, 2 pages created ([[concepts/static-code-analysis]], [[sources/ICT2216-lecture-9-static-code-analysis]]), 1 page updated ([[concepts/security-testing-and-verification]] — pen testing methodologies + code inspection added).
+
+**Static analysis spectrum (know this):** Type Checking (compiler, fast, few false positives) → SAST tools (Coverity, Fortify, Checkmarx, Semgrep, SonarQube, Bandit) → Program Verification (formal proof, labor-intensive). The 6 techniques in order of power: Pattern Matching → Data Flow (taint analysis) → Control Flow (CFG, basic blocks) → Abstract Interpretation (sound, may false-positive) → Model Checking (temporal logic) → Theorem Proving (complete, impractical at scale).
+
+**False positives vs. negatives:** False positives = complains about non-errors → alert fatigue; False negatives = misses real errors → invisible. The heap is the primary limitation — most tools model it coarsely, causing both. CSPRNG rule: never use an LLM for random numbers; use `secrets` (Python), `SecureRandom` (Java), `/dev/urandom`.
+
+## Last Updated
+
 2026-07-12. **Session: autoresearch — LaTeX Formatting.** 2 sources ingested (Overleaf tutorial, Emonts best practices blog), 5 pages created: concept page, package catalogue, 2 source pages, 1 synthesis page.
 
 **LaTeX anti-patterns to know:** Never use `$$...$$` for display math (use `\[...\]` or `equation`); never use `eqnarray` (use `align`); never hardcode equation numbers (use `\label` + `\eqref`); always put `\caption` *before* `\label` in float environments; always use `booktabs` rules (`\toprule`/`\midrule`/`\bottomrule`) over `\hline`; always use `\mid` not `|` for conditional probability (`p(x \mid y)`).
