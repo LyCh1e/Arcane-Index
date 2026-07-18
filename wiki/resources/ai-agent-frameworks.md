@@ -179,6 +179,34 @@ Updated July 2026. All seven frameworks now ship native MCP support. Agent-to-Ag
 
 ---
 
+## Local Deployment — Running Agents Without a Cloud API
+
+All frameworks above are Python (or TypeScript) libraries that run entirely on your machine. The only cloud dependency is the **LLM call itself**. To eliminate that, serve an open-weight model locally with **Ollama** and redirect the framework's base URL:
+
+```python
+# Works for LangGraph, LlamaIndex, plain OpenAI SDK, and CrewAI (via env vars)
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(
+    model="deepseek-r1:7b",           # any Ollama-served model
+    base_url="http://localhost:11434/v1",
+    api_key="ollama"
+)
+```
+
+**Best open-weight models for local agents (2026):**
+
+| Model | Ollama pull | VRAM | Tool calling |
+|---|---|---|---|
+| DeepSeek-R1 7B | `ollama pull deepseek-r1:7b` | 8 GB | ✅ |
+| DeepSeek-R1 14B | `ollama pull deepseek-r1:14b` | 16 GB | ✅ |
+| Llama 3.3 70B | `ollama pull llama3.3` | 48 GB | ✅ |
+| Qwen 2.5 7B | `ollama pull qwen2.5` | 8 GB | ✅ |
+
+See [[resources/ollama-local-inference]] for the full local setup guide and [[entities/deepseek]] for DeepSeek-specific notes.
+
+---
+
 ## Guardrails Libraries
 
 | Library | Approach |

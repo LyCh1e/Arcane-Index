@@ -10,6 +10,12 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-19 (2). **Session: save — DeepSeek + Local Agent Deployment.** [[entities/deepseek]] created (V3 / R1 models, API, hardware guide, caveats). [[resources/ollama-local-inference]] created (install, model pull, framework integration snippets, tool calling guide, full local agent example). [[resources/ai-agent-frameworks]] updated with local deployment section.
+
+**Local agent stack in one line:** `ollama pull deepseek-r1:7b` → point any OpenAI-compatible framework at `http://localhost:11434/v1` → full agent loop runs on your machine with no cloud dependency. OpenClaw is not required; it is just another (newer) framework option, not a local deployment tool.
+
+## Last Updated
+
 2026-07-19. **Session: autoresearch — Setting Up AI Agents.** 2 sources, 5 pages created: [[concepts/ai-agent-architecture]] (anatomy, ReAct loop, memory 4-layer model, evals, guardrails, MVP build order), [[resources/ai-agent-frameworks]] (7-framework 2026 comparison + decision table).
 
 **The 5 "≠" production lessons:** State ≠ Chat History (use typed `AgentState` reducer) · Memory ≠ Vector DB (layer working → summaries → artefacts → structured DB; add vectors last) · Planning ≠ One Perfect Plan (store as JSON, re-plan mid-execution) · Evaluation ≠ Optional (CI trajectory evals before every deploy; 20–50 cases minimum) · Guardrails ≠ Afterthought (design 7 controls before shipping: capability gating, HITL, secrets boundary, prompt injection resilience, rate limits, sandboxing, policy-as-code).

@@ -228,6 +228,7 @@ Master catalog of all pages. Updated on every ingest.
 
 | Page | Category |
 |------|----------|
+| [[entities/deepseek\|DeepSeek]] | company |
 | [[entities/llmlingua\|LLMLingua]] | tool |
 | [[entities/agentic-ai-foundation-aaif\|Agentic AI Foundation (AAIF)]] | organisation |
 | [[entities/graphrag-microsoft\|GraphRAG (Microsoft Research)]] | tool |
@@ -293,4 +294,5 @@ Master catalog of all pages. Updated on every ingest.
 | [[resources/owasp-dependency-check\|OWASP Dependency-Check]] | tool |
 | [[resources/owasp-cheat-sheet-series\|OWASP Cheat Sheet Series]] | reference |
 | [[resources/ai-agent-frameworks\|AI Agent Frameworks (2026 Comparison)]] | reference |
+| [[resources/ollama-local-inference\|Ollama — Local LLM Inference]] | tool |
 | [[resources/latex-essential-packages\|LaTeX Essential Packages]] | reference |

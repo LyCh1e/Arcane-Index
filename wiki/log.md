@@ -10,6 +10,12 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-19 | save | Conversation Ingest — DeepSeek + Local Agent Deployment
+
+- Pages created: [[entities/deepseek]], [[resources/ollama-local-inference]]
+- Pages updated: [[resources/ai-agent-frameworks]] (local deployment section added)
+- Content: DeepSeek model lineup (V3, R1), OpenAI-compatible API, agent suitability, hardware requirements; Ollama local inference setup, framework integration snippets, tool calling model guide; OpenClaw clarification (not required for local deployment)
+
 ## 2026-07-19 | autoresearch | How to Set Up AI Agents
 
 - Rounds: 2 | Searches: 5 | Fetches: 5

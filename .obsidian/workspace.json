@@ -290,8 +290,11 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "wiki/resources/ollama-local-inference.md",
+    "wiki/entities/deepseek.md",
+    "wiki/entities/deepseek.md.tmp.19820.39135b9e24df",
     "wiki/synthesis/research-ai-agent-setup.md",
     "wiki/sources/alice-labs-agent-frameworks-2026.md",
     "wiki/sources/furmanets-ai-agents-2026.md",
@@ -318,8 +321,6 @@
     "wiki/examples/ict2216-lab8-static-code-analysis.md",
     "wiki/concepts/security-terminology.md",
     "wiki/sources/owasp-security-terminology-cheat-sheet.md",
-    "wiki/resources/owasp-cheat-sheet-series.md",
-    "wiki/sources/owasp-cheat-sheet-series-index.md",
     "wiki/concepts/secure-deployment-practices.md.tmp.9152.2a98af5968f1",
     "wiki/hot.md.tmp.29676.8a778271725b",
     "wiki/sources/_index.md.tmp.29676.ebc6220305e9",
@@ -327,7 +328,6 @@
     "raw/leetcode-count-missing-2026-06-28.md.tmp.20744.c981a60455be",
     "wiki/index.md.tmp.20744.9c58e399552b",
     "CLAUDE.md.tmp.2468.c9e3f9b81dae",
-    "skills/track-belief",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",

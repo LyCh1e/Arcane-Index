@@ -370,6 +370,8 @@
     "wiki/resources/ai-agent-frameworks.md": "c-000115",
     "wiki/sources/furmanets-ai-agents-2026.md": "c-000116",
     "wiki/sources/alice-labs-agent-frameworks-2026.md": "c-000117",
-    "wiki/synthesis/research-ai-agent-setup.md": "c-000118"
+    "wiki/synthesis/research-ai-agent-setup.md": "c-000118",
+    "wiki/entities/deepseek.md": "c-000119",
+    "wiki/resources/ollama-local-inference.md": "c-000120"
   }
 }
