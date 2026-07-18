@@ -10,6 +10,14 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-19. **Session: autoresearch — Setting Up AI Agents.** 2 sources, 5 pages created: [[concepts/ai-agent-architecture]] (anatomy, ReAct loop, memory 4-layer model, evals, guardrails, MVP build order), [[resources/ai-agent-frameworks]] (7-framework 2026 comparison + decision table).
+
+**The 5 "≠" production lessons:** State ≠ Chat History (use typed `AgentState` reducer) · Memory ≠ Vector DB (layer working → summaries → artefacts → structured DB; add vectors last) · Planning ≠ One Perfect Plan (store as JSON, re-plan mid-execution) · Evaluation ≠ Optional (CI trajectory evals before every deploy; 20–50 cases minimum) · Guardrails ≠ Afterthought (design 7 controls before shipping: capability gating, HITL, secrets boundary, prompt injection resilience, rate limits, sandboxing, policy-as-code).
+
+**2026 framework picks:** LangGraph 1.0 for stateful control · Claude Agent SDK for Anthropic-native · CrewAI 1.14 for fast prototyping · Microsoft Agent Framework 1.0 for .NET/enterprise. All 7 frameworks now ship native MCP. A2A protocol at 150+ orgs. See [[resources/ai-agent-frameworks]].
+
+## Last Updated
+
 2026-07-16. **Session: ingest — ICT2216 Lecture 9 (Static Code Analysis Part 1).** 1 source, 2 pages created ([[concepts/static-code-analysis]], [[sources/ICT2216-lecture-9-static-code-analysis]]), 1 page updated ([[concepts/security-testing-and-verification]] — pen testing methodologies + code inspection added).
 
 **Static analysis spectrum (know this):** Type Checking (compiler, fast, few false positives) → SAST tools (Coverity, Fortify, Checkmarx, Semgrep, SonarQube, Bandit) → Program Verification (formal proof, labor-intensive). The 6 techniques in order of power: Pattern Matching → Data Flow (taint analysis) → Control Flow (CFG, basic blocks) → Abstract Interpretation (sound, may false-positive) → Model Checking (temporal logic) → Theorem Proving (complete, impractical at scale).

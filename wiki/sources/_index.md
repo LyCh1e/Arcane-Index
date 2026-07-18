@@ -62,6 +62,8 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/ICT2216-lecture-8-secure-testing\|ICT2216 Lecture 8 — Test Automation & Security Testing References]] | lecture-notes | secure-software-development | 2026-07-09 |
 | [[sources/owasp-cheat-sheet-series-index\|OWASP Cheat Sheet Series — Alphabetical Index]] | web-reference | secure-software-development | 2026-07-09 |
 | [[sources/owasp-security-terminology-cheat-sheet\|OWASP Security Terminology Cheat Sheet]] | web-reference | secure-software-development | 2026-07-09 |
+| [[sources/furmanets-ai-agents-2026\|AI Agents in 2026 — Furmanets]] | blog-post | ai-engineering | 2026-07-19 |
+| [[sources/alice-labs-agent-frameworks-2026\|Best AI Agent Frameworks 2026 — Alice Labs]] | web-article | ai-engineering | 2026-07-19 |
 | [[sources/ICT2216-lecture-9-static-code-analysis\|ICT2216 Lecture 9 — Static Code Analysis (Part 1)]] | lecture-notes | secure-software-development | 2026-07-16 |
 | [[sources/overleaf-learn-latex-30min\|Overleaf — Learn LaTeX in 30 Minutes]] | web-article | academic-writing | 2026-07-12 |
 | [[sources/emonts-latex-best-practices\|Patrick Emonts — LaTeX Best Practices]] | blog-post | academic-writing | 2026-07-12 |

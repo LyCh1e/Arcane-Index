@@ -10,6 +10,12 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-19 | autoresearch | How to Set Up AI Agents
+
+- Rounds: 2 | Searches: 5 | Fetches: 5
+- Pages created: [[concepts/ai-agent-architecture]], [[resources/ai-agent-frameworks]], [[sources/furmanets-ai-agents-2026]], [[sources/alice-labs-agent-frameworks-2026]], [[synthesis/research-ai-agent-setup]]
+- Key finding: Production agents fail because chat logs are used as state, vector DBs as first memory layer, prose as plans, and guardrails added last. Correct order: tool contracts → state reducer → tracing → evals → policy gating → memory
+
 ## 2026-07-16 | ingest | ICT2216 Lecture 9 — Static Code Analysis (Part 1)
 
 - Source: `raw/ICT2216 Lecture 9 Secure Software Development.md` (local file)

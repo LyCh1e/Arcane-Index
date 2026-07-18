@@ -225,6 +225,24 @@
         "wiki/concepts/latex-formatting.md"
       ]
     },
+    "https://andriifurmanets.com/blogs/ai-agents-2026-practical-architecture-tools-memory-evals-guardrails": {
+      "ingested": "2026-07-19",
+      "title": "AI Agents in 2026: Tools, Memory, Evals, and Guardrails",
+      "domain": "ai-engineering",
+      "source_index": "wiki/sources/furmanets-ai-agents-2026.md",
+      "concept_pages": [
+        "wiki/concepts/ai-agent-architecture.md"
+      ]
+    },
+    "https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026": {
+      "ingested": "2026-07-19",
+      "title": "Best AI Agent Frameworks 2026 — Alice Labs",
+      "domain": "ai-engineering",
+      "source_index": "wiki/sources/alice-labs-agent-frameworks-2026.md",
+      "concept_pages": [
+        "wiki/resources/ai-agent-frameworks.md"
+      ]
+    },
     "https://patrickemonts.com/post/latex_best_practice/": {
       "ingested": "2026-07-12",
       "title": "LaTeX Best Practices — Patrick Emonts",
@@ -347,6 +365,11 @@
     "wiki/sources/emonts-latex-best-practices.md": "c-000110",
     "wiki/synthesis/research-latex-formatting.md": "c-000111",
     "wiki/sources/ICT2216-lecture-9-static-code-analysis.md": "c-000112",
-    "wiki/concepts/static-code-analysis.md": "c-000113"
+    "wiki/concepts/static-code-analysis.md": "c-000113",
+    "wiki/concepts/ai-agent-architecture.md": "c-000114",
+    "wiki/resources/ai-agent-frameworks.md": "c-000115",
+    "wiki/sources/furmanets-ai-agents-2026.md": "c-000116",
+    "wiki/sources/alice-labs-agent-frameworks-2026.md": "c-000117",
+    "wiki/synthesis/research-ai-agent-setup.md": "c-000118"
   }
 }
