@@ -10,6 +10,14 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-20. **Session: ingest — ICT2216 Lab 9, running SonarQube on Docker (Windows).** 1 page updated: [[examples/ict2216-lab9-sonarqube]].
+
+**What actually happened running the lab on Windows/Docker Desktop:** `docker --version` succeeding does NOT mean the engine is up — `docker compose up` failed with `open //./pipe/dockerDesktopLinuxEngine: ...`. The real liveness check is `docker info`. Fix: `Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"`, then poll `docker info` until it succeeds before running compose. Also: prefer `docker compose` (v2 plugin, space) over the lab PDF's `docker-compose` (v1 hyphenated) — both work if v1 is installed, but v2 ships by default with modern Docker Desktop. SonarQube's container shows "Up" long before the app is actually usable (Elasticsearch bootstrap) — poll `http://localhost:9000/api/system/status` for `"status":"UP"` rather than sleeping a fixed guess.
+
+**Stack recap:** `docker compose -f sonarqube-compose.yml up -d` → 2 containers (sonarqube:latest + postgres:latest) → UI at localhost:9000, admin/admin. Full lab walkthrough (project creation, token, scanner, GitHub Actions) already documented in [[examples/ict2216-lab9-sonarqube]].
+
+## Last Updated
+
 2026-07-19 (2). **Session: save — DeepSeek + Local Agent Deployment.** [[entities/deepseek]] created (V3 / R1 models, API, hardware guide, caveats). [[resources/ollama-local-inference]] created (install, model pull, framework integration snippets, tool calling guide, full local agent example). [[resources/ai-agent-frameworks]] updated with local deployment section.
 
 **Local agent stack in one line:** `ollama pull deepseek-r1:7b` → point any OpenAI-compatible framework at `http://localhost:11434/v1` → full agent loop runs on your machine with no cloud dependency. OpenClaw is not required; it is just another (newer) framework option, not a local deployment tool.

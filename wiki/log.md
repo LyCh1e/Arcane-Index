@@ -10,6 +10,11 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-20 | ingest | ICT2216 Lab 9 — SonarQube on Docker (Windows run)
+
+- Page updated: [[examples/ict2216-lab9-sonarqube]] — added "Actual run on Windows" section with real commands used to bring the stack up: `docker compose` (v2 syntax) vs `docker-compose`, Docker Desktop not running trap (`docker info` vs `docker --version`), `Start-Process` to launch Desktop, polling loops for engine readiness and SonarQube's `/api/system/status` endpoint.
+- No new concept page — this is operational/environment detail on top of the existing Lab 9 example.
+
 ## 2026-07-19 | save | Conversation Ingest — DeepSeek + Local Agent Deployment
 
 - Pages created: [[entities/deepseek]], [[resources/ollama-local-inference]]

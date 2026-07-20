@@ -2,7 +2,7 @@
 type: example
 status: established
 created: 2026-06-23
-updated: 2026-06-23
+updated: 2026-07-20
 name: ict2216-lab9-sonarqube
 description: ICT2216 Lab 9 — Static analysis using SonarQube via Docker Compose (PostgreSQL backend), local scanner, and GitHub Actions integration
 metadata:
@@ -37,6 +37,32 @@ Two containers: `sonarqube:latest` (port 9000) + `postgres:latest`. SonarQube co
 
 - UI: `http://localhost:9000`
 - Default credentials: `admin` / `admin`
+
+### Actual run on Windows (Docker Desktop, verified 2026-07-20)
+
+The lab PDF's `docker-compose` (hyphenated v1 syntax) still works if the plugin is installed, but Docker Desktop 28.x ships the v2 `compose` subcommand — prefer it:
+
+```bash
+docker compose -f sonarqube-compose.yml up -d
+```
+
+**Docker Desktop must actually be running first** — `docker --version` succeeds even when the engine is down; the real check is `docker info`. If it fails with `open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified`, the Desktop app isn't running:
+
+```powershell
+Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"
+```
+
+```bash
+until docker info >/dev/null 2>&1; do sleep 5; done   # wait for engine
+```
+
+SonarQube itself takes longer to boot than the container "Up" status suggests (Elasticsearch bootstrap). Poll the system status API instead of guessing a sleep duration:
+
+```bash
+until curl -s http://localhost:9000/api/system/status | grep -q '"status":"UP"'; do sleep 10; done
+```
+
+Check container state any time with `docker compose -f sonarqube-compose.yml ps`.
 
 ## Step 4 — Create Project and Run Local Scanner
 
