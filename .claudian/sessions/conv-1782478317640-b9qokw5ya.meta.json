@@ -4,9 +4,10 @@
   "title": "Change folder and graph node colours",
   "titleGenerationStatus": "success",
   "createdAt": 1782478317642,
-  "updatedAt": 1784393119643,
+  "updatedAt": 1784536016830,
   "lastResponseAt": 1784393119643,
   "sessionId": "b210d08b-7a77-4450-bf76-f83542abf814",
+  "selectedModel": "sonnet",
   "providerState": {
     "providerSessionId": "b210d08b-7a77-4450-bf76-f83542abf814"
   },
