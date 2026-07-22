@@ -10,6 +10,28 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-22 | ingest | ICT2216 Lecture 9 — Spoken Transcript (Static Code Analysis)
+
+- Pages created: [[sources/ICT2216-lecture-9-transcript]] (c-000122)
+- Pages updated: [[concepts/static-code-analysis]] — added "Historical Context" section (Microsoft SDL: manual inspection → mass unit testing → SDV framework for device drivers, 1990s–2000s); expanded "Limitations" with salt-after-hashing design error example and LLM determinism vs classical SAST comparison table
+- Pages updated: [[concepts/security-testing-and-verification]] — added professional engagement pricing (lines of code / man-days, SGD 50K–100K range) to Code Inspection section
+- Pages updated: [[concepts/software-configuration-management]] — added 7-branch production Git model (live, hotfix, UAT, bug-fix, development, feature) with full release and hotfix cycles
+- Note: Case studies (Indirect Prompt Injection, Bandai Channel, Phone Number, Genshin Impact) already covered in c-000112; not duplicated
+- Indexes updated: wiki/index.md, wiki/sources/_index.md
+
+---
+
+## 2026-07-22 | ingest | ICT2216 Lecture 10 — Module Overview & Secure Software Concepts
+
+- Pages created: [[sources/ICT2216-lecture-10-module-overview-secure-concepts]] (c-000121)
+- Pages updated: [[concepts/owasp-top-10]] — added 4 new 2025/2026 case studies (HSBC India uppercase passwords under A04; Europcar GitLab breach under A03; Gladinet CVE-2025-30406 under A04 + A08; X/Twitter 2.8B insider breach under A09)
+- Pages updated: [[concepts/secure-design-implementation]] — added Security Quality Gates section (4 gates, phase transitions) + Sprint+Security Approaches section (Security Sprint vs Every Sprint; Every Sprint preferred per Microsoft SDL)
+- Note: raw file named "Lecture 10" but internally titled "Lecture 1: Module Overview & Secure Software Concepts" — filed under actual content
+- OWASP Top 10 core content already fully covered (c-000024, created 2026-05-11); Code Review Heuristic (C code, 4 bugs) already in vault
+- Indexes updated: wiki/index.md, wiki/sources/_index.md
+
+---
+
 ## 2026-07-20 | ingest | ICT2216 Lab 9 — SonarQube on Docker (Windows run)
 
 - Page updated: [[examples/ict2216-lab9-sonarqube]] — added "Actual run on Windows" section with real commands used to bring the stack up: `docker compose` (v2 syntax) vs `docker-compose`, Docker Desktop not running trap (`docker info` vs `docker --version`), `Start-Process` to launch Desktop, polling loops for engine readiness and SonarQube's `/api/system/status` endpoint.

@@ -5,7 +5,7 @@ title: "Static Code Analysis"
 domain: secure-software-development
 complexity: high
 created: 2026-07-16
-updated: 2026-07-16
+updated: 2026-07-22
 tags: [concept, SAST, static-analysis, secure-software-development, code-quality, AST, CFG, data-flow, taint-analysis]
 related:
   - concepts/security-testing-and-verification
@@ -36,6 +36,20 @@ Testing finds bugs on paths that tests exercise. Static analysis covers **all pa
 - Race conditions (thread scheduling is non-deterministic)
 - Buffer overflows triggered only on specific input patterns
 - Unvalidated inputs reaching evaluation points through uncommon paths
+
+---
+
+## Historical Context — Microsoft SDL
+
+Microsoft's quality assurance evolution illustrates why static analysis became necessary at scale:
+
+| Era | Approach | Outcome |
+|-----|----------|---------|
+| **1990s** | Manual code inspection via CVS (pre-Git); Author → Code Reviewer → Verifier → Approver → Committer chain | Works for small codebases; collapses as the system grows |
+| **Early 1990s** | Mass automated unit testing across platforms and configurations | Tests took **weeks to run**; Blue Screen of Death persisted |
+| **2000s** | Static analysis — **Static Driver Verification (SDV) framework** introduced | Targeted at third-party device drivers (the primary BSOD source); Microsoft couldn't control driver code quality, so they built SAST tooling to scan it before distribution |
+
+The SDV framework — checking interrupt-enable/disable invariants in C device drivers without running them — is one of the earliest large-scale production uses of the formal static analysis techniques described below.
 
 ---
 
@@ -312,6 +326,29 @@ The heap is a **dynamic structure** that changes at runtime:
 - Cannot reason about **external inputs** or runtime environment (OS, network, hardware state)
 - Cannot detect **logical flaws** that require business-domain understanding
 - Cannot detect all security issues — a human security review remains necessary for high-assurance systems
+
+**Canonical example of an undetectable design error:**
+
+> A developer hashes the password first, *then* appends the salt to the digest:
+> ```python
+> # WRONG ORDER — salt has no effect on the hash
+> digest = sha256(password)
+> stored = digest + salt
+> ```
+> The code is syntactically valid and logically consistent. No static tool can infer that the developer's *intent* was to salt-then-hash (making each user's hash unique) rather than hash-then-append (which provides no protection against precomputed rainbow tables). This is a **semantic, domain-specific design error** — only a human reviewer with cryptographic knowledge can catch it.
+
+### Classical Tools vs LLMs — Determinism
+
+Classical static analysis tools are **deterministic**: the same source code always produces the same set of findings. This matters for:
+
+| Property | Classical SAST | LLM |
+|----------|---------------|-----|
+| **Reproducibility** | ✓ Same result every run | ✗ Output varies across runs |
+| **Compliance evidence** | ✓ Audit-grade reproducible reports | ✗ Cannot guarantee identical findings |
+| **Fix verification** | ✓ Finding disappears iff the issue is fixed | ✗ May "find" or "not find" same issue inconsistently |
+| **Cost at scale** | Linear in codebase size | Proportional to token count — prohibitive for large repos |
+
+LLMs are useful for *explaining* findings or *suggesting* fixes, but cannot replace deterministic SAST in any reproducibility-critical context.
 
 ---
 

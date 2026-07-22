@@ -5,7 +5,7 @@ address: c-000066
 domain: secure-software-development
 complexity: high
 tags: [security-design, cryptography, symmetric, asymmetric, x509, hashing, salting, passwordless, mfa, sso, rbac, rbac-ubac, replication, failover, dmz, secure-agile, data-access-control, SSDLC]
-updated: 2026-06-25
+updated: 2026-07-22
 status: established
 created: 2026-05-30
 ---
@@ -459,6 +459,61 @@ Audit logging must be designed in from the beginning — not added as an afterth
 - Stores the minimum necessary information
 - Implements log rotation and disposal policies (retention limits)
 - Protected from tampering — access-controlled; ideally write-once (WORM storage or append-only log service)
+
+---
+
+## Security Quality Gates
+
+Quality gates are formal checkpoints that a project must pass before it can proceed to the next SDLC phase. They enforce that security is validated at each transition — not deferred to a final review or post-release patch cycle.
+
+| Gate | Phase Transition | Key Activity |
+|------|-----------------|-------------|
+| **Gate 1** | Concept / Priority → Project Definition | High-level security risk assessment; risk-based controls selection |
+| **Gate 2** | Project Definition → Preliminary Design | Agreement on security requirements and controls |
+| **Gate 3** | Preliminary Design → Detailed Design & Development | Security Design Review; Source Code Agreement |
+| **Gate 4** | Detailed Design → Deployment | Penetration Testing; Third-party Assessment; Approve Build |
+
+No phase can begin until its corresponding gate is passed. Gate 4 (Penetration Testing + Third-party Assessment before deployment) is the final safety net — not the first security check.
+
+The SSDLC integrates security activities at every phase transition:
+
+```
+Requirements Definition
+        ↓
+   Secure Requirements Review   ← Gate 1 / Gate 2
+        ↓
+   Secure Design Review         ← Gate 3
+        ↓
+   Develop  ←──────────────────┐
+        ↓                       │
+   Secure Code Review           │
+        ↓                       │
+   Deploy / Implement           │ ← Gate 4
+        ↓                       │
+   Penetration Testing          │
+        ↓                       │
+   Maintain ───────────────────┘
+```
+
+> Source: ICT2216 Lecture 1 / Module Overview (Slides 14–15). See [[sources/ICT2216-lecture-10-module-overview-secure-concepts]].
+
+---
+
+## Sprint + Security Approaches
+
+When integrating security into Agile development, two approaches exist:
+
+| Approach | Description | Verdict |
+|----------|-------------|---------|
+| **Security Sprint** | A dedicated sprint focused exclusively on security stories (input validation, logging, authentication, authorisation, XSS/SQL injection fixes). Code is reviewed; all stories are security-related. | ⚠ Acceptable for legacy projects with accumulated security debt |
+| **Every Sprint** | Security requirements and stories are included in **every** sprint. No software can ever be released without security requirements met. If a security requirement in the every-sprint category is not completed, the sprint is deemed **incomplete** and software cannot be released. | ✓ **Preferred — aligned with Microsoft SDL** |
+
+**Every Sprint details:**
+- Sprint length: 2 weeks to 2 months
+- Every security requirement in the "every-sprint" category must be completed in each sprint
+- An incomplete security requirement = incomplete sprint = no release
+
+> The Every Sprint approach prevents security debt from accumulating. The Security Sprint approach risks creating a false sense of security by isolating security work into one period.
 
 ---
 

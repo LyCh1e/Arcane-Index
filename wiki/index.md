@@ -62,6 +62,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/furmanets-ai-agents-2026\|AI Agents in 2026: Tools, Memory, Evals, and Guardrails — Furmanets]] | blog-post | ai-engineering | 2026-07-19 |
 | [[sources/alice-labs-agent-frameworks-2026\|Best AI Agent Frameworks 2026 — Alice Labs]] | web-article | ai-engineering | 2026-07-19 |
 | [[sources/ICT2216-lecture-9-static-code-analysis\|ICT2216 Lecture 9 — Static Code Analysis (Part 1)]] | lecture-notes | secure-software-development | 2026-07-16 |
+| [[sources/ICT2216-lecture-9-transcript\|ICT2216 Lecture 9 — Spoken Transcript (Static Code Analysis)]] | lecture-transcript | secure-software-development | 2026-07-22 |
+| [[sources/ICT2216-lecture-10-module-overview-secure-concepts\|ICT2216 Lecture 10 — Module Overview & Secure Software Concepts]] | lecture-notes | secure-software-development | 2026-07-22 |
 | [[sources/overleaf-learn-latex-30min\|Overleaf — Learn LaTeX in 30 Minutes]] | web-article | academic-writing | 2026-07-12 |
 | [[sources/emonts-latex-best-practices\|Patrick Emonts — LaTeX Best Practices]] | blog-post | academic-writing | 2026-07-12 |
 | [[sources/acon-context-compression-agents\|ACON: Optimising Context Compression for Long-Horizon LLM Agents]] | paper | ai-engineering | 2026-06-21 |

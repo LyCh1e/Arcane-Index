@@ -31,8 +31,7 @@
               "title": "Graph view"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -221,8 +220,22 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "aa21592bb12da3f9",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "wiki/hot.md.tmp.31908.cffc6824058e",
+    "wiki/log.md.tmp.31908.55c96e3b1378",
+    "wiki/sources/_index.md.tmp.31908.2d08ec7a5af5",
+    "wiki/index.md.tmp.31908.77184a4509ff",
+    "wiki/concepts/software-configuration-management.md.tmp.31908.d029296e980d",
+    "wiki/concepts/static-code-analysis.md.tmp.31908.1f4e798c67ee",
+    "wiki/sources/ICT2216-lecture-9-transcript.md",
+    "wiki/sources/ICT2216-lecture-9-transcript.md.tmp.31908.1252d04d61c4",
+    "wiki/hot.md.tmp.31908.75055c3a7b00",
+    "wiki/index.md.tmp.31908.63798862a6f2",
+    "wiki/concepts/owasp-top-10.md.tmp.31908.0e637b94742e",
+    "wiki/concepts/owasp-top-10.md.tmp.31908.5940c28dca4e",
+    "wiki/sources/ICT2216-lecture-10-module-overview-secure-concepts.md",
+    "raw/ICT2216 Lecture 10 Secure Software Development.md",
     "wiki/index.md",
     "wiki/sources/anthropic-mcp-launch-2024.md",
     "skills/workflow-loop/SKILL.md",
@@ -231,13 +244,11 @@
     "_templates/workflow.md",
     "wiki/resources/ollama-local-inference.md",
     "wiki/entities/deepseek.md",
-    "wiki/entities/deepseek.md.tmp.19820.39135b9e24df",
     "wiki/synthesis/research-ai-agent-setup.md",
     "wiki/sources/alice-labs-agent-frameworks-2026.md",
     "wiki/sources/furmanets-ai-agents-2026.md",
     "wiki/resources/ai-agent-frameworks.md",
     "wiki/concepts/ai-agent-architecture.md",
-    "wiki/log.md.tmp.26120.1ee3735542b7",
     "wiki/concepts/static-code-analysis.md",
     "wiki/sources/ICT2216-lecture-9-static-code-analysis.md",
     "wiki/synthesis/research-latex-formatting.md",
@@ -247,18 +258,6 @@
     "wiki/concepts/latex-formatting.md",
     "AGENTS.md",
     "_templates/agent.md",
-    "_templates/skill.md",
-    "skills/workflow-loop",
-    "wiki/examples/ict2216-lab9-sonarqube.md",
-    "wiki/examples/ict2216-lab11-zap-burp.md",
-    "wiki/examples/ict2216-lab7-automated-testing.md",
-    "wiki/concepts/secure-deployment-practices.md.tmp.9152.2a98af5968f1",
-    "wiki/hot.md.tmp.29676.8a778271725b",
-    "wiki/sources/_index.md.tmp.29676.ebc6220305e9",
-    "skills/affirm",
-    "raw/leetcode-count-missing-2026-06-28.md.tmp.20744.c981a60455be",
-    "wiki/index.md.tmp.20744.9c58e399552b",
-    "CLAUDE.md.tmp.2468.c9e3f9b81dae",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",

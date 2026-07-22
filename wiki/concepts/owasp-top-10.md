@@ -6,7 +6,7 @@ course: ICT2216
 complexity: high
 address: c-000024
 tags: [owasp, vulnerabilities, web-security, injection, XSS, supply-chain, cryptography]
-updated: 2026-05-11
+updated: 2026-07-22
 status: established
 created: 2026-05-11
 ---
@@ -102,8 +102,9 @@ Default or missing configuration exposes the system to attack.
 | SolarWinds | 2019 | ~18,000 organisations compromised via a malicious build update |
 | Bybit | 2025 | $1.5 billion stolen via supply chain attack in wallet software |
 | Log4Shell (CVE-2021-44228) | 2021 | Apache Log4j RCE zero-day; exploited for ransomware and cryptomining |
+| Europcar GitLab breach | 2024 | Threat actor stole Android/iOS source code and 200,000+ customer records from GitLab repos; threatened to release 37 GB unless extortion demands were met |
 
-**Mitigations:** Software Bill of Materials (SBOM); verify signatures on dependencies; pin dependency versions; scan CI/CD pipelines; monitor build environments.
+**Mitigations:** Software Bill of Materials (SBOM); verify signatures on dependencies; pin dependency versions; scan CI/CD pipelines; monitor build environments; restrict repository access to principle of least privilege.
 
 ---
 
@@ -126,6 +127,13 @@ Sensitive data is inadequately protected in transit, at rest, or in processing.
 > Storing API keys in source code or plaintext passwords in Dockerfiles are immediate cryptographic failures.
 
 **Mitigations:** Enforce TLS everywhere; use strong, modern algorithms (AES-256, bcrypt/Argon2 for passwords); rotate keys; use salted hashes; apply HSTS.
+
+**Real-world cases:**
+
+| Incident | Detail |
+|----------|--------|
+| **HSBC India (2026)** | Required customers to enter internet banking passwords in uppercase only from April 2026. Standard hashed storage makes the original casing unreadable — forcing uppercase implies plaintext or deeply flawed legacy storage. Also reduces brute-force resistance by halving the effective character set. |
+| **Gladinet CentreStack CVE-2025-30406 (CVSS 9.0)** | Hard-coded `machineKey` in IIS `web.config` allowed attackers to forge ViewState payloads → server-side deserialisation → RCE. Exploited as a zero-day in March 2025; patched April 2025. Also maps to A08 (insecure deserialisation). |
 
 ---
 
@@ -207,6 +215,8 @@ a:4:{i:0;i:1;i:1;s:5:"Alice";i:2;s:5:"admin";i:3;s:32:"b6a8b..."}
 
 **Mitigations:** Verify digital signatures on updates and software packages; use integrity-check mechanisms (checksums, HMAC); never deserialise untrusted data; use allow-lists for deserialisation.
 
+**Real-world case:** Gladinet CentreStack CVE-2025-30406 — a hard-coded `machineKey` (see A04) enabled attackers to forge ViewState data. The server deserialised the forged payload without validation, granting **Remote Code Execution**. Root fix: never use default or static machine keys; treat all deserialised data as untrusted.
+
 ---
 
 ### A09:2025 — Security Logging & Alerting Failures
@@ -226,6 +236,7 @@ Insufficient logging means attacks go undetected and unattributed.
 | Children's health plan provider | Breach undetected for **7+ years** (since 2013) due to no logging |
 | Major Indian airline | Breach involving 10+ years of passenger data discovered by a third party |
 | European airline | 400,000+ payment records harvested; fined **£20 million** under GDPR |
+| **X (Twitter) insider breach (2025)** | ~2.8 billion user profiles exfiltrated by a disgruntled employee during mass layoffs; ~400 GB dataset published on Breach Forums on 28 March 2025. Neither X nor mainstream media initially acknowledged the breach — illustrating failures in insider-threat monitoring and breach disclosure. |
 
 **Mitigations:** Log all authentication events, privilege changes, and high-value transactions; ship logs to a centralised, tamper-evident store; set up automated alerting on anomalous patterns; establish an incident response process.
 

@@ -112,6 +112,19 @@ Major methodologies for structured penetration tests:
 
 Reference: Trail of Bits — Auditing Source Code: https://trailofbits.github.io/ctf/vulnerabilities/source.html
 
+### Professional Engagement — Scope and Pricing
+
+In commercial secure code auditing engagements, two pricing models are common:
+
+| Model | Basis | Suitable for |
+|-------|-------|-------------|
+| **Per line of code** | Total LoC reviewed × agreed rate | Well-scoped, medium-sized codebases |
+| **Per man-day** | Number of engineer review days × daily rate | Complex systems: custom encryption, bespoke logic, PII handling |
+
+**Indicative range (Singapore market, 2024–2026):** SGD 50,000 – 100,000+ for banking, healthcare, or government applications with 10,000+ LoC, encryption implementations, or significant personal data scope.
+
+**Accountability:** The auditing party bears responsibility for any findings they miss. This is why auditors do not simply outsource findings to AI — if a false negative goes undetected and later causes a breach, the auditor's report is the accountability trail. Human judgment remains the final gate.
+
 ---
 
 ## Test Frameworks

@@ -10,6 +10,36 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-22. **Session: ingest — ICT2216 Lecture 9 spoken transcript (Static Code Analysis).** 1 source page created (c-000122); 3 concept pages updated.
+
+**Microsoft SDL historical progression** (now in [[concepts/static-code-analysis]]): 1990s → manual code inspection via CVS with 5-role chain (Author → Code Reviewer → Verifier → Approver → Committer). Early 1990s → mass automated unit testing (weeks to run; BSOD persisted). 2000s → Static Driver Verification (SDV) framework: motivated by third-party device drivers being the primary BSOD source; Microsoft provided SAST tooling to scan drivers they couldn't control.
+
+**Salt-after-hashing** is the canonical example of a design error static analysis cannot detect: code is syntactically and logically valid, but the salt has no effect on the hash. Only a human reviewer with cryptographic domain knowledge can catch it. Added to Limitations in [[concepts/static-code-analysis]].
+
+**LLM vs classical SAST**: Classical tools are deterministic (same code = same findings every run) — essential for reproducible security reports and fix verification. LLMs vary across runs, are cost-prohibitive at scale, and cannot provide audit-grade evidence. Added as comparison table.
+
+**Code auditing pricing** (now in [[concepts/security-testing-and-verification]]): Two models — per LoC or per man-day. SGD 50K–100K+ for banking/healthcare. Auditors bear accountability for missed findings, which is why human judgment cannot be fully delegated to AI.
+
+**7-branch Git model** (now in [[concepts/software-configuration-management]]): live, hotfix, UAT, bug-fix, development, feature/[developer-name]. Full release cycle and hotfix cycle with ASCII diagrams.
+
+## Last Updated
+
+2026-07-22. **Session: ingest — ICT2216 Lecture 10 (Module Overview & Secure Software Concepts).** 1 source page created (c-000121); 2 concept pages updated.
+
+**Security Quality Gates:** Four formal checkpoints that must pass before each SSDLC phase transition: Gate 1 (Concept → Project Definition: risk assessment), Gate 2 (Definition → Preliminary Design: security requirements agreed), Gate 3 (Preliminary Design → Development: Security Design Review + Source Code Agreement), Gate 4 (Design → Deployment: Penetration Testing + Third-party Assessment). These are now in [[concepts/secure-design-implementation]].
+
+**Sprint + Security:** Two approaches — Security Sprint (dedicated sprint, all security stories) vs Every Sprint (security in every sprint, preferred per Microsoft SDL). An incomplete security requirement = sprint incomplete = no release. Also added to [[concepts/secure-design-implementation]].
+
+**New case studies added to [[concepts/owasp-top-10]]:**
+- A03: **Europcar GitLab breach** — source code + 200,000 customer records stolen; 37 GB extortion threat
+- A04: **HSBC India (2026)** — uppercase-only passwords imply plaintext/legacy storage; halves brute-force resistance
+- A04 + A08: **Gladinet CVE-2025-30406 (CVSS 9.0)** — hardcoded `machineKey` in IIS `web.config` → ViewState forgery → insecure deserialisation → RCE; zero-day March 2025; patched April 2025
+- A09: **X/Twitter insider breach (2025)** — disgruntled employee exfiltrated ~2.8 billion profiles during mass layoffs; ~400 GB published on Breach Forums; not initially disclosed by X
+
+**Note on source file:** `raw/ICT2216 Lecture 10 Secure Software Development.md` is internally titled "Lecture 1: Module Overview & Secure Software Concepts" — likely a labelling/packaging error. OWASP Top 10 content was already fully in the vault (c-000024); C code 4-bug exercise was also already there.
+
+## Last Updated
+
 2026-07-20. **Session: ingest — ICT2216 Lab 9, running SonarQube on Docker (Windows).** 1 page updated: [[examples/ict2216-lab9-sonarqube]].
 
 **What actually happened running the lab on Windows/Docker Desktop:** `docker --version` succeeding does NOT mean the engine is up — `docker compose up` failed with `open //./pipe/dockerDesktopLinuxEngine: ...`. The real liveness check is `docker info`. Fix: `Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"`, then poll `docker info` until it succeeds before running compose. Also: prefer `docker compose` (v2 plugin, space) over the lab PDF's `docker-compose` (v1 hyphenated) — both work if v1 is installed, but v2 ships by default with modern Docker Desktop. SonarQube's container shows "Up" long before the app is actually usable (Elasticsearch bootstrap) — poll `http://localhost:9000/api/system/status` for `"status":"UP"` rather than sleeping a fixed guess.

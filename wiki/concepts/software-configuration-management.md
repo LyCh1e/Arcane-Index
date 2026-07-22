@@ -176,6 +176,53 @@ Workspace (local dir)  →  Index (staging area)  →  Local Repo  →  Remote R
 
 ---
 
+## Production Branching Model — 7 Branches
+
+For production applications, a more structured branching strategy than a simple `main` + `feature` split is necessary. A robust model uses **seven branch types**:
+
+| Branch | Purpose | Who writes |
+|--------|---------|-----------|
+| `live` (production) | Running production code; represents what users see right now | Merged from UAT (after testing) or hotfix (emergency) only |
+| `hotfix` | Urgent production fixes; merged to `live` immediately, then back to UAT and development | Engineers responding to a live incident |
+| `UAT` | User Acceptance Testing; reflects the latest code ready for QA/stakeholder sign-off | Merged from development |
+| `bug-fix` | All issues found during UAT; fixed here before being merged back to UAT and development | QA / engineering team |
+| `development` | Main integration branch; contains the latest code under active development (without full testing) | All developers push to this |
+| `feature` / `[developer-name]` | Individual work in progress; each developer works on their own branch | Individual engineers |
+
+**Complete release cycle:**
+
+```
+feature branch (develop)
+    │
+    ▼ push when ready
+development branch
+    │
+    ▼ push when feature set is ready for QA
+UAT branch
+    │ (bugs found)
+    ▼
+bug-fix branch ──► fix ──► push back to UAT ──► re-test
+    │
+    ▼ tests pass
+live (production)
+```
+
+**Hotfix cycle (production incident):**
+
+```
+live (production) ──► hotfix branch (emergency fix)
+                           │
+                           ▼ immediate push
+                     live (patched)
+                           │
+                           ▼ back-test
+                         UAT ──► development
+```
+
+**Key discipline:** The `live` branch always represents the exact state of production. No code reaches `live` without passing through either UAT (planned release) or an expedited hotfix review. The `development` branch holds the bleeding edge — latest code without full test coverage.
+
+---
+
 ## Continuous Integration and Continuous Delivery (CI/CD)
 
 ### The Integration Hell Problem

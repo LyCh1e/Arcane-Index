@@ -216,6 +216,17 @@
         "wiki/concepts/security-testing-and-verification.md"
       ]
     },
+    "raw/ICT2216 Lecture 10 Secure Software Development.md": {
+      "ingested": "2026-07-22",
+      "course": "ICT2216",
+      "title": "Module Overview & Secure Software Concepts (Mislabelled as Lecture 10; internally Lecture 1)",
+      "domain": "secure-software-development",
+      "source_index": "wiki/sources/ICT2216-lecture-10-module-overview-secure-concepts.md",
+      "concept_pages": [
+        "wiki/concepts/secure-design-implementation.md",
+        "wiki/concepts/owasp-top-10.md"
+      ]
+    },
     "https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes": {
       "ingested": "2026-07-12",
       "title": "Learn LaTeX in 30 Minutes — Overleaf",
@@ -372,6 +383,8 @@
     "wiki/sources/alice-labs-agent-frameworks-2026.md": "c-000117",
     "wiki/synthesis/research-ai-agent-setup.md": "c-000118",
     "wiki/entities/deepseek.md": "c-000119",
-    "wiki/resources/ollama-local-inference.md": "c-000120"
+    "wiki/resources/ollama-local-inference.md": "c-000120",
+    "wiki/sources/ICT2216-lecture-10-module-overview-secure-concepts.md": "c-000121",
+    "wiki/sources/ICT2216-lecture-9-transcript.md": "c-000122"
   }
 }
