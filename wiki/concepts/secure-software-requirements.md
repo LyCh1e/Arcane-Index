@@ -4,7 +4,7 @@ title: "Secure Software Requirements"
 domain: secure-software-development
 complexity: high
 tags: [security, requirements, CIA, AAA, confidentiality, integrity, availability, authentication, authorisation, accountability, owasp, swat, NIST, SSDLC]
-updated: 2026-05-25
+updated: 2026-07-22
 status: established
 created: 2026-05-15
 ---
@@ -177,7 +177,7 @@ Verifies that a user is who they claim to be.
 | Minimum length | 8 characters |
 | Complexity requirements | **None** — do not mandate special characters |
 | Expiration | **No** mandatory expiration |
-| Breach checking | **Yes** — check against known breached-password lists |
+| Breach checking | **Yes** — check against known breached-password lists (e.g., SecLists `10-million-password-list-top-1000.txt`; HIBP Pwned Passwords API). Apply at registration, password change, and reset — never at login. See [[concepts/secure-design-implementation]] for implementation pattern. |
 
 > The traditional approach (complex rules + frequent expiration) causes more harm: passwords are written down, reused, or follow predictable patterns (e.g., `r@Ymond1`). The average enterprise password is reused **2.7 times**.
 

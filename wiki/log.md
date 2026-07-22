@@ -10,6 +10,14 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-22 | ingest | Breached Password List Checking — Implementation Pattern
+
+- No new pages created (no new address used)
+- Pages updated: [[concepts/secure-design-implementation]] — added "Password Policy — Breached Password List Checking" subsection under Authentication Design; includes NIST 800-63B §5.1.1.2 requirement, SecLists reference (`10-million-password-list-top-1000.txt`), when-to-apply table, Python implementation (set-based O(1) lookup + HIBP k-anonymity API option)
+- Pages updated: [[concepts/secure-software-requirements]] — expanded NIST breach checking row with implementation reference and key rules (never check at login, apply at registration/change/reset)
+
+---
+
 ## 2026-07-22 | ingest | ICT2216 Lecture 9 — Spoken Transcript (Static Code Analysis)
 
 - Pages created: [[sources/ICT2216-lecture-9-transcript]] (c-000122)

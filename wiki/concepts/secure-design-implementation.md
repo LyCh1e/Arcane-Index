@@ -396,6 +396,62 @@ Before implementing any security control, ask:
 
 **Recommended pattern — installation-wizard model:** Do not pre-seed an admin account in the database with hard-coded credentials. Instead, prompt for the initial administrator's username and password during the first application launch (the same pattern used by Windows and Linux installations). The credentials entered are hashed and stored, and that account is granted administrator privileges. This avoids shipping or committing default credentials and ensures the admin identity is established interactively by the deployer.
 
+### Password Policy — Breached Password List Checking
+
+**NIST 800-63B §5.1.1.2** requires that password verifiers check new passwords against a list of known-compromised values. This prevents users from setting passwords that have appeared in real data breaches and are trivially guessable by credential-stuffing attacks.
+
+**Minimum list to use (ICT2216 D3 requirement):**
+
+> `10-million-password-list-top-1000.txt` — SecLists / Common Credentials  
+> https://github.com/danielmiessler/SecLists/tree/master/Passwords/Common-Credentials
+
+This file contains the 1,000 most common passwords derived from the 10-million password corpus. Any submitted password that appears in this list must be **rejected outright** during registration and password-change flows.
+
+**When to apply the check:**
+
+| Event | Apply check |
+|-------|------------|
+| User registration | ✓ Always |
+| Password change | ✓ Always |
+| Password reset | ✓ Always |
+| Login | ✗ No — do not leak timing information |
+
+**Implementation pattern (Python):**
+
+```python
+# Load once at application startup — not per request
+with open("10-million-password-list-top-1000.txt") as f:
+    BREACHED_PASSWORDS: set[str] = {line.strip() for line in f}
+
+def validate_password(password: str) -> tuple[bool, str]:
+    if password in BREACHED_PASSWORDS:
+        return False, "This password is too commonly used. Please choose a different password."
+    # ... other checks (length, etc.)
+    return True, ""
+```
+
+**Implementation notes:**
+- Load the set **once at startup** — not on every request; use `set` for O(1) lookup
+- **Case-sensitive** comparison (if your application is case-sensitive); some implementations normalise to lowercase first
+- Do **not** tell the user *why* a specific password was rejected with details (e.g., "this appears in breach data") — just say it is not allowed; reduces information leakage
+- Extend the list over time: HIBP's Pwned Passwords API provides 800M+ compromised passwords via a k-anonymity API without sending the full password
+
+**Expanded production option — HIBP k-anonymity API:**
+
+```python
+import hashlib, requests
+
+def is_pwned(password: str) -> bool:
+    sha1 = hashlib.sha1(password.encode()).hexdigest().upper()
+    prefix, suffix = sha1[:5], sha1[5:]
+    resp = requests.get(f"https://api.pwnedpasswords.com/range/{prefix}")
+    return suffix in resp.text  # each line: HASH_SUFFIX:COUNT
+```
+
+The password is never transmitted — only the first 5 characters of its SHA-1 hash are sent (k-anonymity model).
+
+> See also: [[concepts/secure-software-requirements]] — NIST 800-63 guidelines; [[concepts/owasp-top-10]] — A07:2025 Authentication Failures
+
 ### Passwordless Authentication
 
 A growing pattern — removes the password entirely to eliminate the attack surface around credential theft. See [[concepts/fido-passkeys-passwordless]] for full coverage of FIDO, passkeys, OTP/magic link design constraints, and real-world platform limitations.
