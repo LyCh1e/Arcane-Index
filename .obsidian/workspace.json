@@ -30,8 +30,23 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
+          },
+          {
+            "id": "0be7b80d169567ed",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CLAUDE.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CLAUDE"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -220,26 +235,29 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b1e0856db03cc76e",
+  "active": "aa21592bb12da3f9",
   "lastOpenFiles": [
+    "wiki/hot.md.tmp.9364.93bdfbd36d2a",
+    "CLAUDE.md",
+    "wiki/concepts/secure-design-implementation.md.tmp.9364.3fda6a261e10",
+    "wiki/concepts/docker-compose.md.tmp.9364.2321034560ec",
+    "wiki/resources/gitea-and-act-runner.md",
+    "wiki/resources/gitea-and-act-runner.md.tmp.9364.7ace52413b0e",
+    "wiki/learning/gitea-act-runner-dood-networking.md",
+    "wiki/examples/ict2216-practical-test-secure-webapp.md",
+    "wiki/examples/ict2216-practical-test-secure-webapp.md.tmp.9364.aec751939a94",
     "wiki/log.md.tmp.1264.0d3e291d957f",
     "wiki/concepts/secure-software-requirements.md.tmp.1264.f5e26ce4718f",
     "wiki/concepts/secure-software-requirements.md.tmp.1264.fc3eb0a3f5b5",
     "wiki/concepts/secure-design-implementation.md.tmp.1264.12553242944c",
     "wiki/hot.md.tmp.31908.cffc6824058e",
     "wiki/log.md.tmp.31908.55c96e3b1378",
-    "wiki/sources/_index.md.tmp.31908.2d08ec7a5af5",
-    "wiki/index.md.tmp.31908.77184a4509ff",
-    "wiki/concepts/software-configuration-management.md.tmp.31908.d029296e980d",
-    "wiki/concepts/static-code-analysis.md.tmp.31908.1f4e798c67ee",
     "wiki/sources/ICT2216-lecture-9-transcript.md",
-    "wiki/sources/ICT2216-lecture-9-transcript.md.tmp.31908.1252d04d61c4",
     "wiki/sources/ICT2216-lecture-10-module-overview-secure-concepts.md",
     "raw/ICT2216 Lecture 10 Secure Software Development.md",
     "wiki/index.md",
     "wiki/sources/anthropic-mcp-launch-2024.md",
     "skills/workflow-loop/SKILL.md",
-    "CLAUDE.md",
     "_templates/workflow-loop.md",
     "_templates/workflow.md",
     "wiki/resources/ollama-local-inference.md",
@@ -255,9 +273,6 @@
     "wiki/sources/emonts-latex-best-practices.md",
     "wiki/sources/overleaf-learn-latex-30min.md",
     "wiki/resources/latex-essential-packages.md",
-    "wiki/concepts/latex-formatting.md",
-    "AGENTS.md",
-    "_templates/agent.md",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",

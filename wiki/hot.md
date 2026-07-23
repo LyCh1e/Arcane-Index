@@ -2,11 +2,27 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-07-09
+updated: 2026-07-23
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
+
+## Last Updated
+
+2026-07-23. **Session: project — ICT2216 Practical Test, full DevSecOps stack in one docker-compose.** New: [[examples/ict2216-practical-test-secure-webapp]], [[learning/gitea-act-runner-dood-networking]], [[resources/gitea-and-act-runner]]. Updated: [[concepts/docker-compose]], [[concepts/github-actions-cicd]], [[concepts/secure-design-implementation]].
+
+**What got built:** A Flask HTTPS login app hardened per OWASP Proactive Control C7 (PBKDF2-SHA256 password hashing, 5-attempt/15-min lockout, CSRF via Flask-WTF, NIST breach-password check against a 100k NCSC list loaded into Postgres), all containers running non-root, fronted by self-signed TLS. Alongside it in the same `docker-compose.yml`: a self-hosted Gitea instance, a SonarQube instance (own Postgres + nginx TLS proxy + auto admin-password bootstrap), and a Gitea Actions `act_runner` — the whole point being a CI/CD pipeline that **actually executes**, not just YAML that looks right.
+
+**SonarQube round-trip that mattered:** ran a real scan, got real findings (CSRF hotspots, root-user Dockerfiles, SHA-1 hashing flagged, hardcoded-credential heuristics on test literals), fixed the real ones (CSRFProtect, non-root USER directives, NOSONAR-justified SHA-1 comment) and marked the false positives Safe via the API with a reason — not just silenced.
+
+**The big lesson, worth 4 separate bugs:** running `act_runner` via Docker-outside-of-Docker (sharing the host's `docker.sock`) means job containers are **siblings**, not children, of whatever they spin up. This breaks three different things in three different ways: relative bind mounts silently become empty directories (host dockerd resolves the path against the host fs, not the job's volume-backed checkout), `127.0.0.1` means the job container's *own* loopback (use `host.docker.internal` for a host-published port instead), and containers only resolve each other by name if explicitly on the same Docker network (spinning up a stack under a different `COMPOSE_PROJECT_NAME` gets its own isolated network by default). Full list: [[learning/gitea-act-runner-dood-networking]].
+
+**Real payoff, not just plumbing:** the pipeline's own `pip-audit` step caught a live CVE (Flask 3.0.3 → `PYSEC-2026-2151`), fixed by bumping to 3.1.3 — concrete proof the CI is doing real work, not decorative YAML.
+
+**One documented policy divergence:** the vault already had "never breach-check at login" guidance (2026-07-22 session, NIST 800-63B). This build checks at login too, per explicit stakeholder request, after credentials already validate. Noted as a real-world exception in [[concepts/secure-design-implementation]] rather than silently changing the underlying recommendation.
+
+---
 
 ## Last Updated
 

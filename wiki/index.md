@@ -216,6 +216,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict2216-lab11-zap-burp\|ICT2216 Lab 11 — Vulnerability Assessment with OWASP ZAP & Fuzzing with Burp Suite]] | lab | ICT2216 / secure-software-development | [[concepts/security-testing-and-verification\|Security Testing and Verification]] |
 | [[examples/ict2216-project-phase4-auth\|ICT2216 Project — Phase 4: Authentication (Register/Login/MFA/Logout)]] | project | ICT2216 / secure-software-development | [[concepts/secure-software-requirements\|Secure Software Requirements]] |
 | [[examples/ict2216-project-deployment-phases-9-12\|ICT2216 Project — Phases 9–12: Frontend Wiring, Hardening & EC2 Deployment]] | project | ICT2216 / devops | [[concepts/docker-compose\|Docker Compose]] |
+| [[examples/ict2216-practical-test-secure-webapp\|ICT2216 Practical Test — Secure Web App + Full DevSecOps Stack (Gitea, act_runner, SonarQube, ESLint)]] | project | ICT2216 / secure-software-development | [[concepts/github-actions-cicd\|GitHub Actions CI/CD]] |
 | [[examples/stock-prediction-neural-network\|Stock Prediction Neural Network — SOLID ML App with Tkinter GUI]] | project | machine-learning | [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] |
 | [[examples/leetcode-array-basics-python\|LeetCode Array Basics — Python Solutions]] | practice | computer-science | [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] |
 | [[examples/leetcode-set-mismatch-python\|LeetCode 645 — Set Mismatch (Python)]] | practice | computer-science | [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] |
@@ -256,6 +257,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/windows-openssl-strawberry-broken\|Windows: Strawberry Perl OpenSSL Broken Config — Generate Certs on Linux]] | devops | resolved |
 | [[learning/ssh-stdout-known-hosts-warning\|SSH: "Permanently added" Warning Contaminates stdout — Use -o LogLevel=ERROR]] | devops | resolved |
 | [[learning/github-actions-version-deprecations\|GitHub Actions: Node 20 Deprecation, Floating vs Pinned Tags, CodeQL v3→v4]] | devops | resolved |
+| [[learning/gitea-act-runner-dood-networking\|Gitea act_runner + Docker-outside-of-Docker: 4 Networking Gotchas]] | devops | resolved |
 
 
 ## Synthesis
@@ -298,3 +300,4 @@ Master catalog of all pages. Updated on every ingest.
 | [[resources/ai-agent-frameworks\|AI Agent Frameworks (2026 Comparison)]] | reference |
 | [[resources/ollama-local-inference\|Ollama — Local LLM Inference]] | tool |
 | [[resources/latex-essential-packages\|LaTeX Essential Packages]] | reference |
+| [[resources/gitea-and-act-runner\|Gitea and act_runner]] | tool |

@@ -242,9 +242,23 @@ See [[learning/docker-compose-build-context]] for the full gotcha and fix.
 
 ---
 
+---
+
+## Docker-outside-of-Docker (DooD): Sibling, Not Parent
+
+When a container (e.g. a CI runner) is given the host's `/var/run/docker.sock`, any `docker`/`docker compose` command it runs is executed by the **host's** Docker daemon — but the container issuing that command is a **sibling** to whatever gets created, not a parent. Three consequences that look like unrelated bugs until you know the pattern:
+
+- **Relative bind mounts break.** A path like `./file.txt:/data/file.txt` gets resolved by the host daemon against the host filesystem — but the calling container's own files usually live in a Docker-managed volume, not a real host path. Docker silently creates an empty directory at the missing source instead of erroring. Fix: bake the file into the image at build time instead of bind-mounting it.
+- **`127.0.0.1` means the calling container's own loopback**, not the host's and not a sibling's. To reach a host-published port from inside a DooD container, use `host.docker.internal` (Docker Desktop) rather than `127.0.0.1`.
+- **Sibling containers only resolve each other by name if explicitly placed on the same network** — spinning up a stack under a different `COMPOSE_PROJECT_NAME` gives it its own isolated network by default.
+
+Full write-up with exact error signatures: [[learning/gitea-act-runner-dood-networking]].
+
 ## Related
 
 - [[securityrat]] — a more complex Docker Compose stack (Spring Boot + MariaDB); introduces the CRLF gotcha
 - [[learning/docker-windows-crlf]] — Windows-specific pitfall when shell scripts are copied into Linux containers
 - [[learning/docker-compose-build-context]] — build context controls what COPY can see
+- [[learning/gitea-act-runner-dood-networking]] — DooD networking/bind-mount gotchas from a real CI runner setup
+- [[examples/ict2216-practical-test-secure-webapp]] — full stack this was learned building
 - [[ICT2216-secure-software-development]] — source course

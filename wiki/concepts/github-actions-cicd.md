@@ -421,9 +421,23 @@ uses: github/codeql-action/upload-sarif@v4
 
 See [[learning/github-actions-version-deprecations]] for the full deprecation reference and the linter double-substitution trap.
 
+## Gitea Actions: A Self-Hosted, GitHub-Actions-Compatible Alternative
+
+Gitea (self-hosted git) ships its own Actions system using the **same workflow YAML syntax** as GitHub Actions (`.gitea/workflows/*.yml` instead of `.github/workflows/*.yml`). The executor is a separate binary, `act_runner`, which must be registered before any workflow actually runs — pushing a workflow file with no runner registered just queues it forever with no error.
+
+Key differences from GitHub-hosted Actions:
+- `runs-on: ubuntu-latest` must be manually mapped to a real Docker image via runner labels (e.g. `ubuntu-latest:docker://catthehacker/ubuntu:act-latest`) — there's no free hosted fleet behind the label.
+- No native equivalent of GitHub Secrets in a minimal local setup; this project's pipeline read credentials straight from a (git-tracked, by explicit choice) `.env` file instead.
+- Running the runner via Docker-outside-of-Docker (sharing the host's `docker.sock`) introduces a cluster of networking gotchas — see [[learning/gitea-act-runner-dood-networking]].
+
+Full setup reference: [[resources/gitea-and-act-runner]]. Full pipeline example (5 jobs: dependency scan, ESLint security scan, integration tests, UI tests, SonarQube scan): [[examples/ict2216-practical-test-secure-webapp]].
+
 ## Related
 
 - [[concepts/software-configuration-management]] — CI/CD theory (Booch/Fowler), git workflow
 - [[concepts/nginx-reverse-proxy-and-tls]] — Nginx setup tested by the Actions workflow
+- [[concepts/docker-compose]] — DooD gotchas section
 - [[examples/ict2216-lab5-github-actions]] — Full Lab 5 walkthrough
 - [[examples/ict2216-project-deployment-phases-9-12]] — EC2 deployment context (deploy.sh / deploy.ps1)
+- [[examples/ict2216-practical-test-secure-webapp]] — Gitea Actions pipeline with a real self-hosted runner
+- [[resources/gitea-and-act-runner]] — Gitea + act_runner setup reference

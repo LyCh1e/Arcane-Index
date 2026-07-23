@@ -10,6 +10,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-23 | project | ICT2216 Practical Test — Secure Web App + DevSecOps Stack
+
+- 1 new example page: [[examples/ict2216-practical-test-secure-webapp]] — Flask HTTPS login app (CSRF, non-root Docker, PBKDF2 hashing, NIST breach-password check), Gitea, SonarQube (local scan + hotspot fixes), ESLint security scanning, and a working self-hosted Gitea Actions CI/CD pipeline (5 jobs)
+- 1 new learning page: [[learning/gitea-act-runner-dood-networking]] — 4 distinct Docker-outside-of-Docker gotchas (duplicate socket mount, isolated per-job network, bind mounts becoming empty dirs, 127.0.0.1 vs host.docker.internal) hit registering and running a real `act_runner`
+- 1 new resource page: [[resources/gitea-and-act-runner]] — Gitea + act_runner setup, admin bootstrap (no env-var auto-provisioning), runner registration
+- Pages updated: [[concepts/docker-compose]] (new DooD section), [[concepts/github-actions-cicd]] (new Gitea Actions section), [[concepts/secure-design-implementation]] (noted a real divergence from the "don't breach-check at login" guidance, made on explicit stakeholder request)
+- Real CVE caught by the pipeline's own `pip-audit` step: Flask 3.0.3 (`PYSEC-2026-2151`), fixed by upgrading to 3.1.3 — direct evidence the CI actually runs rather than just existing as YAML
+
+---
+
 ## 2026-07-22 | ingest | Breached Password List Checking — Implementation Pattern
 
 - No new pages created (no new address used)

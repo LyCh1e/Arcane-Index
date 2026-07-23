@@ -416,6 +416,8 @@ This file contains the 1,000 most common passwords derived from the 10-million p
 | Password reset | ✓ Always |
 | Login | ✗ No — do not leak timing information |
 
+> **Real-world divergence (2026-07-23):** [[examples/ict2216-practical-test-secure-webapp]] checks breach status at login too, on explicit stakeholder request, after credentials already validate correctly. Since the check only runs once auth has already succeeded (not on every attempt, and not distinguishing "wrong password" from "right-but-breached password" until after the constant-time credential check), the timing-leak risk this guidance warns about is reduced but not eliminated versus a pure registration/change-only implementation. Noted here rather than changed in the guidance above, since "don't check at login" remains the correct default recommendation.
+
 **Implementation pattern (Python):**
 
 ```python
