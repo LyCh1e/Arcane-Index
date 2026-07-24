@@ -10,6 +10,14 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-24 | project | Learnix — Font-Size Setting + Slower Forethought SRL Pacing
+
+- 1 new example page: [[examples/learnix-fontsize-and-srl-pacing]] — per-user font-size preference added to Settings → Appearance via CTk's `set_widget_scaling()` (live, no window rebuild, unlike colour theming); Forethought-phase SRL steps now require 3 distinct-message keyword mentions instead of 1 to tick complete
+- 1 new concept page: [[concepts/customtkinter-widget-scaling]] — CTk's built-in live font/widget rescaling mechanism, contrasted with the heavier rebind-and-rebuild pattern colour theming needs (see [[concepts/customtkinter-window-lifecycle]])
+- No source ingest this session — both features built directly against the existing Learnix codebase and prior wiki knowledge of the CTk teardown/theming pattern
+
+---
+
 ## 2026-07-23 | project | ICT2216 Practical Test — Secure Web App + DevSecOps Stack
 
 - 1 new example page: [[examples/ict2216-practical-test-secure-webapp]] — Flask HTTPS login app (CSRF, non-root Docker, PBKDF2 hashing, NIST breach-password check), Gitea, SonarQube (local scan + hotspot fixes), ESLint security scanning, and a working self-hosted Gitea Actions CI/CD pipeline (5 jobs)

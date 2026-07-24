@@ -2,11 +2,21 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-07-23
+updated: 2026-07-24
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
+
+## Last Updated
+
+2026-07-24. **Session: project — Learnix, font-size setting + slower Forethought SRL pacing.** New: [[examples/learnix-fontsize-and-srl-pacing]], [[concepts/customtkinter-widget-scaling]].
+
+**Font-size setting, live not rebuilt:** added a font-size dropdown (14–20) to Learnix's Settings → Appearance card next to the existing theme picker. Unlike colour theming — which needs the full colour-rebind-then-rebuild-the-window pattern documented in [[concepts/customtkinter-window-lifecycle]] — font size uses CTk's built-in `set_widget_scaling(size / DEFAULT_FONT_SIZE)`, which live-rescales every already-constructed `CTkFont` and widget in place. No window rebuild needed, just re-apply at each fresh-window entry point (login, relaunch) since it's a process-global CTk setting. New concept page contrasts the two approaches directly. Persisted through the existing generic `update_user_preference(email, key, value)` — new preference key, zero DB schema change.
+
+**Forethought SRL pacing:** a single passing mention of a Forethought-phase keyword (e.g. "business need") used to instantly tick that step complete. Now gated behind 3 distinct messages mentioning the step's keyword group via a new `_register_srl_progress()` helper in `ui/utils.py`, tracking per-session `srl_mention_counts`. Other phases unaffected. The "count once per message" requirement needed no extra dedup — `_detect_srl()` already returns a *set* per message, so repeated keyword hits within one message already collapse to one contribution.
+
+---
 
 ## Last Updated
 
