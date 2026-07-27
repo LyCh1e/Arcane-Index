@@ -2,11 +2,27 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-07-26
+updated: 2026-07-28
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
+
+## Last Updated
+
+2026-07-28. **Session: autoresearch — Social Engineering.** New: [[concepts/social-engineering]], [[synthesis/research-social-engineering]].
+
+**The core finding in one sentence:** Social engineering accounts for ~60% of breaches (Verizon DBIR 2025) because it exploits human cognition directly, bypassing every technical control — the fix is a layered people/process/technology response, not any single tool.
+
+**Psychological model:** Cialdini's six principles (authority, urgency, reciprocity, consistency, social proof, liking) cover virtually every SE attack. Training that teaches *why* an attack feels convincing — rather than merely what it looks like — is more durable. The same social behaviours that make organisations function (deference to authority, responsiveness to urgency) are what SE exploits; eliminating the susceptibility would require eliminating the adaptive behaviour itself.
+
+**Attack landscape in 2025:** Three tiers — commodity (mass phishing, smishing, USB baiting), targeted (spear phishing, BEC/CEO fraud, vishing with pretexting, callback phishing/TOAD), and advanced (real-time deepfake impersonation, long-con pig-butchering, MFA fatigue paired with AitM kits). The major shift: AI tooling has commoditised tier-2 attacks and made tier-3 deepfake impersonation accessible to organised crime, not just nation-states. 62% of organisations experienced a deepfake-related SE incident in the prior 12 months (Doppel, mid-2025).
+
+**Why standard MFA is no longer sufficient:** Push-notification MFA falls to fatigue attacks, AitM phishing kits (Evilginx, Tycoon), and helpdesk SE. FIDO2/WebAuthn passkeys defeat all three — origin-bound (cannot be replayed on a phishing domain), requires local user presence (no remote push to approve). FIDO2 is now the minimum standard. See [[concepts/fido-passkeys-passwordless]].
+
+**Defence priority order:** (1) FIDO2 MFA, (2) out-of-band verification procedures for high-value requests — the only control that defeats a convincing deepfake, (3) mandatory identity verification at helpdesk for any credential reset, (4) psychological-trigger-aware training, (5) multi-channel simulated attacks (email, SMS, voice, QR). Process controls (2 and 3) are more important than technology for the highest-risk scenarios.
+
+---
 
 ## Last Updated
 

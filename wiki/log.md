@@ -10,6 +10,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-28 | autoresearch | Social Engineering
+
+- 3 search passes (attack types/techniques, psychological principles, defences/countermeasures) + 3 deep fetches (ESET, Secureframe, Doppel 2025)
+- 1 new concept page: [[concepts/social-engineering]] — full taxonomy (15+ attack types across email, voice, physical, and advanced categories), Cialdini's 6 principles mapped to exploitation patterns, 5 real-world case studies (Bybit $1.4B, MGM, $25M deepfake CFO, M&S £440M, Twitter 2020), red-flag recognition signals, three-layer defence framework (people/process/technology), key statistics (2024–2025)
+- 1 new synthesis page: [[synthesis/research-social-engineering]] — cross-domain connections to threat modelling, OWASP Top 10, CIA-AAA security requirements, and HCI; deepfake inflection-point analysis; MFA limitation analysis; defence priority order; open research questions
+- index.md updated (concepts + synthesis tables)
+
+---
+
 ## 2026-07-26 | project | Learnix — Encrypted `.env` + PyArmor Build Pipeline
 
 - 1 new example page: [[examples/learnix-encrypted-env-build]] — `build.ps1` (single PowerShell script) does Fernet-encrypt `.env` → PyArmor-obfuscate just the decrypt-key module → PyInstaller onefile/windowed package → delete all build-time secret artifacts; `src/_secrets_loader.py` is the one unavoidable runtime Python file (decrypts inside the frozen app); `main.py` branches frozen vs dev

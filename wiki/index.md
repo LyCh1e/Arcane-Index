@@ -198,6 +198,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/security-terminology\|Security Terminology]] | secure-software-development | medium |
 | [[concepts/ai-agent-architecture\|AI Agent Architecture]] | ai-engineering | high |
 | [[concepts/static-code-analysis\|Static Code Analysis]] | secure-software-development | high |
+| [[concepts/social-engineering\|Social Engineering]] | secure-software-development | high |
 | [[concepts/latex-formatting\|LaTeX Formatting]] | academic-writing | medium |
 | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] | python-gui | low |
 | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] | python-gui | medium |
@@ -285,6 +286,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[synthesis/research-kubernetes\|Research: Kubernetes]] | devops | developing |
 | [[synthesis/research-ai-agent-setup\|Research: Setting Up AI Agents]] | ai-engineering | complete |
 | [[synthesis/research-latex-formatting\|Research: LaTeX Formatting]] | academic-writing | complete |
+| [[synthesis/research-social-engineering\|Research: Social Engineering]] | secure-software-development | established |
 
 ## Gaps
 
