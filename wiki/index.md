@@ -200,6 +200,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/static-code-analysis\|Static Code Analysis]] | secure-software-development | high |
 | [[concepts/latex-formatting\|LaTeX Formatting]] | academic-writing | medium |
 | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] | python-gui | low |
+| [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] | python-gui | medium |
 
 ## Examples
 
@@ -228,6 +229,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/leetcode-longest-substring-python\|LeetCode 3 — Longest Substring Without Repeating Characters (Python)]] | practice | computer-science | [[concepts/sliding-window-patterns\|Sliding Window Patterns]] |
 | [[examples/leetcode-merge-alternately-python\|LeetCode 1768 — Merge Strings Alternately (Python)]] | practice | computer-science | [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] |
 | [[examples/learnix-fontsize-and-srl-pacing\|Learnix — Font-Size Setting + Slower Forethought SRL Pacing]] | project | python-gui / software-engineering | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] |
+| [[examples/learnix-encrypted-env-build\|Learnix — Encrypted .env + PyArmor Build Pipeline]] | project | python-gui / secure-software-development | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] |
 
 ## Entities
 
@@ -303,3 +305,4 @@ Master catalog of all pages. Updated on every ingest.
 | [[resources/ollama-local-inference\|Ollama — Local LLM Inference]] | tool |
 | [[resources/latex-essential-packages\|LaTeX Essential Packages]] | reference |
 | [[resources/gitea-and-act-runner\|Gitea and act_runner]] | tool |
+| [[resources/pyarmor\|PyArmor]] | tool |

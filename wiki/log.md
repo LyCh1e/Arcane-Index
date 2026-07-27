@@ -10,6 +10,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-26 | project | Learnix — Encrypted `.env` + PyArmor Build Pipeline
+
+- 1 new example page: [[examples/learnix-encrypted-env-build]] — `build.ps1` (single PowerShell script) does Fernet-encrypt `.env` → PyArmor-obfuscate just the decrypt-key module → PyInstaller onefile/windowed package → delete all build-time secret artifacts; `src/_secrets_loader.py` is the one unavoidable runtime Python file (decrypts inside the frozen app); `main.py` branches frozen vs dev
+- 1 new concept page: [[concepts/pyinstaller-secret-protection]] — general pattern (encrypt data file + scope PyArmor obfuscation to the key module only, not the whole app, to avoid blinding PyInstaller's static import analysis) plus an explicit table of what this defends against (casual inspection) vs. doesn't (a determined attacker, or the underlying "live keys ship client-side" problem — needs a backend proxy)
+- 1 new resource page: [[resources/pyarmor]] — v9.2.6 CLI invocation gotcha (`python -m pyarmor` fails, `python -m pyarmor.cli` works), license tiers, install notes
+- Verified for real: ran the build script end-to-end, confirmed cleanup deleted all secret artifacts, launched the built exe, confirmed no console window and no crash (decrypt path actually worked), killed it
+- Two gotchas hit and documented: a PowerShell here-string got mangled passing through the tool-call transport (fixed by writing an actual file instead of inline command text); `python -m pyarmor` vs `python -m pyarmor.cli` on v9.x
+
+---
+
 ## 2026-07-24 | project | Learnix — Font-Size Setting + Slower Forethought SRL Pacing
 
 - 1 new example page: [[examples/learnix-fontsize-and-srl-pacing]] — per-user font-size preference added to Settings → Appearance via CTk's `set_widget_scaling()` (live, no window rebuild, unlike colour theming); Forethought-phase SRL steps now require 3 distinct-message keyword mentions instead of 1 to tick complete

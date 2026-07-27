@@ -45,8 +45,7 @@
               "title": "CLAUDE"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -235,7 +234,7 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "aa21592bb12da3f9",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
     "wiki/hot.md.tmp.12208.970869e58e34",
     "wiki/log.md.tmp.12208.3f960551fe1f",

@@ -2,11 +2,23 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-07-24
+updated: 2026-07-26
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
+
+## Last Updated
+
+2026-07-26. **Session: project — Learnix, encrypted `.env` + PyArmor build pipeline.** New: [[examples/learnix-encrypted-env-build]], [[concepts/pyinstaller-secret-protection]], [[resources/pyarmor]].
+
+**The ask, in two steps.** First: how to encrypt `.env` on a PyInstaller build (originally bundled plaintext via `--add-data ".env;."`). Second, after being told PyArmor obfuscation raises the bar further: "make it one PowerShell script, no additional code needed." Landed on: `build.ps1` at repo root does everything (Fernet-encrypt `.env` → PyArmor-obfuscate just the decrypt key → PyInstaller package → delete all build-time secrets in a `finally`), plus one truly unavoidable Python runtime file (`src/_secrets_loader.py`) since decryption has to execute *inside* the frozen app, not the build script.
+
+**Key architectural call**: obfuscate only the tiny module holding the Fernet key, not the whole app. Full-app PyArmor obfuscation blinds PyInstaller's static import analysis across everything, not just one module — scoping to one file keeps the manual-declaration surface (the PyArmor runtime package, via `--hidden-import` + `--add-data`) to exactly one item. Full pattern in [[concepts/pyinstaller-secret-protection]], including the explicit table of what this actually defends against (casual inspection) vs. doesn't (a determined reverse engineer, or the underlying "live API keys ship to every client install" problem — that needs a backend proxy, not more obfuscation).
+
+**Verified, not just written**: ran `build.ps1` for real, confirmed all build-time secret artifacts got deleted, launched the resulting exe, confirmed no console window appeared and the process didn't crash (i.e. decryption + PyArmor-obfuscated key import actually worked at runtime), then killed it. Also hit and fixed two real gotchas along the way — a PowerShell here-string silently mangled over the tool-call transport (fixed by writing a real file instead of inline command text) and `python -m pyarmor` failing where `python -m pyarmor.cli` works on 9.x — both logged in [[examples/learnix-encrypted-env-build]] and [[resources/pyarmor]].
+
+---
 
 ## Last Updated
 
