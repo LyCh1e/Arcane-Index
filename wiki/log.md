@@ -10,6 +10,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-28 | autoresearch | Prompt Injection
+
+- 3 search passes (attack types/LLM01, jailbreak techniques, defences) + 3 deep fetches (OWASP LLM01:2025, Vectra AI, Palo Alto Networks)
+- 1 new concept page: [[concepts/prompt-injection]] — full taxonomy (6 attack classes: direct, indirect, stored, RAG poisoning, multimodal, agentic), Promptware Kill Chain (7 stages), concrete technique reference table (10 techniques), real-world CVE table (7 incidents including EchoLeak CVSS 9.3 and GitHub Copilot RCE CVSS 9.6), attack success rate benchmarks (up to 84% in agentic systems), six-layer defence framework, emerging technical controls (PromptGuard, Attention Tracker, AgentVisor), compliance mapping across 7 frameworks
+- 1 new synthesis page: [[synthesis/research-prompt-injection]] — argues the architectural root cause is unsolvable by filtering alone; establishes cross-domain connections to SQL injection, MCP security, social engineering, and STRIDE threat modelling; defence priority order; open research questions
+- index.md updated (concepts + synthesis tables)
+
+---
+
 ## 2026-07-28 | autoresearch | Social Engineering
 
 - 3 search passes (attack types/techniques, psychological principles, defences/countermeasures) + 3 deep fetches (ESET, Secureframe, Doppel 2025)

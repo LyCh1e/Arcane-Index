@@ -10,6 +10,24 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-28. **Session: autoresearch — Prompt Injection.** New: [[concepts/prompt-injection]], [[synthesis/research-prompt-injection]].
+
+**The core finding in one sentence:** Prompt injection is OWASP LLM01:2025 — the #1 LLM vulnerability — and it is architecturally unsolvable by content filtering alone; the correct design goal is not to prevent all injection but to limit what a successful injection can do.
+
+**Root cause:** LLMs process all text in their context window — system prompt, user input, retrieved documents, tool responses — as equally authoritative. There is no hardware-enforced privilege boundary. Every filter that operates on *content* (keywords, semantic classifiers, regex) is heuristic and bypassable. Policy Puppetry (April 2025) demonstrated a universal jailbreak across all major LLMs by formatting payloads as XML/INI/JSON policy files.
+
+**Attack taxonomy — the six classes:** (1) Direct injection (instruction override, jailbreaks, adversarial suffixes); (2) Indirect injection (malicious content in webpages, emails, documents the LLM reads — the victim need not interact); (3) Stored injection (payload in persistent memory or RAG store, triggers on future sessions); (4) RAG poisoning (5 crafted documents in millions achieves 90% success); (5) Multimodal injection (text hidden in images bypasses all string-level filters); (6) Agentic/cross-plugin (tool responses, MCP server outputs, inter-agent messages as injection vectors). See [[concepts/mcp-security]].
+
+**The agentic escalation:** Non-agentic injection = harmful text. Agentic injection = code execution, email sending, file exfiltration, lateral movement to peer agents, persistence in RAG. The Promptware Kill Chain has 7 stages (initial access → persistence → lateral movement → objective). Lateral movement in LLM agent networks grew from zero incidents in 2023 to eight in 2025–2026. Attack success rate reaches 84% in agentic systems.
+
+**Real-world severity:** EchoLeak (CVE-2025-32711, CVSS 9.3) — zero-click Copilot data exfiltration via one malicious email. GitHub Copilot RCE (CVE-2025-53773, CVSS 9.6) — arbitrary code execution via code comment injection. Cline/OpenClaw supply chain (Feb 2026) — 4,000 developer machines compromised via one GitHub Actions workflow injection.
+
+**Defence priority order:** (1) Least privilege for all tool/API access, (2) HITL for all irreversible actions — breaks the kill chain and has no bypass if genuinely enforced, (3) Structural prompt separation, (4) RAG provenance tracking, (5) Semantic injection detectors (PromptGuard, Attention Tracker), (6) Output monitoring. No FIDO2-equivalent exists for LLMs yet — unlike social engineering, there is no cryptographic architecture-level fix.
+
+---
+
+## Last Updated
+
 2026-07-28. **Session: autoresearch — Social Engineering.** New: [[concepts/social-engineering]], [[synthesis/research-social-engineering]].
 
 **The core finding in one sentence:** Social engineering accounts for ~60% of breaches (Verizon DBIR 2025) because it exploits human cognition directly, bypassing every technical control — the fix is a layered people/process/technology response, not any single tool.
