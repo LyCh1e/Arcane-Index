@@ -10,6 +10,24 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-28. **Session: autoresearch — Browser Extensions.** New: [[concepts/browser-extensions]], [[synthesis/research-browser-extensions]].
+
+**What a browser extension is:** A packaged web application (HTML/CSS/JS) that runs inside the browser with access to privileged APIs — DOM of every page, network interception, tab management, credential storage, system notifications. Built on the WebExtensions API, a cross-browser standard implemented by Chrome, Firefox, Edge, and Opera.
+
+**Architecture in one sentence:** Three isolated execution contexts (background service worker, content scripts, popup/options pages) that share no memory and communicate exclusively via `chrome.runtime.sendMessage` / `chrome.tabs.sendMessage`. Critical constraint: the service worker has no persistent in-memory state — it can be killed at any time; use `chrome.storage` for everything that must survive.
+
+**The five components:** (1) `manifest.json` — the blueprint declaring every permission, script, and UI surface; (2) background service worker — event-driven engine, full WebExtensions API, no DOM; (3) content scripts — DOM access, isolated JS heap, limited API, run inside the page; (4) popup/options/sidebar UI — standard HTML pages in the extension origin; (5) storage — `chrome.storage.local` (10 MB, session-surviving), `.session` (cleared on browser close), `.sync` (cross-device, 100 KB limit).
+
+**MV3 vs MV2 — the key changes:** Persistent background pages → sleeping service workers (no persistent state). `webRequest` (full programmatic block/modify) → `declarativeNetRequest` (rule-based, inspectable, less capable). Remote code execution banned (all JS must ship in the package). Chrome disabled MV2 globally July 24, 2025. Firefox retains MV2 + `webRequest` support — making it the better browser for full-capability privacy extensions (uBlock Origin on Firefox meaningfully outperforms uBlock Origin Lite on Chrome).
+
+**Security: supply chain is the dominant threat.** MV3's remote code ban helps with in-review payload hiding but does not address the real attack pattern: phish a developer account, push a malicious silent update through the store's own update channel. ShadyPanda (2025) played a 7-year long game — published benign extensions, waited, then flipped via update. 35+ extensions compromised via developer phishing in Dec 2024–Jan 2025. Content scripts are the highest-risk code surface: they bridge extension privileges and untrusted page DOM; XSS via `innerHTML` escalates to full extension access.
+
+**Tooling pick (2025):** WXT (Vite-based, framework-agnostic, auto-generates manifest, MV2+MV3+all-browsers from one codebase) is the community consensus for new projects. Plasmo for React-heavy extensions with Shadow DOM component injection.
+
+---
+
+## Last Updated
+
 2026-07-28. **Session: autoresearch — Prompt Injection.** New: [[concepts/prompt-injection]], [[synthesis/research-prompt-injection]].
 
 **The core finding in one sentence:** Prompt injection is OWASP LLM01:2025 — the #1 LLM vulnerability — and it is architecturally unsolvable by content filtering alone; the correct design goal is not to prevent all injection but to limit what a successful injection can do.

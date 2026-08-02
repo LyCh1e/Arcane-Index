@@ -10,6 +10,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-28 | autoresearch | Browser Extensions
+
+- 5 search passes (MV3 architecture, components/service workers, cross-browser/permissions, security/supply chain, dev frameworks) + 3 deep fetches (FreeToolKit MV3 guide, MDN WebExtensions, MV2 vs MV3 analysis)
+- 1 new concept page: [[concepts/browser-extensions]] — full reference covering: WebExtensions API cross-browser matrix, 5-component architecture (manifest, service worker, content scripts, popup/UI, options) with annotated code examples for each, message-passing patterns (one-shot and long-lived ports), storage API comparison table, permissions model (4 categories), MV2 vs MV3 comparison table, cross-browser framework comparison (WXT, Plasmo, CRXJS, web-ext), development workflow (loading unpacked, debugging, web-ext CLI), publishing to Chrome Web Store and Firefox AMO, security model, real-world incident table (ShadyPanda, 35-extension compromise, SpyStore campaign), secure development checklist, full WebExtensions API quick-reference
+- 1 new synthesis page: [[synthesis/research-browser-extensions]] — argues extensions are a distributed system in miniature; analyses MV3 as a security trade-off not a pure improvement; identifies content scripts as the highest-risk code surface; establishes supply chain as the dominant threat vector; cross-domain connections to prompt injection, JS fundamentals, web security, and CI/CD; ASCII architecture diagram; open gaps
+- index.md updated (concepts + synthesis tables)
+
+---
+
 ## 2026-07-28 | autoresearch | Prompt Injection
 
 - 3 search passes (attack types/LLM01, jailbreak techniques, defences) + 3 deep fetches (OWASP LLM01:2025, Vectra AI, Palo Alto Networks)
