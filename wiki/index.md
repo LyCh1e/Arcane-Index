@@ -204,6 +204,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/blockchain-microcredentials\|Blockchain Microcredentials and Verifiable Credentials]] | blockchain | high |
 | [[concepts/bitcoin-history\|History of Bitcoin]] | blockchain | high |
 | [[concepts/distributed-ledger-technology\|Distributed Ledger Technology (DLT)]] | blockchain | high |
+| [[concepts/hedera-network\|Hedera Network (HBAR)]] | blockchain | high |
 | [[concepts/latex-formatting\|LaTeX Formatting]] | academic-writing | medium |
 | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] | python-gui | low |
 | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] | python-gui | medium |
@@ -297,6 +298,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[synthesis/research-blockchain-microcredentials\|Research: Microcredential Blockchain / DLT]] | blockchain | established |
 | [[synthesis/research-bitcoin-history\|Research: History of Bitcoin]] | blockchain | established |
 | [[synthesis/research-distributed-ledger-technology\|Research: Distributed Ledger Technology]] | blockchain | established |
+| [[synthesis/research-hedera-network\|Research: Hedera Network]] | blockchain | established |
 
 ## Gaps
 
