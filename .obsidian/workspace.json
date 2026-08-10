@@ -65,7 +65,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -236,6 +238,12 @@
   },
   "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "wiki/index.md.tmp.21972.cae84e62230f",
+    "wiki/index.md.tmp.21972.913621a179d0",
+    "wiki/synthesis/research-blockchain-microcredentials.md",
+    "wiki/synthesis/research-blockchain-microcredentials.md.tmp.21972.d3264e1cca2d",
+    "wiki/concepts/blockchain-microcredentials.md",
+    "wiki/concepts/blockchain-microcredentials.md.tmp.21972.89bb030d8e93",
     "wiki/hot.md.tmp.35256.8557d234ffdc",
     "wiki/index.md.tmp.35256.d968f01610e4",
     "wiki/synthesis/research-browser-extensions.md",
@@ -247,10 +255,6 @@
     "wiki/synthesis/research-prompt-injection.md",
     "wiki/synthesis/research-prompt-injection.md.tmp.36536.30728f6d319a",
     "wiki/concepts/prompt-injection.md",
-    "wiki/concepts/prompt-injection.md.tmp.36536.9e6b9c54e252",
-    "wiki/hot.md.tmp.26136.e4abc80892d5",
-    "wiki/log.md.tmp.26136.effb723c6c6a",
-    "wiki/index.md.tmp.26136.ff6f72342e74",
     "wiki/synthesis/research-social-engineering.md",
     "wiki/concepts/social-engineering.md",
     "wiki/examples/learnix-fontsize-and-srl-pacing.md",
@@ -270,8 +274,6 @@
     "wiki/resources/ollama-local-inference.md",
     "wiki/entities/deepseek.md",
     "wiki/synthesis/research-ai-agent-setup.md",
-    "wiki/sources/alice-labs-agent-frameworks-2026.md",
-    "wiki/sources/furmanets-ai-agents-2026.md",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",

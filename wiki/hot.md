@@ -10,6 +10,24 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-28. **Session: autoresearch — Microcredential Blockchain / DLT.** New: [[concepts/blockchain-microcredentials]], [[synthesis/research-blockchain-microcredentials]].
+
+**What microcredentials are:** Short, focused digital certificates proving mastery of a discrete competency — assessed by demonstrated performance, not time-in-seat. Spectrum: nano-credential (single tool) → digital badge → micro-certificate → bootcamp credential → stackable pathway (4–8 badges toward a regulated qualification). 90% of employers now recognise microcredentials as viable alternatives; holders command 10–15% higher starting salaries.
+
+**Why blockchain adds value:** The real innovation is **verifier independence** — a verifier resolves the issuer's DID, retrieves their public key, checks the cryptographic signature, and confirms the blockchain-anchored hash. No live contact with the institution; credential survives institutional closure. Traditional PDF certificates require manual registrar contact taking days to weeks and are trivially forgeable.
+
+**Standards stack (2025 state):** W3C VC 2.0 (full Recommendation, 2025) defines the data model and proof types. W3C DID v1.1 (finalised) defines decentralised identifiers. OpenBadges 3.0 (1EdTech) is now a VC 2.0 profile — every OpenBadge is a VC, giving universal interoperability. EBSI mandates VC + DID for all EU cross-border credentials. Key VC 2.0 additions: SD-JWT + BBS+ selective disclosure, Status List 2021 revocation, CBOR encoding, `validFrom`/`validUntil` replacing ambiguous date fields.
+
+**Critical architecture rule — GDPR:** Personal data must NOT go on-chain. Only `SHA-256(VC)` is anchored on the blockchain. Full VC documents (names, achievements) are stored off-chain. EDPB Guidelines 02/2025 (April 2025) settle this: off-chain PII, on-chain hash, DPIA required. The compliance pattern for erasure: delete the off-chain VC; the on-chain hash becomes an unlinked fingerprint.
+
+**DLT choice:** `did:web` (resolves over HTTPS, no blockchain required) is sufficient for most institutions with a stable domain. Use Ethereum/Polygon for permissionless decentralisation, EBSI for EU cross-border, Hyperledger Fabric for high-volume permissioned enterprise, `did:key` for ephemeral credentials.
+
+**Where adoption is stuck:** The technology is ready. The gap is employer infrastructure — only 14% of ATS systems can auto-parse microcredentials; fewer than 25% of HRIS systems support credential data. Until Workday/Greenhouse/SAP ship native VC parsers, the cryptographic trust advantage is invisible in most hiring pipelines. Quality assurance is the other blocker: blockchain proves *authenticity* (this issuer issued this credential) but not *quality* (the assessment was rigorous). OpenBadges 3.0 `endorsement` fields + accreditor-signed quality VCs are the emerging solution.
+
+---
+
+## Last Updated
+
 2026-07-28. **Session: autoresearch — Browser Extensions.** New: [[concepts/browser-extensions]], [[synthesis/research-browser-extensions]].
 
 **What a browser extension is:** A packaged web application (HTML/CSS/JS) that runs inside the browser with access to privileged APIs — DOM of every page, network interception, tab management, credential storage, system notifications. Built on the WebExtensions API, a cross-browser standard implemented by Chrome, Firefox, Edge, and Opera.

@@ -10,6 +10,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-28 | autoresearch | Microcredential Blockchain / DLT
+
+- 5 search passes (blockchain microcredentials/VC/DLT, W3C VC/DID, Blockcerts/OpenBadges platforms, GDPR/scalability challenges, VC 2.0 specifics) + 4 deep fetches (VerifyEd credentials guide, VerifyEd microcredentials guide, TrueOriginal W3C VC guide, DoxyChain microcredentials on blockchain)
+- 1 new concept page: [[concepts/blockchain-microcredentials]] — full reference covering: microcredential taxonomy (nano → nano-credential → badge → micro-cert → bootcamp → stackable), the trust problem with traditional certs, the four-layer standards architecture (application / credential / identity / ledger), W3C VC 2.0 data model with annotated JSON example, DID methods comparison table (did:web, did:ethr, did:ion, did:key, did:ebsi), VC 2.0 improvements over 1.x (SD-JWT, BBS+, Status List 2021, CBOR), Verifiable Presentations + selective disclosure, OpenBadges 3.0 alignment with VC 2.0, EBSI/Europass EDCI, three-party trust triangle diagram, technical issuance-to-verification workflow, on-chain vs off-chain architecture table, digital credential wallets, 9 major platforms (Blockcerts, VerifyEd, POK, EBSI, IBM, Sony, Singapore SkillsFuture), sector adoption across HE/tech/healthcare/manufacturing, government policy table (6 countries + EU), benefits table, challenges (GDPR/EDPB 02/2025, scalability trilemma, ATS adoption gap, key management, quality assurance), future trends table
+- 1 new synthesis page: [[synthesis/research-blockchain-microcredentials]] — argues the real innovation is verifier independence (not just tamper-proofing); on-chain vs off-chain architecture decision; W3C VC 2.0 + OpenBadges 3.0 as the convergence standard; adoption lag concentrated in employer ATS infrastructure; quality assurance as the non-technical blocker; DLT choice framework table; cross-domain connections to blockchain fundamentals, privacy/GDPR, FIDO/passkeys, and AI ethics; open research questions
+- index.md updated (concepts + synthesis tables)
+
+---
+
 ## 2026-07-28 | autoresearch | Browser Extensions
 
 - 5 search passes (MV3 architecture, components/service workers, cross-browser/permissions, security/supply chain, dev frameworks) + 3 deep fetches (FreeToolKit MV3 guide, MDN WebExtensions, MV2 vs MV3 analysis)
