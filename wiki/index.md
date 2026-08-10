@@ -202,6 +202,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/prompt-injection\|Prompt Injection]] | ai-engineering | high |
 | [[concepts/browser-extensions\|Browser Extensions]] | web-development | high |
 | [[concepts/blockchain-microcredentials\|Blockchain Microcredentials and Verifiable Credentials]] | blockchain | high |
+| [[concepts/bitcoin-history\|History of Bitcoin]] | blockchain | high |
 | [[concepts/latex-formatting\|LaTeX Formatting]] | academic-writing | medium |
 | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] | python-gui | low |
 | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] | python-gui | medium |
@@ -293,6 +294,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[synthesis/research-prompt-injection\|Research: Prompt Injection]] | ai-engineering | established |
 | [[synthesis/research-browser-extensions\|Research: Browser Extensions]] | web-development | established |
 | [[synthesis/research-blockchain-microcredentials\|Research: Microcredential Blockchain / DLT]] | blockchain | established |
+| [[synthesis/research-bitcoin-history\|Research: History of Bitcoin]] | blockchain | established |
 
 ## Gaps
 

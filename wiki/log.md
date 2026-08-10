@@ -10,6 +10,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-07-28 | autoresearch | History of Bitcoin
+
+- 5 search passes (cypherpunk origins/whitepaper, major milestones 2010–2017, institutional/ETF/2020–2025, FTX/Luna/MicroStrategy, price history) + 3 successful deep fetches (Ledger Academy origins, CMO Intern complete timeline, First Report detailed timeline)
+- 1 new concept page: [[concepts/bitcoin-history]] — full chronological history across 8 parts: cypherpunk predecessors table (DigiCash/Hashcash/B-money/BitGold/RPOW), 2008 context and whitepaper technical innovations, genesis block and embedded message, 2009 launch and first transaction, 2010–2012 (pizza day, Mt. Gox founding, first halving), 2013–2015 (Silk Road, $1000 ATH, Mt. Gox collapse, Crypto Winter I), 2016–2018 (SegWit, BCH/BTG forks, CME futures, $20K ATH, Crypto Winter II), 2019–2021 (Lightning, MicroStrategy, Tesla, $1T market cap, El Salvador, Taproot, $69K ATH), 2022–2023 (Luna/3AC/FTX collapses, BlackRock ETF filing, recovery), 2024–2025 (spot ETF approval, 4th halving, $126K ATH); complete halving cycle table with dates/prices/ATH/days-to-ATH; price history table 2009–2025; five recurring themes; Satoshi identity analysis
+- 1 new synthesis page: [[synthesis/research-bitcoin-history]] — argues: Bitcoin solved double-spend where all predecessors failed; each bull market had a structurally different driver; ETF approval is the most significant event since genesis block; every catastrophic loss was at the custody layer never the protocol; Satoshi's disappearance was a deliberate design choice for censorship-resistance; Satoshi identity candidates table; cross-domain connections to blockchain technology, microcredentials, privacy/GDPR, and AI ethics; open questions on halving cycle decoupling and long-run miner incentives
+- index.md updated (concepts + synthesis tables)
+
+---
+
 ## 2026-07-28 | autoresearch | Microcredential Blockchain / DLT
 
 - 5 search passes (blockchain microcredentials/VC/DLT, W3C VC/DID, Blockcerts/OpenBadges platforms, GDPR/scalability challenges, VC 2.0 specifics) + 4 deep fetches (VerifyEd credentials guide, VerifyEd microcredentials guide, TrueOriginal W3C VC guide, DoxyChain microcredentials on blockchain)

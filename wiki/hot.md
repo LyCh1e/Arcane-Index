@@ -10,6 +10,22 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-07-28. **Session: autoresearch — History of Bitcoin.** New: [[concepts/bitcoin-history]], [[synthesis/research-bitcoin-history]].
+
+**The origin:** The cypherpunk movement (1980s–90s) attempted digital cash for decades — DigiCash (Chaum, 1989), Hashcash (Back, 1997), b-money (Dai, 1998), Bit Gold (Szabo, 1998), RPOW (Finney, 2004). All failed on the double-spend problem. Satoshi Nakamoto's October 31, 2008 whitepaper solved it via proof-of-work + longest-chain consensus, published to the Cypherpunk mailing list amid the 2008 banking crisis. Genesis Block mined January 3, 2009; first transaction (Satoshi → Hal Finney, 10 BTC) January 12, 2009.
+
+**The four halving cycles and ATHs:** 1st halving Nov 2012 ($12) → ATH $1,240 (+10,000%). 2nd halving Jul 2016 ($650) → ATH $19,783 (+2,900%). 3rd halving May 2020 ($8,600) → ATH $69,044 (+700%). 4th halving Apr 2024 ($64,968) → ATH $126,198 (+94%). Diminishing percentage gains as market cap grows; post-ETF cycle is the first driven by institutional demand rather than retail speculation.
+
+**The key disaster events:** Mt. Gox collapse (Feb 2014) — 850,000 BTC lost (~$500M then; ~$100B+ now); 70% of global volume. Luna/Terra (May 2022) — $60B erased; triggered 3AC, Celsius, Voyager collapses. FTX (Nov 2022) — $8B in customer funds misappropriated; SBF arrested; Bitcoin hit $15,500 low. Pattern: Bitcoin the protocol has never been successfully attacked; every catastrophic loss was at the centralised custody layer ("not your keys, not your coins").
+
+**The institutional inflection (2020–2025):** MicroStrategy (Aug 2020, $250M), Square ($50M Oct 2020), PayPal (Oct 2020), Tesla ($1.5B Feb 2021), Coinbase IPO + $64K ATH (Apr 2021), El Salvador legal tender (Sep 2021), Taproot upgrade (Nov 2021), BlackRock ETF filing (Jun 2023), **SEC approves 11 spot ETFs Jan 10 2024** (BlackRock IBIT becomes one of fastest ETFs ever to $50B AUM), $73,750 ATH (Mar 2024), 4th halving (Apr 2024), Bitcoin breaks $100K (Dec 2024), $109,114 ATH (Jan 2025), $126,198 ATH (Oct 2025).
+
+**Satoshi's disappearance as a design choice:** No CEO to arrest, no headquarters to raid, no controlling entity to coerce. The 1.1M BTC in early-miner wallets that have never moved is the most compelling evidence — no living person who could spend that sum has chosen not to. Craig Wright's claim to be Satoshi was rejected by UK courts in 2024 ("lied extensively"). Most likely: a single Anglophone individual with deep cryptography/C++ background who has maintained anonymity for 15+ years by principled design.
+
+---
+
+## Last Updated
+
 2026-07-28. **Session: autoresearch — Microcredential Blockchain / DLT.** New: [[concepts/blockchain-microcredentials]], [[synthesis/research-blockchain-microcredentials]].
 
 **What microcredentials are:** Short, focused digital certificates proving mastery of a discrete competency — assessed by demonstrated performance, not time-in-seat. Spectrum: nano-credential (single tool) → digital badge → micro-certificate → bootcamp credential → stackable pathway (4–8 badges toward a regulated qualification). 90% of employers now recognise microcredentials as viable alternatives; holders command 10–15% higher starting salaries.
