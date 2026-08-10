@@ -10,7 +10,21 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
-2026-08-10. **Session: autoresearch — Distributed Ledger Technology (DLT).** New: [[concepts/distributed-ledger-technology]], [[synthesis/research-distributed-ledger-technology]].
+2026-08-10. **Session: autoresearch — Hedera Network (HBAR).** New: [[concepts/hedera-network]], [[synthesis/research-hedera-network]].
+
+**What Hedera actually is:** A public distributed ledger using the Hashgraph consensus algorithm — not a blockchain. The data structure is a DAG of gossip events, not a chain of blocks. Consensus uses "gossip about gossip" (nodes share information about what they've heard) plus "virtual voting" (each node independently derives what every other node's vote *would have been* from the shared DAG, without transmitting any votes). This achieves ABFT — Asynchronous Byzantine Fault Tolerance — the strongest provable security guarantee in distributed systems: mathematically final consensus even with unbounded message delays and up to ⅓ actively malicious nodes. Bitcoin and Ethereum offer probabilistic finality; Hedera offers mathematical finality.
+
+**Performance:** 10,000+ confirmed TPS in production (250,000 claimed theoretical); 3–7s finality; $0.0001 per transaction (USD-denominated, converted to HBAR at execution for enterprise cost predictability); ~0.000003 kWh per transaction.
+
+**The four native services:** (1) HCS — ordered, timestamped event log as a service ($0.0001/message; AI agent audit logging, supply chain events); (2) HTS — native fungible/NFT tokens with built-in KYC, freeze, pause, wipe, supply controls — no Solidity required, 10,000 TPS, $0.0001/transfer; (3) HFS — decentralised file storage with proof-of-deletion (GDPR-compliant, files expire by design); (4) HSCS — Besu EVM, 15M gas/second, Ethereum-compatible Solidity, $0.05/contract call; HTS precompile at 0x167 lets DeFi contracts use native tokens.
+
+**Governing Council (up to 39 members):** Google, IBM, Dell, FedEx, Boeing, Deutsche Telekom, Nomura, Chainlink Labs, LG, Standard Bank, Shinhan Bank, Aberdeen, Accenture, Dentons, EDF, Repsol, Arrow, and 15+ more. Equal voting rights + term limits. Source code transferred to Linux Foundation (September 2024). Council controls protocol upgrades, treasury, fee schedules. Criticism: only council members run nodes (permissionless node op is roadmap, not live).
+
+**2025 highlights:** RBA Project Acacia (wholesale CBDC pilot), Bank of England/BIS RTGS exploration, Lloyds/Aberdeen tokenised UK gilts, Wyoming state stable token candidate, Georgia national land registry, EQTY Lab/NVIDIA Blackwell Verifiable Compute (AI audit logs on Hedera), AI Studio for agentic AI, HashSphere (private permissioned hybrid layer), Axelar integration (60+ chains), Canary HBAR ETF (HBR) on Nasdaq.
+
+---
+
+## 2026-08-10. **Session: autoresearch — Distributed Ledger Technology (DLT).** New: [[concepts/distributed-ledger-technology]], [[synthesis/research-distributed-ledger-technology]].
 
 **The taxonomy:** DLT is not a synonym for blockchain. It is a design space. Blockchain (linear blocks, PoW/PoS) is one implementation. DAG (IOTA Tangle: each transaction validates two prior; feeless, tens of thousands TPS, IoT-oriented) is another. Hashgraph (Hedera: gossip-about-gossip + ABFT virtual voting; 250K+ claimed TPS; patented; strongest formal security guarantee of any DLT type) is a third. Holochain (agent-centric source chains + DHT peer validation; no global consensus; scales per agent; not suited to financial settlement) is a fourth. The correct DLT choice is entirely determined by the use case's constraints on trust, throughput, finality type, and privacy.
 
