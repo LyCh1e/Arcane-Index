@@ -2,11 +2,27 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-07-28
+updated: 2026-08-10
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
+
+## Last Updated
+
+2026-08-10. **Session: autoresearch — Distributed Ledger Technology (DLT).** New: [[concepts/distributed-ledger-technology]], [[synthesis/research-distributed-ledger-technology]].
+
+**The taxonomy:** DLT is not a synonym for blockchain. It is a design space. Blockchain (linear blocks, PoW/PoS) is one implementation. DAG (IOTA Tangle: each transaction validates two prior; feeless, tens of thousands TPS, IoT-oriented) is another. Hashgraph (Hedera: gossip-about-gossip + ABFT virtual voting; 250K+ claimed TPS; patented; strongest formal security guarantee of any DLT type) is a third. Holochain (agent-centric source chains + DHT peer validation; no global consensus; scales per agent; not suited to financial settlement) is a fourth. The correct DLT choice is entirely determined by the use case's constraints on trust, throughput, finality type, and privacy.
+
+**The scalability trilemma:** No DLT simultaneously maximises decentralisation, security, and throughput — every design trades one against the others. Enterprise permissioned DLTs (Hyperledger Fabric, R3 Corda) sacrifice open participation to gain throughput and compliance. Public permissionless DLTs (Bitcoin, Ethereum) sacrifice throughput (in base-layer form) to gain censorship-resistance. The trilemma is not a bug; it is a structural property of distributed consensus.
+
+**Enterprise platforms:** Hyperledger Fabric (Linux Foundation) uses a modular execute-order-validate pipeline — channels for private sub-ledgers, chaincode in Go/Java/Node.js, MSP for PKI identity, and since Fabric 3.0 (March 2024) SmartBFT consensus for Byzantine fault tolerance in production. R3 Corda is architecturally distinct — it is not a blockchain. Transactions are shared point-to-point between counterparties and a notary; there is no globally shared ledger. Consensus is reduced to uniqueness verification (notary prevents double-spend); business logic validity is checked locally by each counterparty. This bilateral model exactly mirrors how financial contracts work and why Corda is the platform of choice for Fnality, DTCC, and major bank consortia.
+
+**The GDPR tension is structural:** Immutability is the core value proposition of DLT; the right to erasure (GDPR Art. 17) requires deletability. These are not reconcilable at the protocol level. Current authoritative guidance (EDPB 02/2025): store personal data off-chain in a traditional deletable database; anchor only a SHA-256 hash on-chain. Deleting the off-chain record renders the hash informationally useless, satisfying the right to erasure in practice while maintaining the integrity of the on-chain audit trail.
+
+**New attack surface:** Agentic AI systems interacting with DLT infrastructure (smart contract execution, wallet signing) face prompt injection attacks whose consequences are irreversible. A signed blockchain transaction cannot be undone. This is qualitatively more severe than most prompt injection scenarios.
+
+---
 
 ## Last Updated
 
