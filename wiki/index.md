@@ -239,6 +239,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/leetcode-merge-alternately-python\|LeetCode 1768 — Merge Strings Alternately (Python)]] | practice | computer-science | [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] |
 | [[examples/learnix-fontsize-and-srl-pacing\|Learnix — Font-Size Setting + Slower Forethought SRL Pacing]] | project | python-gui / software-engineering | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] |
 | [[examples/learnix-encrypted-env-build\|Learnix — Encrypted .env + PyArmor Build Pipeline]] | project | python-gui / secure-software-development | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] |
+| [[examples/hedera-local-ledger-js\|Hedera Local Ledger — Hash-Chained Audit Trail + Testnet Transactions (JavaScript)]] | project | blockchain | [[concepts/hedera-network\|Hedera Network]] |
 
 ## Entities
 

@@ -415,6 +415,136 @@ Enhanced with:
 
 ---
 
+## Developer SDK
+
+### Package Name — Hiero Rebrand
+
+In September 2024, Hedera transferred its source code to the **Linux Foundation Decentralised Trust** project under the **Hiero** umbrella. The JavaScript/TypeScript SDK was republished under a new package name:
+
+| Old | New | Status |
+|---|---|---|
+| `@hashgraph/sdk` | `@hiero-ledger/sdk` | `@hashgraph/sdk` still available but new projects should use the Hiero package |
+
+The API surface is identical. The Java SDK follows the same pattern: `com.hedera.hashgraph:sdk` → `org.hiero:hiero-sdk-java`.
+
+---
+
+### Core Imports (JavaScript / Node.js)
+
+```javascript
+const {
+  AccountId,
+  PrivateKey,
+  Client,
+  TransferTransaction,
+  Hbar,
+  AccountCreateTransaction,
+} = require("@hiero-ledger/sdk");
+```
+
+---
+
+### Client Initialisation
+
+```javascript
+const client = Client.forTestnet();  // or Client.forMainnet()
+client.setOperator(
+  AccountId.fromString(process.env.HEDERA_ACCOUNT_ID),
+  PrivateKey.fromStringECDSA(process.env.HEDERA_PRIVATE_KEY)
+);
+```
+
+`setOperator` designates the default **fee payer** and **auto-signer**. Every transaction executed via this client is automatically signed by the operator's key on `.execute()`. The operator is debited the Hedera network fee (denominated in USD, converted to HBAR at execution time); other accounts are debited only the explicit amounts stated in the transaction.
+
+---
+
+### ECDSA Account Creation with EVM Alias
+
+```javascript
+const privateKey = PrivateKey.generateECDSA();
+const publicKey  = privateKey.publicKey;
+
+const tx = new AccountCreateTransaction()
+  .setECDSAKeyWithAlias(publicKey)   // derives 0x EVM alias from the ECDSA key
+  .setInitialBalance(new Hbar(10));
+
+const response  = await tx.execute(client);
+const receipt   = await response.getReceipt(client);
+const accountId = receipt.accountId; // 0.0.XXXXX Hedera-native ID
+```
+
+`setECDSAKeyWithAlias` creates a Hedera account with an **EVM alias** (an Ethereum-style `0x...` address) derived from the ECDSA public key. The account is accessible via both:
+
+- **Native Hedera API** — using the `0.0.XXXXX` account ID
+- **EVM-compatible tools** (MetaMask, Ethers.js, Hardhat) — using the derived `0x` alias
+
+Alternative: `.setKey(publicKey)` creates an account without an EVM alias, accessible only via the native API.
+
+---
+
+### The `freezeWith` + `sign` Transaction Pattern
+
+Hedera transactions are **immutable once frozen**. The signing flow for a non-operator sender is:
+
+```javascript
+let tx = new TransferTransaction()
+  .addHbarTransfer(senderAccountId, new Hbar(-amount))  // debit
+  .addHbarTransfer(receiverAccountId, new Hbar(amount)) // credit
+  .freezeWith(client);   // 1. lock transaction bytes (node, valid duration, tx ID)
+
+tx = await tx.sign(senderPrivateKey); // 2. attach sender's authorisation signature
+
+const response = await tx.execute(client); // 3. operator auto-signs as fee payer
+```
+
+| Step | What it does | Required for |
+|---|---|---|
+| `.freezeWith(client)` | Fixes the transaction bytes. Nothing may change after this. | Any transaction requiring explicit signing |
+| `.sign(privateKey)` | Attaches a signature from a specific key. Returns a new object — must reassign. | Non-operator accounts (the `from` account on a debit) |
+| `.execute(client)` | Submits to network; operator key auto-signs here. | All transactions |
+
+**Operator exemption:** If the operator account is the sender, no `.sign()` call is needed — the SDK signs on `.execute()` automatically. This is why an `operator` object can be constructed with `privateKey: null` when the client is already configured with the operator key.
+
+---
+
+### Transaction Receipt and ID
+
+```javascript
+const response = await tx.execute(client);
+const receipt  = await response.getReceipt(client);
+
+receipt.status.toString();   // "SUCCESS" | "INSUFFICIENT_PAYER_BALANCE" | ...
+receipt.accountId;           // populated for AccountCreateTransaction
+response.transactionId.toString();
+// format: "0.0.XXXXX@1234567890.000000000"
+//          payer     Unix seconds  nanoseconds
+```
+
+The transaction ID format is globally unique: it encodes the **payer account** and the **consensus timestamp** (nanosecond precision). This ID can be used to retrieve full transaction details from the mirror node REST API or from **HashScan**:
+
+```
+https://hashscan.io/testnet/transaction/<txId>
+https://hashscan.io/mainnet/transaction/<txId>
+```
+
+---
+
+### Key `Hbar` Denomination Notes
+
+```javascript
+new Hbar(1)          // 1 HBAR = 100,000,000 tinybar
+new Hbar(0.5)        // 0.5 HBAR — decimal supported
+Hbar.fromTinybars(100000000) // equivalent to new Hbar(1)
+```
+
+`TransferTransaction.addHbarTransfer` expects a signed `Hbar` value:
+- Negative → debit (funds leave the account)
+- Positive → credit (funds arrive at the account)
+
+The sum of all `addHbarTransfer` amounts in a transaction must equal zero; the network enforces this as a validity requirement.
+
+---
+
 ## Key Statistics at a Glance
 
 - **Total HBAR supply:** 50 billion (fixed, no inflation)
@@ -437,3 +567,4 @@ Enhanced with:
 - [[concepts/blockchain-microcredentials]] — verifiable credentials anchored to public DLTs including Hedera (did:hedera)
 - [[concepts/bitcoin-history]] — historical context for why Hedera was designed as a response to blockchain limitations
 - [[concepts/prompt-injection]] — Hedera's AI Studio and agentic AI use cases create new prompt injection / irreversible transaction attack surfaces
+- [[examples/hedera-local-ledger-js]] — working JavaScript example combining a local SHA-256 hash-chained ledger with real Hedera Testnet transactions (`@hiero-ledger/sdk`)

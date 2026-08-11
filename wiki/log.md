@@ -10,6 +10,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-08-11 | ingest | Hedera Local Ledger — JavaScript Code (Hash Chain + Testnet Transfers)
+
+- Source: user-provided Node.js code using `@hiero-ledger/sdk` v2.85.0; combines a local SHA-256 hash-chained `Ledger` class with real Hedera Testnet operations (ECDSA account creation, HBAR transfers, receipt + tx ID retrieval, HashScan URLs)
+- 1 new example page: [[examples/hedera-local-ledger-js]] — full annotated code; two-layer architecture diagram (local audit trail references Hedera txIds); `computeHash` destructuring trick (`{ hash, ...rest }` avoids circular hashing); `setECDSAKeyWithAlias` vs `setKey` (EVM alias creation); `freezeWith + sign` transaction signing pattern with table (freeze → explicit sign → auto-sign on execute); operator exemption from `.sign()` (`privateKey: null` convention); transaction ID format (`0.0.XXXXX@seconds.nanoseconds`); HashScan URL pattern; `new Hbar(amount)` with signed values (negative = debit); improvements table (JSON.stringify ordering, persistence via HCS, Merkle tree, TypeScript discriminated union); Hiero rebrand (`@hashgraph/sdk` → `@hiero-ledger/sdk`)
+- [[concepts/hedera-network]] updated — new "Developer SDK" section added: Hiero package rebrand table; `Client.forTestnet()` + `setOperator()` pattern; `setECDSAKeyWithAlias` explanation with EVM alias derivation; full `freezeWith + sign` pattern with step table; receipt and transaction ID format; `Hbar` denomination notes (tinybar, signed values, zero-sum constraint)
+- index.md updated (examples table)
+
+---
+
 ## 2026-08-11 | ingest | Hedera Developer Course — Lecture 2 (Blockchain & Hash Functions)
 
 - Source: `raw/Lecture 2.pdf` — 49 slides by Hendrik Ebbers (OpenElements / Swirlds Labs / Hedera); blockchain fundamentals, hash function taxonomy, hashing in Java, creating a blockchain in Java, and why distributed consensus is required

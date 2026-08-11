@@ -10,6 +10,16 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-08-11. **Session: ingest — Hedera JS code (local ledger + Testnet transfers).** New: [[examples/hedera-local-ledger-js]]. Updated: [[concepts/hedera-network]] (Developer SDK section).
+
+**What the code does:** A Node.js program using `@hiero-ledger/sdk` v2.85.0 that runs on Hedera Testnet. It creates two accounts (Alice and Bob) with ECDSA keys and EVM aliases, performs three HBAR transfers (operator → Alice → Bob → operator), and records each operation as a block in a local SHA-256 hash-chained `Ledger` class — the same block-and-chain pattern from Lecture 2, now in JavaScript instead of Java.
+
+**Key SDK patterns captured:** (1) `@hiero-ledger/sdk` is the Hiero-rebranded successor to `@hashgraph/sdk` after the Linux Foundation transfer (September 2024). (2) `setECDSAKeyWithAlias(publicKey)` creates an account with both a native `0.0.XXXXX` ID and an EVM `0x...` alias — usable from MetaMask/Ethers.js. (3) The `freezeWith(client)` + `sign(privateKey)` + `execute(client)` pattern: freeze locks the bytes, `.sign()` attaches the sender's authorisation (required for non-operator accounts), and `.execute()` auto-signs as the operator fee payer. (4) Transaction IDs encode the payer account and nanosecond timestamp (`0.0.XXXXX@seconds.nanoseconds`) — directly usable as HashScan URLs.
+
+**The `computeHash` trick:** `const { hash, ...rest } = block` — object rest-spread excludes the `hash` field before serialising, avoiding circular hashing. The JavaScript equivalent of Java's `MessageDigest` input being `data + previousHash` (not the block object wholesale).
+
+---
+
 2026-08-11. **Session: ingest — Hedera Developer Course, Lecture 2 (Blockchain & Hash Functions).** New: [[sources/hedera-lecture-2-blockchain-hashing]], [[concepts/cryptographic-hash-functions]].
 
 **What this lecture covers:** Four parts by Hendrik Ebbers (OpenElements / Hedera): (1) Blockchain basics — a block holds `data`, `timestamp`, and `previousHash`; the "WAIT — why not just use a database?" argument and its answer: hash chaining makes silent mutation detectable; (2) Hash functions — 5 specification properties (Uniformity, Efficiency, Deterministic, Surjection, One-way) and 4 secure hash properties (Data Integrity, One-Way, Collision Resistance, Fixed Output Length); Digit Sum as the simplest worked example; MD5 broken in December 2008 at CCC using 200 PS3s; SHA family evolution (SHA-0 deprecated → SHA-1 deprecated → SHA-2 active, SHA-256 used in blockchain → SHA-3 active, Keccak sponge construction); (3) Hashing in Java — `MessageDigest.getInstance("SHA-256")` is the correct API; concatenate `data + previousHash` as the hash input; 12 supported algorithm identifiers in OpenJDK; (4) Creating a blockchain in Java — `Block` class is immutable (all `final` fields, no chain reference); `Chain` class holds the sequence and validation logic; `isChainValid()` iterates pairs and recomputes hashes; single-chain attack: attacker can tamper with block 1 and recompute all subsequent hashes to produce a fresh valid chain — defeated only by distributed consensus across multiple independent nodes.
