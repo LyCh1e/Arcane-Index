@@ -10,6 +10,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-08-11 | ingest | Hedera Developer Course — Lecture 2 (Blockchain & Hash Functions)
+
+- Source: `raw/Lecture 2.pdf` — 49 slides by Hendrik Ebbers (OpenElements / Swirlds Labs / Hedera); blockchain fundamentals, hash function taxonomy, hashing in Java, creating a blockchain in Java, and why distributed consensus is required
+- 1 new source page: [[sources/hedera-lecture-2-blockchain-hashing]] — full structured ingest covering: block anatomy (data + timestamp + prev_hash); hash chaining immutability argument; "why not a database?" pedagogical rebuttal; 5 hash specification properties (Uniformity, Efficiency, Deterministic, Surjection, One-way); 4 secure hash properties (Data Integrity, One-Way, Collision Resistance, Fixed Output Length); Digit Sum worked example (F(84001) = 13) with pass/fail analysis; MD5 history and CCC 2008 compromise (200 PS3s); SHA family evolution (SHA-0 → SHA-1 → SHA-2 → SHA-3) with status table; Java `MessageDigest` supported algorithms (12 identifiers); full Java code for `calculateHash()`, `Block` class (immutable design), `Chain` `isChainValid()` method; the single-chain attack (why recomputing subsequent hashes defeats a hash-only chain) and the need for distributed consensus
+- 1 new concept page: [[concepts/cryptographic-hash-functions]] — complete reference: specification vs secure properties tables; Digit Sum analysis; MD5 compromise detail; full SHA family table with internal construction notes (SHA-3 Keccak sponge vs SHA-2 Merkle–Damgård); Java `MessageDigest` API reference; full `Block` and `isChainValid()` code with design rationale; single-chain attack explanation; security considerations (length-extension, rainbow tables, timing attacks, quantum margin)
+- index.md updated (sources + concepts tables)
+
+---
+
 ## 2026-08-10 | autoresearch | Hedera Network (HBAR)
 
 - 4 search passes (Hedera architecture/HBAR/consensus service, governing council/enterprise deployments, native services HCS/HTS/HFS/HSCS, HBAR tokenomics/staking/ecosystem fund) + 4 deep fetches (hederacouncil.org council membership + governance, Canary Capital HBAR deep dive, OneKey HBAR tokenomics, Exponential Science Hedera services breakdown, Hedera 2025 blog "building the trust layer")

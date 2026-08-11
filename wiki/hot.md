@@ -2,13 +2,21 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-08-10
+updated: 2026-08-11
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-08-11. **Session: ingest — Hedera Developer Course, Lecture 2 (Blockchain & Hash Functions).** New: [[sources/hedera-lecture-2-blockchain-hashing]], [[concepts/cryptographic-hash-functions]].
+
+**What this lecture covers:** Four parts by Hendrik Ebbers (OpenElements / Hedera): (1) Blockchain basics — a block holds `data`, `timestamp`, and `previousHash`; the "WAIT — why not just use a database?" argument and its answer: hash chaining makes silent mutation detectable; (2) Hash functions — 5 specification properties (Uniformity, Efficiency, Deterministic, Surjection, One-way) and 4 secure hash properties (Data Integrity, One-Way, Collision Resistance, Fixed Output Length); Digit Sum as the simplest worked example; MD5 broken in December 2008 at CCC using 200 PS3s; SHA family evolution (SHA-0 deprecated → SHA-1 deprecated → SHA-2 active, SHA-256 used in blockchain → SHA-3 active, Keccak sponge construction); (3) Hashing in Java — `MessageDigest.getInstance("SHA-256")` is the correct API; concatenate `data + previousHash` as the hash input; 12 supported algorithm identifiers in OpenJDK; (4) Creating a blockchain in Java — `Block` class is immutable (all `final` fields, no chain reference); `Chain` class holds the sequence and validation logic; `isChainValid()` iterates pairs and recomputes hashes; single-chain attack: attacker can tamper with block 1 and recompute all subsequent hashes to produce a fresh valid chain — defeated only by distributed consensus across multiple independent nodes.
+
+**Key insight:** Hash chaining alone is a necessary but not sufficient condition for blockchain integrity. It prevents silent alteration but not deliberate recomputation by an adversary with write access to the whole chain. Distributing the chain across independent nodes is the primitive that makes recomputation infeasible — not cryptography alone.
+
+---
 
 2026-08-10. **Session: autoresearch — Hedera Network (HBAR).** New: [[concepts/hedera-network]], [[synthesis/research-hedera-network]].
 
