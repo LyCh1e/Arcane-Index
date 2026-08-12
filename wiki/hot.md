@@ -10,6 +10,26 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-08-12. **Session: ingest — Solidity Language Documentation v0.8.36 (Official) + canvas redo (blockchain-hash-chain).** New: [[sources/solidity-docs-0.8.36]], [[concepts/solidity-security]]. Updated: [[concepts/solidity-fundamentals]] (7 new sections).
+
+**Solidity docs ingest — what was added:** The official Solidity v0.8.36 reference (fetched from GitHub RST source; docs.soliditylang.org returns HTTP 403) was ingested in full. The existing [[concepts/solidity-fundamentals]] page was extended with seven new sections:
+
+- **Data Locations** — storage (persistent, SSTORE), memory (call-scoped copy), calldata (non-modifiable, most gas-efficient for read-only). Assignment rules: storage ↔ memory always copies; memory → memory creates a shared reference; storage → local storage is a reference.
+- **Full Type Reference** — complete value types table (bool, int8–256, uint8–256, address/payable, bytes1–32, enum, UDVT, function types); integer arithmetic (checked by default in 0.8+, `0**0 = 1`); reference types with all array members (`push`, `pop`, `length`, `delete`); mapping restrictions (no length, no iteration, no deletion of inner mapping data).
+- **Panic Codes** — full table: 0x01 (assert), 0x11 (overflow), 0x12 (div-by-zero), 0x21 (invalid enum), 0x31 (pop empty array), 0x32 (out-of-bounds), 0x41 (too much memory), 0x51 (zero function pointer).
+- **try/catch Full Reference** — all four catch clause types with a full worked example and five important caveats (external calls only; constructor calls; failure in `try` does not trigger `catch`; revert inside `catch` propagates; inner state changes in failed external call are reverted).
+- **CREATE2** — deterministic address derivation formula; used for counterfactual instantiation and state channels.
+- **Common Patterns** — Withdrawal pattern (full code); Access Restriction with custom errors; State Machine with enum stages and `atStage`/`timedTransitions` modifiers; modifier ordering note (rightmost `_` runs first).
+- **Global Variables Cheatsheet** — block properties, tx/message table, crypto/math functions, address members, ABI encoding functions, type information.
+
+**New page — [[concepts/solidity-security]]:** Ten security pitfalls with full code examples: reentrancy (vulnerable pattern vs CEI + nonReentrant guard); `tx.origin` phishing attack; integer overflow pre-0.8; unbounded loops permanently bricking a function; Ether transfer pitfalls (`transfer`/`send`/`call` comparison table); mapping deletion phantom storage; private data (`eth_getStorageAt`, commit-reveal fix); dirty high-order bits in calldata; authorised proxy contracts; call stack depth (1024 frames, 63/64 gas rule). 12-rule security checklist.
+
+**Canvas redo:** `canvases/blockchain-hash-chain.canvas` rewritten with 80 px minimum inter-node gaps and ~20% height buffer on every node. 29 nodes + 15 edges covering block anatomy, hash chain, CEI attack analysis, and the Merkle tree with proof efficiency table.
+
+---
+
+## Last Updated
+
 2026-08-12. **Session: ingest — Hedera Developer Course, Lecture 3 (Ethereum History, EVM & Solidity).** New: [[sources/hedera-lecture-3-ethereum-solidity]], [[concepts/ethereum-evm]], [[concepts/solidity-fundamentals]].
 
 **What Lecture 3 covers:** 95 slides in three major blocks — Ethereum history and EVM architecture, sustainability (PoW vs PoS), and Solidity fundamentals.

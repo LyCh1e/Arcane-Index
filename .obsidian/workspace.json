@@ -62,8 +62,7 @@
               "title": "CLAUDE"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -254,8 +253,14 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "ccdf49ca892ac022",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "wiki/index.md.tmp.33528.627013fc2c05",
+    "wiki/log.md.tmp.33528.7484e9a6700e",
+    "wiki/concepts/solidity-security.md",
+    "wiki/concepts/solidity-security.md.tmp.33528.acc9b3344fd5",
+    "wiki/sources/solidity-docs-0.8.36.md",
+    "wiki/sources/solidity-docs-0.8.36.md.tmp.33528.f0863435a625",
     "canvases/blockchain-hash-chain.canvas.tmp.33528.b3155c7a717e",
     "canvases/blockchain-hash-chain.canvas",
     "CLAUDE.md",
@@ -274,10 +279,6 @@
     "raw/Blockchain_Lecture3.md",
     "wiki/concepts/crypto-wallets.md",
     "wiki/sources/hedera-lecture-1-bitcoin-wallets.md",
-    "wiki/sources/hedera-lecture-1-bitcoin-wallets.md.tmp.33528.6bebe636c196",
-    "raw/Blockchain Lecture-1.pdf",
-    "raw/Blockchain Lecture-3.pdf",
-    "raw/Blockchain Lecture-2.pdf",
     "wiki/examples/hedera-local-ledger-js.md",
     "wiki/concepts/cryptographic-hash-functions.md",
     "wiki/sources/hedera-lecture-2-blockchain-hashing.md",
@@ -292,8 +293,6 @@
     "wiki/synthesis/research-browser-extensions.md",
     "wiki/concepts/browser-extensions.md",
     "wiki/synthesis/research-prompt-injection.md",
-    "wiki/concepts/prompt-injection.md",
-    "wiki/synthesis/research-social-engineering.md",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
