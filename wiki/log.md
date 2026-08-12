@@ -10,6 +10,17 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-08-12 | ingest | Hedera Developer Course — Lecture 1 (Bitcoin, Digital Currencies & Crypto Wallets)
+
+- Source: `raw/Blockchain Lecture-1.pdf` — 62 slides by Hendrik Ebbers (OpenElements / Swirlds Labs / Hedera); Part 1 of the three-part Hedera Developer Course
+- 1 new source page: [[sources/hedera-lecture-1-bitcoin-wallets]] — structured ingest covering: course structure (3-part Java + Solidity curriculum); Bitcoin history (Satoshi 2008 whitepaper at bitcoin.org, 2009 implementation, inactive 2010); Bitcoin's 4 original goals with assessment table (everyday currency ✗, common currency ✗, exchange cost ✓, cryptographic proof ✓); Bitcoin Pizza Day (Laszlo, forum post 18 May 2010, confirmed 22 May — 10,000 BTC for two pizzas, ~$190M at $19K/BTC); digital currency taxonomy (coins = store of value, stablecoins = pegged/stable medium of exchange); crypto hype drivers (FOMO, influencers, financial sovereignty, financial inclusion, digital gold); Standard Bank (ZA) × Shinhan Bank (KR) SWIFT MT103 vs Hedera stablecoin PoC (Sept 2023) with side-by-side comparison; wallet taxonomy (Hardware, Paper, Desktop, Mobile, Web; hot vs cold definitions); Coinbase Wallet, HashPack (leading HBAR wallet, daily Testnet faucet), Ledger (1000+ coins, 24-word mnemonic phrase); hands-on exercises (Coinbase price comparison, HashPack Testnet account creation); source quality assessment
+- 1 new concept page: [[concepts/crypto-wallets]] — full reference: hot/cold distinction; wallet type table (Hardware/Paper/Desktop/Mobile/Web); custodial vs non-custodial model with counterparty risk; BIP-39 mnemonic phrase standard (12/24 words, 2048-word list, full wallet derivation); security features (encryption, 2FA, backup, multi-sig); wallet selection table by use case; HashPack section (HBAR + HTS, Testnet mode, EVM alias); connections to bitcoin-history and hedera-network
+- [[concepts/bitcoin-history]] updated — new "Bitcoin's Four Design Goals" subsection added in Part II (Genesis), with 4-row assessment table (goal, achieved, explanation)
+- index.md updated (sources + concepts tables)
+- Lecture 3 (`raw/Blockchain Lecture-3.pdf`) is password-protected — cannot be read; awaiting unprotected version from user
+
+---
+
 ## 2026-08-11 | ingest | Hedera Local Ledger — JavaScript Code (Hash Chain + Testnet Transfers)
 
 - Source: user-provided Node.js code using `@hiero-ledger/sdk` v2.85.0; combines a local SHA-256 hash-chained `Ledger` class with real Hedera Testnet operations (ECDSA account creation, HBAR transfers, receipt + tx ID retrieval, HashScan URLs)

@@ -2,11 +2,27 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-08-11
+updated: 2026-08-12
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
+
+## Last Updated
+
+2026-08-12. **Session: ingest — Hedera Developer Course, Lecture 1 (Bitcoin, Digital Currencies & Crypto Wallets).** New: [[sources/hedera-lecture-1-bitcoin-wallets]], [[concepts/crypto-wallets]]. Updated: [[concepts/bitcoin-history]] (4 design goals table).
+
+**What Lecture 1 covers:** The introductory lecture of the three-part Hedera Developer Course (Java + Solidity). Part 1 traces Bitcoin's origin (Satoshi Nakamoto, 2008 whitepaper at bitcoin.org, 2009 GitHub implementation, inactive 2010; 750K–1.1M BTC held, never moved; 2.78M–3.79M BTC estimated lost per Chainalysis 2017; 21M hard cap). It frames Bitcoin around **four design goals** with an explicit assessment: everyday currency ✗ (volatility), common currency ✗ (exchange fragmentation), exchange cost ✓ (peer-to-peer cheaper than SWIFT), cryptographic proof ✓ (immutable chain removes trust requirement). Bitcoin Pizza Day covered: Laszlo's forum post 18 May 2010, confirmed 22 May — 10,000 BTC for two Papa John's pizzas; ~$190M at $19K/BTC.
+
+**Digital currency taxonomy:** Coins = backed by a digital/physical asset, store-of-value / "digital gold" (BTC, ETH, HBAR). Stablecoins = pegged to fiat or commodity, stable medium of exchange (USDT, USDC, DAI). The key insight: stablecoins solve the volatility problem that prevents coins from functioning as everyday currency — which is why Hedera's enterprise use cases centre on stablecoins rather than HBAR itself.
+
+**The SWIFT vs Hedera use case (Standard Bank ZA → Shinhan Bank KR, Sept 2023 PoC):** Old SWIFT MT103 path: $40+ fee, 6 business days, no real-time tracking, limited hours, 2+ correspondent bank hops. Hedera stablecoin PoC: <$0.10, <1 minute, real-time HashScan tracking, 24/7, zero intermediaries. This is the primary enterprise argument for Hedera in the course — not replacing Bitcoin but replacing SWIFT.
+
+**Crypto wallets — new concept page:** Hot (Desktop, Mobile, Web) vs Cold (Hardware, Paper) taxonomy. Public key = bank account ID; private key = banking password with no reset. Custodial (exchange holds key, counterparty risk — Mt. Gox 2014, FTX 2022) vs non-custodial (user holds key, no recourse on loss). BIP-39 mnemonic phrase (24 words, 2,048-word list, full wallet derivation from entropy). **HashPack** = leading HBAR wallet; Testnet support with daily faucet; primary wallet for Hedera development exercises. **Ledger** hardware wallet: 1,000+ coins, 24-word mnemonic, private key never leaves device.
+
+**Lecture 3 blocked:** `raw/Blockchain Lecture-3.pdf` is password-protected — read failed. Requires the unprotected version.
+
+---
 
 ## Last Updated
 

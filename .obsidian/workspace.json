@@ -236,8 +236,11 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b1e0856db03cc76e",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
+    "wiki/concepts/crypto-wallets.md",
+    "wiki/sources/hedera-lecture-1-bitcoin-wallets.md",
+    "wiki/sources/hedera-lecture-1-bitcoin-wallets.md.tmp.33528.6bebe636c196",
     "raw/Blockchain Lecture-1.pdf",
     "raw/Blockchain Lecture-3.pdf",
     "raw/Blockchain Lecture-2.pdf",
@@ -248,10 +251,8 @@
     "wiki/hot.md.tmp.18868.a816722ce389",
     "wiki/log.md.tmp.18868.bb36dbf19a4b",
     "wiki/index.md.tmp.18868.1758089e5b58",
-    "wiki/index.md.tmp.18868.f5fb16a20272",
     "wiki/concepts/cryptographic-hash-functions.md",
     "wiki/sources/hedera-lecture-2-blockchain-hashing.md",
-    "wiki/sources/hedera-lecture-2-blockchain-hashing.md.tmp.18868.5bc09fcc3852",
     "wiki/synthesis/research-hedera-network.md",
     "wiki/concepts/hedera-network.md",
     "wiki/synthesis/research-distributed-ledger-technology.md",
@@ -273,7 +274,6 @@
     "wiki/learning/gitea-act-runner-dood-networking.md",
     "wiki/examples/ict2216-practical-test-secure-webapp.md",
     "wiki/sources/ICT2216-lecture-9-transcript.md",
-    "wiki/sources/ICT2216-lecture-10-module-overview-secure-concepts.md",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",

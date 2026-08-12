@@ -55,6 +55,21 @@ The whitepaper's key innovations:
 - **Decentralised consensus** — majority hash power determines the canonical chain, eliminating the need for a trusted third party
 - **21 million cap** — fixed supply enforced by protocol; deflationary by design
 
+### Bitcoin's Four Design Goals
+
+The Hedera Developer Course frames Bitcoin's original intent around four explicit goals and evaluates how well Bitcoin achieved each:
+
+| Goal | Achieved? | Assessment |
+|------|-----------|------------|
+| **Everyday currency** | ✗ | Volatility, slow confirmation times, and high fees during congestion make BTC impractical for daily purchases |
+| **Common currency** (reduce cross-border exchange cost) | ✗ | Exchange into fiat remains costly; fragmented adoption means most users still convert back to local currency |
+| **Less exchange cost** vs traditional banking rails | ✓ | Peer-to-peer transfers are significantly cheaper than SWIFT MT103 with correspondent bank chains |
+| **Cryptographic proof instead of trust** | ✓ | The immutable blockchain eliminates the need for a trusted third party to validate transactions |
+
+Note: the lecture broadens the label to "Crypto Currency" when assessing goal fulfilment — acknowledging that stablecoins and purpose-built DLTs (e.g. Hedera) address goals that Bitcoin itself struggles to meet.
+
+---
+
 ### January 3, 2009 — The Genesis Block
 
 Satoshi mined **Block 0** — the Genesis Block — generating the first 50 BTC. The block's coinbase field contained an embedded message:
