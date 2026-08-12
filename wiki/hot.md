@@ -10,6 +10,24 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-08-12. **Session: ingest — Hedera Developer Course, Lecture 3 (Ethereum History, EVM & Solidity).** New: [[sources/hedera-lecture-3-ethereum-solidity]], [[concepts/ethereum-evm]], [[concepts/solidity-fundamentals]].
+
+**What Lecture 3 covers:** 95 slides in three major blocks — Ethereum history and EVM architecture, sustainability (PoW vs PoS), and Solidity fundamentals.
+
+**Ethereum origin:** Vitalik Buterin published the whitepaper in 2013; network launched 2015. The oft-cited motivation is a World of Warcraft Siphon Life nerf ("what horrors centralised services can bring") — real quote, probably not 100% serious. Core distinction from Bitcoin: Bitcoin is a platform to trade a digital currency; Ethereum is a platform to do anything — powered by the Turing-complete EVM.
+
+**Turing completeness:** Alan Turing (1912–1954) — broke Enigma (WWII), conceptualised the Turing Machine (1936), proposed the Turing Test (1950). Turing-complete = can simulate any Turing machine = can express any algorithm. Gas is Ethereum's solution to the halting problem: since you cannot prove in advance whether an EVM programme terminates, you bound it with a gas limit and abort on `INSUFFICIENT_GAS`.
+
+**EVM architecture:** Distributed state machine (σt → tx → σt+1). World state = all accounts + balances + contract storage. Stack-based VM (max 1,024 elements, 256-bit words). Program Counter (PC) tracks next OpCode. Key OpCodes with gas: STOP=0, ADD=3, MUL=5, SUB=3, DIV=5, MOD=5. Storage (`SSTORE`) costs hundreds of gas — the scarcest EVM resource.
+
+**Sustainability — The Merge (Sept 2022):** Ethereum 1.0 (PoW): ~22,000,000 TWh/year, ~10,000,000 t CO₂. Ethereum 2.0 (PoS): ~2,000 MWh/year, ~650 t CO₂ — ~99.9999% energy reduction. Post-Merge Ethereum uses less electricity than PayPal (0.28 TWh/year) by two orders of magnitude. Bitcoin = ~131 TWh/year, equivalent to powering all UK tea kettles for 30 years.
+
+**Solidity:** `pragma solidity ^0.8.20` controls compiler version. Contract = class analogue. State variables are persistent on-chain storage (`SSTORE`). Constructor runs once at deployment; `msg.sender` = deployer. Functions have visibility (public/private/internal/external). `require(cond)` reverts atomically if false. Events are cheap EVM log entries readable off-chain. Reference types: mapping (hash map, no iteration), array, struct. Error handling: require (input guards), revert (unconditional), assert (invariants — uses all gas), try/catch (external calls). Modifiers are reusable precondition blocks with `_;` placeholder. Compilation: `solc --bin -o build/` or Docker `ethereum/solc:stable`. Each deployment = new singleton instance at a unique address; immutable once deployed.
+
+---
+
+## Last Updated
+
 2026-08-12. **Session: ingest — Hedera Developer Course, Lecture 1 (Bitcoin, Digital Currencies & Crypto Wallets).** New: [[sources/hedera-lecture-1-bitcoin-wallets]], [[concepts/crypto-wallets]]. Updated: [[concepts/bitcoin-history]] (4 design goals table).
 
 **What Lecture 1 covers:** The introductory lecture of the three-part Hedera Developer Course (Java + Solidity). Part 1 traces Bitcoin's origin (Satoshi Nakamoto, 2008 whitepaper at bitcoin.org, 2009 GitHub implementation, inactive 2010; 750K–1.1M BTC held, never moved; 2.78M–3.79M BTC estimated lost per Chainalysis 2017; 21M hard cap). It frames Bitcoin around **four design goals** with an explicit assessment: everyday currency ✗ (volatility), common currency ✗ (exchange fragmentation), exchange cost ✓ (peer-to-peer cheaper than SWIFT), cryptographic proof ✓ (immutable chain removes trust requirement). Bitcoin Pizza Day covered: Laszlo's forum post 18 May 2010, confirmed 22 May — 10,000 BTC for two Papa John's pizzas; ~$190M at $19K/BTC.

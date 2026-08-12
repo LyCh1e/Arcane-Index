@@ -236,8 +236,13 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b1e0856db03cc76e",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
+    "wiki/index.md.tmp.33528.2598e8ad6673",
+    "wiki/concepts/solidity-fundamentals.md",
+    "wiki/concepts/ethereum-evm.md",
+    "wiki/sources/hedera-lecture-3-ethereum-solidity.md",
+    "wiki/sources/hedera-lecture-3-ethereum-solidity.md.tmp.33528.e2e5edc4f077",
     "raw/Blockchain_Lecture1.md",
     "raw/Blockchain_Lecture2.md",
     "raw/Blockchain_Lecture3.md",
@@ -253,7 +258,6 @@
     "wiki/hot.md.tmp.18868.9d3906fa3a2f",
     "wiki/hot.md.tmp.18868.a816722ce389",
     "wiki/log.md.tmp.18868.bb36dbf19a4b",
-    "wiki/index.md.tmp.18868.1758089e5b58",
     "wiki/concepts/cryptographic-hash-functions.md",
     "wiki/sources/hedera-lecture-2-blockchain-hashing.md",
     "wiki/synthesis/research-hedera-network.md",
@@ -270,10 +274,6 @@
     "wiki/concepts/prompt-injection.md",
     "wiki/synthesis/research-social-engineering.md",
     "wiki/concepts/social-engineering.md",
-    "wiki/examples/learnix-fontsize-and-srl-pacing.md",
-    "wiki/concepts/customtkinter-widget-scaling.md",
-    "CLAUDE.md",
-    "wiki/resources/gitea-and-act-runner.md",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",

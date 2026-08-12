@@ -4,8 +4,8 @@
   "title": "Document OOP architecture in Learnix",
   "titleGenerationStatus": "success",
   "createdAt": 1784961088874,
-  "updatedAt": 1786516835378,
-  "lastResponseAt": 1786516835378,
+  "updatedAt": 1786517924232,
+  "lastResponseAt": 1786517924232,
   "sessionId": "b621bc55-901d-422d-a970-815510f01761",
   "selectedModel": "sonnet",
   "providerState": {
@@ -14,11 +14,11 @@
   "usage": {
     "model": "sonnet",
     "inputTokens": 1,
-    "cacheCreationInputTokens": 1017,
-    "cacheReadInputTokens": 77871,
+    "cacheCreationInputTokens": 1051,
+    "cacheReadInputTokens": 109778,
     "contextWindow": 200000,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 78889,
-    "percentage": 39
+    "contextTokens": 110830,
+    "percentage": 55
   }
 }
