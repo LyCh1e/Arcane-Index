@@ -236,8 +236,11 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "raw/Blockchain_Lecture1.md",
+    "raw/Blockchain_Lecture2.md",
+    "raw/Blockchain_Lecture3.md",
     "wiki/concepts/crypto-wallets.md",
     "wiki/sources/hedera-lecture-1-bitcoin-wallets.md",
     "wiki/sources/hedera-lecture-1-bitcoin-wallets.md.tmp.33528.6bebe636c196",
@@ -271,9 +274,6 @@
     "wiki/concepts/customtkinter-widget-scaling.md",
     "CLAUDE.md",
     "wiki/resources/gitea-and-act-runner.md",
-    "wiki/learning/gitea-act-runner-dood-networking.md",
-    "wiki/examples/ict2216-practical-test-secure-webapp.md",
-    "wiki/sources/ICT2216-lecture-9-transcript.md",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
