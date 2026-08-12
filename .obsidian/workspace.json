@@ -20,6 +20,23 @@
             }
           },
           {
+            "id": "ccdf49ca892ac022",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "canvases/blockchain-hash-chain.canvas",
+                "viewState": {
+                  "x": 695.2926501787782,
+                  "y": 1525.5230223012707,
+                  "zoom": -1.107432647209151
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "blockchain-hash-chain"
+            }
+          },
+          {
             "id": "aa21592bb12da3f9",
             "type": "leaf",
             "pinned": true,
@@ -45,7 +62,8 @@
               "title": "CLAUDE"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -236,8 +254,16 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "ccdf49ca892ac022",
   "lastOpenFiles": [
+    "canvases/blockchain-hash-chain.canvas.tmp.33528.b3155c7a717e",
+    "canvases/blockchain-hash-chain.canvas",
+    "CLAUDE.md",
+    "skills/canvas/SKILL.md.tmp.33528.ad2b1701acbc",
+    "skills/canvas/SKILL.md.tmp.33528.1bfdcd99376f",
+    "skills/canvas/SKILL.md.tmp.33528.705989f4743f",
+    "blockchain-hash-chain.canvas",
+    "blockchain-hash-chain.canvas.tmp.33528.1554437be343",
     "wiki/index.md.tmp.33528.2598e8ad6673",
     "wiki/concepts/solidity-fundamentals.md",
     "wiki/concepts/ethereum-evm.md",
@@ -252,12 +278,7 @@
     "raw/Blockchain Lecture-1.pdf",
     "raw/Blockchain Lecture-3.pdf",
     "raw/Blockchain Lecture-2.pdf",
-    "raw/Blockchain Lecture 2.pdf",
     "wiki/examples/hedera-local-ledger-js.md",
-    "wiki/examples/hedera-local-ledger-js.md.tmp.18868.b8b464032031",
-    "wiki/hot.md.tmp.18868.9d3906fa3a2f",
-    "wiki/hot.md.tmp.18868.a816722ce389",
-    "wiki/log.md.tmp.18868.bb36dbf19a4b",
     "wiki/concepts/cryptographic-hash-functions.md",
     "wiki/sources/hedera-lecture-2-blockchain-hashing.md",
     "wiki/synthesis/research-hedera-network.md",
@@ -273,7 +294,6 @@
     "wiki/synthesis/research-prompt-injection.md",
     "wiki/concepts/prompt-injection.md",
     "wiki/synthesis/research-social-engineering.md",
-    "wiki/concepts/social-engineering.md",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
