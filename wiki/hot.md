@@ -10,6 +10,22 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-08-13. **Session: ingest — Hedera Developer Course, Lecture 4 (HAPI, Smart Contract Deployment & Tokens).** New: [[sources/hedera-lecture-4-hapi-tokens]], [[concepts/token-standards-erc20-erc721]], [[examples/hedera-lecture4-voting-contract]]. Updated: [[concepts/hedera-network]] (two new sections).
+
+**What Lecture 4 covers:** Part 3 of 3 of the Hedera Developer Course. Four major blocks: (1) Hedera network overview and environments, (2) HAPI Java SDK development workflow for smart contracts, (3) the Voting Contract sample built iteratively, (4) coins, tokens, ERC standards, and stablecoins.
+
+**Hedera network environments:** Four tiers — MainNet (live, real HBAR), TestNet (10,000 HBAR/day free faucet, used for all course exercises), PreviewNet (upcoming protocol previews), LocalNode (open source Docker, fully isolated). Key production stats: >40M transactions/day (vs ~1M Ethereum), $0.001/tx (vs ~$1.72), 0.000003 kWh/tx (vs 0.006 — 2,000× more efficient), >35 billion cumulative transactions.
+
+**HAPI Java SDK — smart contract deployment pipeline:** Four steps: (1) `Client.forTestnet().setOperator(id, key)` — designate fee payer; (2) `FileCreateTransaction.setContents(bytecode).execute(client)` → `FileId`; (3) `ContractCreateTransaction.setBytecodeFileId(fileId).setGas(n).execute(client)` → `ContractId`; (4) `ContractCallQuery.setContractId(id).setFunction("name").execute(client)` → `ContractFunctionResult`. One-step shortcut: `ContractCreateFlow.setBytecode(hex).setGas(n)`. State-changing calls use `ContractExecuteTransaction` with `ContractFunctionParameters`.
+
+**Voting Contract (Poll):** Built in two iterations. V1 — `struct Proposal { bytes32 name; uint count; }` stored in `Proposal[] public proposals`. Constructor populates from `bytes32[]`. `vote(uint)` increments `count`. `winner()` iterates to find max. V2 adds admin access control: `address public admin = msg.sender` (set in constructor), `enum VoterState { NotAuthorized, Authorized, Voted }`, `mapping(address => VoterState)`. `authorize(address voter)` — admin only, voter must be `NotAuthorized`. `vote(uint)` — requires `Authorized`, sets `Voted`, then increments (Checks-Effects order). The enum mapping defaults to `NotAuthorized` (mapping zero-value = first enum = 0). Key patterns: struct-in-array, enum as FSM, mapping for O(1) state lookup, require for access control.
+
+**Tokens and standards:** Coin = native asset of its own chain (BTC, ETH, HBAR); Token = smart contract issued on an existing chain (USDT, USDC, any ERC-20/721). Fungible (ERC-20): interchangeable, divisible — use cases: currency, governance, staking. Non-fungible (ERC-721): each tokenId is unique — use cases: art, collectibles, identity. ERC-20 core: `totalSupply`, `balanceOf`, `transfer`, `allowance/approve/transferFrom` (delegated spending). ERC-721 core: `ownerOf(tokenId)`, `safeTransferFrom` (checks recipient can handle NFTs). Stablecoins: fiat-collateralised (USDT, USDC, BUSD — lowest smart contract risk, counterparty risk instead), crypto-collateralised (DAI — overcollateralised), algorithmic (Terra UST — collapsed May 2022). Hedera: HTS (native, $0.0001/transfer, 10,000 TPS, built-in KYC/freeze/pause) vs HSCS ERC contracts ($0.05/call); `0x167` precompile bridges both — Solidity contracts can operate on native HTS tokens.
+
+---
+
+## Last Updated
+
 2026-08-12. **Session: ingest — Solidity Advanced Patterns (8 URLs).** New: [[sources/solidity-advanced-patterns-sources]], [[concepts/solidity-advanced-patterns]]. Updated: [[concepts/solidity-fundamentals]] (Advanced Patterns table + Connections).
 
 **What was ingested:** Eight reference pages on advanced Solidity features, grouped by topic. The docs.soliditylang.org pages (five of them) returned HTTP 403 — content fetched from GitHub RST source files at the `v0.8.23` tag. The solidity-by-example.org pages use client-side rendering; actual `.sol` source files fetched from GitHub. The Remix readthedocs page returned 200 OK directly.

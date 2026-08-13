@@ -86,6 +86,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/hedera-lecture-3-ethereum-solidity\|Hedera Developer Course — Lecture 3: Ethereum History, EVM & Solidity]] | lecture-slides | blockchain | 2026-08-12 |
 | [[sources/solidity-docs-0.8.36\|Solidity Language Documentation v0.8.36 (Official)]] | reference | blockchain | 2026-08-12 |
 | [[sources/solidity-advanced-patterns-sources\|Solidity Advanced Patterns — Multi-Source Ingest (8 URLs)]] | reference | blockchain | 2026-08-12 |
+| [[sources/hedera-lecture-4-hapi-tokens\|Hedera Developer Course — Lecture 4: HAPI, Smart Contract Deployment & Tokens]] | lecture-slides | blockchain | 2026-08-13 |
 
 ## Concepts
 
@@ -216,6 +217,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/solidity-fundamentals\|Solidity Fundamentals]] | blockchain | high |
 | [[concepts/solidity-security\|Solidity Security]] | blockchain | high |
 | [[concepts/solidity-advanced-patterns\|Solidity Advanced Patterns]] | blockchain | high |
+| [[concepts/token-standards-erc20-erc721\|Token Standards — ERC-20 and ERC-721]] | blockchain | medium |
 | [[concepts/latex-formatting\|LaTeX Formatting]] | academic-writing | medium |
 | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] | python-gui | low |
 | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] | python-gui | medium |
@@ -249,6 +251,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/learnix-fontsize-and-srl-pacing\|Learnix — Font-Size Setting + Slower Forethought SRL Pacing]] | project | python-gui / software-engineering | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] |
 | [[examples/learnix-encrypted-env-build\|Learnix — Encrypted .env + PyArmor Build Pipeline]] | project | python-gui / secure-software-development | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] |
 | [[examples/hedera-local-ledger-js\|Hedera Local Ledger — Hash-Chained Audit Trail + Testnet Transactions (JavaScript)]] | project | blockchain | [[concepts/hedera-network\|Hedera Network]] |
+| [[examples/hedera-lecture4-voting-contract\|Hedera Lecture 4 — Voting Contract (Poll V1 and V2)]] | course-example | blockchain | [[concepts/solidity-fundamentals\|Solidity Fundamentals]] |
 
 ## Entities
 

@@ -10,6 +10,17 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-08-13 | ingest | Hedera Developer Course — Lecture 4 (HAPI, Smart Contract Deployment & Tokens)
+
+- Source: `raw/Blockchain_Lecture4.md` — 66 slides by Hendrik Ebbers (OpenElements / Swirlds Labs); Part 3 of 3 in the Hedera Developer Course
+- 1 new source page: [[sources/hedera-lecture-4-hapi-tokens]] — full structured ingest: network environments table, HAPI Java SDK 4-step deployment pipeline with full code examples (connect → upload bytecode via FileCreateTransaction → ContractCreateTransaction → ContractCallQuery), ContractCreateFlow shortcut, ContractExecuteTransaction, transaction field reference, web3j overview, voting contract summary, coin vs token table, fungible vs non-fungible table, ERC-20/ERC-721 interface reference, stablecoin taxonomy (fiat/crypto/algorithmic), USDC on Hedera details
+- 1 new concept page: [[concepts/token-standards-erc20-erc721]] — coin vs token, fungible vs non-fungible tables; ERC-20 full interface with allowance mechanism explanation and OpenZeppelin minimal example; ERC-721 full interface with safeTransferFrom safety rationale and OpenZeppelin minimal example; stablecoin taxonomy (USDT/USDC/BUSD vs DAI vs Terra UST); USDC case study (Ethereum contract address, Hedera deployment); HTS vs ERC comparison table; summary selection guide
+- 1 new example page: [[examples/hedera-lecture4-voting-contract]] — Poll V1 (basic) + V2 (access-controlled) fully annotated contracts; V1 patterns (struct-in-array, bytes32 names, winner-via-iteration); V2 additions (admin address, VoterState enum FSM, mapping(address => VoterState), require guards, state-update-before-action); state machine diagram; patterns table; known limitations + improvement suggestions; HAPI Java SDK deployment code for Poll V2
+- [[concepts/hedera-network]] updated — added two new sections: "Network Environments" (MainNet/TestNet/PreviewNet/LocalNode table); "Java SDK — Smart Contract Deployment (HAPI)" (getting-started snippet, 4-step deployment pipeline, ContractCreateFlow shortcut, ContractExecuteTransaction, transaction fields, web3j overview); Related Pages section updated (voting contract + token standards)
+- index.md updated (sources, concepts, examples tables)
+
+---
+
 ## 2026-08-12 | ingest | Solidity Advanced Patterns — 8-URL multi-source ingest
 
 - Sources: solidity-by-example.org (delegatecall, calling-contract), docs.soliditylang.org/en/v0.8.23 (inheritance, using-for, libraries, modular contracts, imports), remix-ide.readthedocs.io (Remix GitHub imports)

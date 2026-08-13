@@ -415,6 +415,126 @@ Enhanced with:
 
 ---
 
+## Network Environments
+
+| Environment | Purpose | Notes |
+|-------------|---------|-------|
+| **MainNet** | Live production network | Real HBAR; transactions cost real money |
+| **TestNet** | Free development and testing | 10,000 HBAR/day via faucet (`docs.hedera.com/guides/testnet/testnet-access`) |
+| **PreviewNet** | Preview upcoming protocol changes | Unstable by design — for core contributors and early adopters |
+| **LocalNode** | Fully isolated local Docker network | Open source; `github.com/hashgraph/hedera-local-node` |
+
+Use **TestNet** for all course exercises and development work. Never test on MainNet.
+
+---
+
+## Java SDK — Smart Contract Deployment (HAPI)
+
+HAPI (Hedera API) provides SDKs for multiple languages. The Java SDK:
+
+```xml
+<dependency>
+    <groupId>com.hedera.hashgraph</groupId>
+    <artifactId>sdk</artifactId>
+    <version>2.17.0</version>
+</dependency>
+```
+
+(GitHub: `hashgraph/hedera-sdk-java` → migrating to `org.hiero:hiero-sdk-java` post Hiero rebrand)
+
+### Getting Started (Testnet)
+
+```java
+AccountId myAccountId = AccountId.fromString(Dotenv.load().get("MY_ACCOUNT_ID"));
+PrivateKey myPrivateKey = PrivateKey.fromString(Dotenv.load().get("MY_PRIVATE_KEY"));
+
+Client client = Client.forTestnet();
+client.setOperator(myAccountId, myPrivateKey);
+client.setDefaultMaxTransactionFee(new Hbar(100));
+client.setMaxQueryPayment(new Hbar(50));
+```
+
+### Smart Contract Deployment — Four Steps
+
+```
+Compile Solidity → Upload bytecode (FileId) → Create contract (ContractId) → Call functions
+```
+
+**Step 1 — Upload bytecode to Hedera File Service:**
+
+```java
+byte[] bytecode = readCompiledContract();   // result of solc --bin
+FileCreateTransaction fileCreateTx = new FileCreateTransaction()
+    .setContents(bytecode);
+FileId fileId = fileCreateTx.execute(client)
+                             .getReceipt(client)
+                             .fileId;
+```
+
+**Step 2 — Instantiate the contract:**
+
+```java
+ContractCreateTransaction contractTx = new ContractCreateTransaction()
+    .setBytecodeFileId(fileId)
+    .setGas(100_000);   // set max gas cost — reverts if exceeded
+ContractId contractId = contractTx.execute(client)
+                                   .getReceipt(client)
+                                   .contractId;
+```
+
+**Alternative one-step shortcut (`ContractCreateFlow`):**
+
+```java
+ContractId contractId = new ContractCreateFlow()
+    .setBytecode(bytecodeInHex)
+    .setGas(1_000_000)
+    .execute(client)
+    .getReceipt(client)
+    .contractId;
+```
+
+**Step 3 — Call a read-only function (query, no state change):**
+
+```java
+ContractFunctionResult result = new ContractCallQuery()
+    .setGas(100_000)
+    .setContractId(contractId)
+    .setFunction("greet")
+    .execute(client);
+```
+
+**Step 4 — Call a state-changing function (transaction):**
+
+```java
+new ContractExecuteTransaction()
+    .setContractId(contractId)
+    .setGas(100_000)
+    .setFunction("vote",
+        new ContractFunctionParameters().addUint256(proposalIndex))
+    .execute(client);
+```
+
+### Transaction Fields (Apply to Any Transaction)
+
+```java
+Transaction<?> tx = new AccountCreateTransaction()
+    .setKey(key)
+    .setInitialBalance(Hbar.fromTinybars(1000))
+    .setMaxTransactionFee(new Hbar(2))   // caps fee; reverts if exceeded
+    .setTransactionMemo("memo");
+```
+
+### web3j (Alternative — Ethereum-Compatible Java Library)
+
+`web3j` was designed for Ethereum but works with Hedera via EVM compatibility:
+- Java wrapper generation from ABI + bytecode (`web3j generate`)
+- Maven plugin for automated code generation
+- API compatible with Hedera HSCS because it speaks standard JSON-RPC
+
+Useful when code must be portable across Ethereum and Hedera, or when the team prefers generated type-safe wrappers over the HAPI SDK's fluent builder pattern.
+
+---
+
 ## Developer SDK
 
 ### Package Name — Hiero Rebrand
@@ -568,3 +688,5 @@ The sum of all `addHbarTransfer` amounts in a transaction must equal zero; the n
 - [[concepts/bitcoin-history]] — historical context for why Hedera was designed as a response to blockchain limitations
 - [[concepts/prompt-injection]] — Hedera's AI Studio and agentic AI use cases create new prompt injection / irreversible transaction attack surfaces
 - [[examples/hedera-local-ledger-js]] — working JavaScript example combining a local SHA-256 hash-chained ledger with real Hedera Testnet transactions (`@hiero-ledger/sdk`)
+- [[examples/hedera-lecture4-voting-contract]] — Poll V1 and V2 Solidity contracts with full HAPI Java deployment code
+- [[concepts/token-standards-erc20-erc721]] — ERC-20 and ERC-721 standards, stablecoin taxonomy, HTS vs ERC comparison
