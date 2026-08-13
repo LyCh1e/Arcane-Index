@@ -61,6 +61,20 @@
               "icon": "lucide-file",
               "title": "CLAUDE"
             }
+          },
+          {
+            "id": "ca3345f260f283c9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CLAUDE.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CLAUDE"
+            }
           }
         ]
       }
@@ -253,8 +267,14 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "wiki/hot.md.tmp.4884.855106695f99",
+    "wiki/log.md.tmp.4884.eefc8ff1afe1",
+    "wiki/concepts/hedera-network.md.tmp.4884.d0cd9e758a69",
+    "wiki/concepts/hedera-network.md.tmp.4884.3123ce13e396",
+    "wiki/examples/hedera-account-creation-js.md",
+    "wiki/examples/hedera-account-creation-js.md.tmp.4884.58d0e1ccda65",
     "wiki/index.md.tmp.4884.54bf170a0c88",
     "wiki/index.md.tmp.4884.95d44123d857",
     "wiki/concepts/hedera-network.md.tmp.4884.5687e2a59b51",
@@ -264,13 +284,8 @@
     "wiki/sources/hedera-lecture-4-hapi-tokens.md",
     "wiki/sources/hedera-lecture-4-hapi-tokens.md.tmp.4884.2cc68816596f",
     "wiki/hot.md.tmp.33528.aa5c6cf0cc13",
-    "wiki/index.md.tmp.33528.9a424a15f088",
-    "wiki/index.md.tmp.33528.1b0ee364cc9c",
-    "wiki/concepts/solidity-fundamentals.md.tmp.33528.83d0884f6b4f",
-    "wiki/concepts/solidity-fundamentals.md.tmp.33528.3811b22eeecb",
     "wiki/concepts/solidity-advanced-patterns.md",
     "wiki/sources/solidity-advanced-patterns-sources.md",
-    "wiki/sources/solidity-advanced-patterns-sources.md.tmp.33528.351206dcec9f",
     "canvases/blockchain-hash-chain.canvas",
     "wiki/concepts/solidity-security.md",
     "wiki/sources/solidity-docs-0.8.36.md",
@@ -292,7 +307,6 @@
     "wiki/synthesis/research-distributed-ledger-technology.md",
     "wiki/concepts/distributed-ledger-technology.md",
     "wiki/synthesis/research-bitcoin-history.md",
-    "wiki/concepts/bitcoin-history.md",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",

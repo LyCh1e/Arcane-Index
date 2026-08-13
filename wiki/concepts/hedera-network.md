@@ -598,7 +598,19 @@ const accountId = receipt.accountId; // 0.0.XXXXX Hedera-native ID
 - **Native Hedera API** — using the `0.0.XXXXX` account ID
 - **EVM-compatible tools** (MetaMask, Ethers.js, Hardhat) — using the derived `0x` alias
 
-Alternative: `.setKey(publicKey)` creates an account without an EVM alias, accessible only via the native API.
+Alternative: `.setKeyWithoutAlias(publicKey)` creates an account whose EVM address is derived from the account ID, not the public key — not fully EVM-compatible.
+
+### Key Types — ED25519 vs ECDSA
+
+| | ED25519 | ECDSA (secp256k1) |
+|--|---------|------------------|
+| `generate` | `PrivateKey.generateED25519()` | `PrivateKey.generateECDSA()` |
+| `fromString` | `PrivateKey.fromStringED25519(str)` | `PrivateKey.fromStringECDSA(str)` |
+| EVM alias | Not supported | Yes — via `setECDSAKeyWithAlias` |
+| Use case | Hedera-native accounts, operators | EVM-compatible accounts (MetaMask, Hardhat) |
+| Signature size | Smaller / faster | Standard Ethereum (secp256k1) |
+
+**Rule:** Operator accounts (the Testnet account created via the faucet) typically use ED25519. New accounts intended for EVM smart contract interaction should use ECDSA with `setECDSAKeyWithAlias`.
 
 ---
 
@@ -665,6 +677,56 @@ The sum of all `addHbarTransfer` amounts in a transaction must equal zero; the n
 
 ---
 
+### Mirror Node REST API
+
+Mirror Nodes are read-only data services that index Hedera's ledger history and expose it via a REST API. They run separately from the consensus nodes and propagate asynchronously — typically a few seconds behind consensus.
+
+```
+Testnet base URL: https://testnet.mirrornode.hedera.com/api/v1/
+MainNet base URL: https://mainnet.mirrornode.hedera.com/api/v1/
+```
+
+**Key endpoints:**
+
+| Endpoint | Returns |
+|----------|---------|
+| `GET /accounts/{idOrAddress}` | Account info — `evm_address`, `balance`, `key` |
+| `GET /transactions/{transactionId}` | Full transaction record, status, fees |
+| `GET /contracts/{idOrAddress}` | Contract bytecode, ABI, storage |
+| `GET /tokens/{tokenId}` | Token metadata (name, symbol, decimals, supply) |
+
+**Querying EVM address after account creation:**
+
+```javascript
+// Wait for Mirror Node propagation before querying
+await new Promise((resolve) => setTimeout(resolve, 5000));
+
+const mirrorResponse = await fetch(
+  `https://testnet.mirrornode.hedera.com/api/v1/accounts/${accountId.toString()}`
+);
+if (mirrorResponse.ok) {
+  const mirrorData = await mirrorResponse.json();
+  const evmAddress = mirrorData.evm_address; // "0x..." — only populated for ECDSA alias accounts
+}
+```
+
+**Production retry pattern** (Mirror Node may not have propagated yet):
+
+```javascript
+async function fetchWithRetry(url, retries = 5, delayMs = 2000) {
+  for (let i = 0; i < retries; i++) {
+    const res = await fetch(url);
+    if (res.ok) return res.json();
+    await new Promise(r => setTimeout(r, delayMs * (i + 1)));
+  }
+  throw new Error(`Mirror Node fetch failed after ${retries} attempts`);
+}
+```
+
+**Why derive EVM address from Mirror Node?** When `setECDSAKeyWithAlias` is used, the EVM address equals `keccak256(publicKey)[12:]` — which you can compute off-chain. Querying the Mirror Node is a confirmation step, not strictly required. For accounts created with `setKeyWithoutAlias`, the Mirror Node is the only way to retrieve the EVM address (it is derived from the account ID, not the key).
+
+---
+
 ## Key Statistics at a Glance
 
 - **Total HBAR supply:** 50 billion (fixed, no inflation)
@@ -688,5 +750,6 @@ The sum of all `addHbarTransfer` amounts in a transaction must equal zero; the n
 - [[concepts/bitcoin-history]] — historical context for why Hedera was designed as a response to blockchain limitations
 - [[concepts/prompt-injection]] — Hedera's AI Studio and agentic AI use cases create new prompt injection / irreversible transaction attack surfaces
 - [[examples/hedera-local-ledger-js]] — working JavaScript example combining a local SHA-256 hash-chained ledger with real Hedera Testnet transactions (`@hiero-ledger/sdk`)
+- [[examples/hedera-account-creation-js]] — account creation with ECDSA key, EVM alias, and Mirror Node REST API query
 - [[examples/hedera-lecture4-voting-contract]] — Poll V1 and V2 Solidity contracts with full HAPI Java deployment code
 - [[concepts/token-standards-erc20-erc721]] — ERC-20 and ERC-721 standards, stablecoin taxonomy, HTS vs ERC comparison

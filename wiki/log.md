@@ -10,6 +10,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-08-13 | ingest | Hedera Account Creation — JavaScript code (ECDSA key + EVM alias + Mirror Node query)
+
+- Source: user-provided JavaScript code using `@hiero-ledger/sdk` v2.85.0; creates a new Hedera Testnet account from scratch with ECDSA key + EVM alias, then queries the Mirror Node REST API to confirm the on-chain EVM address
+- 1 new example page: [[examples/hedera-account-creation-js]] — full annotated code; ED25519 vs ECDSA comparison table; `setECDSAKeyWithAlias` vs `setKeyWithoutAlias` table (EVM address derivation, compatibility); Mirror Node REST API endpoint reference; 5-second propagation delay explained; production retry pattern; why EVM address can be derived off-chain but Mirror Node query confirms it; security notes (never log private keys in production); HIP-1313 high-volume entity creation explained
+- [[concepts/hedera-network]] updated — two new subsections added to Developer SDK section: "Key Types — ED25519 vs ECDSA" (table + rule); "Mirror Node REST API" (base URLs, key endpoints table, query-after-account-creation snippet, production retry pattern, why alias vs non-alias affects address derivation)
+- index.md updated (examples table)
+
+---
+
 ## 2026-08-13 | ingest | Hedera Developer Course — Lecture 4 (HAPI, Smart Contract Deployment & Tokens)
 
 - Source: `raw/Blockchain_Lecture4.md` — 66 slides by Hendrik Ebbers (OpenElements / Swirlds Labs); Part 3 of 3 in the Hedera Developer Course

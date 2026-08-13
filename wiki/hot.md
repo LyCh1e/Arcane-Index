@@ -10,6 +10,20 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-08-13. **Session: ingest — Hedera Account Creation (JavaScript, ECDSA + EVM alias + Mirror Node).** New: [[examples/hedera-account-creation-js]]. Updated: [[concepts/hedera-network]] (ED25519 vs ECDSA table, Mirror Node REST API section).
+
+**What the code does:** Creates a new Hedera Testnet account programmatically. Operator account (Testnet faucet account) uses ED25519 — the typical Hedera-native key type. New account uses ECDSA (secp256k1) — same curve as Ethereum — with `setECDSAKeyWithAlias(publicKey)` so the account gets both a native `0.0.XXXXX` ID and an Ethereum-style `0x...` EVM address derived from the public key. After execution the code waits 5 seconds (Mirror Node propagation delay) then queries the Mirror Node REST API (`/api/v1/accounts/{id}`) to retrieve the on-chain `evm_address`.
+
+**ED25519 vs ECDSA:** Two distinct key types in the Hedera SDK. ED25519: faster, smaller signatures, Hedera-native, no EVM alias support. ECDSA (secp256k1): standard Ethereum curve, enables `setECDSAKeyWithAlias`, required for MetaMask / Ethers.js / Hardhat compatibility. Rule: use ECDSA for any account that will interact with EVM smart contracts. `PrivateKey.generateED25519()` vs `PrivateKey.generateECDSA()`; `PrivateKey.fromStringED25519(str)` vs `PrivateKey.fromStringECDSA(str)`.
+
+**`setECDSAKeyWithAlias` vs `setKeyWithoutAlias`:** With alias — EVM address = `keccak256(compressedPublicKey)[12:]` (Ethereum standard derivation, fully EVM-compatible, matches MetaMask). Without alias — EVM address derived from account ID (not the key), not fully EVM-compatible. EVM address can be computed off-chain without querying Mirror Node when using `setECDSAKeyWithAlias`; Mirror Node query is a confirmation step.
+
+**Mirror Node REST API:** Read-only REST service that indexes Hedera ledger history. Runs asynchronously behind consensus — typically 2–5 seconds propagation delay. Key endpoints: `GET /accounts/{id}` (returns `evm_address`, `balance`, `key`), `GET /transactions/{txId}`, `GET /contracts/{id}`, `GET /tokens/{tokenId}`. Production code should poll with retries and exponential backoff rather than a fixed `setTimeout`. Testnet base URL: `https://testnet.mirrornode.hedera.com/api/v1/`.
+
+---
+
+## Last Updated
+
 2026-08-13. **Session: ingest — Hedera Developer Course, Lecture 4 (HAPI, Smart Contract Deployment & Tokens).** New: [[sources/hedera-lecture-4-hapi-tokens]], [[concepts/token-standards-erc20-erc721]], [[examples/hedera-lecture4-voting-contract]]. Updated: [[concepts/hedera-network]] (two new sections).
 
 **What Lecture 4 covers:** Part 3 of 3 of the Hedera Developer Course. Four major blocks: (1) Hedera network overview and environments, (2) HAPI Java SDK development workflow for smart contracts, (3) the Voting Contract sample built iteratively, (4) coins, tokens, ERC standards, and stablecoins.
