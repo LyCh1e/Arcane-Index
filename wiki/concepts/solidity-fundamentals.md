@@ -364,15 +364,18 @@ Deploy contract → Ledger receives bytecode
 
 ## Advanced Patterns (Reference Links)
 
-| Pattern | Description | Resource |
-|---------|-------------|----------|
-| `delegatecall` | Execute another contract's code in the calling contract's storage context | solidity-by-example.org/delegatecall |
-| Calling contracts | Invoke functions on other deployed contracts by address | solidity-by-example.org/calling-contract |
-| Inheritance | `contract B is A { }` — B inherits A's functions and state variables | Solidity docs — `contracts.html#inheritance` |
-| `using for` | Attach library functions to types | Solidity docs — `contracts.html#using-for` |
-| Libraries | Reusable code deployed once, shared by multiple contracts | Solidity docs — `contracts.html#libraries` |
-| Import (local) | `import "./OtherContract.sol";` | Standard |
-| Import (Remix / GitHub) | `import "https://github.com/OpenZeppelin/.../ERC20.sol";` | Remix IDE docs |
+> These patterns are covered in depth — with full code examples — in [[concepts/solidity-advanced-patterns]].
+
+| Pattern | One-line summary |
+|---------|-----------------|
+| Calling contracts | Typed reference `Callee(addr).method()` — compiler validates ABI |
+| `delegatecall` | Run target's code in caller's storage; foundation of proxy patterns |
+| Inheritance | `contract B is A` — virtual/override, C3 linearisation, abstract, interfaces |
+| `using for` | Attach library or free functions as member methods to a type |
+| Libraries | Stateless reusable modules — `internal` → JUMP (inline), `public` → DELEGATECALL |
+| Modular contracts | Separate invariants into a library; contract shell delegates via `using for` |
+| Import (local) | `import {Symbol} from "./OtherContract.sol";` — prefer selective form |
+| Import (Remix / GitHub) | `import "https://github.com/OpenZeppelin/.../ERC20.sol";` — pin a release tag |
 
 ---
 
@@ -772,3 +775,4 @@ type(MyInterface).interfaceId  // EIP-165 interface ID (XOR of function selector
 | [[concepts/crypto-wallets]] | Wallets interact with deployed contracts — MetaMask calls contract functions via `eth_sendTransaction` |
 | [[sources/hedera-lecture-3-ethereum-solidity]] | Source lecture for initial concept page |
 | [[sources/solidity-docs-0.8.36]] | Official Solidity docs — full type system, patterns, security |
+| [[concepts/solidity-advanced-patterns]] | Deep coverage: calling contracts, delegatecall, inheritance, libraries, using-for, imports |

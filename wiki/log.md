@@ -10,6 +10,25 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-08-12 | ingest | Solidity Advanced Patterns — 8-URL multi-source ingest
+
+- Sources: solidity-by-example.org (delegatecall, calling-contract), docs.soliditylang.org/en/v0.8.23 (inheritance, using-for, libraries, modular contracts, imports), remix-ide.readthedocs.io (Remix GitHub imports)
+- Access notes: docs.soliditylang.org returns HTTP 403; fetched from GitHub RST (`ethereum/solidity` v0.8.23 tag). solidity-by-example.org uses client-side rendering; fetched `.sol` source files from `solidity-by-example/solidity-by-example.github.io` GitHub repo.
+- 1 new source page: [[sources/solidity-advanced-patterns-sources]] — 8-URL source index with access notes, key concepts per topic, quality ratings
+- 1 new concept page: [[concepts/solidity-advanced-patterns]] — 7 sections with full annotated code examples:
+  - §1 Calling Other Contracts — typed reference (recommended), address cast, `{value:}` forwarding; when to use low-level `.call`
+  - §2 `delegatecall` — call vs delegatecall table, storage layout matching constraint, side-by-side code (delegatecall vs call), use cases (proxy, libraries, Diamond)
+  - §3 Inheritance — virtual/override, visibility/mutability rules table, multiple inheritance + C3 linearisation example, constructor inheritance (two options), abstract contracts and interfaces
+  - §4 Libraries — restrictions table, internal vs external table, Set library (storage pointer pattern), BigInt library (internal functions, memory types), call protection mechanism
+  - §5 `using for` — four syntax forms, struct + free functions pattern, custom operators for user-defined value types
+  - §6 Imports — syntax table (four forms), path types table, Remix GitHub imports (pin release tag), selective import example
+  - §7 Modular Contracts — full Token contract with Balances library, explanation of why single invariant matters for audits
+  - Pattern selection guide table
+- [[concepts/solidity-fundamentals]] updated — Advanced Patterns table replaced with a summary pointing to the new page; Connections table updated with `solidity-advanced-patterns`
+- index.md updated (sources + concepts tables)
+
+---
+
 ## 2026-08-12 | ingest | Solidity Language Documentation v0.8.36 (Official)
 
 - Source: https://docs.soliditylang.org/en/v0.8.36/ — official Ethereum Foundation / Solidity core team reference. Fetched via GitHub RST source files (`ethereum/solidity` repository, v0.8.26 tag; content is identical to v0.8.36 for all language-specification sections). Direct HTTPS access returned HTTP 403.

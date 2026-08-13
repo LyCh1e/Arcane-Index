@@ -85,6 +85,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/hedera-lecture-1-bitcoin-wallets\|Hedera Developer Course — Lecture 1: Bitcoin, Digital Currencies & Crypto Wallets]] | lecture-slides | blockchain | 2026-08-12 |
 | [[sources/hedera-lecture-3-ethereum-solidity\|Hedera Developer Course — Lecture 3: Ethereum History, EVM & Solidity]] | lecture-slides | blockchain | 2026-08-12 |
 | [[sources/solidity-docs-0.8.36\|Solidity Language Documentation v0.8.36 (Official)]] | reference | blockchain | 2026-08-12 |
+| [[sources/solidity-advanced-patterns-sources\|Solidity Advanced Patterns — Multi-Source Ingest (8 URLs)]] | reference | blockchain | 2026-08-12 |
 
 ## Concepts
 
@@ -214,6 +215,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/ethereum-evm\|Ethereum and the EVM]] | blockchain | high |
 | [[concepts/solidity-fundamentals\|Solidity Fundamentals]] | blockchain | high |
 | [[concepts/solidity-security\|Solidity Security]] | blockchain | high |
+| [[concepts/solidity-advanced-patterns\|Solidity Advanced Patterns]] | blockchain | high |
 | [[concepts/latex-formatting\|LaTeX Formatting]] | academic-writing | medium |
 | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] | python-gui | low |
 | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] | python-gui | medium |

@@ -10,6 +10,28 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-08-12. **Session: ingest — Solidity Advanced Patterns (8 URLs).** New: [[sources/solidity-advanced-patterns-sources]], [[concepts/solidity-advanced-patterns]]. Updated: [[concepts/solidity-fundamentals]] (Advanced Patterns table + Connections).
+
+**What was ingested:** Eight reference pages on advanced Solidity features, grouped by topic. The docs.soliditylang.org pages (five of them) returned HTTP 403 — content fetched from GitHub RST source files at the `v0.8.23` tag. The solidity-by-example.org pages use client-side rendering; actual `.sol` source files fetched from GitHub. The Remix readthedocs page returned 200 OK directly.
+
+**§1 — Calling Other Contracts:** Three methods: (1) pass the contract type as a parameter — the compiler validates the ABI at compile time; (2) cast an `address` to the contract type at the call site; (3) forward Ether using `{value: msg.value}` — callee must be `payable`. Low-level `.call(abi.encodeWithSignature(...))` bypasses compile-time checks and should only be used when the target ABI is unknown at compile time (generic proxies, factory patterns).
+
+**§2 — `delegatecall`:** Runs the target contract's code in the **caller's storage context**. `msg.sender` and `msg.value` retain the caller's values. Critical constraint: the two contracts must have **identical storage slot layout** — the callee accesses storage by slot index, not by variable name. Mismatched layouts corrupt the caller's storage silently. Use cases: upgradeable proxy pattern (proxy holds state, implementation holds logic), Solidity library mechanism (public library functions use DELEGATECALL automatically), Diamond pattern (EIP-2535).
+
+**§3 — Inheritance:** `virtual` marks a function as overridable; `override` confirms a function overrides a base. Visibility can only move from `external` → `public`. Mutability can only become stricter (nonpayable → view → pure); `payable` cannot change. State variable shadowing is a compiler error. C3 linearisation: list bases most base-like first in the `is` clause. `super.f()` traverses the full C3 chain — does not skip intermediate contracts. Abstract contracts declare functions without bodies. Interfaces have only `external` functions and no state variables.
+
+**§4 — Libraries:** Stateless code modules — no state variables, no Ether, no inheritance, no `selfdestruct`. `internal` functions are inlined via `JUMP` at compile time (no separate deployment). `public`/`external` functions use `DELEGATECALL` and require a deployed library address. Call protection: compiler inserts an `ADDRESS` opcode guard that reverts if a state-modifying library function is called via regular `CALL`.
+
+**§5 — `using for`:** Attaches library or free functions as member methods to a type. Four syntax forms (library name, explicit list, `*` wildcard, `global` propagation). The first function parameter becomes `self`. Can define custom arithmetic and comparison operators for user-defined value types (must be `pure` free functions, `global`).
+
+**§6 — Imports:** Four forms: simple (avoid — namespace pollution), namespace (`import * as Name`), alias (`import "file" as Name`), selective (`import {Foo, Bar as Baz}`). Remix accepts full GitHub URLs — always pin a release tag, not a branch. Files land in `.deps/`.
+
+**§7 — Modular Contracts:** Separate invariant logic into a library; contract shell delegates via `using for`. Every call path (transfer, transferFrom, etc.) calls the same `Balances.move` function — no invariant divergence possible. Pattern underpins OpenZeppelin's ERC-20/ERC-721 implementations.
+
+---
+
+## Last Updated
+
 2026-08-12. **Session: ingest — Solidity Language Documentation v0.8.36 (Official) + canvas redo (blockchain-hash-chain).** New: [[sources/solidity-docs-0.8.36]], [[concepts/solidity-security]]. Updated: [[concepts/solidity-fundamentals]] (7 new sections).
 
 **Solidity docs ingest — what was added:** The official Solidity v0.8.36 reference (fetched from GitHub RST source; docs.soliditylang.org returns HTTP 403) was ingested in full. The existing [[concepts/solidity-fundamentals]] page was extended with seven new sections:
