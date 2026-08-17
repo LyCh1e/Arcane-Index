@@ -10,6 +10,18 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-08-17. **Session: ingest — Trustworthy AI Summer School: Machine Learning Lectures 1 & 2 (AI in Medicine + MedMNIST v2).** New: [[sources/ml-summer-school-lec1]], [[sources/ml-summer-school-lec2]], [[concepts/ai-in-medicine]], [[concepts/medmnist-v2-datasets]]. Updated: [[areas/machine-learning]].
+
+**Lecture 1 — Kickoff & Motivation (Tobias Rueckert, OTH Regensburg / TU Munich / AKTORmed):**
+The course is "Trustworthy AI: ML Meets Blockchain" — an international summer school across 8 lectures (ML basics → CNNs → transfer learning → attention/transformers → final assessment). Lecture 1 motivates the course through AI-in-medicine applications. Key data point: AI publications in healthcare grew from ~15/year (1995) to ~6,450/year (2023) — a 400× increase in 28 years. Dominant modalities by publication share: text 34.6%, radiology 30.1%, pathology 12.0%. The ReMIC lab at OTH Regensburg works on: (1) Barrett Esophagus detection via endoscopic AI overlay; (2) dynamic GI Tract 3D reconstruction; (3) OOD detection benchmarking (OpenMIBOOD, CVPR 2025 — 14 datasets, 24 detection methods). The trustworthiness problem is illustrated concretely: a plant identification app confabulates diagnoses under lighting change — in medicine, a confident wrong answer kills. The DeepMIC project (AKTORmed / TU Munich / OTH) reached animal-trial success in Feb 2025; JHU demonstrated fully autonomous ex vivo cholecystectomy in July 2025. Data availability bottleneck: 1M laparoscopic procedures/year → ~630 hrs of footage; publicly available datasets cover ~50 hrs. Annotation requires expert time (surgeon/pathologist), which creates an inherent ceiling on dataset scale.
+
+**Lecture 2 — MedMNIST v2 Dataset Briefing:**
+Team project briefing for 10 student groups, one MedMNIST v2 dataset per group. MedMNIST v2 = 18 standardised 28×28 medical imaging classification benchmarks (12 × 2D, 6 × 3D). Key datasets: **PathMNIST** (colon histology, 9 classes, 90k train, test from different centre); **ChestMNIST** (14-label chest X-ray — multi-label, not multi-class; accuracy useless); **DermaMNIST** (skin lesions including melanoma — HAM10000, non-commercial licence); **OCTMNIST** (retinal OCT, 4 classes, 97k train, test balanced ≠ train distribution); **PneumoniaMNIST** (74% positive — sensitivity/specificity required); **RetinaMNIST** (ordinal grades 0–4 — use kappa or MAE); **BreastMNIST** (546 train, 156 test — every image is 0.64 ppts); **BloodMNIST** (8 blood cell types, easy — scores saturate quickly); **TissueMNIST** (165k train — epoch time is an engineering constraint); **OrganA/C/SMNIST** (same 11 organs, three CT views — ready-made view-invariance controlled experiment). 3D datasets: OrganMNIST3D (3D vs 2D comparison), NoduleMNIST3D (clinical decision — missed cancer vs. unnecessary operation), FractureMNIST3D (fracture type by millimetre geometry), AdrenalMNIST3D (shape-only, no intensity), VesselMNIST3D (aneurysm — 1 in 9 positive), SynapseMNIST3D (neuron synapse type — you cannot check a label by eye). Metric selection: multi-label → per-class AUC; ordinal → quadratic-weighted kappa; binary imbalanced → AUC + sensitivity/specificity; 3D small-data → multiple seeds + confidence intervals.
+
+---
+
+## Last Updated
+
 2026-08-13. **Session: ingest — Hedera HTS, HCS, and Batch Transactions (JavaScript, @hiero-ledger/sdk).** New: [[examples/hedera-hts-hcs-batch-js]]. Updated: [[concepts/hedera-network]] (HTS SDK, HCS SDK, BatchTransaction sections), [[concepts/token-standards-erc20-erc721]] (HTS SDK creation patterns).
 
 **Five operations ingested:**

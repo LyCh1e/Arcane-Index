@@ -4,7 +4,7 @@ status: established
 title: "Machine Learning"
 domain: machine-learning
 source: [[sources/INF2008-machine-learning]]
-updated: 2026-05-14
+updated: 2026-08-17
 tags: [area, machine-learning]
 ---
 
@@ -30,6 +30,8 @@ ML is the practice of building systems that learn patterns from data rather than
 | [[concepts/decision-trees-and-ensembles\|Decision Trees & Ensembles]] | ID3/CART, information gain, Gini impurity, Random Forests, Bagging, Boosting (AdaBoost, XGBoost) |
 | [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] | Linear/logistic regression, perceptron, MLP, backpropagation, activation functions, CNNs |
 | [[concepts/clustering-and-dimensionality-reduction\|Clustering & Dimensionality Reduction]] | K-Means, DBSCAN, Hierarchical clustering, PCA, t-SNE |
+| [[concepts/ai-in-medicine\|AI in Medicine]] | Publication growth (1995–2023), data modalities, OOD detection, surgical AI, data annotation bottleneck |
+| [[concepts/medmnist-v2-datasets\|MedMNIST v2 Datasets]] | 18 medical imaging benchmarks: modality, task type, split sizes, pitfalls, metric selection guide |
 
 ---
 

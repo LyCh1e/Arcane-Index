@@ -10,6 +10,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-08-17 | ingest | Trustworthy AI Summer School — Machine Learning Lectures 1 & 2
+
+- Sources: `raw/Machine_Learning_Lec_1.md` (Kickoff & Motivation, 46 slides) and `raw/Machine_Learning_Lec_2.md` (MedMNIST v2 Team Project Briefing, 23 slides) — Tobias Rueckert, M.Sc. (OTH Regensburg / TU Munich / AKTORmed), International Summer School: Trustworthy AI — Machine Learning Meets Blockchain
+- 2 new source pages: [[sources/ml-summer-school-lec1]] — course structure, lecturer background, AI-in-medicine publication growth stats, ReMIC lab applications (Barrett Esophagus / GI 3D reconstruction / surgical instrument recognition), OOD detection (OpenMIBOOD, CVPR 2025), DeepMIC project, PhaKIR challenge (MICCAI 2024), autonomous robotic surgery (JHU), data availability bottleneck; [[sources/ml-summer-school-lec2]] — team project requirements, pass criteria, dataset assignments, task-type taxonomy, full MedMNIST v2 catalogue
+- 2 new concept pages: [[concepts/ai-in-medicine]] — AI publication growth (1995–2023, 400× increase), data modalities table (text/radiology/pathology/omics), endoscopy/ophthalmology/pathology/radiology applications, OOD taxonomy (ID/cs-ID/near-OOD/far-OOD), OpenMIBOOD benchmark, SOLOASSIST II/III robotic endoscopy, DeepMIC project, JHU autonomous surgery, annotation bottleneck with scale comparison; [[concepts/medmnist-v2-datasets]] — all 18 datasets (12 × 2D, 6 × 3D) with modality, task type, split sizes, per-dataset pitfalls, metric selection guide (binary/multi-class/multi-label/ordinal/3D), experimental design principles (controlled comparison, honest split, majority baseline)
+- [[areas/machine-learning]] updated — added two new concept rows; updated date
+- index.md updated (sources table, concepts table)
+
+---
+
 ## 2026-08-13 | ingest | Hedera HTS, HCS, and Batch Transactions — JavaScript (@hiero-ledger/sdk)
 
 - Source: user-provided JavaScript code covering five Hedera operations: HBAR transfer, basic token creation (immutable), HCS topic creation, advanced token creation (with adminKey + supplyKey), and a batch transaction (HIP-551) combining AccountCreateTransaction + TokenUpdateTransaction + TokenAirdropTransaction + TokenBurnTransaction atomically
