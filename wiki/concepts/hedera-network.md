@@ -727,6 +727,176 @@ async function fetchWithRetry(url, retries = 5, delayMs = 2000) {
 
 ---
 
+### HTS SDK — Token Creation (JavaScript)
+
+#### Basic Token (Immutable — no admin or supply keys)
+
+```javascript
+const txTokenCreate = await new TokenCreateTransaction()
+  .setTokenName("Your Token Name")
+  .setTokenSymbol("F")
+  .setTokenType(TokenType.FungibleCommon)  // or TokenType.NonFungibleUnique for NFTs
+  .setTreasuryAccountId(MY_ACCOUNT_ID)     // receives all initial supply
+  .setInitialSupply(5000)
+  .freezeWith(client);
+
+const signedTxTokenCreate   = await txTokenCreate.sign(MY_PRIVATE_KEY);
+const txTokenCreateResponse = await signedTxTokenCreate.execute(client);
+const receiptTokenCreateTx  = await txTokenCreateResponse.getReceipt(client);
+const tokenId               = receiptTokenCreateTx.tokenId;
+```
+
+**Why treasury must sign:** The treasury receives the initial supply. The network requires the treasury's explicit authorisation to prevent tokens being forced into an account.
+
+**No admin/supply keys = immutable token.** The token name, symbol, and supply cannot change after creation.
+
+#### Advanced Token (Mutable — with admin and supply keys)
+
+```javascript
+const txTokenCreate = await new TokenCreateTransaction()
+  .setTokenName("Your Token Name")
+  .setTokenSymbol("F")
+  .setTokenType(TokenType.FungibleCommon)
+  .setTreasuryAccountId(MY_ACCOUNT_ID)
+  .setAdminKey(MY_PRIVATE_KEY.publicKey)   // enables TokenUpdateTransaction
+  .setSupplyKey(MY_PRIVATE_KEY.publicKey)  // enables TokenMintTransaction / TokenBurnTransaction
+  .setInitialSupply(5000)
+  .freezeWith(client);
+```
+
+#### Token Key Reference
+
+| Key | Set with | Enables |
+|-----|----------|---------|
+| `adminKey` | `.setAdminKey(pubKey)` | `TokenUpdateTransaction` — rename, change keys |
+| `supplyKey` | `.setSupplyKey(pubKey)` | `TokenMintTransaction` / `TokenBurnTransaction` |
+| `freezeKey` | `.setFreezeKey(pubKey)` | Freeze individual accounts |
+| `kycKey` | `.setKycKey(pubKey)` | KYC-gate accounts before they can transact |
+| `wipeKey` | `.setWipeKey(pubKey)` | Forcibly remove tokens from an account |
+| `pauseKey` | `.setPauseKey(pubKey)` | Pause all transfers globally |
+
+Keys not set at creation time cannot be added later unless `adminKey` is already set.
+
+---
+
+### HCS SDK — Topic Creation and Messaging (JavaScript)
+
+```javascript
+// Bare topic — no access controls
+const txCreateTopic = new TopicCreateTransaction();
+
+const txCreateTopicResponse = await txCreateTopic.execute(client);
+const receiptCreateTopicTx  = await txCreateTopicResponse.getReceipt(client);
+const topicId               = receiptCreateTopicTx.topicId.toString(); // "0.0.XXXXX"
+```
+
+**With access controls:**
+```javascript
+const txCreateTopic = new TopicCreateTransaction()
+  .setTopicMemo("My application event log")
+  .setSubmitKey(submitPublicKey)   // only this key may publish messages
+  .setAdminKey(adminPublicKey);    // only this key may update or delete the topic
+```
+
+**Publishing a message:**
+```javascript
+await new TopicMessageSubmitTransaction()
+  .setTopicId(topicId)
+  .setMessage("{ \"event\": \"user_login\", \"userId\": 42 }")
+  .execute(client);
+```
+
+**Subscribing (mirror node stream):**
+```javascript
+new TopicMessageQuery()
+  .setTopicId(topicId)
+  .subscribe(client, (message) => {
+    console.log(message.contents.toString());
+    console.log("Consensus timestamp:", message.consensusTimestamp.toString());
+    console.log("Sequence number    :", message.sequenceNumber.toString());
+  });
+```
+
+Each message is given a **consensus timestamp** and **sequence number** — tamper-evident because the ledger records a running hash of all prior messages.
+
+---
+
+### Batch Transaction SDK — HIP-551 (JavaScript)
+
+`BatchTransaction` executes multiple inner transactions atomically: either all succeed, or all are rolled back.
+
+#### The `batchify()` Pattern
+
+`tx.batchify(client, batchPublicKey)` converts a transaction into an inner-transaction payload. The `batchPublicKey` is the key that will sign the outer `BatchTransaction`.
+
+**Critical:** Each inner transaction still requires all of its own signers. `batchify` does not satisfy existing signing requirements.
+
+```javascript
+const batchKey       = PrivateKey.generateECDSA();
+const batchPublicKey = batchKey.publicKey;
+
+// Step 1: batchify each inner tx, then sign it
+const txA = await new TransferTransaction()
+  .addHbarTransfer(MY_ACCOUNT_ID, new Hbar(-1))
+  .addHbarTransfer(receiverAccountId, new Hbar(1))
+  .batchify(client, batchPublicKey);
+const signedTxA = await txA.sign(MY_PRIVATE_KEY);
+
+// Step 2: assemble the batch and sign with batchKey
+const batchTx = await new BatchTransaction()
+  .addInnerTransaction(signedTxA)
+  // .addInnerTransaction(signedTxB) ...
+  .freezeWith(client)
+  .sign(batchKey);
+
+const txResponse = await batchTx.execute(client);
+const receipt    = await txResponse.getReceipt(client);
+const txId       = txResponse.transactionId.toString();
+
+// Inner tx IDs are accessible:
+const innerTxIds = batchTx.innerTransactionIds;
+```
+
+#### Counterfactual Account ID Derivation
+
+For ECDSA accounts created with `setECDSAKeyWithAlias`, the Hedera account ID can be derived from the public key **before** the account is created. This allows batching account creation with operations that reference the new account:
+
+```javascript
+const recipientAccountId = recipientAccountPublicKey.toAccountId(0, 0);
+// shard=0, realm=0 → standard Testnet/MainNet
+// Now use recipientAccountId in subsequent inner transactions within the same batch
+```
+
+#### HashScan URL Formats
+
+| Transaction type | URL path | ID format |
+|-----------------|----------|-----------|
+| Standard | `/testnet/transaction/{txId}` | `0.0.XXXXX@seconds.nanos` |
+| Batch | `/testnet/transactionsById/{txId}` | `0.0.XXXXX-seconds-nanos` (hyphens) |
+
+```javascript
+// Convert standard txId to batch URL format
+const [entityId, timestamp] = txId.split('@');
+const [seconds, nanos]      = timestamp.split('.');
+const formattedTxId         = `${entityId}-${seconds}-${nanos}`;
+// → https://hashscan.io/testnet/transactionsById/${formattedTxId}
+```
+
+#### TokenAirdropTransaction vs TransferTransaction
+
+`TokenAirdropTransaction` (HIP-904) transfers tokens to accounts that have **not** yet associated with the token. `TransferTransaction.addTokenTransfer` requires prior `TokenAssociateTransaction` from the recipient.
+
+```javascript
+// HIP-904 — no prior token association needed
+const txTokenAirdrop = new TokenAirdropTransaction()
+  .addTokenTransfer(tokenId, MY_ACCOUNT_ID, -1000)     // debit sender
+  .addTokenTransfer(tokenId, recipientAccountId, 1000); // credit recipient (no pre-association)
+```
+
+See [[examples/hedera-hts-hcs-batch-js]] for a full worked example covering all five operations.
+
+---
+
 ## Key Statistics at a Glance
 
 - **Total HBAR supply:** 50 billion (fixed, no inflation)
@@ -751,5 +921,6 @@ async function fetchWithRetry(url, retries = 5, delayMs = 2000) {
 - [[concepts/prompt-injection]] — Hedera's AI Studio and agentic AI use cases create new prompt injection / irreversible transaction attack surfaces
 - [[examples/hedera-local-ledger-js]] — working JavaScript example combining a local SHA-256 hash-chained ledger with real Hedera Testnet transactions (`@hiero-ledger/sdk`)
 - [[examples/hedera-account-creation-js]] — account creation with ECDSA key, EVM alias, and Mirror Node REST API query
+- [[examples/hedera-hts-hcs-batch-js]] — HBAR transfer, HTS token creation (basic and advanced), HCS topic creation, batch transaction (HIP-551) with batchify pattern
 - [[examples/hedera-lecture4-voting-contract]] — Poll V1 and V2 Solidity contracts with full HAPI Java deployment code
 - [[concepts/token-standards-erc20-erc721]] — ERC-20 and ERC-721 standards, stablecoin taxonomy, HTS vs ERC comparison

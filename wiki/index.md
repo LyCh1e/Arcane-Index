@@ -253,6 +253,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/hedera-local-ledger-js\|Hedera Local Ledger — Hash-Chained Audit Trail + Testnet Transactions (JavaScript)]] | project | blockchain | [[concepts/hedera-network\|Hedera Network]] |
 | [[examples/hedera-lecture4-voting-contract\|Hedera Lecture 4 — Voting Contract (Poll V1 and V2)]] | course-example | blockchain | [[concepts/solidity-fundamentals\|Solidity Fundamentals]] |
 | [[examples/hedera-account-creation-js\|Hedera Account Creation — JavaScript (ECDSA + EVM Alias + Mirror Node)]] | code-session | blockchain | [[concepts/hedera-network\|Hedera Network]] |
+| [[examples/hedera-hts-hcs-batch-js\|Hedera HTS, HCS, and Batch Transactions — JavaScript (TokenCreate, TopicCreate, HIP-551, HIP-904)]] | code-session | blockchain | [[concepts/hedera-network\|Hedera Network]] |
 
 ## Entities
 

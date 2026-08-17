@@ -10,6 +10,24 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-08-13. **Session: ingest — Hedera HTS, HCS, and Batch Transactions (JavaScript, @hiero-ledger/sdk).** New: [[examples/hedera-hts-hcs-batch-js]]. Updated: [[concepts/hedera-network]] (HTS SDK, HCS SDK, BatchTransaction sections), [[concepts/token-standards-erc20-erc721]] (HTS SDK creation patterns).
+
+**Five operations ingested:**
+
+1. **HBAR Transfer** — `TransferTransaction` with zero-sum enforcement. No explicit `.sign()` needed when the operator is the sender (SDK signs on `.execute()` automatically).
+
+2. **Token Creation — Basic (Immutable)** — `TokenCreateTransaction` with no admin or supply keys. Treasury must sign (receives initial supply). Token name, symbol, and supply are permanently locked at creation. `TokenType.FungibleCommon` for ERC-20 equivalent; `TokenType.NonFungibleUnique` for ERC-721 equivalent.
+
+3. **Token Creation — Advanced (Mutable)** — Same as basic but with `.setAdminKey()` enabling `TokenUpdateTransaction` and `.setSupplyKey()` enabling `TokenMintTransaction` / `TokenBurnTransaction`. Keys not set at creation cannot be added later unless `adminKey` was set. Full key taxonomy in the example page (adminKey, supplyKey, freezeKey, kycKey, wipeKey, pauseKey).
+
+4. **HCS Topic Creation** — `TopicCreateTransaction()` is the minimal form (no memo, no keys, open access). Extended form adds `.setSubmitKey()` (restricts who may publish) and `.setAdminKey()` (restricts who may update/delete). Messages are published via `TopicMessageSubmitTransaction`; subscribed via `TopicMessageQuery` (mirror node stream, returns `consensusTimestamp` + `sequenceNumber` + running hash).
+
+5. **Batch Transaction — HIP-551** — Key pattern: `tx.batchify(client, batchPublicKey)` converts a transaction into an inner payload. Each inner tx still needs its own signers. Outer `BatchTransaction` is signed by `batchKey`. Atomicity: any inner tx failure rolls back all. `TokenAirdropTransaction` (HIP-904) transfers to accounts without prior `TokenAssociateTransaction` — critical for onboarding. Counterfactual addressing: `ecdsaPublicKey.toAccountId(0,0)` derives the account ID before the account exists on-chain, enabling same-batch references. HashScan URL for batch uses `transactionsById` and hyphens: `0.0.X-seconds-nanos`.
+
+---
+
+## Last Updated
+
 2026-08-13. **Session: ingest — Hedera Account Creation (JavaScript, ECDSA + EVM alias + Mirror Node).** New: [[examples/hedera-account-creation-js]]. Updated: [[concepts/hedera-network]] (ED25519 vs ECDSA table, Mirror Node REST API section).
 
 **What the code does:** Creates a new Hedera Testnet account programmatically. Operator account (Testnet faucet account) uses ED25519 — the typical Hedera-native key type. New account uses ECDSA (secp256k1) — same curve as Ethereum — with `setECDSAKeyWithAlias(publicKey)` so the account gets both a native `0.0.XXXXX` ID and an Ethereum-style `0x...` EVM address derived from the public key. After execution the code waits 5 seconds (Mirror Node propagation delay) then queries the Mirror Node REST API (`/api/v1/accounts/{id}`) to retrieve the on-chain `evm_address`.

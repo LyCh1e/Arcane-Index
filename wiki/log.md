@@ -10,6 +10,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-08-13 | ingest | Hedera HTS, HCS, and Batch Transactions — JavaScript (@hiero-ledger/sdk)
+
+- Source: user-provided JavaScript code covering five Hedera operations: HBAR transfer, basic token creation (immutable), HCS topic creation, advanced token creation (with adminKey + supplyKey), and a batch transaction (HIP-551) combining AccountCreateTransaction + TokenUpdateTransaction + TokenAirdropTransaction + TokenBurnTransaction atomically
+- 1 new example page: [[examples/hedera-hts-hcs-batch-js]] — HBAR transfer (zero-sum rule, operator auto-sign); TokenCreateTransaction basic (immutable, treasury signing rationale) and advanced (adminKey/supplyKey, full token key reference table); TopicCreateTransaction (bare and with submitKey/adminKey), TopicMessageSubmitTransaction, TopicMessageQuery; BatchTransaction with `batchify()` pattern (inner tx still needs own signers), counterfactual account ID (`publicKey.toAccountId(0,0)`), TokenAirdropTransaction vs TransferTransaction (HIP-904, no prior association required), HashScan URL format difference (hyphens, `transactionsById`), `innerTransactionIds` access
+- [[concepts/hedera-network]] updated — three new subsections added to JS SDK section: "HTS SDK — Token Creation" (basic/advanced code, token key reference table); "HCS SDK — Topic Creation and Messaging" (bare topic, access-controlled topic, message publish, mirror node subscribe); "Batch Transaction SDK — HIP-551" (batchify pattern, counterfactual addressing, HashScan URL formats, TokenAirdropTransaction pattern); Related Pages updated to include new example
+- [[concepts/token-standards-erc20-erc721]] updated — new subsection "HTS Token Creation — JavaScript SDK" added to §6, covering immutable and mutable token creation code, TokenBurnTransaction, TokenAirdropTransaction vs TransferTransaction distinction (HIP-904); Connections table updated
+- index.md updated (examples table)
+
+---
+
 ## 2026-08-13 | ingest | Hedera Account Creation — JavaScript code (ECDSA key + EVM alias + Mirror Node query)
 
 - Source: user-provided JavaScript code using `@hiero-ledger/sdk` v2.85.0; creates a new Hedera Testnet account from scratch with ECDSA key + EVM alias, then queries the Mirror Node REST API to confirm the on-chain EVM address

@@ -201,6 +201,65 @@ Hedera offers two mechanisms for tokens:
 
 **The HTS precompile at `0x167`** bridges both worlds: a Solidity contract can call native HTS operations (transfer, mint, burn) using the same EVM CALL that it would use to call any other contract. This means an ERC-20–compatible DEX can trade native HTS tokens without wrapping them.
 
+### HTS Token Creation — JavaScript SDK
+
+Two distinct patterns exist depending on whether the token should be mutable after creation.
+
+#### Immutable Token (no admin or supply keys)
+
+```javascript
+const txTokenCreate = await new TokenCreateTransaction()
+  .setTokenName("My Token")
+  .setTokenSymbol("MTK")
+  .setTokenType(TokenType.FungibleCommon)   // or TokenType.NonFungibleUnique
+  .setTreasuryAccountId(MY_ACCOUNT_ID)      // receives all initial supply
+  .setInitialSupply(5000)
+  .freezeWith(client);
+
+// Treasury must sign (it receives the initial supply)
+const signedTx = await txTokenCreate.sign(MY_PRIVATE_KEY);
+const txResponse = await signedTx.execute(client);
+const tokenId = (await txResponse.getReceipt(client)).tokenId;
+```
+
+**Behaviour:** Name, symbol, supply — frozen at creation. Cannot mint, burn (via protocol), or update.
+
+#### Mutable Token (with admin and supply keys)
+
+```javascript
+const txTokenCreate = await new TokenCreateTransaction()
+  .setTokenName("My Token")
+  .setTokenSymbol("MTK")
+  .setTokenType(TokenType.FungibleCommon)
+  .setTreasuryAccountId(MY_ACCOUNT_ID)
+  .setAdminKey(MY_PRIVATE_KEY.publicKey)    // enables TokenUpdateTransaction
+  .setSupplyKey(MY_PRIVATE_KEY.publicKey)   // enables TokenMintTransaction / TokenBurnTransaction
+  .setInitialSupply(5000)
+  .freezeWith(client);
+```
+
+#### Token Supply Operations
+
+```javascript
+// Burn tokens from treasury (requires supplyKey)
+const burnReceipt = await (await (await new TokenBurnTransaction()
+  .setTokenId(tokenId)
+  .setAmount(1000)
+  .freezeWith(client))
+  .sign(MY_PRIVATE_KEY))
+  .execute(client);
+
+// Airdrop tokens — recipient does not need prior TokenAssociateTransaction (HIP-904)
+const airdropReceipt = await new TokenAirdropTransaction()
+  .addTokenTransfer(tokenId, MY_ACCOUNT_ID, -500)
+  .addTokenTransfer(tokenId, recipientAccountId, 500)
+  .execute(client);
+```
+
+**Key distinction:** `TransferTransaction.addTokenTransfer` requires the recipient to have run `TokenAssociateTransaction` first. `TokenAirdropTransaction` (HIP-904) handles association automatically — essential for public token distributions.
+
+See [[examples/hedera-hts-hcs-batch-js]] for the full worked example including batch atomicity with HIP-551.
+
 ---
 
 ## 7. Summary: Which Standard?
@@ -224,3 +283,4 @@ Hedera offers two mechanisms for tokens:
 | [[concepts/ethereum-evm]] | EVM executes token contract code; DELEGATECALL used by HTS precompile |
 | [[concepts/solidity-security]] | Token contracts need CEI pattern, access control, reentrancy guards |
 | [[sources/hedera-lecture-4-hapi-tokens]] | Primary source for this page |
+| [[examples/hedera-hts-hcs-batch-js]] | Working JS SDK examples for TokenCreateTransaction (basic and advanced), TokenBurnTransaction, TokenAirdropTransaction |
