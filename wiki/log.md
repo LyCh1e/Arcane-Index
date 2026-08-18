@@ -10,6 +10,19 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-08-17 | ingest | Trustworthy AI Summer School — ML Lectures 2a (ML Basics) & 2b (Classification Models)
+
+- Sources: `raw/Machine_Learning_Lec_2a.md` (52 slides — ML Basics) and `raw/Machine_Learning_Lec_2b.md` (37 slides — Classification Models) — Tobias Rueckert, M.Sc., Trustworthy AI Summer School
+- 2 new source pages: [[sources/ml-summer-school-lec2a]] — ML inversion framing, four ingredients (Data/Model/Loss/Optimizer), feature design vs end-to-end, task types with output shapes, annotation costs table, patient-level split, XOR problem, ReLU worked examples, PyTorch training loop (5 lines + zero_grad), batches/steps/epochs, debugging checklist; [[sources/ml-summer-school-lec2b]] — kNN (lazy learning, majority voting, curse of dimensionality), SVM (hyperplane, margin, support vectors, kernel trick with 3 visual examples, C parameter), Decision Trees (ID3 algorithm with worked golf example + entropy calculations), Gini index, ID3 vs CART comparison table (5 properties), Random Forests bagging
+- 1 new concept page: [[concepts/ml-classification-models]] — kNN (lazy learning, O(n) prediction, feature scaling requirement, curse of dimensionality) and SVM (maximum-margin hyperplane, support vectors, hard vs soft margin, C parameter, kernel trick with 3 examples — quadratic/modulo/polynomial, RBF kernel, advantages/disadvantages, kNN vs SVM comparison table)
+- [[concepts/neural-networks-linear-models]] updated — 4 new sections: "XOR and Why Depth Is Needed" (straight-line ceiling, XOR proof, hidden layer solution, why activation functions are non-optional); "Layers as Matrix Products and Parameter Counting" (h=relu(W@x+b), worked 6→5→4→3 network = 74 params); "The Training Loop — PyTorch" (5-line loop, zero_grad pitfall, batches/steps/epochs); "When Loss Will Not Go Down — Debugging Checklist" (6-step table); "Softmax Worked Example" (logits → probabilities with real numbers); Related Concepts updated
+- [[concepts/decision-trees-and-ensembles]] updated — ID3 Algorithm section added (named algorithm, pseudocode, entropy/gain formulas, complete golf/weather worked example with numerical entropy values, final tree diagram); ID3 vs CART Comparison table added (5 properties: feature types, split structure, feature reuse, criterion, pruning); Related Concepts updated
+- [[concepts/ml-model-training-evaluation]] updated — 3 new sections: "Patient-Level Split" (split by patient vs by image, leakage diagram, clinical publication rule); "Training and Validation Curves" (patterns table: underfitting/healthy/flat/overfitting/chaotic); "Early Stopping" (best-val-loss pattern + PyTorch code)
+- [[areas/machine-learning]] updated — ml-classification-models row added
+- index.md updated (sources table, concepts table)
+
+---
+
 ## 2026-08-17 | ingest | Trustworthy AI Summer School — Machine Learning Lectures 1 & 2
 
 - Sources: `raw/Machine_Learning_Lec_1.md` (Kickoff & Motivation, 46 slides) and `raw/Machine_Learning_Lec_2.md` (MedMNIST v2 Team Project Briefing, 23 slides) — Tobias Rueckert, M.Sc. (OTH Regensburg / TU Munich / AKTORmed), International Summer School: Trustworthy AI — Machine Learning Meets Blockchain

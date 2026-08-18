@@ -67,7 +67,61 @@ $$Gini = 1 - (0.7^2 + 0.3^2) = 1 - (0.49 + 0.09) = 0.42$$
 
 ---
 
-### Building a Decision Tree (Greedy Algorithm)
+### The ID3 Algorithm (Iterative Dichotomiser 3)
+
+ID3 is the original decision tree algorithm; CART (Classification and Regression Trees) is the modern standard used by scikit-learn.
+
+**ID3 algorithm — pseudocode:**
+```
+1. Compute entropy H(S) of the current dataset S
+2. For each feature θ, compute information gain I(S, θ) = H(S) − Σ |Sᵢ|/|S| · H(Sᵢ)
+3. Select the feature with the highest information gain as the split node
+4. Partition S into subsets by feature value
+5. Recurse on each subset until all leaves are pure (entropy = 0) or no features remain
+```
+
+Decision trees are **greedy** — they choose the locally best split at each step, without backtracking to find a globally optimal tree. ID3 does not guarantee the smallest or globally best tree.
+
+**Formulas:**
+```
+Entropy:          H(S) = − Σ p(c) log p(c)
+Information gain: I(S, θ) = H(S) − Σ |Sᵢ|/|S| · H(Sᵢ)
+```
+
+**Worked example — Weather/Golf dataset (14 instances):**
+
+Dataset: 9 "Yes" (played), 5 "No". Features: Weather, Temperature, Humidity, Wind.
+
+Total entropy: H(S¹) = −(9/14)log(9/14) − (5/14)log(5/14) = **0.940**
+
+Computing information gain for Wind:
+```
+H(Weak)   = −(6/8)log(6/8)   − (2/8)log(2/8)   = 0.811   (8 instances: 6 yes, 2 no)
+H(Strong) = −(3/6)log(3/6)   − (3/6)log(3/6)   = 1.000   (6 instances: 3 yes, 3 no)
+I(Wind)   = 0.940 − (8/14)·0.811 − (6/14)·1.000 = 0.048
+```
+
+Information gains for all features:
+```
+I(Weather)     = 0.247  ← selected as root (highest gain)
+I(Humidity)    = 0.152
+I(Wind)        = 0.048
+I(Temperature) = 0.029
+```
+
+Resulting tree (recursing on subsets):
+```
+                  Weather
+      Sunny /       | Cloudy    \ Rainy
+           /     [all Yes]        \
+        Humidity               Wind
+   High/  \Normal          Weak/  \Strong
+ [No,No,No] [Yes,Yes]   [Yes,Yes,Yes] [No,No]
+```
+
+Note: the "Temperature" feature was never used — ID3's greedy selection made it redundant.
+
+### Building a Decision Tree (General Greedy Algorithm)
 
 ```
 1. Compute Gini (or entropy) for all possible splits on all features.
@@ -76,8 +130,6 @@ $$Gini = 1 - (0.7^2 + 0.3^2) = 1 - (0.49 + 0.09) = 0.42$$
 4. Recursively repeat on each child branch using only samples in that branch.
 5. Continue until stopping criteria are met.
 ```
-
-Decision trees are **greedy** — they choose the locally best split at each step, without backtracking to find a globally optimal tree.
 
 ---
 
@@ -211,8 +263,25 @@ Boosting trains base learners **sequentially**, with each new learner focusing o
 
 ---
 
+---
+
+## ID3 vs CART Comparison
+
+| Property | ID3 | CART |
+|----------|-----|------|
+| Feature types | **Categorical only** — cannot handle numerical features without manual preprocessing | **Categorical and numerical** — handles both natively |
+| Split structure | **Multi-way** — one branch per distinct attribute value | **Binary only** — every node always splits into exactly two children |
+| Feature reuse per path | **No** — each feature appears at most once on any root-to-leaf path | **Yes** — the same feature can appear multiple times on one path |
+| Split criterion | **Information gain (entropy) only** | **Entropy or Gini** — freely chosen; Gini is the scikit-learn default |
+| Pruning | **None** — grows until leaves are pure; tends to overfit | **Built-in cost-complexity pruning** — actively reduces overfitting |
+
+**Practical implication:** CART is the algorithm behind `sklearn.tree.DecisionTreeClassifier`. ID3 is primarily studied for pedagogical reasons.
+
+---
+
 ## Related Concepts
 
 - [[ml-model-training-evaluation]] — bias-variance trade-off; random forests directly address high variance
 - [[ml-foundations]] — supervised learning context; classification vs regression
 - [[eigenvalues-and-svd]] — feature importance in random forests can be related to SVD concepts
+- [[ml-classification-models]] — kNN and SVM: alternative classical classifiers

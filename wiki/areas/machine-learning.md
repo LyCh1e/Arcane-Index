@@ -32,6 +32,7 @@ ML is the practice of building systems that learn patterns from data rather than
 | [[concepts/clustering-and-dimensionality-reduction\|Clustering & Dimensionality Reduction]] | K-Means, DBSCAN, Hierarchical clustering, PCA, t-SNE |
 | [[concepts/ai-in-medicine\|AI in Medicine]] | Publication growth (1995–2023), data modalities, OOD detection, surgical AI, data annotation bottleneck |
 | [[concepts/medmnist-v2-datasets\|MedMNIST v2 Datasets]] | 18 medical imaging benchmarks: modality, task type, split sizes, pitfalls, metric selection guide |
+| [[concepts/ml-classification-models\|ML Classification Models]] | kNN (lazy learning, O(n) prediction, curse of dimensionality) and SVM (max-margin hyperplane, kernel trick, C parameter) |
 
 ---
 

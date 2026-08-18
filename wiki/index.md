@@ -89,6 +89,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/hedera-lecture-4-hapi-tokens\|Hedera Developer Course — Lecture 4: HAPI, Smart Contract Deployment & Tokens]] | lecture-slides | blockchain | 2026-08-13 |
 | [[sources/ml-summer-school-lec1\|Trustworthy AI Summer School — Lecture 1: Kickoff & Motivation]] | lecture-slides | machine-learning | 2026-08-17 |
 | [[sources/ml-summer-school-lec2\|Trustworthy AI Summer School — Lecture 2: MedMNIST v2 Dataset Briefing]] | lecture-slides | machine-learning | 2026-08-17 |
+| [[sources/ml-summer-school-lec2a\|Trustworthy AI Summer School — Lecture 2a: Machine Learning Basics]] | lecture-slides | machine-learning | 2026-08-17 |
+| [[sources/ml-summer-school-lec2b\|Trustworthy AI Summer School — Lecture 2b: ML Classification Models]] | lecture-slides | machine-learning | 2026-08-17 |
 
 ## Concepts
 
@@ -145,6 +147,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/clustering-and-dimensionality-reduction\|Clustering & Dimensionality Reduction]] | machine-learning | high |
 | [[concepts/ai-in-medicine\|AI in Medicine]] | machine-learning | medium |
 | [[concepts/medmnist-v2-datasets\|MedMNIST v2 — Medical Imaging Benchmark Datasets]] | machine-learning | medium |
+| [[concepts/ml-classification-models\|ML Classification Models — kNN and SVM]] | machine-learning | medium |
 | [[concepts/computer-architecture-fundamentals\|Computer Architecture Fundamentals]] | computer-architecture | medium |
 | [[concepts/assembly-programming-msp430\|Assembly Programming (MSP430)]] | computer-architecture | high |
 | [[concepts/io-and-memory-systems\|I/O Interfacing and Memory Systems]] | computer-architecture | high |

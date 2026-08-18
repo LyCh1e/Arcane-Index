@@ -60,6 +60,74 @@ A **baseline model** is a simple reference model built with minimal assumptions 
 
 > **M&Ms analogy:** Bowl of 950 Red and 50 Blue. Without stratification, a random grab of 20 likely contains 0 Blue. With stratification, deliberately pick 19 Red + 1 Blue.
 
+### Patient-Level Split — The Medical Imaging Leakage Trap
+
+In medical imaging, a single patient may produce many images (multiple CT slices, multiple frames of video, multiple timepoints). A **random split by image** will frequently put two images of the same patient on opposite sides of the train/test boundary.
+
+This is data leakage: the model has seen the patient's tissue, scanner characteristics, and presentation style during training. The test score then measures memory, not generalisation.
+
+**Rule: always split by patient (or by study or acquisition session), never by image.**
+
+```
+WRONG — split by image:
+  train: P1-img1  P4-img2  P2-img1  P3-img1 ...
+  test:  P1-img2  P2-img3  P3-img2  ...          ← P1, P2, P3 on both sides
+
+CORRECT — split by patient:
+  train: P1 (all images)  P2 (all images)  P3 (all images) ...
+  test:  P4 (all images)                                     ← P4 only on test side
+```
+
+A test score from an image-level random split is indefensible in any clinical publication.
+
+---
+
+### Training and Validation Curves
+
+Plotting loss (or accuracy) over training epochs reveals the training regime:
+
+```
+Loss
+│  ╲
+│   ╲  Training loss (blue) — always falls; proves nothing on its own
+│    ╲___________
+│         ╲
+│          ╲___  Validation loss (orange) — falls then rises: the honest signal
+│              ╲____  ← overfitting begins here
+└──────────────────── Epochs
+      ↑         ↑
+  underfitting  sweet spot  overfitting
+```
+
+**Reading the curves:**
+
+| Pattern | Diagnosis |
+|---------|-----------|
+| Both curves high and flat | Underfitting — model too simple, or learning rate too small |
+| Training falls, validation falls together | Healthy training |
+| Training falls, validation flat | Dataset too small, or bad features |
+| Training falls, validation rises | Overfitting — model memorising training data |
+| Training and validation both noisy / chaotic | Learning rate too high |
+
+### Early Stopping
+
+Keep the parameters from the epoch where the **validation loss was lowest** — not the last epoch. Training until the last epoch typically overfits.
+
+**Practical implementation:**
+```python
+best_val_loss = float('inf')
+for epoch in range(n_epochs):
+    train(...)
+    val_loss = evaluate_on_validation(...)
+    if val_loss < best_val_loss:
+        best_val_loss = val_loss
+        save_checkpoint(model)  # save the best parameters
+
+load_checkpoint(model)  # restore best before final test evaluation
+```
+
+Most frameworks (PyTorch Lightning, Keras) have built-in early stopping callbacks with a `patience` parameter (how many epochs to wait after the last improvement).
+
 ---
 
 ## Cross-Validation
