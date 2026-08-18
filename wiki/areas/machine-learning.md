@@ -4,7 +4,7 @@ status: established
 title: "Machine Learning"
 domain: machine-learning
 source: [[sources/INF2008-machine-learning]]
-updated: 2026-08-17
+updated: 2026-08-18
 tags: [area, machine-learning]
 ---
 
@@ -33,6 +33,8 @@ ML is the practice of building systems that learn patterns from data rather than
 | [[concepts/ai-in-medicine\|AI in Medicine]] | Publication growth (1995–2023), data modalities, OOD detection, surgical AI, data annotation bottleneck |
 | [[concepts/medmnist-v2-datasets\|MedMNIST v2 Datasets]] | 18 medical imaging benchmarks: modality, task type, split sizes, pitfalls, metric selection guide |
 | [[concepts/ml-classification-models\|ML Classification Models]] | kNN (lazy learning, O(n) prediction, curse of dimensionality) and SVM (max-margin hyperplane, kernel trick, C parameter) |
+| [[concepts/ml-evaluation-metrics\|ML Evaluation Metrics]] | 6 metric families, classification/segmentation/detection metrics, pitfall gallery (14 entries), Metrics Reloaded framework (Nature Methods 2024) |
+| [[concepts/digital-image-processing\|Digital Image Processing]] | Grayscale/RGB/HSV image models, point operations (histogram/stretching/equalisation/LUTs), convolution, smoothing, edge detection (Sobel), CNN connection |
 
 ---
 

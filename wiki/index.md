@@ -91,6 +91,9 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ml-summer-school-lec2\|Trustworthy AI Summer School — Lecture 2: MedMNIST v2 Dataset Briefing]] | lecture-slides | machine-learning | 2026-08-17 |
 | [[sources/ml-summer-school-lec2a\|Trustworthy AI Summer School — Lecture 2a: Machine Learning Basics]] | lecture-slides | machine-learning | 2026-08-17 |
 | [[sources/ml-summer-school-lec2b\|Trustworthy AI Summer School — Lecture 2b: ML Classification Models]] | lecture-slides | machine-learning | 2026-08-17 |
+| [[sources/ml-summer-school-lec3\|Trustworthy AI Summer School — Lecture 3: Model Evaluation & Experimental Design]] | lecture-slides | machine-learning | 2026-08-18 |
+| [[sources/ml-summer-school-lec4a\|Trustworthy AI Summer School — Lecture 4a: Digital Images]] | lecture-slides | machine-learning | 2026-08-18 |
+| [[sources/ml-summer-school-lec4b\|Trustworthy AI Summer School — Lecture 4b: Operations on Images]] | lecture-slides | machine-learning | 2026-08-18 |
 
 ## Concepts
 
@@ -148,6 +151,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/ai-in-medicine\|AI in Medicine]] | machine-learning | medium |
 | [[concepts/medmnist-v2-datasets\|MedMNIST v2 — Medical Imaging Benchmark Datasets]] | machine-learning | medium |
 | [[concepts/ml-classification-models\|ML Classification Models — kNN and SVM]] | machine-learning | medium |
+| [[concepts/ml-evaluation-metrics\|ML Evaluation Metrics]] | machine-learning | high |
+| [[concepts/digital-image-processing\|Digital Image Processing]] | machine-learning | medium |
 | [[concepts/computer-architecture-fundamentals\|Computer Architecture Fundamentals]] | computer-architecture | medium |
 | [[concepts/assembly-programming-msp430\|Assembly Programming (MSP430)]] | computer-architecture | high |
 | [[concepts/io-and-memory-systems\|I/O Interfacing and Memory Systems]] | computer-architecture | high |

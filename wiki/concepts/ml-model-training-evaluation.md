@@ -130,6 +130,98 @@ Most frameworks (PyTorch Lightning, Keras) have built-in early stopping callback
 
 ---
 
+## Experimental Integrity
+
+Principles from Lecture 3 of the ML Summer School that determine whether a result can be trusted before the metric is even chosen.
+
+### The Test Set Is a One-Shot Resource
+
+> "If the test set influenced any decision you made, it is no longer a test set — it is a second validation set."
+
+Every look at the test set spends a little of its integrity. Selecting a model, a threshold, or an architecture by test score is training on the test set — done by hand.
+
+**The winner's curse:** the best of 20 noisy configurations is biased upward. The gap reported will shrink on the next dataset. Leaderboards make this systematic.
+
+**Five-step test set protocol:**
+1. Split first — before looking at anything, including computing normalisation statistics.
+2. Develop against the validation set only.
+3. Freeze the model, threshold, and code.
+4. Run the test set once. Report what comes out.
+5. Changed something afterwards? State that explicitly.
+
+### Five Forms of Data Leakage
+
+Beyond the patient-level split trap (see above), leakage appears in four additional forms:
+
+| Form | Example |
+|------|---------|
+| **Same patient in both sets** | Two eyes of one patient, or left and right knee — same anatomy on both sides |
+| **Neighbouring frames** | Video at 25 fps: frame 100 and frame 101 are effectively the same image |
+| **Preprocessing before split** | Normalisation statistics, resampling, or feature selection computed on all data before splitting |
+| **Duplicates and re-uploads** | Public datasets frequently overlap — the same case appears under two IDs |
+| **Tuning on the test set** | Choosing epoch count, threshold, or architecture by test score |
+
+**The one question to answer:** "What is the unit that must never appear on both sides?" (patient, eye, video, whole-slide image, hospital, annotator). Split by that unit — never by row.
+
+Use `StratifiedGroupKFold` to stratify by label *and* group by patient simultaneously.
+
+### Confidence Intervals — How Precise Is the Number?
+
+```
+half-width ≈ 1.96 · √( p(1−p) / n )
+```
+
+Precision grows with √n, not with n. Concrete examples for a measured accuracy of 0.90:
+
+| Test-set size | 95% CI |
+|--------------|--------|
+| n = 20 | [0.70, 0.97] (±13.7 pt) |
+| n = 50 | [0.79, 0.96] (±8.5 pt) |
+| n = 100 | [0.83, 0.94] (±6.0 pt) |
+| n = 250 | [0.86, 0.93] (±3.7 pt) |
+| n = 1 000 | [0.88, 0.92] (±1.9 pt) |
+
+Below roughly a hundred test samples, almost nothing is distinguishable. At n=50, "0.90 beats 0.86" is within sampling noise — not a meaningful claim.
+
+**Two separate uncertainties:** the CI above covers only the finite test set. Re-training with different random seeds adds a second spread — report both: mean ± std over ≥ 3 seeds.
+
+### Controlled Comparison — One Change at a Time
+
+Stacking multiple changes in a single experiment produces a number, not knowledge:
+
+| Variant | Score | Δ |
+|---------|-------|---|
+| Baseline | 0.71 | — |
+| Baseline + augmentation | 0.79 | +0.08 |
+| Baseline + new backbone | 0.73 | +0.02 |
+| Baseline + 3× epochs | 0.72 | +0.01 |
+
+Changing all three at once gives +0.15 — but the experiment cannot say which of the three earned it. Keep everything frozen except the one thing being tested.
+
+### External Validation and the Generalisation Gap
+
+An internal test set cannot measure generalisation to different sites, scanners, or patient populations.
+
+Example: one model trained on Site A only, tested at three sites:
+- Site A (training data): 0.91
+- Site B (different camera): 0.78
+- Site C (different protocol): 0.61
+
+The model did not get worse — the data got different. Internal validation cannot detect this 30-point gap. External validation is required whenever generalisability claims are made.
+
+### 8-Point Honest Experiment Checklist
+
+1. **Split by the right unit** — patient, video, session — never by row
+2. **Split once, before anything else** — including before computing normalisation statistics
+3. **Stratify** — and print the class balance of every split
+4. **Report the trivial baseline** — majority class, and one simple classical model
+5. **Several seeds** — mean ± standard deviation, at least three runs
+6. **Confidence intervals** — Wilson for proportions, bootstrap for everything else
+7. **One change per comparison** — everything else frozen, same seeds
+8. **State what you could not test** — other sites, scanners, populations
+
+---
+
 ## Cross-Validation
 
 Cross-validation replaces or supplements a validation set for more robust model selection.
@@ -243,7 +335,8 @@ A plot of training and validation performance vs. number of training samples rev
 
 ## Related Concepts
 
-- [[decision-trees-and-ensembles]] — key algorithms; overfitting is the central challenge
-- [[ml-foundations]] — CRISP-DM evaluation phase context
-- [[ml-data-understanding]] — stratification depends on data type understanding
-- [[descriptive-statistics]] — statistical literacy needed to interpret metrics
+- [[concepts/ml-evaluation-metrics|ML Evaluation Metrics]] — full metric coverage: segmentation DSC/IoU/boundary, detection AP/PQ, calibration, pitfall gallery
+- [[concepts/decision-trees-and-ensembles|Decision Trees & Ensembles]] — key algorithms; overfitting is the central challenge
+- [[concepts/ml-foundations|ML Foundations]] — CRISP-DM evaluation phase context
+- [[concepts/ml-data-understanding|ML Data Understanding]] — stratification depends on data type understanding
+- [[concepts/descriptive-statistics|Descriptive Statistics]] — statistical literacy needed to interpret metrics
