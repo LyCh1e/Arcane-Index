@@ -4,7 +4,7 @@ status: established
 title: "Machine Learning"
 domain: machine-learning
 source: [[sources/INF2008-machine-learning]]
-updated: 2026-08-18
+updated: 2026-08-19
 tags: [area, machine-learning]
 ---
 
@@ -35,6 +35,8 @@ ML is the practice of building systems that learn patterns from data rather than
 | [[concepts/ml-classification-models\|ML Classification Models]] | kNN (lazy learning, O(n) prediction, curse of dimensionality) and SVM (max-margin hyperplane, kernel trick, C parameter) |
 | [[concepts/ml-evaluation-metrics\|ML Evaluation Metrics]] | 6 metric families, classification/segmentation/detection metrics, pitfall gallery (14 entries), Metrics Reloaded framework (Nature Methods 2024) |
 | [[concepts/digital-image-processing\|Digital Image Processing]] | Grayscale/RGB/HSV image models, point operations (histogram/stretching/equalisation/LUTs), convolution, smoothing, edge detection (Sobel), CNN connection |
+| [[concepts/convolutional-neural-networks\|Convolutional Neural Networks]] | Locality + weight sharing, kernel depth, output size formula, batch norm, receptive field, AlexNet→U-Net architecture history, residual connections |
+| [[concepts/transfer-learning-and-domain-adaptation\|Transfer Learning and Domain Adaptation]] | Feature extraction vs partial vs full fine-tuning, layer-wise LR, silent failures, PEFT (LoRA/adapters/prompt tuning), domain shift types, 4 adaptation levels |
 
 ---
 

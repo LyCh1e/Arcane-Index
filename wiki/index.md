@@ -94,6 +94,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ml-summer-school-lec3\|Trustworthy AI Summer School — Lecture 3: Model Evaluation & Experimental Design]] | lecture-slides | machine-learning | 2026-08-18 |
 | [[sources/ml-summer-school-lec4a\|Trustworthy AI Summer School — Lecture 4a: Digital Images]] | lecture-slides | machine-learning | 2026-08-18 |
 | [[sources/ml-summer-school-lec4b\|Trustworthy AI Summer School — Lecture 4b: Operations on Images]] | lecture-slides | machine-learning | 2026-08-18 |
+| [[sources/ml-summer-school-lec5\|Trustworthy AI Summer School — Lecture 5: Convolutional Neural Networks]] | lecture-slides | machine-learning | 2026-08-19 |
+| [[sources/ml-summer-school-lec6\|Trustworthy AI Summer School — Lecture 6: Transfer Learning and Domain Adaptation]] | lecture-slides | machine-learning | 2026-08-19 |
 
 ## Concepts
 
@@ -153,6 +155,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/ml-classification-models\|ML Classification Models — kNN and SVM]] | machine-learning | medium |
 | [[concepts/ml-evaluation-metrics\|ML Evaluation Metrics]] | machine-learning | high |
 | [[concepts/digital-image-processing\|Digital Image Processing]] | machine-learning | medium |
+| [[concepts/convolutional-neural-networks\|Convolutional Neural Networks]] | machine-learning | high |
+| [[concepts/transfer-learning-and-domain-adaptation\|Transfer Learning and Domain Adaptation]] | machine-learning | high |
 | [[concepts/computer-architecture-fundamentals\|Computer Architecture Fundamentals]] | computer-architecture | medium |
 | [[concepts/assembly-programming-msp430\|Assembly Programming (MSP430)]] | computer-architecture | high |
 | [[concepts/io-and-memory-systems\|I/O Interfacing and Memory Systems]] | computer-architecture | high |
