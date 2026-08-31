@@ -31,6 +31,7 @@ Exam-prep summaries, study notes, and structured knowledge pathways for each mod
 | [[learning/windows-openssl-strawberry-broken\|Windows OpenSSL / Strawberry Perl Broken]] | general | devops | — |
 | [[learning/customtkinter-after-teardown\|CustomTkinter after() Teardown Bug]] | general | python | — |
 | [[learning/prompt-injection-in-lab-handout-pdf\|Prompt Injection in a Lab PDF]] | ICT3112 — Software V&V | security | 2026-08-31 |
+| [[learning/dotnet-locked-exe-msb3021\|dotnet build MSB3021: Output exe Locked]] | general | dotnet | 2026-08-31 |
 
 ## How to Use These Notes
 

@@ -288,6 +288,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/hedera-lecture4-voting-contract\|Hedera Lecture 4 — Voting Contract (Poll V1 and V2)]] | course-example | blockchain | [[concepts/solidity-fundamentals\|Solidity Fundamentals]] |
 | [[examples/hedera-account-creation-js\|Hedera Account Creation — JavaScript (ECDSA + EVM Alias + Mirror Node)]] | code-session | blockchain | [[concepts/hedera-network\|Hedera Network]] |
 | [[examples/hedera-hts-hcs-batch-js\|Hedera HTS, HCS, and Batch Transactions — JavaScript (TokenCreate, TopicCreate, HIP-551, HIP-904)]] | code-session | blockchain | [[concepts/hedera-network\|Hedera Network]] |
+| [[examples/ict3112-lab1-nunit-tdd-calculator\|ICT3112 SVV Lab 1 — NUnit + TDD Calculator (C# / .NET 10)]] | lab | ICT3112 / software-engineering | [[concepts/test-driven-development\|Test-Driven Development]] |
 
 ## Entities
 
@@ -312,6 +313,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/psm1-cheatsheet-study-notes\|PSM I Cheatsheet Study Notes]] | agile-project-management | active |
 | [[learning/customtkinter-after-teardown\|CustomTkinter: `invalid command name` on Window Teardown]] | python-gui | resolved |
 | [[learning/prompt-injection-in-lab-handout-pdf\|Prompt Injection Embedded in a Course Lab PDF]] | security | resolved |
+| [[learning/dotnet-locked-exe-msb3021\|dotnet build MSB3021/MSB3027: Output exe Locked by Running Process]] | dotnet | resolved |
 | [[learning/docker-compose-build-context\|Docker Compose: Build Context Controls What COPY Can See]] | devops | resolved |
 | [[learning/docker-named-volume-stale-content\|Docker Named Volumes: Rebuilding the Image Does NOT Update an Existing Volume]] | devops | resolved |
 | [[learning/docker-volume-host-dir-created-as-root\|Docker Bind Mount: Host Dir Created as Root if Missing]] | devops | resolved |

@@ -5,7 +5,7 @@ domain: software-engineering
 complexity: high
 status: established
 created: 2026-05-21
-updated: 2026-05-21
+updated: 2026-08-31
 tags: [tdd, bdd, test-driven-development, behaviour-driven-development, red-green-refactor, gherkin, unit-testing, design, agile]
 ---
 
@@ -146,3 +146,4 @@ The output is a set of Gherkin scenarios agreed by all three before implementati
 - [[concepts/software-design-process]] — TDD is a design practice as much as a testing practice; drives emergent design through refactoring
 - [[concepts/solid-and-design-patterns]] — well-designed, SOLID-compliant code is easier to unit-test; TDD enforces dependency injection (DIP)
 - [[concepts/requirements-engineering]] — BDD scenarios are a form of executable specification; they bridge the gap between requirements (SRS) and code
+- [[examples/ict3112-lab1-nunit-tdd-calculator]] — worked example: C#/NUnit calculator, a full red-green-refactor cycle on `Divide`, AAA, parameterised tests, boundary values
