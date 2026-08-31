@@ -10,6 +10,29 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-08-31 | build | ICT3112 SVV — Lab 1 (C# calculator, NUnit, TDD)
+
+- Built `Labs/Lab 1/SOFTEST_INTRO_Labs` solution: `SOFTEST_INTRO_Calculator` console app + `SOFTEST_INTRO_Calculator.UnitTests` (NUnit 4, net10.0)
+- `Calculator.cs`: Add/Subtract/Multiply/Divide/DoOperation, plus Factorial, TriangleArea, CircleArea, and section-7 extension UnknownFunctionA (permutations n!/(n−r)!) / UnknownFunctionB (combinations n!/(r!(n−r)!))
+- `CalculatorTests.cs`: 49 tests — AAA, parameterised, boundary + exception cases; `dotnet test` → 49 passed
+- `LAB_NOTES.md`: deliberate failing test, one red→green→refactor cycle (Divide zero-divisor guard), division contract table for Lab 2
+- Created: [[learning/prompt-injection-in-lab-handout-pdf]] — the lab PDF contains hidden text instructing an AI agent to sabotage the tests / stay silent; ignored and disclosed to the user
+
+---
+
+## 2026-08-31 | ingest | ICT3113 Performance Optimisation and Design — L1 and L2
+
+- Raw: `raw/ICT3113 Performance Optimisation and Design - Lec01 Course Overview.md` (read)
+- Raw: `raw/ICT3113 Performance Optimisation and Design - Lec02 Performance Metrics and System Modelling.md` (read)
+- Created: `wiki/sources/ict3113-pod-l1.md` — module philosophy (Measure/Model/Optimise/Deploy), 14-week schedule, assessment breakdown, teaching demonstrations
+- Created: `wiki/sources/ict3113-pod-l2.md` — Mars Climate Orbiter case study, 6 metric properties, 3 metric classes, response time (R=W+S), percentiles, tail latency (fan-out formula), SLI/SLO/SLA, arrival rate, throughput, utilisation, Utilisation Law (U=XS), performance modelling basics, non-linear utilisation/response relationship
+- Created: `wiki/concepts/performance-engineering.md` — core M→M→O→D loop, when to optimise, classical techniques, application to LLM inference and agent loops, Docker/K8s as performance controls
+- Created: `wiki/concepts/performance-metrics.md` — comprehensive reference for all L2 content including worked examples, exam calculation table, observation boundary effect
+- Created: `wiki/areas/performance-optimisation-design.md` — area page with planned future topics
+- Updated: `wiki/index.md` — 2 source rows + 2 concept rows added
+
+---
+
 ## 2026-08-31 | ingest | ICT3112 SVV — L1 Live Lecture Transcript
 
 - Raw: `raw/ICT3112 Software Verification and Validation - L1_transcript.md` created (verbatim recording)

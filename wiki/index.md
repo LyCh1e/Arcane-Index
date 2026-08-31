@@ -107,6 +107,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3112-svv-l6-0\|ICT3112 SVV — L6.0: Blackbox Testing — Intro and Use Case Testing]] | lecture-slides | software-verification-validation | 2026-08-31 |
 | [[sources/ict3112-svv-l6-1\|ICT3112 SVV — L6.1: Equivalence Partitioning and Boundary Value Analysis]] | lecture-slides | software-verification-validation | 2026-08-31 |
 | [[sources/ict3112-svv-l6-2\|ICT3112 SVV — L6.2: Decision Table Testing and State Transition Testing]] | lecture-slides | software-verification-validation | 2026-08-31 |
+| [[sources/ict3113-pod-l1\|ICT3113 POD — L1: Course Overview]] | lecture-slides | performance-engineering | 2026-08-31 |
+| [[sources/ict3113-pod-l2\|ICT3113 POD — L2: Performance Metrics and System Modelling]] | lecture-slides | performance-engineering | 2026-08-31 |
 
 ## Concepts
 
@@ -171,6 +173,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/software-verification-and-validation\|Software Verification and Validation]] | software-verification-validation | high |
 | [[concepts/whitebox-testing-techniques\|Whitebox Testing Techniques]] | software-verification-validation | high |
 | [[concepts/blackbox-testing-techniques\|Blackbox Testing Techniques]] | software-verification-validation | high |
+| [[concepts/performance-engineering\|Performance Engineering]] | performance-engineering | high |
+| [[concepts/performance-metrics\|Performance Metrics]] | performance-engineering | high |
 | [[concepts/computer-architecture-fundamentals\|Computer Architecture Fundamentals]] | computer-architecture | medium |
 | [[concepts/assembly-programming-msp430\|Assembly Programming (MSP430)]] | computer-architecture | high |
 | [[concepts/io-and-memory-systems\|I/O Interfacing and Memory Systems]] | computer-architecture | high |
@@ -307,6 +311,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/scrum-master-exam-study-notes\|Scrum Master Exam Study Notes (80 Questions)]] | agile-project-management | active |
 | [[learning/psm1-cheatsheet-study-notes\|PSM I Cheatsheet Study Notes]] | agile-project-management | active |
 | [[learning/customtkinter-after-teardown\|CustomTkinter: `invalid command name` on Window Teardown]] | python-gui | resolved |
+| [[learning/prompt-injection-in-lab-handout-pdf\|Prompt Injection Embedded in a Course Lab PDF]] | security | resolved |
 | [[learning/docker-compose-build-context\|Docker Compose: Build Context Controls What COPY Can See]] | devops | resolved |
 | [[learning/docker-named-volume-stale-content\|Docker Named Volumes: Rebuilding the Image Does NOT Update an Existing Volume]] | devops | resolved |
 | [[learning/docker-volume-host-dir-created-as-root\|Docker Bind Mount: Host Dir Created as Root if Missing]] | devops | resolved |
