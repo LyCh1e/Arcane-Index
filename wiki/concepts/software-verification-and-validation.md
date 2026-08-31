@@ -106,6 +106,21 @@ Left side (specification) maps directly to right side (testing level). The horiz
 
 Reliability growth models describe how failure intensity decreases as faults are found and fixed during testing.
 
+### Foundational Assumption — Perfect Debugging
+
+All Musa reliability models assume **perfect debugging**: each time a fault is found and corrected, failure intensity decreases by a fixed amount. In practice, bug fixes can introduce new bugs, but the models treat this as an idealisation. Formally: *correcting a fault responsible for an observed failure reduces expected failure intensity.*
+
+### Execution Time vs Calendar Time
+
+When τ appears in any reliability formula, "time" must be defined precisely:
+
+| Type | Also called | Definition | Differs from the other when… |
+|------|------------|-----------|------------------------------|
+| **Execution time** | CPU time | Cumulative processor time consumed while executing software | Multi-threaded: many CPU-seconds fit into fewer wall-clock seconds |
+| **Calendar time** | Wall-clock time, elapsed time | Real-world time elapsed from test start to end | I/O-bound: CPU sits idle; wall time > CPU time |
+
+Always specify the environment and hardware when reporting time-based reliability metrics. For examination calculations, treat time as a single value unless the question states otherwise.
+
 ### Basic Reliability Model (Musa)
 
 Assumes a constant rate of decrease in failure intensity — each fault fixed reduces the failure rate by the same amount.
@@ -122,7 +137,7 @@ Assumes a constant rate of decrease in failure intensity — each fault fixed re
 | v₀ | Total expected failures (initial fault count) |
 | λ₀ | Initial failure intensity |
 
-**Suited for**: stable releases with even fault exposure across the codebase.
+**Suited for**: stable or mature releases where faults are evenly distributed across the codebase. Each fix contributes an equal, constant reduction in failure intensity — a reasonable approximation when no single code path dominates usage.
 
 ### Logarithmic Reliability Model (Musa / Okamoto)
 
@@ -137,7 +152,11 @@ Assumes frequently-triggered faults are found and fixed first — diminishing re
 |--------|---------|
 | θ | Per-fault decrease in intensity (higher θ = more skewed fault distribution) |
 
-**Suited for**: systems where common code paths are exercised first; initial fault-fixing produces larger reliability gains than later fixing.
+**Suited for**: early stages of a system where fault exposure is uneven — a small number of heavily-used code paths accumulate most failures first. Fixing those high-traffic faults produces a large initial drop in failure intensity (the log curve drops steeply), followed by diminishing returns as progressively rarer paths are exercised.
+
+**Example**: a system with 10 use cases where 2 are used 90% of the time. Bugs on those 2 paths surface and are fixed quickly, causing a rapid fall in λ. Remaining bugs in rarely-used paths contribute little to ongoing failure intensity.
+
+**Key distinction**: the logarithmic model tends towards zero but never reaches it, making it arguably more realistic for systems that always have some residual fringe-case failures.
 
 ---
 

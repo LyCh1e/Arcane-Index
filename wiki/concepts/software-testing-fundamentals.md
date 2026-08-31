@@ -197,6 +197,19 @@ These are subtly but importantly different:
 
 ---
 
+## Goodhart's Law in Testing
+
+> "When a measure becomes a target, it ceases to be a good measure."
+> — Goodhart's Law (paraphrased by Edwards Deming)
+
+**Applied to software testing**: when teams are evaluated on the *number of passing tests*, the incentive structure shifts from finding defects to inflating test counts with trivial or redundant tests. The metric appears healthy whilst coverage is superficial.
+
+The goal of testing is to **find defects and assess software quality** — passing tests are a *measurement* of that goal, not the goal itself. If passing-test count becomes the target, developers game it by adding tests designed to pass rather than to probe for failures.
+
+This applies equally to other testing metrics (code coverage %, bug count, etc.) — once any metric is used to evaluate performance, the behaviour it was meant to measure degrades. Sound testing practice requires keeping the *purpose* (finding defects, revealing risk) in view, not the proxy metric.
+
+---
+
 ## Key Connections
 
 - [[concepts/test-driven-development]] — TDD keeps the unit-test layer dense and current by writing tests before code

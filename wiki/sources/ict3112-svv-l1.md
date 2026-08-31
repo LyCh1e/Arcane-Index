@@ -152,6 +152,51 @@ PUM = Total Number of Problems / Total Number of User Months
 
 ---
 
+## Additional Insights from Live Lecture (Transcript)
+
+### Goodhart's Law Applied to Testing
+
+> "When a measure becomes a target, it ceases to be a good measure."
+> — Goodhart's Law, paraphrased by Edwards Deming
+
+**Testing application**: if the team is evaluated on the *number of passing tests*, developers will add redundant or trivial tests to inflate the count without increasing real coverage. The goal of testing is to *find defects*, not to produce passing tests. Passing tests are a measurement of that goal, not the goal itself.
+
+Real example from the lecture: a student's capstone employer used "number of passing tests" as a quality KPI — this incentivised adding redundant tests rather than meaningful coverage.
+
+---
+
+### Execution Time vs Calendar Time
+
+When calculating failure intensity (λ), "time" must be defined precisely:
+
+| Type | Definition | When larger than the other |
+|------|-----------|---------------------------|
+| **Execution time** (CPU time) | Cumulative processor time consumed while executing software | Multi-threaded systems — many CPU-seconds compress into fewer wall-clock seconds |
+| **Calendar time** (wall-clock time) | Elapsed real-world time from start to finish | I/O-bound systems — CPU sits idle; clock time > CPU time |
+
+For ICT3112 assessments, assume "time is time" unless told otherwise. In practice, always specify the environment and hardware when reporting time-based reliability metrics to ensure reproducibility.
+
+---
+
+### Perfect Debugging Assumption
+
+All Musa reliability growth models assume **perfect debugging**: every time a fault is identified and fixed, the failure intensity decreases. In reality, bug fixes can introduce new bugs — but the models treat this as an idealisation.
+
+Formal statement: *correcting a fault responsible for an observed failure reduces the expected failure intensity by a fixed amount.*
+
+---
+
+### Informal vs Formal V&V (Module Structure)
+
+| Half | Weeks | Approach | Techniques |
+|------|-------|----------|-----------|
+| **Informal V&V** (Ryan Kirwan) | 1–6 | Limited-coverage verification through testing | Software testing, reviews, static analysis |
+| **Formal V&V** (David Sana) | 7–13 | Mathematical proof of system properties | Hoare logic, FRAMAC, model checking |
+
+Informal ≠ unrigorous — it means the coverage is inherently partial (exhaustive testing is impossible). Formal methods can *prove* properties exhaustively but require mathematical specification of the system.
+
+---
+
 ## Linked Concepts
 
 - [[concepts/software-verification-and-validation]] — comprehensive V&V reference

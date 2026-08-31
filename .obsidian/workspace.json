@@ -20,23 +20,6 @@
             }
           },
           {
-            "id": "ccdf49ca892ac022",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "canvases/blockchain-hash-chain.canvas",
-                "viewState": {
-                  "x": 695.2926501787782,
-                  "y": 1525.5230223012707,
-                  "zoom": -1.107432647209151
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "blockchain-hash-chain"
-            }
-          },
-          {
             "id": "aa21592bb12da3f9",
             "type": "leaf",
             "pinned": true,
@@ -269,6 +252,14 @@
   },
   "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "wiki/hot.md.tmp.14104.eed9d7583ee3",
+    "wiki/concepts/software-testing-fundamentals.md.tmp.14104.0cd00b2d1ef1",
+    "wiki/concepts/software-verification-and-validation.md.tmp.14104.a6dde3fd32a3",
+    "wiki/concepts/software-verification-and-validation.md.tmp.14104.8c66285f56a5",
+    "wiki/sources/ict3112-svv-l1.md.tmp.14104.c9d2a7fe9d1a",
+    "raw/ICT3112 Software Verification and Validation - L1_transcript.md",
+    "raw/ICT3112 Software Verification and Validation - L1_transcript.md.tmp.14104.ff8e6e9aeb14",
+    "canvases/blockchain-hash-chain.canvas",
     "wiki/hot.md.tmp.14104.bc4b48ee3c4e",
     "wiki/log.md.tmp.14104.20e45bf40b7c",
     "wiki/areas/software-verification-validation.md",
@@ -289,23 +280,15 @@
     "wiki/sources/ict3112-svv-l1.md",
     "wiki/sources/ict3112-svv-l1.md.tmp.14104.aebf651a9434",
     "wiki/hot.md.tmp.33452.8bd30eb24a7b",
-    "wiki/log.md.tmp.33452.c7ef7944e10c",
-    "wiki/areas/machine-learning.md.tmp.33452.9749c13ac6e5",
-    "wiki/areas/machine-learning.md.tmp.33452.cca10fc3f119",
     "wiki/concepts/transfer-learning-and-domain-adaptation.md",
-    "wiki/concepts/transfer-learning-and-domain-adaptation.md.tmp.33452.1bc86149664a",
     "wiki/concepts/convolutional-neural-networks.md",
-    "wiki/concepts/convolutional-neural-networks.md.tmp.33452.baa661be0bb4",
     "wiki/sources/ml-summer-school-lec6.md",
     "wiki/sources/ml-summer-school-lec5.md",
-    "canvases/blockchain-hash-chain.canvas",
-    "wiki/hot.md.tmp.8508.3927b4ba913a",
     "wiki/concepts/digital-image-processing.md",
     "wiki/concepts/ml-evaluation-metrics.md",
     "wiki/sources/ml-summer-school-lec4b.md",
     "wiki/sources/ml-summer-school-lec4a.md",
     "wiki/sources/ml-summer-school-lec3.md",
-    "wiki/concepts/ml-classification-models.md",
     "blockchain-hash-chain.canvas",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",

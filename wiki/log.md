@@ -10,6 +10,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-08-31 | ingest | ICT3112 SVV — L1 Live Lecture Transcript
+
+- Raw: `raw/ICT3112 Software Verification and Validation - L1_transcript.md` created (verbatim recording)
+- Updated: `wiki/sources/ict3112-svv-l1.md` — added Goodhart's Law, execution time vs calendar time, perfect debugging assumption, informal vs formal V&V distinction
+- Updated: `wiki/concepts/software-verification-and-validation.md` — added perfect debugging assumption, execution time vs calendar time table, enhanced model selection guidance with concrete use-case examples
+- Updated: `wiki/concepts/software-testing-fundamentals.md` — added Goodhart's Law in Testing section
+
+---
+
 ## 2026-08-31 | ingest | ICT3112 Software Verification and Validation — All 11 Lectures (L1–L6.2)
 
 - Course: ICT3112 Software Verification and Validation — Ryan Fraser Kirwan

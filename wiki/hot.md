@@ -10,6 +10,12 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-08-31 (addendum). **Session: ingest — ICT3112 SVV L1 live lecture transcript.** Three concepts added from live recording not captured in the structured lecture notes: (1) Goodhart's Law applied to testing — "when a measure becomes a target it ceases to be a good measure" (Deming paraphrase); goal of testing is finding defects, not producing passing tests. (2) Execution time vs calendar time — CPU time and wall-clock time differ in multi-threaded (CPU > clock) and I/O-bound (clock > CPU) systems; must specify environment for reproducibility. (3) Perfect debugging assumption — all Musa models assume each fix reduces failure intensity, though in practice fixes can introduce new bugs. Enhanced model selection guidance in SVV concept: Basic model for stable releases with evenly-distributed faults; Logarithmic model for early-stage systems where a few heavily-used paths accumulate most failures first, producing a sharp initial λ drop then diminishing returns.
+
+---
+
+## Last Updated (prior)
+
 2026-08-31. **Session: ingest — ICT3112 Software Verification and Validation, all 11 lectures (L1–L6.2).** New: 11 source pages, [[concepts/software-verification-and-validation]], [[concepts/whitebox-testing-techniques]], [[concepts/blackbox-testing-techniques]], [[areas/software-verification-validation]]. Updated: [[concepts/software-testing-fundamentals]].
 
 **Lecture 1 — Software V&V Introduction:**
