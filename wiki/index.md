@@ -270,6 +270,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict2216-lab8-static-code-analysis\|ICT2216 Lab 8 — Static Code Analysis (ESLint + SARIF + CodeQL)]] | lab | ICT2216 / secure-software-development | [[concepts/github-actions-cicd\|GitHub Actions CI/CD]] |
 | [[examples/ict2216-lab9-sonarqube\|ICT2216 Lab 9 — Static Analysis Using SonarQube]] | lab | ICT2216 / secure-software-development | [[concepts/docker-compose\|Docker Compose]] |
 | [[examples/ict2216-lab11-zap-burp\|ICT2216 Lab 11 — Vulnerability Assessment with OWASP ZAP & Fuzzing with Burp Suite]] | lab | ICT2216 / secure-software-development | [[concepts/security-testing-and-verification\|Security Testing and Verification]] |
+| [[examples/ict3112-lab1-nunit-tdd-calculator\|ICT3112 SVV Lab 1 — NUnit + TDD Calculator]] | lab | ICT3112 / software-verification-validation | [[concepts/test-driven-development\|Test-Driven Development]] |
 | [[examples/ict2216-project-phase4-auth\|ICT2216 Project — Phase 4: Authentication (Register/Login/MFA/Logout)]] | project | ICT2216 / secure-software-development | [[concepts/secure-software-requirements\|Secure Software Requirements]] |
 | [[examples/ict2216-project-deployment-phases-9-12\|ICT2216 Project — Phases 9–12: Frontend Wiring, Hardening & EC2 Deployment]] | project | ICT2216 / devops | [[concepts/docker-compose\|Docker Compose]] |
 | [[examples/ict2216-practical-test-secure-webapp\|ICT2216 Practical Test — Secure Web App + Full DevSecOps Stack (Gitea, act_runner, SonarQube, ESLint)]] | project | ICT2216 / secure-software-development | [[concepts/github-actions-cicd\|GitHub Actions CI/CD]] |
@@ -288,7 +289,6 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/hedera-lecture4-voting-contract\|Hedera Lecture 4 — Voting Contract (Poll V1 and V2)]] | course-example | blockchain | [[concepts/solidity-fundamentals\|Solidity Fundamentals]] |
 | [[examples/hedera-account-creation-js\|Hedera Account Creation — JavaScript (ECDSA + EVM Alias + Mirror Node)]] | code-session | blockchain | [[concepts/hedera-network\|Hedera Network]] |
 | [[examples/hedera-hts-hcs-batch-js\|Hedera HTS, HCS, and Batch Transactions — JavaScript (TokenCreate, TopicCreate, HIP-551, HIP-904)]] | code-session | blockchain | [[concepts/hedera-network\|Hedera Network]] |
-| [[examples/ict3112-lab1-nunit-tdd-calculator\|ICT3112 SVV Lab 1 — NUnit + TDD Calculator (C# / .NET 10)]] | lab | ICT3112 / software-engineering | [[concepts/test-driven-development\|Test-Driven Development]] |
 
 ## Entities
 

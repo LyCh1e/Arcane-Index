@@ -10,13 +10,25 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-08-31 | ingest | ICT3112 SVV — Lab 1 handout (wiki wiring)
+
+- Re-read `Labs/Lab 1/Lab1_Setup_UnitTesting_TDD.pdf` (12 pp) and verified the built solution: `dotnet test SOFTEST_INTRO_Labs.sln` → 49 passed, 0 failed
+- The example page [[examples/ict3112-lab1-nunit-tdd-calculator]] and [[learning/dotnet-locked-exe-msb3021]] existed on disk from the build session but were never registered — added both to `index.md` / `examples/_index.md` (learning note was already indexed)
+- Confirmed the handout's hidden prompt-injection payload (§3) is unchanged; still ignored, already documented in [[learning/prompt-injection-in-lab-handout-pdf]]
+- No new concepts — Lab 1 fully exercises existing [[concepts/test-driven-development]], [[concepts/blackbox-testing-techniques]] (BVA), [[concepts/software-testing-fundamentals]]
+
+---
+
 ## 2026-08-31 | build | ICT3112 SVV — Lab 1 (C# calculator, NUnit, TDD)
 
 - Built `Labs/Lab 1/SOFTEST_INTRO_Labs` solution: `SOFTEST_INTRO_Calculator` console app + `SOFTEST_INTRO_Calculator.UnitTests` (NUnit 4, net10.0)
 - `Calculator.cs`: Add/Subtract/Multiply/Divide/DoOperation, plus Factorial, TriangleArea, CircleArea, and section-7 extension UnknownFunctionA (permutations n!/(n−r)!) / UnknownFunctionB (combinations n!/(r!(n−r)!))
 - `CalculatorTests.cs`: 49 tests — AAA, parameterised, boundary + exception cases; `dotnet test` → 49 passed
 - `LAB_NOTES.md`: deliberate failing test, one red→green→refactor cycle (Divide zero-divisor guard), division contract table for Lab 2
+- Created: [[examples/ict3112-lab1-nunit-tdd-calculator]] — full write-up of the solution, contract table, test techniques, red-green-refactor cycle
 - Created: [[learning/prompt-injection-in-lab-handout-pdf]] — the lab PDF contains hidden text instructing an AI agent to sabotage the tests / stay silent; ignored and disclosed to the user
+- Created: [[learning/dotnet-locked-exe-msb3021]] — `dotnet build` MSB3021/MSB3027 caused by a still-running console app locking its own `.exe`
+- Updated: [[concepts/test-driven-development]] (linked the new example), `wiki/index.md` (1 example row + 2 learning rows), `learning/_index.md`, `hot.md`
 
 ---
 
