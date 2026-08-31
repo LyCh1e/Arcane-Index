@@ -96,6 +96,17 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ml-summer-school-lec4b\|Trustworthy AI Summer School — Lecture 4b: Operations on Images]] | lecture-slides | machine-learning | 2026-08-18 |
 | [[sources/ml-summer-school-lec5\|Trustworthy AI Summer School — Lecture 5: Convolutional Neural Networks]] | lecture-slides | machine-learning | 2026-08-19 |
 | [[sources/ml-summer-school-lec6\|Trustworthy AI Summer School — Lecture 6: Transfer Learning and Domain Adaptation]] | lecture-slides | machine-learning | 2026-08-19 |
+| [[sources/ict3112-svv-l1\|ICT3112 SVV — L1: Software Verification and Validation Introduction]] | lecture-slides | software-verification-validation | 2026-08-31 |
+| [[sources/ict3112-svv-l2\|ICT3112 SVV — L2: Introduction to Testing Concepts]] | lecture-slides | software-verification-validation | 2026-08-31 |
+| [[sources/ict3112-svv-l3\|ICT3112 SVV — L3: Static Analysis]] | lecture-slides | software-verification-validation | 2026-08-31 |
+| [[sources/ict3112-svv-l4\|ICT3112 SVV — L4: Dynamic Analysis / Software Testing]] | lecture-slides | software-verification-validation | 2026-08-31 |
+| [[sources/ict3112-svv-l5-0\|ICT3112 SVV — L5.0: Whitebox Testing Introduction]] | lecture-slides | software-verification-validation | 2026-08-31 |
+| [[sources/ict3112-svv-l5-1\|ICT3112 SVV — L5.1: Whitebox Testing — CFGs and Paths]] | lecture-slides | software-verification-validation | 2026-08-31 |
+| [[sources/ict3112-svv-l5-2\|ICT3112 SVV — L5.2: Whitebox Testing — Code Coverage]] | lecture-slides | software-verification-validation | 2026-08-31 |
+| [[sources/ict3112-svv-l5-3\|ICT3112 SVV — L5.3: Code Complexity and LCSAJ]] | lecture-slides | software-verification-validation | 2026-08-31 |
+| [[sources/ict3112-svv-l6-0\|ICT3112 SVV — L6.0: Blackbox Testing — Intro and Use Case Testing]] | lecture-slides | software-verification-validation | 2026-08-31 |
+| [[sources/ict3112-svv-l6-1\|ICT3112 SVV — L6.1: Equivalence Partitioning and Boundary Value Analysis]] | lecture-slides | software-verification-validation | 2026-08-31 |
+| [[sources/ict3112-svv-l6-2\|ICT3112 SVV — L6.2: Decision Table Testing and State Transition Testing]] | lecture-slides | software-verification-validation | 2026-08-31 |
 
 ## Concepts
 
@@ -157,6 +168,9 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/digital-image-processing\|Digital Image Processing]] | machine-learning | medium |
 | [[concepts/convolutional-neural-networks\|Convolutional Neural Networks]] | machine-learning | high |
 | [[concepts/transfer-learning-and-domain-adaptation\|Transfer Learning and Domain Adaptation]] | machine-learning | high |
+| [[concepts/software-verification-and-validation\|Software Verification and Validation]] | software-verification-validation | high |
+| [[concepts/whitebox-testing-techniques\|Whitebox Testing Techniques]] | software-verification-validation | high |
+| [[concepts/blackbox-testing-techniques\|Blackbox Testing Techniques]] | software-verification-validation | high |
 | [[concepts/computer-architecture-fundamentals\|Computer Architecture Fundamentals]] | computer-architecture | medium |
 | [[concepts/assembly-programming-msp430\|Assembly Programming (MSP430)]] | computer-architecture | high |
 | [[concepts/io-and-memory-systems\|I/O Interfacing and Memory Systems]] | computer-architecture | high |

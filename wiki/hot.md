@@ -2,11 +2,32 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-08-12
+updated: 2026-08-31
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
+
+## Last Updated
+
+2026-08-31. **Session: ingest — ICT3112 Software Verification and Validation, all 11 lectures (L1–L6.2).** New: 11 source pages, [[concepts/software-verification-and-validation]], [[concepts/whitebox-testing-techniques]], [[concepts/blackbox-testing-techniques]], [[areas/software-verification-validation]]. Updated: [[concepts/software-testing-fundamentals]].
+
+**Lecture 1 — Software V&V Introduction:**
+V&V is the core discipline of software quality: Verification asks "Are we building the product right?" (conformance to specification); Validation asks "Are we building the right product?" (fulfilment of user needs). Static V&V (no code execution, focus: prevention) maps to reviews, inspections, and static analysis. Dynamic V&V (code execution, focus: detection) maps to all forms of testing. The V-model aligns each specification artefact on the left with a corresponding test level on the right: requirements ↔ acceptance, system design ↔ system testing, architecture ↔ integration, detailed design ↔ unit. Six DORA-based root cause categories for poor software quality: people/culture, planning/workload, requirements/architecture/design, implementation/maintainability, configuration/supply chain, verification/delivery/feedback. Famous failures: Therac-25 (race condition + missing hardware interlock, 3 deaths), Ariane 5 ($500M, 64-bit→16-bit overflow), CrowdStrike 2024 ($5.4B). Cost of poor quality: $59.5B (US 2002) → $2.41T (CISQ 2022). Reliability metrics: MTTF + MTTR = MTBF; Availability = MTTF/MTBF. Two reliability growth models: Basic Musa (μ=v₀[1−exp(−λ₀τ/v₀)], linear decrease, suited to stable releases) and Logarithmic Musa/Okamoto (μ=(1/θ)ln(λ₀θτ+1), diminishing returns, suited to uneven fault exposure). Defect density = Defects/KLOC; KSSI(current) = KSSI(prev)+KCSI−deleted−changed; PUM = TNP/TNM; IBM CUPRIMDSO, HP FURPS.
+
+**Lectures 2 & 4 — Testing Fundamentals and Dynamic Analysis:**
+Error → Defect/Bug → Failure chain. Bill Hetzel (1988): proving absence of bugs is theoretically impossible. Eight good testing practices: high probability of detecting undiscovered defects; never sole tester of own code; expected results defined; valid and invalid inputs; thorough result inspection; testability as design objective; never alter programme for testing; always start with objectives. Testing by lifecycle: development (find/fix), operational (reliability/availability), acceptance (business requirements), maintenance (no new failures after change). Retesting (rerun after fix) vs Regression (parallel areas — 50% of bug fixes introduce new errors). Four testing levels with objective/scope/derived from/conductor: Unit (developers), Integration (developers+testers), System (testing team), Acceptance (customers; Alpha = internal site; Beta = external market). Four testing types: Functional (what, BB), Non-functional (how well, external BB), Structural (internals, WB), Retesting+Regression.
+
+**Lecture 3 — Static Analysis:**
+Formality spectrum: Ad Hoc (informal, no process) → Walkthrough (partially formal, author-led, peer group) → Technical Review (semi-formal, moderator-led, documented) → Inspection (formal, Fagan 1976: moderator ≠ author, metrics, entry/exit criteria, formal follow-up; primary purpose: finding defects). Code inspection fault class checklist: Data (uninitialised vars, array bounds, unused vars/assignments), Control (unreachable code, unconditional branches into loops), I/O (variable output twice without intervening assignment), Interface (parameter type/number mismatches, unused function results), Storage management (unassigned pointers, pointer arithmetic), Exception management (all error conditions handled?).
+
+**Lectures 5.0–5.3 — Whitebox Testing:**
+WB = "derive test cases based on analysis of internal structure." Two categories: Control Flow (execution paths) and Data Flow (improper data use; 4 defect types: use-before-define, define-never-used, destroy-then-use, redefine-without-use). CFG: 6 node types (sequence/if-then-else/case/junction/while/do-until). Factorial 11-node CFG (12 edges): 3 paths (num<0, num=0, num>0). Coverage hierarchy: Statement (every statement, coverage=executed/executable×100) → Decision/Branch (every T/F branch, subsumes statement) → Condition (every sub-expression T and F — NOT a superset of decision: if(X and Y) with X=T,Y=F covers all conditions but only False branch) → Decision & Condition → Multiple Condition (2ⁿ combinations) → Path (use loop coverage: zero/one/typical/max). Cyclomatic complexity C=E−N+2 (McCabe 1976); factorial C=3. Thresholds: 1–4 low, 5–10 marginal, 11–20 moderate, 21–50 high, >50 untestable. Basis path testing: 5 steps (CFG → C → select C independent paths → TCs → execute); guarantees branch coverage. LCSAJ (X,Y,Z): linear sequence from X to Y jumping to Z; provides 100% decision coverage.
+
+**Lectures 6.0–6.2 — Blackbox Testing:**
+Five BB techniques. Use Case Testing: actors/preconditions/postconditions/primary+alternative flows; detects real-world defects, integration defects, dead-end states. Equivalence Partitioning: divide inputs into partitions (all members expected equivalent); test one per partition; works for both inputs and outputs. Boundary Value Analysis: test at and just beyond each partition boundary; separate ASCII and string-length boundaries; date (dd/mm/yyyy) and time (HH:MM) boundary tables; 4 general rules; also apply to output conditions. Decision Table Testing: columns = rules (condition combinations → actions); 2ⁿ max for n binary conditions; movie pricing (4 rules) and validation (3 rules with unreachable condition). State Transition Testing: state/transition/input-event/output-action components; identify unspecified/unreachable/dead states; 0-switch = one TC per transition (6 TCs); 1-switch = all consecutive transition pairs (10 TCs, self-loops excluded per ISTQB/SELA).
+
+---
 
 ## Last Updated
 

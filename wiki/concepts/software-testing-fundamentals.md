@@ -136,10 +136,74 @@ Re-running previously passing tests after a code change to confirm no previously
 
 ---
 
+---
+
+## Error → Defect → Failure Chain
+
+Understanding the distinction between these three terms is foundational to precise communication in testing:
+
+| Term | Definition |
+|------|-----------|
+| **Error / Mistake** | A human action that produces an incorrect result (e.g., a developer misunderstands a requirement) |
+| **Fault / Bug / Defect** | A flaw in a component that can cause the system to fail to perform its required function (e.g., incorrect code resulting from the error) |
+| **Failure** | Critical deviation of the system from its expected delivery, service, or result (when defective code is executed) |
+
+**Chain**: Human makes an error → error creates a defect in code → defective code is executed → system exhibits a failure.
+
+> "Testing can show that defects are present, but cannot prove that there are no defects."
+> — Bill Hetzel, *The Complete Guide for Software Testing*, 1988
+
+---
+
+## Eight Good Testing Practices
+
+| # | Practice |
+|---|---------|
+| 1 | A good test case has a **high probability of detecting undiscovered defects**, not just showing the programme works |
+| 2 | It is insufficient to be the **only one testing your own code** — peer review is essential |
+| 3 | Every test case should specify the **expected result** before execution |
+| 4 | Write test cases for **valid and invalid input** conditions |
+| 5 | Thoroughly **inspect the results** of each test |
+| 6 | Ensure **testability** is a key objective in software design |
+| 7 | **Never alter the programme** to make testing easier |
+| 8 | Testing must start with clear **objectives** |
+
+---
+
+## Testing by Lifecycle Phase
+
+Testing takes different forms depending on where in the software lifecycle it occurs:
+
+| Phase | Who Performs | Objective |
+|-------|-------------|-----------|
+| **Development testing** | Developers / testers (controlled environment) | Identify defects by causing failures; fix them |
+| **Operational testing** | Testing / operations teams | Evaluate the system in its operational environment; assess reliability and availability |
+| **Acceptance testing** | Customer or users | Verify business requirements are met; decide whether to accept the system |
+| **Maintenance testing** | Testers | Ensure no new defects manifest after a change is introduced |
+
+---
+
+## Retesting vs Regression Testing
+
+These are subtly but importantly different:
+
+| Type | Definition |
+|------|-----------|
+| **Retesting** | Rerunning tests that previously *found* defects to confirm the fix is effective |
+| **Regression testing** | Running tests in *parallel areas* of code to confirm fixes do not introduce new defects elsewhere |
+
+> "In empirical studies it's estimated that up to 50% of bug fixes actually introduce additional errors into the code."
+> — *Software Testing Primer*, Nick Jenkins
+
+---
+
 ## Key Connections
 
 - [[concepts/test-driven-development]] — TDD keeps the unit-test layer dense and current by writing tests before code
 - [[concepts/test-design-techniques]] — black-box and white-box design techniques that populate each layer
+- [[concepts/whitebox-testing-techniques]] — detailed CFG, coverage criteria, cyclomatic complexity, LCSAJ (ICT3112)
+- [[concepts/blackbox-testing-techniques]] — detailed EP, BVA, decision tables, state transition, use case testing (ICT3112)
+- [[concepts/software-verification-and-validation]] — V&V fundamentals; reliability metrics; defect density
 - [[concepts/scrum-framework]] — testing is continuous across each Sprint; the Definition of Done typically requires passing tests before an Increment is accepted
 - [[concepts/software-design-process]] — testability is a design quality; highly coupled code is hard to unit-test
 - [[concepts/owasp-top-10]] — security testing (DAST, SAST) maps directly to OWASP vulnerability categories
