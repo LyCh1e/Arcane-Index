@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1784961088874-ofv0bshtx",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788442211265-mgrrxc5",
+      "userTurnOrdinal": 36,
+      "state": "accepted",
+      "localMessageId": "msg-1788442211214-le3e18z",
+      "timestamp": 1788442211214,
+      "rawDisplayText": "give me a full run down of software verification and validation lecture 1",
+      "canonicalText": "give me a full run down of software verification and validation lecture 1",
+      "images": [],
+      "contentDigest": "f22fccbc33ccedc55bc3221f663398de19a08e39a953cc42f32a97af6db16414",
+      "providerUserMessageId": "efe59564-8ac2-46f5-9a50-59f6a027ab17",
+      "providerAssistantMessageId": "0ec006ff-cf8a-4b06-b738-a30496dd4322"
+    }
+  ]
+}

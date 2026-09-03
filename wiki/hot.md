@@ -10,6 +10,26 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-09-03. **Session: autoresearch — Accenture PTE LTD.** New: [[entities/accenture-pte-ltd]], [[concepts/management-consulting-industry]], [[synthesis/research-accenture-pte-ltd]].
+
+**What Accenture PTE LTD is:** Singapore-registered private limited company (UEN: 197501877H), incorporated 28 October 1975. Originally registered as Arthur Andersen Associates PTE LTD, then Andersen Consulting Singapore PTE LTD. The Singapore entity is the South-east Asia hub for Accenture plc (NYSE: ACN), the Irish-incorporated global parent on the S&P 100 and Fortune Global 500. Registered address: 250 North Bridge Road, #35-00, Raffles City Tower, Singapore 179101. Auditor: KPMG LLP.
+
+**History — the Andersen split:** Andersen Consulting separated from Arthur Andersen after an ICC arbitration ruling in August 2000, paying US$1.2 billion and forfeiting the Andersen name. The firm rebranded globally as **Accenture** on 1 January 2001. Timing proved fortunate: Arthur Andersen collapsed in 2002 over its role in the Enron scandal.
+
+**Global scale (FY2025–Q3 FY2026):** FY2025 annual revenue US$69.67 billion (+7.36% YoY). Q3 FY2026 quarterly revenue US$18.7 billion. ~799,000 employees; ~9,000 clients; operations in 52 countries. Asia-Pacific represents 14% of quarterly revenue.
+
+**Singapore and SEA footprint:** 51 years of continuous operation in Singapore. Serves 331+ clients across 19 industries in SEA; 17,000+ employees across 75 nationalities. Key engagements: UOB 3-year GenAI/agentic AI MoU (April 2025, AI Refinery™ platform); HTX public safety AI MoU (2025); DIVA digital factory at Changi Airport (ongoing).
+
+**Organisational restructure (September 2025):** Five service lines merged into single unit — **Reinvention Services** — led by Manish Sharma as Chief Services Officer. Seven capability areas: Cybersecurity, Digital Core, Finance, Industry & Enterprise, Song, Supply Chain & Engineering, and Talent.
+
+**AI strategy:** ~22% AI consulting market share; AI Refinery™ platform. Acquired Faculty (UK, January 2026) — 400+ AI professionals, safe/ethical AI focus; Faculty's founder Marc Warner became Accenture's CTO.
+
+**Competitors:** IBM Consulting, Deloitte, McKinsey ($18.8B consulting), BCG ($14.1B), PwC, TCS. Accenture leads by total revenue; competitive advantage lies in AI platform depth, industry specialisation, and M&A velocity.
+
+---
+
+## Last Updated (prior)
+
 2026-09-03. **Session: ingest — INF2005 Cyber Security Fundamentals, Cryptography Lab (Week 1, AY26).** New: [[concepts/classical-ciphers-and-cryptanalysis]], [[concepts/public-key-cryptography-and-key-exchange]], [[examples/inf2005-lab-wk1-cryptography]], [[learning/textbook-rsa-64-bit-modulus]], [[areas/cryptography]]. Also wrote `answer.md` + recovered `netforce.mp3` to the project Lab folder.
 
 *(Addendum — chat follow-up: enhanced [[concepts/classical-ciphers-and-cryptanalysis]] §6 with cipher-identification method. You don't know the cipher up front — diagnose from the **shape** of the decoded blob: spaces/punctuation preserved ⇒ substitution not transposition; word lengths preserved ⇒ monoalphabetic; frequencies match English but order scrambled ⇒ transposition; frequencies too flat ⇒ polyalphabetic. **Caesar vs general substitution test:** crib a repeated 3-letter word as "the", compute per-letter offset — all offsets equal ⇒ Caesar (shift = the offset); offsets differ ⇒ frequency-analyse. Attack order: ROT13 → all 25 Caesar shifts (eyeball for English) → frequency analysis → Vigenère.)*

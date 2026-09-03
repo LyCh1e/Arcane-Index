@@ -255,6 +255,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/solidity-advanced-patterns\|Solidity Advanced Patterns]] | blockchain | high |
 | [[concepts/token-standards-erc20-erc721\|Token Standards — ERC-20 and ERC-721]] | blockchain | medium |
 | [[concepts/latex-formatting\|LaTeX Formatting]] | academic-writing | medium |
+| [[concepts/management-consulting-industry\|Management Consulting Industry]] | business | medium |
 | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] | python-gui | low |
 | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] | python-gui | medium |
 
@@ -297,6 +298,7 @@ Master catalog of all pages. Updated on every ingest.
 
 | Page | Category |
 |------|----------|
+| [[entities/accenture-pte-ltd\|Accenture PTE LTD]] | company |
 | [[entities/deepseek\|DeepSeek]] | company |
 | [[entities/llmlingua\|LLMLingua]] | tool |
 | [[entities/agentic-ai-foundation-aaif\|Agentic AI Foundation (AAIF)]] | organisation |
@@ -349,6 +351,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[synthesis/research-data-mapping\|Research: Data Mapping]] | data-engineering | developing |
 | [[synthesis/research-kubernetes\|Research: Kubernetes]] | devops | developing |
 | [[synthesis/research-ai-agent-setup\|Research: Setting Up AI Agents]] | ai-engineering | complete |
+| [[synthesis/research-accenture-pte-ltd\|Research: Accenture PTE LTD]] | business / consulting | developing |
 | [[synthesis/research-latex-formatting\|Research: LaTeX Formatting]] | academic-writing | complete |
 | [[synthesis/research-social-engineering\|Research: Social Engineering]] | secure-software-development | established |
 | [[synthesis/research-prompt-injection\|Research: Prompt Injection]] | ai-engineering | established |

@@ -10,6 +10,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-09-03 | autoresearch | Accenture PTE LTD
+
+- Rounds: 3 | Searches: 9 | Sources fetched: 5 | Pages created: 3
+- Entity: [[entities/accenture-pte-ltd|Accenture PTE LTD]]
+- Concept: [[concepts/management-consulting-industry|Management Consulting Industry]]
+- Synthesis: [[synthesis/research-accenture-pte-ltd|Research: Accenture PTE LTD]]
+- Key finding: Accenture PTE LTD (UEN 197501877H) has been incorporated in Singapore since 28 Oct 1975, serves 331+ SEA clients across 19 industries with 17,000+ employees, and is the regional hub for a global parent generating US$69.67B in FY2025 revenue. Post-September 2025 restructure consolidates all service lines into "Reinvention Services" led by AI strategy.
+
+---
+
 ## 2026-09-03 | ingest | Chat follow-up — cipher-identification methodology
 
 - Q&A session on "how do you know it's a Caesar cipher / that a cipher is needed" (INF2005 Q11)

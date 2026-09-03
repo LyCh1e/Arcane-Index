@@ -13,10 +13,25 @@
             "pinned": true,
             "state": {
               "type": "claudian-view",
-              "state": {},
+              "state": {
+                "tabWorkspace": {
+                  "version": 1,
+                  "openTabs": [
+                    {
+                      "tabId": "tab-1782478269333-naa3aq8",
+                      "conversationId": "conv-1784961088874-ofv0bshtx"
+                    },
+                    {
+                      "tabId": "tab-1788443762881-l5wa6mc",
+                      "conversationId": "conv-1788443778580-mqf9vx07n"
+                    }
+                  ],
+                  "activeTabId": "tab-1788443762881-l5wa6mc"
+                }
+              },
               "pinned": true,
-              "icon": "lucide-ghost",
-              "title": "claudian-view"
+              "icon": "bot",
+              "title": "Claudian"
             }
           },
           {
@@ -45,8 +60,7 @@
               "title": "CLAUDE"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -217,7 +231,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 279.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -237,8 +251,13 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "wiki/hot.md.tmp.26804.ee82bed158b9",
+    "wiki/synthesis/research-accenture-pte-ltd.md",
+    "wiki/concepts/management-consulting-industry.md",
+    "wiki/concepts/management-consulting-industry.md.tmp.26804.4812f2dcabfa",
+    "wiki/entities/accenture-pte-ltd.md",
     "CLAUDE.md",
     "wiki/hot.md.tmp.20932.2bfa21fff5ce",
     "wiki/concepts/classical-ciphers-and-cryptanalysis.md.tmp.20932.e94dbbc7a423",
@@ -264,7 +283,6 @@
     "wiki/hot.md.tmp.14104.eed9d7583ee3",
     "wiki/concepts/software-testing-fundamentals.md.tmp.14104.0cd00b2d1ef1",
     "wiki/concepts/software-verification-and-validation.md.tmp.14104.a6dde3fd32a3",
-    "wiki/concepts/software-verification-and-validation.md.tmp.14104.8c66285f56a5",
     "raw/ICT3112 Software Verification and Validation - L1_transcript.md",
     "canvases/blockchain-hash-chain.canvas",
     "wiki/areas/software-verification-validation.md",
@@ -272,9 +290,6 @@
     "wiki/concepts/whitebox-testing-techniques.md",
     "wiki/concepts/software-verification-and-validation.md",
     "wiki/sources/ict3112-svv-l6-2.md",
-    "wiki/sources/ict3112-svv-l6-1.md",
-    "wiki/sources/ict3112-svv-l6-0.md",
-    "wiki/sources/ict3112-svv-l5-3.md",
     "blockchain-hash-chain.canvas",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
