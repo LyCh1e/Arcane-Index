@@ -2,7 +2,7 @@
 type: meta
 status: established
 title: "Examples Index"
-updated: 2026-05-13
+updated: 2026-09-03
 tags: [meta, index, examples]
 ---
 
@@ -34,6 +34,7 @@ This folder contains two categories of grounded, applied content that sit alongs
 | [[ict2216-project-phase4-auth\|ICT2216 Project — Phase 4 Authentication & Docker Stack]] | project | ICT2216 | [[concepts/secure-design-implementation\|Secure Design]] |
 | [[ict2216-project-deployment-phases-9-12\|ICT2216 Project — Deployment Phases 9–12 (EC2)]] | project | ICT2216 | [[concepts/docker-compose\|Docker Compose]] |
 | [[ict3112-lab1-nunit-tdd-calculator\|ICT3112 SVV Lab 1 — NUnit + TDD Calculator]] | lab | ICT3112 | [[concepts/test-driven-development\|Test-Driven Development]] |
+| [[inf2005-lab-wk1-cryptography\|INF2005 Lab Wk 1 — Cryptography (Ciphers, Cryptanalysis & RSA Team Challenge)]] | lab | INF2005 | [[concepts/classical-ciphers-and-cryptanalysis\|Classical Ciphers]], [[concepts/public-key-cryptography-and-key-exchange\|Public-Key Cryptography]] |
 | [[stock-prediction-neural-network\|Stock Prediction Neural Network — SOLID ML App with Tkinter GUI]] | project | machine-learning | [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] |
 | [[ict2216-project-vite-refactor\|ICT2216 Project — UMD Prototype to Vite + React SPA Refactor]] | project | ICT2216 / web-development | [[resources/vite\|Vite]], [[concepts/javascript-fundamentals\|JavaScript]] |
 

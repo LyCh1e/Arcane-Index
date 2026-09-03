@@ -28,3 +28,4 @@ Domain overview pages — one per academic discipline or knowledge area. Each ar
 | [[areas/programming-fundamentals\|Programming Fundamentals]] | 5 | INF1002 | 2026-05-23 |
 | [[areas/embedded-systems\|Embedded Systems]] | 5 | INF2004 | 2026-05-23 |
 | [[areas/it-ethics\|IT Ethics]] | 4 | INF1007 | 2026-05-24 |
+| [[areas/cryptography\|Cryptography]] | 3 | INF2005 | 2026-09-03 |

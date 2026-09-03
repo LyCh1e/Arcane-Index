@@ -2,13 +2,27 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-08-31
+updated: 2026-09-03
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-09-03. **Session: ingest — INF2005 Cyber Security Fundamentals, Cryptography Lab (Week 1, AY26).** New: [[concepts/classical-ciphers-and-cryptanalysis]], [[concepts/public-key-cryptography-and-key-exchange]], [[examples/inf2005-lab-wk1-cryptography]], [[learning/textbook-rsa-64-bit-modulus]], [[areas/cryptography]]. Also wrote `answer.md` + recovered `netforce.mp3` to the project Lab folder.
+
+*(Addendum — chat follow-up: enhanced [[concepts/classical-ciphers-and-cryptanalysis]] §6 with cipher-identification method. You don't know the cipher up front — diagnose from the **shape** of the decoded blob: spaces/punctuation preserved ⇒ substitution not transposition; word lengths preserved ⇒ monoalphabetic; frequencies match English but order scrambled ⇒ transposition; frequencies too flat ⇒ polyalphabetic. **Caesar vs general substitution test:** crib a repeated 3-letter word as "the", compute per-letter offset — all offsets equal ⇒ Caesar (shift = the offset); offsets differ ⇒ frequency-analyse. Attack order: ROT13 → all 25 Caesar shifts (eyeball for English) → frequency analysis → Vigenère.)*
+
+**Classical ciphers vs cryptanalysis:** Two families — *substitution* (Caesar `C=(P+k)mod26`, only 26 keys; monoalphabetic, 26! keys but broken by frequency analysis; Vigenère polyalphabetic, broken by Kasiski/IoC then per-column Caesar) and *transposition* (rail fence keyed on rail count; columnar transposition keyed on a keyword's column order — decryption reverses that order, the "KEY↔YEK" hint). Transposition preserves the exact letter multiset (frequencies identical to plaintext); substitution changes letter identities — that one observation routes the attack. *Encodings are not encryption*: Base64 (`+/=`, len ×4; `==`⇒1 byte, `=`⇒2 in final group), hex, Morse, ASCII-decimal, binary, XOR (self-inverse; repeating-key XOR ≈ Vigenère) — always peel these off first. Frequency analysis: rank ciphertext symbols, map to English E-T-A-O-I-N…, refine with one-letter words / bigrams (TH,HE,IN) / trigrams (THE,AND) / doubled letters. Lab answers: Q8 Vigenère(RELATIONS) → "TO BE OR NOT TO BE THAT IS THE QUESTION"; Q11 base64→Caesar+4 → "…is: crypto"; Q12 columnar → "CIPHERS ARE COOL"; Q13 Morse → "THE PASSWORD FOR THIS LEVEL IS WELL DONE"; Q16 leet(8=t,5=a,4=e,2=i,1=o) → "elite"; Q17 ciphertext's own plaintext describes frequency analysis.
+
+**Public-key crypto & key exchange:** Symmetric = one shared key both ways (fast; but the key must be pre-shared over a secure channel — the key-distribution problem; `n(n−1)/2` keys for `n` users). Asymmetric = a mathematically linked pair; whatever one key locks only the *other* unlocks, so you can't encrypt+decrypt with the same key. Two services: encrypt-with-recipient-public→confidentiality; sign-with-sender-private→authentication+integrity+non-repudiation (NOT secret — anyone verifies with the public key). **Authentication ≠ confidentiality.** RSA: `n=pq`, `φ=(p−1)(q−1)`, `e` (usu. 65537), `d=e⁻¹ mod φ`; `c=mᵉ mod n`, `m=cᵈ mod n`. Security = cost of factoring `n`. Diffie–Hellman: public `p,G`; Alice sends `Gᵃ`, Bob sends `Gᵇ`, both compute `G^(ab) mod p`; eavesdropper stuck on discrete log; secret never transmitted (Q9: p=11,G=2,a=9,b=4 → A=6,B=5,shared=9). Plain DH still MITM-able → authenticated DH + PKI (CA-signed certs); ephemeral DH adds forward secrecy. Q4 Blowfish-CBC (key `SIT-UOG` zero-padded, IV 0; OpenSSL 3.x needs `-provider legacy`) → "Blowfish is a symmetric-key block cipher, designed in 1993 by Bruce Schneier".
+
+**Team challenge — RSA `netforce.enc`:** `GHMS1.uyu` (byte +1 substitution) reveals "textbook RSA, 64-bit blocks". `public_key.pem` → `n=16513720463601767803` (64-bit!), `e=65537`. Factored instantly: `n = 3917781347 × 4215069449`; `φ(n)=16513720455468917008`; `d=9440767265896423601`. Decrypt each 8-byte block `m=cᵈ mod n` → ASCII bytes of a base64 stream → `netforce.mp3` (935 KB, MPEG-1 L3, TextAloud TTS; ID3 voice "Sam") — spoken flag ("You know you got it if you can hear"). This is the classic NetForce "Private Parts" CTF. Lesson [[learning/textbook-rsa-64-bit-modulus]]: RSA key size is the security parameter, not a tuning knob; textbook RSA (no OAEP/PSS) is broken even at large sizes.
+
+---
+
+## Last Updated (prior)
 
 2026-08-31. **Session: ingest — ICT3113 Performance Optimisation and Design, Lectures 1 and 2.** New: [[sources/ict3113-pod-l1]], [[sources/ict3113-pod-l2]], [[concepts/performance-engineering]], [[concepts/performance-metrics]], [[areas/performance-optimisation-design]].
 

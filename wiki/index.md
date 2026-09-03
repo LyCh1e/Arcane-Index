@@ -2,7 +2,7 @@
 type: meta
 status: established
 title: "Wiki Index"
-updated: 2026-07-24T00:00:00
+updated: 2026-09-03T00:00:00
 tags: [meta, index]
 ---
 
@@ -246,6 +246,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/distributed-ledger-technology\|Distributed Ledger Technology (DLT)]] | blockchain | high |
 | [[concepts/hedera-network\|Hedera Network (HBAR)]] | blockchain | high |
 | [[concepts/cryptographic-hash-functions\|Cryptographic Hash Functions]] | cryptography | high |
+| [[concepts/classical-ciphers-and-cryptanalysis\|Classical Ciphers and Cryptanalysis]] | cryptography | medium |
+| [[concepts/public-key-cryptography-and-key-exchange\|Public-Key Cryptography and Key Exchange]] | cryptography | high |
 | [[concepts/crypto-wallets\|Crypto Wallets]] | blockchain | medium |
 | [[concepts/ethereum-evm\|Ethereum and the EVM]] | blockchain | high |
 | [[concepts/solidity-fundamentals\|Solidity Fundamentals]] | blockchain | high |
@@ -289,6 +291,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/hedera-lecture4-voting-contract\|Hedera Lecture 4 — Voting Contract (Poll V1 and V2)]] | course-example | blockchain | [[concepts/solidity-fundamentals\|Solidity Fundamentals]] |
 | [[examples/hedera-account-creation-js\|Hedera Account Creation — JavaScript (ECDSA + EVM Alias + Mirror Node)]] | code-session | blockchain | [[concepts/hedera-network\|Hedera Network]] |
 | [[examples/hedera-hts-hcs-batch-js\|Hedera HTS, HCS, and Batch Transactions — JavaScript (TokenCreate, TopicCreate, HIP-551, HIP-904)]] | code-session | blockchain | [[concepts/hedera-network\|Hedera Network]] |
+| [[examples/inf2005-lab-wk1-cryptography\|INF2005 Lab Wk 1 — Cryptography (Ciphers, Cryptanalysis & RSA Team Challenge)]] | lab | INF2005 / cryptography | [[concepts/classical-ciphers-and-cryptanalysis\|Classical Ciphers and Cryptanalysis]] |
 
 ## Entities
 
@@ -323,6 +326,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/ssh-stdout-known-hosts-warning\|SSH: "Permanently added" Warning Contaminates stdout — Use -o LogLevel=ERROR]] | devops | resolved |
 | [[learning/github-actions-version-deprecations\|GitHub Actions: Node 20 Deprecation, Floating vs Pinned Tags, CodeQL v3→v4]] | devops | resolved |
 | [[learning/gitea-act-runner-dood-networking\|Gitea act_runner + Docker-outside-of-Docker: 4 Networking Gotchas]] | devops | resolved |
+| [[learning/textbook-rsa-64-bit-modulus\|Textbook RSA with a 64-bit Modulus is Broken in Milliseconds]] | cryptography | resolved |
 
 
 ## Synthesis

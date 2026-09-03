@@ -2,13 +2,36 @@
 type: meta
 status: established
 title: "Operation Log"
-updated: 2026-06-08
+updated: 2026-09-03
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## 2026-09-03 | ingest | Chat follow-up — cipher-identification methodology
+
+- Q&A session on "how do you know it's a Caesar cipher / that a cipher is needed" (INF2005 Q11)
+- Enhanced [[concepts/classical-ciphers-and-cryptanalysis]] §6 with: a structure-not-content decision table for classifying a decoded blob (substitution vs transposition vs polyalphabetic), the **constant-offset crib test** (equal per-letter offset ⇒ Caesar; differing ⇒ general substitution), and the cheapest-attack-first ordering (ROT13 → 25 Caesar shifts → frequency analysis → Vigenère)
+- No new pages; no code
+
+---
+
+## 2026-09-03 | ingest | INF2005 Cyber Security Fundamentals — Cryptography Lab (Week 1, AY26)
+
+- Source: `Cryptography Lab Wk 1 AY26.pdf` (10 exercises + 7 cryptanalysis challenges) and `Cryptography Lab team challenge with hints.pdf` (RSA `netforce.enc`)
+- Solved all challenges — Q4 Blowfish-CBC (`SIT-UOG`, IV 0) → *"Blowfish is a symmetric-key block cipher…"*; Q8 Vigenère → `TO BE OR NOT TO BE THAT IS THE QUESTION`; Q9 DH shared key = 9; Q11 base64+Caesar → `crypto`; Q12 columnar → `CIPHERS ARE COOL`; Q13 Morse → `THE PASSWORD FOR THIS LEVEL IS WELL DONE`; Q14 XOR → `the password is bin`; Q16 leet → `elite`; Q17 frequency analysis (full substitution map recovered)
+- Team challenge: factored the 64-bit RSA modulus `n = 3917781347 × 4215069449`, derived `d = 9440767265896423601`, decrypted `netforce.enc` block-by-block → base64 → `netforce.mp3` (TTS audio flag). Wrote the recovered MP3 to the Lab folder.
+- Created answer file `answer.md` in the project Lab directory
+- Created: [[concepts/classical-ciphers-and-cryptanalysis]] (c-000123), [[concepts/public-key-cryptography-and-key-exchange]] (c-000124)
+- Created: [[examples/inf2005-lab-wk1-cryptography]] (c-000125) — full worked lab
+- Created: [[learning/textbook-rsa-64-bit-modulus]] — RSA security = cost of factoring `n`
+- Created: [[areas/cryptography]] — new area page (3 concepts)
+- Updated: `index.md` (2 concept rows, 1 example row, 1 learning row, updated date), `examples/_index.md`, `areas/_index.md`, `hot.md`
+- No prompt-injection or hidden text found in either PDF (checked; cf. [[learning/prompt-injection-in-lab-handout-pdf]])
+
+---
 
 ## 2026-08-31 | ingest | ICT3112 SVV — Lab 1 handout (wiki wiring)
 
