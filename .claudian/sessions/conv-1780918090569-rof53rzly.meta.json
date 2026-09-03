@@ -4,11 +4,16 @@
   "title": "Secure software design from start",
   "titleGenerationStatus": "success",
   "createdAt": 1780918090569,
-  "updatedAt": 1781193792488,
-  "lastResponseAt": 1781193597700,
+  "lastActivityAt": 1781193597700,
   "sessionId": "a729c3a9-2b4b-49e4-8701-084b9236811f",
   "providerState": {
     "providerSessionId": "a729c3a9-2b4b-49e4-8701-084b9236811f"
+  },
+  "modelRecoverySource": {
+    "sessionId": "a729c3a9-2b4b-49e4-8701-084b9236811f",
+    "providerState": {
+      "providerSessionId": "a729c3a9-2b4b-49e4-8701-084b9236811f"
+    }
   },
   "usage": {
     "model": "sonnet",

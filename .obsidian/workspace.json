@@ -15,8 +15,8 @@
               "type": "claudian-view",
               "state": {},
               "pinned": true,
-              "icon": "bot",
-              "title": "Claudian"
+              "icon": "lucide-ghost",
+              "title": "claudian-view"
             }
           },
           {
@@ -44,9 +44,19 @@
               "icon": "lucide-file",
               "title": "CLAUDE"
             }
+          },
+          {
+            "id": "1b596540fec98844",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -237,8 +247,9 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "f013119b4bc49b10",
+  "active": "1b596540fec98844",
   "lastOpenFiles": [
+    "CLAUDE.md",
     "wiki/hot.md.tmp.20932.2bfa21fff5ce",
     "wiki/concepts/classical-ciphers-and-cryptanalysis.md.tmp.20932.e94dbbc7a423",
     "wiki/hot.md.tmp.20932.8bacd76806d7",
@@ -248,7 +259,6 @@
     "wiki/examples/inf2005-lab-wk1-cryptography.md",
     "wiki/concepts/public-key-cryptography-and-key-exchange.md",
     "wiki/concepts/classical-ciphers-and-cryptanalysis.md",
-    "CLAUDE.md",
     "wiki/learning/dotnet-locked-exe-msb3021.md",
     "wiki/examples/ict3112-lab1-nunit-tdd-calculator.md",
     "wiki/hot.md.tmp.34296.996e908945ba",
@@ -265,7 +275,6 @@
     "wiki/concepts/software-testing-fundamentals.md.tmp.14104.0cd00b2d1ef1",
     "wiki/concepts/software-verification-and-validation.md.tmp.14104.a6dde3fd32a3",
     "wiki/concepts/software-verification-and-validation.md.tmp.14104.8c66285f56a5",
-    "wiki/sources/ict3112-svv-l1.md.tmp.14104.c9d2a7fe9d1a",
     "raw/ICT3112 Software Verification and Validation - L1_transcript.md",
     "canvases/blockchain-hash-chain.canvas",
     "wiki/areas/software-verification-validation.md",

@@ -4,11 +4,16 @@
   "title": "Ingest ICT2216 Lecture 4",
   "titleGenerationStatus": "success",
   "createdAt": 1779129910673,
-  "updatedAt": 1779278888926,
-  "lastResponseAt": 1779261406396,
+  "lastActivityAt": 1779261406396,
   "sessionId": "1e9152b7-6375-46ff-8dac-1627dcdba2ee",
   "providerState": {
     "providerSessionId": "1e9152b7-6375-46ff-8dac-1627dcdba2ee"
+  },
+  "modelRecoverySource": {
+    "sessionId": "1e9152b7-6375-46ff-8dac-1627dcdba2ee",
+    "providerState": {
+      "providerSessionId": "1e9152b7-6375-46ff-8dac-1627dcdba2ee"
+    }
   },
   "usage": {
     "model": "sonnet",

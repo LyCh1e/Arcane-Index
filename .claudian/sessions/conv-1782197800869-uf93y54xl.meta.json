@@ -4,11 +4,16 @@
   "title": "Research MCP servers",
   "titleGenerationStatus": "success",
   "createdAt": 1782197800871,
-  "updatedAt": 1782478275853,
-  "lastResponseAt": 1782478275853,
+  "lastActivityAt": 1782478275853,
   "sessionId": "da65d688-68dc-461f-8e63-1122053a92b7",
   "providerState": {
     "providerSessionId": "da65d688-68dc-461f-8e63-1122053a92b7"
+  },
+  "modelRecoverySource": {
+    "sessionId": "da65d688-68dc-461f-8e63-1122053a92b7",
+    "providerState": {
+      "providerSessionId": "da65d688-68dc-461f-8e63-1122053a92b7"
+    }
   },
   "usage": {
     "model": "sonnet",

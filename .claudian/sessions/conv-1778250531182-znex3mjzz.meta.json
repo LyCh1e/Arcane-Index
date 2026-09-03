@@ -4,13 +4,18 @@
   "title": "Setup wiki vault",
   "titleGenerationStatus": "success",
   "createdAt": 1778250531183,
-  "updatedAt": 1778422689649,
-  "lastResponseAt": 1778307109412,
+  "lastActivityAt": 1778307109412,
   "sessionId": "d78cf8c2-4ca4-42ac-b871-a4b41c357422",
   "providerState": {
     "providerSessionId": "d78cf8c2-4ca4-42ac-b871-a4b41c357422"
   },
-  "currentNote": "CLAUDE.md",
+  "modelRecoverySource": {
+    "sessionId": "d78cf8c2-4ca4-42ac-b871-a4b41c357422",
+    "providerState": {
+      "providerSessionId": "d78cf8c2-4ca4-42ac-b871-a4b41c357422"
+    }
+  },
+  "linkedContentPath": "CLAUDE.md",
   "usage": {
     "model": "sonnet",
     "inputTokens": 1,

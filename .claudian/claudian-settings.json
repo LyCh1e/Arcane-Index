@@ -6,6 +6,7 @@
   "effortLevel": "high",
   "serviceTier": "default",
   "enableAutoTitleGeneration": true,
+  "titleGenerationLocale": "",
   "titleGenerationModel": "haiku",
   "excludedTags": [],
   "mediaFolder": "",
@@ -24,6 +25,7 @@
   "locale": "en",
   "providerConfigs": {
     "claude": {
+      "enabled": true,
       "safeMode": "acceptEdits",
       "cliPath": "",
       "cliPathsByHost": {},
@@ -31,6 +33,7 @@
       "enableChrome": true,
       "enableBangBash": true,
       "customModels": "",
+      "defaultModel": "opus",
       "lastModel": "sonnet",
       "modelEnvironmentType": "",
       "titleModelEnvironmentType": "",
@@ -47,14 +50,15 @@
       "environmentVariables": "",
       "environmentHash": "",
       "installationMethodsByHost": {
-        "device:2ba3e116-c117-48cc-b3e5-fdefe60dea09": "native-windows"
+        "device-49856fffb2ebdf0418295176ffae19a05a37a6280e55c3d32712c1f01a3fa901": "native-windows"
       },
       "wslDistroOverridesByHost": {},
       "discoveredModels": [],
       "modelAliases": {},
       "visibleModels": null,
       "catalogTimestamp": 0,
-      "catalogFingerprint": ""
+      "catalogFingerprint": "",
+      "enableUltraEffort": false
     },
     "opencode": {
       "cliPath": "",
@@ -79,9 +83,25 @@
       "preferredThinkingByModel": {},
       "toolMode": "all",
       "visibleModels": []
+    },
+    "grok": {
+      "catalogsByHost": {},
+      "cliPath": "",
+      "cliPathsByHost": {},
+      "enabled": false,
+      "environmentHash": "",
+      "environmentVariables": "",
+      "modelAliases": {},
+      "planBasePermissionMode": "normal",
+      "preferredReasoningByModel": {},
+      "visibleModels": null
     }
   },
   "settingsProvider": "claude",
+  "lastSelectedChatModel": {
+    "providerId": "claude",
+    "model": "sonnet"
+  },
   "savedProviderModel": {
     "claude": "sonnet"
   },
@@ -97,11 +117,21 @@
   },
   "pendingProviderSessionInvalidations": {},
   "lastCustomModel": "",
-  "maxTabs": 3,
+  "maxWarmAgentProcesses": 5,
   "enableAutoScroll": true,
   "deferMathRenderingDuringStreaming": true,
   "expandFileEditsByDefault": false,
   "chatViewPlacement": "right-sidebar",
+  "enableDualPane": true,
+  "dualPaneSide": "right",
+  "restoreTabsOnStartup": true,
+  "collabEnabled": false,
+  "collabProjectsFolder": "workspace",
+  "collabGitPath": "",
+  "sessionManagerOrganization": "list",
+  "sessionManagerSort": "last-updated",
+  "pinnedLinkedContentPaths": [],
   "hiddenProviderCommands": {},
+  "maxTabs": 3,
   "tabBarPosition": "input"
 }
