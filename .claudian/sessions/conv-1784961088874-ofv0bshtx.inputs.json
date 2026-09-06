@@ -15,6 +15,20 @@
       "contentDigest": "f22fccbc33ccedc55bc3221f663398de19a08e39a953cc42f32a97af6db16414",
       "providerUserMessageId": "efe59564-8ac2-46f5-9a50-59f6a027ab17",
       "providerAssistantMessageId": "0ec006ff-cf8a-4b06-b738-a30496dd4322"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788503790511-612sreq",
+      "userTurnOrdinal": 37,
+      "state": "accepted",
+      "localMessageId": "msg-1788503790452-qoywpyk",
+      "timestamp": 1788503790452,
+      "rawDisplayText": "ingest docs.opencv.org",
+      "canonicalText": "ingest docs.opencv.org",
+      "images": [],
+      "contentDigest": "86a99ad8d4d641c3674feb62273db2ea0eb55a065468917bceecdc54b38d79df",
+      "providerUserMessageId": "39c53307-58ad-4d9c-a505-a64db2074b50",
+      "providerAssistantMessageId": "7d05ac71-72a2-45ba-b5ed-90fb564399f4"
     }
   ]
 }

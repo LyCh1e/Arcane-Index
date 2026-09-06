@@ -109,6 +109,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3112-svv-l6-2\|ICT3112 SVV — L6.2: Decision Table Testing and State Transition Testing]] | lecture-slides | software-verification-validation | 2026-08-31 |
 | [[sources/ict3113-pod-l1\|ICT3113 POD — L1: Course Overview]] | lecture-slides | performance-engineering | 2026-08-31 |
 | [[sources/ict3113-pod-l2\|ICT3113 POD — L2: Performance Metrics and System Modelling]] | lecture-slides | performance-engineering | 2026-08-31 |
+| [[sources/opencv-docs\|OpenCV Official Documentation — docs.opencv.org]] | documentation | computer-vision | 2026-09-04 |
 
 ## Concepts
 
@@ -175,6 +176,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/blackbox-testing-techniques\|Blackbox Testing Techniques]] | software-verification-validation | high |
 | [[concepts/performance-engineering\|Performance Engineering]] | performance-engineering | high |
 | [[concepts/performance-metrics\|Performance Metrics]] | performance-engineering | high |
+| [[concepts/opencv-core\|OpenCV — Core Library and Architecture]] | computer-vision | high |
+| [[concepts/opencv-image-processing\|OpenCV — Image Processing and Computer Vision Techniques]] | computer-vision | high |
 | [[concepts/computer-architecture-fundamentals\|Computer Architecture Fundamentals]] | computer-architecture | medium |
 | [[concepts/assembly-programming-msp430\|Assembly Programming (MSP430)]] | computer-architecture | high |
 | [[concepts/io-and-memory-systems\|I/O Interfacing and Memory Systems]] | computer-architecture | high |

@@ -10,6 +10,18 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-09-04. **Session: ingest — OpenCV Official Documentation (docs.opencv.org).** New: [[sources/opencv-docs]], [[concepts/opencv-core]], [[concepts/opencv-image-processing]], [[areas/computer-vision]].
+
+**What was ingested:** OpenCV 4.13.0 and 5.0.0.93 (released July 2026). The docs.opencv.org domain returns HTTP 403 to all automated fetchers; content was assembled from PyPI, GitHub opencv/opencv and opencv_contrib, WebSearch cache, and accessible community sites.
+
+**opencv-core covers:** The `cv::Mat` class — n-dimensional dense array with header (size, type, channels, step, ref counter) and data pointer. Reference counting means assignment is a shallow copy sharing the pixel buffer; use `.copy()` for an independent deep copy. The CV type system: `CV_<depth><S|U|F>C<channels>` — common types are `CV_8UC1` (greyscale), `CV_8UC3` (BGR colour), `CV_32FC1` (float). OpenCV stores colour as **BGR**, not RGB. OpenCV 5 adds `CV_16F` (FP16) and `CV_16BF` (BF16) for neural network work, plus 0D/1D Mat support and broadcasting.
+
+**OpenCV 5.0 major changes:** Rewritten DNN engine with >80% ONNX spec coverage (vs <23% in 4.x), shape inference, constant folding, operator fusion. Modern YOLOs (v5/v8/v10, RTDETR) now load directly via ONNX without manual graph editing. Built-in tokeniser classes and KV-cache management for LLM/VLM inference. Full C API (IplImage, CvMat, cvLoadImage) removed.
+
+**opencv-image-processing covers:** `imgproc` — GaussianBlur, Canny, Sobel edge detection; morphological ops (erode, dilate, opening, closing, gradient, top-hat/black-hat); colour conversion (BGR→HSV for segmentation, BGR→Grey, BGR→RGB); geometric transforms (warpAffine, warpPerspective, getRotationMatrix2D); histograms (calcHist, equalizeHist, CLAHE); thresholding (simple, Otsu, adaptive). `features2d` — SIFT (scale/rotation invariant; free since 4.3.0), ORB (fast binary), BFMatcher and FLANN matching, Lowe's ratio test, findHomography + RANSAC for planar object recognition. `calib3d` — chessboard calibration → camera matrix K, distortion coefficients; undistort; solvePnP for pose estimation; stereo vision pipeline (stereoCalibrate, stereoRectify, disparity→depth). `dnn` — blobFromImage (NCHW, scalefactor, mean subtraction, swapRB) → setInput → forward; readNetFromONNX; CUDA/OpenCL backends. Video analysis — BackgroundSubtractorMOG2, Lucas-Kanade sparse optical flow (goodFeaturesToTrack + calcOpticalFlowPyrLK), Farneback dense flow, CSRT/KCF/MOSSE tracking.
+
+## Previous Session
+
 2026-09-03. **Session: autoresearch — Accenture PTE LTD.** New: [[entities/accenture-pte-ltd]], [[concepts/management-consulting-industry]], [[synthesis/research-accenture-pte-ltd]].
 
 **What Accenture PTE LTD is:** Singapore-registered private limited company (UEN: 197501877H), incorporated 28 October 1975. Originally registered as Arthur Andersen Associates PTE LTD, then Andersen Consulting Singapore PTE LTD. The Singapore entity is the South-east Asia hub for Accenture plc (NYSE: ACN), the Irish-incorporated global parent on the S&P 100 and Fortune Global 500. Registered address: 250 North Bridge Road, #35-00, Raffles City Tower, Singapore 179101. Auditor: KPMG LLP.

@@ -20,10 +20,6 @@
                     {
                       "tabId": "tab-1782478269333-naa3aq8",
                       "conversationId": "conv-1784961088874-ofv0bshtx"
-                    },
-                    {
-                      "tabId": "tab-1788443762881-l5wa6mc",
-                      "conversationId": "conv-1788443778580-mqf9vx07n"
                     }
                   ],
                   "activeTabId": "tab-1782478269333-naa3aq8"
@@ -251,8 +247,16 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b1e0856db03cc76e",
+  "active": "3f41e16c8ccd1064",
   "lastOpenFiles": [
+    "wiki/hot.md.tmp.30164.b3a3da1ea7bd",
+    "wiki/index.md.tmp.30164.9e6a4dd16965",
+    "wiki/index.md.tmp.30164.6612234dc5fa",
+    "wiki/areas/computer-vision.md",
+    "wiki/areas/computer-vision.md.tmp.30164.0392526b74d9",
+    "wiki/concepts/opencv-image-processing.md",
+    "wiki/concepts/opencv-core.md",
+    "wiki/sources/opencv-docs.md",
     "wiki/hot.md.tmp.26804.ee82bed158b9",
     "wiki/synthesis/research-accenture-pte-ltd.md",
     "wiki/concepts/management-consulting-industry.md",
@@ -271,7 +275,6 @@
     "wiki/learning/dotnet-locked-exe-msb3021.md",
     "wiki/examples/ict3112-lab1-nunit-tdd-calculator.md",
     "wiki/hot.md.tmp.34296.996e908945ba",
-    "wiki/log.md.tmp.34296.fbac9eea2155",
     "wiki/learning/prompt-injection-in-lab-handout-pdf.md",
     "wiki/areas/performance-optimisation-design.md",
     "wiki/concepts/performance-metrics.md",
@@ -280,16 +283,9 @@
     "wiki/sources/ict3113-pod-l1.md",
     "raw/ICT3113 Performance Optimisation and Design - Lec02 Performance Metrics and System Modelling.md",
     "raw/ICT3113 Performance Optimisation and Design - Lec01 Course Overview.md",
-    "wiki/hot.md.tmp.14104.eed9d7583ee3",
-    "wiki/concepts/software-testing-fundamentals.md.tmp.14104.0cd00b2d1ef1",
-    "wiki/concepts/software-verification-and-validation.md.tmp.14104.a6dde3fd32a3",
     "raw/ICT3112 Software Verification and Validation - L1_transcript.md",
     "canvases/blockchain-hash-chain.canvas",
     "wiki/areas/software-verification-validation.md",
-    "wiki/concepts/blackbox-testing-techniques.md",
-    "wiki/concepts/whitebox-testing-techniques.md",
-    "wiki/concepts/software-verification-and-validation.md",
-    "wiki/sources/ict3112-svv-l6-2.md",
     "blockchain-hash-chain.canvas",
     "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",

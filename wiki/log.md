@@ -10,6 +10,18 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-09-04 | ingest | docs.opencv.org (OpenCV Official Documentation)
+
+- Source fetched: https://docs.opencv.org (403 — pivoted to PyPI, GitHub opencv/opencv_contrib, WebSearch, GeeksforGeeks)
+- Covers: OpenCV 4.13.0 (stable) and 5.0.0.93 (June/July 2026 release)
+- Files created:
+  - [[sources/opencv-docs]] — source index (15 main modules, 22 contrib highlights, 4 Python package variants)
+  - [[concepts/opencv-core]] — cv::Mat, data type system (CV_8UC1 … CV_64FC1, new FP16/BF16 in v5), coordinate conventions, I/O, drawing, arithmetic, OpenCV 5 major changes (DNN engine, LLM/VLM, N-D Mat, C API removal), module architecture
+  - [[concepts/opencv-image-processing]] — imgproc (colour conversion, thresholding, filtering, morphology, edge detection, geometric transforms, contours, histograms), features2d (SIFT, ORB, BFMatcher, FLANN, Lowe ratio test, findHomography + RANSAC), calib3d (chessboard calibration, solvePnP, stereo vision), dnn (blobFromImage, readNetFromONNX, forward, backends), video analysis (BackgroundSubtractorMOG2, Lucas-Kanade and Farneback optical flow, CSRT/KCF tracking), objdetect (Haar, HOG+SVM, QR), common pipelines (colour segmentation, YOLO, feature-based recognition)
+  - [[areas/computer-vision]] — area page linking all CV pages with concept summaries
+- Index updated: 1 source row + 2 concept rows added
+- Key finding: docs.opencv.org returns HTTP 403 to automated fetchers; OpenCV 5.0.0.93 released July 2026 with rewritten DNN engine (>80% ONNX), LLM/VLM support, FP16/BF16 types, N-D Mat broadcasting, C API removed
+
 ## 2026-09-03 | autoresearch | Accenture PTE LTD
 
 - Rounds: 3 | Searches: 9 | Sources fetched: 5 | Pages created: 3
