@@ -10,6 +10,18 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-09-07. **Session: ingest — INF2005 Cyber Security Fundamentals (4 lectures).** New: [[sources/inf2005-csf-crypto1]], [[sources/inf2005-csf-crypto2]], [[sources/inf2005-csf-steganography]], [[sources/inf2005-csf-access-control]], [[concepts/symmetric-encryption]], [[concepts/steganography]], [[concepts/access-control]].
+
+**INF2005 course (Dr Tan Kheng Leong)** covers the foundations of cyber security: cryptography, information hiding, and access control. The classical cipher and public-key crypto content was already ingested in an earlier session; this session captured what was missing.
+
+**Symmetric encryption (new page):** Kerckhoffs's Principle — security rests on key secrecy, not algorithm secrecy. Progression: DES (56-bit effective, 16 rounds, broken 2002) → 3DES (168-bit, EDE structure, deprecated 2024 due to 64-bit block birthday attacks) → AES (128-bit block, 10/12/14 rounds for 128/192/256-bit keys, current standard). Block cipher modes: ECB (never use — patterns leak), CBC, CTR, GCM (authenticated encryption — TLS 1.3 standard). One-Time Pad: theoretically unbreakable, impractical at scale (key must equal message length, truly random, one use only). True RNG (physical entropy) vs PRNG (predictable seed) — using PRNG for crypto keys is a critical vulnerability.
+
+**Steganography (new page):** Hides the *existence* of a message (vs cryptography which hides its *content*). Process: Payload + Cover Object → Stego Object. LSB algorithm: replacing the least significant bit of pixel bytes causes only ±1 change in value — visually imperceptible. LSB Replacement (direct bit swap; ~50% of bits change) vs LSB Matching (random ±1 adjustment; harder to detect statistically). Requires lossless formats (PNG, BMP) — JPEG destroys LSBs. BPCS: hides data in genuinely complex (noisy) regions of any bit plane; complexity `c = changes / 112`, threshold T ≈ 0.3; conjugation (XOR) transforms non-complex payload blocks. Much higher capacity (~50% vs ~12%) and lower detectability than LSB. Steganalysis: visual (even/odd pixel filter), statistical (histogram asymmetry), tool-based.
+
+**Access control (new page):** IAA = Identification → Authentication → Authorisation. Three factor types: Knowledge (passwords), Token (smart card, RFID, eToken), Biometrics. Password attacks: brute force (25-GPU cluster → 350B guesses/s), dictionary (hash candidate words vs leaked hash DB), rainbow table (precomputed hash→password, defeated entirely by salting), Google dorking (find exposed credential files). Secure storage hierarchy: plaintext → encrypt → hash → **salted hash** (recommended; use bcrypt/scrypt/Argon2). Biometric accuracy: FAR (false accept) vs TAR (true accept) plotted on ROC curve. Modality ranking: retinal (most accurate, most invasive) > iris > fingerprint > facial. Authorisation models: DAC (owner via ACL), RBAC (admin via roles; role creep risk), MAC (OS via classification+category labels; most secure). POLP: minimum necessary permissions. SoD: split critical tasks across multiple people.
+
+## Previous Session
+
 2026-09-04. **Session: ingest — OpenCV Official Documentation (docs.opencv.org).** New: [[sources/opencv-docs]], [[concepts/opencv-core]], [[concepts/opencv-image-processing]], [[areas/computer-vision]].
 
 **What was ingested:** OpenCV 4.13.0 and 5.0.0.93 (released July 2026). The docs.opencv.org domain returns HTTP 403 to all automated fetchers; content was assembled from PyPI, GitHub opencv/opencv and opencv_contrib, WebSearch cache, and accessible community sites.

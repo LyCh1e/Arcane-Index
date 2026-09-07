@@ -10,6 +10,22 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-09-07 | ingest | INF2005 Cyber Security Fundamentals (4 lectures)
+
+- Lecturer: Dr Tan Kheng Leong
+- Raw files: Crypto1 Key Concepts, Crypto2 PK Attacks, Steganography, Access Control
+- Source pages created:
+  - [[sources/inf2005-csf-crypto1]] — symmetric crypto overview, DES/3DES/AES, OTP, RNG, Kerckhoffs
+  - [[sources/inf2005-csf-crypto2]] — asymmetric crypto, RSA, Diffie–Hellman, hashing, digital signatures, birthday attack, cryptanalysis
+  - [[sources/inf2005-csf-steganography]] — LSB Replacement/Matching, BPCS (complexity + conjugation), steganalysis techniques
+  - [[sources/inf2005-csf-access-control]] — IAA framework, password attacks (brute force, dictionary, rainbow table, dorking), salted hashing, graphical auth, biometrics (FAR/TAR/ROC), token types (eToken/smart card/RFID), DAC/RBAC/MAC, POLP, SoD
+- New concept pages created:
+  - [[concepts/symmetric-encryption]] — Kerckhoffs's Principle, DES, 3DES, AES, block cipher modes (ECB/CBC/CTR/GCM), OTP, true vs pseudo RNG
+  - [[concepts/steganography]] — steganography vs cryptography, LSB algorithm, bit planes, BPCS, steganalysis
+  - [[concepts/access-control]] — full IAA framework, all authentication factors, password attacks + defences, biometric modality comparison, authorisation models, POLP, SoD
+- Area updates: [[areas/cryptography]] (added symmetric-encryption + steganography rows); [[areas/secure-software-development]] (added access-control row)
+- Note: Crypto1/Crypto2 classical cipher and public-key content already covered by existing pages created 2026-09-03 — new content focused on what was missing (DES/AES, OTP, steganography, access control)
+
 ## 2026-09-04 | ingest | docs.opencv.org (OpenCV Official Documentation)
 
 - Source fetched: https://docs.opencv.org (403 — pivoted to PyPI, GitHub opencv/opencv_contrib, WebSearch, GeeksforGeeks)

@@ -110,6 +110,10 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3113-pod-l1\|ICT3113 POD — L1: Course Overview]] | lecture-slides | performance-engineering | 2026-08-31 |
 | [[sources/ict3113-pod-l2\|ICT3113 POD — L2: Performance Metrics and System Modelling]] | lecture-slides | performance-engineering | 2026-08-31 |
 | [[sources/opencv-docs\|OpenCV Official Documentation — docs.opencv.org]] | documentation | computer-vision | 2026-09-04 |
+| [[sources/inf2005-csf-crypto1\|INF2005 CSF — Cryptography 1: Key Concepts (Symmetric)]] | lecture-notes | cryptography | 2026-09-07 |
+| [[sources/inf2005-csf-crypto2\|INF2005 CSF — Cryptography 2: Asymmetric, Hashing & Cryptanalysis]] | lecture-notes | cryptography | 2026-09-07 |
+| [[sources/inf2005-csf-steganography\|INF2005 CSF — Steganography]] | lecture-notes | cryptography | 2026-09-07 |
+| [[sources/inf2005-csf-access-control\|INF2005 CSF — Access Control]] | lecture-notes | secure-software-development | 2026-09-07 |
 
 ## Concepts
 
@@ -178,6 +182,9 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/performance-metrics\|Performance Metrics]] | performance-engineering | high |
 | [[concepts/opencv-core\|OpenCV — Core Library and Architecture]] | computer-vision | high |
 | [[concepts/opencv-image-processing\|OpenCV — Image Processing and Computer Vision Techniques]] | computer-vision | high |
+| [[concepts/symmetric-encryption\|Symmetric Encryption — Modern Block and Stream Ciphers]] | cryptography | high |
+| [[concepts/steganography\|Steganography]] | cryptography | medium |
+| [[concepts/access-control\|Access Control — Identification, Authentication, and Authorisation]] | secure-software-development | high |
 | [[concepts/computer-architecture-fundamentals\|Computer Architecture Fundamentals]] | computer-architecture | medium |
 | [[concepts/assembly-programming-msp430\|Assembly Programming (MSP430)]] | computer-architecture | high |
 | [[concepts/io-and-memory-systems\|I/O Interfacing and Memory Systems]] | computer-architecture | high |

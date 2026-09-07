@@ -29,6 +29,32 @@
       "contentDigest": "86a99ad8d4d641c3674feb62273db2ea0eb55a065468917bceecdc54b38d79df",
       "providerUserMessageId": "39c53307-58ad-4d9c-a505-a64db2074b50",
       "providerAssistantMessageId": "7d05ac71-72a2-45ba-b5ed-90fb564399f4"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788767758820-cq9zhxp",
+      "userTurnOrdinal": 38,
+      "state": "accepted",
+      "localMessageId": "msg-1788767758737-pk79itj",
+      "timestamp": 1788767758737,
+      "rawDisplayText": "ingest inf2005",
+      "canonicalText": "ingest inf2005",
+      "images": [],
+      "contentDigest": "b0a4cedb29242b6d162d603a2ca4f01f63bd9482cbdee900bd1554bae6135d63",
+      "providerUserMessageId": "faafe864-6ab6-4e86-9b85-6e3cfebcc280",
+      "providerAssistantMessageId": "d42ce0c9-0df3-4ae0-9c10-ea20f396a498"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788768406244-2n3igtk",
+      "userTurnOrdinal": 39,
+      "state": "staged",
+      "localMessageId": "msg-1788768406212-5vtdky0",
+      "timestamp": 1788768406212,
+      "rawDisplayText": "ingest ICT3113 Performance Optimisation and Design\nLecture 3: Workload Identification",
+      "canonicalText": "ingest ICT3113 Performance Optimisation and Design\nLecture 3: Workload Identification",
+      "images": [],
+      "contentDigest": "7ac4c1d4358629ed783733fd4e5c755fc2da15f452dafb44b912a4026261ccd8"
     }
   ]
 }

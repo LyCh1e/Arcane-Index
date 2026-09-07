@@ -21,8 +21,10 @@ underpins the blockchain, secure-software, and networking areas.
 | Page | Description | Complexity |
 |------|------------|------------|
 | [[concepts/classical-ciphers-and-cryptanalysis\|Classical Ciphers and Cryptanalysis]] | Substitution (Caesar, Vigenère, monoalphabetic) vs transposition (rail fence, columnar); frequency analysis; encodings (Base64/Morse/hex/binary/XOR) vs encryption; CTF recognition workflow | medium |
+| [[concepts/symmetric-encryption\|Symmetric Encryption]] | Kerckhoffs's Principle; DES (56-bit, broken 2002), 3DES (deprecated 2024), AES (128/192/256-bit, current standard); block cipher modes (ECB/CBC/CTR/GCM); One-Time Pad; true vs pseudo randomness | high |
 | [[concepts/public-key-cryptography-and-key-exchange\|Public-Key Cryptography and Key Exchange]] | Symmetric vs asymmetric; RSA (keygen, `m^e`/`c^d`, key-size security, textbook-RSA weakness); digital signatures; authentication ≠ confidentiality; the key-distribution problem; Diffie–Hellman; PKI | high |
 | [[concepts/cryptographic-hash-functions\|Cryptographic Hash Functions]] | One-way, deterministic, fixed-length digests; 5 spec + 4 security properties; MD5/SHA-1 broken, SHA-2/SHA-3 active; hashing in Java; hash chaining | high |
+| [[concepts/steganography\|Steganography]] | Steganography vs cryptography; payload + cover → stego object; LSB Replacement and LSB Matching; bit planes; BPCS algorithm (complexity threshold, conjugation); steganalysis (visual, statistical, tool-based) | medium |
 
 ---
 
@@ -44,11 +46,17 @@ underpins the blockchain, secure-software, and networking areas.
 
 ---
 
+## Applied / Lab Pages
+
+| Page | Content |
+|------|---------|
+| [[examples/inf2005-lab-wk1-cryptography\|INF2005 Lab Wk 1 — Cryptography]] | 10 exercises + 7 cryptanalysis challenges + RSA-64-bit team challenge (`netforce.enc`); full worked solutions |
+| [[learning/textbook-rsa-64-bit-modulus\|Textbook RSA with a 64-bit modulus is broken in milliseconds]] | Lesson: RSA security = cost of factoring `n` |
+
 ## Planned / Gaps
 
 | Topic | Notes |
 |-------|-------|
-| Block cipher modes (ECB/CBC/CTR/GCM) | ECB pattern leakage; authenticated encryption |
 | Elliptic-curve cryptography | ECDH / ECDSA; why smaller keys suffice |
 | TLS handshake end-to-end | integration of all three primitives (see [[synthesis/web-security-ssdlc-bridge]]) |
-| Key derivation & password hashing | PBKDF2, bcrypt, scrypt, Argon2 |
+| Key derivation & password hashing | PBKDF2, bcrypt, scrypt, Argon2 — see [[concepts/access-control]] §Secure Password Storage |
