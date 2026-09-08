@@ -10,6 +10,26 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-09-07. **Session: ingest — ICT3113 POD L3: Workload Identification.** New: [[sources/ict3113-pod-l3]], [[concepts/workload-identification]].
+
+**Workload = transaction types + arrival rates + service demand.** The central question workload identification answers: "what is this system actually being asked to do?" — in numbers, before it is built. Without it, capacity decisions are guesses; with it, each assumption is visible and correctable.
+
+**Business drivers, not servers.** Arrival rates are business numbers: filing deadlines drive submission spikes, payday drives payment peaks, campaign notifications drive flash-sale load. The business calendar is the first performance document to read.
+
+**Decomposition chain:** population → active fraction → actions per active user → time window → arrival rate. State every assumption explicitly (hidden assumptions cannot be corrected). Add ×2–5 headroom. Refine near SLO decisions.
+
+**e-Filing worked example:** 2M taxpayers × 20% on deadline day = 400,000 filings. Over 12 hours = 9.3/s average; 3× evening peak = 28/s; × 30 requests/session = 830 req/s at web tier; × 20 ms/req via Utilisation Law = 16.6 busy server-seconds; at 70% U target → 24 servers. Every number is an explicit, challengeable assumption.
+
+**Peak vs average:** design for peak. A system sized for the average fails precisely when users are watching. **Peak-within-peak:** when results release at noon, an hour's worth of load lands in the first minute. **Taylor Swift case study:** the real workload was not "sell 330,000 tickets" — it was "absorb millions of arrivals and keep the queue page up." The virtual waiting room was a design response to the arrival-rate estimate.
+
+**Workload mix matters as much as volume.** Doubling the checkout fraction without changing total traffic changes the workload entirely (each checkout involves DB writes, inventory checks, payment gateway calls vs a cached page view).
+
+**Three exam exercises:** manufacturing (U = 83% normal, 133% in final week — single shift fails), polyclinic (U = 83.8% normal, 102.5% with flu drive — one counter fails), flash sale (333 arrivals/s, 2,000 req/s, 29 servers, 50× peak-to-average ratio).
+
+**The design chain:** business driver → arrival rate × service demand → utilisation → capacity decision.
+
+## Previous Session
+
 2026-09-07. **Session: ingest — INF2005 Cyber Security Fundamentals (4 lectures).** New: [[sources/inf2005-csf-crypto1]], [[sources/inf2005-csf-crypto2]], [[sources/inf2005-csf-steganography]], [[sources/inf2005-csf-access-control]], [[concepts/symmetric-encryption]], [[concepts/steganography]], [[concepts/access-control]].
 
 **INF2005 course (Dr Tan Kheng Leong)** covers the foundations of cyber security: cryptography, information hiding, and access control. The classical cipher and public-key crypto content was already ingested in an earlier session; this session captured what was missing.

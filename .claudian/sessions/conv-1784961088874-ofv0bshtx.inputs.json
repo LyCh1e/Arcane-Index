@@ -48,13 +48,15 @@
       "schemaVersion": 1,
       "id": "msg-1788768406244-2n3igtk",
       "userTurnOrdinal": 39,
-      "state": "staged",
+      "state": "accepted",
       "localMessageId": "msg-1788768406212-5vtdky0",
       "timestamp": 1788768406212,
       "rawDisplayText": "ingest ICT3113 Performance Optimisation and Design\nLecture 3: Workload Identification",
       "canonicalText": "ingest ICT3113 Performance Optimisation and Design\nLecture 3: Workload Identification",
       "images": [],
-      "contentDigest": "7ac4c1d4358629ed783733fd4e5c755fc2da15f452dafb44b912a4026261ccd8"
+      "contentDigest": "7ac4c1d4358629ed783733fd4e5c755fc2da15f452dafb44b912a4026261ccd8",
+      "providerUserMessageId": "5ba60efa-0d87-4f84-9f02-6b3ab2112dc2",
+      "providerAssistantMessageId": "f3dfcb12-8384-4c08-8b13-8c45d905d2a9"
     }
   ]
 }

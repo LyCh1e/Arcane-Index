@@ -247,8 +247,11 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b1e0856db03cc76e",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
+    "wiki/hot.md.tmp.31464.47b58d8f10e1",
+    "wiki/concepts/workload-identification.md",
+    "wiki/sources/ict3113-pod-l3.md",
     "raw/ICT3113 Performance Optimisation and Design - Lec03 Workload Identification.md",
     "wiki/hot.md.tmp.31464.8737a6d92979",
     "wiki/index.md.tmp.31464.484aea980b4c",
@@ -282,9 +285,6 @@
     "wiki/areas/cryptography.md",
     "wiki/learning/textbook-rsa-64-bit-modulus.md",
     "wiki/examples/inf2005-lab-wk1-cryptography.md",
-    "wiki/concepts/public-key-cryptography-and-key-exchange.md",
-    "wiki/concepts/classical-ciphers-and-cryptanalysis.md",
-    "wiki/learning/dotnet-locked-exe-msb3021.md",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",
     "canvases/password-hashing.canvas",

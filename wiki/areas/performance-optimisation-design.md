@@ -20,6 +20,7 @@ This area covers the ICT3113 course content and related knowledge on software pe
 |------|------------|------------|
 | [[concepts/performance-engineering\|Performance Engineering]] | Measure → Model → Optimise → Deploy philosophy; classical optimisation techniques; application to AI workloads and production deployment | high |
 | [[concepts/performance-metrics\|Performance Metrics]] | 6 metric properties; response time (R = W + S); percentiles and tail latency; SLI/SLO/SLA; arrival rate; throughput; utilisation; Utilisation Law (U = XS); non-linear utilisation → response time relationship | high |
+| [[concepts/workload-identification\|Workload Identification]] | Workload components (transaction types, arrival rates, service demand); business-driven estimation; order-of-magnitude decomposition; peak vs average; peak-within-peak; workload mix; architecture decisions driven by workload; three worked examples (manufacturing, healthcare, IT flash sale) | high |
 
 ---
 
@@ -29,6 +30,7 @@ This area covers the ICT3113 course content and related knowledge on software pe
 |------|---------|
 | [[sources/ict3113-pod-l1\|L1: Course Overview]] | Module philosophy (Measure/Model/Optimise/Deploy), 14-week schedule, assessment breakdown, teaching approach (demonstrations over facts) |
 | [[sources/ict3113-pod-l2\|L2: Performance Metrics and System Modelling]] | Mars Climate Orbiter case study, 6 metric properties, 3 metric classes, response time, percentiles, tail latency, demand/supply distinction, Utilisation Law, non-linear utilisation/response relationship, worked examples |
+| [[sources/ict3113-pod-l3\|L3: Workload Identification]] | Pont des Arts motivation; workload definition; business drivers; decomposition methodology; e-Filing worked example; peak vs average; Taylor Swift case study; workload mix; MRT architecture comparison; three exercises (manufacturing, polyclinic, flash sale) |
 
 ---
 
@@ -36,7 +38,7 @@ This area covers the ICT3113 course content and related knowledge on software pe
 
 | Topic | When | Notes |
 |-------|------|-------|
-| Workload Identification | Wk 3 | Characterising what a system is asked to do |
+| ~~Workload Identification~~ | Wk 3 | ✅ Ingested — [[concepts/workload-identification]] |
 | Performance Modelling I | Wk 4 | Queues and Little's Law |
 | Performance Modelling II | Wk 5 | M/M/1, performance bounds, execution models |
 | LLM Inference Performance | Wk 8 | TTFT, tokens/s, batching, GPU utilisation |

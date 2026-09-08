@@ -109,6 +109,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3112-svv-l6-2\|ICT3112 SVV — L6.2: Decision Table Testing and State Transition Testing]] | lecture-slides | software-verification-validation | 2026-08-31 |
 | [[sources/ict3113-pod-l1\|ICT3113 POD — L1: Course Overview]] | lecture-slides | performance-engineering | 2026-08-31 |
 | [[sources/ict3113-pod-l2\|ICT3113 POD — L2: Performance Metrics and System Modelling]] | lecture-slides | performance-engineering | 2026-08-31 |
+| [[sources/ict3113-pod-l3\|ICT3113 POD — L3: Workload Identification]] | lecture-slides | performance-engineering | 2026-09-07 |
 | [[sources/opencv-docs\|OpenCV Official Documentation — docs.opencv.org]] | documentation | computer-vision | 2026-09-04 |
 | [[sources/inf2005-csf-crypto1\|INF2005 CSF — Cryptography 1: Key Concepts (Symmetric)]] | lecture-notes | cryptography | 2026-09-07 |
 | [[sources/inf2005-csf-crypto2\|INF2005 CSF — Cryptography 2: Asymmetric, Hashing & Cryptanalysis]] | lecture-notes | cryptography | 2026-09-07 |
@@ -180,6 +181,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/blackbox-testing-techniques\|Blackbox Testing Techniques]] | software-verification-validation | high |
 | [[concepts/performance-engineering\|Performance Engineering]] | performance-engineering | high |
 | [[concepts/performance-metrics\|Performance Metrics]] | performance-engineering | high |
+| [[concepts/workload-identification\|Workload Identification]] | performance-engineering | high |
 | [[concepts/opencv-core\|OpenCV — Core Library and Architecture]] | computer-vision | high |
 | [[concepts/opencv-image-processing\|OpenCV — Image Processing and Computer Vision Techniques]] | computer-vision | high |
 | [[concepts/symmetric-encryption\|Symmetric Encryption — Modern Block and Stream Ciphers]] | cryptography | high |

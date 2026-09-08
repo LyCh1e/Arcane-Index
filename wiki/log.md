@@ -10,6 +10,16 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-09-07 | ingest | ICT3113 POD — L3: Workload Identification
+
+- Lecturer: A/Prof Donny Soh
+- Raw file: `raw/ICT3113 Performance Optimisation and Design - Lec03 Workload Identification.md`
+- Files created:
+  - [[sources/ict3113-pod-l3]] — Pont des Arts motivation, workload definition (transaction types / arrival rates / service demand), business drivers, decomposition methodology, e-Filing worked example, peak vs average, Taylor Swift case study, workload mix, MRT architecture comparison (single vs sub-controller), three exercises (manufacturing, polyclinic, flash sale)
+  - [[concepts/workload-identification]] — full concept page: all of the above plus design chain, common mistakes, exam-reference worked example tables
+- Area updated: [[areas/performance-optimisation-design]] — Wk 3 moved from Planned to Source/Concept tables
+- Index updated: 1 source row + 1 concept row
+
 ## 2026-09-07 | ingest | INF2005 Cyber Security Fundamentals (4 lectures)
 
 - Lecturer: Dr Tan Kheng Leong
