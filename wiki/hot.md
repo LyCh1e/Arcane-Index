@@ -2,13 +2,31 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-09-03
+updated: 2026-09-08
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-09-08. **Session: build + ingest — ICT3113 Lab 1 (Week 2): Introduction to Profiling.** New: [[concepts/python-profiling]], [[examples/ict3113-lab1-profiling]].
+
+The Week 2 lab notebook shipped as a student skeleton — narrative markdown, empty code cells. Completed every cell, added logic comments to the pre-filled ones, adapted the Colab/Linux idioms to run locally on Windows / Python 3.14, and executed it clean top-to-bottom with `jupyter nbconvert --execute`.
+
+**Deterministic vs statistical profiling.** Deterministic (`cProfile`, `timeit`): instruments every call — exact counts, 2–10× slowdown, distorts the measurement. Statistical (`py-spy`, `pyinstrument`): samples the stack N times/sec — few-% overhead, safe in production, no code change, can attach to a running PID, but blind between samples. Measured: a call-heavy script runs 1.8 s bare, **9.6 s under cProfile (~5×)**, 37 s for a longer variant; the longer one shows **no perceptible slowdown under py-spy at 100 Hz**.
+
+**Time.** `perf_counter` = one high-res monotonic reading pair (noisy, coarse). `timeit` traps: `setup` runs *once* (an in-place sort then sorts sorted data on runs 2…n) → use `repeat(number=1)`; report **min, not mean** (min = least-disturbed run). `cProfile` columns: **tottime** (self time — optimise here) vs **cumtime** (function + callees); `ncalls` `36/1` = 36 total / 1 primitive. Visualise: `gprof2dot` → `.dot` → Graphviz `dot` (not on Windows by default) → PNG; fallback = read `.pstats` with stdlib `pstats` + matplotlib bar chart.
+
+**py-spy.** `record --format flamegraph`; flame graph = boxes are frames, y = stack depth, x = sample share (alphabetical, not time), **width = fraction of time on stack**. `py-spy top` reconstructed from `--format raw` by attributing each sample to its leaf frame.
+
+**Memory.** `memory_profiler` — `@profile` + `python -m memory_profiler`, per-line RSS **Increment** (coarse, ~64–125 MiB interpreter baseline, recursion makes logs unreadable). `tracemalloc` (stdlib) — Python-level allocation **sites** (file:line), snapshot diff, and `get_traced_memory()` **peak** (best transient-cost number). Measured peak on identical input: in-place `insertion_sort` **0.8 KiB**, `quick_sort` **1.7 KiB**, copying `merge_sort` **19.5 KiB**.
+
+**System.** `psutil` — `cpu_count(logical=/False)`, `cpu_freq()`, `virtual_memory()`, `cpu_percent(percpu=True)`, `Process().memory_info().rss` — the cross-platform `/proc/cpuinfo` replacement.
+
+**Method:** record environment → fix RNG seed → measure unprofiled baseline → deterministic pass for counts + sampling pass if long-running → optimise highest `tottime` → re-measure. **Worked case:** naive recursive `fib(30)` = **2,692,537 calls** (O(φⁿ)); memoised `fib(34)` = **35 calls** (O(n)) — the profiler *is* the before/after evidence. Complexity is visible in timings too: insertion vs merge sort ratio grows ×6.7 → ×50.4 as n goes 500 → 4000.
+
+## Previous Session
 
 2026-09-07. **Session: ingest — ICT3113 POD L3: Workload Identification.** New: [[sources/ict3113-pod-l3]], [[concepts/workload-identification]].
 

@@ -2,7 +2,7 @@
 type: meta
 status: established
 title: "Wiki Index"
-updated: 2026-09-03T00:00:00
+updated: 2026-09-08T00:00:00
 tags: [meta, index]
 ---
 
@@ -182,6 +182,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/performance-engineering\|Performance Engineering]] | performance-engineering | high |
 | [[concepts/performance-metrics\|Performance Metrics]] | performance-engineering | high |
 | [[concepts/workload-identification\|Workload Identification]] | performance-engineering | high |
+| [[concepts/python-profiling\|Python Profiling — Time, Memory, and CPU]] | performance-engineering | medium |
 | [[concepts/opencv-core\|OpenCV — Core Library and Architecture]] | computer-vision | high |
 | [[concepts/opencv-image-processing\|OpenCV — Image Processing and Computer Vision Techniques]] | computer-vision | high |
 | [[concepts/symmetric-encryption\|Symmetric Encryption — Modern Block and Stream Ciphers]] | cryptography | high |
@@ -286,6 +287,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict2216-lab9-sonarqube\|ICT2216 Lab 9 — Static Analysis Using SonarQube]] | lab | ICT2216 / secure-software-development | [[concepts/docker-compose\|Docker Compose]] |
 | [[examples/ict2216-lab11-zap-burp\|ICT2216 Lab 11 — Vulnerability Assessment with OWASP ZAP & Fuzzing with Burp Suite]] | lab | ICT2216 / secure-software-development | [[concepts/security-testing-and-verification\|Security Testing and Verification]] |
 | [[examples/ict3112-lab1-nunit-tdd-calculator\|ICT3112 SVV Lab 1 — NUnit + TDD Calculator]] | lab | ICT3112 / software-verification-validation | [[concepts/test-driven-development\|Test-Driven Development]] |
+| [[examples/ict3113-lab1-profiling\|ICT3113 Lab 1 — Introduction to Profiling]] | lab | ICT3113 / performance-engineering | [[concepts/python-profiling\|Python Profiling]] |
 | [[examples/ict2216-project-phase4-auth\|ICT2216 Project — Phase 4: Authentication (Register/Login/MFA/Logout)]] | project | ICT2216 / secure-software-development | [[concepts/secure-software-requirements\|Secure Software Requirements]] |
 | [[examples/ict2216-project-deployment-phases-9-12\|ICT2216 Project — Phases 9–12: Frontend Wiring, Hardening & EC2 Deployment]] | project | ICT2216 / devops | [[concepts/docker-compose\|Docker Compose]] |
 | [[examples/ict2216-practical-test-secure-webapp\|ICT2216 Practical Test — Secure Web App + Full DevSecOps Stack (Gitea, act_runner, SonarQube, ESLint)]] | project | ICT2216 / secure-software-development | [[concepts/github-actions-cicd\|GitHub Actions CI/CD]] |

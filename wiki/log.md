@@ -2,13 +2,25 @@
 type: meta
 status: established
 title: "Operation Log"
-updated: 2026-09-03
+updated: 2026-09-08
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## 2026-09-08 | build + ingest | ICT3113 Lab 1 — Introduction to Profiling
+
+- Task: complete `Labs/Lab1/ICT3113_Week02_Introduction_to_Profiling_Student_clean.ipynb` (student skeleton — narrative markdown, empty code cells), then ingest.
+- Notebook: filled every code cell, annotated the pre-filled ones with logic comments, adapted Colab/Linux idioms to run locally on Windows/Python 3.14, executed clean top-to-bottom via `jupyter nbconvert --execute` (0 errors, all outputs captured).
+- Files created:
+  - [[concepts/python-profiling]] — deterministic vs statistical profiling; `time.perf_counter` / `timeit` (setup-once trap, report min); `cProfile` (ncalls/tottime/cumtime); `gprof2dot` + no-Graphviz fallback; `py-spy` + flame graphs; `memory_profiler` (per-line RSS) vs `tracemalloc` (allocation sites, peak); `psutil` system inventory; the profile-first method; memoisation as a worked before/after
+  - [[examples/ict3113-lab1-profiling]] — what each section does, key measured numbers (insertion/merge ratio ×6.7→×50.4; cProfile ~5× overhead; naive fib(30) = 2.69M calls vs memoised fib(34) = 35; tracemalloc peak in-place <1 KiB vs merge 19.5 KiB), Windows adaptations, handout `fib` typo
+- Files updated:
+  - [[areas/performance-optimisation-design]] — Wk 2 lab row added
+  - `index.md` — 1 concept row + 1 example row; `hot.md` — new session block
+- Tools installed (user site): memory_profiler, py-spy, gprof2dot, snakeviz, jupyter, nbconvert. Graphviz `dot` unavailable on Windows (no admin) → gprof2dot emits `.dot`, matplotlib bar chart substitutes for the PNG.
 
 ## 2026-09-07 | ingest | ICT3113 POD — L3: Workload Identification
 

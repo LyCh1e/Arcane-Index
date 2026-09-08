@@ -43,7 +43,7 @@
             }
           },
           {
-            "id": "f013119b4bc49b10",
+            "id": "ab6394df2d35c517",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -56,7 +56,8 @@
               "title": "CLAUDE"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -247,8 +248,18 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "aa21592bb12da3f9",
   "lastOpenFiles": [
+    "wiki/hot.md.tmp.22792.1e29fc918d4f",
+    "wiki/hot.md.tmp.22792.95ca3e19267d",
+    "wiki/log.md.tmp.22792.b3b3b1eaabfd",
+    "wiki/log.md.tmp.22792.81de7673f511",
+    "wiki/index.md.tmp.22792.a5b6ac01b1a5",
+    "wiki/examples/ict3113-lab1-profiling.md",
+    "wiki/examples/ict3113-lab1-profiling.md.tmp.22792.7e813adb9a3f",
+    "wiki/concepts/python-profiling.md",
+    "wiki/concepts/python-profiling.md.tmp.22792.524f79d4d964",
+    "CLAUDE.md",
     "wiki/hot.md.tmp.31464.47b58d8f10e1",
     "wiki/concepts/workload-identification.md",
     "wiki/sources/ict3113-pod-l3.md",
@@ -256,18 +267,11 @@
     "wiki/hot.md.tmp.31464.8737a6d92979",
     "wiki/index.md.tmp.31464.484aea980b4c",
     "wiki/index.md.tmp.31464.41f99f379fac",
-    "wiki/areas/secure-software-development.md.tmp.31464.965f45ede593",
-    "wiki/areas/cryptography.md.tmp.31464.4e1adc4db6bd",
-    "wiki/areas/cryptography.md.tmp.31464.241bba28847a",
     "wiki/sources/inf2005-csf-access-control.md",
-    "wiki/sources/inf2005-csf-access-control.md.tmp.31464.f6942c1a86e4",
     "wiki/sources/inf2005-csf-steganography.md",
-    "wiki/sources/inf2005-csf-steganography.md.tmp.31464.891b3bab1a58",
     "wiki/sources/inf2005-csf-crypto2.md",
     "wiki/sources/inf2005-csf-crypto1.md",
-    "wiki/sources/inf2005-csf-crypto1.md.tmp.31464.e9005e073283",
     "wiki/concepts/access-control.md",
-    "wiki/concepts/access-control.md.tmp.31464.4568db654489",
     "wiki/concepts/steganography.md",
     "wiki/concepts/symmetric-encryption.md",
     "raw/INF2005 Cyber Security Fundamentals - Access Control.md",
@@ -281,10 +285,7 @@
     "wiki/synthesis/research-accenture-pte-ltd.md",
     "wiki/concepts/management-consulting-industry.md",
     "wiki/entities/accenture-pte-ltd.md",
-    "CLAUDE.md",
     "wiki/areas/cryptography.md",
-    "wiki/learning/textbook-rsa-64-bit-modulus.md",
-    "wiki/examples/inf2005-lab-wk1-cryptography.md",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",
     "canvases/password-hashing.canvas",
