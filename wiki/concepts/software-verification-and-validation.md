@@ -158,6 +158,19 @@ Assumes frequently-triggered faults are found and fixed first — diminishing re
 
 **Key distinction**: the logarithmic model tends towards zero but never reaches it, making it arguably more realistic for systems that always have some residual fringe-case failures.
 
+### Applied — ICT3112 Lab 2 (classroom forms)
+
+[[examples/ict3112-lab2-reqnroll-bdd]] implements a subset of these as calculator methods, with the simplifications the lab states explicitly:
+
+| Method | Classroom form used | Notes |
+|--------|--------------------|-------|
+| `Mtbf(operatingTime, failures)` | `operatingTime / failures` | both inputs must be positive; "an observed average, not a prediction" |
+| `Availability(mtbf, mttr)` | `mtbf / (mtbf + mttr)` | uses the approximation **MTTF ≈ MTBF** (so it substitutes MTBF for MTTF in `MTTF/(MTTF+MTTR)`); inputs non-negative, denominator positive; returns 0–1 |
+| Basic Musa `λ(τ)` | `λ₀ · exp(−λ₀τ / ν₀)` | equivalent to `λ₀ · [1 − μ(τ)/ν₀]`; starts at λ₀, decays to 0 |
+| Basic Musa `μ(τ)` | `ν₀ · [1 − exp(−λ₀τ / ν₀)]` | starts at 0, rises to ν₀; domain `λ₀>0, ν₀>0, τ≥0`, τ in stated execution-time units (CPU hours) |
+
+Worked check: `λ₀=2, ν₀=10, τ=5` → exponent `−1` → `λ = 2·e⁻¹ ≈ 0.7358`, `μ = 10·(1−e⁻¹) ≈ 6.3212`.
+
 ---
 
 ## Defect Density
@@ -217,3 +230,5 @@ PUM = Total Number of Problems / Total Number of User Months
 - [[concepts/blackbox-testing-techniques]] — specification-based testing (EP, BVA, decision tables, state transition)
 - [[concepts/static-code-analysis]] — SAST tooling and analysis techniques
 - [[concepts/test-design-techniques]] — test design methods overview
+- [[concepts/test-driven-development]] — TDD/BDD; how these calculations were built test-first
+- [[examples/ict3112-lab2-reqnroll-bdd]] — MTBF / Availability / Basic Musa implemented as calculator methods with BDD scenarios

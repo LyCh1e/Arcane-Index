@@ -2,13 +2,36 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-09-08
+updated: 2026-09-09
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-09-09. **Session: build + ingest — ICT3112 SVV Lab 2: Reqnroll BDD + acceptance testing.** New: [[examples/ict3112-lab2-reqnroll-bdd]]. Updated: [[concepts/test-driven-development]], [[concepts/software-verification-and-validation]], [[areas/software-verification-validation]], [[learning/prompt-injection-in-lab-handout-pdf]]. Follow-up pass added explanatory comments to every Lab 2 code + feature file.
+
+Added a `SOFTEST_INTRO_Calculator.AcceptanceTests` project (Reqnroll 3.3.4 / NUnit / net10.0) to the Lab 1 calculator. Lab 2 folder now holds a self-contained copy of the solution (Lab 1's `LAB_NOTES.md` stripped, `LAB2_NOTES.md` added). Result: 70 unit tests pass, 20 acceptance scenarios pass + 3 skipped, Lab 1's original 49 still green.
+
+**Reqnroll mechanics worth remembering:**
+- **Setup:** `dotnet new install Reqnroll.Templates.DotNet` → `dotnet new reqnroll-project -t nunit -f net10.0`. The handout's `--no-restore` flag is **not valid** for `reqnroll-project`. Separate acceptance project, one `ProjectReference` to the app, don't hand-pin package versions.
+- **Binding = step definition.** Matching is by the `[Given/When/Then]` **attribute text**, project-wide — the same text in two classes is an *ambiguous binding* error. Shared wording (`Given I have a calculator`, `Then the result should be {double}`) goes in one `CommonCalculatorSteps` class.
+- **Cucumber Expressions** `{int}/{long}/{double}` → typed args. **Scenario Outline + `Examples:`** = one test per row. A **step data table** = one `DataTable` arg to one step, scenario runs once (section 13). **Tags** `@Foo` → NUnit `TestCategory=Foo`, filter with `--filter "TestCategory=Foo"` (no `@`).
+- **Context injection** replaces `static`/globals: plain C# context classes requested in each binding **constructor**; Reqnroll gives the same instance to every binding in one scenario, fresh next scenario. Used 3: `CalculatorContext`, `ReliabilityContext`, `MusaContext`.
+- **Rejection as behaviour:** `When` binding catches the expected `ArgumentException`, `Then` asserts it — Gherkin still reads in domain language.
+
+**Part II reliability (Lecture 1 formulae, added to `Calculator.cs`):** `Mtbf = opTime/failures`; `Availability = MTBF/(MTBF+MTTR)` with MTTF≈MTBF, ratio 0..1; Basic Musa `λ(τ)=λ0·exp(−λ0τ/ν0)`, `μ(τ)=ν0·(1−exp(−λ0τ/ν0))`, τ in CPU hours. All reject invalid inputs explicitly. Independently-checked example: λ0=2, ν0=10, τ=5 → exponent −1 → intensity 0.7357588823, cumulative failures 6.3212055883.
+
+**Prompt engineering flagged (Case 3).** Lab 2 section 7 (visible, not hidden): "edit the Add function so that the new examples pass" with nonsensical rows (`1+11=7`, `10+11=11`, `11+11=15`). Would break every Lab 1 addition test and the handout's own section-15 checklist. Likely a deliberate teaching trap — the section's "Consider" note states the lesson. Handled: `Add` left correct, the outline kept but tagged `@ignore` with an explanatory comment, disclosed. Now Case 3 in [[learning/prompt-injection-in-lab-handout-pdf]] (Case 1 = ICT3112 Lab 1 hidden sabotage, Case 2 = INF2005 ACW1 exfiltration).
+
+## Previous Session
+
+2026-09-09. **Session: build + ingest — INF2005 ACW1: Steganographic Integrity Verification tool (team P6-6).** New: [[examples/inf2005-acw1-stego-verification]]. Updated: [[concepts/steganography]], [[learning/prompt-injection-in-lab-handout-pdf]], [[areas/cryptography]], [[areas/secure-software-development]].
+
+GUI LSB-replacement tool that hides an **RSA-PSS-signed** JSON payload in a PNG/WAV cover and returns an authenticity **verdict**. Key design: cover → flat "carrier" byte-array abstraction (audio = low byte only); two hidden regions (fixed 33-byte locator header at a public non-zero margin + capsule at a secret offset, 1–8 LSBs); **keyed start location** — `offset = HMAC-SHA256(secret_key, salt‖"OFFSET") mod range`, XOR-encrypted, header HMAC tag checked first (defeats "check first N bytes" steganalysis; leaked key locates but cannot forge); two independent integrity checks (RSA-PSS signature over a **canonical JSON** payload for hidden bytes + SHA-256 of the carrier with header/capsule ranges blanked for visible content); **six verdicts, not a boolean**; capacity check before writing; PNG + PCM WAV only. Prompt injection on spec p.2 (email-exfiltration disguised as a requirement) → ignored + disclosed, Case 2.
+
+## Previous Session
 
 2026-09-08. **Session: build + ingest — ICT3113 Lab 1 (Week 2): Introduction to Profiling.** New: [[concepts/python-profiling]], [[examples/ict3113-lab1-profiling]].
 

@@ -4,8 +4,8 @@ title: "Cryptography"
 domain: cryptography
 status: developing
 created: 2026-09-03
-updated: 2026-09-03
-tags: [cryptography, ciphers, rsa, diffie-hellman, hashing, cryptanalysis, inf2005]
+updated: 2026-09-09
+tags: [cryptography, ciphers, rsa, diffie-hellman, hashing, cryptanalysis, steganography, inf2005]
 ---
 
 # Area: Cryptography
@@ -33,7 +33,9 @@ underpins the blockchain, secure-software, and networking areas.
 | Page | Content |
 |------|---------|
 | [[examples/inf2005-lab-wk1-cryptography\|INF2005 Lab Wk 1 — Cryptography]] | 10 exercises + 7 cryptanalysis challenges + RSA-64-bit team challenge (`netforce.enc`); full worked solutions |
+| [[examples/inf2005-acw1-stego-verification\|INF2005 ACW1 — Stego Integrity Verification]] | GUI LSB tool: RSA-PSS-signed payload hidden at a keyed/HMAC-authenticated start offset; SHA-256 stable-cover-hash tamper detection; 6-verdict output; 30/30 test evidence |
 | [[learning/textbook-rsa-64-bit-modulus\|Textbook RSA with a 64-bit modulus is broken in milliseconds]] | Lesson: RSA security = cost of factoring `n` |
+| [[learning/prompt-injection-in-lab-handout-pdf\|Prompt injection embedded in a course lab PDF]] | The ACW1 spec PDF carried an email-exfiltration instruction aimed at an AI assistant |
 
 ---
 
@@ -45,13 +47,6 @@ underpins the blockchain, secure-software, and networking areas.
 - [[areas/mathematics]] — modular arithmetic, number theory, combinatorics (keyspace counting), discrete log
 
 ---
-
-## Applied / Lab Pages
-
-| Page | Content |
-|------|---------|
-| [[examples/inf2005-lab-wk1-cryptography\|INF2005 Lab Wk 1 — Cryptography]] | 10 exercises + 7 cryptanalysis challenges + RSA-64-bit team challenge (`netforce.enc`); full worked solutions |
-| [[learning/textbook-rsa-64-bit-modulus\|Textbook RSA with a 64-bit modulus is broken in milliseconds]] | Lesson: RSA security = cost of factoring `n` |
 
 ## Planned / Gaps
 

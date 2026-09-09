@@ -57,7 +57,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -248,25 +248,27 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "aa21592bb12da3f9",
+  "active": "ab6394df2d35c517",
   "lastOpenFiles": [
-    "wiki/hot.md.tmp.22792.1e29fc918d4f",
-    "wiki/hot.md.tmp.22792.95ca3e19267d",
-    "wiki/log.md.tmp.22792.b3b3b1eaabfd",
-    "wiki/log.md.tmp.22792.81de7673f511",
-    "wiki/index.md.tmp.22792.a5b6ac01b1a5",
+    "wiki/examples/ict3112-lab2-reqnroll-bdd.md.tmp.33508.748b76801fe1",
+    "wiki/log.md.tmp.33508.92fc2e6fc306",
+    "wiki/log.md.tmp.33508.bdca82b2dbd0",
+    "wiki/areas/software-verification-validation.md.tmp.33508.87c398654966",
+    "wiki/examples/_index.md.tmp.33508.44d279601286",
+    "wiki/hot.md.tmp.33508.d11196db3486",
+    "wiki/index.md.tmp.33508.3c4f021a4f72",
+    "wiki/examples/ict3112-lab2-reqnroll-bdd.md",
+    "wiki/examples/ict3112-lab2-reqnroll-bdd.md.tmp.33508.b73a51f09e65",
+    "wiki/hot.md.tmp.26848.516bb36ab77c",
+    "wiki/areas/cryptography.md.tmp.26848.a634327d6fc9",
+    "wiki/examples/inf2005-acw1-stego-verification.md",
+    "wiki/examples/inf2005-acw1-stego-verification.md.tmp.26848.f35dc2bf737f",
     "wiki/examples/ict3113-lab1-profiling.md",
-    "wiki/examples/ict3113-lab1-profiling.md.tmp.22792.7e813adb9a3f",
     "wiki/concepts/python-profiling.md",
-    "wiki/concepts/python-profiling.md.tmp.22792.524f79d4d964",
     "CLAUDE.md",
-    "wiki/hot.md.tmp.31464.47b58d8f10e1",
     "wiki/concepts/workload-identification.md",
     "wiki/sources/ict3113-pod-l3.md",
     "raw/ICT3113 Performance Optimisation and Design - Lec03 Workload Identification.md",
-    "wiki/hot.md.tmp.31464.8737a6d92979",
-    "wiki/index.md.tmp.31464.484aea980b4c",
-    "wiki/index.md.tmp.31464.41f99f379fac",
     "wiki/sources/inf2005-csf-access-control.md",
     "wiki/sources/inf2005-csf-steganography.md",
     "wiki/sources/inf2005-csf-crypto2.md",
@@ -284,8 +286,6 @@
     "wiki/sources/opencv-docs.md",
     "wiki/synthesis/research-accenture-pte-ltd.md",
     "wiki/concepts/management-consulting-industry.md",
-    "wiki/entities/accenture-pte-ltd.md",
-    "wiki/areas/cryptography.md",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",
     "canvases/password-hashing.canvas",

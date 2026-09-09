@@ -4,7 +4,7 @@ status: established
 title: "Secure Software Development"
 domain: secure-software-development
 source: [[sources/ICT2216-secure-software-development]]
-updated: 2026-05-14
+updated: 2026-09-09
 tags: [area, secure-software-development]
 ---
 
@@ -52,6 +52,13 @@ Security is not a feature — it is a quality attribute built in from requiremen
 - [[synthesis/web-security-ssdlc-bridge|Web Security ↔ SSDLC]] — INF1005's code-level attack defences map to ICT2216's ASVS requirements and SSDLC process
 - [[synthesis/re-elicitation-cia-aaa-security-requirements|RE × Security]] — McCall Integrity ↔ CIA+AAA; RE lifecycle ↔ SSDLC requirements phase
 - [[concepts/web-security-and-devops|Web Security & DevOps]] — INF1005's practical security perspective (XSS, SQLi, bcrypt)
+- [[areas/cryptography]] — primitives (RSA, SHA-256, HMAC) assembled into secure systems
+
+---
+
+## Applied Builds
+
+- [[examples/inf2005-acw1-stego-verification|INF2005 ACW1 — Stego Integrity Verification]] — assembling SHA-256 + RSA-PSS + HMAC into a file-authenticity tool; keyed start-location design; canonical-serialization-before-signing; verdict (not boolean) output. The project spec PDF also carried a prompt injection — [[learning/prompt-injection-in-lab-handout-pdf]].
 
 ---
 

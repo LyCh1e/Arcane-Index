@@ -45,6 +45,15 @@ This area covers the ICT3112 course content and related knowledge on software V&
 
 ---
 
+## Worked Labs (ICT3112)
+
+| Page | Content |
+|------|---------|
+| [[examples/ict3112-lab1-nunit-tdd-calculator\|Lab 1: NUnit + TDD Calculator]] | C#/.NET 10 console calculator + NUnit 4 test project; Arrange-Act-Assert, parameterised tests, exception assertions, boundary values, one red-green-refactor cycle on `Divide` |
+| [[examples/ict3112-lab2-reqnroll-bdd\|Lab 2: Reqnroll BDD + Acceptance Testing]] | Adds a Reqnroll acceptance-test project to the Lab 1 calculator; Gherkin features, Cucumber Expressions, scenario outlines, step data tables, tags, context injection; MTBF / Availability / Basic Musa reliability calculations as production code |
+
+---
+
 ## Related Areas
 
 - [[areas/machine-learning]] — ML evaluation and experimental design (testing as applied to ML models)

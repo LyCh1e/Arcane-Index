@@ -4,7 +4,7 @@ title: "Steganography"
 aliases: ["LSB steganography", "BPCS", "steganalysis", "information hiding", "steganography vs cryptography"]
 tags: [steganography, information-hiding, LSB, BPCS, steganalysis, image-processing, security, inf2005]
 created: 2026-09-07
-updated: 2026-09-07
+updated: 2026-09-09
 status: established
 domain: cryptography
 ---
@@ -176,9 +176,44 @@ See also [[concepts/opencv-core]] for `cv::Mat` and the CV type system used in s
 
 ---
 
+## Applied: engineering an LSB stego *verification* tool
+
+Worked build in [[examples/inf2005-acw1-stego-verification]] (INF2005 ACW1) — a stego
+tool whose job is not covert messaging but **integrity + authenticity verification** of
+image and audio files. Reusable design points beyond the textbook algorithm:
+
+- **Cover → flat "carrier" abstraction.** Reduce any format to a mutable byte array of
+  "units": image = every R/G/B[/A] channel byte; 16-bit PCM audio = the **low byte only**
+  of each little-endian sample (the high byte carries most perceptual weight — leave it
+  alone). All bit-twiddling then works on one array regardless of media.
+- **Selectable bit depth (1–8 LSBs).** `mask_clear = (0xFF << n) & 0xFF` clears the low
+  `n` bits; capacity in bytes = `available_units * n // 8`; units needed =
+  `ceil(payload_bits / n)`. Depth is a GUI control (higher = more capacity, more
+  audible/visible, more detectable).
+- **Don't embed at unit 0.** A fixed start offset is exactly what a steganalyst checks
+  first. Derive a secret per-file offset:
+  `offset = HMAC-SHA256(secret_key, salt ‖ "OFFSET") mod range`, XOR-encrypt it with a
+  second HMAC keystream, and cover the locator header with an HMAC tag so a wrong key
+  fails loudly before any capsule bytes are read.
+- **Two independent integrity checks.** An RSA-PSS **signature over the payload** catches
+  edits to the *hidden* bytes; a SHA-256 **hash of the carrier with the stego regions
+  blanked to 0x00** (computed identically by encoder and verifier) catches edits to the
+  *visible/audible* content. Sign a **canonical JSON** serialization (sorted keys, no
+  whitespace) so both sides hash byte-identical data.
+- **Capacity check first.** Reject an over-large payload (`is payload > cover capacity?`)
+  before writing anything.
+- **Verdict, not boolean.** `Authentic` / `Tampered` / `Signature Invalid` /
+  `Payload Missing` / `Wrong Start Location` / `Cannot Verify` — each maps to a specific
+  failed check.
+
+---
+
 ## Key Connections
 
 - [[concepts/opencv-core]] — image I/O, pixel access, bit manipulation in OpenCV used for LSB implementation
 - [[concepts/digital-image-processing]] — bit planes, pixel value distributions, image statistics
 - [[concepts/classical-ciphers-and-cryptanalysis]] — cryptography as the complementary layer (encrypt-then-hide)
+- [[concepts/public-key-cryptography-and-key-exchange]] — RSA-PSS signatures used to authenticate a hidden payload
+- [[concepts/cryptographic-hash-functions]] — SHA-256 / HMAC for tamper detection and keyed start-location derivation
+- [[examples/inf2005-acw1-stego-verification]] — applied build: signed-payload LSB verification tool
 - [[areas/cryptography]] — parent area

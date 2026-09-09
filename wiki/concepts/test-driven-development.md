@@ -118,9 +118,47 @@ The output is a set of Gherkin scenarios agreed by all three before implementati
 | Tool | Language | Framework |
 |------|----------|-----------|
 | Cucumber | JVM (Java, Kotlin), JS, Ruby | Gherkin-native |
-| SpecFlow | C# / .NET | Gherkin-native |
+| **Reqnroll** | C# / .NET | Gherkin-native; the maintained successor to SpecFlow (SpecFlow retired 2024) |
+| SpecFlow | C# / .NET | Gherkin-native; **deprecated** — projects migrate to Reqnroll |
 | Behave | Python | Gherkin-native |
 | Robot Framework | Python | Keyword-driven (similar to BDD) |
+
+---
+
+## Reqnroll mechanics (C# / .NET)
+
+Practical points from a worked lab ([[examples/ict3112-lab2-reqnroll-bdd]]):
+
+- **Project shape.** `dotnet new install Reqnroll.Templates.DotNet`, then
+  `dotnet new reqnroll-project -t nunit -f net10.0`. A **separate** acceptance-test project keeps
+  readable scenarios apart from focused unit tests; it holds one `ProjectReference` to the app.
+  Do not hand-pin package versions — the template selects a compatible Reqnroll/NUnit/adapter set.
+- **Step definition = binding.** A `[Given]`/`[When]`/`[Then]` method whose **attribute text**
+  (not the method or file name) matches the Gherkin step. Matching is **project-wide** — the same
+  step text defined in two classes is an *ambiguous binding* error. Put shared wording in one class.
+- **Cucumber Expressions.** `{int}`, `{long}`, `{double}`, `{string}`, `{word}` placeholders in the
+  binding text are converted to typed method arguments.
+- **Scenario Outline vs step data table.** An `Examples:` table belongs to a Scenario Outline and
+  produces **one test per row**. A step **data table** is a single `DataTable` argument to **one
+  step** — the scenario still runs once. Different tools for different jobs.
+- **Tags → categories.** `@Foo` on a Feature/Scenario becomes NUnit `TestCategory=Foo`; run with
+  `dotnet test --filter "TestCategory=Foo"` (drop the `@`). `@ignore` skips a scenario. Always
+  finish a focused run with the complete suite; zero executed tests is not a pass.
+- **Context injection.** Instead of `static` fields or globals, define plain C# context classes and
+  request them in each binding's **constructor**. Reqnroll supplies the **same instance to every
+  binding within one scenario** and a fresh instance for the next — shared state, safely scoped, so
+  parallel/reordered scenarios cannot leak into each other.
+- **Rejection as behaviour.** When "the operation is rejected" is an observable requirement, catch
+  the expected exception in the `When` binding and assert it in `Then`. The scenario still describes
+  the outcome in domain language; the exception type stays out of the Gherkin.
+
+### Planning hierarchy — no universal 1:1 mapping
+
+Epic → product Feature → User Story → acceptance criteria/rules → Gherkin Scenarios → executable
+acceptance tests. One Feature may span several Stories; one Story usually needs several Scenarios
+(normal / alternative / boundary / rejected). A `.feature` file is a readable home for related
+scenarios, **not** a mirror of one Story. A *product Feature* (a planning capability) is distinct
+from a *Gherkin Feature* (the `.feature` document keyword).
 
 ---
 
@@ -147,3 +185,4 @@ The output is a set of Gherkin scenarios agreed by all three before implementati
 - [[concepts/solid-and-design-patterns]] — well-designed, SOLID-compliant code is easier to unit-test; TDD enforces dependency injection (DIP)
 - [[concepts/requirements-engineering]] — BDD scenarios are a form of executable specification; they bridge the gap between requirements (SRS) and code
 - [[examples/ict3112-lab1-nunit-tdd-calculator]] — worked example: C#/NUnit calculator, a full red-green-refactor cycle on `Divide`, AAA, parameterised tests, boundary values
+- [[examples/ict3112-lab2-reqnroll-bdd]] — worked example: adding a Reqnroll acceptance project to that calculator — Cucumber Expressions, scenario outlines, step data tables, tags, context injection
