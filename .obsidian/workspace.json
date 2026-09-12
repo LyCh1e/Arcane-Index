@@ -55,19 +55,9 @@
               "icon": "lucide-file",
               "title": "CLAUDE"
             }
-          },
-          {
-            "id": "5cdd7a8261d23734",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -258,7 +248,7 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "5cdd7a8261d23734",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
     "CLAUDE.md",
     "wiki/log.md.tmp.28792.4c0a70842a8f",
