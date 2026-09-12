@@ -151,6 +151,13 @@ Practical points from a worked lab ([[examples/ict3112-lab2-reqnroll-bdd]]):
 - **Rejection as behaviour.** When "the operation is rejected" is an observable requirement, catch
   the expected exception in the `When` binding and assert it in `Then`. The scenario still describes
   the outcome in domain language; the exception type stays out of the Gherkin.
+- **When a scenario and a unit test disagree, neither wins by default.** Go back to the acceptance
+  criterion / business rule and the worked example behind the scenario. If the rule supports the
+  scenario's expectation, the code and the unit test change; if the scenario misread the rule, the
+  scenario changes. The deciding evidence is the agreed requirement, not whichever test currently
+  passes — the same principle behind the [[examples/ict3112-lab2-reqnroll-bdd]] section-7 trap,
+  where a scenario's own expected values contradicted the requirement and were rejected rather than
+  implemented.
 
 ### Planning hierarchy — no universal 1:1 mapping
 

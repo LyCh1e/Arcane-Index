@@ -2,13 +2,37 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-09-09
+updated: 2026-09-12
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-09-12. **Session: follow-up — ICT3112 SVV Lab 2 review (no rebuild).** Small updates to
+[[examples/ict3112-lab2-reqnroll-bdd]] and [[concepts/test-driven-development]]; no new pages.
+
+Asked to "add comments to the codes in Lab 2/Features." Checked first: the `.feature` files there
+already carry thorough Gherkin `#` comments from the 2026-09-09 build session — nothing to add.
+The `Features/*.feature.cs` files in the same folder are Reqnroll-generated designer files whose
+own header warns hand edits are lost on regeneration; correctly left untouched rather than
+commented. Recorded as a gotcha on the example page: comment the `.feature` source and
+`StepDefinitions/*.cs`, never the generated `.feature.cs`.
+
+Then asked "what was added to Lab 2 compared to Lab 1" and "what was the learning added on" —
+answered by diffing `Calculator.cs` / `CalculatorTests.cs` / the `.sln` between the two Lab folders
+and re-reading `LAB2_NOTES.md`'s reflection answers (Part I/II). Conclusion: Lab 1 taught *how to
+write one correct, well-bounded unit test*; Lab 2 taught *how to run two test layers at once
+(BDD acceptance + unit) without them duplicating or leaking state into each other, and how to tell
+when the test itself, not the code, is wrong*. Most of that reflection content (ambiguous bindings,
+context injection vs `static`, MTBF-as-observed-average, MTTF≈MTBF, perfect-debugging) was already
+in the wiki from the build session; the one genuinely new piece captured here is the tie-breaker
+rule for scenario-vs-unit-test disagreement (go back to the acceptance criterion, not whichever test
+currently passes) — added to [[concepts/test-driven-development]] as a named rule, cross-linked to
+the section-7 trap as its worked example.
+
+## Previous Session
 
 2026-09-09. **Session: build + ingest — ICT3112 SVV Lab 2: Reqnroll BDD + acceptance testing.** New: [[examples/ict3112-lab2-reqnroll-bdd]]. Updated: [[concepts/test-driven-development]], [[concepts/software-verification-and-validation]], [[areas/software-verification-validation]], [[learning/prompt-injection-in-lab-handout-pdf]]. Follow-up pass added explanatory comments to every Lab 2 code + feature file.
 

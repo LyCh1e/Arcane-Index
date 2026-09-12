@@ -55,9 +55,19 @@
               "icon": "lucide-file",
               "title": "CLAUDE"
             }
+          },
+          {
+            "id": "5cdd7a8261d23734",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -248,8 +258,10 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "ab6394df2d35c517",
+  "active": "5cdd7a8261d23734",
   "lastOpenFiles": [
+    "CLAUDE.md",
+    "wiki/log.md.tmp.28792.4c0a70842a8f",
     "wiki/examples/ict3112-lab2-reqnroll-bdd.md.tmp.33508.748b76801fe1",
     "wiki/log.md.tmp.33508.92fc2e6fc306",
     "wiki/log.md.tmp.33508.bdca82b2dbd0",
@@ -260,12 +272,9 @@
     "wiki/examples/ict3112-lab2-reqnroll-bdd.md",
     "wiki/examples/ict3112-lab2-reqnroll-bdd.md.tmp.33508.b73a51f09e65",
     "wiki/hot.md.tmp.26848.516bb36ab77c",
-    "wiki/areas/cryptography.md.tmp.26848.a634327d6fc9",
     "wiki/examples/inf2005-acw1-stego-verification.md",
-    "wiki/examples/inf2005-acw1-stego-verification.md.tmp.26848.f35dc2bf737f",
     "wiki/examples/ict3113-lab1-profiling.md",
     "wiki/concepts/python-profiling.md",
-    "CLAUDE.md",
     "wiki/concepts/workload-identification.md",
     "wiki/sources/ict3113-pod-l3.md",
     "raw/ICT3113 Performance Optimisation and Design - Lec03 Workload Identification.md",
