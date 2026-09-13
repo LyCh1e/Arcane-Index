@@ -10,6 +10,20 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-09-13. **Session: ingest — ICT3113 POD L3 live transcript (Workload Identification).** Updates to: [[sources/ict3113-pod-l3]], [[concepts/performance-metrics]], [[concepts/workload-identification]].
+
+**Observation boundary effect (final clarification):** 4 packets, 10-second window, arrivals at t=0,1,3,5. Gaps: 1, 2, 2 → mean gap = 1.67s. But λ = 0.4 → 1/λ = 2.5s. They differ because the gaps only span to t=5, not the full window. λ is computed over the full interval; the sample gap mean is not. Over a long run they converge.
+
+**New API server worked example (20-second window):** 4 requests at t=0,2,9,12. W/S/R: A=(0,3,3), B=(1,5,6), C=(0,4,4), D=(1,2,3). Total service = 14s → U = 70%. Mean S = 3.5s, λ = 0.2/s, 1/λ = 5s. Mean gap = (2+7+3)/3 = 4s ≠ 5s — same boundary effect.
+
+**Utilisation Law intuition — pie-eating analogy:** 5 pies × 10 min = 50 min busy in 60-min window. U = 83%. X = 5/60/min. U = X × S = (5/60) × 10 ✓. Deriving from "total busy time = jobs × service time, divided by T" makes the law immediately concrete.
+
+**MRI scanner exercises (healthcare domain):** Q1: 2 scans/hr, 25 min → U = 83%. Q2: U=60%, λ=12/hr → S = 3 min. Q3: S=6 min → X_max = 10 patients/hr. At 83% U, a small demand increase starts queuing — practical sanity check before buying more equipment.
+
+**Interview application:** "Estimate the number of trains in China." Decompose: provinces → stations → schedules → trains per schedule → total. Same chain as workload estimation. A/Prof Soh's rough estimate landed in the ballpark. Translating business context into a quantitative model remains distinctly human judgment in the AI age.
+
+## Previous Session
+
 2026-09-12. **Session: follow-up — ICT3112 SVV Lab 2 review (no rebuild).** Small updates to
 [[examples/ict3112-lab2-reqnroll-bdd]] and [[concepts/test-driven-development]]; no new pages.
 

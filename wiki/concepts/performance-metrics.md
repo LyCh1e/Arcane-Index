@@ -166,7 +166,7 @@ In a long-running stationary workload: mean interarrival time ≈ 1/λ.
 
 In a **short finite trace**, the sample mean of observed interarrival gaps ≠ 1/λ because the observation boundaries affect the count of arrivals. Always report which calculation you are using when these diverge.
 
-### Worked Example
+### Worked Example A — 10-second window (Lec02)
 
 Four jobs in the interval [0, 10] s (arrivals at t = 0, 1, 3, 5; service FIFO):
 
@@ -188,6 +188,30 @@ Four jobs in the interval [0, 10] s (arrivals at t = 0, 1, 3, 5; service FIFO):
 
 The server is busy for all 10 seconds; 3 of 4 jobs waited.
 
+**Why mean gap ≠ 1/λ**: the three observed gaps span t = 1 to t = 5 (not the full 10-second window). 1/λ accounts for the full interval; the sample mean of gaps does not. In a long-running stationary workload the two converge; in short finite traces they routinely diverge.
+
+### Worked Example B — 20-second window (Lec03 API Server)
+
+Single-server system. Requests arrive at t = 0, 2, 9, 12 over a 20-second observation window. Server processes FIFO.
+
+| Request | Arrives | Starts service | Ends | W | S | R |
+|---------|---------|----------------|------|---|---|---|
+| A | 0 | 0 | 3 | 0 | 3 | 3 |
+| B | 2 | 3 | 8 | 1 | 5 | 6 |
+| C | 9 | 9 | 13 | 0 | 4 | 4 |
+| D | 12 | 13 | 15 | 1 | 2 | 3 |
+
+| Metric | Calculation | Value |
+|--------|-------------|-------|
+| λ | 4 / 20 s | **0.2 jobs/s** |
+| Mean observed gap | (2 + 7 + 3) / 3 | **4 s** |
+| 1/λ | 1 / 0.2 | **5 s** ← diverges from mean gap |
+| Mean S | 14 / 4 | **3.5 s** |
+| μ = 1/S | 1 / 3.5 | **2/7 jobs/s ≈ 0.286/s** |
+| U | 14 / 20 | **70%** |
+
+The gap mean (4 s) and 1/λ (5 s) differ because the observed gaps run only from t = 0 to t = 12, not the full 20-second window. In production log analysis, always compute λ from the observation interval length, not from the sample mean of inter-arrival times.
+
 ---
 
 ## Utilisation Law
@@ -207,13 +231,41 @@ The server is busy for all 10 seconds; 3 of 4 jobs waited.
 
 U = XS is the **general operational law**. U = λS is a special case valid only under stability.
 
-### Common Exam Calculations
+### Common Exam Calculations (IT Domain)
 
 | Given | Find | Solution |
 |-------|------|---------|
-| λ = 3/s, S = 100 ms | U | U = 3 × 0.1 = 0.3 (30%) |
-| U = 0.9, λ = 100/s | S | S = 0.9/100 = 9 ms |
-| S = 10 ms | λ_max | λ_max = 1/0.01 = 100/s |
+| λ = 3/s, S = 100 ms | U | U = 3 × 0.1 = **0.3 (30%)** |
+| U = 0.9, λ = 100/s | S | S = 0.9/100 = **9 ms** |
+| S = 10 ms | λ_max (at U = 1) | λ_max = 1/0.01 = **100 tps** |
+
+### Utilisation Law — Pie-Eating Analogy
+
+An intuitive first-principles derivation:
+
+> 60-minute pie-eating contest. You eat 5 pies, each taking 10 minutes. Busy time = 50 min. You rest for the final 10 minutes.
+
+| Element | Value |
+|---------|-------|
+| Observation window T | 60 min |
+| Jobs completed | 5 pies |
+| Service time S | 10 min/pie |
+| Busy time | 5 × 10 = 50 min |
+| U = busy / T | 50/60 ≈ **83%** |
+| Throughput X | 5/60 pies/min |
+| U = X × S | (5/60) × 10 = 50/60 ✓ |
+
+Dividing the total-busy-time equation `jobs × service_time` by the observation interval on both sides yields U = X × S directly.
+
+### Utilisation Law Exercises — Healthcare Domain (MRI Scanner)
+
+| Question | Given | Find | Working | Answer |
+|----------|-------|------|---------|--------|
+| 1 | λ = 2 scans/hr, S = 25 min | U | Busy = 2 × 25 = 50 min; U = 50/60 | **≈ 83%** |
+| 2 | U = 60%, λ = 12 patients/hr | S | λ/min = 12/60 = 0.2; S = 0.6/0.2 | **3 min** |
+| 3 | S = 6 min/patient | X_max | U_max = 1; X = 1/S = 60/6 | **10 patients/hr** |
+
+**Practical note from Q1:** at 83% utilisation a small demand increase will begin forming a queue. This is how to sanity-check a department's capacity before purchasing additional equipment.
 
 ---
 

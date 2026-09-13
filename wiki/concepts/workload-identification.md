@@ -231,6 +231,20 @@ This chain connects business intent to engineering specification. Without it, ca
 
 ---
 
+## Interview and Career Relevance
+
+Workload estimation is a classic systems design interview skill. The same decomposition chain — start from a defensible top-level quantity and work downward multiplicatively — applies to estimation questions such as:
+
+> "How many trains are there in China?"
+
+A/Prof Donny Soh answered this in a real interview by decomposing: number of provinces → train stations per province → train schedules per station → trains required per schedule. His rough estimate landed in the ballpark of the actual number.
+
+This is structurally identical to: taxpayers → filing fraction → filings per hour → requests per second → servers.
+
+**Why this is a human skill in the AI age**: AI can generate code and optimise algorithms, but translating a business problem into a defensible quantitative model — understanding which business calendar events drive which technical metrics, what assumptions to make, what headroom to add — requires judgment that bridges domain knowledge and systems thinking. This is where engineers continue to add irreplaceable value.
+
+---
+
 ## Common Mistakes
 
 | Mistake | Consequence |

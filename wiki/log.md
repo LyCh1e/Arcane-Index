@@ -66,6 +66,22 @@ Chronological record of all vault operations. Append-only — never edit past en
   - `index.md` — 1 concept row + 1 example row; `hot.md` — new session block
 - Tools installed (user site): memory_profiler, py-spy, gprof2dot, snakeviz, jupyter, nbconvert. Graphviz `dot` unavailable on Windows (no admin) → gprof2dot emits `.dot`, matplotlib bar chart substitutes for the PNG.
 
+## 2026-09-13 | ingest | ICT3113 POD — L3 live transcript (Workload Identification)
+
+- Raw file saved: `raw/ICT3113 Performance Optimisation and Design - Lec03_transcript.md`
+- New technical content extracted (not in slides):
+  - Observation boundary effect — fully worked with numbers (4 packets, 10s window: mean gap 1.67s ≠ 1/λ = 2.5s); "over a long run the two converge"
+  - API server worked example (20-second window, 4 requests at t=0,2,9,12) — full W/S/R table, λ=0.2, mean gap=4s, 1/λ=5s, mean S=3.5s, U=70%
+  - Pie-eating analogy for U=XS derivation (5 pies, 10 min each, 60 min window)
+  - Hawker centre analogy for X=λ vs X<λ (lost work)
+  - Healthcare MRI scanner exercises (3 questions, full solutions: U=83%, S=3min, X_max=10/hr)
+  - Interview application: "estimate trains in China" — decomposition = workload estimation
+  - AI age context: translating business problems → technical metrics is distinctly human judgment
+- Pages updated:
+  - [[sources/ict3113-pod-l3]] — "Transcript Additions" section appended
+  - [[concepts/performance-metrics]] — new Worked Example B (API server, 20s window), explanation of why mean gap ≠ 1/λ, pie-eating analogy, MRI scanner exercises table
+  - [[concepts/workload-identification]] — "Interview and Career Relevance" section added (trains in China story, AI age framing)
+
 ## 2026-09-07 | ingest | ICT3113 POD — L3: Workload Identification
 
 - Lecturer: A/Prof Donny Soh

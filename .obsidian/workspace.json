@@ -56,8 +56,7 @@
               "title": "CLAUDE"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -248,8 +247,14 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "wiki/hot.md.tmp.23260.7ca5625a5b2d",
+    "wiki/log.md.tmp.23260.17c12835fa74",
+    "wiki/concepts/performance-metrics.md.tmp.23260.5d06ec156764",
+    "wiki/sources/ict3113-pod-l3.md.tmp.23260.52d5201ef82f",
+    "raw/ICT3113 Performance Optimisation and Design - Lec03_transcript.md",
+    "raw/ICT3113 Performance Optimisation and Design - Lec03_transcript.md.tmp.23260.d320d963b101",
     "CLAUDE.md",
     "wiki/log.md.tmp.28792.4c0a70842a8f",
     "wiki/examples/ict3112-lab2-reqnroll-bdd.md.tmp.33508.748b76801fe1",
@@ -257,11 +262,7 @@
     "wiki/log.md.tmp.33508.bdca82b2dbd0",
     "wiki/areas/software-verification-validation.md.tmp.33508.87c398654966",
     "wiki/examples/_index.md.tmp.33508.44d279601286",
-    "wiki/hot.md.tmp.33508.d11196db3486",
-    "wiki/index.md.tmp.33508.3c4f021a4f72",
     "wiki/examples/ict3112-lab2-reqnroll-bdd.md",
-    "wiki/examples/ict3112-lab2-reqnroll-bdd.md.tmp.33508.b73a51f09e65",
-    "wiki/hot.md.tmp.26848.516bb36ab77c",
     "wiki/examples/inf2005-acw1-stego-verification.md",
     "wiki/examples/ict3113-lab1-profiling.md",
     "wiki/concepts/python-profiling.md",
@@ -284,7 +285,6 @@
     "wiki/concepts/opencv-core.md",
     "wiki/sources/opencv-docs.md",
     "wiki/synthesis/research-accenture-pte-ltd.md",
-    "wiki/concepts/management-consulting-industry.md",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",
     "canvases/password-hashing.canvas",
