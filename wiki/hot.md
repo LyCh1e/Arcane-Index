@@ -10,6 +10,31 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-09-13. **Session: ingest — INF2005 CSF Lec02 Steganography live transcript.** Updates to: [[sources/inf2005-csf-steganography]], [[concepts/steganography]], [[concepts/public-key-cryptography-and-key-exchange]].
+
+**New in public-key-cryptography page — Section 6: TLS in Practice:**
+Full TLS handshake table (9 steps); why hybrid (asymmetric 100–1000× slower → use for key exchange only, symmetric for bulk); SSL→TLS (Heartbleed); signing vs encryption terminology; certificate inspection (SIT: RSA2048, SHA-256, issuer=Amazon, AES-128 session).
+
+**New in steganography page:**
+- LSB Matching boundary conditions: pixel=0 → force +1; pixel=255 → force −1; else ±1 random (avoids multi-bit anomaly).
+- Terminator string: sentinel embedded after payload; decoder stops on detection — performance-critical for large cover objects.
+- File size unchanged by LSB (bits replaced, not added); but hash changes completely on 1-bit difference (avalanche).
+- JPEG EOF injection case study (Chinese intelligence operative): payload appended after 0xFF 0xD9 → detectable via size anomaly; LSB is subtler.
+- "Hiding in plain sight" / Where's Waldo framing for steganography concept.
+
+---
+
+2026-09-13. **Session: ingest — ICT3113 POD Lec01 live transcript (Performance Metrics) + INF2005 session wrap.** Updates to: [[sources/ict3113-pod-l1]], [[concepts/performance-metrics]].
+
+**New in performance-metrics.md:**
+- **W/S/R Classification** — Larry procrastinator (S = active work only = 10 min) and polyclinic visit (25W+10S+15W+5S = 55 min, 73% wait). Key insight: service-time reduction also reduces downstream wait time by clearing the queue faster — "many people don't realise this."
+- **Percentile exercise** — 10 samples: mean=298.3, P50=111, P90=120. SLO = P90 (120 ms) because it guarantees 90% of users are within bound; mean misleads, median makes no tail commitment.
+- **Arrival rate exercises** — Larry's labs: demand 48, actual 44, shortfall 8.3% (X < λ). Semiconductor factory: breakdown Wed → overtime Thu–Fri → still ≈5,008 of 6,000 target; gap persists because lost time cannot be recovered.
+
+**INF2005 session wrap:** purely administrative (form teams by 8 Sep, steganography next week). Raw file saved; no wiki pages updated.
+
+---
+
 2026-09-13. **Session: ingest — ICT3113 POD L3 live transcript (Workload Identification).** Updates to: [[sources/ict3113-pod-l3]], [[concepts/performance-metrics]], [[concepts/workload-identification]].
 
 **Observation boundary effect (final clarification):** 4 packets, 10-second window, arrivals at t=0,1,3,5. Gaps: 1, 2, 2 → mean gap = 1.67s. But λ = 0.4 → 1/λ = 2.5s. They differ because the gaps only span to t=5, not the full window. λ is computed over the full interval; the sample gap mean is not. Over a long run they converge.

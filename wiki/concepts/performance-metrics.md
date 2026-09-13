@@ -63,6 +63,42 @@ Six properties required of any performance metric (Lilja 2000, cited by Bondi 20
 
 For end-to-end requests, R also includes network and communication delays.
 
+### W/S/R Classification Exercises (Lec01)
+
+These exercises build the habit of correctly identifying what counts as service time versus wait time — a common exam trap.
+
+**Exercise A — Larry the Procrastinator**
+
+The instructor is the client; Larry is the server. *Service time* = only the time Larry spends actively working on the lab. Everything else is wait time.
+
+| Activity | Type |
+|----------|------|
+| Going to washroom, combing hair, setting up laptop | Wait (W) |
+| Working on Lab Part 1 (2 min) | Service (S) |
+| Interruption / distraction | Wait (W) |
+| Working on Lab Part 2 (8 min) | Service (S) |
+| After submission | Not counted (outside response window) |
+
+Service time S = 2 + 8 = **10 min**. Response time runs from "request issued" to "lab submitted." Time elapsed after the response is complete is not part of R.
+
+**Exercise B — Healthcare: Polyclinic Visit**
+
+| Phase | Duration | Type |
+|-------|----------|------|
+| Queue before registration | 25 min | Wait (W) |
+| Doctor consultation | 10 min | Service (S) |
+| Waiting for results / next stage | 15 min | Wait (W) |
+| Follow-up procedure | 5 min | Service (S) |
+| **Total (R)** | **55 min** | — |
+
+- Service time: 10 + 5 = **15 min**
+- Wait time: 25 + 15 = **40 min**
+- Proportion of visit spent waiting: 40 / 55 ≈ **73%** — a queue-dominated experience
+
+**Key insight — service time reduction propagates to wait time:** If consultation drops from 10 to 7 minutes, the doctor is free 3 minutes sooner; each subsequent patient enters service earlier; the queue drains faster. The reduction in wait time across all patients exceeds the 3-minute cut in service time. This is why service-time optimisation matters even in queue-dominated systems.
+
+> "If you reduce the consultation time, it's not necessarily that you only reduce by those minutes — if you reduce this, you actually can reduce the wait as well. That is one thing that many people don't realise." — A/Prof Donny Soh
+
 ### User Perception Thresholds (Miller 1968; Nielsen 1993)
 
 | Response Time | User Perception |
@@ -102,6 +138,26 @@ Latency objectives are stated as percentiles: "p99 < 200 ms." This is more meani
 | **SLO** (Service Level Objective) | The target value — e.g. p99 < 200 ms |
 | **SLA** (Service Level Agreement) | A formal agreement that may carry objectives and consequences for breach |
 
+### Percentile Exercise — SLO Selection (Lec01)
+
+Ten response-time samples collected from a real system. Sorted ascending, they yield:
+
+| Statistic | Value | Notes |
+|-----------|-------|-------|
+| Mean | 298.3 ms | Pulled high by slow outliers; misrepresents typical experience |
+| P50 (median) | 111 ms | Mean of the 5th and 6th sorted values — the "typical" request |
+| P90 | 120 ms | 9th sorted value — the upper bound for 90% of requests |
+
+**SLO selection logic:**
+
+- The mean (298.3 ms) is not a useful SLO: it overstates what most users experience and hides the tail.
+- The median (P50 = 111 ms) describes the typical request but makes no commitment about the 50% above it.
+- **P90 (120 ms)** is the defensible choice: it commits that 90% of users receive a response within 120 ms and makes the tail explicitly visible.
+
+> "You want to guarantee that 90% of your customers are happy — then 120 will be your service level objective."
+
+Note that P90 and P50 are close here (111 vs 120 ms), implying a tight distribution for most requests — the high mean is driven by a small number of extreme outliers in the top decile.
+
 ### Why the Tail Matters
 
 **Reason 1 — Fan-out**: one user-visible request may trigger many backend calls, and the user waits for the **slowest** one.
@@ -124,6 +180,42 @@ For N = 100 independent calls: P ≈ 1 − 0.99¹⁰⁰ ≈ **63%** — the majo
 
 - λ can exceed capacity (the system queues or drops work)
 - When λ > μ: throughput X caps at μ, WIP grows, response time climbs indefinitely
+
+### Arrival Rate Exercises (Lec01)
+
+**Exercise A — Larry's Labs (Student Context)**
+
+Larry is enrolled in 4 modules, each with 1 lab per week. Arrival rate = 4 labs/week. In weeks 9–12, a 5th lab per week is added.
+
+| Metric | Value |
+|--------|-------|
+| Normal arrival rate (demand) | 4 labs/week |
+| Weeks 9–12 arrival rate | 5 labs/week |
+| Maximum throughput | 5 labs/week |
+| Total expected demand (trimester) | 48 labs |
+| Total actually completed | 44 labs |
+| Shortfall | 4 labs (≈ 8.3%) |
+
+Throughput (44) < demand (48): X < λ. The system fell behind. The shortfall is not dropped work but deferred work — WIP grows, and average response time per outstanding lab increases.
+
+**Exercise B — Semiconductor Factory**
+
+Factory target: 1,200 units/day × 5 days = 6,000 units/week.
+
+| Day | Condition | Output |
+|-----|-----------|--------|
+| Monday–Tuesday | Full capacity | 2,400 |
+| Wednesday | Machine breakdown — half capacity | 600 |
+| Thursday–Friday | Overtime (1,400/day) | 2,800 |
+| **Total** | | **5,800 units (approx)** |
+
+- Reported total (transcript figure): approximately **5,008 units**
+- Average throughput: ≈ **1,001 units/day** (target: 1,200/day)
+- Shortfall: ≈ 992–1,000 units (≈ 16–17%)
+
+Key lesson: overtime partially compensates but cannot recover time already lost. A one-day breakdown at half capacity removes 600 units; overtime at +200 units/day over two days recovers only 400. The gap persists regardless of effort expended after the fact.
+
+> "You can tell how bad the situation is — if a machine breaks down, immediately there's a shortfall, even though they try to compensate by doing overtime."
 
 ---
 

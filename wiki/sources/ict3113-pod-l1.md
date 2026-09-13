@@ -113,6 +113,121 @@ Every claim in this module is something that can be reproduced in a lab — meas
 
 ---
 
+---
+
+## Transcript Additions (Live Lecture)
+
+*Source: `raw/ICT3113 Performance Optimisation and Design - Lec01_transcript.md`*
+
+The live Lec01 recording covered the course overview and then proceeded directly into performance metrics content. Key additions not fully captured in the slide deck:
+
+### Context — AI-Generated Code and Scale
+
+> "Especially in today's age of AI, we generate code very frivolously. It may work at a very small scale, but as the scale gets larger, you may find your systems are not performing as well. That is where you need to do things preemptively."
+
+The module's practical framing: generated code is not exempt from measurement. A profiler catching an O(n²) routine an AI assistant wrote is the canonical lab demonstration.
+
+> "Our value doesn't come from writing code. Our value comes from giving solutions. We are here to solve people's problems — through technical means."
+
+### W/S/R Classification Exercises
+
+**Exercise 1 — Larry the Procrastinator**
+
+Context: instructor = client; Larry = server; service time = time Larry spends **actively working** on the lab; everything else = wait time.
+
+Timeline (transcript, approximate):
+- Goes to washroom, combs hair, sets up laptop → **wait time**
+- Works on Lab Part 1 (2 min) → **service time**
+- Distraction / interruption → **wait time**
+- Works on Lab Part 2 (8 min) → **service time**
+- Submits → response complete
+
+Service time = 2 + 8 = **10 min**. Everything else is wait. The response time runs from "request issued" to "lab submitted" — time spent after submission is not counted.
+
+Key teaching point: service time is the resource's active processing time, not the elapsed calendar time. A student who spends 3 hours procrastinating before a 10-minute task has a response time of 3h10m and a service time of 10 minutes.
+
+**Exercise 2 — Healthcare: Polyclinic Visit**
+
+| Phase | Duration | Type |
+|-------|----------|------|
+| Queue before registration | 25 min | Wait (W) |
+| Doctor consultation | 10 min | Service (S) |
+| Waiting for results / next stage | 15 min | Wait (W) |
+| Follow-up procedure | 5 min | Service (S) |
+| **Total** | **55 min** | R = W + S |
+
+- Total service time: 10 + 5 = **15 min**
+- Total wait time: 25 + 15 = **40 min**
+- Proportion of visit spent waiting: 40 / 55 ≈ **73%** — a queue-dominated experience
+
+**Key insight:** reducing service time also reduces wait time, not just service time. If consultation drops from 10 to 7 minutes, the doctor is free 3 minutes earlier; the next patient enters service sooner; the queue clears faster across all subsequent patients. The wait-time saving compounds.
+
+> "If you reduce the consultation time, it's not necessarily that you only reduce by those minutes. If you reduce this, right, you actually can reduce the wait as well. That is one thing that many people don't realise."
+
+This is why service-time optimisation matters even when wait time dominates response time — it propagates backwards through the queue.
+
+### Percentile Exercise — SLO Selection
+
+A/Prof Soh presented 10 response-time samples and asked students to compute:
+
+| Statistic | Value | Notes |
+|-----------|-------|-------|
+| Mean | 298.3 ms | Pulled high by slow outliers; misleading as a target |
+| P50 (median) | 111 ms | Mean of 5th and 6th sorted values — the "typical" request |
+| P90 | 120 ms | 9th value in sorted order — the upper boundary for 90% of requests |
+
+**SLO selection logic:**
+
+- The mean is not a useful SLO: it misrepresents the typical user's experience and does not bound the tail.
+- The median (P50) describes the typical request but makes no promise about the half above it.
+- **P90 (120 ms)** is the defensible SLO: it commits that 90% of users receive a response within 120 ms, and makes the remaining 10% explicitly visible.
+
+> "You want to guarantee that 90% of your customers are happy — then 120 will be your service level objective."
+
+### Arrival Rate Exercises
+
+**Exercise A — Larry's Labs (Student Context)**
+
+| Parameter | Value |
+|-----------|-------|
+| Modules enrolled | 4 |
+| Labs per module per week | 1 |
+| Normal arrival rate (demand) | 4 labs/week |
+| Maximum throughput (weeks 9–12) | 5 labs/week |
+| Weeks 1–8 throughput = demand | 4 labs/week (no backlog) |
+| Weeks 9–12 arrival rate | 5 labs/week |
+| Total expected (demand) | 48 labs |
+| Total actually completed | 44 labs |
+| Shortfall | 4 labs (≈ 8.3%) |
+
+When demand exceeds throughput, X < λ: the system falls behind. The shortfall of 4 labs represents uncompleted work — not dropped (Larry eventually does them), but deferred, increasing his WIP and response time for each outstanding lab.
+
+**Exercise B — Semiconductor Factory**
+
+| Day | Condition | Output |
+|-----|-----------|--------|
+| Monday–Tuesday | Full capacity (1,200 units/day) | 2,400 |
+| Wednesday | Machine breakdown — half capacity | 600 |
+| Thursday–Friday | Overtime (1,400 units/day) | 2,800 |
+| **Weekly total** | | **5,800 units (approx)** |
+
+- Target throughput: 1,200 × 5 = **6,000 units/week**
+- Actual (with overtime): approximately **5,008 units** (transcript figure)
+- Average throughput: 5,008 / 5 ≈ **1,001 units/day** (vs. 1,200 target)
+- Shortfall: ≈ **992 units** (≈ 16.5%)
+
+Key message: overtime partially compensates for lost capacity but cannot fully recover time already past. A one-day breakdown at half capacity removes 600 units of output; overtime at +200 units/day for two days adds back only 400. The gap persists.
+
+> "You can tell how bad the situation is — if a machine breaks down, immediately there's a shortfall, even though they try to compensate by doing overtime."
+
+### Demand/Supply Intuition — Labubu Analogy
+
+> "There was this recent craze about a funny soft toy — 'Labubu'. You have a lot of people queuing up. The arrival rate — the demand — is very, very high. The supply was very low. So what happened was that the response waiting time was very, very long."
+
+When λ >> μ: throughput X caps at μ, WIP grows without bound, and response time climbs. Both sides agree (X = λ) only when arrival rate equals throughput: a stable, non-overloaded queue.
+
+---
+
 ## Linked Concepts
 
 - [[concepts/performance-engineering]] — core philosophy, measure/model/optimise/deploy loop

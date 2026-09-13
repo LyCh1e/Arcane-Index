@@ -119,7 +119,61 @@ Plain DH has no authentication → still MITM-able. Real protocols use **authent
 
 ---
 
-## 6. Connections
+## 6. TLS/HTTPS — All Three Primitives in Practice
+
+TLS (Transport Layer Security) is the canonical real-world deployment of all three cryptographic primitives working together. Every HTTPS page load uses this protocol.
+
+### 6.1 What a Browser Certificate Shows
+
+When you open any HTTPS site and inspect the certificate:
+- The certificate contains the server's **public key only** — the private key never leaves the server.
+- The certificate is issued and signed by a **Certificate Authority (CA)** — the browser verifies this signature to confirm the public key genuinely belongs to the claimed server.
+- Typical certificate fields: subject (who it is for), issuer (the CA), key algorithm and size (e.g. RSA 2048), signature hash (e.g. SHA-256).
+- Example: SIT website certificate — issued by Amazon CA, RSA 2048, SHA-256.
+- The active TLS session additionally shows the symmetric cipher in use (e.g. AES-128-GCM).
+
+### 6.2 The TLS Handshake (Simplified)
+
+| Step | Who acts | Primitive |
+|------|----------|-----------|
+| 1. Browser requests a secure connection | Browser | — |
+| 2. Server sends its certificate (contains public key) | Server | — |
+| 3. Browser verifies certificate against trusted CAs | Browser | Hash (SHA-256) |
+| 4. Browser generates a random **session key** | Browser | — |
+| 5. Browser encrypts session key with server's public key; sends it | Browser | Asymmetric (RSA or ECDH) |
+| 6. Server decrypts session key with its private key | Server | Asymmetric |
+| 7. Both sides now share the session key | — | — |
+| 8. All subsequent content encrypted with AES using session key | Both | Symmetric (AES-128/256) |
+| 9. Each record authenticated with HMAC | Both | Hash (SHA-256) |
+
+### 6.3 Why Hybrid: Performance Rationale
+
+Asymmetric encryption (RSA, ECC) is **100–1000× slower** than symmetric encryption (AES). Using RSA to encrypt bulk web page content would be prohibitively slow. The hybrid approach uses:
+- **Asymmetric** — for the key exchange only (once per session, small payload: the session key)
+- **Symmetric** — for all subsequent data (the bulk of every browsing session)
+
+> "If you are using asymmetric key, the time taken will be much longer than symmetric key. That's why you need to have both."
+
+This principle extends beyond TLS: PGP, SSH, and Signal all use the same hybrid pattern.
+
+### 6.4 SSL → TLS Transition
+
+The original protocol was **SSL (Secure Sockets Layer)**. It was deprecated after critical vulnerabilities were discovered, most notably **Heartbleed** (a buffer over-read in OpenSSL that leaked server memory, including private keys). The current protocol is **TLS** (Transport Layer Security), now at versions 1.2 and 1.3.
+
+"SSL certificate" persists as a colloquial term even when the actual protocol in use is TLS 1.3.
+
+### 6.5 Digital Signing vs Encryption in Certificates
+
+When you authenticate (sign) rather than encrypt, the terminology shifts deliberately:
+- You do **not** say "encrypt with private key" — you say **sign** with private key.
+- The recipient **verifies** (not "decrypts") using your public key.
+- A successful verification proves the message came from the private key holder and was not altered.
+
+This is the basis of digital certificates: the CA **signs** the certificate with its private key; browsers **verify** it with the CA's public key (built into the browser/OS trust store).
+
+---
+
+## 7. Connections
 
 - [[concepts/classical-ciphers-and-cryptanalysis]] — what came before; substitution/transposition and the statistical attacks public-key crypto is immune to
 - [[concepts/cryptographic-hash-functions]] — the third primitive; signatures sign a hash, not the message

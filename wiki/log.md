@@ -10,6 +10,45 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-09-13 | ingest | INF2005 CSF Lec02 Steganography live transcript
+
+- Task: user pasted the full live Lec02 lecture transcript (Dr Tan Kheng Leong, INF2005 CSF). Lecture covered a cryptography recap (TLS in action) then delivered the full steganography content.
+- Existing steganography.md and inf2005-csf-steganography.md already had the main slide content. New technical content extracted from the live transcript:
+  - **TLS/HTTPS hybrid cryptography walkthrough** (live certificate inspection: SIT site, RSA2048, SHA-256, AES-128 in session; step-by-step handshake: browser → gets public key → encrypts session key asymmetrically → server decrypts → all content encrypted with AES symmetrically → hashing for integrity). SSL → TLS transition (Heartbleed).
+  - **Why hybrid** (asymmetric 100–1000× slower than symmetric; use asymmetric only for key exchange).
+  - **Signing vs encryption terminology** ("sign" with private key; "verify" with public key — not "decrypt").
+  - **Hashing for download integrity** (download site provides hash; user verifies downloaded file).
+  - **LSB Matching boundary conditions**: pixel=0 → force +1; pixel=255 → force −1; else random ±1 (avoids multi-bit change anomaly).
+  - **Terminator string** concept: embed a sentinel sequence after payload to signal end of data; enables early exit during extraction.
+  - **File size unchanged by LSB**: bits are replaced, not added; size = cover size. But hash changes completely even on 1-bit difference (avalanche effect).
+  - **JPEG EOF injection espionage case**: appended payload after JPEG 0xFF 0xD9 marker; rendered normally in viewers; detected via file size > expected from image dimensions.
+  - **Steganalysis — histogram spike analysis**: embedding raises histogram spikes; inconclusive without original cover.
+  - **"Where's Waldo" / "hiding in plain sight"** framing for steganography.
+- Files created:
+  - `raw/INF2005 CSF - Lec02 Steganography_transcript.md` (verbatim)
+- Files updated:
+  - [[sources/inf2005-csf-steganography]] — Transcript Additions section (TLS recap, boundary conditions, terminator string, file size/hash, JPEG case, histogram steganalysis)
+  - [[concepts/steganography]] — LSB Matching boundary conditions table, terminator string section, file size + hash section, JPEG EOF case in historical context, Where's Waldo framing
+  - [[concepts/public-key-cryptography-and-key-exchange]] — new Section 6 "TLS/HTTPS — All Three Primitives in Practice" (handshake steps table, hybrid performance rationale, SSL→TLS, sign vs encrypt terminology)
+  - `hot.md`, `log.md`
+
+## 2026-09-13 | ingest | ICT3113 POD Lec01 live transcript + INF2005 session wrap
+
+- Task: user pasted ICT3113 Lec01 live lecture transcript and an INF2005 session wrap-up fragment; "ingest this as well" / "ingest this".
+- ICT3113 Lec01 transcript: A/Prof Soh's first lecture (Monday, approx Wk1). Covers module intro, then directly delivers performance metrics content. Most slide content already in wiki from Lec02 ingest. New technical content extracted:
+  - W/S/R classification exercises: Larry the procrastinator (service time = active work only, S = 10 min) and polyclinic visit (25W+10S+15W+5S = 55 min R, 73% wait; key insight: service-time reduction also reduces downstream wait time via queue clearance).
+  - Percentile exercise: 10 samples; mean = 298.3, P50 = 111, P90 = 120; SLO selection logic — choose P90 over median.
+  - Arrival rate exercises: Larry's labs (demand 48, actual 44, shortfall 8.3%) and semiconductor factory (breakdown Wed → shortfall persists even with overtime; total ≈ 5,008 / 6,000, gap ≈ 16%).
+  - Demand/supply intuition via Labubu analogy.
+- INF2005 session wrap: purely administrative (form teams by 8 Sep, steganography next week). No technical content extracted.
+- Files created:
+  - `raw/ICT3113 Performance Optimisation and Design - Lec01_transcript.md` (verbatim)
+  - `raw/INF2005-CSF-pre-steganography-session-wrap-transcript.md` (verbatim)
+- Files updated:
+  - [[sources/ict3113-pod-l1]] — appended Transcript Additions section (all exercises, percentile SLO logic, Labubu analogy)
+  - [[concepts/performance-metrics]] — added W/S/R classification exercises, percentile exercise + SLO selection, arrival rate exercises (Larry's labs + semiconductor factory)
+  - `hot.md`, `log.md`
+
 ## 2026-09-12 | ingest (follow-up, no rebuild) | ICT3112 SVV Lab 2 review
 
 - Task: user asked to "add comments to the codes in Lab 2/Features", then "what was added to Lab2 compared to Lab1", then "what was the learning that was added on", then "ingest this into the wiki". No code was rebuilt or changed in the project this session.
