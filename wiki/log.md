@@ -10,6 +10,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-09-14 | ingest | INF2005 CSF — Ethical Hacking
+
+- Task: ingest `raw/INF2005 Cyber Security Fundamentals - Ethical Hacking.md` (272 lines, 12 sections).
+- Created: `wiki/sources/inf2005-csf-ethical-hacking.md` — source index page.
+- Created: `wiki/concepts/ethical-hacking.md` — concept page covering legal framework (Computer Misuse Act, Convention on Cybercrime, Singapore MOUs, AiSP/(ISC)² ethics codes), hat colour taxonomy with worked scenarios, leet speak, Black Box vs White Box pen-testing, five-phase hacking lifecycle (Recon → Scan → Exploit → Post-Exploit → Cover Tracks) with tools for each phase, and the pentest report structure.
+- Updated: `wiki/index.md` — source row and concept row added.
+- Updated: `wiki/areas/secure-software-development.md` — ethical hacking concept row added.
+- Updated: `wiki/log.md`, `wiki/hot.md`.
+
 ## 2026-09-13 | ingest | INF2005 CSF Lec02 Steganography live transcript
 
 - Task: user pasted the full live Lec02 lecture transcript (Dr Tan Kheng Leong, INF2005 CSF). Lecture covered a cryptography recap (TLS in action) then delivered the full steganography content.

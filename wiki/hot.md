@@ -10,6 +10,21 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-09-14. **Session: ingest — INF2005 CSF Ethical Hacking.** New pages: [[sources/inf2005-csf-ethical-hacking]], [[concepts/ethical-hacking]]. Updates to: [[wiki/index.md]], [[areas/secure-software-development]], [[wiki/log.md]].
+
+**New concept page: Ethical Hacking and Penetration Testing**
+
+The ethical hacking concept page (c-000130) captures the full INF2005 CSF lecture content. Key substance:
+
+- **The defining line:** authorisation — the Computer Misuse Act (Singapore) criminalises *unauthorised* access; every offence shares this keyword. Professional intent alone is insufficient.
+- **Hat taxonomy:** White Hat (authorised, professional), Black Hat (unauthorised/malicious), Gray Hat (boundary-crossing). Five worked scenarios clarify edge cases — notably, a contractor who reports a vulnerability but also sells it to a competitor is Gray, not White.
+- **Five-phase lifecycle:** Reconnaissance (passive/active) → Scanning/Enumeration (Nmap/Zenmap, CVE/NVD/VulDB) → Exploitation (Metasploit, EternalBlue, Wireshark, Hydra) → Post-Exploitation (Netcat backdoors, RATs, rootkits, `attrib +s +a +h`) → Covering Tracks (cleanup for ethical hackers; evasion for malicious actors).
+- **Black Box vs White Box:** stealth/minimal-prior-knowledge simulation of a real attacker vs overt/full-prior-knowledge systematic coverage.
+- **Pentest report:** the deliverable — scope, findings, remediation advice, next steps — delivered confidentially to a client officer.
+- **Ethics codes:** AiSP and (ISC)² fill gaps where law is silent; both share the same four obligations (protect society, act honourably, serve clients, advance the profession).
+
+---
+
 2026-09-13. **Session: ingest — INF2005 CSF Lec02 Steganography live transcript.** Updates to: [[sources/inf2005-csf-steganography]], [[concepts/steganography]], [[concepts/public-key-cryptography-and-key-exchange]].
 
 **New in public-key-cryptography page — Section 6: TLS in Practice:**

@@ -115,6 +115,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/inf2005-csf-crypto2\|INF2005 CSF — Cryptography 2: Asymmetric, Hashing & Cryptanalysis]] | lecture-notes | cryptography | 2026-09-07 |
 | [[sources/inf2005-csf-steganography\|INF2005 CSF — Steganography]] | lecture-notes | cryptography | 2026-09-07 |
 | [[sources/inf2005-csf-access-control\|INF2005 CSF — Access Control]] | lecture-notes | secure-software-development | 2026-09-07 |
+| [[sources/inf2005-csf-ethical-hacking\|INF2005 CSF — Ethical Hacking]] | lecture-notes | secure-software-development | 2026-09-14 |
 
 ## Concepts
 
@@ -271,6 +272,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/management-consulting-industry\|Management Consulting Industry]] | business | medium |
 | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] | python-gui | low |
 | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] | python-gui | medium |
+| [[concepts/ethical-hacking\|Ethical Hacking and Penetration Testing]] | secure-software-development | high |
 
 ## Examples
 

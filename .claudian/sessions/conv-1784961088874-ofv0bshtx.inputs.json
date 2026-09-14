@@ -99,6 +99,20 @@
       "contentDigest": "7ba3e953ed29e09d67b1bd8c2157c335ee5105f6061fa8dce076e266cf4a7a53",
       "providerUserMessageId": "0fece631-6beb-489a-a1c2-dbbc963caf9d",
       "providerAssistantMessageId": "d1e32433-5b37-45d0-b292-39b92793e15b"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789365407057-5j5aa70",
+      "userTurnOrdinal": 43,
+      "state": "accepted",
+      "localMessageId": "msg-1789365406980-vhjmzm5",
+      "timestamp": 1789365406980,
+      "rawDisplayText": "ingest Ethical Hacking\n\nCyber Security Fundamentals",
+      "canonicalText": "ingest Ethical Hacking\n\nCyber Security Fundamentals",
+      "images": [],
+      "contentDigest": "6ea7afa876ec1bf378c6226898c2236e3fbf47f9e4fde077614ba4dab2fc108e",
+      "providerUserMessageId": "cd98d033-92c7-4dd2-bcc5-dc97814bc73d",
+      "providerAssistantMessageId": "203d7c26-fad9-4c17-8366-1dd19b116f91"
     }
   ]
 }
