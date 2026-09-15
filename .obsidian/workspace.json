@@ -55,6 +55,20 @@
               "icon": "lucide-file",
               "title": "CLAUDE"
             }
+          },
+          {
+            "id": "663ef5c6b1a0e1e2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CLAUDE.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CLAUDE"
+            }
           }
         ]
       }
@@ -249,6 +263,9 @@
   },
   "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "wiki/concepts/queueing-theory.md",
+    "wiki/sources/ict3113-pod-l4.md",
+    "raw/ICT3113 Performance Optimisation and Design - Lec04 Performance Modelling (II).md",
     "wiki/index.md.tmp.1896.fee3c9d217bc",
     "wiki/concepts/ethical-hacking.md",
     "wiki/sources/inf2005-csf-ethical-hacking.md",
@@ -265,7 +282,6 @@
     "raw/INF2005-CSF-pre-steganography-session-wrap-transcript.md",
     "raw/ICT3113 Performance Optimisation and Design - Lec01_transcript.md",
     "wiki/hot.md.tmp.23260.7ca5625a5b2d",
-    "wiki/log.md.tmp.23260.17c12835fa74",
     "raw/ICT3113 Performance Optimisation and Design - Lec03_transcript.md",
     "CLAUDE.md",
     "wiki/examples/ict3112-lab2-reqnroll-bdd.md",
@@ -283,8 +299,6 @@
     "wiki/concepts/steganography.md",
     "wiki/concepts/symmetric-encryption.md",
     "raw/INF2005 Cyber Security Fundamentals - Access Control.md",
-    "raw/INF2005 Cyber Security Fundamentals - Steganography.md",
-    "raw/INF2005 Cyber Security Fundamentals - Crypto2 PK Attacks.md",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",
     "canvases/password-hashing.canvas",

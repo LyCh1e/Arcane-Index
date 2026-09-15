@@ -10,6 +10,35 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-09-15 | ingest | ICT3113 Week 2 — official solutions notebook (`ICT3113_Week02_Introduction_to_Profiling_solutions.ipynb`)
+
+- Task: "ingest this into the wiki" for `Labs/Lab1/ICT3113_Week02_Introduction_to_Profiling_solutions.ipynb` — the instructor's own copy of the Week 2 profiling lab, already executed on Colab with saved outputs (81 cells vs the local completion's independent run).
+- Extracted the real Colab execution environment (Ubuntu 22.04.4 LTS, dual-core Intel Xeon 2.2/2.3 GHz) and outputs for every measurement cell (`perf_counter`, `timeit`, `cProfile` on `multiple_calls.py`/`long_multiple_calls.py`/naive+memoised+iterative `fib`, `tracemalloc` peaks for insertion/merge/quick sort).
+- Updated: `wiki/examples/ict3113-lab1-profiling.md` — added a "Cross-check against the official solutions notebook" comparison table (local Ryzen numbers vs official Colab numbers) and elevated the existing "handout bug noted" section: the `n-1`/`n-2` typo in the memoised `fib` is confirmed present in the **official solutions**, not just introduced while adapting the student skeleton.
+- Created: `wiki/learning/ict3113-fib-memoisation-off-by-one.md` — full traced root cause. The typo shifts every cached value up by one Fibonacci index (`fib_dict[k] == F(k+1)`, verified by direct execution); the solutions notebook's own `fib_driver` reads `fib_dict[n-1]` instead of `fib_dict[n]`, which exactly cancels the shift and makes the printed answer look correct — masking rather than fixing the bug. Framed as a "profiler can't catch this, spot-checking the final output can't either" lesson.
+- Updated: `wiki/index.md` (learning table + `updated` date), `wiki/log.md`, `wiki/hot.md`.
+
+## 2026-09-15 | build | ICT3113 Lab 2 (Week 3) — Introduction to Testing
+
+- Task: "complete ICT3113_Week03_Introduction_to_Testing" — `Labs/Lab2/ICT3113_Week03_Introduction_to_Testing.ipynb`, a fully-worked (not skeleton) Colab notebook covering flask-profiler and JMeter load testing.
+- Added logic comments to the pre-filled code cells (4, 5, 8, 9, 29) per standing preference — no logic changes; validated with `nbformat.validate`.
+- Set up `Labs/Lab2/test_env` (Flask 3.1.3 + flask-profiler 1.8.1, Python 3.14) and `Labs/Lab2/local_server/server.py` (the 3.4.1 server, adapted for a writable Windows sqlite path); verified `/`, `/sort`, `/flask-profiler/api/measurements` all work.
+- Downloaded Apache JMeter 5.6.3 (Java 25 present), built `Labs/Lab2/local_server/sort-test-plan.jmx` (parametrised non-GUI test plan for §3.4.3), ran `jmeter -n -t ... -l results.csv -e -o report-folder`.
+- **Reproduced and root-caused the notebook's own documented bug**: JMeter load (50 threads/500 requests) crashed the server with `sqlite3.ProgrammingError: Recursive use of cursors not allowed` (100% errors) — exactly as the notebook describes but doesn't explain. Root cause isolated by experiment: Flask's `app.run()` defaults to `threaded=True` (since Flask 1.0), and flask-profiler's sqlite backend shares one `Cursor` object app-wide; concurrent threads calling `.execute()` on it collide. Control run with `threaded=False` on the identical plan: 0% errors, 500/500 succeeded, avg 158 ms. Explains why the notebook's suggested MongoDB fix works (per-thread pooled connections vs one hand-rolled cursor).
+- Inserted one new markdown cell into the notebook (after the bug-discussion cell) documenting this local reproduction, root cause, and control result.
+- Created: `wiki/examples/ict3113-lab2-jmeter-testing.md`.
+- Updated: `wiki/index.md` (examples table), `wiki/log.md`, `wiki/hot.md`.
+
+## 2026-09-14 | ingest | ICT3113 POD — Lec04 Performance Modelling (II)
+
+- Task: ingest `raw/ICT3113 Performance Optimisation and Design - Lec04 Performance Modelling (II).md` (479 lines).
+- Created: `wiki/sources/ict3113-pod-l4.md` — source index covering all six lecture sections and six assignment solutions.
+- Created: `wiki/concepts/queueing-theory.md` (c-000131) — full concept page covering M/M/c multi-server queues, Forced Flow Law, Service Demand Law, bottleneck analysis (capacity bottleneck vs congestion hotspot), Interactive Response Time Law, Kingman formula (G/G/1), Sakasegawa's G/G/c approximation, four-sources diagnostic framework, running case (online service: Cs²=34 diagnosis, split-queue fix, p95 3.48s→0.44s, Kingman validation), and capstone case (wafer fab: LITHO-02 failure, congestion hotspot, priority discipline).
+- Updated: `wiki/index.md` — source and concept rows added.
+- Updated: `wiki/concepts/performance-metrics.md` — pointer to queueing-theory page added to Key Connections.
+- Updated: `wiki/concepts/performance-engineering.md` — pointer to queueing-theory page added to Key Connections.
+- Updated: `wiki/log.md`, `wiki/hot.md`.
+
 ## 2026-09-14 | ingest | INF2005 CSF — Ethical Hacking
 
 - Task: ingest `raw/INF2005 Cyber Security Fundamentals - Ethical Hacking.md` (272 lines, 12 sections).

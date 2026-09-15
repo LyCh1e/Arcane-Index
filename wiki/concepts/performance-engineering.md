@@ -112,6 +112,7 @@ Container resource limits and autoscaling are not configuration details — they
 ## Key Connections
 
 - [[concepts/performance-metrics]] — detailed reference: metric properties, response time, percentiles, utilisation law, queueing fundamentals
+- [[concepts/queueing-theory]] — analytical toolkit: M/M/c queues, operational laws (Forced Flow, Service Demand), bottleneck analysis, Kingman formula, interactive systems, four-sources diagnostic framework
 - [[concepts/docker-compose]] — container resource configuration
 - [[concepts/database-indexing-transactions]] — database indexing as a performance optimisation
 - [[sources/ict3113-pod-l1]] — module overview and structure

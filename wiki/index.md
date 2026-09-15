@@ -2,7 +2,7 @@
 type: meta
 status: established
 title: "Wiki Index"
-updated: 2026-09-09T00:00:00
+updated: 2026-09-15T00:00:00
 tags: [meta, index]
 ---
 
@@ -110,6 +110,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3113-pod-l1\|ICT3113 POD — L1: Course Overview]] | lecture-slides | performance-engineering | 2026-08-31 |
 | [[sources/ict3113-pod-l2\|ICT3113 POD — L2: Performance Metrics and System Modelling]] | lecture-slides | performance-engineering | 2026-08-31 |
 | [[sources/ict3113-pod-l3\|ICT3113 POD — L3: Workload Identification]] | lecture-slides | performance-engineering | 2026-09-07 |
+| [[sources/ict3113-pod-l4\|ICT3113 POD — L4: Performance Modelling (II)]] | lecture-slides | performance-engineering | 2026-09-14 |
 | [[sources/opencv-docs\|OpenCV Official Documentation — docs.opencv.org]] | documentation | computer-vision | 2026-09-04 |
 | [[sources/inf2005-csf-crypto1\|INF2005 CSF — Cryptography 1: Key Concepts (Symmetric)]] | lecture-notes | cryptography | 2026-09-07 |
 | [[sources/inf2005-csf-crypto2\|INF2005 CSF — Cryptography 2: Asymmetric, Hashing & Cryptanalysis]] | lecture-notes | cryptography | 2026-09-07 |
@@ -273,6 +274,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] | python-gui | low |
 | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] | python-gui | medium |
 | [[concepts/ethical-hacking\|Ethical Hacking and Penetration Testing]] | secure-software-development | high |
+| [[concepts/queueing-theory\|Queueing Theory for Performance Engineering]] | performance-engineering | high |
 
 ## Examples
 
@@ -291,6 +293,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict3112-lab1-nunit-tdd-calculator\|ICT3112 SVV Lab 1 — NUnit + TDD Calculator]] | lab | ICT3112 / software-verification-validation | [[concepts/test-driven-development\|Test-Driven Development]] |
 | [[examples/ict3112-lab2-reqnroll-bdd\|ICT3112 SVV Lab 2 — Reqnroll BDD + Acceptance Testing]] | lab | ICT3112 / software-verification-validation | [[concepts/test-driven-development\|Test-Driven Development]] |
 | [[examples/ict3113-lab1-profiling\|ICT3113 Lab 1 — Introduction to Profiling]] | lab | ICT3113 / performance-engineering | [[concepts/python-profiling\|Python Profiling]] |
+| [[examples/ict3113-lab2-jmeter-testing\|ICT3113 Lab 2 — Introduction to Testing (Flask Profiling + JMeter)]] | lab | ICT3113 / performance-engineering | [[concepts/performance-metrics\|Performance Metrics]] |
 | [[examples/ict2216-project-phase4-auth\|ICT2216 Project — Phase 4: Authentication (Register/Login/MFA/Logout)]] | project | ICT2216 / secure-software-development | [[concepts/secure-software-requirements\|Secure Software Requirements]] |
 | [[examples/ict2216-project-deployment-phases-9-12\|ICT2216 Project — Phases 9–12: Frontend Wiring, Hardening & EC2 Deployment]] | project | ICT2216 / devops | [[concepts/docker-compose\|Docker Compose]] |
 | [[examples/ict2216-practical-test-secure-webapp\|ICT2216 Practical Test — Secure Web App + Full DevSecOps Stack (Gitea, act_runner, SonarQube, ESLint)]] | project | ICT2216 / secure-software-development | [[concepts/github-actions-cicd\|GitHub Actions CI/CD]] |
@@ -347,6 +350,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/github-actions-version-deprecations\|GitHub Actions: Node 20 Deprecation, Floating vs Pinned Tags, CodeQL v3→v4]] | devops | resolved |
 | [[learning/gitea-act-runner-dood-networking\|Gitea act_runner + Docker-outside-of-Docker: 4 Networking Gotchas]] | devops | resolved |
 | [[learning/textbook-rsa-64-bit-modulus\|Textbook RSA with a 64-bit Modulus is Broken in Milliseconds]] | cryptography | resolved |
+| [[learning/ict3113-fib-memoisation-off-by-one\|ICT3113: Off-by-One in Memoised Fibonacci — Present in Official Solutions Too]] | performance-engineering | resolved |
 
 
 ## Synthesis

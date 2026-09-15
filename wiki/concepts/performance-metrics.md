@@ -387,5 +387,6 @@ Example:
 ## Key Connections
 
 - [[concepts/performance-engineering]] — the measure/model/optimise/deploy philosophy that uses these metrics
+- [[concepts/queueing-theory]] — extends these fundamentals: M/M/c multi-server queues, operational laws, bottleneck analysis, Kingman formula, interactive systems
 - [[sources/ict3113-pod-l2]] — full source with exercises and worked examples
 - [[sources/ict3113-pod-l1]] — module context: where these metrics feed into modelling and deployment

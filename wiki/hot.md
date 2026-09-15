@@ -10,6 +10,42 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-09-15. **Session: ingest — ICT3113 Week 2 official solutions notebook.** Updated: [[examples/ict3113-lab1-profiling]]. New: [[learning/ict3113-fib-memoisation-off-by-one]]. Updated: [[wiki/index.md]], [[wiki/log.md]].
+
+Ingested `Labs/Lab1/ICT3113_Week02_Introduction_to_Profiling_solutions.ipynb` — the instructor's own copy, already executed on Colab (Ubuntu 22.04.4, dual-core Xeon 2.2/2.3 GHz) with saved outputs. Added a cross-check table to the Lab 1 example page comparing those official numbers against the earlier local-Ryzen run (e.g. `long_multiple_calls.py` under `cProfile`: 238.0s on Colab's 2-core Xeon for the official 1.32-billion-call script vs 37.2s locally for a smaller variant — same code, very different hardware, which is itself the lesson).
+
+**Found and fully traced a real bug that survives in the official solutions.** The memoised-Fibonacci handout has a typo: the "compute `fib(n-2)`" branch recurses on `fib(fib_dict, n-1)` instead of `n-2`. This was already flagged (with a `# NOTE`) while completing the student skeleton, reasoning the cache absorbs the mistake — but ingesting the solutions notebook let this be checked properly: direct execution shows the typo shifts **every** cached value up by exactly one Fibonacci index (`fib_dict[k] == F(k+1)` for all k, verified 0..34). The instructor's own `fib_driver` then reads `fib_dict[n-1]` instead of `fib_dict[n]` — which exactly cancels that shift, so the printed answer (5,702,887 for n=34) matches the naive implementation and looks completely correct. Two independent bugs mask each other; the profiler's call-count story (18M→35 calls) is unaffected either way, so nothing about the lab's own success criteria would ever surface this. Full derivation in the new learning page — a clean example of why "the solutions say so" and "the final number matches" are both weak verification for a memoisation table.
+
+---
+
+2026-09-15. **Session: build — ICT3113 Lab 2 (Week 3): Introduction to Testing (Flask Profiling + JMeter).** New: [[examples/ict3113-lab2-jmeter-testing]]. Updated: [[wiki/index.md]], [[wiki/log.md]].
+
+The Week 3 notebook (`Labs/Lab2/ICT3113_Week03_Introduction_to_Testing.ipynb`) shipped fully worked, unlike Lab 1's blank skeleton — every code cell already ran. "Completing" it meant adding logic comments to the pre-filled cells, then actually standing up what the notebook only narrates: installed flask-profiler 1.8.1 (installed clean against Flask 3.1.3 / Python 3.14, no shims needed despite being a 2018-era pin), ran the 3.4.1 local server, downloaded Apache JMeter 5.6.3, built a parametrised `.jmx` test plan for the §3.4.3 non-GUI test, and ran it against the local server.
+
+**Reproduced and root-caused the notebook's own documented bug.** The lab warns that heavy JMeter load against the local server crashes it with a sqlite "recursive use of cursors" error and says switching flask-profiler's storage to MongoDB fixes it — without saying why. Reproduced exactly: 50 threads/500 requests → 100% errors, server dead in ~5s, log showing `sqlite3.ProgrammingError: Recursive use of cursors not allowed`. **Root cause isolated by experiment:** Flask's `app.run()` defaults to `threaded=True` (since Flask 1.0, easy to miss since it's never passed explicitly), and flask-profiler's sqlite backend (`storage/sqlite.py`) shares **one `Cursor` object for the whole app's lifetime** — `check_same_thread=False` only lifts sqlite's cross-thread guard, it doesn't make concurrent `.execute()` calls on the same cursor safe. Control run with only `threaded=False` changed: **0% errors, 500/500 succeeded, avg 158 ms, server stayed up** — isolating the bug to Flask's threading model + flask-profiler's cursor sharing, not JMeter or the `/sort` logic. This also explains why MongoDB fixes it (per-thread pooled connections vs one hand-rolled cursor); a cheaper single-box fix is `threaded=False` or a `threading.Lock` around the cursor.
+
+**Also worth remembering:** `curl` needs `-g` (globoff) or a quoted URL to hit `/sort?unsorted_list=[1,2,3]` — unescaped `[ ]` in a bare URL is brace/range-expansion syntax to curl and silently sends nothing.
+
+---
+
+2026-09-14. **Session: ingest — ICT3113 POD Lec04 Performance Modelling (II).** New pages: [[sources/ict3113-pod-l4]], [[concepts/queueing-theory]]. Updates to: [[concepts/performance-metrics]], [[concepts/performance-engineering]], [[wiki/index.md]], [[wiki/log.md]].
+
+**New concept page: Queueing Theory for Performance Engineering (c-000131)**
+
+The queueing theory concept page captures all Lec04 content. Core additions to the wiki's performance-engineering domain:
+
+- **M/M/c multi-server queues:** ρ = λ/(c×μ); stability iff ρ < 1; one fast vs many slow servers (fast wins on latency, many wins on fault-tolerance); API-tier worked example showing ρ rise from 0.40 to 0.60 when one server goes down, mean wait 7 ms → 58 ms.
+- **Operational Laws:** Forced Flow Law (Xₖ = Vₖ × X) and Service Demand Law (Dₖ = Vₖ × Sₖ; Uₖ = X × Dₖ). These relate per-device throughput and utilisation to system-level throughput and visit counts — the building blocks for bottleneck analysis.
+- **Bottleneck Analysis:** capacity bottleneck (lowest ceiling = c/D) vs congestion hotspot (where queueing accumulates — often different). Response time lower bound R ≥ ΣDₖ. Three improvement levers: reduce V (cache), reduce S (index), add capacity (replica). Online-service case: DB is the bottleneck at 12.8 tps ceiling despite the API tier having the largest demand (3 servers raise its ceiling to 20.3 tps).
+- **Interactive Response Time Law:** closed systems with N users and think time Z; R = N/X − Z. Derived from Little's Law applied to the full system including users.
+- **Kingman Formula (G/G/1):** W ≈ [ρ/(1−ρ)] × [(Ca²+Cs²)/2] × S. Three-factor structure: utilisation × variability × service time. Same utilisation and load → 1,000 ms wait instead of 400 ms when Cs² rises from 1 to 4.
+- **Sakasegawa's G/G/c:** multi-server extension; same three-factor structure with modified utilisation term.
+- **Four-sources diagnostic framework:** Demand / Capacity / Variability / Population — the taxonomy for any performance problem.
+- **Running case:** Cs²≈34 at the shared database (report + standard queries mixed); split-queue intervention; p95 3.48 s → 0.44 s (8×); Kingman validated on DB-RPT (predicted 0.30 s, measured 0.27 s, within 8%).
+- **Wafer fab capstone:** LITHO-02 partial failure → congestion hotspot (not capacity bottleneck at λ=3.05 lots/day); high Cₐ≈1.5 (bursty arrivals) + ρ rise inflated wait via Sakasegawa structure; priority discipline (Hot lots 3.2 h queue vs Normal 8.0 h).
+
+---
+
 2026-09-14. **Session: ingest — INF2005 CSF Ethical Hacking.** New pages: [[sources/inf2005-csf-ethical-hacking]], [[concepts/ethical-hacking]]. Updates to: [[wiki/index.md]], [[areas/secure-software-development]], [[wiki/log.md]].
 
 **New concept page: Ethical Hacking and Penetration Testing**

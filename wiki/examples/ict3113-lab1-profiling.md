@@ -2,9 +2,9 @@
 type: example
 status: established
 created: 2026-09-08
-updated: 2026-09-08
+updated: 2026-09-15
 name: ict3113-lab1-profiling
-description: ICT3113 Week 2 lab — an Introduction to Profiling notebook completed and executed locally, exercising time.perf_counter / timeit / cProfile / gprof2dot / py-spy / memory_profiler / tracemalloc / psutil on insertion, merge and quick sort plus recursive Fibonacci
+description: ICT3113 Week 2 lab — an Introduction to Profiling notebook completed and executed locally, exercising time.perf_counter / timeit / cProfile / gprof2dot / py-spy / memory_profiler / tracemalloc / psutil on insertion, merge and quick sort plus recursive Fibonacci; cross-checked against the official Colab solutions notebook
 metadata:
   type: example
 domain: performance-engineering
@@ -14,11 +14,12 @@ tags: [profiling, cprofile, py-spy, timeit, memory-profiler, tracemalloc, psutil
 
 # ICT3113 Lab 1 (Week 2) — Introduction to Profiling
 
-**Lab file:** `Labs/Lab1/ICT3113_Week02_Introduction_to_Profiling_Student_clean.ipynb`
+**Lab file (student, completed locally):** `Labs/Lab1/ICT3113_Week02_Introduction_to_Profiling_Student_clean.ipynb`
+**Lab file (official, Colab-executed):** `Labs/Lab1/ICT3113_Week02_Introduction_to_Profiling_solutions.ipynb`
 **Concept:** [[concepts/python-profiling]]
 **Stack:** Jupyter notebook, Python 3.14, Windows 11 (lab is written for Google Colab / Linux — adapted to run locally)
 
-The notebook is a guided tour of Python profiling tools. It shipped as a student skeleton — narrative markdown with empty code cells. Completing it meant filling every code cell so the notebook runs top to bottom, then executing it with `jupyter nbconvert --execute`.
+The notebook is a guided tour of Python profiling tools. It shipped as a student skeleton — narrative markdown with empty code cells. Completing it meant filling every code cell so the notebook runs top to bottom, then executing it with `jupyter nbconvert --execute`. The instructor's own solutions notebook was later ingested (already executed, with saved Colab outputs) and used to cross-check the local numbers below — see "Cross-check against the official solutions notebook".
 
 ---
 
@@ -81,7 +82,29 @@ The ratio itself grows ~linearly with n — the signature of O(n²) vs O(n log n
 
 ---
 
-## Handout bug noted (comment left in the cell)
+## Cross-check against the official solutions notebook
+
+`ICT3113_Week02_Introduction_to_Profiling_solutions.ipynb` is the instructor's own copy, already executed on Google Colab (Ubuntu 22.04.4 LTS, **dual-core Intel Xeon 2.2/2.3 GHz**, 81 cells with saved outputs) — a much weaker, shared, virtualised CPU than the local Ryzen (16 logical CPUs). Same code, very different absolute numbers, which is itself the lesson: profile on the hardware you actually deploy to, absolute timings don't transfer.
+
+| Measurement | Local (Ryzen, 16 lcores) | Official (Colab, 2-core Xeon) |
+|---|---|---|
+| `insertion_sort` via `perf_counter`, n=1000 | — (n=5000 used locally) | 0.0305 s |
+| `timeit(insertion_sort)`, n=1000, `number=1` | — | 0.0329 s |
+| `timeit(merge_sort)`, n=1000, `number=1` | — | 0.00384 s (≈×8.6 faster than insertion at the same n) |
+| `multiple_calls.py` (32,000,000 calls) under `cProfile -s tottime` | 9.56 s | **12.79 s** (unprofiled run not separately timed in the solutions notebook) |
+| `long_multiple_calls.py` (1.32 **billion** `func_e` calls) under `cProfile` | 37.2 s (a smaller call-heavy script, different function) | **238.0 s** (~4 min) — the official script is scaled up ~40× vs the local one |
+| naive `fib(34)` (not `fib(30)`) | — | **5,702,887** in 1.60 s bare / 7.53 s under `cProfile` (18,454,929 recursive calls, 173 primitive) |
+| memoised `fib(34)` | 35 calls | **35 calls**, 0.0018 s — identical call-count collapse, confirming O(2ⁿ) → O(n) is hardware-independent even though wall-clock is not |
+| iterative `fib_iter(35)` | — | 9,227,465 in 0.00044 s, 29 total calls — the cProfile-instrumentation floor itself dominates at this scale |
+| `tracemalloc` peak, `merge_sort` (n=100,000) | 19.5 KiB (n=2000) | 0.80 MB (n=100,000) — scales with input size as expected for a copying merge |
+| `tracemalloc` peak, `insertion_sort` (n=10,000) | 0.8 KiB (n=2000) | 0.020 MB — in-place, near-flat regardless of n |
+| `tracemalloc` peak, `quick_sort` (n=100,000) | 1.7 KiB (n=2000) | 0.020 MB — in-place (Lomuto partition), same flat profile as insertion sort, unlike merge sort's copies |
+
+The official notebook's `func_a → func_b/func_c → func_e` call-tree example and the naive/memoised/iterative Fibonacci progression are identical in structure to what the student skeleton asks for — confirms the local completion followed the intended shape, not just "a" valid interpretation of the vague markdown instructions.
+
+---
+
+## Handout bug noted — confirmed present in the official solutions too
 
 The provided memoised `fib` has, in the "compute fib(n-2)" branch:
 
@@ -89,7 +112,7 @@ The provided memoised `fib` has, in the "compute fib(n-2)" branch:
 return_2 = fib(fib_dict, n-1)      # should be n-2
 ```
 
-It still returns the correct final number only because the `n-1` branch above has already populated `fib_dict[n-2]` on the way down, so the mislabelled recursive call hits the cache. Flagged with a `# NOTE` in the notebook rather than silently rewritten.
+Flagged with a `# NOTE` in the local student completion rather than silently rewritten. **The official Colab solutions notebook ships the exact same typo** — this is not an artefact introduced while adapting the skeleton, it is in the instructor's own reference copy. See [[learning/ict3113-fib-memoisation-off-by-one]] for the full root-cause writeup, including a second, compensating bug in the solutions' own `fib_driver` that was apparently patched-by-trial-and-error rather than fixed at the source.
 
 ---
 
@@ -98,4 +121,5 @@ It still returns the correct final number only because the `n-1` branch above ha
 - [[concepts/python-profiling]] — the concept page this lab instantiates
 - [[concepts/performance-engineering]] — Measure step
 - [[concepts/sorting-and-searching]] · [[concepts/algorithm-complexity]] — the specimens and what the numbers mean
+- [[learning/ict3113-fib-memoisation-off-by-one]] — the handout bug, confirmed in the official solutions, with root cause
 - [[examples/ict3112-lab1-nunit-tdd-calculator]] — sibling Y3 lab (ICT3112), same "complete the skeleton + verify" shape
