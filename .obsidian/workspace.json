@@ -69,6 +69,23 @@
               "icon": "lucide-file",
               "title": "CLAUDE"
             }
+          },
+          {
+            "id": "98cdf45ddc43d29d",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "canvases/password-hashing.canvas",
+                "viewState": {
+                  "x": -145,
+                  "y": -20,
+                  "zoom": -1.1542467875845115
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "password-hashing"
+            }
           }
         ]
       }
@@ -263,6 +280,11 @@
   },
   "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "study notes/ICT3113 - Formula Sheet.md",
+    "study notes/ICT3113 - Performance Optimisation Exam Notes.md",
+    "study notes",
+    "canvases/password-hashing.canvas",
+    "canvases/blockchain-hash-chain.canvas",
     "wiki/concepts/queueing-theory.md",
     "wiki/sources/ict3113-pod-l4.md",
     "raw/ICT3113 Performance Optimisation and Design - Lec04 Performance Modelling (II).md",
@@ -281,7 +303,6 @@
     "wiki/sources/ict3113-pod-l1.md.tmp.23260.8aec6c4c68fc",
     "raw/INF2005-CSF-pre-steganography-session-wrap-transcript.md",
     "raw/ICT3113 Performance Optimisation and Design - Lec01_transcript.md",
-    "wiki/hot.md.tmp.23260.7ca5625a5b2d",
     "raw/ICT3113 Performance Optimisation and Design - Lec03_transcript.md",
     "CLAUDE.md",
     "wiki/examples/ict3112-lab2-reqnroll-bdd.md",
@@ -297,11 +318,7 @@
     "wiki/sources/inf2005-csf-crypto1.md",
     "wiki/concepts/access-control.md",
     "wiki/concepts/steganography.md",
-    "wiki/concepts/symmetric-encryption.md",
-    "raw/INF2005 Cyber Security Fundamentals - Access Control.md",
-    "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",
-    "canvases/password-hashing.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
     "claude-obsidian-main/wiki/canvases/youtube-explainer.canvas",

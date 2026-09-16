@@ -127,6 +127,20 @@
       "contentDigest": "50ca5ad01a8710c216bbf959eb6d1fb3fb97aee59fef926128b9ff26cc951d55",
       "providerUserMessageId": "da524b40-a5d0-420b-bd6e-60e5c342f6bf",
       "providerAssistantMessageId": "f67cb373-51e4-4132-a49c-cd9e73afb5cb"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789540696887-dglbt2e",
+      "userTurnOrdinal": 45,
+      "state": "accepted",
+      "localMessageId": "msg-1789540696817-0g2mkts",
+      "timestamp": 1789540696817,
+      "rawDisplayText": "with the content so far related to Performance testing and optimisation, create a full learning notes for exam, add in diagrams for clear explainations as well, all in a folder called study notes in the root folder",
+      "canonicalText": "with the content so far related to Performance testing and optimisation, create a full learning notes for exam, add in diagrams for clear explainations as well, all in a folder called study notes in the root folder",
+      "images": [],
+      "contentDigest": "4e9d9643dc3b1cde38dfa3678d2261d17010bfbe803cfaea8cd742c310e71e3f",
+      "providerUserMessageId": "4ab7b2b2-2c80-44dd-b93d-5663b10a7923",
+      "providerAssistantMessageId": "7d670222-2cef-4501-9676-12e13550fcae"
     }
   ]
 }
