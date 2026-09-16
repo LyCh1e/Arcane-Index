@@ -10,6 +10,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-09-16 | study-notes | ICT3112 SVV — comprehensive exam study notes
+
+- Task: "do the same for software verification and validation" — create full exam notes with Mermaid diagrams, matching the ICT3113 format.
+- Created: `study notes/ICT3112 - Software Verification and Validation Exam Notes.md` — ~700-line comprehensive notes with Mermaid diagrams for V&V, Testing Fundamentals, Reliability Metrics, Static Analysis, Whitebox (CFG, coverage hierarchy, cyclomatic complexity, basis paths, LCSAJ), and Blackbox (Use Case, EP, BVA, Decision Table, State Transition) techniques.
+- Created: `study notes/ICT3112 - Formula Sheet.md` — compact one-page quick reference covering all formulas, ISTQB principles, famous failures, DORA categories, BVA rules, coverage hierarchy, and V-Model alignment.
+- Source material: wiki concepts `software-verification-and-validation`, `whitebox-testing-techniques`, `blackbox-testing-techniques`, `software-testing-fundamentals`, `static-code-analysis`.
+
 ## 2026-09-15 | ingest | ICT3113 Week 2 — official solutions notebook (`ICT3113_Week02_Introduction_to_Profiling_solutions.ipynb`)
 
 - Task: "ingest this into the wiki" for `Labs/Lab1/ICT3113_Week02_Introduction_to_Profiling_solutions.ipynb` — the instructor's own copy of the Week 2 profiling lab, already executed on Colab with saved outputs (81 cells vs the local completion's independent run).

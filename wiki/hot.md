@@ -10,6 +10,22 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-09-16. **Session: study notes — ICT3112 SVV + ICT3113 Performance Optimisation.** Created: [[study notes/ICT3112 - Software Verification and Validation Exam Notes]], [[study notes/ICT3112 - Formula Sheet]]. (ICT3113 notes already created earlier in this session.)
+
+Completed comprehensive exam study notes for **ICT3112 Software Verification and Validation**. The main notes file (~700 lines) covers the full syllabus in nine sections with Mermaid diagrams throughout:
+- **V&V Fundamentals:** Verification vs Validation, V-Model (Mermaid), Static vs Dynamic, Six DORA root-cause categories, three famous failures (Therac-25, Ariane 5, CrowdStrike)
+- **Testing Fundamentals:** Seven ISTQB principles (with mnemonic), Error→Defect→Failure chain (Mermaid), Four testing levels (ASCII pyramid + Mermaid), static review spectrum (Informal→Walkthrough→Technical→Fagan Inspection), retesting vs regression, Goodhart's Law
+- **Reliability Metrics:** MTTF/MTTR/MTBF/Availability, Basic and Logarithmic Musa models with worked examples, Defect Density, PUM, CUPRIMDSO/FURPS
+- **Static Analysis:** Data flow defect classes (Mermaid), when SAST runs
+- **Whitebox Testing:** CFG node types, factorial reference example (Mermaid + full path table), coverage hierarchy (Mermaid — critical: Condition does NOT subsume Decision), Statement/Decision/Condition/D&C/Multiple Condition/Path criteria with comparisons, Cyclomatic Complexity (C = E−N+2, thresholds table), Basis Path Testing (5-step process), LCSAJ (X,Y,Z) with worked example
+- **Blackbox Testing:** Use Case Testing (components + what it detects), Equivalence Partitioning (diagram + trade-offs), Boundary Value Analysis (number line, 4 rules, string length vs ASCII boundary warning), Decision Table (2ⁿ rules, 5 constraints, two worked examples), State Transition Testing (0-switch vs 1-switch, Mermaid state diagram, door lock example with TC table)
+- **Comparison diagram:** Whitebox vs Blackbox (Mermaid), feature table
+- **Formula reference** and **exam checklist** with common mistakes
+
+A separate compact **formula sheet** was also created for quick pre-exam review — all formulas, ISTQB principles, famous failures, DORA categories, BVA rules, coverage hierarchy summary, and V-Model alignment in one scrollable page.
+
+---
+
 2026-09-15. **Session: ingest — ICT3113 Week 2 official solutions notebook.** Updated: [[examples/ict3113-lab1-profiling]]. New: [[learning/ict3113-fib-memoisation-off-by-one]]. Updated: [[wiki/index.md]], [[wiki/log.md]].
 
 Ingested `Labs/Lab1/ICT3113_Week02_Introduction_to_Profiling_solutions.ipynb` — the instructor's own copy, already executed on Colab (Ubuntu 22.04.4, dual-core Xeon 2.2/2.3 GHz) with saved outputs. Added a cross-check table to the Lab 1 example page comparing those official numbers against the earlier local-Ryzen run (e.g. `long_multiple_calls.py` under `cProfile`: 238.0s on Colab's 2-core Xeon for the official 1.32-billion-call script vs 37.2s locally for a smaller variant — same code, very different hardware, which is itself the lesson).
