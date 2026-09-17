@@ -10,6 +10,14 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-09-17 | build | ICT3113 Assignment 1 — Ticket Triage Service (coding portion)
+
+- Task: "complete the coding portion" of ICT3113 Assignment 1 for team P1-6 (xSiTe team 6, dataset rows 6000-6999).
+- Built: FastAPI + SQLite + Ollama synchronous baseline service (`POST /tickets`, `GET /search`, `GET /stats`), Dockerised with docker-compose (triage + ollama containers), JSON-lines request/classification logging. Verified end-to-end via TestClient with mocked Ollama (Docker Desktop wasn't running in-session) and `docker compose config`.
+- Also built: `scripts/extract_team_rows.py`, `scripts/sample_golden_set.py`, `scripts/agreement.py` (Cohen's/Fleiss' kappa, stdlib-only) to support Step 1 (golden test set) before labelling starts.
+- New: [[examples/ict3113-a1-ticket-triage-service]]. Updated: [[resources/ollama-local-inference]] (no changes needed, referenced as-is), [[wiki/index.md]].
+- Deliberately left uncoded: labelling protocol/golden set content, workload model, candidate model selection, JMeter test plan, recommendation, slides — all judgment/analysis work per the assignment brief, not code.
+
 ## 2026-09-16 | study-notes | ICT3112 SVV — comprehensive exam study notes
 
 - Task: "do the same for software verification and validation" — create full exam notes with Mermaid diagrams, matching the ICT3113 format.

@@ -2,13 +2,29 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-09-12
+updated: 2026-09-17
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-09-17. **Session: build — ICT3113 Assignment 1 coding portion (team P1-6).** New: [[examples/ict3113-a1-ticket-triage-service]]. Updated: [[wiki/index.md]], [[wiki/log.md]].
+
+Built the coding portion of the ICT3113 Assignment 1 "Performance Requirements & Testing" project: a synchronous **Ticket Triage Service** (FastAPI + SQLite + Ollama, Dockerised) meeting the assignment's baseline spec exactly — `POST /tickets` (blocks until classified), `GET /search`, `GET /stats`, all seven fixed categories, JSON-lines logging of every request and classification call for later reconciliation against reported numbers.
+
+**Deliberate-naivety pattern worth remembering.** The brief explicitly wants "the straightforward thing an agent writes" — no caching, no queuing, no pre-optimisation, because Assignment 2 is where optimisation gets scored. That reframes several choices that would normally look like corner-cutting: sequential blocking calls to Ollama, a **fresh `sqlite3.connect()` per request** opened/closed in the same thread (sidesteps the shared-cursor bug already documented in [[examples/ict3113-lab2-jmeter-testing]], while still leaving real lock contention as a legitimate Step-5 stress-test finding), and a bare substring-match fallback for parsing small CPU models' free-text responses (with a `fallback_used` log field to separate "model was wrong" from "model didn't follow the format" during accuracy analysis).
+
+**Model backend is a pure env var** (`OLLAMA_MODEL`) — nothing in the service names a specific model, so swapping the 3-5 pinned candidates between benchmark runs is a container restart, never a code change.
+
+**Three stdlib-only scripts** support Step 1 before any labelling happens: `extract_team_rows.py` (filters the ~146K-row source CSV on its `row` column via `csv.DictReader`, not line position — narratives contain embedded newlines in quoted fields, so naive line-splitting would corrupt them and `wc -l` wildly overcounts); `sample_golden_set.py` (seeded random sample, drops the noisy source label so labellers aren't anchored); `agreement.py` (Cohen's kappa for 2 raters / Fleiss' kappa for 3+, verified against synthetic data — 80% engineered raw agreement over 3 categories → kappa 0.76, correctly below raw agreement once chance is subtracted out).
+
+**Verification without Docker Desktop running:** FastAPI's `TestClient` must be used as a context manager (`with TestClient(app) as client:`) to fire Starlette's startup lifespan — a bare `TestClient(app)` silently skips it, which surfaced as `_DB_PATH is None` on the first attempt. With `ollama_client.classify` mocked, the full `POST /tickets` → `GET /search` → `GET /stats` path was verified end-to-end; `docker compose config` validated the compose file separately since it doesn't need the daemon.
+
+Deliberately left uncoded (judgment/analysis work, not code): the labelling protocol and golden set content, the workload model, candidate model selection and requirements, the JMeter test plan, the recommendation, and the slide deck.
+
+---
 
 2026-09-16. **Session: study notes — ICT3112 SVV + ICT3113 Performance Optimisation.** Created: [[study notes/ICT3112 - Software Verification and Validation Exam Notes]], [[study notes/ICT3112 - Formula Sheet]]. (ICT3113 notes already created earlier in this session.)
 
