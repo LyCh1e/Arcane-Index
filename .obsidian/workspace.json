@@ -20,9 +20,13 @@
                     {
                       "tabId": "tab-1782478269333-naa3aq8",
                       "conversationId": "conv-1784961088874-ofv0bshtx"
+                    },
+                    {
+                      "tabId": "tab-1789789167160-7caw39o",
+                      "conversationId": "conv-1789797391524-g2lu0jzd2"
                     }
                   ],
-                  "activeTabId": "tab-1782478269333-naa3aq8"
+                  "activeTabId": "tab-1789789167160-7caw39o"
                 }
               },
               "pinned": true,
@@ -115,8 +119,7 @@
               "title": "ICT3112 - Software Verification and Validation Exam Notes"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -307,8 +310,9 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "aa21592bb12da3f9",
+  "active": "b1e0856db03cc76e",
   "lastOpenFiles": [
+    "raw/INF2005 Cyber Security Fundamentals - Ethical Hacking (1).md",
     "study notes/ICT3112 - Software Verification and Validation Exam Notes.md",
     "study notes/ICT3113 - Performance Optimisation Exam Notes.md",
     "study notes/ICT3112 - Formula Sheet.md",
@@ -346,7 +350,6 @@
     "wiki/sources/inf2005-csf-access-control.md",
     "wiki/sources/inf2005-csf-steganography.md",
     "wiki/sources/inf2005-csf-crypto2.md",
-    "wiki/sources/inf2005-csf-crypto1.md",
     "blockchain-hash-chain.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
