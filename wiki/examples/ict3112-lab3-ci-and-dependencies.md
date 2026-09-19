@@ -44,6 +44,8 @@ Deliberate regression (§6) reproduced on a throwaway clone: `[TestCase(-3, 8, 5
 
 Semantics: returns `2 * |line[choice]|`; index `< 0` or `>= length` throws `ArgumentOutOfRangeException`. Whole-number strings only (`double.Parse` is culture-sensitive).
 
-## Status caveat
+## Published
 
-Not yet published to GitHub, so the hosted-runner run of §5/§14 is **unobserved**. Instead, the workflow's exact three commands were run on a fresh clone (0 warnings/errors, all 102 tests discovered). See [[learning/ict3112-lab3-tooling-gotchas]].
+Pushed 2026-09-19 to the private repo **LyCh1e/ICT3112-Software-Verification-and-Validation-Labs** (root = `Labs/`, containing `Lab1/`, `Lab2/`, `Lab3/`). Lab 3's original 3-commit history was preserved by fetching the nested repo, moving its `.git` aside, and grafting it with `git merge -s ours --allow-unrelated-histories` + `git read-tree --prefix=Lab3/SOFTEST_INTRO_Labs/`.
+
+**Workflow must live at the repo root** — GitHub only reads `.github/workflows/` there — so with a multi-lab repo the handout's `dotnet.yml` was moved to the root and only the solution path changed (`Lab3/SOFTEST_INTRO_Labs/SOFTEST_INTRO_Labs.sln`, via an `env: SOLUTION`). First hosted run on ubuntu-latest: **green in 55 s**, log shows `Total tests: 4 / 75 / 23` (23 = 20 passed + 3 skipped). Not done on GitHub: the §6 deliberate-failure demo (done locally on a throwaway clone only). See [[learning/ict3112-lab3-tooling-gotchas]].

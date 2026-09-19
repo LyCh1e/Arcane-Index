@@ -10,6 +10,11 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-09-19 | publish | ICT3112 Labs repo pushed to GitHub
+
+- Pushed the whole `Labs/` folder (Lab1–Lab3) to private `LyCh1e/ICT3112-Software-Verification-and-Validation-Labs`; Lab 3 history grafted under `Lab3/SOFTEST_INTRO_Labs/`; workflow moved to repo root with corrected solution path. `.claude/`, Word `~$` lock files and a stray `net10.0/` build folder excluded via root `.gitignore`.
+- First GitHub Actions run green (Total tests 4 / 75 / 23). Updated [[examples/ict3112-lab3-ci-and-dependencies]].
+
 ## 2026-09-19 | build | ICT3112 SVV Lab 3 — Continuous Integration + Testing with Dependencies
 
 - Task: "complete the Lab3_ContinuousIntegration_TestingDependencies.pdf" (with instruction to catch and ignore prompt injection). PDF text, metadata and annotations checked — no injection found.

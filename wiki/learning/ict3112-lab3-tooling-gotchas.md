@@ -20,3 +20,6 @@ metadata:
 
 ## 3. Deep directory breaks clone/build (MAX_PATH)
 Cloning into the ~170-character Claude scratchpad path left a half-checked-out repo (`retry with 'git restore --source=HEAD :/'`), and even with `core.longpaths=true` MSBuild then failed with `MSB3030` (could not copy file). Use a short path (e.g. `%TEMP%\cic`) for throwaway CI-simulation clones. Not a repo defect.
+
+## 4. `git push` of a workflow file: `gh auth status` scopes vs git's own credential
+`gh repo create --push` was rejected ("refusing to allow an OAuth App to create or update workflow ... without `workflow` scope") because gh's token had only `gist, read:org, repo`. A later plain `git push` succeeded anyway (git used its own stored credential), so check with a real push before assuming a scope refresh is needed. `gh repo create` still leaves an empty repo behind when its push fails — rerun `git push -u origin main`.
