@@ -2,13 +2,23 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-09-17
+updated: 2026-09-19
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-09-19. **Session: build — ICT3112 SVV Lab 3 (CI + testing with dependencies).** New: [[examples/ict3112-lab3-ci-and-dependencies]], [[concepts/test-doubles-and-dependency-injection]], [[learning/ict3112-lab3-tooling-gotchas]]. Updated: [[wiki/index.md]], [[wiki/log.md]].
+
+Extended the Lab 2 calculator solution (copied to `Labs/Lab 3/SOFTEST_INTRO_Labs`, own git repo) with a GitHub Actions workflow (restore → Release build → test, solution-level so new projects are picked up automatically) and a `FileReader` dependency. Followed the handout's arc so each checkpoint was real: `GenMagicNum` first constructs `FileReader` itself → tested by **integration** tests on a `Path.GetTempFileName()` file → extracting `IFileReader` + parameter injection broke the integration tests at **compile** time (`CS7036`, feedback not a behavioural failure) → Moq unit tests. Final: 75 unit + 4 integration + 23 acceptance (20 pass, 3 skipped Lab 2 §7 rows).
+
+**Key idea worth remembering:** Moq's `Mock<T>` is a *stub* when you `Setup().Returns()` and assert the result, a *mock* when you `Verify(Times.Once())` — the role comes from the assertion, not the library. Unit and integration tests overlap deliberately but give different evidence.
+
+**Honest gap:** nothing was pushed, so the GitHub-hosted Ubuntu run is unobserved; the workflow's exact commands were run on a fresh local clone instead, and the §6 deliberate-failure demo was done on a throwaway clone (`Expected: 6.0d But was: 5.0d`). **Handout PDF was clean** (text/metadata/annotations checked) — the Read tool's "password-protected" error was a false positive; `pypdf` reads it fine. Also hit: robocopy flags mangled by Git Bash, MAX_PATH breaking clone/MSBuild in the deep scratchpad path.
+
+---
 
 2026-09-17. **Session: build — ICT3113 Assignment 1 coding portion (team P1-6).** New: [[examples/ict3113-a1-ticket-triage-service]]. Updated: [[wiki/index.md]], [[wiki/log.md]].
 

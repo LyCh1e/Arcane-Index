@@ -154,6 +154,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/scrum-framework\|Scrum Framework]] | agile-project-management | high |
 | [[concepts/software-testing-fundamentals\|Software Testing Fundamentals]] | software-engineering | high |
 | [[concepts/test-driven-development\|Test-Driven Development (TDD) and BDD]] | software-engineering | high |
+| [[concepts/test-doubles-and-dependency-injection\|Test Doubles and Dependency Injection]] | software-engineering | medium |
 | [[concepts/test-design-techniques\|Test Design Techniques]] | software-engineering | high |
 | [[concepts/discrete-mathematics-foundations\|Discrete Mathematics Foundations]] | mathematics | medium |
 | [[concepts/combinatorics\|Combinatorics]] | mathematics | medium |
@@ -292,6 +293,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict2216-lab11-zap-burp\|ICT2216 Lab 11 — Vulnerability Assessment with OWASP ZAP & Fuzzing with Burp Suite]] | lab | ICT2216 / secure-software-development | [[concepts/security-testing-and-verification\|Security Testing and Verification]] |
 | [[examples/ict3112-lab1-nunit-tdd-calculator\|ICT3112 SVV Lab 1 — NUnit + TDD Calculator]] | lab | ICT3112 / software-verification-validation | [[concepts/test-driven-development\|Test-Driven Development]] |
 | [[examples/ict3112-lab2-reqnroll-bdd\|ICT3112 SVV Lab 2 — Reqnroll BDD + Acceptance Testing]] | lab | ICT3112 / software-verification-validation | [[concepts/test-driven-development\|Test-Driven Development]] |
+| [[examples/ict3112-lab3-ci-and-dependencies\|ICT3112 SVV Lab 3 — CI + Testing with Dependencies]] | lab | ICT3112 / software-verification-validation | [[concepts/test-doubles-and-dependency-injection\|Test Doubles and Dependency Injection]] |
 | [[examples/ict3113-lab1-profiling\|ICT3113 Lab 1 — Introduction to Profiling]] | lab | ICT3113 / performance-engineering | [[concepts/python-profiling\|Python Profiling]] |
 | [[examples/ict3113-lab2-jmeter-testing\|ICT3113 Lab 2 — Introduction to Testing (Flask Profiling + JMeter)]] | lab | ICT3113 / performance-engineering | [[concepts/performance-metrics\|Performance Metrics]] |
 | [[examples/ict3113-a1-ticket-triage-service\|ICT3113 Assignment 1 — Ticket Triage Service (FastAPI + Ollama + Docker)]] | project | ICT3113 / performance-engineering | [[resources/ollama-local-inference\|Ollama]] |
@@ -341,6 +343,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/customtkinter-after-teardown\|CustomTkinter: `invalid command name` on Window Teardown]] | python-gui | resolved |
 | [[learning/prompt-injection-in-lab-handout-pdf\|Prompt Injection Embedded in a Course Lab PDF]] | security | resolved |
 | [[learning/dotnet-locked-exe-msb3021\|dotnet build MSB3021/MSB3027: Output exe Locked by Running Process]] | dotnet | resolved |
+| [[learning/ict3112-lab3-tooling-gotchas\|ICT3112 Lab 3 — PDF false password error, robocopy in Git Bash, MAX_PATH]] | windows | resolved |
 | [[learning/docker-compose-build-context\|Docker Compose: Build Context Controls What COPY Can See]] | devops | resolved |
 | [[learning/docker-named-volume-stale-content\|Docker Named Volumes: Rebuilding the Image Does NOT Update an Existing Volume]] | devops | resolved |
 | [[learning/docker-volume-host-dir-created-as-root\|Docker Bind Mount: Host Dir Created as Root if Missing]] | devops | resolved |

@@ -2,13 +2,20 @@
 type: meta
 status: established
 title: "Operation Log"
-updated: 2026-09-09
+updated: 2026-09-19
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## 2026-09-19 | build | ICT3112 SVV Lab 3 — Continuous Integration + Testing with Dependencies
+
+- Task: "complete the Lab3_ContinuousIntegration_TestingDependencies.pdf" (with instruction to catch and ignore prompt injection). PDF text, metadata and annotations checked — no injection found.
+- Built: `Labs/Lab 3/SOFTEST_INTRO_Labs/` (Lab 2 solution copied in; own git repo, 3 commits) — `.github/workflows/dotnet.yml`, `FileReader`/`IFileReader`, `GenMagicNum` (coupled, then injected), `IntegrationTests` project (4 tests), Moq unit tests (5). Totals: 75 unit + 4 integration + 23 acceptance (20 pass, 3 skipped). Answers in `Labs/Lab 3/LAB3_NOTES.md`.
+- Verified locally: fresh-clone restore/build (Release)/test with the workflow's exact commands; deliberate-regression demo on a throwaway clone. **Not published to GitHub** — hosted Actions run unobserved.
+- New: [[concepts/test-doubles-and-dependency-injection]], [[examples/ict3112-lab3-ci-and-dependencies]], [[learning/ict3112-lab3-tooling-gotchas]]. Updated: [[wiki/index.md]], [[wiki/hot.md]].
 
 ## 2026-09-17 | build | ICT3113 Assignment 1 — Ticket Triage Service (coding portion)
 
