@@ -2,13 +2,20 @@
 type: meta
 status: established
 title: "Operation Log"
-updated: 2026-09-19
+updated: 2026-09-21
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## 2026-09-21 | build | Learnix SRL step detection review
+
+- New: [[learning/learnix-srl-keyword-detection-pitfalls]]
+- Updated: [[wiki/index.md]], [[wiki/hot.md]].
+- Output in repo: `cy-documentation.md` (analysis + prioritised recommendations; no source changes).
+- Key material: bot replies advanced SRL progress (feedback loop); substring false positives; 60% silent rate on eval set; unused `<step_note>` signal; backend never updates srl_steps.
 
 ## 2026-09-21 | ingest | ICT3113 POD Lec05 — JMeter Recap
 

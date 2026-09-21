@@ -342,6 +342,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/scrum-master-exam-study-notes\|Scrum Master Exam Study Notes (80 Questions)]] | agile-project-management | active |
 | [[learning/psm1-cheatsheet-study-notes\|PSM I Cheatsheet Study Notes]] | agile-project-management | active |
 | [[learning/customtkinter-after-teardown\|CustomTkinter: `invalid command name` on Window Teardown]] | python-gui | resolved |
+| [[learning/learnix-srl-keyword-detection-pitfalls\|Learnix: SRL Keyword Detection Pitfalls]] | llm-tutoring | open |
 | [[learning/prompt-injection-in-lab-handout-pdf\|Prompt Injection Embedded in a Course Lab PDF]] | security | resolved |
 | [[learning/dotnet-locked-exe-msb3021\|dotnet build MSB3021/MSB3027: Output exe Locked by Running Process]] | dotnet | resolved |
 | [[learning/ict3112-lab3-tooling-gotchas\|ICT3112 Lab 3 — PDF false password error, robocopy in Git Bash, MAX_PATH]] | windows | resolved |

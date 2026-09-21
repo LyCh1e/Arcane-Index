@@ -10,6 +10,12 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-09-21. **Session: build — Learnix SRL step detection review.** New: [[learning/learnix-srl-keyword-detection-pitfalls]]. Updated: [[wiki/index.md]], [[wiki/log.md]]. Repo output: `cy-documentation.md`.
+
+Audited the Learnix keyword-based SRL tracker (branch `feature/better-srl-detection`) without changing source. **Key finding:** the detector also scans the *bot's* replies, and the prompt steers the bot to the next uncompleted step, so progress partly measures the bot (one "hi" + one reply ticked Self-Monitoring). Also: substring false positives (`roi` in *android*, `level 1` in *level 10*), 60% of the 45 eval questions fire no step, questions/negations count as evidence, `<step_note>` tags are emitted but unused, and the web backend never updates `srl_steps`. Recommended order: learner-only + word-boundary matching, shared UI-free taxonomy module + backend parity, labelled gold set, consume `<step_note>` (JSON inside the existing tag), weighted evidence score, optional embedding assist (zero-shot MiniLM got 6/9 top-1 — not reliable alone).
+
+---
+
 2026-09-21. **Session: ingest — ICT3113 POD Lec05 JMeter Recap.** New: [[sources/ict3113-pod-l5]]. Updated: [[concepts/performance-metrics]] (Little's Law section), [[concepts/performance-engineering]] (JMeter test plan design section), [[wiki/index.md]], [[wiki/log.md]].
 
 Lecture 5 bridges Lec01–Lec04 theory to practical JMeter test plan design. The single learning outcome is: derive Thread Group parameters from a workload description using **Little's Law** (L = λW).
