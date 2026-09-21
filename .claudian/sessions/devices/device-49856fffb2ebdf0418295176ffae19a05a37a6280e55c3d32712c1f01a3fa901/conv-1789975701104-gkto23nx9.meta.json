@@ -1,0 +1,23 @@
+{
+  "id": "conv-1789975701104-gkto23nx9",
+  "providerId": "claude",
+  "title": "Ingest JMeter performance recap",
+  "titleGenerationStatus": "success",
+  "createdAt": 1789975701117,
+  "lastActivityAt": 1789975896109,
+  "sessionId": "52f550bb-bd81-40c8-b0a6-d97610207a78",
+  "selectedModel": "sonnet",
+  "providerState": {
+    "providerSessionId": "52f550bb-bd81-40c8-b0a6-d97610207a78"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 737,
+    "cacheReadInputTokens": 64162,
+    "contextWindow": 200000,
+    "contextTokens": 64900,
+    "percentage": 32,
+    "contextWindowIsAuthoritative": true
+  }
+}

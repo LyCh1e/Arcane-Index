@@ -384,9 +384,63 @@ Example:
 
 ---
 
+## Little's Law
+
+**Little's Law** (L = λW) is a fundamental queueing result that relates three system-level quantities:
+
+| Symbol | Meaning |
+|--------|---------|
+| **L** | Mean number of items *in the system* (queue + in service) at steady state |
+| **λ** | Mean arrival rate (items per unit time) |
+| **W** | Mean time each item spends in the system |
+
+The law holds for **any** stable system in steady state — regardless of the arrival distribution, service distribution, or number of servers. No assumptions about Poisson arrivals or exponential service are required.
+
+### Intuitive derivation
+
+Imagine watching a car park: if cars arrive at 10 per hour on average and each stays 0.5 hours on average, the average number of cars parked at any instant is 10 × 0.5 = 5. This is Little's Law.
+
+### Applied to load-test sizing
+
+Little's Law is the bridge between a workload description and JMeter Thread Group parameters:
+
+```
+L (concurrent users) = λ (arrival rate) × W (avg session time)
+
+For a batch-arrival scenario:
+  λ = N_total_users / Ramp_up_period
+  L = (N_total_users / Ramp_up_period) × W
+
+Cap rule: L ≤ N_total_users (cannot have more concurrent users than total users).
+
+Inverse (derive Ramp-up from a target concurrency L):
+  Ramp_up = N_total_users × W / L
+```
+
+#### Worked examples (ICT3113 Lec05)
+
+| Scenario | Calculation | Result |
+|---|---|---|
+| 100 users / 5 s window, W = 10 s | L = (100/5) × 10 = 200 | Capped at **100** (total user count) |
+| 100 users / 5 s window, W = 500 s (150+50+300) | L = (100/5) × 500 = 10 000 | Capped at **100** |
+| Arrival rate 20/s, W = 500 s (no total given) | L = 20 × 500 = 10 000 | **10 000** (no cap) |
+
+### Relationship to the Interactive Response Time Law
+
+The Interactive Response Time Law (Lec04) is Little's Law applied to a **closed** system of N users with think time Z:
+
+```
+N = X × (R + Z)   →   R = N/X − Z
+```
+
+Here N plays the role of L, X is the throughput, and (R + Z) is W (total time per cycle in the system plus thinking).
+
+---
+
 ## Key Connections
 
-- [[concepts/performance-engineering]] — the measure/model/optimise/deploy philosophy that uses these metrics
+- [[concepts/performance-engineering]] — the measure/model/optimise/deploy philosophy that uses these metrics; JMeter test plan sizing via Little's Law
 - [[concepts/queueing-theory]] — extends these fundamentals: M/M/c multi-server queues, operational laws, bottleneck analysis, Kingman formula, interactive systems
 - [[sources/ict3113-pod-l2]] — full source with exercises and worked examples
 - [[sources/ict3113-pod-l1]] — module context: where these metrics feed into modelling and deployment
+- [[sources/ict3113-pod-l5]] — Little's Law applied to JMeter test plan sizing; timers; APDEX

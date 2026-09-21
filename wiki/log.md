@@ -10,6 +10,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-09-21 | ingest | ICT3113 POD Lec05 — JMeter Recap
+
+- Source: `raw/ICT3113 Performance Optimisation and Design - Lec05 JMeter Recap.md`
+- New: [[sources/ict3113-pod-l5]]
+- Updated: [[concepts/performance-metrics]] (added Little's Law section — tag existed but body was missing), [[concepts/performance-engineering]] (added JMeter test plan design section with timers, APDEX, non-GUI mode), [[wiki/index.md]], [[wiki/hot.md]].
+- Key material: Little's Law (L = λW) as the derivation bridge for JMeter Thread Group parameters; Constant Timer vs Gaussian Random Timer; APDEX score; three worked examples (capping L at total users); non-GUI command.
+
 ## 2026-09-19 | publish | ICT3112 Labs repo pushed to GitHub
 
 - Pushed the whole `Labs/` folder (Lab1–Lab3) to private `LyCh1e/ICT3112-Software-Verification-and-Validation-Labs`; Lab 3 history grafted under `Lab3/SOFTEST_INTRO_Labs/`; workflow moved to repo root with corrected solution path. `.claude/`, Word `~$` lock files and a stray `net10.0/` build folder excluded via root `.gitignore`.

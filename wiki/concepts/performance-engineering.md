@@ -109,11 +109,64 @@ Container resource limits and autoscaling are not configuration details — they
 
 ---
 
+## JMeter Test Plan Design
+
+Before a test can be run, the **Thread Group parameters** must be derived from a workload description. The bridge between workload parameters and JMeter settings is **Little's Law** (L = λW — see [[concepts/performance-metrics]]).
+
+### Deriving Thread Group settings
+
+Given: total users N, arrival window T (seconds), average session time W (seconds):
+
+```
+λ = N / T                         (arrival rate)
+L = λ × W = (N / T) × W          (concurrent users)
+Cap: L = min(L, N)                (cannot exceed total users)
+
+JMeter Thread Group:
+  Number of Threads = N  (total users in the run)
+  Ramp-up Period    = T  (how long to reach full load)
+  Loop Count        = 1  (single session per user)
+
+To hit a target concurrency L given known W:
+  Ramp-up = N × W / L
+```
+
+### Think-time timers
+
+Two JMeter timers model user dwell time between successive requests within a session:
+
+| Timer | Behaviour | Use case |
+|-------|-----------|----------|
+| **Constant Timer** | Fixed delay of D milliseconds | Scripted workflows with known, fixed pauses |
+| **Gaussian Random Timer** | Gaussian delay: mean = Deviation + Constant Delay Offset | Realistic pacing where dwell time varies around an average |
+
+Timers are placed *between* HTTP Request samplers in the Thread's sampler chain.
+
+### APDEX
+
+The **Application Performance Index** (0–1) is reported in JMeter's HTML dashboard:
+
+- **T** (toleration threshold, default 500 ms): requests ≤ T → satisfied.
+- **F** (frustration threshold, default 1 500 ms): requests > F → frustrated.
+- APDEX = (Satisfied + 0.5 × Tolerating) / Total.
+- A score of 0.000 means every request exceeded the toleration threshold — a clear signal the system is under distress or artificially slowed (e.g. `time.sleep(5)` in the route).
+
+### Non-GUI mode
+
+```bash
+jmeter -n -t plan.jmx -l results.csv -e -o report/
+```
+
+Always validate the test plan in GUI mode first (Thread Group → HTTP Request → View Results Tree), then switch to non-GUI mode for the actual load run.
+
+---
+
 ## Key Connections
 
-- [[concepts/performance-metrics]] — detailed reference: metric properties, response time, percentiles, utilisation law, queueing fundamentals
+- [[concepts/performance-metrics]] — detailed reference: metric properties, response time, percentiles, utilisation law, queueing fundamentals; Little's Law
 - [[concepts/queueing-theory]] — analytical toolkit: M/M/c queues, operational laws (Forced Flow, Service Demand), bottleneck analysis, Kingman formula, interactive systems, four-sources diagnostic framework
 - [[concepts/docker-compose]] — container resource configuration
 - [[concepts/database-indexing-transactions]] — database indexing as a performance optimisation
 - [[sources/ict3113-pod-l1]] — module overview and structure
 - [[sources/ict3113-pod-l2]] — performance metrics and modelling fundamentals
+- [[sources/ict3113-pod-l5]] — JMeter test plan sizing; Little's Law in practice; timers; APDEX

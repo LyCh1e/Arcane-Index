@@ -2,13 +2,27 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-09-19
+updated: 2026-09-21
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-09-21. **Session: ingest — ICT3113 POD Lec05 JMeter Recap.** New: [[sources/ict3113-pod-l5]]. Updated: [[concepts/performance-metrics]] (Little's Law section), [[concepts/performance-engineering]] (JMeter test plan design section), [[wiki/index.md]], [[wiki/log.md]].
+
+Lecture 5 bridges Lec01–Lec04 theory to practical JMeter test plan design. The single learning outcome is: derive Thread Group parameters from a workload description using **Little's Law** (L = λW).
+
+**Key idea:** Concurrent users (L) = arrival rate (λ) × average session time (W). For a batch-arrival scenario, λ = N_users / Ramp_up_period, so L = (N / T) × W — capped by N_total because you cannot have more concurrent users than total users. Inverted: Ramp_up = N × W / L, which is how you set JMeter's Ramp-up Period given a target concurrency.
+
+Three worked examples in the lecture all illustrate the cap rule: with 100 total users, a session time of 10 s over 5 s → L = 200 (cap to 100); session time of 500 s over 5 s → L = 10 000 (cap to 100). Only when no total is given (arrival rate 20/s, W = 500 s) does L remain uncapped at 10 000.
+
+Also covered: Constant Timer vs Gaussian Random Timer for modelling think time between requests; APDEX (0.000 when every request exceeds the 500 ms toleration threshold — expected with an artificial `time.sleep(5)`); non-GUI command (`jmeter -n -t plan.jmx -l results.csv -e -o report/`).
+
+Little's Law section added to [[concepts/performance-metrics]] (the `little-s-law` tag existed but no body was present); JMeter Test Plan Design section added to [[concepts/performance-engineering]].
+
+---
 
 2026-09-19. **Session: build — ICT3112 SVV Lab 3 (CI + testing with dependencies).** New: [[examples/ict3112-lab3-ci-and-dependencies]], [[concepts/test-doubles-and-dependency-injection]], [[learning/ict3112-lab3-tooling-gotchas]]. Updated: [[wiki/index.md]], [[wiki/log.md]].
 
