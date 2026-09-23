@@ -21,6 +21,10 @@
     },
     "bin": {
       "opacity": 1
+    },
+    "study notes": {
+      "isBold": true,
+      "textColor": "#ffffff"
     }
   },
   "presets": {},

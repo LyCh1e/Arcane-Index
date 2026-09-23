@@ -151,7 +151,8 @@
               "title": "tutor"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -340,8 +341,9 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "c34294748e14f3a7",
+  "active": "aa21592bb12da3f9",
   "lastOpenFiles": [
+    "CLAUDE.md",
     "study notes/index.md.tmp.25952.97c5c8dd5b17",
     "agents/tutor.md",
     "study notes/ICT3112 - Software Verification and Validation Exam Notes.md",
@@ -364,7 +366,6 @@
     "wiki/log.md.tmp.17116.337642b42e62",
     "wiki/index.md.tmp.17116.509f969ed3cc",
     "wiki/concepts/performance-engineering.md.tmp.17116.d7f83538cc32",
-    "wiki/concepts/performance-metrics.md.tmp.17116.e830b3b82118",
     "wiki/sources/ict3113-pod-l5.md",
     "wiki/learning/ict3112-lab3-tooling-gotchas.md",
     "wiki/examples/ict3112-lab3-ci-and-dependencies.md",

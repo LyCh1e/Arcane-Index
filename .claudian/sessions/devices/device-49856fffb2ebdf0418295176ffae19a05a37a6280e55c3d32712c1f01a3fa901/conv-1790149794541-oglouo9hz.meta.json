@@ -1,13 +1,23 @@
 {
   "id": "conv-1790149794541-oglouo9hz",
   "providerId": "claude",
-  "title": "the study-notes/index should link to the main wiki...",
-  "titleGenerationStatus": "pending",
+  "title": "Link study notes index to main wiki",
+  "titleGenerationStatus": "success",
   "createdAt": 1790149794649,
-  "lastActivityAt": 1790149794649,
+  "lastActivityAt": 1790149895329,
   "sessionId": "7e46e37f-b599-4e1d-8d00-4d07fdb9f0bc",
   "selectedModel": "sonnet",
   "providerState": {
     "providerSessionId": "7e46e37f-b599-4e1d-8d00-4d07fdb9f0bc"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 531,
+    "cacheReadInputTokens": 23741,
+    "contextWindow": 200000,
+    "contextTokens": 24273,
+    "percentage": 12,
+    "contextWindowIsAuthoritative": true
   }
 }

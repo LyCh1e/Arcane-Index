@@ -13,7 +13,21 @@
       "canonicalText": "the study-notes/index should link to the main wiki/index, so that creation of notes would not lose any content",
       "images": [],
       "contentDigest": "a8b37497c6c0b36c72eddfe97e6a204612b0fb007236ecbe93e8ec0fae413fd3",
-      "providerUserMessageId": "5f900074-25d3-438f-a3fa-1da7f6e11ebc"
+      "providerUserMessageId": "5f900074-25d3-438f-a3fa-1da7f6e11ebc",
+      "providerAssistantMessageId": "91b48182-a747-427d-9a0c-c08b06397d28"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1790149894497-im0xps1",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1790149894358-mtgas7v",
+      "timestamp": 1790149894358,
+      "rawDisplayText": "then make sure the agent can read the study-notes/index for which courses to create daily notes everytime, also, the files in the study notes SHOULD NOT link back to the main wiki at all onlt the study-notes/index can link back",
+      "canonicalText": "then make sure the agent can read the study-notes/index for which courses to create daily notes everytime, also, the files in the study notes SHOULD NOT link back to the main wiki at all onlt the study-notes/index can link back",
+      "images": [],
+      "contentDigest": "0fa52055e46acc6646b31e72acc9f95ac27e9e2366a00d2fa986df9f3503a076",
+      "providerUserMessageId": "8065762f-80a1-4bb1-88c4-4fedef9f72a2"
     }
   ]
 }
