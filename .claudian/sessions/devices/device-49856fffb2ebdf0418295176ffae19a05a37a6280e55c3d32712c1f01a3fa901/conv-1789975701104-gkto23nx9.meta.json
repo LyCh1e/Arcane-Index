@@ -4,7 +4,7 @@
   "title": "Ingest JMeter performance recap",
   "titleGenerationStatus": "success",
   "createdAt": 1789975701117,
-  "lastActivityAt": 1789975896109,
+  "lastActivityAt": 1790148065628,
   "sessionId": "52f550bb-bd81-40c8-b0a6-d97610207a78",
   "selectedModel": "sonnet",
   "providerState": {
@@ -13,11 +13,11 @@
   "usage": {
     "model": "sonnet",
     "inputTokens": 1,
-    "cacheCreationInputTokens": 737,
-    "cacheReadInputTokens": 64162,
+    "cacheCreationInputTokens": 714,
+    "cacheReadInputTokens": 99903,
     "contextWindow": 200000,
-    "contextTokens": 64900,
-    "percentage": 32,
+    "contextTokens": 100618,
+    "percentage": 50,
     "contextWindowIsAuthoritative": true
   }
 }
