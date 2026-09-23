@@ -29,7 +29,12 @@
       "WebFetch(domain:coincryptorank.com)",
       "WebFetch(domain:chainlaunch.dev)",
       "WebFetch(domain:www.bytefederal.com)",
-      "Write(C:\\\\Arcane-Index\\\\.claude\\\\settings.json)"
+      "Write(C:\\\\Arcane-Index\\\\.claude\\\\settings.json)",
+      "Skill(schedule)",
+      "Skill(schedule:*)",
+      "Bash(cat > *)",
+      "Bash(python3 - << 'PYEOF'\nimport json, sys\n\nwith open\\('/tmp/tutor_prompt.txt', 'r'\\) as f:\n    prompt = f.read\\(\\)\n\nbody = {\n    \"name\": \"tutor\",\n    \"cron_expression\": \"0 15 * * *\",\n    \"enabled\": True,\n    \"job_config\": {\n        \"ccr\": {\n            \"environment_id\": \"env_01LaHEXHLp3ufRkteLYbVAV7\",\n            \"session_context\": {\n                \"model\": \"claude-sonnet-4-6\",\n                \"sources\": [\n                    {\"git_repository\": {\"url\": \"https://github.com/LyCh1e/Arcane-Index\"}}\n                ],\n                \"allowed_tools\": [\"Bash\", \"Read\", \"Write\", \"Edit\", \"Glob\", \"Grep\"]\n            },\n            \"events\": [\n                {\"data\": {\n                    \"uuid\": \"b3f72a1e-4c89-47d0-a5f6-2d8e0c9b1347\",\n                    \"session_id\": \"\",\n                    \"type\": \"user\",\n                    \"parent_tool_use_id\": None,\n                    \"message\": {\n                        \"role\": \"user\",\n                        \"content\": prompt\n                    }\n                }}\n            ]\n        }\n    }\n}\n\n# Validate it serialises cleanly\noutput = json.dumps\\(body\\)\n# Verify it round-trips\njson.loads\\(output\\)\nprint\\(\"JSON valid, length:\", len\\(output\\)\\)\nwith open\\('/tmp/tutor_body.json', 'w'\\) as f:\n    f.write\\(output\\)\nprint\\(\"Saved to /tmp/tutor_body.json\"\\)\nPYEOF)",
+      "Bash(node -e ' *)"
     ]
   },
   "hooks": {

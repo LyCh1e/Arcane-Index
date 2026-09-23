@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1790148795102-53g0ipzy7",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1790148795730-m783uu5",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1790148795070-vj6cgj9",
+      "timestamp": 1790148795070,
+      "rawDisplayText": "now create an agent called tutor, which creates daily notes for me to read which are different from the previous day's alot with a short 20 question mcq quiz at the end of each daily note for the courses listed in study-notes/index at 11pm local time automatically. in a folder called study-notes/daily-reads",
+      "canonicalText": "now create an agent called tutor, which creates daily notes for me to read which are different from the previous day's alot with a short 20 question mcq quiz at the end of each daily note for the courses listed in study-notes/index at 11pm local time automatically. in a folder called study-notes/daily-reads",
+      "images": [],
+      "contentDigest": "c88b8698389007a307f5be497dec2717986557c58e975c238e99890cb078252e",
+      "providerUserMessageId": "9e02e5a8-8d63-4f2a-b101-2a2a02690020",
+      "providerAssistantMessageId": "472c1ebb-2de6-4b65-add5-2f48c2425ffb"
+    }
+  ]
+}

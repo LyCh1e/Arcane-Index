@@ -1,0 +1,23 @@
+{
+  "id": "conv-1790148795102-53g0ipzy7",
+  "providerId": "claude",
+  "title": "Create tutor agent for daily study notes",
+  "titleGenerationStatus": "success",
+  "createdAt": 1790148795215,
+  "lastActivityAt": 1790149820692,
+  "sessionId": "1cd9f1dd-4ffd-4fb9-b37c-c17621581e0b",
+  "selectedModel": "sonnet",
+  "providerState": {
+    "providerSessionId": "1cd9f1dd-4ffd-4fb9-b37c-c17621581e0b"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 5400,
+    "cacheReadInputTokens": 45889,
+    "contextWindow": 200000,
+    "contextTokens": 51290,
+    "percentage": 26,
+    "contextWindowIsAuthoritative": true
+  }
+}

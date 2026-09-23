@@ -5,6 +5,8 @@ updated: 2026-09-23
 tags: [index, study-notes]
 ---
 
+> **Part of the Arcane-Index wiki** — [[wiki/index|Wiki Index]] · [[wiki/hot|Recent Context]]
+
 # Study Notes
 
 All exam notes and formula sheets in this folder. Each module has a full notes file and a compact formula/cheat sheet.
@@ -43,3 +45,11 @@ All exam notes and formula sheets in this folder. Each module has a full notes f
 | **ICT3112 SVV** | V&V fundamentals · Static vs dynamic · V-Model · ISTQB principles · Reliability (MTTF/MTTR/MTBF, Musa models) · Static analysis · Whitebox testing (CFG, coverage criteria, cyclomatic complexity, basis paths, LCSAJ) · Blackbox testing (use case, EP, BVA, decision tables, state transition) |
 | **ICT3113 POD** | Performance metrics · CIA constraints · Utilisation law · Little's Law · M/M/1 queueing · Multi-server queues (M/M/c) · Operational laws (Forced Flow, Service Demand) · Bottleneck analysis · Kingman formula · Interactive Response Time Law · JMeter test plan sizing |
 | **INF2005 CSF** | CIA triad · Symmetric crypto (substitution, transposition, DES/3DES/AES, OTP) · Kerckhoffs's Principle · Asymmetric crypto (RSA, Diffie–Hellman) · Hashing & digital signatures · Cryptanalysis (brute force, frequency analysis, known plaintext, birthday attack) · Steganography (LSB, BPCS, steganalysis) · Access control (passwords, biometrics, DAC/RBAC/MAC) · Ethical hacking (CMA, hat types, pen testing stages) |
+
+---
+
+## See Also
+
+- [[wiki/index|Wiki Index]] — master catalogue of all ingested sources, concepts, and pages
+- [[wiki/hot|Recent Context]] — latest session output (~300 words)
+- [[wiki/log|Operation Log]] — chronological record of every ingest and update

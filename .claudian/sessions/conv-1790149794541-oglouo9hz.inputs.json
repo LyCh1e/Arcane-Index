@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1790149794541-oglouo9hz",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1790149795184-c9evctr",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1790149794508-r3wwo2o",
+      "timestamp": 1790149794508,
+      "rawDisplayText": "the study-notes/index should link to the main wiki/index, so that creation of notes would not lose any content",
+      "canonicalText": "the study-notes/index should link to the main wiki/index, so that creation of notes would not lose any content",
+      "images": [],
+      "contentDigest": "a8b37497c6c0b36c72eddfe97e6a204612b0fb007236ecbe93e8ec0fae413fd3",
+      "providerUserMessageId": "5f900074-25d3-438f-a3fa-1da7f6e11ebc"
+    }
+  ]
+}

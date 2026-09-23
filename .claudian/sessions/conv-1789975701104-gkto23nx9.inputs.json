@@ -55,7 +55,8 @@
       "canonicalText": "create a skill, which updates the studynotes based on newly ingested content, based on the courses that i have entered in a table called \"create study notes for\". this should be done automatically.",
       "images": [],
       "contentDigest": "f5ece4e4561e4caf9e9bb79ab50fc20fd6002b5d8f98f20b587eb00a801237f5",
-      "providerUserMessageId": "109a13e9-1bc7-4420-ab69-9ce5e71d99ef"
+      "providerUserMessageId": "109a13e9-1bc7-4420-ab69-9ce5e71d99ef",
+      "providerAssistantMessageId": "ed67c993-f19a-4601-803b-ed0f5bf0bdab"
     }
   ]
 }
