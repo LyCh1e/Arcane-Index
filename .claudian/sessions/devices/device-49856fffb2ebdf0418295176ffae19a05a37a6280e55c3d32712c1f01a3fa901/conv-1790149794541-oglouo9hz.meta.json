@@ -4,20 +4,17 @@
   "title": "Link study notes index to main wiki",
   "titleGenerationStatus": "success",
   "createdAt": 1790149794649,
-  "lastActivityAt": 1790183635973,
-  "sessionId": "7e46e37f-b599-4e1d-8d00-4d07fdb9f0bc",
+  "lastActivityAt": 1790186715243,
+  "sessionId": null,
   "selectedModel": "sonnet",
-  "providerState": {
-    "providerSessionId": "7e46e37f-b599-4e1d-8d00-4d07fdb9f0bc"
-  },
   "usage": {
     "model": "sonnet",
     "inputTokens": 1,
-    "cacheCreationInputTokens": 334,
-    "cacheReadInputTokens": 35752,
+    "cacheCreationInputTokens": 797,
+    "cacheReadInputTokens": 46525,
     "contextWindow": 200000,
-    "contextTokens": 36087,
-    "percentage": 18,
+    "contextTokens": 47323,
+    "percentage": 24,
     "contextWindowIsAuthoritative": true
   }
 }

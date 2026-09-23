@@ -18,14 +18,6 @@
                   "version": 1,
                   "openTabs": [
                     {
-                      "tabId": "tab-1789802031219-pfzlt4q",
-                      "conversationId": "conv-1789975701104-gkto23nx9"
-                    },
-                    {
-                      "tabId": "tab-1790148786361-yuw6sxc",
-                      "conversationId": "conv-1790148795102-53g0ipzy7"
-                    },
-                    {
                       "tabId": "tab-1790149742271-onhb4wf",
                       "conversationId": "conv-1790149794541-oglouo9hz"
                     }
@@ -150,8 +142,37 @@
               "icon": "lucide-file",
               "title": "tutor"
             }
+          },
+          {
+            "id": "5aaf0ef8bd4a5102",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "study-notes/daily-reads/2026-09-24-INF2005.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-09-24-INF2005"
+            }
+          },
+          {
+            "id": "6b8923a8729dde31",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "study-notes/daily-reads/2026-09-24-ICT3113.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-09-24-ICT3113"
+            }
           }
-        ]
+        ],
+        "currentTab": 10
       }
     ],
     "direction": "vertical"
@@ -340,8 +361,12 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "c34294748e14f3a7",
+  "active": "6b8923a8729dde31",
   "lastOpenFiles": [
+    "study-notes/daily-reads/2026-09-24-INF2005.md",
+    "study-notes/daily-reads/2026-09-24-ICT3113.md",
+    "study-notes/daily-reads/2026-09-24-ICT3112.md",
+    "study-notes/daily-reads/2026-09-24-ICT3112.md.tmp.25952.f9a175c3f38c",
     "skills/daily-notes/SKILL.md",
     "skills/daily-notes",
     "CLAUDE.md",
@@ -365,7 +390,6 @@
     "wiki/learning/learnix-srl-keyword-detection-pitfalls.md.tmp.30428.ab1ae850351e",
     "wiki/hot.md.tmp.17116.8a1df99e7c79",
     "wiki/log.md.tmp.17116.337642b42e62",
-    "wiki/index.md.tmp.17116.509f969ed3cc",
     "wiki/sources/ict3113-pod-l5.md",
     "wiki/learning/ict3112-lab3-tooling-gotchas.md",
     "wiki/examples/ict3112-lab3-ci-and-dependencies.md",
@@ -377,9 +401,6 @@
     "raw/ICT3113 Performance Optimisation and Design - Lec04 Performance Modelling (II).md",
     "wiki/concepts/ethical-hacking.md",
     "wiki/sources/inf2005-csf-ethical-hacking.md",
-    "raw/INF2005 Cyber Security Fundamentals - Ethical Hacking.md",
-    "raw/INF2005 CSF - Lec02 Steganography_transcript.md",
-    "raw/INF2005-CSF-pre-steganography-session-wrap-transcript.md",
     "blockchain-hash-chain.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
