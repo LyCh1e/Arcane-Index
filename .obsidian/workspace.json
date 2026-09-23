@@ -87,7 +87,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study notes/ICT3112 - Software Verification and Validation Exam Notes.md",
+                "file": "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md",
                 "mode": "preview",
                 "source": false
               },
@@ -101,7 +101,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study notes/INF2005 - Cyber Security Fundamentals Exam Notes.md",
+                "file": "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md",
                 "mode": "preview",
                 "source": false
               },
@@ -115,7 +115,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study notes/index.md",
+                "file": "study-notes/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -129,7 +129,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study notes/ICT3112 - Software Verification and Validation Exam Notes.md",
+                "file": "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md",
                 "mode": "preview",
                 "source": false
               },
@@ -347,18 +347,18 @@
     "CLAUDE.md",
     "study notes/index.md.tmp.25952.97c5c8dd5b17",
     "agents/tutor.md",
-    "study notes/ICT3112 - Software Verification and Validation Exam Notes.md",
+    "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md",
     "skills/tutor/SKILL.md",
     "skills/tutor",
-    "study notes/daily-reads",
-    "study notes/ICT3113 - Formula Sheet.md",
-    "study notes/index.md",
+    "study-notes/daily-reads",
+    "study-notes/ICT3113 - Formula Sheet.md",
+    "study-notes/index.md",
     "skills/update-study-notes/SKILL.md",
     "skills/update-study-notes",
-    "study notes/INF2005 - Cyber Security Fundamentals Exam Notes.md",
-    "study notes/INF2005 - Formula Sheet.md",
+    "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md",
+    "study-notes/INF2005 - Formula Sheet.md",
     "study notes/INF2005 - Formula Sheet.md.tmp.3812.7ce23a45f22a",
-    "study notes/ICT3112 - Formula Sheet.md",
+    "study-notes/ICT3112 - Formula Sheet.md",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "wiki/learning/learnix-srl-keyword-detection-pitfalls.md",
@@ -371,7 +371,7 @@
     "wiki/examples/ict3112-lab3-ci-and-dependencies.md",
     "wiki/concepts/test-doubles-and-dependency-injection.md",
     "raw/INF2005 Cyber Security Fundamentals - Ethical Hacking (1).md",
-    "study notes/ICT3113 - Performance Optimisation Exam Notes.md",
+    "study-notes/ICT3113 - Performance Optimisation Exam Notes.md",
     "wiki/concepts/queueing-theory.md",
     "wiki/sources/ict3113-pod-l4.md",
     "raw/ICT3113 Performance Optimisation and Design - Lec04 Performance Modelling (II).md",

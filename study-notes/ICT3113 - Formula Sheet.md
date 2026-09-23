@@ -7,7 +7,7 @@ created: 2026-09-14
 
 # ICT3113 — Formula Quick Reference Sheet
 
-> Print-friendly one-page reference. For derivations and worked examples see [[study notes/ICT3113 - Performance Optimisation Exam Notes]].
+> Print-friendly one-page reference. For derivations and worked examples see [[ICT3113 - Performance Optimisation Exam Notes]].
 
 ---
 

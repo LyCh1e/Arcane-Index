@@ -925,7 +925,7 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Covers: block anatomy, cryptographic foundations (SHA-256, ECDSA, Merkle trees), transaction lifecycle, all major consensus mechanisms (PoW/PoS/DPoS/PBFT/PoA), UTXO vs account model, smart contracts (EVM, Solidity, risks), network architecture (node types), security threat model (51% attack, eclipse, long-range, quantum risk, privacy), scalability trilemma and Layer-2 rollups, real-world implementations (Bitcoin, Ethereum, Hyperledger Fabric), and cross-domain connections
 - Diagrams: block chain linkage, Merkle tree, transaction flow sequence, PoW mining loop, PoS attestation flow, consensus quadrant chart, mindmap threat model, full transaction lifecycle, network architecture, EVM deployment pipeline
 - Domain `blockchain` added (17th domain)
-- Updated [[index.md]], [[hot.md]]
+- Updated[[wiki/index]]], [[hot.md]]
 
 ## 2026-06-11 | ingest | ICT2216 Labs 1–5 instruction files
 
@@ -950,7 +950,7 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Created: [[learning/docker-ro-mount-chmod-fails]] — `chmod` fails on `:ro` mounted scripts; fix: call `sh /backup.sh` instead of making file executable
 - Created: [[learning/git-amend-remove-sensitive-push]] — remove sensitive info from latest pushed commit: edit file → `git add` → `git commit --amend --no-edit` → `git push --force origin main`
 - Created: [[learning/windows-openssl-strawberry-broken]] — Strawberry Perl's OpenSSL maps config to non-existent Z: drive; generate TLS certs on EC2/Linux and SCP back instead
-- Updated: [[index.md]] (1 example row, 4 learning rows)
+- Updated:[[wiki/index]]] (1 example row, 4 learning rows)
 
 ## 2026-05-30 | lab | ICT2216 Lab 4 — OWASP Threat Dragon
 
@@ -958,7 +958,7 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Created: [[resources/owasp-threat-dragon]] — two delivery variants (web/desktop/Docker), full stencil element table (Process/Store/Actor/DataFlow/TrustBoundary), both data-flow creation methods (drag + grey link tool), out-of-scope marking (dashed lines, reason field, threat generation disabled), red highlighting for open threats, customisable report, MS TMT vs Threat Dragon comparison table
 - Created: [[examples/ict2216-lab4-owasp-threat-dragon]] — step-by-step lab walkthrough (5 steps: add elements → add flows/boundaries → out-of-scope → triage threats → report), key differences from Lab 3 MS TMT table, 4 gotchas (grey link ≠ red delete; trust boundaries drive threat count; out-of-scope ≠ delete; save frequently)
 - Updated: [[sources/ICT2216-secure-software-development]] (Lab 4 row, new example, new resource)
-- Updated: [[index.md]] (1 example row)
+- Updated:[[wiki/index]]] (1 example row)
 
 ## 2026-05-30 | lab | ICT2216 Lab 5 — Nginx Reverse Proxy, Let's Encrypt TLS, GitHub Actions CI/CD
 
@@ -971,7 +971,7 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Created: [[concepts/github-actions-cicd]] (workflow YAML anatomy, triggers, runners, Docker in Actions, secrets, job dependencies, full pipeline stages for secure software)
 - Created: [[examples/ict2216-lab5-github-actions]] (full lab walkthrough, all config files, key gotchas)
 - Updated: [[sources/ICT2216-secure-software-development]] (Lab 5 entry, two new concept links, new example link)
-- Updated: [[index.md]] (2 concept rows, 1 example row)
+- Updated:[[wiki/index]]] (2 concept rows, 1 example row)
 
 ## 2026-05-26 | project | ICT2216 Project — Frontend Volume Bug Fix + start.py Refresh Automation
 
@@ -1180,7 +1180,7 @@ Chronological record of all vault operations. Append-only — never edit past en
 - **Pages updated**:
   - [[concepts/scrum-framework]] — added: Invalid Sprint Types section, Scaled Scrum section, Daily Scrum role clarity (SM ensures but doesn't conduct; PO doesn't attend)
   - [[learning/_index.md]] — added PSM I cheatsheet entry
-  - [[index]] — learning page added
+  -[[wiki/index]]] — learning page added
   - [[log]] — this entry
   - [[hot]] — session summary updated
 
@@ -1195,7 +1195,7 @@ Chronological record of all vault operations. Append-only — never edit past en
   - [[learning/_index.md]] — added scrum-open-assessment-study-notes (previously missing), scrum-master-exam-study-notes, Scrum skill-map entry
   - [[concepts/_index.md]] — added Agile Project Management domain section (scrum-framework), added security-by-design-principles to Secure Software Dev section, updated counts (54→58 pages, 11→12 domains, 15→17 sources)
   - [[sources/_index.md]] — added Scrum Guide to sources table and By Domain section
-  - [[index]] — learning page added
+  -[[wiki/index]]] — learning page added
   - [[log]] — this entry
   - [[hot]] — session summary and Recent Changes updated
 
@@ -1208,7 +1208,7 @@ Chronological record of all vault operations. Append-only — never edit past en
   - [[learning/scrum-open-assessment-study-notes]] — 30-question study notes grouped by theme: 15 common traps/misconceptions, roles Q&A tables, events timebox table, artifacts+commitments table, full key-facts reference (25 facts)
 - **Pages updated**:
   - [[sources/scrum-guide-2020]] — Learning section added
-  - [[index]] — learning page added to Learning table
+  -[[wiki/index]]] — learning page added to Learning table
   - [[log]] — this entry
   - [[hot]] — session summary updated
 
@@ -1221,7 +1221,7 @@ Chronological record of all vault operations. Append-only — never edit past en
   - [[sources/scrum-guide-2020]] — source index: key facts, canonical reference metadata, related concept links
   - [[concepts/scrum-framework]] — complete Scrum framework: theory (empiricism + lean, three pillars), five values, three accountabilities (Developers/PO/SM), five events with timeboxes, three artifacts with commitments (Product Goal/Sprint Goal/Definition of Done), quick-reference tables
 - **Pages updated**:
-  - [[index]] — new source and concept added (domain: agile-project-management)
+  -[[wiki/index]]] — new source and concept added (domain: agile-project-management)
   - [[log]] — this entry
   - [[hot]] — session summary and domain summary updated
 
@@ -1234,7 +1234,7 @@ Chronological record of all vault operations. Append-only — never edit past en
   - [[concepts/security-by-design-principles]] — design flaws vs. bugs (McGraw 50% finding), Banana Token case study, all 10 OWASP Security by Design Principles with worked examples and code, Security Architecture (physical vs. logical)
 - **Pages updated**:
   - [[sources/ICT2216-secure-software-development]] — added Lecture 4 section (Secure Software Design), Lab 3 to Labs table, new concept to Concept Pages table, updated frontmatter topics
-  - [[index]] — added `security-by-design-principles` to Concepts table
+  -[[wiki/index]]] — added `security-by-design-principles` to Concepts table
   - [[log]] — this entry
   - [[hot]] — updated session summary
 
@@ -1247,7 +1247,7 @@ Chronological record of all vault operations. Append-only — never edit past en
   - [[resources/microsoft-threat-modeling-tool]] — tool reference: install, 4-step workflow (Build→Analyze→Triage→Report), DFD stencils, STRIDE auto-generation, threat status system
   - [[examples/ict2216-lab3-threat-modeling-tool]] — Lab 03 walkthrough: 5 sequential steps, sample diagram, STRIDE checklist for project deliverable
 - **Pages updated** (indexes):
-  - [[index]] — added to Examples and Resources tables
+  -[[wiki/index]]] — added to Examples and Resources tables
   - [[log]] — this entry
 
 ---
@@ -1262,7 +1262,7 @@ Chronological record of all vault operations. Append-only — never edit past en
   - [[concepts/threat-modeling]] — threat agents (8 human types + non-human), 5 threat identification steps (trust boundaries/DFDs/entry-exit/privileged functions/mis-actors), mis-actor network categories (web/network/co-located), 5-step threat modeling process, attack trees, full Microsoft STRIDE breakdown with countermeasures and OWASP cross-reference
 - **Pages updated** (indexes):
   - [[concepts/_index]] — 53→54 pages; Secure Software Dev 4→5; threat-modeling row added
-  - [[index]] — threat-modeling row added to Concepts section
+  -[[wiki/index]]] — threat-modeling row added to Concepts section
   - [[sources/ICT2216-secure-software-development]] — Lecture 3 topic entries added; threat-modeling concept cross-reference added
   - [[areas/secure-software-development]] — threat-modeling row added to Concept Pages table
 - **Key insight**: Threat modeling answers the question requirements cannot — not *what* to protect, but *how* an attacker will actually try to break the system. STRIDE maps attacker goals to CIA+AAA violations, closing the loop between Part 1 (requirements) and Part 2 (adversarial analysis) of Lecture 3.
@@ -1288,7 +1288,7 @@ Chronological record of all vault operations. Append-only — never edit past en
   - [[synthesis/_index]] — 4 new synthesis rows added
   - [[learning/_index]] — rebuilt from empty placeholder; 5 study-notes rows
   - [[areas/_index]] — date updated
-  - [[index]] — synthesis and learning sections updated; date updated to 2026-05-15
+  -[[wiki/index]]] — synthesis and learning sections updated; date updated to 2026-05-15
   - [[hot]] — session entry added; Active Threads updated with all resolved items
   - [[log]] — this entry
 - **Skill files updated**:

@@ -42,6 +42,19 @@
       "contentDigest": "0fa52055e46acc6646b31e72acc9f95ac27e9e2366a00d2fa986df9f3503a076",
       "providerUserMessageId": "694d7782-56db-489c-a5d1-26bb7134a581",
       "providerAssistantMessageId": "3f4751cc-63c5-4a80-ac7c-bda33e82e68d"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1790183636069-4uu3e3w",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1790183635973-sqn9c01",
+      "timestamp": 1790183635973,
+      "rawDisplayText": "where are the daily reads?",
+      "canonicalText": "where are the daily reads?",
+      "images": [],
+      "contentDigest": "2bf276f0671073060cdb9e20cc760a2c53f0627a4df0c668e4a6d356a81a5a69",
+      "providerUserMessageId": "677bb184-79a6-4ac3-a62b-33bf9fb32f0e"
     }
   ]
 }

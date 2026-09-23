@@ -56,7 +56,7 @@ Deliberately left uncoded (judgment/analysis work, not code): the labelling prot
 
 ---
 
-2026-09-16. **Session: study notes — ICT3112 SVV + ICT3113 Performance Optimisation.** Created: [[study notes/ICT3112 - Software Verification and Validation Exam Notes]], [[study notes/ICT3112 - Formula Sheet]]. (ICT3113 notes already created earlier in this session.)
+2026-09-16. **Session: study notes — ICT3112 SVV + ICT3113 Performance Optimisation.** Created:[[ICT3112 - Software Verification and Validation Exam Notes]]],[[ICT3112 - Formula Sheet]]]. (ICT3113 notes already created earlier in this session.)
 
 Completed comprehensive exam study notes for **ICT3112 Software Verification and Validation**. The main notes file (~700 lines) covers the full syllabus in nine sections with Mermaid diagrams throughout:
 - **V&V Fundamentals:** Verification vs Validation, V-Model (Mermaid), Static vs Dynamic, Six DORA root-cause categories, three famous failures (Therac-25, Ariane 5, CrowdStrike)

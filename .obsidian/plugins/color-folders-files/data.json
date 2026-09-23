@@ -25,6 +25,10 @@
     "study notes": {
       "isBold": true,
       "textColor": "#ffffff"
+    },
+    "study-notes": {
+      "textColor": "#ffffff",
+      "isBold": true
     }
   },
   "presets": {},

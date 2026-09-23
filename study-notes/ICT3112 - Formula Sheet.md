@@ -9,7 +9,7 @@ updated: 2026-09-14
 # ICT3112 Software Verification and Validation
 ## Quick Reference Sheet
 
-> For derivations, diagrams, and full worked examples see [[study notes/ICT3112 - Software Verification and Validation Exam Notes]].
+> For derivations, diagrams, and full worked examples see [[ICT3112 - Software Verification and Validation Exam Notes]].
 
 ---
 
