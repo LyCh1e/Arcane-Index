@@ -151,8 +151,7 @@
               "title": "tutor"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -341,8 +340,10 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "aa21592bb12da3f9",
+  "active": "c34294748e14f3a7",
   "lastOpenFiles": [
+    "skills/daily-notes/SKILL.md",
+    "skills/daily-notes",
     "CLAUDE.md",
     "study notes/index.md.tmp.25952.97c5c8dd5b17",
     "agents/tutor.md",
@@ -365,7 +366,6 @@
     "wiki/hot.md.tmp.17116.8a1df99e7c79",
     "wiki/log.md.tmp.17116.337642b42e62",
     "wiki/index.md.tmp.17116.509f969ed3cc",
-    "wiki/concepts/performance-engineering.md.tmp.17116.d7f83538cc32",
     "wiki/sources/ict3113-pod-l5.md",
     "wiki/learning/ict3112-lab3-tooling-gotchas.md",
     "wiki/examples/ict3112-lab3-ci-and-dependencies.md",
@@ -380,7 +380,6 @@
     "raw/INF2005 Cyber Security Fundamentals - Ethical Hacking.md",
     "raw/INF2005 CSF - Lec02 Steganography_transcript.md",
     "raw/INF2005-CSF-pre-steganography-session-wrap-transcript.md",
-    "raw/ICT3113 Performance Optimisation and Design - Lec01_transcript.md",
     "blockchain-hash-chain.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",

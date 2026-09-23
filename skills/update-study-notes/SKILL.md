@@ -192,6 +192,8 @@ If running manually and no gaps were found for any module: "Study notes are alre
 - **Do not update** source files in `raw/` or wiki pages — this skill only writes to `study notes/`.
 - If a concept page's content is already well-summarised in the notes, do not re-add it. Check carefully before adding.
 - After every write, confirm the file was updated correctly by checking its last-modified content.
+- **No wiki meta back-links in study note files.** Individual notes files (exam notes, formula sheets, daily notes) must **not** contain links to `wiki/index`, `wiki/hot`, `wiki/log`, or any other top-level wiki meta page. Only `study notes/index.md` is permitted to carry those links.
+- **Always read `study notes/index.md` first** to discover which modules to process — never hardcode module names.
 
 ---
 
