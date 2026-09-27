@@ -89,13 +89,15 @@
       "schemaVersion": 1,
       "id": "msg-1790490096214-jhgefxw",
       "userTurnOrdinal": 6,
-      "state": "staged",
+      "state": "accepted",
       "localMessageId": "msg-1790490096162-ywwnqqn",
       "timestamp": 1790490096162,
       "rawDisplayText": "run tutor",
       "canonicalText": "run tutor",
       "images": [],
-      "contentDigest": "f2eeba2b7e2eb6621fa81cba44577a32bceb2d4a75d1b3074b9ce888eadd044a"
+      "contentDigest": "f2eeba2b7e2eb6621fa81cba44577a32bceb2d4a75d1b3074b9ce888eadd044a",
+      "providerUserMessageId": "06be5ab2-8261-4815-9e85-926e23bb3199",
+      "providerAssistantMessageId": "d8941ea5-ba5a-44b3-a4af-31905b9c643a"
     }
   ]
 }

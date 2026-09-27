@@ -1,10 +1,13 @@
 ---
 name: tutor
 description: >
-  Generates a daily study reading note for ICT3112, ICT3113, and INF2005 with a
-  20-question MCQ quiz. Topics rotate each day so no two consecutive notes
-  repeat the same subtopics. Output is saved to
-  `study notes/daily-reads/YYYY-MM-DD.md`.
+  Generates three separate daily study files — one per module (ICT3112,
+  ICT3113, INF2005) — each with fresh reading content followed by its own
+  full 20-question MCQ quiz, plus a companion interactive HTML quiz per
+  module. Topics rotate per module so no two consecutive appearances of that
+  module repeat the same subtopics. Output is saved to
+  `study notes/daily-reads/YYYY-MM-DD-<MODULE>.md` and
+  `study notes/daily-reads/YYYY-MM-DD-<MODULE>.html`.
   Triggers on: "tutor", "daily read", "create today's study note",
   "generate daily note", or called automatically by the 23:00 cron job.
 allowed-tools: Read Write Edit Glob Grep Bash
@@ -12,29 +15,39 @@ allowed-tools: Read Write Edit Glob Grep Bash
 
 # tutor: Daily Study Note Generator
 
-Produces one exam-focused daily reading note covering all three active modules,
-plus a 20-question MCQ quiz. Runs automatically at 23:00 each night, or on
-demand.
+Produces three exam-focused daily reading notes — one per active module —
+each followed immediately by its own 20-question MCQ quiz testing only that
+module's content, and a matching interactive HTML quiz. Runs automatically
+at 23:00 each night, or on demand.
+
+Read-then-test is the whole point of the format: open a module's `.md` file,
+read the reading section at the top, then answer the 20 questions
+underneath it — or skip straight to the module's `.html` file for an
+interactive version with instant right/wrong feedback.
 
 ---
 
 ## How It Works
 
 This skill dispatches the **tutor** agent (defined in `agents/tutor.md`).
-The agent handles topic selection, content synthesis, quiz generation, and file
-writing. See `agents/tutor.md` for the full step-by-step process.
+The agent handles, independently for each module: topic selection, content
+synthesis, quiz generation, Markdown file writing, and the companion
+interactive HTML build. See `agents/tutor.md` for the full step-by-step
+process.
 
 ---
 
 ## Quick Manual Run
 
-To generate today's daily note immediately (outside the scheduled run):
+To generate today's three daily notes immediately (outside the scheduled
+run):
 
 > Tell Claude: **"create today's daily read"** or **"run tutor"**
 
-Claude will invoke the tutor agent, which reads your study notes, selects fresh
-topics, writes the reading note, and saves it to
-`study notes/daily-reads/YYYY-MM-DD.md`.
+Claude will invoke the tutor agent, which — for each of the three modules —
+reads that module's study notes, selects 3 fresh subtopics, writes the
+reading + 20-question quiz file, and builds the matching interactive HTML
+quiz.
 
 ---
 
@@ -51,29 +64,40 @@ modify the time in `agents/tutor.md`'s description.
 
 ## Output Location
 
-All daily reads are saved in:
+All daily reads are saved in, one pair of files per module per day:
 
 ```
 study notes/daily-reads/
-  2026-09-23.md
-  2026-09-24.md
+  2026-09-27-ICT3112.md
+  2026-09-27-ICT3112.html
+  2026-09-27-ICT3113.md
+  2026-09-27-ICT3113.html
+  2026-09-27-INF2005.md
+  2026-09-27-INF2005.html
   ...
 ```
 
-Each file is a self-contained daily reading session with:
-- Topics covered (frontmatter + summary table)
-- Explanations for each subtopic (~200–300 words each)
-- 20-question MCQ quiz targeting today's topics
+Each `.md` file is a self-contained reading + quiz session for one module:
+- Topics covered (frontmatter + summary line)
+- Explanations for each of that module's 3 subtopics (~200–300 words each)
+- A full 20-question MCQ quiz targeting only today's 3 subtopics for that
+  module
 - Collapsible answers callout
+
+Each `.html` file is the interactive counterpart: the same 20 questions,
+one at a time, with instant feedback, a running score, and a results screen
+with a review of anything missed.
 
 ---
 
 ## Topic Rotation Logic
 
-The tutor reads the last 5 daily reads to build a "recently covered" set.
-It then picks 2–3 subtopics per module that have NOT been covered recently,
-rotating through the full syllabus over time so all topics are revisited
-periodically.
+For each module independently, the tutor reads that module's last 5 daily
+files to build a "recently covered" set. It then picks 3 subtopics for that
+module that have NOT been covered recently, rotating through the full
+syllabus over time so all topics are revisited periodically. Rotation is
+tracked per module — ICT3112's history never affects what INF2005 selects,
+and vice versa.
 
 ---
 

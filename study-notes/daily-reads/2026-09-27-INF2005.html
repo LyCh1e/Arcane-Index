@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INF2005 Daily Quiz — 2026-09-27</title>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --card: #ffffff;
+    --ink: #1f2430;
+    --muted: #6b7280;
+    --line: #e4e0d6;
+    --accent: #7c5cff;
+    --accent-ink: #ffffff;
+    --good: #1b8a5a;
+    --good-bg: #e6f6ee;
+    --bad: #c0392b;
+    --bad-bg: #fbe9e7;
+    --module-a: #7c5cff;
+    --module-b: #ff8a3d;
+    --module-c: #12ad9c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181d;
+      --card: #1f2229;
+      --ink: #eef0f4;
+      --muted: #9aa1ad;
+      --line: #2c3038;
+      --good-bg: #123425;
+      --bad-bg: #3a1f1c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 16px 80px;
+  }
+  header.top {
+    margin-bottom: 20px;
+  }
+  header.top h1 {
+    font-size: 1.4rem;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  header.top .sub {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  .progress-track {
+    height: 8px;
+    border-radius: 99px;
+    background: var(--line);
+    overflow: hidden;
+    margin: 18px 0 6px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.35s ease;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 18px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 3px 10px;
+    border-radius: 99px;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .badge.ICT3112 { background: var(--module-a); }
+  .badge.ICT3113 { background: var(--module-b); }
+  .badge.INF2005 { background: var(--module-c); }
+  .qtext {
+    font-size: 1.08rem;
+    line-height: 1.5;
+    margin: 0 0 18px;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    text-align: left;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 0.96rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.05s ease;
+    display: flex;
+    gap: 10px;
+  }
+  .opt:hover:not(:disabled) { border-color: var(--accent); }
+  .opt:active:not(:disabled) { transform: scale(0.99); }
+  .opt .letter {
+    font-weight: 700;
+    color: var(--muted);
+    min-width: 18px;
+  }
+  .opt:disabled { cursor: default; }
+  .opt.correct { border-color: var(--good); background: var(--good-bg); }
+  .opt.correct .letter { color: var(--good); }
+  .opt.incorrect { border-color: var(--bad); background: var(--bad-bg); }
+  .opt.incorrect .letter { color: var(--bad); }
+  .opt.dim { opacity: 0.55; }
+  .feedback {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    display: none;
+  }
+  .feedback.show { display: block; }
+  .feedback.good { background: var(--good-bg); color: var(--good); }
+  .feedback.bad { background: var(--bad-bg); color: var(--bad); }
+  .feedback .exp { color: var(--ink); opacity: 0.85; display: block; margin-top: 6px; }
+  .controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  button.next {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    padding: 11px 22px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: none;
+  }
+  button.next.show { display: inline-block; }
+  button.next:hover { opacity: 0.9; }
+  .results { text-align: center; }
+  .score-ring {
+    width: 140px; height: 140px;
+    margin: 8px auto 18px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: conic-gradient(var(--accent) calc(var(--pct) * 1%), var(--line) 0);
+  }
+  .score-ring .inner {
+    width: 112px; height: 112px;
+    border-radius: 50%;
+    background: var(--card);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .score-ring .num { font-size: 1.7rem; font-weight: 700; }
+  .score-ring .den { font-size: 0.8rem; color: var(--muted); }
+  .breakdown {
+    text-align: left;
+    margin-top: 22px;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+  .breakdown h3 { font-size: 0.95rem; margin: 0 0 10px; color: var(--muted); font-weight: 600; }
+  .mod-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 0; font-size: 0.92rem; border-bottom: 1px solid var(--line);
+  }
+  .mod-row:last-child { border-bottom: none; }
+  .review-list { margin-top: 22px; text-align: left; }
+  .review-item {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .review-item .q { font-weight: 600; margin-bottom: 4px; }
+  .review-item .you { color: var(--bad); }
+  .review-item .correct-ans { color: var(--good); }
+  button.restart {
+    margin-top: 24px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button.restart:hover { background: var(--accent); color: var(--accent-ink); }
+  .hint {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 6px;
+  }
+  .celebrate { font-size: 2rem; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>INF2005 Daily Quiz — 2026-09-27</h1>
+    <div class="sub">Diffie–Hellman · Authentication Factors · Biometric Authentication</div>
+  </header>
+
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-label"><span id="progressLabel">Question 1 of 20</span><span id="scoreLabel">Score: 0</span></div>
+
+  <div class="card" id="quizCard"></div>
+</div>
+
+<script id="quiz-data" type="application/json">[{"module": "INF2005", "question": "What does Diffie–Hellman key exchange actually establish between two parties?", "options": ["An encrypted message", "A shared secret key, derived without ever transmitting it", "A digital signature", "A certificate signed by a trusted authority"], "correct": 1, "explanation": "DH establishes a shared secret key derived independently by both sides; no key or secret value is ever transmitted across the channel."}, {"module": "INF2005", "question": "An eavesdropper who observes p, G, A, and B in a Diffie–Hellman exchange cannot compute the shared key K because doing so requires solving:", "options": ["The RSA factoring problem", "The discrete logarithm problem", "A birthday-attack collision search", "A brute-force password search"], "correct": 1, "explanation": "Recovering a private exponent from a public value (A = Gᵃ mod p) is the discrete logarithm problem, believed computationally infeasible for large primes."}, {"module": "INF2005", "question": "Why is Diffie–Hellman described as \"not encryption\"?", "options": ["It cannot be implemented in software", "It only agrees a shared secret key; it never itself encrypts or transmits data", "It requires a trusted third-party certificate authority", "It only works for symmetric ciphers, never asymmetric ones"], "correct": 1, "explanation": "DH only produces a shared secret; the parties must still pair it with a symmetric cipher to actually encrypt anything — DH itself does no encryption."}, {"module": "INF2005", "question": "In the DH protocol, which values are shared publicly and can safely be seen by an eavesdropper?", "options": ["a and b (the private secrets)", "K (the shared secret)", "p, G, A, and B", "Only p and G, never A or B"], "correct": 2, "explanation": "p, G, A, and B are all transmitted in the open; a, b, and K are never sent."}, {"module": "INF2005", "question": "Alice computes K = Bᵃ mod p and Bob computes K = Aᵇ mod p. Why do they arrive at the same value?", "options": ["Because A = B by construction", "Because both expressions equal G^(ab) mod p", "Because p is chosen to make all exponents equal", "Because a = b in every DH exchange"], "correct": 1, "explanation": "Bᵃ mod p = (Gᵇ)ᵃ mod p = G^(ab) mod p, and Aᵇ mod p = (Gᵃ)ᵇ mod p = G^(ab) mod p — the same value by the laws of exponents."}, {"module": "INF2005", "question": "What must Alice and Bob agree on publicly before starting the Diffie–Hellman exchange?", "options": ["Their private secrets a and b", "A shared symmetric key", "A prime p and a generator G", "A digital certificate signed by a CA"], "correct": 2, "explanation": "The prime p and generator G are the public parameters both parties must agree on before exchanging public values."}, {"module": "INF2005", "question": "Which cryptographic problem is DH's security based on, as opposed to RSA's?", "options": ["DH relies on integer factoring, same as RSA", "DH relies on the discrete logarithm problem, whereas RSA relies on integer factoring", "DH relies on birthday collisions", "DH and RSA rely on the same underlying hard problem"], "correct": 1, "explanation": "DH's hardness rests on the discrete logarithm problem; RSA's rests on integer factoring — different hard problems entirely."}, {"module": "INF2005", "question": "What does the \"KTB\" mnemonic stand for?", "options": ["Key, Token, Backup", "Knowledge, Token, Biometrics", "Kerberos, TLS, Biometrics", "Knowledge, Trust, Behaviour"], "correct": 1, "explanation": "Knowledge, Token, Biometrics — the three independent authentication factor categories."}, {"module": "INF2005", "question": "Why does salting a password hash defeat precomputed rainbow table attacks?", "options": ["It encrypts the password reversibly", "It makes each user's hash unique, forcing the attacker to crack every password individually rather than reusing one precomputed table", "It shortens the password", "It removes the need for hashing altogether"], "correct": 1, "explanation": "A unique salt per user defeats precomputed tables, forcing attackers to crack each password from scratch."}, {"module": "INF2005", "question": "Which password storage method is described as the weakest, exposing all passwords immediately upon a single breach?", "options": ["Hash(password + salt)", "Hash(password)", "Encrypted password", "Plaintext password"], "correct": 3, "explanation": "Plaintext storage means a single breach immediately exposes every password with no additional attacker effort."}, {"module": "INF2005", "question": "A dictionary attack is best defended against by:", "options": ["Using a longer numeric PIN only", "Avoiding dictionary words and using salted hashing", "Increasing the account lockout threshold only", "Disabling password authentication entirely"], "correct": 1, "explanation": "Avoiding dictionary words and salting hashes are the notes' stated defences against dictionary attacks."}, {"module": "INF2005", "question": "\"Google Dorking\" as a password attack technique works by:", "options": ["Brute-forcing login forms directly", "Using search operators (e.g. ext:csv inurl:passwd) to find exposed credential files indexed online", "Exploiting weak RFID encryption", "Performing a birthday attack on password hashes"], "correct": 1, "explanation": "Google Dorking uses targeted search operators to locate credential files that have been accidentally indexed publicly."}, {"module": "INF2005", "question": "Which of the following is a \"Token\" (something you have) authentication method, as opposed to Knowledge or Biometrics?", "options": ["A PIN code", "A fingerprint scan", "An RFID tag or smart card", "A graphical password pattern"], "correct": 2, "explanation": "An RFID tag or smart card is something you have — a Token factor; the others are Knowledge or Biometric factors."}, {"module": "INF2005", "question": "What is a key vulnerability of RFID tag authentication mentioned in the notes?", "options": ["RFID tags cannot be mass-produced", "Over-the-air spoofing, MITM sniffing, and side-channel power analysis", "RFID requires physical contact, making it slow", "RFID tags cannot store any cryptographic keys"], "correct": 1, "explanation": "RFID's stated vulnerabilities are over-the-air spoofing, MITM sniffing, and side-channel power analysis."}, {"module": "INF2005", "question": "Which property of a good biometric, from the UDPC list, means the characteristic must remain stable over a person's lifetime?", "options": ["Universality", "Distinctiveness", "Permanence", "Collectability"], "correct": 2, "explanation": "Permanence specifically requires the characteristic to remain stable over time; universality and distinctiveness are about coverage and uniqueness, not stability."}, {"module": "INF2005", "question": "A security system's match threshold is loosened so more legitimate users are accepted on the first try. What is the most likely side effect?", "options": ["FAR decreases while TAR stays the same", "Both FAR and TAR tend to increase together", "TAR decreases", "Neither FAR nor TAR is affected by the threshold"], "correct": 1, "explanation": "FAR and TAR move together under a threshold change: a looser threshold accepts more people overall, both legitimate and illegitimate, raising both rates."}, {"module": "INF2005", "question": "What does FAR (False Accept Rate) measure?", "options": ["How often a legitimate user is correctly granted access", "How often an impostor is wrongly granted access", "How long enrolment takes", "How expensive the biometric system is"], "correct": 1, "explanation": "FAR measures how often an impostor is wrongly accepted; TAR is the complementary measure for legitimate users."}, {"module": "INF2005", "question": "According to the notes, which biometric modality has the highest reported accuracy (lowest false-positive rate), though at high cost and invasiveness?", "options": ["Keystroke dynamics", "Facial recognition", "Retinal scanning", "Gait analysis"], "correct": 2, "explanation": "Retinal scanning is described as the most accurate modality (around 1-in-20,000 false positives), at the cost of being the most invasive and expensive."}, {"module": "INF2005", "question": "What fairness concern is specifically raised about facial recognition systems?", "options": ["They cannot process high-resolution images", "False-positive rates for Asian and Black individuals can be up to 100× higher than for white individuals", "They only work indoors", "They require government ID to enrol"], "correct": 1, "explanation": "The notes specifically flag facial recognition's racial bias in false-positive rates as a significant fairness concern."}, {"module": "INF2005", "question": "Which of the four UDPC properties requires that any two people's biometric characteristic differ sufficiently to tell them apart?", "options": ["Universality", "Distinctiveness", "Permanence", "Collectability"], "correct": 1, "explanation": "Distinctiveness is the UDPC property requiring sufficient difference between individuals so they can be told apart."}]</script>
+<script>
+(function () {
+  const DATA = JSON.parse(document.getElementById('quiz-data').textContent);
+  const LETTERS = ['A', 'B', 'C', 'D'];
+  let current = 0;
+  let score = 0;
+  let answered = [];
+  const card = document.getElementById('quizCard');
+  const progressFill = document.getElementById('progressFill');
+  const progressLabel = document.getElementById('progressLabel');
+  const scoreLabel = document.getElementById('scoreLabel');
+
+  function renderQuestion(i) {
+    const q = DATA[i];
+    progressFill.style.width = ((i) / DATA.length * 100) + '%';
+    progressLabel.textContent = 'Question ' + (i + 1) + ' of ' + DATA.length;
+    scoreLabel.textContent = 'Score: ' + score;
+
+    let optsHtml = '';
+    q.options.forEach((opt, idx) => {
+      optsHtml += '<button class="opt" data-idx="' + idx + '"><span class="letter">' + LETTERS[idx] + '</span><span>' + opt + '</span></button>';
+    });
+
+    card.innerHTML =
+      '<span class="badge ' + q.module + '">' + q.module + '</span>' +
+      '<p class="qtext">' + q.question + '</p>' +
+      '<div class="options">' + optsHtml + '</div>' +
+      '<div class="feedback" id="feedback"></div>' +
+      '<div class="controls"><button class="next" id="nextBtn">' + (i === DATA.length - 1 ? 'See results' : 'Next question') + '</button></div>';
+
+    const buttons = card.querySelectorAll('.opt');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => selectOption(btn, q, buttons));
+    });
+  }
+
+  function selectOption(btn, q, buttons) {
+    const idx = parseInt(btn.getAttribute('data-idx'), 10);
+    const correct = idx === q.correct;
+    buttons.forEach(b => b.disabled = true);
+    buttons.forEach((b, i2) => {
+      if (i2 === q.correct) b.classList.add('correct');
+      else if (b === btn) b.classList.add('incorrect');
+      else b.classList.add('dim');
+    });
+    const fb = document.getElementById('feedback');
+    fb.classList.add('show', correct ? 'good' : 'bad');
+    fb.innerHTML = (correct ? 'Correct.' : 'Not quite — correct answer is ' + LETTERS[q.correct] + '.') +
+      '<span class="exp">' + q.explanation + '</span>';
+    if (correct) score++;
+    answered.push({ index: current, correct: correct, chosen: idx });
+    scoreLabel.textContent = 'Score: ' + score;
+    document.getElementById('nextBtn').classList.add('show');
+    document.getElementById('nextBtn').onclick = () => {
+      current++;
+      if (current < DATA.length) {
+        renderQuestion(current);
+      } else {
+        renderResults();
+      }
+    };
+  }
+
+  function renderResults() {
+    progressFill.style.width = '100%';
+    progressLabel.textContent = 'Complete';
+    scoreLabel.textContent = 'Score: ' + score + ' / ' + DATA.length;
+
+    const pct = Math.round((score / DATA.length) * 100);
+    const modules = {};
+    DATA.forEach((q, i) => {
+      modules[q.module] = modules[q.module] || { total: 0, correct: 0 };
+      modules[q.module].total++;
+      if (answered[i] && answered[i].correct) modules[q.module].correct++;
+    });
+
+    let modHtml = '';
+    Object.keys(modules).forEach(m => {
+      const s = modules[m];
+      modHtml += '<div class="mod-row"><span><span class="badge ' + m + '">' + m + '</span></span><span>' + s.correct + ' / ' + s.total + '</span></div>';
+    });
+
+    let reviewHtml = '';
+    const missed = answered.filter(a => !a.correct);
+    if (missed.length) {
+      reviewHtml = '<div class="review-list"><h3>Review the ones you missed</h3>';
+      missed.forEach(a => {
+        const q = DATA[a.index];
+        reviewHtml += '<div class="review-item"><div class="q">' + q.question + '</div>' +
+          '<div class="you">Your answer: ' + LETTERS[a.chosen] + ') ' + q.options[a.chosen] + '</div>' +
+          '<div class="correct-ans">Correct: ' + LETTERS[q.correct] + ') ' + q.options[q.correct] + '</div>' +
+          '<div class="hint">' + q.explanation + '</div></div>';
+      });
+      reviewHtml += '</div>';
+    }
+
+    let headline = 'Solid work.';
+    let emoji = '📘';
+    if (pct === 100) { headline = 'Perfect score.'; emoji = '🏆'; }
+    else if (pct >= 85) { headline = 'Excellent recall.'; emoji = '🎯'; }
+    else if (pct >= 60) { headline = 'Good, some gaps to revise.'; emoji = '📘'; }
+    else { headline = 'Worth another pass through the notes.'; emoji = '📚'; }
+
+    card.innerHTML =
+      '<div class="results">' +
+      '<div class="celebrate">' + emoji + '</div>' +
+      '<div class="score-ring" style="--pct:' + pct + '"><div class="inner"><span class="num">' + score + '/' + DATA.length + '</span><span class="den">' + pct + '%</span></div></div>' +
+      '<div style="font-weight:600;font-size:1.05rem;">' + headline + '</div>' +
+      '<div class="breakdown"><h3>By module</h3>' + modHtml + '</div>' +
+      reviewHtml +
+      '<button class="restart" id="restartBtn">Retake quiz</button>' +
+      '</div>';
+
+    document.getElementById('restartBtn').onclick = () => {
+      current = 0; score = 0; answered = [];
+      renderQuestion(0);
+    };
+  }
+
+  renderQuestion(0);
+})();
+</script>
+</body>
+</html>

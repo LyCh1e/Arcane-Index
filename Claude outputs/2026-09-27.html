@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Read Quiz — 2026-09-27</title>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --card: #ffffff;
+    --ink: #1f2430;
+    --muted: #6b7280;
+    --line: #e4e0d6;
+    --accent: #7c5cff;
+    --accent-ink: #ffffff;
+    --good: #1b8a5a;
+    --good-bg: #e6f6ee;
+    --bad: #c0392b;
+    --bad-bg: #fbe9e7;
+    --module-a: #7c5cff;
+    --module-b: #ff8a3d;
+    --module-c: #12ad9c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181d;
+      --card: #1f2229;
+      --ink: #eef0f4;
+      --muted: #9aa1ad;
+      --line: #2c3038;
+      --good-bg: #123425;
+      --bad-bg: #3a1f1c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 16px 80px;
+  }
+  header.top {
+    margin-bottom: 20px;
+  }
+  header.top h1 {
+    font-size: 1.4rem;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  header.top .sub {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  .progress-track {
+    height: 8px;
+    border-radius: 99px;
+    background: var(--line);
+    overflow: hidden;
+    margin: 18px 0 6px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.35s ease;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 18px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 3px 10px;
+    border-radius: 99px;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .badge.ICT3112 { background: var(--module-a); }
+  .badge.ICT3113 { background: var(--module-b); }
+  .badge.INF2005 { background: var(--module-c); }
+  .qtext {
+    font-size: 1.08rem;
+    line-height: 1.5;
+    margin: 0 0 18px;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    text-align: left;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 0.96rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.05s ease;
+    display: flex;
+    gap: 10px;
+  }
+  .opt:hover:not(:disabled) { border-color: var(--accent); }
+  .opt:active:not(:disabled) { transform: scale(0.99); }
+  .opt .letter {
+    font-weight: 700;
+    color: var(--muted);
+    min-width: 18px;
+  }
+  .opt:disabled { cursor: default; }
+  .opt.correct { border-color: var(--good); background: var(--good-bg); }
+  .opt.correct .letter { color: var(--good); }
+  .opt.incorrect { border-color: var(--bad); background: var(--bad-bg); }
+  .opt.incorrect .letter { color: var(--bad); }
+  .opt.dim { opacity: 0.55; }
+  .feedback {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    display: none;
+  }
+  .feedback.show { display: block; }
+  .feedback.good { background: var(--good-bg); color: var(--good); }
+  .feedback.bad { background: var(--bad-bg); color: var(--bad); }
+  .feedback .exp { color: var(--ink); opacity: 0.85; display: block; margin-top: 6px; }
+  .controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  button.next {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    padding: 11px 22px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: none;
+  }
+  button.next.show { display: inline-block; }
+  button.next:hover { opacity: 0.9; }
+  .results { text-align: center; }
+  .score-ring {
+    width: 140px; height: 140px;
+    margin: 8px auto 18px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: conic-gradient(var(--accent) calc(var(--pct) * 1%), var(--line) 0);
+  }
+  .score-ring .inner {
+    width: 112px; height: 112px;
+    border-radius: 50%;
+    background: var(--card);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .score-ring .num { font-size: 1.7rem; font-weight: 700; }
+  .score-ring .den { font-size: 0.8rem; color: var(--muted); }
+  .breakdown {
+    text-align: left;
+    margin-top: 22px;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+  .breakdown h3 { font-size: 0.95rem; margin: 0 0 10px; color: var(--muted); font-weight: 600; }
+  .mod-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 0; font-size: 0.92rem; border-bottom: 1px solid var(--line);
+  }
+  .mod-row:last-child { border-bottom: none; }
+  .review-list { margin-top: 22px; text-align: left; }
+  .review-item {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .review-item .q { font-weight: 600; margin-bottom: 4px; }
+  .review-item .you { color: var(--bad); }
+  .review-item .correct-ans { color: var(--good); }
+  button.restart {
+    margin-top: 24px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button.restart:hover { background: var(--accent); color: var(--accent-ink); }
+  .hint {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 6px;
+  }
+  .celebrate { font-size: 2rem; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>Daily Read Quiz — 2026-09-27</h1>
+    <div class="sub">ICT3112 · ICT3113 · INF2005 — 20 questions on today's reading</div>
+  </header>
+
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-label"><span id="progressLabel">Question 1 of 20</span><span id="scoreLabel">Score: 0</span></div>
+
+  <div class="card" id="quizCard"></div>
+</div>
+
+<script id="quiz-data" type="application/json">[{"module": "ICT3112", "question": "Which ISTQB principle explains why running the same unchanged regression suite eventually stops catching new bugs?", "options": ["Defect clustering", "Pesticide paradox", "Absence-of-errors fallacy", "Exhaustive testing is impossible"], "correct": 1, "explanation": "The pesticide paradox describes an unchanged suite losing its power to find new defects over repeated runs; defect clustering is about where defects live, not test-suite staleness."}, {"module": "ICT3112", "question": "According to the \"defect clustering\" principle, testers should focus effort using which approach?", "options": ["Test every module with equal intensity", "Risk-based prioritisation of the small proportion of modules producing most defects", "Random sampling of test cases across the whole codebase", "Testing only after the software has been released"], "correct": 1, "explanation": "Defect clustering justifies risk-based testing: concentrate effort on the small proportion of modules historically responsible for most defects."}, {"module": "ICT3112", "question": "The \"absence-of-errors fallacy\" principle warns against which mistaken belief?", "options": ["That testing can prove there are zero defects", "That a defect-free system is automatically fit for purpose and useful", "That early testing is cheaper than late testing", "That testing is context-dependent"], "correct": 1, "explanation": "The absence-of-errors fallacy is specifically about usefulness, not provability: a bug-free system that solves the wrong problem is still a failure."}, {"module": "ICT3112", "question": "For a valid input range of 0–100, which pair of values represents \"extended BVA\" as opposed to the basic four boundary values?", "options": ["−1 and 101", "0 and 100", "1 and 99", "50 and 51"], "correct": 2, "explanation": "1 and 99 are the \"one step inside\" values that extended BVA adds on top of the basic four (−1, 0, 100, 101)."}, {"module": "ICT3112", "question": "Why should ASCII-boundary tests and string-length-boundary tests for the same field be run as separate test cases?", "options": ["To reduce the total number of test cases needed", "So a failure can be attributed to the specific boundary that caused it", "Because ASCII and length boundaries can never both be invalid at once", "Because BVA does not apply to string fields"], "correct": 1, "explanation": "Combining two boundary dimensions in one test case makes a failure ambiguous; separating them isolates the cause."}, {"module": "ICT3112", "question": "In the Basic Musa reliability model, what does the parameter ν₀ represent?", "options": ["The current failure intensity", "The total number of failures expected over the software's life", "The elapsed time since testing began", "The number of testers assigned to the project"], "correct": 1, "explanation": "ν₀ is the total expected failure count over the software's life; λ(τ) is the instantaneous rate, not the total."}, {"module": "ICT3112", "question": "The Basic Musa model assumes which pattern in failure intensity as faults are fixed?", "options": ["It decreases by a constant amount per fault fixed (constant rate of decrease)", "It stays constant regardless of fixes", "It increases logarithmically over time", "It resets to λ₀ after every fix"], "correct": 0, "explanation": "The Basic model's defining assumption is a constant rate of decrease in failure intensity per fault fixed, unlike the Logarithmic model."}, {"module": "ICT3113", "question": "In the equation R = W + S, what determines whether a period of time counts as service time rather than wait time?", "options": ["Whether the request has arrived yet", "Whether the server is actively processing that specific request right now", "The total elapsed clock time for the whole visit", "Whether the customer feels satisfied with the outcome"], "correct": 1, "explanation": "Service time is strictly \"actively being worked on right now\"; everything else (queuing, distraction, waiting on someone else) is wait time."}, {"module": "ICT3113", "question": "In the polyclinic example (25 min queue, 10 min consultation, 15 min waiting for results, 5 min follow-up), what is the correct classification of the \"waiting for test results\" period?", "options": ["Service time", "Wait time", "Response time", "It is not counted in R at all"], "correct": 1, "explanation": "Waiting for results is not active service by the doctor — it is wait time, contributing to W = 40 min, not S."}, {"module": "ICT3113", "question": "Why is p95 often preferred over the mean as an SLO target?", "options": ["The mean is always lower and therefore a stricter target", "The mean is pulled upward by outliers and hides the tail, whereas p95 makes an explicit tail commitment", "p95 is easier to measure than the mean", "The mean cannot be computed for right-skewed distributions"], "correct": 1, "explanation": "The mean is dragged up by rare slow outliers and conceals the tail; a percentile target like p95 makes the tail commitment explicit and contractable."}, {"module": "ICT3113", "question": "Which of the following correctly matches each term to its definition?", "options": ["SLA = the metric measured; SLO = target value; SLI = formal agreement", "SLI = metric measured; SLO = target value; SLA = formal agreement with consequences", "SLO = metric measured; SLI = formal agreement; SLA = target value", "The three terms are interchangeable names for the same concept"], "correct": 1, "explanation": "SLI is the raw metric, SLO is the target for that metric, and SLA is the contractual agreement wrapping the SLO with consequences for breach."}, {"module": "ICT3113", "question": "For an M/M/c queue, the system is stable only when:", "options": ["λ > c × μ", "ρ = λ / (c × μ) < 1", "c = 1", "λ = μ"], "correct": 1, "explanation": "Stability for M/M/c requires ρ = λ/(c×μ) < 1, generalising the single-server ρ = λ/μ < 1 condition."}, {"module": "ICT3113", "question": "Given the same total aggregate capacity, why do real systems typically prefer many slower servers over one very fast server, despite the latency disadvantage?", "options": ["Many servers always produce lower latency than one fast server", "Operational reasons — fault tolerance and practical scaling limits, not a queueing advantage", "Queueing theory proves that many servers reduce ρ below one fast server's ρ", "Slower servers are mathematically optimal for queueing"], "correct": 1, "explanation": "The latency advantage genuinely belongs to one fast server; many servers win on fault tolerance and practical scaling, an operational (not queueing) argument."}, {"module": "ICT3113", "question": "Using the Forced Flow Law X_k = V_k × X, if a web transaction issues V = 4 SQL queries per visit and system throughput is X = 25 tps, what is the database's throughput?", "options": ["25 qps", "4 qps", "100 qps", "6.25 qps"], "correct": 2, "explanation": "X_db = V × X = 4 × 25 = 100 queries per second, directly from the Forced Flow Law."}, {"module": "INF2005", "question": "What does Diffie–Hellman key exchange actually establish between two parties?", "options": ["An encrypted message", "A shared secret key, derived without ever transmitting it", "A digital signature", "A certificate signed by a trusted authority"], "correct": 1, "explanation": "DH establishes a shared secret key derived independently by both sides; no key or secret value is ever transmitted across the channel."}, {"module": "INF2005", "question": "An eavesdropper who observes p, G, A, and B in a Diffie–Hellman exchange cannot compute the shared key K because doing so requires solving:", "options": ["The RSA factoring problem", "The discrete logarithm problem", "A birthday-attack collision search", "A brute-force password search"], "correct": 1, "explanation": "Recovering a private exponent from a public value (A = Gᵃ mod p) is the discrete logarithm problem, believed computationally infeasible for large primes."}, {"module": "INF2005", "question": "The \"KTB\" mnemonic for authentication factors stands for:", "options": ["Key, Token, Backup", "Knowledge, Token, Biometrics", "Kerberos, TLS, Biometrics", "Knowledge, Trust, Behaviour"], "correct": 1, "explanation": "Knowledge, Token, Biometrics — the three independent authentication factor categories."}, {"module": "INF2005", "question": "Which property of a good biometric, from the UDPC list, means the characteristic must remain stable over a person's lifetime?", "options": ["Universality", "Distinctiveness", "Permanence", "Collectability"], "correct": 2, "explanation": "Permanence specifically requires the characteristic to remain stable over time; universality and distinctiveness are about coverage and uniqueness, not stability."}, {"module": "INF2005", "question": "A security system's match threshold is loosened so more legitimate users are accepted on the first try. What is the most likely side effect?", "options": ["FAR decreases while TAR stays the same", "Both FAR and TAR tend to increase together", "TAR decreases", "Neither FAR nor TAR is affected by the threshold"], "correct": 1, "explanation": "FAR and TAR move together under a threshold change: a looser threshold accepts more people overall, both legitimate and illegitimate, raising both rates."}, {"module": "INF2005", "question": "Why is Diffie–Hellman described as \"not encryption\"?", "options": ["It cannot be implemented in software", "It only agrees a shared secret key; it never itself encrypts or transmits data", "It requires a trusted third-party certificate authority", "It only works for symmetric ciphers, never asymmetric ones"], "correct": 1, "explanation": "DH only produces a shared secret; the parties must still pair it with a symmetric cipher to actually encrypt anything — DH itself does no encryption."}]</script>
+<script>
+(function () {
+  const DATA = JSON.parse(document.getElementById('quiz-data').textContent);
+  const LETTERS = ['A', 'B', 'C', 'D'];
+  let current = 0;
+  let score = 0;
+  let answered = [];
+  const card = document.getElementById('quizCard');
+  const progressFill = document.getElementById('progressFill');
+  const progressLabel = document.getElementById('progressLabel');
+  const scoreLabel = document.getElementById('scoreLabel');
+
+  function renderQuestion(i) {
+    const q = DATA[i];
+    progressFill.style.width = ((i) / DATA.length * 100) + '%';
+    progressLabel.textContent = 'Question ' + (i + 1) + ' of ' + DATA.length;
+    scoreLabel.textContent = 'Score: ' + score;
+
+    let optsHtml = '';
+    q.options.forEach((opt, idx) => {
+      optsHtml += '<button class="opt" data-idx="' + idx + '"><span class="letter">' + LETTERS[idx] + '</span><span>' + opt + '</span></button>';
+    });
+
+    card.innerHTML =
+      '<span class="badge ' + q.module + '">' + q.module + '</span>' +
+      '<p class="qtext">' + q.question + '</p>' +
+      '<div class="options">' + optsHtml + '</div>' +
+      '<div class="feedback" id="feedback"></div>' +
+      '<div class="controls"><button class="next" id="nextBtn">' + (i === DATA.length - 1 ? 'See results' : 'Next question') + '</button></div>';
+
+    const buttons = card.querySelectorAll('.opt');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => selectOption(btn, q, buttons));
+    });
+  }
+
+  function selectOption(btn, q, buttons) {
+    const idx = parseInt(btn.getAttribute('data-idx'), 10);
+    const correct = idx === q.correct;
+    buttons.forEach(b => b.disabled = true);
+    buttons.forEach((b, i2) => {
+      if (i2 === q.correct) b.classList.add('correct');
+      else if (b === btn) b.classList.add('incorrect');
+      else b.classList.add('dim');
+    });
+    const fb = document.getElementById('feedback');
+    fb.classList.add('show', correct ? 'good' : 'bad');
+    fb.innerHTML = (correct ? 'Correct.' : 'Not quite — correct answer is ' + LETTERS[q.correct] + '.') +
+      '<span class="exp">' + q.explanation + '</span>';
+    if (correct) score++;
+    answered.push({ index: current, correct: correct, chosen: idx });
+    scoreLabel.textContent = 'Score: ' + score;
+    document.getElementById('nextBtn').classList.add('show');
+    document.getElementById('nextBtn').onclick = () => {
+      current++;
+      if (current < DATA.length) {
+        renderQuestion(current);
+      } else {
+        renderResults();
+      }
+    };
+  }
+
+  function renderResults() {
+    progressFill.style.width = '100%';
+    progressLabel.textContent = 'Complete';
+    scoreLabel.textContent = 'Score: ' + score + ' / ' + DATA.length;
+
+    const pct = Math.round((score / DATA.length) * 100);
+    const modules = {};
+    DATA.forEach((q, i) => {
+      modules[q.module] = modules[q.module] || { total: 0, correct: 0 };
+      modules[q.module].total++;
+      if (answered[i] && answered[i].correct) modules[q.module].correct++;
+    });
+
+    let modHtml = '';
+    Object.keys(modules).forEach(m => {
+      const s = modules[m];
+      modHtml += '<div class="mod-row"><span><span class="badge ' + m + '">' + m + '</span></span><span>' + s.correct + ' / ' + s.total + '</span></div>';
+    });
+
+    let reviewHtml = '';
+    const missed = answered.filter(a => !a.correct);
+    if (missed.length) {
+      reviewHtml = '<div class="review-list"><h3>Review the ones you missed</h3>';
+      missed.forEach(a => {
+        const q = DATA[a.index];
+        reviewHtml += '<div class="review-item"><div class="q">' + q.question + '</div>' +
+          '<div class="you">Your answer: ' + LETTERS[a.chosen] + ') ' + q.options[a.chosen] + '</div>' +
+          '<div class="correct-ans">Correct: ' + LETTERS[q.correct] + ') ' + q.options[q.correct] + '</div>' +
+          '<div class="hint">' + q.explanation + '</div></div>';
+      });
+      reviewHtml += '</div>';
+    }
+
+    let headline = 'Solid work.';
+    let emoji = '📘';
+    if (pct === 100) { headline = 'Perfect score.'; emoji = '🏆'; }
+    else if (pct >= 85) { headline = 'Excellent recall.'; emoji = '🎯'; }
+    else if (pct >= 60) { headline = 'Good, some gaps to revise.'; emoji = '📘'; }
+    else { headline = 'Worth another pass through the notes.'; emoji = '📚'; }
+
+    card.innerHTML =
+      '<div class="results">' +
+      '<div class="celebrate">' + emoji + '</div>' +
+      '<div class="score-ring" style="--pct:' + pct + '"><div class="inner"><span class="num">' + score + '/' + DATA.length + '</span><span class="den">' + pct + '%</span></div></div>' +
+      '<div style="font-weight:600;font-size:1.05rem;">' + headline + '</div>' +
+      '<div class="breakdown"><h3>By module</h3>' + modHtml + '</div>' +
+      reviewHtml +
+      '<button class="restart" id="restartBtn">Retake quiz</button>' +
+      '</div>';
+
+    document.getElementById('restartBtn').onclick = () => {
+      current = 0; score = 0; answered = [];
+      renderQuestion(0);
+    };
+  }
+
+  renderQuestion(0);
+})();
+</script>
+</body>
+</html>
