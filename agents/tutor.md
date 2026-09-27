@@ -134,17 +134,24 @@ ICT3112: ["The Seven ISTQB Principles", "Boundary Value Analysis (BVA)", "Basic 
 For each of the 3 selected subtopics, read the relevant section in this
 module's study notes file and synthesise a clear, exam-focused explanation.
 Do NOT simply copy-paste the notes — reframe the content as if explaining it
-to the student freshly. Include:
+to the student freshly, and keep it **easy to read and not wordy**:
 
-- A plain-English explanation of the concept
-- The key formula or rule (if applicable), clearly formatted
-- A worked example or scenario
-- A "Watch out" callout for common exam mistakes
+- Prefer short sentences over long, multi-clause ones.
+- Use a bulleted or numbered list for anything that IS a list (principles,
+  rules, factors, steps in a protocol, attack types) instead of folding it
+  into a dense paragraph — lists are far faster to scan and revise from.
+- Only write flowing prose for the parts that genuinely need connected
+  explanation (e.g. why a result is surprising, how to interpret a formula).
+- Include the key formula or rule (if applicable), clearly formatted
+- Include a short worked example or scenario, only where it aids understanding
+- A "Watch out" callout for common exam mistakes — one or two sentences, not
+  a paragraph
 - A one-line mnemonic or memory hook where helpful
 
-Aim for roughly **200–300 words per subtopic** (a little more is fine when a
-subtopic naturally covers several related facts that the quiz will draw on —
-never pad, but don't starve the quiz of source material either).
+Aim for roughly **120–180 words of prose per subtopic**, plus whatever
+bullet points are needed to cover its facts — favour scannable structure
+over long paragraphs. Never pad with restated context, throat-clearing, or
+extra qualifiers; every sentence should teach something the quiz will test.
 
 ### Step 6 — Write this module's 20-question MCQ quiz
 
@@ -175,25 +182,37 @@ Use the template below exactly.
 ### Step 8 — Build the companion interactive HTML quiz
 
 Generate a **self-contained** HTML file (inline CSS and JS, no external
-network dependencies) that presents the same 20 questions as an interactive
-quiz:
+network dependencies). It must open on a **lecture-notes screen first**, not
+the quiz — the student reads before being tested, exactly as in the
+Markdown file. Structure:
 
+**Notes screen (shown first, on page load):**
+- The same reading content as the Markdown file's three subtopic sections
+  for this module, formatted as proper HTML (headings, paragraphs, a styled
+  "Watch out" callout box, mnemonic lines) — not simply a dump of raw
+  Markdown syntax
+- A prominent "Start the quiz →" button at the end of the notes
+
+**Quiz screen (hidden until "Start the quiz" is clicked):**
 - One question at a time, four clickable options
 - Immediate visual feedback on selection (correct/incorrect highlighting)
   plus the one-sentence explanation shown inline
-- A progress indicator (e.g. "Question 4 of 20")
-- A running score
-- A final results screen: score, percentage, and a review list of any
-  questions answered incorrectly (question, the student's answer, the
-  correct answer, and the explanation)
-- A "Retake quiz" control that resets state without reloading the page
+- A progress indicator (e.g. "Question 4 of 20") and a running score
+- A small "back to the reading notes" link, in case the student wants to
+  revisit the material mid-quiz
+- A final results screen: score, percentage, a review list of any questions
+  answered incorrectly (question, the student's answer, the correct answer,
+  and the explanation), a "Retake quiz" control, and a "Review notes"
+  control — both resetting/switching state without reloading the page
 
 Save it to:
 `C:\Arcane-Index\study-notes\daily-reads\YYYY-MM-DD-<MODULE>.html`
 
 The HTML file's question data must be **identical** in wording, options, and
-correct answers to the Markdown file's Quiz section for that module — they
-are two renderings of the same 20 questions, never divergent sets.
+correct answers to the Markdown file's Quiz section for that module, and its
+notes screen must cover the same three subtopics with the same key facts —
+they are two renderings of the same reading-then-test session, never
+divergent content.
 
 ---
 
@@ -276,6 +295,8 @@ tags: [daily-read, study, exam-prep, <module-lowercase>]
   no cross-module questions, no surprises.
 - The Markdown quiz and the HTML quiz for the same module/day must contain
   the exact same 20 questions, options, and correct answers.
+- The HTML file must always open on the lecture-notes screen, never the
+  quiz — a student who opens the file should read before being tested.
 - Answers in the Markdown file must be in a collapsible callout so the
   student is not tempted to peek; the HTML quiz must not reveal the answer
   until the student has selected an option for that question.

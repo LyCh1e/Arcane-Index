@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>INF2005 Daily Quiz — 2026-09-27</title>
+<title>INF2005 — Daily Study Note — 2026-09-27</title>
 <style>
   :root {
     --bg: #f4f1ea;
@@ -12,6 +12,7 @@
     --muted: #6b7280;
     --line: #e4e0d6;
     --accent: #7c5cff;
+    --accent-bg: rgba(124, 92, 255, 0.09);
     --accent-ink: #ffffff;
     --good: #1b8a5a;
     --good-bg: #e6f6ee;
@@ -30,6 +31,7 @@
       --line: #2c3038;
       --good-bg: #123425;
       --bad-bg: #3a1f1c;
+      --accent-bg: rgba(124, 92, 255, 0.16);
     }
   }
   * { box-sizing: border-box; }
@@ -58,6 +60,23 @@
     color: var(--muted);
     font-size: 0.92rem;
   }
+  .mode-tabs {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .mode-tab {
+    flex: 1;
+    text-align: center;
+    padding: 9px 10px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: var(--card);
+    border: 1px solid var(--line);
+  }
+  .mode-tab.active { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
   .progress-track {
     height: 8px;
     border-radius: 99px;
@@ -98,6 +117,85 @@
   .badge.ICT3112 { background: var(--module-a); }
   .badge.ICT3113 { background: var(--module-b); }
   .badge.INF2005 { background: var(--module-c); }
+
+  /* --- Lecture notes view --- */
+  .notes-card h2 {
+    font-size: 1.08rem;
+    margin: 28px 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .notes-card h2:first-of-type { margin-top: 6px; }
+  .notes-card p {
+    line-height: 1.65;
+    font-size: 0.95rem;
+    margin: 0 0 12px;
+  }
+  .notes-card ul, .notes-card ol {
+    margin: 0 0 14px;
+    padding-left: 22px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  .notes-card li { margin-bottom: 5px; }
+  .notes-card strong { font-weight: 700; }
+  .notes-card code {
+    background: var(--accent-bg);
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-size: 0.88em;
+  }
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-bg);
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin: 12px 0 16px;
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+  .callout strong { color: var(--accent); }
+  .mnemonic {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin: -4px 0 16px;
+  }
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 24px 0;
+  }
+  button.start-quiz {
+    display: block;
+    width: 100%;
+    margin-top: 26px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  button.start-quiz:hover { opacity: 0.92; }
+  .notes-hint {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+  a.review-notes-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  a.review-notes-link:hover { text-decoration: underline; }
+
+  /* --- Quiz view --- */
   .qtext {
     font-size: 1.08rem;
     line-height: 1.5;
@@ -200,8 +298,9 @@
   .review-item .q { font-weight: 600; margin-bottom: 4px; }
   .review-item .you { color: var(--bad); }
   .review-item .correct-ans { color: var(--good); }
-  button.restart {
+  button.restart, button.restart-secondary {
     margin-top: 24px;
+    margin-right: 8px;
     background: transparent;
     border: 1px solid var(--accent);
     color: var(--accent);
@@ -210,7 +309,7 @@
     font-weight: 600;
     cursor: pointer;
   }
-  button.restart:hover { background: var(--accent); color: var(--accent-ink); }
+  button.restart:hover, button.restart-secondary:hover { background: var(--accent); color: var(--accent-ink); }
   .hint {
     color: var(--muted);
     font-size: 0.85rem;
@@ -222,14 +321,71 @@
 <body>
 <div class="wrap">
   <header class="top">
-    <h1>INF2005 Daily Quiz — 2026-09-27</h1>
+    <h1>INF2005 — Daily Study Note — 2026-09-27</h1>
     <div class="sub">Diffie–Hellman · Authentication Factors · Biometric Authentication</div>
   </header>
 
-  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-  <div class="progress-label"><span id="progressLabel">Question 1 of 20</span><span id="scoreLabel">Score: 0</span></div>
+  <div id="notesView">
+    <div class="card notes-card">
+      <span class="badge INF2005">INF2005</span>
+      <h1 style="font-size:1.15rem;margin:0 0 4px;">Read this first</h1>
+      <p style="color:var(--muted);margin-bottom:0;">Work through today's three topics below, then start the quiz. Nothing here is timed.</p>
+      <hr class="divider">
+      
+<h2>Diffie–Hellman Key Exchange</h2>
+<p>DH lets two people agree on a secret key over a public channel — without ever sending the key itself. It's <strong>not</strong> encryption, just key agreement.</p>
+<p>How it works:</p>
+<ol>
+<li>Alice and Bob publicly agree on a prime <code>p</code> and a generator <code>G</code>.</li>
+<li>Each picks a private secret (<code>a</code>, <code>b</code>) — never shared.</li>
+<li>They exchange public values: <code>A = Gᵃ mod p</code>, <code>B = Gᵇ mod p</code>.</li>
+<li>Alice computes <code>K = Bᵃ mod p</code>; Bob computes <code>K = Aᵇ mod p</code>. Both land on the same <code>K = G^(ab) mod p</code>.</li>
+</ol>
+<p>An eavesdropper sees <code>p</code>, <code>G</code>, <code>A</code>, <code>B</code> — but can't work out K without solving the discrete logarithm problem (very hard for large primes).</p>
+<div class="callout"><strong>Watch out:</strong> DH ≠ RSA. RSA's security rests on the <strong>factoring problem</strong>. DH's security rests on the <strong>discrete logarithm problem</strong>.</div>
 
-  <div class="card" id="quizCard"></div>
+<h2>Authentication Factors</h2>
+<p>Access control flow: Identification (who are you?) → Authentication (prove it) → Authorisation (what can you do?).</p>
+<p>Three factors — remember <strong>KTB</strong>:</p>
+<ul>
+<li><strong>Knowledge</strong> — something you know (password, PIN)</li>
+<li><strong>Token</strong> — something you have (smart card, RFID)</li>
+<li><strong>Biometric</strong> — something you are (next section)</li>
+</ul>
+<p>MFA combines two or more factors — much stronger than any one alone.</p>
+<p>Password storage, weakest to strongest: Plaintext → Encrypted → Hash → <strong>Hash + salt</strong> (best — a unique salt per user defeats rainbow tables).</p>
+<p>Common attacks: brute force, dictionary attacks, rainbow tables (beaten by salting), social engineering, and Google dorking (searching for leaked files, e.g. <code>ext:csv inurl:passwd</code>).</p>
+<p>RFID tokens can be spoofed over the air, sniffed via MITM, or read via power side-channel analysis.</p>
+<div class="callout"><strong>Watch out:</strong> knowing which bucket (Knowledge / Token / Biometric) a mechanism belongs to is a common one-mark question.</div>
+
+<h2>Biometric Authentication</h2>
+<p>A good biometric needs <strong>UDPC</strong>:</p>
+<ul>
+<li><strong>Universality</strong> — everyone has it</li>
+<li><strong>Distinctiveness</strong> — differs enough between people</li>
+<li><strong>Permanence</strong> — stays stable over time</li>
+<li><strong>Collectability</strong> — can actually be measured</li>
+</ul>
+<p>Two accuracy metrics:</p>
+<ul>
+<li><strong>FAR</strong> (False Accept Rate) — wrongly lets an impostor in</li>
+<li><strong>TAR</strong> (True Accept Rate) — correctly lets the real user in</li>
+</ul>
+<p>Loosen the match threshold → both FAR and TAR rise together (the ROC curve plots this trade-off).</p>
+<p>Modality comparison: retina (most accurate, most invasive) → iris → fingerprint (cheap, fast) → face (fast, ML-boosted, but spoofable) → gait/keystroke (continuous, behavioural).</p>
+<div class="callout"><strong>Watch out:</strong> facial recognition has a real bias problem — false-positive rates can be up to 100× higher for Asian and Black individuals than for white individuals.</div>
+
+      <button class="start-quiz" id="startQuizBtn">Start the quiz →</button>
+      <div class="notes-hint">20 questions · instant feedback · your score at the end</div>
+    </div>
+  </div>
+
+  <div id="quizView" style="display:none">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label"><span id="progressLabel">Question 1 of 20</span><span id="scoreLabel">Score: 0</span></div>
+    <div class="card" id="quizCard"></div>
+    <div style="text-align:center;"><a class="review-notes-link" id="backToNotes">← Back to the reading notes</a></div>
+  </div>
 </div>
 
 <script id="quiz-data" type="application/json">[{"module": "INF2005", "question": "What does Diffie–Hellman key exchange actually establish between two parties?", "options": ["An encrypted message", "A shared secret key, derived without ever transmitting it", "A digital signature", "A certificate signed by a trusted authority"], "correct": 1, "explanation": "DH establishes a shared secret key derived independently by both sides; no key or secret value is ever transmitted across the channel."}, {"module": "INF2005", "question": "An eavesdropper who observes p, G, A, and B in a Diffie–Hellman exchange cannot compute the shared key K because doing so requires solving:", "options": ["The RSA factoring problem", "The discrete logarithm problem", "A birthday-attack collision search", "A brute-force password search"], "correct": 1, "explanation": "Recovering a private exponent from a public value (A = Gᵃ mod p) is the discrete logarithm problem, believed computationally infeasible for large primes."}, {"module": "INF2005", "question": "Why is Diffie–Hellman described as \"not encryption\"?", "options": ["It cannot be implemented in software", "It only agrees a shared secret key; it never itself encrypts or transmits data", "It requires a trusted third-party certificate authority", "It only works for symmetric ciphers, never asymmetric ones"], "correct": 1, "explanation": "DH only produces a shared secret; the parties must still pair it with a symmetric cipher to actually encrypt anything — DH itself does no encryption."}, {"module": "INF2005", "question": "In the DH protocol, which values are shared publicly and can safely be seen by an eavesdropper?", "options": ["a and b (the private secrets)", "K (the shared secret)", "p, G, A, and B", "Only p and G, never A or B"], "correct": 2, "explanation": "p, G, A, and B are all transmitted in the open; a, b, and K are never sent."}, {"module": "INF2005", "question": "Alice computes K = Bᵃ mod p and Bob computes K = Aᵇ mod p. Why do they arrive at the same value?", "options": ["Because A = B by construction", "Because both expressions equal G^(ab) mod p", "Because p is chosen to make all exponents equal", "Because a = b in every DH exchange"], "correct": 1, "explanation": "Bᵃ mod p = (Gᵇ)ᵃ mod p = G^(ab) mod p, and Aᵇ mod p = (Gᵃ)ᵇ mod p = G^(ab) mod p — the same value by the laws of exponents."}, {"module": "INF2005", "question": "What must Alice and Bob agree on publicly before starting the Diffie–Hellman exchange?", "options": ["Their private secrets a and b", "A shared symmetric key", "A prime p and a generator G", "A digital certificate signed by a CA"], "correct": 2, "explanation": "The prime p and generator G are the public parameters both parties must agree on before exchanging public values."}, {"module": "INF2005", "question": "Which cryptographic problem is DH's security based on, as opposed to RSA's?", "options": ["DH relies on integer factoring, same as RSA", "DH relies on the discrete logarithm problem, whereas RSA relies on integer factoring", "DH relies on birthday collisions", "DH and RSA rely on the same underlying hard problem"], "correct": 1, "explanation": "DH's hardness rests on the discrete logarithm problem; RSA's rests on integer factoring — different hard problems entirely."}, {"module": "INF2005", "question": "What does the \"KTB\" mnemonic stand for?", "options": ["Key, Token, Backup", "Knowledge, Token, Biometrics", "Kerberos, TLS, Biometrics", "Knowledge, Trust, Behaviour"], "correct": 1, "explanation": "Knowledge, Token, Biometrics — the three independent authentication factor categories."}, {"module": "INF2005", "question": "Why does salting a password hash defeat precomputed rainbow table attacks?", "options": ["It encrypts the password reversibly", "It makes each user's hash unique, forcing the attacker to crack every password individually rather than reusing one precomputed table", "It shortens the password", "It removes the need for hashing altogether"], "correct": 1, "explanation": "A unique salt per user defeats precomputed tables, forcing attackers to crack each password from scratch."}, {"module": "INF2005", "question": "Which password storage method is described as the weakest, exposing all passwords immediately upon a single breach?", "options": ["Hash(password + salt)", "Hash(password)", "Encrypted password", "Plaintext password"], "correct": 3, "explanation": "Plaintext storage means a single breach immediately exposes every password with no additional attacker effort."}, {"module": "INF2005", "question": "A dictionary attack is best defended against by:", "options": ["Using a longer numeric PIN only", "Avoiding dictionary words and using salted hashing", "Increasing the account lockout threshold only", "Disabling password authentication entirely"], "correct": 1, "explanation": "Avoiding dictionary words and salting hashes are the notes' stated defences against dictionary attacks."}, {"module": "INF2005", "question": "\"Google Dorking\" as a password attack technique works by:", "options": ["Brute-forcing login forms directly", "Using search operators (e.g. ext:csv inurl:passwd) to find exposed credential files indexed online", "Exploiting weak RFID encryption", "Performing a birthday attack on password hashes"], "correct": 1, "explanation": "Google Dorking uses targeted search operators to locate credential files that have been accidentally indexed publicly."}, {"module": "INF2005", "question": "Which of the following is a \"Token\" (something you have) authentication method, as opposed to Knowledge or Biometrics?", "options": ["A PIN code", "A fingerprint scan", "An RFID tag or smart card", "A graphical password pattern"], "correct": 2, "explanation": "An RFID tag or smart card is something you have — a Token factor; the others are Knowledge or Biometric factors."}, {"module": "INF2005", "question": "What is a key vulnerability of RFID tag authentication mentioned in the notes?", "options": ["RFID tags cannot be mass-produced", "Over-the-air spoofing, MITM sniffing, and side-channel power analysis", "RFID requires physical contact, making it slow", "RFID tags cannot store any cryptographic keys"], "correct": 1, "explanation": "RFID's stated vulnerabilities are over-the-air spoofing, MITM sniffing, and side-channel power analysis."}, {"module": "INF2005", "question": "Which property of a good biometric, from the UDPC list, means the characteristic must remain stable over a person's lifetime?", "options": ["Universality", "Distinctiveness", "Permanence", "Collectability"], "correct": 2, "explanation": "Permanence specifically requires the characteristic to remain stable over time; universality and distinctiveness are about coverage and uniqueness, not stability."}, {"module": "INF2005", "question": "A security system's match threshold is loosened so more legitimate users are accepted on the first try. What is the most likely side effect?", "options": ["FAR decreases while TAR stays the same", "Both FAR and TAR tend to increase together", "TAR decreases", "Neither FAR nor TAR is affected by the threshold"], "correct": 1, "explanation": "FAR and TAR move together under a threshold change: a looser threshold accepts more people overall, both legitimate and illegitimate, raising both rates."}, {"module": "INF2005", "question": "What does FAR (False Accept Rate) measure?", "options": ["How often a legitimate user is correctly granted access", "How often an impostor is wrongly granted access", "How long enrolment takes", "How expensive the biometric system is"], "correct": 1, "explanation": "FAR measures how often an impostor is wrongly accepted; TAR is the complementary measure for legitimate users."}, {"module": "INF2005", "question": "According to the notes, which biometric modality has the highest reported accuracy (lowest false-positive rate), though at high cost and invasiveness?", "options": ["Keystroke dynamics", "Facial recognition", "Retinal scanning", "Gait analysis"], "correct": 2, "explanation": "Retinal scanning is described as the most accurate modality (around 1-in-20,000 false positives), at the cost of being the most invasive and expensive."}, {"module": "INF2005", "question": "What fairness concern is specifically raised about facial recognition systems?", "options": ["They cannot process high-resolution images", "False-positive rates for Asian and Black individuals can be up to 100× higher than for white individuals", "They only work indoors", "They require government ID to enrol"], "correct": 1, "explanation": "The notes specifically flag facial recognition's racial bias in false-positive rates as a significant fairness concern."}, {"module": "INF2005", "question": "Which of the four UDPC properties requires that any two people's biometric characteristic differ sufficiently to tell them apart?", "options": ["Universality", "Distinctiveness", "Permanence", "Collectability"], "correct": 1, "explanation": "Distinctiveness is the UDPC property requiring sufficient difference between individuals so they can be told apart."}]</script>
@@ -240,10 +396,26 @@
   let current = 0;
   let score = 0;
   let answered = [];
+  let started = false;
   const card = document.getElementById('quizCard');
   const progressFill = document.getElementById('progressFill');
   const progressLabel = document.getElementById('progressLabel');
   const scoreLabel = document.getElementById('scoreLabel');
+  const notesView = document.getElementById('notesView');
+  const quizView = document.getElementById('quizView');
+
+  document.getElementById('startQuizBtn').addEventListener('click', () => {
+    notesView.style.display = 'none';
+    quizView.style.display = 'block';
+    if (!started) { started = true; renderQuestion(0); }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  document.getElementById('backToNotes').addEventListener('click', (e) => {
+    e.preventDefault();
+    quizView.style.display = 'none';
+    notesView.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
   function renderQuestion(i) {
     const q = DATA[i];
@@ -302,18 +474,6 @@
     scoreLabel.textContent = 'Score: ' + score + ' / ' + DATA.length;
 
     const pct = Math.round((score / DATA.length) * 100);
-    const modules = {};
-    DATA.forEach((q, i) => {
-      modules[q.module] = modules[q.module] || { total: 0, correct: 0 };
-      modules[q.module].total++;
-      if (answered[i] && answered[i].correct) modules[q.module].correct++;
-    });
-
-    let modHtml = '';
-    Object.keys(modules).forEach(m => {
-      const s = modules[m];
-      modHtml += '<div class="mod-row"><span><span class="badge ' + m + '">' + m + '</span></span><span>' + s.correct + ' / ' + s.total + '</span></div>';
-    });
 
     let reviewHtml = '';
     const missed = answered.filter(a => !a.correct);
@@ -341,18 +501,23 @@
       '<div class="celebrate">' + emoji + '</div>' +
       '<div class="score-ring" style="--pct:' + pct + '"><div class="inner"><span class="num">' + score + '/' + DATA.length + '</span><span class="den">' + pct + '%</span></div></div>' +
       '<div style="font-weight:600;font-size:1.05rem;">' + headline + '</div>' +
-      '<div class="breakdown"><h3>By module</h3>' + modHtml + '</div>' +
       reviewHtml +
+      '<div>' +
+      '<button class="restart-secondary" id="reviewNotesBtn">Review notes</button>' +
       '<button class="restart" id="restartBtn">Retake quiz</button>' +
+      '</div>' +
       '</div>';
 
     document.getElementById('restartBtn').onclick = () => {
       current = 0; score = 0; answered = [];
       renderQuestion(0);
     };
+    document.getElementById('reviewNotesBtn').onclick = () => {
+      quizView.style.display = 'none';
+      notesView.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
   }
-
-  renderQuestion(0);
 })();
 </script>
 </body>

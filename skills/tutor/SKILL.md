@@ -22,8 +22,10 @@ at 23:00 each night, or on demand.
 
 Read-then-test is the whole point of the format: open a module's `.md` file,
 read the reading section at the top, then answer the 20 questions
-underneath it — or skip straight to the module's `.html` file for an
-interactive version with instant right/wrong feedback.
+underneath it — or open the module's `.html` file, which opens on the same
+reading content first (a "Start the quiz →" button sits at the end of it)
+and only then moves into the interactive quiz with instant right/wrong
+feedback. The HTML file never skips straight to Q1.
 
 ---
 
@@ -84,9 +86,12 @@ Each `.md` file is a self-contained reading + quiz session for one module:
   module
 - Collapsible answers callout
 
-Each `.html` file is the interactive counterpart: the same 20 questions,
-one at a time, with instant feedback, a running score, and a results screen
-with a review of anything missed.
+Each `.html` file is the interactive counterpart: it opens on the same
+lecture-notes content as the `.md` file (headings, worked examples, "Watch
+out" callouts, mnemonics), gated behind a "Start the quiz →" button, then
+the same 20 questions one at a time, with instant feedback, a running
+score, and a results screen with a review of anything missed plus controls
+to retake the quiz or jump back to the notes.
 
 ---
 
