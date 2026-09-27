@@ -1,5 +1,5 @@
 ---
-name: tutor
+name: notes-maker
 description: >
   Generates a fresh daily reading + 20-question MCQ quiz for every module
   listed in `study-notes/index.md`'s "Create Study Notes For" table, and
@@ -12,13 +12,13 @@ description: >
   any module newly added to the index. To change which courses get a
   daily read, edit the table in `study-notes/index.md` — nothing in this
   skill or the agent needs to change.
-  Triggers on: "tutor", "daily read", "create today's study note",
-  "generate daily note", or called automatically by this project's
+  Triggers on: "notes-maker", "tutor", "daily read", "create today's study
+  note", "generate daily note", or called automatically by this project's
   scheduled task.
 allowed-tools: Read Write Edit Glob Grep Bash Artifact
 ---
 
-# tutor: Daily Study Note Generator
+# notes-maker: Daily Study Note Generator
 
 Produces an exam-focused daily reading + quiz session for every module
 listed in the vault's course index — fresh reading content followed
@@ -75,7 +75,7 @@ module's URL. See `agents/tutor.md` for the full step-by-step process.
 
 To regenerate today's quiz pages immediately (outside the scheduled run):
 
-> Tell Claude: **"create today's daily read"** or **"run tutor"**
+> Tell Claude: **"create today's daily read"**, **"run tutor"**, or **"run notes-maker"**
 
 Claude will invoke the tutor agent, which reads `study-notes/index.md` for
 the current module list, then for each one reads its study notes, selects 3

@@ -118,16 +118,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "skills/tutor/SKILL.md",
+                "file": "agents/tutor.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SKILL"
+              "title": "tutor"
             }
           }
-        ],
-        "currentTab": 7
+        ]
       }
     ],
     "direction": "vertical"
@@ -316,8 +315,10 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "79c1bd52c36ea9ab",
+  "active": "c34294748e14f3a7",
   "lastOpenFiles": [
+    "skills/notes-maker/SKILL.md",
+    "skills/notes-maker",
     "agents/tutor.md",
     "study-notes/log.md",
     "agents/tutor-topic-history.md",
@@ -344,7 +345,6 @@
     "Claude outputs/2026-09-27.html",
     "Claude outputs/2026-09-24.html",
     "Claude outputs",
-    "study-notes/daily-reads/2026-09-27.html",
     "study-notes/daily-reads/2026-09-27.md",
     "skills/daily-notes/SKILL.md",
     "skills/tutor/SKILL.md",
@@ -355,7 +355,6 @@
     "wiki/learning/learnix-srl-keyword-detection-pitfalls.md",
     "wiki/sources/ict3113-pod-l5.md",
     "wiki/learning/ict3112-lab3-tooling-gotchas.md",
-    "wiki/examples/ict3112-lab3-ci-and-dependencies.md",
     "blockchain-hash-chain.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
