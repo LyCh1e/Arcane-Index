@@ -104,12 +104,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "agents/tutor-artifact-links.md",
+                "file": "agents/tutor.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "tutor-artifact-links"
+              "title": "tutor"
             }
           },
           {
@@ -118,12 +118,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study-notes/index.md",
+                "file": "skills/tutor/SKILL.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "SKILL"
             }
           }
         ],
@@ -318,9 +318,10 @@
   },
   "active": "79c1bd52c36ea9ab",
   "lastOpenFiles": [
+    "agents/tutor.md",
+    "study-notes/log.md",
     "agents/tutor-topic-history.md",
     "agents/tutor-artifact-links.md",
-    "agents/tutor.md",
     "study-notes/index.md",
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md",
     "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md",
@@ -355,7 +356,6 @@
     "wiki/sources/ict3113-pod-l5.md",
     "wiki/learning/ict3112-lab3-tooling-gotchas.md",
     "wiki/examples/ict3112-lab3-ci-and-dependencies.md",
-    "wiki/concepts/test-doubles-and-dependency-injection.md",
     "blockchain-hash-chain.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",
     "claude-obsidian-main/wiki/Wiki Map.canvas",
