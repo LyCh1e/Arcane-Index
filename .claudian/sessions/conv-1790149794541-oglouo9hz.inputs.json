@@ -84,6 +84,18 @@
       "images": [],
       "contentDigest": "211b4974adabf78f9bee3d4107d39028941b62ae721db64a05880b91a033564c",
       "providerUserMessageId": "766ccda6-d372-41b8-9f57-901b69258b1e"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1790490096214-jhgefxw",
+      "userTurnOrdinal": 6,
+      "state": "staged",
+      "localMessageId": "msg-1790490096162-ywwnqqn",
+      "timestamp": 1790490096162,
+      "rawDisplayText": "run tutor",
+      "canonicalText": "run tutor",
+      "images": [],
+      "contentDigest": "f2eeba2b7e2eb6621fa81cba44577a32bceb2d4a75d1b3074b9ce888eadd044a"
     }
   ]
 }

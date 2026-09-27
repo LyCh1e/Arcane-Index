@@ -5,8 +5,11 @@
   "titleGenerationStatus": "success",
   "createdAt": 1790149794649,
   "lastActivityAt": 1790186715243,
-  "sessionId": null,
+  "sessionId": "7e46e37f-b599-4e1d-8d00-4d07fdb9f0bc",
   "selectedModel": "sonnet",
+  "providerState": {
+    "providerSessionId": "7e46e37f-b599-4e1d-8d00-4d07fdb9f0bc"
+  },
   "usage": {
     "model": "sonnet",
     "inputTokens": 1,
