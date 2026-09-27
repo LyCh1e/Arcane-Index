@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>INF2005 — Daily Study Note — 2026-09-27</title>
 <style>
   :root {
@@ -34,7 +34,8 @@
       --accent-bg: rgba(124, 92, 255, 0.16);
     }
   }
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
     background: var(--bg);
@@ -42,166 +43,135 @@
     font-family: -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
+    overflow-x: hidden;
   }
   .wrap {
-    max-width: 720px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 28px 16px 80px;
+    padding: 20px 16px 64px;
   }
-  header.top {
-    margin-bottom: 20px;
-  }
+  header.top { margin-bottom: 14px; }
   header.top h1 {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     margin: 0 0 4px;
     letter-spacing: -0.01em;
+    line-height: 1.3;
   }
   header.top .sub {
     color: var(--muted);
-    font-size: 0.92rem;
-  }
-  .mode-tabs {
-    display: flex;
-    gap: 8px;
-    margin-top: 16px;
-  }
-  .mode-tab {
-    flex: 1;
-    text-align: center;
-    padding: 9px 10px;
-    border-radius: 10px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--muted);
-    background: var(--card);
-    border: 1px solid var(--line);
-  }
-  .mode-tab.active { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
-  .progress-track {
-    height: 8px;
-    border-radius: 99px;
-    background: var(--line);
-    overflow: hidden;
-    margin: 18px 0 6px;
-  }
-  .progress-fill {
-    height: 100%;
-    background: var(--accent);
-    width: 0%;
-    transition: width 0.35s ease;
-  }
-  .progress-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    color: var(--muted);
+    font-size: 0.86rem;
   }
   .card {
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 24px;
-    margin-top: 18px;
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 14px;
     box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   }
   .badge {
     display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 600;
+    font-size: 0.7rem;
+    font-weight: 700;
     letter-spacing: 0.02em;
     padding: 3px 10px;
     border-radius: 99px;
     color: #fff;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
   .badge.ICT3112 { background: var(--module-a); }
   .badge.ICT3113 { background: var(--module-b); }
   .badge.INF2005 { background: var(--module-c); }
 
-  /* --- Lecture notes view --- */
+  /* --- Lecture notes --- */
+  .notes-card h1 { font-size: 1.05rem; margin: 0 0 4px; }
+  .notes-card > p.lede { color: var(--muted); margin: 0 0 4px; font-size: 0.88rem; }
   .notes-card h2 {
-    font-size: 1.08rem;
-    margin: 28px 0 10px;
+    font-size: 1rem;
+    margin: 20px 0 8px;
     letter-spacing: -0.01em;
   }
-  .notes-card h2:first-of-type { margin-top: 6px; }
+  .notes-card h2:first-of-type { margin-top: 14px; }
   .notes-card p {
-    line-height: 1.65;
-    font-size: 0.95rem;
-    margin: 0 0 12px;
+    line-height: 1.6;
+    font-size: 0.92rem;
+    margin: 0 0 10px;
   }
   .notes-card ul, .notes-card ol {
-    margin: 0 0 14px;
-    padding-left: 22px;
-    line-height: 1.6;
-    font-size: 0.95rem;
+    margin: 0 0 12px;
+    padding-left: 20px;
+    line-height: 1.55;
+    font-size: 0.92rem;
   }
   .notes-card li { margin-bottom: 5px; }
   .notes-card strong { font-weight: 700; }
   .notes-card code {
     background: var(--accent-bg);
-    padding: 1px 6px;
+    padding: 1px 5px;
     border-radius: 5px;
-    font-size: 0.88em;
+    font-size: 0.87em;
+    word-break: break-word;
   }
   .callout {
     border-left: 3px solid var(--accent);
     background: var(--accent-bg);
-    padding: 10px 14px;
+    padding: 9px 12px;
     border-radius: 8px;
-    margin: 12px 0 16px;
-    font-size: 0.88rem;
-    line-height: 1.55;
+    margin: 10px 0 14px;
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
   .callout strong { color: var(--accent); }
   .mnemonic {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--muted);
     font-style: italic;
-    margin: -4px 0 16px;
+    margin: -2px 0 14px;
   }
-  hr.divider {
-    border: none;
-    border-top: 1px solid var(--line);
-    margin: 24px 0;
-  }
-  button.start-quiz {
-    display: block;
-    width: 100%;
-    margin-top: 26px;
-    background: var(--accent);
-    color: var(--accent-ink);
-    border: none;
-    padding: 14px 22px;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  button.start-quiz:hover { opacity: 0.92; }
-  .notes-hint {
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.8rem;
-    margin-top: 10px;
-  }
-  a.review-notes-link {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 0.8rem;
-    color: var(--accent);
-    text-decoration: none;
-    cursor: pointer;
-  }
-  a.review-notes-link:hover { text-decoration: underline; }
+  hr.divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
 
-  /* --- Quiz view --- */
-  .qtext {
-    font-size: 1.08rem;
-    line-height: 1.5;
-    margin: 0 0 18px;
+  /* --- Sticky score bar --- */
+  .score-bar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-top: 18px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   }
-  .options { display: flex; flex-direction: column; gap: 10px; }
+  .score-bar .answered-count { color: var(--muted); font-weight: 500; }
+  .score-bar .score-count { color: var(--accent); }
+
+  .quiz-heading {
+    margin: 22px 2px 4px;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .quiz-sub { margin: 0 2px 4px; color: var(--muted); font-size: 0.84rem; }
+
+  /* --- Question cards --- */
+  .qcard { }
+  .qnum {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+  .qtext {
+    font-size: 1rem;
+    line-height: 1.45;
+    margin: 0 0 14px;
+  }
+  .options { display: flex; flex-direction: column; gap: 8px; }
   .opt {
     text-align: left;
     border: 1px solid var(--line);
@@ -209,113 +179,99 @@
     color: var(--ink);
     padding: 12px 14px;
     border-radius: 12px;
-    font-size: 0.96rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
     cursor: pointer;
-    transition: border-color 0.15s ease, background 0.15s ease, transform 0.05s ease;
+    transition: border-color 0.15s ease, background 0.15s ease;
     display: flex;
     gap: 10px;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
   }
   .opt:hover:not(:disabled) { border-color: var(--accent); }
   .opt:active:not(:disabled) { transform: scale(0.99); }
-  .opt .letter {
-    font-weight: 700;
-    color: var(--muted);
-    min-width: 18px;
-  }
+  .opt .letter { font-weight: 700; color: var(--muted); min-width: 16px; flex-shrink: 0; }
   .opt:disabled { cursor: default; }
   .opt.correct { border-color: var(--good); background: var(--good-bg); }
   .opt.correct .letter { color: var(--good); }
   .opt.incorrect { border-color: var(--bad); background: var(--bad-bg); }
   .opt.incorrect .letter { color: var(--bad); }
-  .opt.dim { opacity: 0.55; }
+  .opt.dim { opacity: 0.5; }
   .feedback {
-    margin-top: 16px;
-    padding: 14px 16px;
+    margin-top: 12px;
+    padding: 12px 14px;
     border-radius: 12px;
-    font-size: 0.92rem;
+    font-size: 0.86rem;
     line-height: 1.5;
     display: none;
   }
   .feedback.show { display: block; }
   .feedback.good { background: var(--good-bg); color: var(--good); }
   .feedback.bad { background: var(--bad-bg); color: var(--bad); }
-  .feedback .exp { color: var(--ink); opacity: 0.85; display: block; margin-top: 6px; }
-  .controls {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end;
-  }
-  button.next {
-    background: var(--accent);
-    color: var(--accent-ink);
-    border: none;
-    padding: 11px 22px;
-    border-radius: 10px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: none;
-  }
-  button.next.show { display: inline-block; }
-  button.next:hover { opacity: 0.9; }
-  .results { text-align: center; }
+  .feedback .exp { color: var(--ink); opacity: 0.85; display: block; margin-top: 5px; }
+
+  /* --- Results --- */
+  .results-card { text-align: center; }
   .score-ring {
-    width: 140px; height: 140px;
-    margin: 8px auto 18px;
+    width: 120px; height: 120px;
+    margin: 4px auto 14px;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     background: conic-gradient(var(--accent) calc(var(--pct) * 1%), var(--line) 0);
   }
   .score-ring .inner {
-    width: 112px; height: 112px;
+    width: 96px; height: 96px;
     border-radius: 50%;
     background: var(--card);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
   }
-  .score-ring .num { font-size: 1.7rem; font-weight: 700; }
-  .score-ring .den { font-size: 0.8rem; color: var(--muted); }
-  .breakdown {
-    text-align: left;
-    margin-top: 22px;
-    border-top: 1px solid var(--line);
-    padding-top: 14px;
-  }
-  .breakdown h3 { font-size: 0.95rem; margin: 0 0 10px; color: var(--muted); font-weight: 600; }
-  .mod-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 8px 0; font-size: 0.92rem; border-bottom: 1px solid var(--line);
-  }
-  .mod-row:last-child { border-bottom: none; }
-  .review-list { margin-top: 22px; text-align: left; }
+  .score-ring .num { font-size: 1.5rem; font-weight: 700; }
+  .score-ring .den { font-size: 0.76rem; color: var(--muted); }
+  .headline { font-weight: 700; font-size: 1rem; }
+  .results-hint { color: var(--muted); font-size: 0.82rem; margin-top: 4px; }
+  .review-list { margin-top: 18px; text-align: left; }
+  .review-list h3 { font-size: 0.9rem; margin: 0 0 10px; color: var(--muted); font-weight: 600; }
   .review-item {
     border: 1px solid var(--line);
     border-radius: 12px;
-    padding: 12px 14px;
-    margin-bottom: 10px;
-    font-size: 0.88rem;
+    padding: 11px 13px;
+    margin-bottom: 9px;
+    font-size: 0.84rem;
     line-height: 1.5;
   }
   .review-item .q { font-weight: 600; margin-bottom: 4px; }
   .review-item .you { color: var(--bad); }
   .review-item .correct-ans { color: var(--good); }
-  button.restart, button.restart-secondary {
-    margin-top: 24px;
-    margin-right: 8px;
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 10px 20px;
+  button.restart {
+    margin-top: 18px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    padding: 12px 22px;
     border-radius: 10px;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.92rem;
     cursor: pointer;
+    width: 100%;
   }
-  button.restart:hover, button.restart-secondary:hover { background: var(--accent); color: var(--accent-ink); }
-  .hint {
-    color: var(--muted);
-    font-size: 0.85rem;
-    margin-top: 6px;
+  button.restart:hover { opacity: 0.92; }
+  .celebrate { font-size: 1.8rem; margin-bottom: 2px; }
+  a.jump-link {
+    display: block;
+    text-align: center;
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: var(--accent);
+    text-decoration: none;
   }
-  .celebrate { font-size: 2rem; margin-bottom: 4px; }
+  a.jump-link:hover { text-decoration: underline; }
+
+  @media (max-width: 420px) {
+    .wrap { padding: 14px 12px 56px; }
+    .card { padding: 15px; border-radius: 12px; }
+    header.top h1 { font-size: 1.12rem; }
+  }
 </style>
 </head>
 <body>
@@ -325,13 +281,10 @@
     <div class="sub">Diffie–Hellman · Authentication Factors · Biometric Authentication</div>
   </header>
 
-  <div id="notesView">
-    <div class="card notes-card">
-      <span class="badge INF2005">INF2005</span>
-      <h1 style="font-size:1.15rem;margin:0 0 4px;">Read this first</h1>
-      <p style="color:var(--muted);margin-bottom:0;">Work through today's three topics below, then start the quiz. Nothing here is timed.</p>
-      <hr class="divider">
-      
+  <div class="card notes-card">
+    <span class="badge INF2005">INF2005</span>
+    <p class="lede">Read this first, then scroll down for the quiz — no separate screens, it's all on this page.</p>
+    
 <h2>Diffie–Hellman Key Exchange</h2>
 <p>DH lets two people agree on a secret key over a public channel — without ever sending the key itself. It's <strong>not</strong> encryption, just key agreement.</p>
 <p>How it works:</p>
@@ -375,17 +328,28 @@
 <p>Modality comparison: retina (most accurate, most invasive) → iris → fingerprint (cheap, fast) → face (fast, ML-boosted, but spoofable) → gait/keystroke (continuous, behavioural).</p>
 <div class="callout"><strong>Watch out:</strong> facial recognition has a real bias problem — false-positive rates can be up to 100× higher for Asian and Black individuals than for white individuals.</div>
 
-      <button class="start-quiz" id="startQuizBtn">Start the quiz →</button>
-      <div class="notes-hint">20 questions · instant feedback · your score at the end</div>
-    </div>
   </div>
 
-  <div id="quizView" style="display:none">
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="progress-label"><span id="progressLabel">Question 1 of 20</span><span id="scoreLabel">Score: 0</span></div>
-    <div class="card" id="quizCard"></div>
-    <div style="text-align:center;"><a class="review-notes-link" id="backToNotes">← Back to the reading notes</a></div>
+  <div class="score-bar">
+    <span>Quiz progress <span class="answered-count" id="answeredCount">0 / 20 answered</span></span>
+    <span class="score-count" id="scoreCount">Score: 0</span>
   </div>
+
+  <div class="quiz-heading">Quiz — 20 Questions</div>
+  <div class="quiz-sub">Tap an answer to see if you're right — you can answer in any order.</div>
+
+  <div id="quizList"></div>
+
+  <div class="card results-card" id="resultsCard">
+    <div class="celebrate" id="resultsEmoji">📝</div>
+    <div class="score-ring" id="scoreRing" style="--pct:0"><div class="inner"><span class="num" id="resultsNum">0/20</span><span class="den" id="resultsPct">0%</span></div></div>
+    <div class="headline" id="resultsHeadline">Answer all 20 questions to see your full result.</div>
+    <div class="results-hint" id="resultsHint"></div>
+    <div class="review-list" id="reviewList"></div>
+    <button class="restart" id="restartBtn">Retake quiz</button>
+  </div>
+
+  <a class="jump-link" href="#top" id="jumpTop">↑ Back to top</a>
 </div>
 
 <script id="quiz-data" type="application/json">[{"module": "INF2005", "question": "What does Diffie–Hellman key exchange actually establish between two parties?", "options": ["An encrypted message", "A shared secret key, derived without ever transmitting it", "A digital signature", "A certificate signed by a trusted authority"], "correct": 1, "explanation": "DH establishes a shared secret key derived independently by both sides; no key or secret value is ever transmitted across the channel."}, {"module": "INF2005", "question": "An eavesdropper who observes p, G, A, and B in a Diffie–Hellman exchange cannot compute the shared key K because doing so requires solving:", "options": ["The RSA factoring problem", "The discrete logarithm problem", "A birthday-attack collision search", "A brute-force password search"], "correct": 1, "explanation": "Recovering a private exponent from a public value (A = Gᵃ mod p) is the discrete logarithm problem, believed computationally infeasible for large primes."}, {"module": "INF2005", "question": "Why is Diffie–Hellman described as \"not encryption\"?", "options": ["It cannot be implemented in software", "It only agrees a shared secret key; it never itself encrypts or transmits data", "It requires a trusted third-party certificate authority", "It only works for symmetric ciphers, never asymmetric ones"], "correct": 1, "explanation": "DH only produces a shared secret; the parties must still pair it with a symmetric cipher to actually encrypt anything — DH itself does no encryption."}, {"module": "INF2005", "question": "In the DH protocol, which values are shared publicly and can safely be seen by an eavesdropper?", "options": ["a and b (the private secrets)", "K (the shared secret)", "p, G, A, and B", "Only p and G, never A or B"], "correct": 2, "explanation": "p, G, A, and B are all transmitted in the open; a, b, and K are never sent."}, {"module": "INF2005", "question": "Alice computes K = Bᵃ mod p and Bob computes K = Aᵇ mod p. Why do they arrive at the same value?", "options": ["Because A = B by construction", "Because both expressions equal G^(ab) mod p", "Because p is chosen to make all exponents equal", "Because a = b in every DH exchange"], "correct": 1, "explanation": "Bᵃ mod p = (Gᵇ)ᵃ mod p = G^(ab) mod p, and Aᵇ mod p = (Gᵃ)ᵇ mod p = G^(ab) mod p — the same value by the laws of exponents."}, {"module": "INF2005", "question": "What must Alice and Bob agree on publicly before starting the Diffie–Hellman exchange?", "options": ["Their private secrets a and b", "A shared symmetric key", "A prime p and a generator G", "A digital certificate signed by a CA"], "correct": 2, "explanation": "The prime p and generator G are the public parameters both parties must agree on before exchanging public values."}, {"module": "INF2005", "question": "Which cryptographic problem is DH's security based on, as opposed to RSA's?", "options": ["DH relies on integer factoring, same as RSA", "DH relies on the discrete logarithm problem, whereas RSA relies on integer factoring", "DH relies on birthday collisions", "DH and RSA rely on the same underlying hard problem"], "correct": 1, "explanation": "DH's hardness rests on the discrete logarithm problem; RSA's rests on integer factoring — different hard problems entirely."}, {"module": "INF2005", "question": "What does the \"KTB\" mnemonic stand for?", "options": ["Key, Token, Backup", "Knowledge, Token, Biometrics", "Kerberos, TLS, Biometrics", "Knowledge, Trust, Behaviour"], "correct": 1, "explanation": "Knowledge, Token, Biometrics — the three independent authentication factor categories."}, {"module": "INF2005", "question": "Why does salting a password hash defeat precomputed rainbow table attacks?", "options": ["It encrypts the password reversibly", "It makes each user's hash unique, forcing the attacker to crack every password individually rather than reusing one precomputed table", "It shortens the password", "It removes the need for hashing altogether"], "correct": 1, "explanation": "A unique salt per user defeats precomputed tables, forcing attackers to crack each password from scratch."}, {"module": "INF2005", "question": "Which password storage method is described as the weakest, exposing all passwords immediately upon a single breach?", "options": ["Hash(password + salt)", "Hash(password)", "Encrypted password", "Plaintext password"], "correct": 3, "explanation": "Plaintext storage means a single breach immediately exposes every password with no additional attacker effort."}, {"module": "INF2005", "question": "A dictionary attack is best defended against by:", "options": ["Using a longer numeric PIN only", "Avoiding dictionary words and using salted hashing", "Increasing the account lockout threshold only", "Disabling password authentication entirely"], "correct": 1, "explanation": "Avoiding dictionary words and salting hashes are the notes' stated defences against dictionary attacks."}, {"module": "INF2005", "question": "\"Google Dorking\" as a password attack technique works by:", "options": ["Brute-forcing login forms directly", "Using search operators (e.g. ext:csv inurl:passwd) to find exposed credential files indexed online", "Exploiting weak RFID encryption", "Performing a birthday attack on password hashes"], "correct": 1, "explanation": "Google Dorking uses targeted search operators to locate credential files that have been accidentally indexed publicly."}, {"module": "INF2005", "question": "Which of the following is a \"Token\" (something you have) authentication method, as opposed to Knowledge or Biometrics?", "options": ["A PIN code", "A fingerprint scan", "An RFID tag or smart card", "A graphical password pattern"], "correct": 2, "explanation": "An RFID tag or smart card is something you have — a Token factor; the others are Knowledge or Biometric factors."}, {"module": "INF2005", "question": "What is a key vulnerability of RFID tag authentication mentioned in the notes?", "options": ["RFID tags cannot be mass-produced", "Over-the-air spoofing, MITM sniffing, and side-channel power analysis", "RFID requires physical contact, making it slow", "RFID tags cannot store any cryptographic keys"], "correct": 1, "explanation": "RFID's stated vulnerabilities are over-the-air spoofing, MITM sniffing, and side-channel power analysis."}, {"module": "INF2005", "question": "Which property of a good biometric, from the UDPC list, means the characteristic must remain stable over a person's lifetime?", "options": ["Universality", "Distinctiveness", "Permanence", "Collectability"], "correct": 2, "explanation": "Permanence specifically requires the characteristic to remain stable over time; universality and distinctiveness are about coverage and uniqueness, not stability."}, {"module": "INF2005", "question": "A security system's match threshold is loosened so more legitimate users are accepted on the first try. What is the most likely side effect?", "options": ["FAR decreases while TAR stays the same", "Both FAR and TAR tend to increase together", "TAR decreases", "Neither FAR nor TAR is affected by the threshold"], "correct": 1, "explanation": "FAR and TAR move together under a threshold change: a looser threshold accepts more people overall, both legitimate and illegitimate, raising both rates."}, {"module": "INF2005", "question": "What does FAR (False Accept Rate) measure?", "options": ["How often a legitimate user is correctly granted access", "How often an impostor is wrongly granted access", "How long enrolment takes", "How expensive the biometric system is"], "correct": 1, "explanation": "FAR measures how often an impostor is wrongly accepted; TAR is the complementary measure for legitimate users."}, {"module": "INF2005", "question": "According to the notes, which biometric modality has the highest reported accuracy (lowest false-positive rate), though at high cost and invasiveness?", "options": ["Keystroke dynamics", "Facial recognition", "Retinal scanning", "Gait analysis"], "correct": 2, "explanation": "Retinal scanning is described as the most accurate modality (around 1-in-20,000 false positives), at the cost of being the most invasive and expensive."}, {"module": "INF2005", "question": "What fairness concern is specifically raised about facial recognition systems?", "options": ["They cannot process high-resolution images", "False-positive rates for Asian and Black individuals can be up to 100× higher than for white individuals", "They only work indoors", "They require government ID to enrol"], "correct": 1, "explanation": "The notes specifically flag facial recognition's racial bias in false-positive rates as a significant fairness concern."}, {"module": "INF2005", "question": "Which of the four UDPC properties requires that any two people's biometric characteristic differ sufficiently to tell them apart?", "options": ["Universality", "Distinctiveness", "Permanence", "Collectability"], "correct": 1, "explanation": "Distinctiveness is the UDPC property requiring sufficient difference between individuals so they can be told apart."}]</script>
@@ -393,131 +357,127 @@
 (function () {
   const DATA = JSON.parse(document.getElementById('quiz-data').textContent);
   const LETTERS = ['A', 'B', 'C', 'D'];
-  let current = 0;
-  let score = 0;
-  let answered = [];
-  let started = false;
-  const card = document.getElementById('quizCard');
-  const progressFill = document.getElementById('progressFill');
-  const progressLabel = document.getElementById('progressLabel');
-  const scoreLabel = document.getElementById('scoreLabel');
-  const notesView = document.getElementById('notesView');
-  const quizView = document.getElementById('quizView');
+  let answered = new Array(DATA.length).fill(null); // {chosen, correct} or null
 
-  document.getElementById('startQuizBtn').addEventListener('click', () => {
-    notesView.style.display = 'none';
-    quizView.style.display = 'block';
-    if (!started) { started = true; renderQuestion(0); }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-  document.getElementById('backToNotes').addEventListener('click', (e) => {
-    e.preventDefault();
-    quizView.style.display = 'none';
-    notesView.style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  const quizList = document.getElementById('quizList');
+  const answeredCountEl = document.getElementById('answeredCount');
+  const scoreCountEl = document.getElementById('scoreCount');
 
-  function renderQuestion(i) {
+  function buildQuestion(i) {
     const q = DATA[i];
-    progressFill.style.width = ((i) / DATA.length * 100) + '%';
-    progressLabel.textContent = 'Question ' + (i + 1) + ' of ' + DATA.length;
-    scoreLabel.textContent = 'Score: ' + score;
+    const wrap = document.createElement('div');
+    wrap.className = 'card qcard';
+    wrap.id = 'q' + i;
 
     let optsHtml = '';
     q.options.forEach((opt, idx) => {
-      optsHtml += '<button class="opt" data-idx="' + idx + '"><span class="letter">' + LETTERS[idx] + '</span><span>' + opt + '</span></button>';
+      optsHtml += '<button class="opt" data-qi="' + i + '" data-oi="' + idx + '"><span class="letter">' + LETTERS[idx] + '</span><span>' + opt + '</span></button>';
     });
 
-    card.innerHTML =
-      '<span class="badge ' + q.module + '">' + q.module + '</span>' +
+    wrap.innerHTML =
+      '<div class="qnum">Question ' + (i + 1) + ' of ' + DATA.length + '</div>' +
       '<p class="qtext">' + q.question + '</p>' +
       '<div class="options">' + optsHtml + '</div>' +
-      '<div class="feedback" id="feedback"></div>' +
-      '<div class="controls"><button class="next" id="nextBtn">' + (i === DATA.length - 1 ? 'See results' : 'Next question') + '</button></div>';
+      '<div class="feedback" id="fb' + i + '"></div>';
 
-    const buttons = card.querySelectorAll('.opt');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => selectOption(btn, q, buttons));
+    wrap.querySelectorAll('.opt').forEach(btn => {
+      btn.addEventListener('click', onSelect);
     });
+    return wrap;
   }
 
-  function selectOption(btn, q, buttons) {
-    const idx = parseInt(btn.getAttribute('data-idx'), 10);
-    const correct = idx === q.correct;
+  function onSelect(e) {
+    const btn = e.currentTarget;
+    const qi = parseInt(btn.getAttribute('data-qi'), 10);
+    if (answered[qi]) return; // already answered, ignore
+    const oi = parseInt(btn.getAttribute('data-oi'), 10);
+    const q = DATA[qi];
+    const correct = oi === q.correct;
+
+    const qcard = document.getElementById('q' + qi);
+    const buttons = qcard.querySelectorAll('.opt');
     buttons.forEach(b => b.disabled = true);
-    buttons.forEach((b, i2) => {
-      if (i2 === q.correct) b.classList.add('correct');
-      else if (b === btn) b.classList.add('incorrect');
+    buttons.forEach((b) => {
+      const boi = parseInt(b.getAttribute('data-oi'), 10);
+      if (boi === q.correct) b.classList.add('correct');
+      else if (boi === oi) b.classList.add('incorrect');
       else b.classList.add('dim');
     });
-    const fb = document.getElementById('feedback');
+
+    const fb = document.getElementById('fb' + qi);
     fb.classList.add('show', correct ? 'good' : 'bad');
     fb.innerHTML = (correct ? 'Correct.' : 'Not quite — correct answer is ' + LETTERS[q.correct] + '.') +
       '<span class="exp">' + q.explanation + '</span>';
-    if (correct) score++;
-    answered.push({ index: current, correct: correct, chosen: idx });
-    scoreLabel.textContent = 'Score: ' + score;
-    document.getElementById('nextBtn').classList.add('show');
-    document.getElementById('nextBtn').onclick = () => {
-      current++;
-      if (current < DATA.length) {
-        renderQuestion(current);
-      } else {
-        renderResults();
-      }
-    };
+
+    answered[qi] = { chosen: oi, correct: correct };
+    updateProgress();
   }
 
-  function renderResults() {
-    progressFill.style.width = '100%';
-    progressLabel.textContent = 'Complete';
-    scoreLabel.textContent = 'Score: ' + score + ' / ' + DATA.length;
+  function updateProgress() {
+    const answeredList = answered.filter(a => a !== null);
+    const score = answeredList.filter(a => a.correct).length;
+    answeredCountEl.textContent = answeredList.length + ' / ' + DATA.length + ' answered';
+    scoreCountEl.textContent = 'Score: ' + score;
+    renderResults(answeredList.length, score);
+  }
 
-    const pct = Math.round((score / DATA.length) * 100);
+  function renderResults(answeredCount, score) {
+    const total = DATA.length;
+    const pct = answeredCount ? Math.round((score / answeredCount) * 100) : 0;
+    document.getElementById('resultsNum').textContent = score + '/' + answeredCount;
+    document.getElementById('resultsPct').textContent = pct + '%';
+    document.getElementById('scoreRing').style.setProperty('--pct', answeredCount ? Math.round((score / total) * 100) : 0);
 
-    let reviewHtml = '';
-    const missed = answered.filter(a => !a.correct);
-    if (missed.length) {
-      reviewHtml = '<div class="review-list"><h3>Review the ones you missed</h3>';
-      missed.forEach(a => {
-        const q = DATA[a.index];
-        reviewHtml += '<div class="review-item"><div class="q">' + q.question + '</div>' +
-          '<div class="you">Your answer: ' + LETTERS[a.chosen] + ') ' + q.options[a.chosen] + '</div>' +
-          '<div class="correct-ans">Correct: ' + LETTERS[q.correct] + ') ' + q.options[q.correct] + '</div>' +
-          '<div class="hint">' + q.explanation + '</div></div>';
-      });
-      reviewHtml += '</div>';
+    const headlineEl = document.getElementById('resultsHeadline');
+    const emojiEl = document.getElementById('resultsEmoji');
+    const hintEl = document.getElementById('resultsHint');
+
+    if (answeredCount < total) {
+      headlineEl.textContent = (total - answeredCount) + ' question' + ((total - answeredCount) === 1 ? '' : 's') + ' left to answer.';
+      emojiEl.textContent = '📝';
+      hintEl.textContent = 'This box updates live as you go.';
+    } else {
+      let headline = 'Solid work.';
+      let emoji = '📘';
+      const finalPct = Math.round((score / total) * 100);
+      if (finalPct === 100) { headline = 'Perfect score.'; emoji = '🏆'; }
+      else if (finalPct >= 85) { headline = 'Excellent recall.'; emoji = '🎯'; }
+      else if (finalPct >= 60) { headline = 'Good, some gaps to revise.'; emoji = '📘'; }
+      else { headline = 'Worth another pass through the notes.'; emoji = '📚'; }
+      headlineEl.textContent = headline;
+      emojiEl.textContent = emoji;
+      hintEl.textContent = '';
     }
 
-    let headline = 'Solid work.';
-    let emoji = '📘';
-    if (pct === 100) { headline = 'Perfect score.'; emoji = '🏆'; }
-    else if (pct >= 85) { headline = 'Excellent recall.'; emoji = '🎯'; }
-    else if (pct >= 60) { headline = 'Good, some gaps to revise.'; emoji = '📘'; }
-    else { headline = 'Worth another pass through the notes.'; emoji = '📚'; }
-
-    card.innerHTML =
-      '<div class="results">' +
-      '<div class="celebrate">' + emoji + '</div>' +
-      '<div class="score-ring" style="--pct:' + pct + '"><div class="inner"><span class="num">' + score + '/' + DATA.length + '</span><span class="den">' + pct + '%</span></div></div>' +
-      '<div style="font-weight:600;font-size:1.05rem;">' + headline + '</div>' +
-      reviewHtml +
-      '<div>' +
-      '<button class="restart-secondary" id="reviewNotesBtn">Review notes</button>' +
-      '<button class="restart" id="restartBtn">Retake quiz</button>' +
-      '</div>' +
-      '</div>';
-
-    document.getElementById('restartBtn').onclick = () => {
-      current = 0; score = 0; answered = [];
-      renderQuestion(0);
-    };
-    document.getElementById('reviewNotesBtn').onclick = () => {
-      quizView.style.display = 'none';
-      notesView.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    const reviewList = document.getElementById('reviewList');
+    const missed = [];
+    answered.forEach((a, i) => { if (a && !a.correct) missed.push({ index: i, chosen: a.chosen }); });
+    if (missed.length) {
+      let html = '<h3>Review the ones you missed</h3>';
+      missed.forEach(m => {
+        const q = DATA[m.index];
+        html += '<div class="review-item"><div class="q">Q' + (m.index + 1) + '. ' + q.question + '</div>' +
+          '<div class="you">Your answer: ' + LETTERS[m.chosen] + ') ' + q.options[m.chosen] + '</div>' +
+          '<div class="correct-ans">Correct: ' + LETTERS[q.correct] + ') ' + q.options[q.correct] + '</div>' +
+          '<div>' + q.explanation + '</div></div>';
+      });
+      reviewList.innerHTML = html;
+    } else {
+      reviewList.innerHTML = '';
+    }
   }
+
+  document.getElementById('restartBtn').addEventListener('click', () => {
+    answered = new Array(DATA.length).fill(null);
+    quizList.innerHTML = '';
+    DATA.forEach((_, i) => quizList.appendChild(buildQuestion(i)));
+    updateProgress();
+    document.getElementById('jumpTop').scrollIntoView({ block: 'start' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  DATA.forEach((_, i) => quizList.appendChild(buildQuestion(i)));
+  updateProgress();
 })();
 </script>
 </body>

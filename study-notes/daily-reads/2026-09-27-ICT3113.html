@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ICT3113 — Daily Study Note — 2026-09-27</title>
 <style>
   :root {
@@ -34,7 +34,8 @@
       --accent-bg: rgba(124, 92, 255, 0.16);
     }
   }
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
     background: var(--bg);
@@ -42,166 +43,135 @@
     font-family: -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
+    overflow-x: hidden;
   }
   .wrap {
-    max-width: 720px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 28px 16px 80px;
+    padding: 20px 16px 64px;
   }
-  header.top {
-    margin-bottom: 20px;
-  }
+  header.top { margin-bottom: 14px; }
   header.top h1 {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     margin: 0 0 4px;
     letter-spacing: -0.01em;
+    line-height: 1.3;
   }
   header.top .sub {
     color: var(--muted);
-    font-size: 0.92rem;
-  }
-  .mode-tabs {
-    display: flex;
-    gap: 8px;
-    margin-top: 16px;
-  }
-  .mode-tab {
-    flex: 1;
-    text-align: center;
-    padding: 9px 10px;
-    border-radius: 10px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--muted);
-    background: var(--card);
-    border: 1px solid var(--line);
-  }
-  .mode-tab.active { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
-  .progress-track {
-    height: 8px;
-    border-radius: 99px;
-    background: var(--line);
-    overflow: hidden;
-    margin: 18px 0 6px;
-  }
-  .progress-fill {
-    height: 100%;
-    background: var(--accent);
-    width: 0%;
-    transition: width 0.35s ease;
-  }
-  .progress-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    color: var(--muted);
+    font-size: 0.86rem;
   }
   .card {
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 24px;
-    margin-top: 18px;
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 14px;
     box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   }
   .badge {
     display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 600;
+    font-size: 0.7rem;
+    font-weight: 700;
     letter-spacing: 0.02em;
     padding: 3px 10px;
     border-radius: 99px;
     color: #fff;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
   .badge.ICT3112 { background: var(--module-a); }
   .badge.ICT3113 { background: var(--module-b); }
   .badge.INF2005 { background: var(--module-c); }
 
-  /* --- Lecture notes view --- */
+  /* --- Lecture notes --- */
+  .notes-card h1 { font-size: 1.05rem; margin: 0 0 4px; }
+  .notes-card > p.lede { color: var(--muted); margin: 0 0 4px; font-size: 0.88rem; }
   .notes-card h2 {
-    font-size: 1.08rem;
-    margin: 28px 0 10px;
+    font-size: 1rem;
+    margin: 20px 0 8px;
     letter-spacing: -0.01em;
   }
-  .notes-card h2:first-of-type { margin-top: 6px; }
+  .notes-card h2:first-of-type { margin-top: 14px; }
   .notes-card p {
-    line-height: 1.65;
-    font-size: 0.95rem;
-    margin: 0 0 12px;
+    line-height: 1.6;
+    font-size: 0.92rem;
+    margin: 0 0 10px;
   }
   .notes-card ul, .notes-card ol {
-    margin: 0 0 14px;
-    padding-left: 22px;
-    line-height: 1.6;
-    font-size: 0.95rem;
+    margin: 0 0 12px;
+    padding-left: 20px;
+    line-height: 1.55;
+    font-size: 0.92rem;
   }
   .notes-card li { margin-bottom: 5px; }
   .notes-card strong { font-weight: 700; }
   .notes-card code {
     background: var(--accent-bg);
-    padding: 1px 6px;
+    padding: 1px 5px;
     border-radius: 5px;
-    font-size: 0.88em;
+    font-size: 0.87em;
+    word-break: break-word;
   }
   .callout {
     border-left: 3px solid var(--accent);
     background: var(--accent-bg);
-    padding: 10px 14px;
+    padding: 9px 12px;
     border-radius: 8px;
-    margin: 12px 0 16px;
-    font-size: 0.88rem;
-    line-height: 1.55;
+    margin: 10px 0 14px;
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
   .callout strong { color: var(--accent); }
   .mnemonic {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--muted);
     font-style: italic;
-    margin: -4px 0 16px;
+    margin: -2px 0 14px;
   }
-  hr.divider {
-    border: none;
-    border-top: 1px solid var(--line);
-    margin: 24px 0;
-  }
-  button.start-quiz {
-    display: block;
-    width: 100%;
-    margin-top: 26px;
-    background: var(--accent);
-    color: var(--accent-ink);
-    border: none;
-    padding: 14px 22px;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  button.start-quiz:hover { opacity: 0.92; }
-  .notes-hint {
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.8rem;
-    margin-top: 10px;
-  }
-  a.review-notes-link {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 0.8rem;
-    color: var(--accent);
-    text-decoration: none;
-    cursor: pointer;
-  }
-  a.review-notes-link:hover { text-decoration: underline; }
+  hr.divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
 
-  /* --- Quiz view --- */
-  .qtext {
-    font-size: 1.08rem;
-    line-height: 1.5;
-    margin: 0 0 18px;
+  /* --- Sticky score bar --- */
+  .score-bar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-top: 18px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   }
-  .options { display: flex; flex-direction: column; gap: 10px; }
+  .score-bar .answered-count { color: var(--muted); font-weight: 500; }
+  .score-bar .score-count { color: var(--accent); }
+
+  .quiz-heading {
+    margin: 22px 2px 4px;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .quiz-sub { margin: 0 2px 4px; color: var(--muted); font-size: 0.84rem; }
+
+  /* --- Question cards --- */
+  .qcard { }
+  .qnum {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+  .qtext {
+    font-size: 1rem;
+    line-height: 1.45;
+    margin: 0 0 14px;
+  }
+  .options { display: flex; flex-direction: column; gap: 8px; }
   .opt {
     text-align: left;
     border: 1px solid var(--line);
@@ -209,113 +179,99 @@
     color: var(--ink);
     padding: 12px 14px;
     border-radius: 12px;
-    font-size: 0.96rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
     cursor: pointer;
-    transition: border-color 0.15s ease, background 0.15s ease, transform 0.05s ease;
+    transition: border-color 0.15s ease, background 0.15s ease;
     display: flex;
     gap: 10px;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
   }
   .opt:hover:not(:disabled) { border-color: var(--accent); }
   .opt:active:not(:disabled) { transform: scale(0.99); }
-  .opt .letter {
-    font-weight: 700;
-    color: var(--muted);
-    min-width: 18px;
-  }
+  .opt .letter { font-weight: 700; color: var(--muted); min-width: 16px; flex-shrink: 0; }
   .opt:disabled { cursor: default; }
   .opt.correct { border-color: var(--good); background: var(--good-bg); }
   .opt.correct .letter { color: var(--good); }
   .opt.incorrect { border-color: var(--bad); background: var(--bad-bg); }
   .opt.incorrect .letter { color: var(--bad); }
-  .opt.dim { opacity: 0.55; }
+  .opt.dim { opacity: 0.5; }
   .feedback {
-    margin-top: 16px;
-    padding: 14px 16px;
+    margin-top: 12px;
+    padding: 12px 14px;
     border-radius: 12px;
-    font-size: 0.92rem;
+    font-size: 0.86rem;
     line-height: 1.5;
     display: none;
   }
   .feedback.show { display: block; }
   .feedback.good { background: var(--good-bg); color: var(--good); }
   .feedback.bad { background: var(--bad-bg); color: var(--bad); }
-  .feedback .exp { color: var(--ink); opacity: 0.85; display: block; margin-top: 6px; }
-  .controls {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end;
-  }
-  button.next {
-    background: var(--accent);
-    color: var(--accent-ink);
-    border: none;
-    padding: 11px 22px;
-    border-radius: 10px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: none;
-  }
-  button.next.show { display: inline-block; }
-  button.next:hover { opacity: 0.9; }
-  .results { text-align: center; }
+  .feedback .exp { color: var(--ink); opacity: 0.85; display: block; margin-top: 5px; }
+
+  /* --- Results --- */
+  .results-card { text-align: center; }
   .score-ring {
-    width: 140px; height: 140px;
-    margin: 8px auto 18px;
+    width: 120px; height: 120px;
+    margin: 4px auto 14px;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     background: conic-gradient(var(--accent) calc(var(--pct) * 1%), var(--line) 0);
   }
   .score-ring .inner {
-    width: 112px; height: 112px;
+    width: 96px; height: 96px;
     border-radius: 50%;
     background: var(--card);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
   }
-  .score-ring .num { font-size: 1.7rem; font-weight: 700; }
-  .score-ring .den { font-size: 0.8rem; color: var(--muted); }
-  .breakdown {
-    text-align: left;
-    margin-top: 22px;
-    border-top: 1px solid var(--line);
-    padding-top: 14px;
-  }
-  .breakdown h3 { font-size: 0.95rem; margin: 0 0 10px; color: var(--muted); font-weight: 600; }
-  .mod-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 8px 0; font-size: 0.92rem; border-bottom: 1px solid var(--line);
-  }
-  .mod-row:last-child { border-bottom: none; }
-  .review-list { margin-top: 22px; text-align: left; }
+  .score-ring .num { font-size: 1.5rem; font-weight: 700; }
+  .score-ring .den { font-size: 0.76rem; color: var(--muted); }
+  .headline { font-weight: 700; font-size: 1rem; }
+  .results-hint { color: var(--muted); font-size: 0.82rem; margin-top: 4px; }
+  .review-list { margin-top: 18px; text-align: left; }
+  .review-list h3 { font-size: 0.9rem; margin: 0 0 10px; color: var(--muted); font-weight: 600; }
   .review-item {
     border: 1px solid var(--line);
     border-radius: 12px;
-    padding: 12px 14px;
-    margin-bottom: 10px;
-    font-size: 0.88rem;
+    padding: 11px 13px;
+    margin-bottom: 9px;
+    font-size: 0.84rem;
     line-height: 1.5;
   }
   .review-item .q { font-weight: 600; margin-bottom: 4px; }
   .review-item .you { color: var(--bad); }
   .review-item .correct-ans { color: var(--good); }
-  button.restart, button.restart-secondary {
-    margin-top: 24px;
-    margin-right: 8px;
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 10px 20px;
+  button.restart {
+    margin-top: 18px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    padding: 12px 22px;
     border-radius: 10px;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.92rem;
     cursor: pointer;
+    width: 100%;
   }
-  button.restart:hover, button.restart-secondary:hover { background: var(--accent); color: var(--accent-ink); }
-  .hint {
-    color: var(--muted);
-    font-size: 0.85rem;
-    margin-top: 6px;
+  button.restart:hover { opacity: 0.92; }
+  .celebrate { font-size: 1.8rem; margin-bottom: 2px; }
+  a.jump-link {
+    display: block;
+    text-align: center;
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: var(--accent);
+    text-decoration: none;
   }
-  .celebrate { font-size: 2rem; margin-bottom: 4px; }
+  a.jump-link:hover { text-decoration: underline; }
+
+  @media (max-width: 420px) {
+    .wrap { padding: 14px 12px 56px; }
+    .card { padding: 15px; border-radius: 12px; }
+    header.top h1 { font-size: 1.12rem; }
+  }
 </style>
 </head>
 <body>
@@ -325,13 +281,10 @@
     <div class="sub">Response Time & Percentiles · M/M/c Queues · Operational Laws</div>
   </header>
 
-  <div id="notesView">
-    <div class="card notes-card">
-      <span class="badge ICT3113">ICT3113</span>
-      <h1 style="font-size:1.15rem;margin:0 0 4px;">Read this first</h1>
-      <p style="color:var(--muted);margin-bottom:0;">Work through today's three topics below, then start the quiz. Nothing here is timed.</p>
-      <hr class="divider">
-      
+  <div class="card notes-card">
+    <span class="badge ICT3113">ICT3113</span>
+    <p class="lede">Read this first, then scroll down for the quiz — no separate screens, it's all on this page.</p>
+    
 <h2>Response Time, Percentiles and the Tail</h2>
 <p>Response time splits into <code>R = W + S</code>:</p>
 <ul>
@@ -367,149 +320,174 @@
 <p><strong>Diagnostic case:</strong> API, DB, and storage all show moderate utilisation, yet p95 latency = 3.5 s. If capacity and demand look fine, the problem is <strong>variability</strong> (see the Kingman formula).</p>
 <div class="callout"><strong>Watch out:</strong> exam questions love chaining these — find V_k, then D_k, then U_k or X_k, in that order.</div>
 
-      <button class="start-quiz" id="startQuizBtn">Start the quiz →</button>
-      <div class="notes-hint">20 questions · instant feedback · your score at the end</div>
-    </div>
   </div>
 
-  <div id="quizView" style="display:none">
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="progress-label"><span id="progressLabel">Question 1 of 20</span><span id="scoreLabel">Score: 0</span></div>
-    <div class="card" id="quizCard"></div>
-    <div style="text-align:center;"><a class="review-notes-link" id="backToNotes">← Back to the reading notes</a></div>
+  <div class="score-bar">
+    <span>Quiz progress <span class="answered-count" id="answeredCount">0 / 20 answered</span></span>
+    <span class="score-count" id="scoreCount">Score: 0</span>
   </div>
+
+  <div class="quiz-heading">Quiz — 20 Questions</div>
+  <div class="quiz-sub">Tap an answer to see if you're right — you can answer in any order. (No JavaScript needed to read the questions — this whole list is plain HTML.)</div>
+
+  <div id="quizList">
+<div class="card qcard" data-qi="0"><div class="qnum">Question 1 of 20</div><p class="qtext">In the equation R = W + S, what determines whether a period of time counts as service time rather than wait time?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>Whether the request has arrived yet</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>Whether the server is actively processing that specific request right now</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>The total elapsed clock time for the whole visit</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>Whether the customer feels satisfied with the outcome</span></button></div><div class="feedback" data-explanation="Service time is strictly &quot;actively being worked on right now&quot;; everything else (queuing, distraction, waiting on someone else) is wait time."></div></div>
+<div class="card qcard" data-qi="1"><div class="qnum">Question 2 of 20</div><p class="qtext">In the polyclinic example (25 min queue, 10 min consultation, 15 min waiting for results, 5 min follow-up), what is the correct classification of the &quot;waiting for test results&quot; period?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>Service time</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>Wait time</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Response time</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>It is not counted in R at all</span></button></div><div class="feedback" data-explanation="Waiting for results is not active service by the doctor — it is wait time, contributing to W = 40 min, not S."></div></div>
+<div class="card qcard" data-qi="2"><div class="qnum">Question 3 of 20</div><p class="qtext">Why is p95 often preferred over the mean as an SLO target?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>The mean is always lower and therefore a stricter target</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>The mean is pulled upward by outliers and hides the tail, whereas p95 makes an explicit tail commitment</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>p95 is easier to measure than the mean</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>The mean cannot be computed for right-skewed distributions</span></button></div><div class="feedback" data-explanation="The mean is dragged up by rare slow outliers and conceals the tail; a percentile target like p95 makes the tail commitment explicit and contractable."></div></div>
+<div class="card qcard" data-qi="3"><div class="qnum">Question 4 of 20</div><p class="qtext">Which of the following correctly matches each term to its definition?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>SLA = the metric measured; SLO = target value; SLI = formal agreement</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>SLI = metric measured; SLO = target value; SLA = formal agreement with consequences</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>SLO = metric measured; SLI = formal agreement; SLA = target value</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>The three terms are interchangeable names for the same concept</span></button></div><div class="feedback" data-explanation="SLI is the raw metric, SLO is the target for that metric, and SLA is the contractual agreement wrapping the SLO with consequences for breach."></div></div>
+<div class="card qcard" data-qi="4"><div class="qnum">Question 5 of 20</div><p class="qtext">In the &quot;Larry the Procrastinator&quot; example, going to the washroom and setting up his laptop before starting the lab is classified as:</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>Service time</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>Wait time</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Response time</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>Think time, which is excluded from R entirely</span></button></div><div class="feedback" data-explanation="Setup and washroom time is not active lab work, so it counts as wait time, not service."></div></div>
+<div class="card qcard" data-qi="5"><div class="qnum">Question 6 of 20</div><p class="qtext">According to the notes&#x27; &quot;non-obvious insight,&quot; reducing a doctor&#x27;s service time by 3 minutes per patient has what effect on total time saved across all patients behind them in the queue?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>No effect — only the treated patient benefits</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>The total time saving across all patients exceeds the 3-minute cut, since each patient behind enters service earlier</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>It only benefits the very last patient in the queue</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>It increases the average wait time for later patients</span></button></div><div class="feedback" data-explanation="Because every patient behind the first benefits from an earlier start, the aggregate saving across all of them exceeds the raw per-patient service-time cut."></div></div>
+<div class="card qcard" data-qi="6"><div class="qnum">Question 7 of 20</div><p class="qtext">At approximately what response time does the notes suggest a system should show a progress indicator to the user?</p><div class="options" data-correct="2"><button class="opt" data-oi="0"><span class="letter">A</span><span>≈ 0.1 s</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>≈ 1 s</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>≈ 10 s</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>≈ 60 s</span></button></div><div class="feedback" data-explanation="Around 10 seconds is the threshold at which a progress indicator becomes necessary to reassure the user the system is still working."></div></div>
+<div class="card qcard" data-qi="7"><div class="qnum">Question 8 of 20</div><p class="qtext">For an M/M/c queue, the system is stable only when:</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>λ &gt; c × μ</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>ρ = λ / (c × μ) &lt; 1</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>c = 1</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>λ = μ</span></button></div><div class="feedback" data-explanation="Stability for M/M/c requires ρ = λ/(c×μ) &lt; 1, generalising the single-server ρ = λ/μ &lt; 1 condition."></div></div>
+<div class="card qcard" data-qi="8"><div class="qnum">Question 9 of 20</div><p class="qtext">Given the same total aggregate capacity, why do real systems typically prefer many slower servers over one very fast server, despite the latency disadvantage?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>Many servers always produce lower latency than one fast server</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>Operational reasons — fault tolerance and practical scaling limits, not a queueing advantage</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Queueing theory proves that many servers reduce ρ below one fast server&#x27;s ρ</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>Slower servers are mathematically optimal for queueing</span></button></div><div class="feedback" data-explanation="The latency advantage genuinely belongs to one fast server; many servers win on fault tolerance and practical scaling, an operational (not queueing) argument."></div></div>
+<div class="card qcard" data-qi="9"><div class="qnum">Question 10 of 20</div><p class="qtext">In the M/M/c formula ρ = λ / (c × μ), what does c represent?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>The number of customers currently in the queue</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>The number of parallel servers</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>The coefficient of variation</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>The arrival rate</span></button></div><div class="feedback" data-explanation="c is the number of parallel servers sharing the single queue in an M/M/c system."></div></div>
+<div class="card qcard" data-qi="10"><div class="qnum">Question 11 of 20</div><p class="qtext">Using the worked API-tier example (λ = 8 tps, S = 148 ms, c = 3), what is ρ per server under normal operation?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>0.148</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>0.40</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>0.60</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>1.184</span></button></div><div class="feedback" data-explanation="ρ = λS/c = (8 × 0.148) / 3 ≈ 0.395, rounding to the notes&#x27; stated ≈ 0.40."></div></div>
+<div class="card qcard" data-qi="11"><div class="qnum">Question 12 of 20</div><p class="qtext">In that same example, if one of the three servers goes down (c drops to 2), what happens to the mean wait time?</p><div class="options" data-correct="2"><button class="opt" data-oi="0"><span class="letter">A</span><span>It stays roughly the same</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>It roughly doubles</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>It increases roughly eightfold, from ≈7 ms to ≈58 ms</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>It decreases, since fewer servers means less queueing overhead</span></button></div><div class="feedback" data-explanation="Losing one of three servers pushes ρ from ≈0.40 to ≈0.60, and the mean wait rises roughly eightfold, from ≈7 ms to ≈58 ms."></div></div>
+<div class="card qcard" data-qi="12"><div class="qnum">Question 13 of 20</div><p class="qtext">Which of the following is a real-world example of an M/M/c system, as given in the notes?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>A single database server handling all writes</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>Three API servers behind one load balancer sharing a single queue</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>A single-threaded batch job</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>A CDN edge cache with no queueing</span></button></div><div class="feedback" data-explanation="Three API servers behind a single load balancer sharing one queue is the notes&#x27; stated real-world M/M/c example."></div></div>
+<div class="card qcard" data-qi="13"><div class="qnum">Question 14 of 20</div><p class="qtext">Using the Forced Flow Law X_k = V_k × X, if a web transaction issues V = 4 SQL queries per visit and system throughput is X = 25 tps, what is the database&#x27;s throughput?</p><div class="options" data-correct="2"><button class="opt" data-oi="0"><span class="letter">A</span><span>25 qps</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>4 qps</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>100 qps</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>6.25 qps</span></button></div><div class="feedback" data-explanation="X_db = V × X = 4 × 25 = 100 queries per second, directly from the Forced Flow Law."></div></div>
+<div class="card qcard" data-qi="14"><div class="qnum">Question 15 of 20</div><p class="qtext">What does the Forced Flow Law state?</p><div class="options" data-correct="0"><button class="opt" data-oi="0"><span class="letter">A</span><span>X_k = V_k × X — a device&#x27;s throughput is forced into fixed proportion to system throughput by its visit ratio</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>X_k = V_k / X</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>U_k = X_k × D_k</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>D_k = S_k / V_k</span></button></div><div class="feedback" data-explanation="The Forced Flow Law is X_k = V_k × X, tying a device&#x27;s throughput to overall system throughput via its visit ratio."></div></div>
+<div class="card qcard" data-qi="15"><div class="qnum">Question 16 of 20</div><p class="qtext">What is Service Demand D_k, as defined in the notes?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>The utilisation of device k</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>The total service time one transaction requires at device k, summed across all its visits</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>The number of visits per transaction</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>The arrival rate at device k</span></button></div><div class="feedback" data-explanation="Service Demand is the total service time one transaction requires at a device, summed across every visit it makes there."></div></div>
+<div class="card qcard" data-qi="16"><div class="qnum">Question 17 of 20</div><p class="qtext">Given the Service Demand Law U_k = X × D_k, which rearrangement lets you compute a device&#x27;s service demand purely from monitoring data (utilisation and throughput)?</p><div class="options" data-correct="0"><button class="opt" data-oi="0"><span class="letter">A</span><span>D_k = U_k / X</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>D_k = X / U_k</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>D_k = U_k × X</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>D_k = 1 / U_k</span></button></div><div class="feedback" data-explanation="D_k = U_k / X is the practically useful direction: service demand computed from monitoring data alone."></div></div>
+<div class="card qcard" data-qi="17"><div class="qnum">Question 18 of 20</div><p class="qtext">In the running-case example, API tier, database, and storage devices all show moderate, unsaturated utilisation, yet the system exhibits p95 = 3.5 s. According to the notes, what should be investigated next?</p><div class="options" data-correct="2"><button class="opt" data-oi="0"><span class="letter">A</span><span>Capacity — add more devices</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>Demand — reduce V_k or S_k</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Variability — since capacity and demand have effectively been ruled out</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>Population — reduce the number of concurrent users</span></button></div><div class="feedback" data-explanation="With capacity and demand both ruled out by moderate utilisation figures, variability (Kingman-formula territory) is the remaining explanation for high tail latency."></div></div>
+<div class="card qcard" data-qi="18"><div class="qnum">Question 19 of 20</div><p class="qtext">If a web transaction issues V = 4 SQL queries per visit and each query takes S = 5 ms at the database, what is the Service Demand D at the database?</p><div class="options" data-correct="3"><button class="opt" data-oi="0"><span class="letter">A</span><span>4 ms</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>5 ms</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>9 ms</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>20 ms</span></button></div><div class="feedback" data-explanation="D = V × S = 4 × 5 ms = 20 ms."></div></div>
+<div class="card qcard" data-qi="19"><div class="qnum">Question 20 of 20</div><p class="qtext">Using D_db = 20 ms at a throughput of X = 30 tps, what is the database&#x27;s utilisation U_db?</p><div class="options" data-correct="2"><button class="opt" data-oi="0"><span class="letter">A</span><span>6%</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>20%</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>60%</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>150%</span></button></div><div class="feedback" data-explanation="U = X × D = 30 × 0.020 = 0.60, i.e. 60%."></div></div>
+  </div>
+
+  <div class="card results-card" id="resultsCard">
+    <div class="celebrate" id="resultsEmoji">📝</div>
+    <div class="score-ring" id="scoreRing" style="--pct:0"><div class="inner"><span class="num" id="resultsNum">0/20</span><span class="den" id="resultsPct">0%</span></div></div>
+    <div class="headline" id="resultsHeadline">Answer all 20 questions to see your full result.</div>
+    <div class="results-hint" id="resultsHint"></div>
+    <div class="review-list" id="reviewList"></div>
+    <button class="restart" id="restartBtn">Retake quiz</button>
+  </div>
+
+  <a class="jump-link" href="#top" id="jumpTop">↑ Back to top</a>
 </div>
 
-<script id="quiz-data" type="application/json">[{"module": "ICT3113", "question": "In the equation R = W + S, what determines whether a period of time counts as service time rather than wait time?", "options": ["Whether the request has arrived yet", "Whether the server is actively processing that specific request right now", "The total elapsed clock time for the whole visit", "Whether the customer feels satisfied with the outcome"], "correct": 1, "explanation": "Service time is strictly \"actively being worked on right now\"; everything else (queuing, distraction, waiting on someone else) is wait time."}, {"module": "ICT3113", "question": "In the polyclinic example (25 min queue, 10 min consultation, 15 min waiting for results, 5 min follow-up), what is the correct classification of the \"waiting for test results\" period?", "options": ["Service time", "Wait time", "Response time", "It is not counted in R at all"], "correct": 1, "explanation": "Waiting for results is not active service by the doctor — it is wait time, contributing to W = 40 min, not S."}, {"module": "ICT3113", "question": "Why is p95 often preferred over the mean as an SLO target?", "options": ["The mean is always lower and therefore a stricter target", "The mean is pulled upward by outliers and hides the tail, whereas p95 makes an explicit tail commitment", "p95 is easier to measure than the mean", "The mean cannot be computed for right-skewed distributions"], "correct": 1, "explanation": "The mean is dragged up by rare slow outliers and conceals the tail; a percentile target like p95 makes the tail commitment explicit and contractable."}, {"module": "ICT3113", "question": "Which of the following correctly matches each term to its definition?", "options": ["SLA = the metric measured; SLO = target value; SLI = formal agreement", "SLI = metric measured; SLO = target value; SLA = formal agreement with consequences", "SLO = metric measured; SLI = formal agreement; SLA = target value", "The three terms are interchangeable names for the same concept"], "correct": 1, "explanation": "SLI is the raw metric, SLO is the target for that metric, and SLA is the contractual agreement wrapping the SLO with consequences for breach."}, {"module": "ICT3113", "question": "In the \"Larry the Procrastinator\" example, going to the washroom and setting up his laptop before starting the lab is classified as:", "options": ["Service time", "Wait time", "Response time", "Think time, which is excluded from R entirely"], "correct": 1, "explanation": "Setup and washroom time is not active lab work, so it counts as wait time, not service."}, {"module": "ICT3113", "question": "According to the notes' \"non-obvious insight,\" reducing a doctor's service time by 3 minutes per patient has what effect on total time saved across all patients behind them in the queue?", "options": ["No effect — only the treated patient benefits", "The total time saving across all patients exceeds the 3-minute cut, since each patient behind enters service earlier", "It only benefits the very last patient in the queue", "It increases the average wait time for later patients"], "correct": 1, "explanation": "Because every patient behind the first benefits from an earlier start, the aggregate saving across all of them exceeds the raw per-patient service-time cut."}, {"module": "ICT3113", "question": "At approximately what response time does the notes suggest a system should show a progress indicator to the user?", "options": ["≈ 0.1 s", "≈ 1 s", "≈ 10 s", "≈ 60 s"], "correct": 2, "explanation": "Around 10 seconds is the threshold at which a progress indicator becomes necessary to reassure the user the system is still working."}, {"module": "ICT3113", "question": "For an M/M/c queue, the system is stable only when:", "options": ["λ > c × μ", "ρ = λ / (c × μ) < 1", "c = 1", "λ = μ"], "correct": 1, "explanation": "Stability for M/M/c requires ρ = λ/(c×μ) < 1, generalising the single-server ρ = λ/μ < 1 condition."}, {"module": "ICT3113", "question": "Given the same total aggregate capacity, why do real systems typically prefer many slower servers over one very fast server, despite the latency disadvantage?", "options": ["Many servers always produce lower latency than one fast server", "Operational reasons — fault tolerance and practical scaling limits, not a queueing advantage", "Queueing theory proves that many servers reduce ρ below one fast server's ρ", "Slower servers are mathematically optimal for queueing"], "correct": 1, "explanation": "The latency advantage genuinely belongs to one fast server; many servers win on fault tolerance and practical scaling, an operational (not queueing) argument."}, {"module": "ICT3113", "question": "In the M/M/c formula ρ = λ / (c × μ), what does c represent?", "options": ["The number of customers currently in the queue", "The number of parallel servers", "The coefficient of variation", "The arrival rate"], "correct": 1, "explanation": "c is the number of parallel servers sharing the single queue in an M/M/c system."}, {"module": "ICT3113", "question": "Using the worked API-tier example (λ = 8 tps, S = 148 ms, c = 3), what is ρ per server under normal operation?", "options": ["0.148", "0.40", "0.60", "1.184"], "correct": 1, "explanation": "ρ = λS/c = (8 × 0.148) / 3 ≈ 0.395, rounding to the notes' stated ≈ 0.40."}, {"module": "ICT3113", "question": "In that same example, if one of the three servers goes down (c drops to 2), what happens to the mean wait time?", "options": ["It stays roughly the same", "It roughly doubles", "It increases roughly eightfold, from ≈7 ms to ≈58 ms", "It decreases, since fewer servers means less queueing overhead"], "correct": 2, "explanation": "Losing one of three servers pushes ρ from ≈0.40 to ≈0.60, and the mean wait rises roughly eightfold, from ≈7 ms to ≈58 ms."}, {"module": "ICT3113", "question": "Which of the following is a real-world example of an M/M/c system, as given in the notes?", "options": ["A single database server handling all writes", "Three API servers behind one load balancer sharing a single queue", "A single-threaded batch job", "A CDN edge cache with no queueing"], "correct": 1, "explanation": "Three API servers behind a single load balancer sharing one queue is the notes' stated real-world M/M/c example."}, {"module": "ICT3113", "question": "Using the Forced Flow Law X_k = V_k × X, if a web transaction issues V = 4 SQL queries per visit and system throughput is X = 25 tps, what is the database's throughput?", "options": ["25 qps", "4 qps", "100 qps", "6.25 qps"], "correct": 2, "explanation": "X_db = V × X = 4 × 25 = 100 queries per second, directly from the Forced Flow Law."}, {"module": "ICT3113", "question": "What does the Forced Flow Law state?", "options": ["X_k = V_k × X — a device's throughput is forced into fixed proportion to system throughput by its visit ratio", "X_k = V_k / X", "U_k = X_k × D_k", "D_k = S_k / V_k"], "correct": 0, "explanation": "The Forced Flow Law is X_k = V_k × X, tying a device's throughput to overall system throughput via its visit ratio."}, {"module": "ICT3113", "question": "What is Service Demand D_k, as defined in the notes?", "options": ["The utilisation of device k", "The total service time one transaction requires at device k, summed across all its visits", "The number of visits per transaction", "The arrival rate at device k"], "correct": 1, "explanation": "Service Demand is the total service time one transaction requires at a device, summed across every visit it makes there."}, {"module": "ICT3113", "question": "Given the Service Demand Law U_k = X × D_k, which rearrangement lets you compute a device's service demand purely from monitoring data (utilisation and throughput)?", "options": ["D_k = U_k / X", "D_k = X / U_k", "D_k = U_k × X", "D_k = 1 / U_k"], "correct": 0, "explanation": "D_k = U_k / X is the practically useful direction: service demand computed from monitoring data alone."}, {"module": "ICT3113", "question": "In the running-case example, API tier, database, and storage devices all show moderate, unsaturated utilisation, yet the system exhibits p95 = 3.5 s. According to the notes, what should be investigated next?", "options": ["Capacity — add more devices", "Demand — reduce V_k or S_k", "Variability — since capacity and demand have effectively been ruled out", "Population — reduce the number of concurrent users"], "correct": 2, "explanation": "With capacity and demand both ruled out by moderate utilisation figures, variability (Kingman-formula territory) is the remaining explanation for high tail latency."}, {"module": "ICT3113", "question": "If a web transaction issues V = 4 SQL queries per visit and each query takes S = 5 ms at the database, what is the Service Demand D at the database?", "options": ["4 ms", "5 ms", "9 ms", "20 ms"], "correct": 3, "explanation": "D = V × S = 4 × 5 ms = 20 ms."}, {"module": "ICT3113", "question": "Using D_db = 20 ms at a throughput of X = 30 tps, what is the database's utilisation U_db?", "options": ["6%", "20%", "60%", "150%"], "correct": 2, "explanation": "U = X × D = 30 × 0.020 = 0.60, i.e. 60%."}]</script>
 <script>
 (function () {
-  const DATA = JSON.parse(document.getElementById('quiz-data').textContent);
   const LETTERS = ['A', 'B', 'C', 'D'];
-  let current = 0;
-  let score = 0;
-  let answered = [];
-  let started = false;
-  const card = document.getElementById('quizCard');
-  const progressFill = document.getElementById('progressFill');
-  const progressLabel = document.getElementById('progressLabel');
-  const scoreLabel = document.getElementById('scoreLabel');
-  const notesView = document.getElementById('notesView');
-  const quizView = document.getElementById('quizView');
+  const quizList = document.getElementById('quizList');
+  const qcards = Array.from(quizList.querySelectorAll('.qcard'));
+  const total = qcards.length;
+  const answeredCountEl = document.getElementById('answeredCount');
+  const scoreCountEl = document.getElementById('scoreCount');
+  let answered = new Array(total).fill(null); // {chosen, correct} or null
 
-  document.getElementById('startQuizBtn').addEventListener('click', () => {
-    notesView.style.display = 'none';
-    quizView.style.display = 'block';
-    if (!started) { started = true; renderQuestion(0); }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-  document.getElementById('backToNotes').addEventListener('click', (e) => {
-    e.preventDefault();
-    quizView.style.display = 'none';
-    notesView.style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  function onSelect(e) {
+    const btn = e.currentTarget;
+    const qcard = btn.closest('.qcard');
+    const qi = parseInt(qcard.getAttribute('data-qi'), 10);
+    if (answered[qi]) return; // already answered, ignore
 
-  function renderQuestion(i) {
-    const q = DATA[i];
-    progressFill.style.width = ((i) / DATA.length * 100) + '%';
-    progressLabel.textContent = 'Question ' + (i + 1) + ' of ' + DATA.length;
-    scoreLabel.textContent = 'Score: ' + score;
+    const optionsDiv = btn.parentElement;
+    const correctIdx = parseInt(optionsDiv.getAttribute('data-correct'), 10);
+    const oi = parseInt(btn.getAttribute('data-oi'), 10);
+    const correct = oi === correctIdx;
 
-    let optsHtml = '';
-    q.options.forEach((opt, idx) => {
-      optsHtml += '<button class="opt" data-idx="' + idx + '"><span class="letter">' + LETTERS[idx] + '</span><span>' + opt + '</span></button>';
-    });
-
-    card.innerHTML =
-      '<span class="badge ' + q.module + '">' + q.module + '</span>' +
-      '<p class="qtext">' + q.question + '</p>' +
-      '<div class="options">' + optsHtml + '</div>' +
-      '<div class="feedback" id="feedback"></div>' +
-      '<div class="controls"><button class="next" id="nextBtn">' + (i === DATA.length - 1 ? 'See results' : 'Next question') + '</button></div>';
-
-    const buttons = card.querySelectorAll('.opt');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => selectOption(btn, q, buttons));
-    });
-  }
-
-  function selectOption(btn, q, buttons) {
-    const idx = parseInt(btn.getAttribute('data-idx'), 10);
-    const correct = idx === q.correct;
-    buttons.forEach(b => b.disabled = true);
-    buttons.forEach((b, i2) => {
-      if (i2 === q.correct) b.classList.add('correct');
-      else if (b === btn) b.classList.add('incorrect');
+    const buttons = optionsDiv.querySelectorAll('.opt');
+    buttons.forEach(b => {
+      b.disabled = true;
+      const boi = parseInt(b.getAttribute('data-oi'), 10);
+      if (boi === correctIdx) b.classList.add('correct');
+      else if (boi === oi) b.classList.add('incorrect');
       else b.classList.add('dim');
     });
-    const fb = document.getElementById('feedback');
+
+    const fb = qcard.querySelector('.feedback');
+    const exp = fb.getAttribute('data-explanation') || '';
     fb.classList.add('show', correct ? 'good' : 'bad');
-    fb.innerHTML = (correct ? 'Correct.' : 'Not quite — correct answer is ' + LETTERS[q.correct] + '.') +
-      '<span class="exp">' + q.explanation + '</span>';
-    if (correct) score++;
-    answered.push({ index: current, correct: correct, chosen: idx });
-    scoreLabel.textContent = 'Score: ' + score;
-    document.getElementById('nextBtn').classList.add('show');
-    document.getElementById('nextBtn').onclick = () => {
-      current++;
-      if (current < DATA.length) {
-        renderQuestion(current);
-      } else {
-        renderResults();
-      }
-    };
+    fb.innerHTML = (correct ? 'Correct.' : 'Not quite — correct answer is ' + LETTERS[correctIdx] + '.') +
+      '<span class="exp">' + exp + '</span>';
+
+    answered[qi] = { chosen: oi, correct: correct };
+    updateProgress();
   }
 
-  function renderResults() {
-    progressFill.style.width = '100%';
-    progressLabel.textContent = 'Complete';
-    scoreLabel.textContent = 'Score: ' + score + ' / ' + DATA.length;
+  function resetCard(qcard) {
+    const optionsDiv = qcard.querySelector('.options');
+    optionsDiv.querySelectorAll('.opt').forEach(b => {
+      b.disabled = false;
+      b.classList.remove('correct', 'incorrect', 'dim');
+    });
+    const fb = qcard.querySelector('.feedback');
+    fb.classList.remove('show', 'good', 'bad');
+    fb.innerHTML = '';
+  }
 
-    const pct = Math.round((score / DATA.length) * 100);
+  function updateProgress() {
+    const answeredList = answered.filter(a => a !== null);
+    const score = answeredList.filter(a => a.correct).length;
+    answeredCountEl.textContent = answeredList.length + ' / ' + total + ' answered';
+    scoreCountEl.textContent = 'Score: ' + score;
+    renderResults(answeredList.length, score);
+  }
 
-    let reviewHtml = '';
-    const missed = answered.filter(a => !a.correct);
-    if (missed.length) {
-      reviewHtml = '<div class="review-list"><h3>Review the ones you missed</h3>';
-      missed.forEach(a => {
-        const q = DATA[a.index];
-        reviewHtml += '<div class="review-item"><div class="q">' + q.question + '</div>' +
-          '<div class="you">Your answer: ' + LETTERS[a.chosen] + ') ' + q.options[a.chosen] + '</div>' +
-          '<div class="correct-ans">Correct: ' + LETTERS[q.correct] + ') ' + q.options[q.correct] + '</div>' +
-          '<div class="hint">' + q.explanation + '</div></div>';
-      });
-      reviewHtml += '</div>';
+  function renderResults(answeredCount, score) {
+    const pct = answeredCount ? Math.round((score / answeredCount) * 100) : 0;
+    document.getElementById('resultsNum').textContent = score + '/' + answeredCount;
+    document.getElementById('resultsPct').textContent = pct + '%';
+    document.getElementById('scoreRing').style.setProperty('--pct', answeredCount ? Math.round((score / total) * 100) : 0);
+
+    const headlineEl = document.getElementById('resultsHeadline');
+    const emojiEl = document.getElementById('resultsEmoji');
+    const hintEl = document.getElementById('resultsHint');
+
+    if (answeredCount < total) {
+      headlineEl.textContent = (total - answeredCount) + ' question' + ((total - answeredCount) === 1 ? '' : 's') + ' left to answer.';
+      emojiEl.textContent = '📝';
+      hintEl.textContent = 'This box updates live as you go.';
+    } else {
+      let headline = 'Solid work.';
+      let emoji = '📘';
+      const finalPct = Math.round((score / total) * 100);
+      if (finalPct === 100) { headline = 'Perfect score.'; emoji = '🏆'; }
+      else if (finalPct >= 85) { headline = 'Excellent recall.'; emoji = '🎯'; }
+      else if (finalPct >= 60) { headline = 'Good, some gaps to revise.'; emoji = '📘'; }
+      else { headline = 'Worth another pass through the notes.'; emoji = '📚'; }
+      headlineEl.textContent = headline;
+      emojiEl.textContent = emoji;
+      hintEl.textContent = '';
     }
 
-    let headline = 'Solid work.';
-    let emoji = '📘';
-    if (pct === 100) { headline = 'Perfect score.'; emoji = '🏆'; }
-    else if (pct >= 85) { headline = 'Excellent recall.'; emoji = '🎯'; }
-    else if (pct >= 60) { headline = 'Good, some gaps to revise.'; emoji = '📘'; }
-    else { headline = 'Worth another pass through the notes.'; emoji = '📚'; }
-
-    card.innerHTML =
-      '<div class="results">' +
-      '<div class="celebrate">' + emoji + '</div>' +
-      '<div class="score-ring" style="--pct:' + pct + '"><div class="inner"><span class="num">' + score + '/' + DATA.length + '</span><span class="den">' + pct + '%</span></div></div>' +
-      '<div style="font-weight:600;font-size:1.05rem;">' + headline + '</div>' +
-      reviewHtml +
-      '<div>' +
-      '<button class="restart-secondary" id="reviewNotesBtn">Review notes</button>' +
-      '<button class="restart" id="restartBtn">Retake quiz</button>' +
-      '</div>' +
-      '</div>';
-
-    document.getElementById('restartBtn').onclick = () => {
-      current = 0; score = 0; answered = [];
-      renderQuestion(0);
-    };
-    document.getElementById('reviewNotesBtn').onclick = () => {
-      quizView.style.display = 'none';
-      notesView.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    const reviewList = document.getElementById('reviewList');
+    const missed = [];
+    answered.forEach((a, i) => { if (a && !a.correct) missed.push({ index: i, chosen: a.chosen }); });
+    if (missed.length) {
+      let html = '<h3>Review the ones you missed</h3>';
+      missed.forEach(m => {
+        const qcard = qcards[m.index];
+        const qtext = qcard.querySelector('.qtext').textContent;
+        const optionsDiv = qcard.querySelector('.options');
+        const correctIdx = parseInt(optionsDiv.getAttribute('data-correct'), 10);
+        const btns = optionsDiv.querySelectorAll('.opt');
+        const yourText = btns[m.chosen].querySelector('span:last-child').textContent;
+        const correctText = btns[correctIdx].querySelector('span:last-child').textContent;
+        const exp = qcard.querySelector('.feedback').getAttribute('data-explanation') || '';
+        html += '<div class="review-item"><div class="q">Q' + (m.index + 1) + '. ' + qtext + '</div>' +
+          '<div class="you">Your answer: ' + LETTERS[m.chosen] + ') ' + yourText + '</div>' +
+          '<div class="correct-ans">Correct: ' + LETTERS[correctIdx] + ') ' + correctText + '</div>' +
+          '<div>' + exp + '</div></div>';
+      });
+      reviewList.innerHTML = html;
+    } else {
+      reviewList.innerHTML = '';
+    }
   }
+
+  qcards.forEach(qcard => {
+    qcard.querySelectorAll('.opt').forEach(btn => btn.addEventListener('click', onSelect));
+  });
+
+  document.getElementById('restartBtn').addEventListener('click', () => {
+    answered = new Array(total).fill(null);
+    qcards.forEach(resetCard);
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  updateProgress();
 })();
 </script>
 </body>

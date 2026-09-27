@@ -182,35 +182,55 @@ Use the template below exactly.
 ### Step 8 — Build the companion interactive HTML quiz
 
 Generate a **self-contained** HTML file (inline CSS and JS, no external
-network dependencies). It must open on a **lecture-notes screen first**, not
-the quiz — the student reads before being tested, exactly as in the
-Markdown file. Structure:
+network dependencies) as **one single continuous page — no gated or hidden
+screens, no "Start quiz" click-through**. The reading notes and the full
+quiz are both visible on the same page; the student simply scrolls. This
+file must also work cleanly as a phone-sized page (it is regularly opened
+on a phone, not just a laptop): single column, no horizontal scroll, large
+tap targets, a `viewport` meta tag, and text sized to be readable without
+zooming.
 
-**Notes screen (shown first, on page load):**
-- The same reading content as the Markdown file's three subtopic sections
-  for this module, formatted as proper HTML (headings, paragraphs, a styled
-  "Watch out" callout box, mnemonic lines) — not simply a dump of raw
-  Markdown syntax
-- A prominent "Start the quiz →" button at the end of the notes
+Page structure, top to bottom:
 
-**Quiz screen (hidden until "Start the quiz" is clicked):**
-- One question at a time, four clickable options
-- Immediate visual feedback on selection (correct/incorrect highlighting)
-  plus the one-sentence explanation shown inline
-- A progress indicator (e.g. "Question 4 of 20") and a running score
-- A small "back to the reading notes" link, in case the student wants to
-  revisit the material mid-quiz
-- A final results screen: score, percentage, a review list of any questions
-  answered incorrectly (question, the student's answer, the correct answer,
-  and the explanation), a "Retake quiz" control, and a "Review notes"
-  control — both resetting/switching state without reloading the page
+1. **Reading notes** — the same content as the Markdown file's three
+   subtopic sections for this module, formatted as proper HTML (headings,
+   paragraphs, a styled "Watch out" callout box, mnemonic lines, bulleted
+   lists for anything list-shaped) — not a dump of raw Markdown syntax.
+2. **Quiz — all 20 questions, all rendered on the page at once.** Each
+   question is its own card with four clickable options. Tapping an option
+   immediately reveals correct/incorrect highlighting plus a one-sentence
+   explanation, right under that question — the student can answer the
+   questions in any order, and every question stays visible before and
+   after being answered (nothing disappears or requires a "next" click).
+   Critically, **the question cards themselves must be written directly
+   into the HTML at generation time (plain `<div>`/`<button>` markup with
+   the question text, options, and a `data-correct` index already present)
+   — never built by JavaScript at load time.** Some phone-side previews
+   (QuickLook-style document previews, some in-app file viewers) render
+   HTML/CSS but do not execute `<script>` tags at all; if the questions
+   only exist as JSON that JS turns into DOM elements, the whole quiz is
+   invisible in those contexts — exactly the "everything should be shown"
+   requirement failing silently. JavaScript's only job is to progressively
+   enhance the already-visible markup: attach click handlers, add
+   correct/incorrect styling, reveal the (already-present-but-hidden)
+   explanation text, and keep the live score/results updated. Verify this
+   by mentally (or actually) checking that the reading notes AND all 20
+   questions with their four options are present in the raw HTML source
+   even if every `<script>` tag were deleted.
+3. A small sticky progress readout (answered count and running score) so
+   the student can see status while scrolling, without it blocking content.
+4. A results block at the very bottom that updates live as questions are
+   answered: score, percentage, a review list of any questions answered
+   incorrectly (question, the student's answer, the correct answer, the
+   explanation), and a "Retake quiz" control that resets all answers on
+   the page without reloading.
 
 Save it to:
 `C:\Arcane-Index\study-notes\daily-reads\YYYY-MM-DD-<MODULE>.html`
 
 The HTML file's question data must be **identical** in wording, options, and
 correct answers to the Markdown file's Quiz section for that module, and its
-notes screen must cover the same three subtopics with the same key facts —
+notes section must cover the same three subtopics with the same key facts —
 they are two renderings of the same reading-then-test session, never
 divergent content.
 
@@ -295,8 +315,9 @@ tags: [daily-read, study, exam-prep, <module-lowercase>]
   no cross-module questions, no surprises.
 - The Markdown quiz and the HTML quiz for the same module/day must contain
   the exact same 20 questions, options, and correct answers.
-- The HTML file must always open on the lecture-notes screen, never the
-  quiz — a student who opens the file should read before being tested.
+- The HTML file must render as a single continuous scrollable page — never
+  a gated "Start quiz" screen, never one question hidden at a time. It must
+  also be comfortably usable on a phone-width screen.
 - Answers in the Markdown file must be in a collapsible callout so the
   student is not tempted to peek; the HTML quiz must not reveal the answer
   until the student has selected an option for that question.

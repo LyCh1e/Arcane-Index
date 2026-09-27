@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ICT3112 — Daily Study Note — 2026-09-27</title>
 <style>
   :root {
@@ -34,7 +34,8 @@
       --accent-bg: rgba(124, 92, 255, 0.16);
     }
   }
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
     background: var(--bg);
@@ -42,166 +43,135 @@
     font-family: -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
+    overflow-x: hidden;
   }
   .wrap {
-    max-width: 720px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 28px 16px 80px;
+    padding: 20px 16px 64px;
   }
-  header.top {
-    margin-bottom: 20px;
-  }
+  header.top { margin-bottom: 14px; }
   header.top h1 {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     margin: 0 0 4px;
     letter-spacing: -0.01em;
+    line-height: 1.3;
   }
   header.top .sub {
     color: var(--muted);
-    font-size: 0.92rem;
-  }
-  .mode-tabs {
-    display: flex;
-    gap: 8px;
-    margin-top: 16px;
-  }
-  .mode-tab {
-    flex: 1;
-    text-align: center;
-    padding: 9px 10px;
-    border-radius: 10px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--muted);
-    background: var(--card);
-    border: 1px solid var(--line);
-  }
-  .mode-tab.active { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
-  .progress-track {
-    height: 8px;
-    border-radius: 99px;
-    background: var(--line);
-    overflow: hidden;
-    margin: 18px 0 6px;
-  }
-  .progress-fill {
-    height: 100%;
-    background: var(--accent);
-    width: 0%;
-    transition: width 0.35s ease;
-  }
-  .progress-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    color: var(--muted);
+    font-size: 0.86rem;
   }
   .card {
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 24px;
-    margin-top: 18px;
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 14px;
     box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   }
   .badge {
     display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 600;
+    font-size: 0.7rem;
+    font-weight: 700;
     letter-spacing: 0.02em;
     padding: 3px 10px;
     border-radius: 99px;
     color: #fff;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
   .badge.ICT3112 { background: var(--module-a); }
   .badge.ICT3113 { background: var(--module-b); }
   .badge.INF2005 { background: var(--module-c); }
 
-  /* --- Lecture notes view --- */
+  /* --- Lecture notes --- */
+  .notes-card h1 { font-size: 1.05rem; margin: 0 0 4px; }
+  .notes-card > p.lede { color: var(--muted); margin: 0 0 4px; font-size: 0.88rem; }
   .notes-card h2 {
-    font-size: 1.08rem;
-    margin: 28px 0 10px;
+    font-size: 1rem;
+    margin: 20px 0 8px;
     letter-spacing: -0.01em;
   }
-  .notes-card h2:first-of-type { margin-top: 6px; }
+  .notes-card h2:first-of-type { margin-top: 14px; }
   .notes-card p {
-    line-height: 1.65;
-    font-size: 0.95rem;
-    margin: 0 0 12px;
+    line-height: 1.6;
+    font-size: 0.92rem;
+    margin: 0 0 10px;
   }
   .notes-card ul, .notes-card ol {
-    margin: 0 0 14px;
-    padding-left: 22px;
-    line-height: 1.6;
-    font-size: 0.95rem;
+    margin: 0 0 12px;
+    padding-left: 20px;
+    line-height: 1.55;
+    font-size: 0.92rem;
   }
   .notes-card li { margin-bottom: 5px; }
   .notes-card strong { font-weight: 700; }
   .notes-card code {
     background: var(--accent-bg);
-    padding: 1px 6px;
+    padding: 1px 5px;
     border-radius: 5px;
-    font-size: 0.88em;
+    font-size: 0.87em;
+    word-break: break-word;
   }
   .callout {
     border-left: 3px solid var(--accent);
     background: var(--accent-bg);
-    padding: 10px 14px;
+    padding: 9px 12px;
     border-radius: 8px;
-    margin: 12px 0 16px;
-    font-size: 0.88rem;
-    line-height: 1.55;
+    margin: 10px 0 14px;
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
   .callout strong { color: var(--accent); }
   .mnemonic {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--muted);
     font-style: italic;
-    margin: -4px 0 16px;
+    margin: -2px 0 14px;
   }
-  hr.divider {
-    border: none;
-    border-top: 1px solid var(--line);
-    margin: 24px 0;
-  }
-  button.start-quiz {
-    display: block;
-    width: 100%;
-    margin-top: 26px;
-    background: var(--accent);
-    color: var(--accent-ink);
-    border: none;
-    padding: 14px 22px;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  button.start-quiz:hover { opacity: 0.92; }
-  .notes-hint {
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.8rem;
-    margin-top: 10px;
-  }
-  a.review-notes-link {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 0.8rem;
-    color: var(--accent);
-    text-decoration: none;
-    cursor: pointer;
-  }
-  a.review-notes-link:hover { text-decoration: underline; }
+  hr.divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
 
-  /* --- Quiz view --- */
-  .qtext {
-    font-size: 1.08rem;
-    line-height: 1.5;
-    margin: 0 0 18px;
+  /* --- Sticky score bar --- */
+  .score-bar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-top: 18px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   }
-  .options { display: flex; flex-direction: column; gap: 10px; }
+  .score-bar .answered-count { color: var(--muted); font-weight: 500; }
+  .score-bar .score-count { color: var(--accent); }
+
+  .quiz-heading {
+    margin: 22px 2px 4px;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .quiz-sub { margin: 0 2px 4px; color: var(--muted); font-size: 0.84rem; }
+
+  /* --- Question cards --- */
+  .qcard { }
+  .qnum {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+  .qtext {
+    font-size: 1rem;
+    line-height: 1.45;
+    margin: 0 0 14px;
+  }
+  .options { display: flex; flex-direction: column; gap: 8px; }
   .opt {
     text-align: left;
     border: 1px solid var(--line);
@@ -209,113 +179,99 @@
     color: var(--ink);
     padding: 12px 14px;
     border-radius: 12px;
-    font-size: 0.96rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
     cursor: pointer;
-    transition: border-color 0.15s ease, background 0.15s ease, transform 0.05s ease;
+    transition: border-color 0.15s ease, background 0.15s ease;
     display: flex;
     gap: 10px;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
   }
   .opt:hover:not(:disabled) { border-color: var(--accent); }
   .opt:active:not(:disabled) { transform: scale(0.99); }
-  .opt .letter {
-    font-weight: 700;
-    color: var(--muted);
-    min-width: 18px;
-  }
+  .opt .letter { font-weight: 700; color: var(--muted); min-width: 16px; flex-shrink: 0; }
   .opt:disabled { cursor: default; }
   .opt.correct { border-color: var(--good); background: var(--good-bg); }
   .opt.correct .letter { color: var(--good); }
   .opt.incorrect { border-color: var(--bad); background: var(--bad-bg); }
   .opt.incorrect .letter { color: var(--bad); }
-  .opt.dim { opacity: 0.55; }
+  .opt.dim { opacity: 0.5; }
   .feedback {
-    margin-top: 16px;
-    padding: 14px 16px;
+    margin-top: 12px;
+    padding: 12px 14px;
     border-radius: 12px;
-    font-size: 0.92rem;
+    font-size: 0.86rem;
     line-height: 1.5;
     display: none;
   }
   .feedback.show { display: block; }
   .feedback.good { background: var(--good-bg); color: var(--good); }
   .feedback.bad { background: var(--bad-bg); color: var(--bad); }
-  .feedback .exp { color: var(--ink); opacity: 0.85; display: block; margin-top: 6px; }
-  .controls {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end;
-  }
-  button.next {
-    background: var(--accent);
-    color: var(--accent-ink);
-    border: none;
-    padding: 11px 22px;
-    border-radius: 10px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: none;
-  }
-  button.next.show { display: inline-block; }
-  button.next:hover { opacity: 0.9; }
-  .results { text-align: center; }
+  .feedback .exp { color: var(--ink); opacity: 0.85; display: block; margin-top: 5px; }
+
+  /* --- Results --- */
+  .results-card { text-align: center; }
   .score-ring {
-    width: 140px; height: 140px;
-    margin: 8px auto 18px;
+    width: 120px; height: 120px;
+    margin: 4px auto 14px;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     background: conic-gradient(var(--accent) calc(var(--pct) * 1%), var(--line) 0);
   }
   .score-ring .inner {
-    width: 112px; height: 112px;
+    width: 96px; height: 96px;
     border-radius: 50%;
     background: var(--card);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
   }
-  .score-ring .num { font-size: 1.7rem; font-weight: 700; }
-  .score-ring .den { font-size: 0.8rem; color: var(--muted); }
-  .breakdown {
-    text-align: left;
-    margin-top: 22px;
-    border-top: 1px solid var(--line);
-    padding-top: 14px;
-  }
-  .breakdown h3 { font-size: 0.95rem; margin: 0 0 10px; color: var(--muted); font-weight: 600; }
-  .mod-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 8px 0; font-size: 0.92rem; border-bottom: 1px solid var(--line);
-  }
-  .mod-row:last-child { border-bottom: none; }
-  .review-list { margin-top: 22px; text-align: left; }
+  .score-ring .num { font-size: 1.5rem; font-weight: 700; }
+  .score-ring .den { font-size: 0.76rem; color: var(--muted); }
+  .headline { font-weight: 700; font-size: 1rem; }
+  .results-hint { color: var(--muted); font-size: 0.82rem; margin-top: 4px; }
+  .review-list { margin-top: 18px; text-align: left; }
+  .review-list h3 { font-size: 0.9rem; margin: 0 0 10px; color: var(--muted); font-weight: 600; }
   .review-item {
     border: 1px solid var(--line);
     border-radius: 12px;
-    padding: 12px 14px;
-    margin-bottom: 10px;
-    font-size: 0.88rem;
+    padding: 11px 13px;
+    margin-bottom: 9px;
+    font-size: 0.84rem;
     line-height: 1.5;
   }
   .review-item .q { font-weight: 600; margin-bottom: 4px; }
   .review-item .you { color: var(--bad); }
   .review-item .correct-ans { color: var(--good); }
-  button.restart, button.restart-secondary {
-    margin-top: 24px;
-    margin-right: 8px;
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 10px 20px;
+  button.restart {
+    margin-top: 18px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    padding: 12px 22px;
     border-radius: 10px;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.92rem;
     cursor: pointer;
+    width: 100%;
   }
-  button.restart:hover, button.restart-secondary:hover { background: var(--accent); color: var(--accent-ink); }
-  .hint {
-    color: var(--muted);
-    font-size: 0.85rem;
-    margin-top: 6px;
+  button.restart:hover { opacity: 0.92; }
+  .celebrate { font-size: 1.8rem; margin-bottom: 2px; }
+  a.jump-link {
+    display: block;
+    text-align: center;
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: var(--accent);
+    text-decoration: none;
   }
-  .celebrate { font-size: 2rem; margin-bottom: 4px; }
+  a.jump-link:hover { text-decoration: underline; }
+
+  @media (max-width: 420px) {
+    .wrap { padding: 14px 12px 56px; }
+    .card { padding: 15px; border-radius: 12px; }
+    header.top h1 { font-size: 1.12rem; }
+  }
 </style>
 </head>
 <body>
@@ -325,13 +281,10 @@
     <div class="sub">The Seven ISTQB Principles · Boundary Value Analysis · Basic Musa Reliability Model</div>
   </header>
 
-  <div id="notesView">
-    <div class="card notes-card">
-      <span class="badge ICT3112">ICT3112</span>
-      <h1 style="font-size:1.15rem;margin:0 0 4px;">Read this first</h1>
-      <p style="color:var(--muted);margin-bottom:0;">Work through today's three topics below, then start the quiz. Nothing here is timed.</p>
-      <hr class="divider">
-      
+  <div class="card notes-card">
+    <span class="badge ICT3112">ICT3112</span>
+    <p class="lede">Read this first, then scroll down for the quiz — no separate screens, it's all on this page.</p>
+    
 <h2>The Seven ISTQB Principles</h2>
 <p>ISTQB has seven core testing principles. Exam questions often ask you to spot which one applies to a scenario.</p>
 <ul>
@@ -376,149 +329,174 @@
 <div class="callout"><strong>Watch out:</strong> ν₀ is a fixed total count; λ(τ) is a rate that keeps dropping. Don't confuse the two.</div>
 <p class="mnemonic">Mnemonic: ν₀ = total "volume" of bugs ever expected; λ = the "live" rate right now.</p>
 
-      <button class="start-quiz" id="startQuizBtn">Start the quiz →</button>
-      <div class="notes-hint">20 questions · instant feedback · your score at the end</div>
-    </div>
   </div>
 
-  <div id="quizView" style="display:none">
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="progress-label"><span id="progressLabel">Question 1 of 20</span><span id="scoreLabel">Score: 0</span></div>
-    <div class="card" id="quizCard"></div>
-    <div style="text-align:center;"><a class="review-notes-link" id="backToNotes">← Back to the reading notes</a></div>
+  <div class="score-bar">
+    <span>Quiz progress <span class="answered-count" id="answeredCount">0 / 20 answered</span></span>
+    <span class="score-count" id="scoreCount">Score: 0</span>
   </div>
+
+  <div class="quiz-heading">Quiz — 20 Questions</div>
+  <div class="quiz-sub">Tap an answer to see if you're right — you can answer in any order. (No JavaScript needed to read the questions — this whole list is plain HTML.)</div>
+
+  <div id="quizList">
+<div class="card qcard" data-qi="0"><div class="qnum">Question 1 of 20</div><p class="qtext">Which ISTQB principle explains why running the same unchanged regression suite eventually stops catching new bugs?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>Defect clustering</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>Pesticide paradox</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Absence-of-errors fallacy</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>Exhaustive testing is impossible</span></button></div><div class="feedback" data-explanation="The pesticide paradox describes an unchanged suite losing its power to find new defects over repeated runs; defect clustering is about where defects live, not test-suite staleness."></div></div>
+<div class="card qcard" data-qi="1"><div class="qnum">Question 2 of 20</div><p class="qtext">According to the &quot;defect clustering&quot; principle, testers should focus effort using which approach?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>Test every module with equal intensity</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>Risk-based prioritisation of the small proportion of modules producing most defects</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Random sampling of test cases across the whole codebase</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>Testing only after the software has been released</span></button></div><div class="feedback" data-explanation="Defect clustering justifies risk-based testing: concentrate effort on the small proportion of modules historically responsible for most defects."></div></div>
+<div class="card qcard" data-qi="2"><div class="qnum">Question 3 of 20</div><p class="qtext">The &quot;absence-of-errors fallacy&quot; principle warns against which mistaken belief?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>That testing can prove there are zero defects</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>That a defect-free system is automatically fit for purpose and useful</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>That early testing is cheaper than late testing</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>That testing is context-dependent</span></button></div><div class="feedback" data-explanation="The absence-of-errors fallacy is specifically about usefulness, not provability: a bug-free system that solves the wrong problem is still a failure."></div></div>
+<div class="card qcard" data-qi="3"><div class="qnum">Question 4 of 20</div><p class="qtext">Which statement correctly reflects the &quot;exhaustive testing is impossible&quot; principle?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>Testing must cover every possible input combination</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>Risk analysis should determine where to focus limited testing effort, since testing everything is not feasible</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Testing exhaustively guarantees zero defects</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>Exhaustive testing is required only for safety-critical systems</span></button></div><div class="feedback" data-explanation="Exhaustive testing being impossible is precisely why risk analysis must guide where limited testing effort goes."></div></div>
+<div class="card qcard" data-qi="4"><div class="qnum">Question 5 of 20</div><p class="qtext">&quot;Early testing saves cost&quot; reflects which broader testing philosophy?</p><div class="options" data-correct="0"><button class="opt" data-oi="0"><span class="letter">A</span><span>Shift left — finding defects before they become embedded and expensive to fix</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>Shift right — testing in production to catch real user issues</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Big-bang testing at the very end of the project</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>Outsourcing testing to reduce cost</span></button></div><div class="feedback" data-explanation="Early testing embodies the shift-left philosophy: catching defects earlier, when they are cheaper to fix."></div></div>
+<div class="card qcard" data-qi="5"><div class="qnum">Question 6 of 20</div><p class="qtext">Which principle states that testing strategy must differ between, for example, a safety-critical medical device and a marketing website?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>Defect clustering</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>Testing is context-dependent</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Pesticide paradox</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>Absence-of-errors fallacy</span></button></div><div class="feedback" data-explanation="&quot;Testing is context-dependent&quot; is the principle that different domains (safety-critical vs. low-risk) need different testing rigour."></div></div>
+<div class="card qcard" data-qi="6"><div class="qnum">Question 7 of 20</div><p class="qtext">Which mnemonic is used to remember all seven ISTQB principles in order?</p><div class="options" data-correct="2"><button class="opt" data-oi="0"><span class="letter">A</span><span>KTB</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>UDPC</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>&quot;Teach Every Eager Developer Proper Testing Approaches&quot;</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>LRRECI</span></button></div><div class="feedback" data-explanation="&quot;Teach Every Eager Developer Proper Testing Approaches&quot; is the seven-principle mnemonic; KTB and UDPC belong to INF2005&#x27;s authentication and biometrics topics."></div></div>
+<div class="card qcard" data-qi="7"><div class="qnum">Question 8 of 20</div><p class="qtext">For a valid input range of 0–100, which pair of values represents &quot;extended BVA&quot; as opposed to the basic four boundary values?</p><div class="options" data-correct="2"><button class="opt" data-oi="0"><span class="letter">A</span><span>−1 and 101</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>0 and 100</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>1 and 99</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>50 and 51</span></button></div><div class="feedback" data-explanation="1 and 99 are the &quot;one step inside&quot; values that extended BVA adds on top of the basic four (−1, 0, 100, 101)."></div></div>
+<div class="card qcard" data-qi="8"><div class="qnum">Question 9 of 20</div><p class="qtext">Why should ASCII-boundary tests and string-length-boundary tests for the same field be run as separate test cases?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>To reduce the total number of test cases needed</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>So a failure can be attributed to the specific boundary that caused it</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Because ASCII and length boundaries can never both be invalid at once</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>Because BVA does not apply to string fields</span></button></div><div class="feedback" data-explanation="Combining two boundary dimensions in one test case makes a failure ambiguous; separating them isolates the cause."></div></div>
+<div class="card qcard" data-qi="9"><div class="qnum">Question 10 of 20</div><p class="qtext">BVA rule 2 states that when no range is specified for an input, what should be tested?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>Only the maximum value</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>The min and max of the domain, plus one value below and one above</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Only the domain&#x27;s average value</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>No boundary testing is needed at all</span></button></div><div class="feedback" data-explanation="With no specified range, BVA rule 2 says to use the domain&#x27;s min and max plus one value beyond each."></div></div>
+<div class="card qcard" data-qi="10"><div class="qnum">Question 11 of 20</div><p class="qtext">BVA rule 3 states that for sets of values, you should test each value and:</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>Only the value in the middle of the set</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>The size of the set — for files, the first and last records</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Only the invalid members of the set</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>No further boundary testing is needed for sets</span></button></div><div class="feedback" data-explanation="Rule 3 covers sets and files: test each value plus the set&#x27;s size boundary (first/last record for files)."></div></div>
+<div class="card qcard" data-qi="11"><div class="qnum">Question 12 of 20</div><p class="qtext">For the &quot;First Name&quot; field example (1–10 capital letters), which test value is an invalid ASCII boundary rather than a length boundary?</p><div class="options" data-correct="2"><button class="opt" data-oi="0"><span class="letter">A</span><span>&quot;G&quot; (1 character)</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>&quot;BORDERNAME&quot; (10 characters)</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>&quot;@&quot; (ASCII 64, just below &#x27;A&#x27;)</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>null / empty</span></button></div><div class="feedback" data-explanation="&quot;@&quot; (ASCII 64) is just below &#x27;A&#x27; — an invalid ASCII/character boundary, distinct from the length boundaries in the other options."></div></div>
+<div class="card qcard" data-qi="12"><div class="qnum">Question 13 of 20</div><p class="qtext">BVA is explicitly described in the notes as complementary to which other blackbox technique?</p><div class="options" data-correct="2"><button class="opt" data-oi="0"><span class="letter">A</span><span>Decision Table Testing</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>State Transition Testing</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Equivalence Partitioning</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>Use Case Testing</span></button></div><div class="feedback" data-explanation="BVA is presented as complementary to Equivalence Partitioning: EP samples inside partitions, BVA targets their edges."></div></div>
+<div class="card qcard" data-qi="13"><div class="qnum">Question 14 of 20</div><p class="qtext">BVA rule 4 (&quot;test any extreme input or output&quot;) exists mainly to catch students who:</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>Only think about output conditions, ignoring inputs</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>Only think about input ranges, ignoring output boundary conditions</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Test too many boundary values</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>Skip invalid partitions entirely</span></button></div><div class="feedback" data-explanation="Students commonly only consider input ranges; rule 4 is a reminder that output conditions and extremes need boundary testing too."></div></div>
+<div class="card qcard" data-qi="14"><div class="qnum">Question 15 of 20</div><p class="qtext">In the Basic Musa reliability model, what does the parameter ν₀ represent?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>The current failure intensity</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>The total number of failures expected over the software&#x27;s life</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>The elapsed time since testing began</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>The number of testers assigned to the project</span></button></div><div class="feedback" data-explanation="ν₀ is the total expected failure count over the software&#x27;s life; λ(τ) is the instantaneous rate, not the total."></div></div>
+<div class="card qcard" data-qi="15"><div class="qnum">Question 16 of 20</div><p class="qtext">The Basic Musa model assumes which pattern in failure intensity as faults are fixed?</p><div class="options" data-correct="0"><button class="opt" data-oi="0"><span class="letter">A</span><span>It decreases by a constant amount per fault fixed (constant rate of decrease)</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>It stays constant regardless of fixes</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>It increases logarithmically over time</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>It resets to λ₀ after every fix</span></button></div><div class="feedback" data-explanation="The Basic model&#x27;s defining assumption is a constant rate of decrease in failure intensity per fault fixed, unlike the Logarithmic model."></div></div>
+<div class="card qcard" data-qi="16"><div class="qnum">Question 17 of 20</div><p class="qtext">Using λ₀ = 2, ν₀ = 10, τ = 5, what is λ(5)?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>0.368</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>0.736</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>1.472</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>2.000</span></button></div><div class="feedback" data-explanation="λ(5) = λ₀ × e^(−λ₀τ/ν₀) = 2 × e⁻¹ ≈ 0.736."></div></div>
+<div class="card qcard" data-qi="17"><div class="qnum">Question 18 of 20</div><p class="qtext">Using the same parameters (λ₀ = 2, ν₀ = 10, τ = 5), what is μ(5), the expected cumulative number of failures?</p><div class="options" data-correct="2"><button class="opt" data-oi="0"><span class="letter">A</span><span>3.68</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>5.00</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>6.32</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>10.00</span></button></div><div class="feedback" data-explanation="μ(5) = ν₀ × [1 − e^(−λ₀τ/ν₀)] = 10 × (1 − e⁻¹) ≈ 6.32."></div></div>
+<div class="card qcard" data-qi="18"><div class="qnum">Question 19 of 20</div><p class="qtext">The Basic Musa model is best suited to which kind of release?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>Early-stage releases with highly uneven fault severity</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>Stable, mature releases with evenly distributed fault severity</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>Releases with zero known defects</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>Releases that have not yet started testing</span></button></div><div class="feedback" data-explanation="The Basic model&#x27;s constant-rate assumption fits stable, mature releases best, where fault severity is roughly even."></div></div>
+<div class="card qcard" data-qi="19"><div class="qnum">Question 20 of 20</div><p class="qtext">How does the Basic Musa model differ from the Logarithmic Musa model?</p><div class="options" data-correct="1"><button class="opt" data-oi="0"><span class="letter">A</span><span>The Basic model assumes failure intensity decreases logarithmically; the Logarithmic model assumes a constant rate</span></button><button class="opt" data-oi="1"><span class="letter">B</span><span>The Basic model assumes a constant rate of decrease per fault fixed; the Logarithmic model assumes early faults are more severe, decreasing intensity logarithmically</span></button><button class="opt" data-oi="2"><span class="letter">C</span><span>They are mathematically identical, differing only in notation</span></button><button class="opt" data-oi="3"><span class="letter">D</span><span>The Basic model applies only to hardware reliability, not software</span></button></div><div class="feedback" data-explanation="Basic assumes a constant rate of decrease; Logarithmic assumes early faults are more severe, so intensity falls logarithmically rather than linearly with each fix."></div></div>
+  </div>
+
+  <div class="card results-card" id="resultsCard">
+    <div class="celebrate" id="resultsEmoji">📝</div>
+    <div class="score-ring" id="scoreRing" style="--pct:0"><div class="inner"><span class="num" id="resultsNum">0/20</span><span class="den" id="resultsPct">0%</span></div></div>
+    <div class="headline" id="resultsHeadline">Answer all 20 questions to see your full result.</div>
+    <div class="results-hint" id="resultsHint"></div>
+    <div class="review-list" id="reviewList"></div>
+    <button class="restart" id="restartBtn">Retake quiz</button>
+  </div>
+
+  <a class="jump-link" href="#top" id="jumpTop">↑ Back to top</a>
 </div>
 
-<script id="quiz-data" type="application/json">[{"module": "ICT3112", "question": "Which ISTQB principle explains why running the same unchanged regression suite eventually stops catching new bugs?", "options": ["Defect clustering", "Pesticide paradox", "Absence-of-errors fallacy", "Exhaustive testing is impossible"], "correct": 1, "explanation": "The pesticide paradox describes an unchanged suite losing its power to find new defects over repeated runs; defect clustering is about where defects live, not test-suite staleness."}, {"module": "ICT3112", "question": "According to the \"defect clustering\" principle, testers should focus effort using which approach?", "options": ["Test every module with equal intensity", "Risk-based prioritisation of the small proportion of modules producing most defects", "Random sampling of test cases across the whole codebase", "Testing only after the software has been released"], "correct": 1, "explanation": "Defect clustering justifies risk-based testing: concentrate effort on the small proportion of modules historically responsible for most defects."}, {"module": "ICT3112", "question": "The \"absence-of-errors fallacy\" principle warns against which mistaken belief?", "options": ["That testing can prove there are zero defects", "That a defect-free system is automatically fit for purpose and useful", "That early testing is cheaper than late testing", "That testing is context-dependent"], "correct": 1, "explanation": "The absence-of-errors fallacy is specifically about usefulness, not provability: a bug-free system that solves the wrong problem is still a failure."}, {"module": "ICT3112", "question": "Which statement correctly reflects the \"exhaustive testing is impossible\" principle?", "options": ["Testing must cover every possible input combination", "Risk analysis should determine where to focus limited testing effort, since testing everything is not feasible", "Testing exhaustively guarantees zero defects", "Exhaustive testing is required only for safety-critical systems"], "correct": 1, "explanation": "Exhaustive testing being impossible is precisely why risk analysis must guide where limited testing effort goes."}, {"module": "ICT3112", "question": "\"Early testing saves cost\" reflects which broader testing philosophy?", "options": ["Shift left — finding defects before they become embedded and expensive to fix", "Shift right — testing in production to catch real user issues", "Big-bang testing at the very end of the project", "Outsourcing testing to reduce cost"], "correct": 0, "explanation": "Early testing embodies the shift-left philosophy: catching defects earlier, when they are cheaper to fix."}, {"module": "ICT3112", "question": "Which principle states that testing strategy must differ between, for example, a safety-critical medical device and a marketing website?", "options": ["Defect clustering", "Testing is context-dependent", "Pesticide paradox", "Absence-of-errors fallacy"], "correct": 1, "explanation": "\"Testing is context-dependent\" is the principle that different domains (safety-critical vs. low-risk) need different testing rigour."}, {"module": "ICT3112", "question": "Which mnemonic is used to remember all seven ISTQB principles in order?", "options": ["KTB", "UDPC", "\"Teach Every Eager Developer Proper Testing Approaches\"", "LRRECI"], "correct": 2, "explanation": "\"Teach Every Eager Developer Proper Testing Approaches\" is the seven-principle mnemonic; KTB and UDPC belong to INF2005's authentication and biometrics topics."}, {"module": "ICT3112", "question": "For a valid input range of 0–100, which pair of values represents \"extended BVA\" as opposed to the basic four boundary values?", "options": ["−1 and 101", "0 and 100", "1 and 99", "50 and 51"], "correct": 2, "explanation": "1 and 99 are the \"one step inside\" values that extended BVA adds on top of the basic four (−1, 0, 100, 101)."}, {"module": "ICT3112", "question": "Why should ASCII-boundary tests and string-length-boundary tests for the same field be run as separate test cases?", "options": ["To reduce the total number of test cases needed", "So a failure can be attributed to the specific boundary that caused it", "Because ASCII and length boundaries can never both be invalid at once", "Because BVA does not apply to string fields"], "correct": 1, "explanation": "Combining two boundary dimensions in one test case makes a failure ambiguous; separating them isolates the cause."}, {"module": "ICT3112", "question": "BVA rule 2 states that when no range is specified for an input, what should be tested?", "options": ["Only the maximum value", "The min and max of the domain, plus one value below and one above", "Only the domain's average value", "No boundary testing is needed at all"], "correct": 1, "explanation": "With no specified range, BVA rule 2 says to use the domain's min and max plus one value beyond each."}, {"module": "ICT3112", "question": "BVA rule 3 states that for sets of values, you should test each value and:", "options": ["Only the value in the middle of the set", "The size of the set — for files, the first and last records", "Only the invalid members of the set", "No further boundary testing is needed for sets"], "correct": 1, "explanation": "Rule 3 covers sets and files: test each value plus the set's size boundary (first/last record for files)."}, {"module": "ICT3112", "question": "For the \"First Name\" field example (1–10 capital letters), which test value is an invalid ASCII boundary rather than a length boundary?", "options": ["\"G\" (1 character)", "\"BORDERNAME\" (10 characters)", "\"@\" (ASCII 64, just below 'A')", "null / empty"], "correct": 2, "explanation": "\"@\" (ASCII 64) is just below 'A' — an invalid ASCII/character boundary, distinct from the length boundaries in the other options."}, {"module": "ICT3112", "question": "BVA is explicitly described in the notes as complementary to which other blackbox technique?", "options": ["Decision Table Testing", "State Transition Testing", "Equivalence Partitioning", "Use Case Testing"], "correct": 2, "explanation": "BVA is presented as complementary to Equivalence Partitioning: EP samples inside partitions, BVA targets their edges."}, {"module": "ICT3112", "question": "BVA rule 4 (\"test any extreme input or output\") exists mainly to catch students who:", "options": ["Only think about output conditions, ignoring inputs", "Only think about input ranges, ignoring output boundary conditions", "Test too many boundary values", "Skip invalid partitions entirely"], "correct": 1, "explanation": "Students commonly only consider input ranges; rule 4 is a reminder that output conditions and extremes need boundary testing too."}, {"module": "ICT3112", "question": "In the Basic Musa reliability model, what does the parameter ν₀ represent?", "options": ["The current failure intensity", "The total number of failures expected over the software's life", "The elapsed time since testing began", "The number of testers assigned to the project"], "correct": 1, "explanation": "ν₀ is the total expected failure count over the software's life; λ(τ) is the instantaneous rate, not the total."}, {"module": "ICT3112", "question": "The Basic Musa model assumes which pattern in failure intensity as faults are fixed?", "options": ["It decreases by a constant amount per fault fixed (constant rate of decrease)", "It stays constant regardless of fixes", "It increases logarithmically over time", "It resets to λ₀ after every fix"], "correct": 0, "explanation": "The Basic model's defining assumption is a constant rate of decrease in failure intensity per fault fixed, unlike the Logarithmic model."}, {"module": "ICT3112", "question": "Using λ₀ = 2, ν₀ = 10, τ = 5, what is λ(5)?", "options": ["0.368", "0.736", "1.472", "2.000"], "correct": 1, "explanation": "λ(5) = λ₀ × e^(−λ₀τ/ν₀) = 2 × e⁻¹ ≈ 0.736."}, {"module": "ICT3112", "question": "Using the same parameters (λ₀ = 2, ν₀ = 10, τ = 5), what is μ(5), the expected cumulative number of failures?", "options": ["3.68", "5.00", "6.32", "10.00"], "correct": 2, "explanation": "μ(5) = ν₀ × [1 − e^(−λ₀τ/ν₀)] = 10 × (1 − e⁻¹) ≈ 6.32."}, {"module": "ICT3112", "question": "The Basic Musa model is best suited to which kind of release?", "options": ["Early-stage releases with highly uneven fault severity", "Stable, mature releases with evenly distributed fault severity", "Releases with zero known defects", "Releases that have not yet started testing"], "correct": 1, "explanation": "The Basic model's constant-rate assumption fits stable, mature releases best, where fault severity is roughly even."}, {"module": "ICT3112", "question": "How does the Basic Musa model differ from the Logarithmic Musa model?", "options": ["The Basic model assumes failure intensity decreases logarithmically; the Logarithmic model assumes a constant rate", "The Basic model assumes a constant rate of decrease per fault fixed; the Logarithmic model assumes early faults are more severe, decreasing intensity logarithmically", "They are mathematically identical, differing only in notation", "The Basic model applies only to hardware reliability, not software"], "correct": 1, "explanation": "Basic assumes a constant rate of decrease; Logarithmic assumes early faults are more severe, so intensity falls logarithmically rather than linearly with each fix."}]</script>
 <script>
 (function () {
-  const DATA = JSON.parse(document.getElementById('quiz-data').textContent);
   const LETTERS = ['A', 'B', 'C', 'D'];
-  let current = 0;
-  let score = 0;
-  let answered = [];
-  let started = false;
-  const card = document.getElementById('quizCard');
-  const progressFill = document.getElementById('progressFill');
-  const progressLabel = document.getElementById('progressLabel');
-  const scoreLabel = document.getElementById('scoreLabel');
-  const notesView = document.getElementById('notesView');
-  const quizView = document.getElementById('quizView');
+  const quizList = document.getElementById('quizList');
+  const qcards = Array.from(quizList.querySelectorAll('.qcard'));
+  const total = qcards.length;
+  const answeredCountEl = document.getElementById('answeredCount');
+  const scoreCountEl = document.getElementById('scoreCount');
+  let answered = new Array(total).fill(null); // {chosen, correct} or null
 
-  document.getElementById('startQuizBtn').addEventListener('click', () => {
-    notesView.style.display = 'none';
-    quizView.style.display = 'block';
-    if (!started) { started = true; renderQuestion(0); }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-  document.getElementById('backToNotes').addEventListener('click', (e) => {
-    e.preventDefault();
-    quizView.style.display = 'none';
-    notesView.style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  function onSelect(e) {
+    const btn = e.currentTarget;
+    const qcard = btn.closest('.qcard');
+    const qi = parseInt(qcard.getAttribute('data-qi'), 10);
+    if (answered[qi]) return; // already answered, ignore
 
-  function renderQuestion(i) {
-    const q = DATA[i];
-    progressFill.style.width = ((i) / DATA.length * 100) + '%';
-    progressLabel.textContent = 'Question ' + (i + 1) + ' of ' + DATA.length;
-    scoreLabel.textContent = 'Score: ' + score;
+    const optionsDiv = btn.parentElement;
+    const correctIdx = parseInt(optionsDiv.getAttribute('data-correct'), 10);
+    const oi = parseInt(btn.getAttribute('data-oi'), 10);
+    const correct = oi === correctIdx;
 
-    let optsHtml = '';
-    q.options.forEach((opt, idx) => {
-      optsHtml += '<button class="opt" data-idx="' + idx + '"><span class="letter">' + LETTERS[idx] + '</span><span>' + opt + '</span></button>';
-    });
-
-    card.innerHTML =
-      '<span class="badge ' + q.module + '">' + q.module + '</span>' +
-      '<p class="qtext">' + q.question + '</p>' +
-      '<div class="options">' + optsHtml + '</div>' +
-      '<div class="feedback" id="feedback"></div>' +
-      '<div class="controls"><button class="next" id="nextBtn">' + (i === DATA.length - 1 ? 'See results' : 'Next question') + '</button></div>';
-
-    const buttons = card.querySelectorAll('.opt');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => selectOption(btn, q, buttons));
-    });
-  }
-
-  function selectOption(btn, q, buttons) {
-    const idx = parseInt(btn.getAttribute('data-idx'), 10);
-    const correct = idx === q.correct;
-    buttons.forEach(b => b.disabled = true);
-    buttons.forEach((b, i2) => {
-      if (i2 === q.correct) b.classList.add('correct');
-      else if (b === btn) b.classList.add('incorrect');
+    const buttons = optionsDiv.querySelectorAll('.opt');
+    buttons.forEach(b => {
+      b.disabled = true;
+      const boi = parseInt(b.getAttribute('data-oi'), 10);
+      if (boi === correctIdx) b.classList.add('correct');
+      else if (boi === oi) b.classList.add('incorrect');
       else b.classList.add('dim');
     });
-    const fb = document.getElementById('feedback');
+
+    const fb = qcard.querySelector('.feedback');
+    const exp = fb.getAttribute('data-explanation') || '';
     fb.classList.add('show', correct ? 'good' : 'bad');
-    fb.innerHTML = (correct ? 'Correct.' : 'Not quite — correct answer is ' + LETTERS[q.correct] + '.') +
-      '<span class="exp">' + q.explanation + '</span>';
-    if (correct) score++;
-    answered.push({ index: current, correct: correct, chosen: idx });
-    scoreLabel.textContent = 'Score: ' + score;
-    document.getElementById('nextBtn').classList.add('show');
-    document.getElementById('nextBtn').onclick = () => {
-      current++;
-      if (current < DATA.length) {
-        renderQuestion(current);
-      } else {
-        renderResults();
-      }
-    };
+    fb.innerHTML = (correct ? 'Correct.' : 'Not quite — correct answer is ' + LETTERS[correctIdx] + '.') +
+      '<span class="exp">' + exp + '</span>';
+
+    answered[qi] = { chosen: oi, correct: correct };
+    updateProgress();
   }
 
-  function renderResults() {
-    progressFill.style.width = '100%';
-    progressLabel.textContent = 'Complete';
-    scoreLabel.textContent = 'Score: ' + score + ' / ' + DATA.length;
+  function resetCard(qcard) {
+    const optionsDiv = qcard.querySelector('.options');
+    optionsDiv.querySelectorAll('.opt').forEach(b => {
+      b.disabled = false;
+      b.classList.remove('correct', 'incorrect', 'dim');
+    });
+    const fb = qcard.querySelector('.feedback');
+    fb.classList.remove('show', 'good', 'bad');
+    fb.innerHTML = '';
+  }
 
-    const pct = Math.round((score / DATA.length) * 100);
+  function updateProgress() {
+    const answeredList = answered.filter(a => a !== null);
+    const score = answeredList.filter(a => a.correct).length;
+    answeredCountEl.textContent = answeredList.length + ' / ' + total + ' answered';
+    scoreCountEl.textContent = 'Score: ' + score;
+    renderResults(answeredList.length, score);
+  }
 
-    let reviewHtml = '';
-    const missed = answered.filter(a => !a.correct);
-    if (missed.length) {
-      reviewHtml = '<div class="review-list"><h3>Review the ones you missed</h3>';
-      missed.forEach(a => {
-        const q = DATA[a.index];
-        reviewHtml += '<div class="review-item"><div class="q">' + q.question + '</div>' +
-          '<div class="you">Your answer: ' + LETTERS[a.chosen] + ') ' + q.options[a.chosen] + '</div>' +
-          '<div class="correct-ans">Correct: ' + LETTERS[q.correct] + ') ' + q.options[q.correct] + '</div>' +
-          '<div class="hint">' + q.explanation + '</div></div>';
-      });
-      reviewHtml += '</div>';
+  function renderResults(answeredCount, score) {
+    const pct = answeredCount ? Math.round((score / answeredCount) * 100) : 0;
+    document.getElementById('resultsNum').textContent = score + '/' + answeredCount;
+    document.getElementById('resultsPct').textContent = pct + '%';
+    document.getElementById('scoreRing').style.setProperty('--pct', answeredCount ? Math.round((score / total) * 100) : 0);
+
+    const headlineEl = document.getElementById('resultsHeadline');
+    const emojiEl = document.getElementById('resultsEmoji');
+    const hintEl = document.getElementById('resultsHint');
+
+    if (answeredCount < total) {
+      headlineEl.textContent = (total - answeredCount) + ' question' + ((total - answeredCount) === 1 ? '' : 's') + ' left to answer.';
+      emojiEl.textContent = '📝';
+      hintEl.textContent = 'This box updates live as you go.';
+    } else {
+      let headline = 'Solid work.';
+      let emoji = '📘';
+      const finalPct = Math.round((score / total) * 100);
+      if (finalPct === 100) { headline = 'Perfect score.'; emoji = '🏆'; }
+      else if (finalPct >= 85) { headline = 'Excellent recall.'; emoji = '🎯'; }
+      else if (finalPct >= 60) { headline = 'Good, some gaps to revise.'; emoji = '📘'; }
+      else { headline = 'Worth another pass through the notes.'; emoji = '📚'; }
+      headlineEl.textContent = headline;
+      emojiEl.textContent = emoji;
+      hintEl.textContent = '';
     }
 
-    let headline = 'Solid work.';
-    let emoji = '📘';
-    if (pct === 100) { headline = 'Perfect score.'; emoji = '🏆'; }
-    else if (pct >= 85) { headline = 'Excellent recall.'; emoji = '🎯'; }
-    else if (pct >= 60) { headline = 'Good, some gaps to revise.'; emoji = '📘'; }
-    else { headline = 'Worth another pass through the notes.'; emoji = '📚'; }
-
-    card.innerHTML =
-      '<div class="results">' +
-      '<div class="celebrate">' + emoji + '</div>' +
-      '<div class="score-ring" style="--pct:' + pct + '"><div class="inner"><span class="num">' + score + '/' + DATA.length + '</span><span class="den">' + pct + '%</span></div></div>' +
-      '<div style="font-weight:600;font-size:1.05rem;">' + headline + '</div>' +
-      reviewHtml +
-      '<div>' +
-      '<button class="restart-secondary" id="reviewNotesBtn">Review notes</button>' +
-      '<button class="restart" id="restartBtn">Retake quiz</button>' +
-      '</div>' +
-      '</div>';
-
-    document.getElementById('restartBtn').onclick = () => {
-      current = 0; score = 0; answered = [];
-      renderQuestion(0);
-    };
-    document.getElementById('reviewNotesBtn').onclick = () => {
-      quizView.style.display = 'none';
-      notesView.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    const reviewList = document.getElementById('reviewList');
+    const missed = [];
+    answered.forEach((a, i) => { if (a && !a.correct) missed.push({ index: i, chosen: a.chosen }); });
+    if (missed.length) {
+      let html = '<h3>Review the ones you missed</h3>';
+      missed.forEach(m => {
+        const qcard = qcards[m.index];
+        const qtext = qcard.querySelector('.qtext').textContent;
+        const optionsDiv = qcard.querySelector('.options');
+        const correctIdx = parseInt(optionsDiv.getAttribute('data-correct'), 10);
+        const btns = optionsDiv.querySelectorAll('.opt');
+        const yourText = btns[m.chosen].querySelector('span:last-child').textContent;
+        const correctText = btns[correctIdx].querySelector('span:last-child').textContent;
+        const exp = qcard.querySelector('.feedback').getAttribute('data-explanation') || '';
+        html += '<div class="review-item"><div class="q">Q' + (m.index + 1) + '. ' + qtext + '</div>' +
+          '<div class="you">Your answer: ' + LETTERS[m.chosen] + ') ' + yourText + '</div>' +
+          '<div class="correct-ans">Correct: ' + LETTERS[correctIdx] + ') ' + correctText + '</div>' +
+          '<div>' + exp + '</div></div>';
+      });
+      reviewList.innerHTML = html;
+    } else {
+      reviewList.innerHTML = '';
+    }
   }
+
+  qcards.forEach(qcard => {
+    qcard.querySelectorAll('.opt').forEach(btn => btn.addEventListener('click', onSelect));
+  });
+
+  document.getElementById('restartBtn').addEventListener('click', () => {
+    answered = new Array(total).fill(null);
+    qcards.forEach(resetCard);
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  updateProgress();
 })();
 </script>
 </body>

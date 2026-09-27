@@ -22,10 +22,13 @@ at 23:00 each night, or on demand.
 
 Read-then-test is the whole point of the format: open a module's `.md` file,
 read the reading section at the top, then answer the 20 questions
-underneath it — or open the module's `.html` file, which opens on the same
-reading content first (a "Start the quiz →" button sits at the end of it)
-and only then moves into the interactive quiz with instant right/wrong
-feedback. The HTML file never skips straight to Q1.
+underneath it — or open the module's `.html` file, which is one continuous
+scrollable page (reading notes, then all 20 questions, then the results
+summary — no gated "Start quiz" screen, nothing hidden). It's built to work
+on a phone: scroll, tap an answer, see instant feedback, keep going. The
+notes and all 20 questions are written straight into the page's HTML, so
+they show up even in a bare document preview that doesn't run JavaScript —
+JavaScript only adds the tap-to-check interactivity on top.
 
 ---
 
@@ -86,12 +89,14 @@ Each `.md` file is a self-contained reading + quiz session for one module:
   module
 - Collapsible answers callout
 
-Each `.html` file is the interactive counterpart: it opens on the same
-lecture-notes content as the `.md` file (headings, worked examples, "Watch
-out" callouts, mnemonics), gated behind a "Start the quiz →" button, then
-the same 20 questions one at a time, with instant feedback, a running
-score, and a results screen with a review of anything missed plus controls
-to retake the quiz or jump back to the notes.
+Each `.html` file is the interactive counterpart: the same lecture-notes
+content as the `.md` file (headings, worked examples, "Watch out"
+callouts, mnemonics) sits at the top, and the full 20-question quiz is
+rendered below it on the same page — every question visible, answerable in
+any order, with instant feedback per question, a live sticky score readout,
+and a results block at the bottom (score, percentage, a review of anything
+missed, and a "Retake quiz" button) that updates as you go. No screens to
+switch between, and it's designed to be used comfortably on a phone.
 
 ---
 

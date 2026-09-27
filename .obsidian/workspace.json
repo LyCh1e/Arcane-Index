@@ -70,8 +70,7 @@
               "title": "index"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -260,12 +259,12 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "c45567700e1d9e48",
+  "active": "c34294748e14f3a7",
   "lastOpenFiles": [
+    "study-notes/index.md",
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md",
     "agents/tutor.md",
     "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md",
-    "study-notes/index.md",
     "canvases/password-hashing.canvas",
     "CLAUDE.md",
     "study-notes/INF2005 - Formula Sheet.md",
