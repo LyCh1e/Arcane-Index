@@ -13,7 +13,8 @@ description: >
   daily read, edit the table in `study-notes/index.md` — nothing in this
   skill or the agent needs to change.
   Triggers on: "tutor", "daily read", "create today's study note",
-  "generate daily note", or called automatically by the 23:00 cron job.
+  "generate daily note", or called automatically by this project's
+  scheduled task.
 allowed-tools: Read Write Edit Glob Grep Bash Artifact
 ---
 
@@ -22,12 +23,12 @@ allowed-tools: Read Write Edit Glob Grep Bash Artifact
 Produces an exam-focused daily reading + quiz session for every module
 listed in the vault's course index — fresh reading content followed
 immediately by a 20-question MCQ quiz testing only that module's content.
-Runs automatically at 23:00 each night, or on demand.
+Runs on demand, or automatically via this project's scheduled task.
 
 There is no local file output. Each module has one permanent, bookmarkable
 Artifact page; every run rebuilds that module's content and republishes it
 to the same URL, so a phone bookmark never needs to change even though the
-content behind it does, every night.
+content behind it does.
 
 Read-then-test is the whole point of the format: open a module's page, read
 the reading section at the top, then answer the 20 questions underneath it —
@@ -83,17 +84,6 @@ publishes it to that module's Artifact URL (existing or newly created).
 
 ---
 
-## Schedule
-
-The tutor runs automatically every night at **23:00 local time** via the
-scheduled cloud agent configured in this vault. The cron expression is
-`0 23 * * *`.
-
-If you need to change the time, update the schedule via `/schedule` and
-modify the time in `agents/tutor.md`'s description.
-
----
-
 ## Output — One Permanent Artifact Page Per Module (no vault files)
 
 Nothing is written under `study-notes/daily-reads/` or anywhere else in the
@@ -116,7 +106,7 @@ rebuilt fresh every run:
 
 No screens to switch between, and it's designed to be used comfortably on a
 phone — that's the whole point of publishing to a permanent link rather
-than a file: existing bookmarks work forever, and always show tonight's
+than a file: existing bookmarks work forever, and always show the latest
 content.
 
 ---

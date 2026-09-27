@@ -242,7 +242,7 @@ horizontal scroll, large tap targets, text readable without zooming. Follow
 the design tokens and theme structure already established for these pages
 (light/dark palette tokens on `:root`, a per-module accent via
 `.theme-<MODULE>`, Newsreader for headings, IBM Plex Sans/Mono for body and
-figures) so pages keep a consistent, non-generic look night to night — for
+figures) so pages keep a consistent, non-generic look run to run — for
 a brand-new module, invent a new accent colour that doesn't collide with an
 existing module's and add its `.theme-<MODULE>` block alongside the others.
 
