@@ -14,7 +14,6 @@
   "sharedEnvironmentVariables": "",
   "envSnippets": [],
   "customContextLimits": {},
-  "customModelAliases": {},
   "keyboardNavigation": {
     "scrollUpKey": "w",
     "scrollDownKey": "s",
@@ -32,19 +31,45 @@
       "loadUserSettings": true,
       "enableChrome": true,
       "customModels": "",
-      "defaultModel": "opus",
       "lastModel": "sonnet",
       "modelEnvironmentType": "",
       "titleModelEnvironmentType": "",
       "environmentVariables": "",
-      "environmentHash": ""
+      "environmentHash": "",
+      "modelAliases": {},
+      "visibleModels": [
+        "haiku",
+        "sonnet",
+        "opus",
+        "fable"
+      ],
+      "selectedModels": [
+        {
+          "value": "sonnet",
+          "label": "Sonnet",
+          "description": "Sonnet 4.6 · Efficient for routine tasks · $3/$15 per Mtok",
+          "reasoningMetadataResolved": true,
+          "supportedEffortLevels": [
+            "low",
+            "medium",
+            "high",
+            "max"
+          ]
+        },
+        {
+          "value": "haiku",
+          "label": "Haiku",
+          "description": "Haiku 4.5 · Fastest for quick answers · $1/$5 per Mtok",
+          "reasoningMetadataResolved": true,
+          "supportedEffortLevels": []
+        }
+      ]
     },
     "codex": {
       "enabled": false,
       "safeMode": "workspace-write",
       "cliPath": "",
       "cliPathsByHost": {},
-      "customModels": "",
       "reasoningSummary": "detailed",
       "environmentVariables": "",
       "environmentHash": "",
@@ -52,13 +77,11 @@
         "device-49856fffb2ebdf0418295176ffae19a05a37a6280e55c3d32712c1f01a3fa901": "native-windows"
       },
       "wslDistroOverridesByHost": {},
-      "discoveredModels": [],
       "modelAliases": {},
-      "visibleModels": null,
-      "catalogTimestamp": 0,
-      "catalogFingerprint": "",
+      "visibleModels": [],
       "enableUltraEffort": false,
-      "responseStyle": "pragmatic"
+      "responseStyle": "pragmatic",
+      "selectedModels": []
     },
     "opencode": {
       "cliPath": "",
@@ -70,22 +93,22 @@
       "preferredThinkingByModel": {},
       "selectedMode": "",
       "thinkingOptionsByModel": {},
-      "visibleModels": []
+      "visibleModels": [],
+      "selectedModels": []
     },
     "pi": {
       "cliPath": "",
       "cliPathsByHost": {},
-      "discoveredModels": [],
       "enabled": false,
       "environmentHash": "",
       "environmentVariables": "",
       "modelAliases": {},
       "preferredThinkingByModel": {},
       "toolMode": "all",
-      "visibleModels": []
+      "visibleModels": [],
+      "selectedModels": []
     },
     "grok": {
-      "catalogsByHost": {},
       "cliPath": "",
       "cliPathsByHost": {},
       "enabled": false,
@@ -93,7 +116,8 @@
       "environmentVariables": "",
       "modelAliases": {},
       "preferredReasoningByModel": {},
-      "visibleModels": null
+      "visibleModels": [],
+      "selectedModelsByHost": {}
     }
   },
   "settingsProvider": "claude",
@@ -113,7 +137,6 @@
     "claude": "normal"
   },
   "pendingProviderSessionInvalidations": {},
-  "lastCustomModel": "",
   "maxWarmAgentProcesses": 5,
   "enableAutoScroll": true,
   "showMessageTimestamps": false,
@@ -123,13 +146,15 @@
   "enableDualPane": true,
   "dualPaneSide": "right",
   "restoreTabsOnStartup": true,
-  "collabEnabled": false,
-  "collabProjectsFolder": "workspace",
-  "collabGitPath": "",
   "sessionManagerOrganization": "list",
   "sessionManagerSort": "last-updated",
   "pinnedLinkedContentPaths": [],
   "hiddenProviderCommands": {},
+  "customModelAliases": {},
+  "lastCustomModel": "",
+  "collabEnabled": false,
+  "collabProjectsFolder": "workspace",
+  "collabGitPath": "",
   "maxTabs": 3,
   "tabBarPosition": "input"
 }
