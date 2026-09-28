@@ -78,7 +78,7 @@
     "raw/ICT2216 Lecture 1 Secure Software Development.md": {
       "ingested": "2026-05-11",
       "course": "ICT2216",
-      "title": "Secure Software Development — Lecture 1",
+      "title": "Secure Software Development \u00e2\u20ac\u201d Lecture 1",
       "domain": "secure-software-development",
       "source_index": "wiki/sources/ICT2216-secure-software-development.md",
       "concept_pages": [
@@ -88,7 +88,7 @@
     "raw/ICT2216 Lecture 2 Secure Software Development.md": {
       "ingested": "2026-05-11",
       "course": "ICT2216",
-      "title": "Secure Software Development — Lecture 2",
+      "title": "Secure Software Development \u00e2\u20ac\u201d Lecture 2",
       "domain": "secure-software-development",
       "source_index": "wiki/sources/ICT2216-secure-software-development.md",
       "concept_pages": [
@@ -197,7 +197,7 @@
     "raw/ICT2216 Lecture 8 Secure Software Development.md": {
       "ingested": "2026-07-09",
       "course": "ICT2216",
-      "title": "Secure Software Development — Lecture 8: Test Automation & Security Testing References",
+      "title": "Secure Software Development \u00e2\u20ac\u201d Lecture 8: Test Automation & Security Testing References",
       "domain": "secure-software-development",
       "source_index": "wiki/sources/ICT2216-lecture-8-secure-testing.md",
       "concept_pages": [
@@ -208,7 +208,7 @@
     "raw/ICT2216 Lecture 9 Secure Software Development.md": {
       "ingested": "2026-07-16",
       "course": "ICT2216",
-      "title": "Secure Software Development — Lecture 9: Static Code Analysis (Part 1)",
+      "title": "Secure Software Development \u00e2\u20ac\u201d Lecture 9: Static Code Analysis (Part 1)",
       "domain": "secure-software-development",
       "source_index": "wiki/sources/ICT2216-lecture-9-static-code-analysis.md",
       "concept_pages": [
@@ -229,7 +229,7 @@
     },
     "https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes": {
       "ingested": "2026-07-12",
-      "title": "Learn LaTeX in 30 Minutes — Overleaf",
+      "title": "Learn LaTeX in 30 Minutes \u00e2\u20ac\u201d Overleaf",
       "domain": "academic-writing",
       "source_index": "wiki/sources/overleaf-learn-latex-30min.md",
       "concept_pages": [
@@ -247,7 +247,7 @@
     },
     "https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026": {
       "ingested": "2026-07-19",
-      "title": "Best AI Agent Frameworks 2026 — Alice Labs",
+      "title": "Best AI Agent Frameworks 2026 \u00e2\u20ac\u201d Alice Labs",
       "domain": "ai-engineering",
       "source_index": "wiki/sources/alice-labs-agent-frameworks-2026.md",
       "concept_pages": [
@@ -256,12 +256,37 @@
     },
     "https://patrickemonts.com/post/latex_best_practice/": {
       "ingested": "2026-07-12",
-      "title": "LaTeX Best Practices — Patrick Emonts",
+      "title": "LaTeX Best Practices \u00e2\u20ac\u201d Patrick Emonts",
       "domain": "academic-writing",
       "source_index": "wiki/sources/emonts-latex-best-practices.md",
       "concept_pages": [
         "wiki/concepts/latex-formatting.md",
         "wiki/resources/latex-essential-packages.md"
+      ]
+    },
+    "raw/ICT3113 Performance Optimisation and Design - Lec05 Estimating Performance and Lost Work.md": {
+      "hash": "6f58f888878de0ec43807f055fcfbfb5",
+      "ingested_at": "2026-09-24",
+      "pages_created": [
+        "wiki/sources/ict3113-pod-l5.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/queueing-theory.md",
+        "wiki/concepts/performance-engineering.md",
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md"
+      ]
+    },
+    "raw/ICT3113 Performance Optimisation and Design - Lec06 JMeter Recap.md": {
+      "hash": "8c756bd94c9be8c40f899d3c76506580",
+      "ingested_at": "2026-09-24",
+      "pages_created": [
+        "wiki/sources/ict3113-pod-l6.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/performance-engineering.md",
+        "wiki/index.md"
       ]
     }
   },
@@ -385,6 +410,8 @@
     "wiki/entities/deepseek.md": "c-000119",
     "wiki/resources/ollama-local-inference.md": "c-000120",
     "wiki/sources/ICT2216-lecture-10-module-overview-secure-concepts.md": "c-000121",
-    "wiki/sources/ICT2216-lecture-9-transcript.md": "c-000122"
+    "wiki/sources/ICT2216-lecture-9-transcript.md": "c-000122",
+    "wiki/sources/ict3113-pod-l5.md": "c-000122",
+    "wiki/sources/ict3113-pod-l6.md": "c-000123"
   }
 }
