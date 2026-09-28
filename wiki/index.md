@@ -111,7 +111,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3113-pod-l2\|ICT3113 POD — L2: Performance Metrics and System Modelling]] | lecture-slides | performance-engineering | 2026-08-31 |
 | [[sources/ict3113-pod-l3\|ICT3113 POD — L3: Workload Identification]] | lecture-slides | performance-engineering | 2026-09-07 |
 | [[sources/ict3113-pod-l4\|ICT3113 POD — L4: Performance Modelling (II)]] | lecture-slides | performance-engineering | 2026-09-14 |
-| [[sources/ict3113-pod-l5\|ICT3113 POD — L5: JMeter Recap]] | lecture-slides | performance-engineering | 2026-09-21 |
+| [[sources/ict3113-pod-l5\|ICT3113 POD — L5: Estimating Performance and Lost Work]] | lecture-slides | performance-engineering | 2026-09-24 |
+| [[sources/ict3113-pod-l6\|ICT3113 POD — L6: JMeter Recap]] | lecture-slides | performance-engineering | 2026-09-24 |
 | [[sources/opencv-docs\|OpenCV Official Documentation — docs.opencv.org]] | documentation | computer-vision | 2026-09-04 |
 | [[sources/inf2005-csf-crypto1\|INF2005 CSF — Cryptography 1: Key Concepts (Symmetric)]] | lecture-notes | cryptography | 2026-09-07 |
 | [[sources/inf2005-csf-crypto2\|INF2005 CSF — Cryptography 2: Asymmetric, Hashing & Cryptanalysis]] | lecture-notes | cryptography | 2026-09-07 |

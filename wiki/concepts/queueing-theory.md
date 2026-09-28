@@ -434,10 +434,102 @@ Applying Sakasegawa conceptually: both the utilisation term (ρ jumped when c dr
 
 ---
 
+## 8. Performance Bounds (Lec05)
+
+Before building a detailed queueing model, two cheap sanity checks give hard ceilings and floors derived from demands alone.
+
+### 8.1 Upper Bound on Throughput
+
+From the Utilisation Law (U = X₀ × D(i)) and the constraint U < 1:
+
+```
+X₀ < 1 / D(b)
+```
+
+where D(b) = max demand across all services (the bottleneck). With background load b(k) already consuming capacity on device k:
+
+```
+Max arrival rate for device k = (Capacity(k) − b(k)) / D(k)
+System ceiling = min over all k
+```
+
+The **70% planning rule** (from M/M/1 steep-rise behaviour): in practice, plan for U ≤ 0.7, giving a practical ceiling of 0.7 / D(b).
+
+### 8.2 Lower Bound on Response Time
+
+At zero load, every job still traverses each service with no waiting, so:
+
+```
+R₀ ≥ Σ D(i) = Σ V(i) × S(i)
+```
+
+This is the **best possible response time** — a feasibility check. If a design target is below Σ D(i), the design is physically impossible without redesign.
+
+### 8.3 Worked Example — E-Commerce Checkout
+
+| Service | V | S (ms) | D = V × S (ms) |
+|---------|---|--------|----------------|
+| API gateway | 1 | 5 | 5 |
+| Auth service | 1 | 10 | 10 |
+| Product DB | 3 | 12 | 36 |
+| Cache | 4 | 1 | 4 |
+| Payment gateway | 1 | 25 | **25** ← bottleneck |
+
+- Throughput upper bound: X₀ < 1 / 0.025 = **40 req/s**
+- Response time lower bound: R₀ ≥ 5 + 10 + 36 + 4 + 25 = **80 ms**
+
+---
+
+## 9. Lost Work and the Erlang B Formula (Lec05)
+
+When a resource has finite capacity m (threads, connections, buffers) and a new job arrives when all m are occupied, the job is **lost**. This is the Erlang loss model (Erlang B), developed by A. K. Erlang in 1917 for telephone exchanges.
+
+### 9.1 Formula
+
+Let:
+- m = capacity (maximum concurrent jobs)
+- ρ = λ × S = offered load (dimensionless)
+- B(m, ρ) = probability a job is lost
+
+```
+B(m, ρ) = (ρᵐ / m!) / Σₖ₌₀ᵐ (ρᵏ / k!)
+```
+
+**Sizing rule:** given ρ and a target loss probability ε, choose the smallest m with B(m, ρ) ≤ ε.
+
+### 9.2 Erlang B Table (selected values)
+
+| m | ρ = 0.5 | ρ = 0.6 | ρ = 0.7 | ρ = 0.8 | ρ = 1.0 |
+|---|---------|---------|---------|---------|---------|
+| 1 | 3.3×10⁻¹ | 3.7×10⁻¹ | 4.1×10⁻¹ | 4.4×10⁻¹ | 5.0×10⁻¹ |
+| 2 | 7.7×10⁻² | 1.0×10⁻¹ | 1.3×10⁻¹ | 1.5×10⁻¹ | 2.0×10⁻¹ |
+| 3 | 1.3×10⁻² | 2.0×10⁻² | 2.9×10⁻² | 3.9×10⁻² | 6.2×10⁻² |
+| 4 | 1.6×10⁻³ | 3.0×10⁻³ | 5.0×10⁻³ | 7.7×10⁻³ | 1.5×10⁻² |
+| 5 | 1.6×10⁻⁴ | 3.6×10⁻⁴ | 7.0×10⁻⁴ | 1.2×10⁻³ | 3.1×10⁻³ |
+| 6 | 1.3×10⁻⁵ | 3.6×10⁻⁵ | 8.1×10⁻⁵ | 1.6×10⁻⁴ | 5.1×10⁻⁴ |
+| 7 | 9.4×10⁻⁷ | 3.0×10⁻⁶ | 8.1×10⁻⁶ | 1.9×10⁻⁵ | 7.3×10⁻⁵ |
+| 8 | 5.9×10⁻⁸ | 2.3×10⁻⁷ | 7.1×10⁻⁷ | 1.9×10⁻⁶ | 9.1×10⁻⁶ |
+
+> [!key-insight] Key distinction
+> Erlang B assumes **lost jobs do not retry**. If dropped requests immediately retry, the effective offered load increases — use the **Erlang C** model (jobs wait, not lost) instead for connection pools with retry behaviour.
+
+### 9.3 Worked Examples
+
+**Router buffer (λ = 300 pkt/s, capacity = 500 pkt/s, target loss < 10⁻⁶):**
+
+ρ = 300 / 500 = 0.6. From table: B(7, 0.6) = 3.0×10⁻⁶ > 10⁻⁶; B(8, 0.6) = 2.3×10⁻⁷ < 10⁻⁶ → **m = 8 buffers.**
+
+**DB connection pool (λ = 7 req/s, S = 100 ms, need P(spare connection) ≥ 99.9%):**
+
+ρ = 7 × 0.1 = 0.7. Need P(all busy) < 0.001 → B(m, 0.7) < 10⁻³. From table: B(5, 0.7) = 7.0×10⁻⁴ < 10⁻³ → **m = 5 connections.**
+
+---
+
 ## Key Connections
 
 - [[concepts/performance-metrics]] — R = W + S; Utilisation Law (U = XS); M/M/1 single-server foundation this page extends; Little's Law (N = X × R used in Interactive Response Time Law)
 - [[concepts/performance-engineering]] — measure/model/optimise/deploy loop; bottleneck and variability as the two main optimisation levers
 - [[concepts/workload-identification]] — deriving λ and Dₖ from business quantities; the inputs to every model on this page
-- [[sources/ict3113-pod-l4]] — source material for this page
+- [[sources/ict3113-pod-l4]] — source material for §1–§7
+- [[sources/ict3113-pod-l5]] — source material for §8 (bounds) and §9 (Erlang B)
 - [[areas/performance-engineering]] — parent area

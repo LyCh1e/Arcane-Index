@@ -1,23 +1,24 @@
 ---
 type: source
-title: "ICT3113 POD — L5: JMeter Recap"
-source_file: "raw/ICT3113 Performance Optimisation and Design - Lec05 JMeter Recap.md"
+title: "ICT3113 POD — L5: Estimating Performance and Lost Work"
+source_file: "raw/ICT3113 Performance Optimisation and Design - Lec05 Estimating Performance and Lost Work.md"
 module: ICT3113 Performance Optimisation and Design
 domain: performance-engineering
-tags: [ict3113, performance-engineering, jmeter, load-testing, littles-law, test-plan-design, apdex, think-time, concurrent-users]
-created: 2026-09-21
-updated: 2026-09-21
-lecturer: "Donny Soh"
+tags: [ict3113, performance-engineering, throughput-bounds, response-time-bounds, erlang-b, lost-work, execution-models, bottleneck, background-load]
+created: 2026-09-24
+updated: 2026-09-24
+lecturer: "A/Prof Donny Soh"
+address: c-000122
 ---
 
-# Source Index — ICT3113 POD: Lecture 5 — JMeter Recap
+# Source Index — ICT3113 POD: Lecture 5 — Estimating Performance and Lost Work
 
 **Module:** ICT3113 Performance Optimisation and Design  
-**Lecturer:** Donny Soh  
-**Raw file:** [[raw/ICT3113 Performance Optimisation and Design - Lec05 JMeter Recap.md]]  
-**Concept pages:** [[concepts/performance-engineering]] · [[concepts/performance-metrics]]
+**Lecturer:** A/Prof Donny Soh  
+**Raw file:** `raw/ICT3113 Performance Optimisation and Design - Lec05 Estimating Performance and Lost Work.md`  
+**Concept pages:** [[concepts/queueing-theory]] · [[concepts/performance-engineering]] · [[concepts/performance-metrics]]
 
-Recap lecture bridging Lec01–Lec04 theory to practice. The single learning outcome is: *write a proper JMeter test plan from a given number of concurrent users, average session time, and arrival rate.* The primary vehicle is Little's Law (L = λW) applied backwards — from a target concurrency level to JMeter Thread Group parameters.
+Consolidation lecture before the midterm. Applies the laws from Lec03–Lec04 to two new problems: (1) deriving hard ceilings on throughput and response time from service demands, and (2) estimating how many resources to provision so that rejected-job probability stays below a target (Erlang B / lost work).
 
 ---
 
@@ -25,116 +26,84 @@ Recap lecture bridging Lec01–Lec04 theory to practice. The single learning out
 
 | Section | Key Content |
 |---------|-------------|
-| Flask App to Profile | `/sort` endpoint with `flask_profiler.profile()` decorator; verify in browser before loading with JMeter |
-| JMeter Thread Group | Number of Threads, Ramp-up Period, Loop Count, Same user on each iteration |
-| HTTP Request Sampler | Protocol, Server/IP, Port, Method, Path, Parameters — wired to `127.0.0.1:5000/sort` |
-| Non-GUI Mode | `jmeter -n -t lab03.jmx -l test-results.csv -e -o report`; command-line execution for real test runs |
-| Constant Timer | Fixed think time (e.g. 3 000 ms) between consecutive HTTP requests within one thread |
-| Gaussian Random Timer | Random think time: `mean = Deviation + Constant Delay Offset`; models realistic user pacing |
-| Timer Timing Diagram | U1–U5 each fire T1→T2 staggered by ramp-up; sleep between T1 and T2 is the think time |
-| Objective: Concurrent User Replication | Goal is to reproduce N simultaneous users; each user's session spans W seconds |
-| Little's Law for Test Plans | L = λ × W → Threads = (N_users / Ramp_up) × avg_session_time; cap by total user count |
-| 30 Users in 5 Seconds | Six-user-per-second batch; peak concurrent = 30 (all groups overlapping in centre) |
-| Parameter Derivation | Given target L and known W, solve for ramp-up: T = N_users × W / L |
-| APDEX | Application Performance Index: 0.000 when every request exceeds the 500 ms toleration threshold (e.g. 5-second artificial sleep) |
-| Worked Example 1 | 100 users, 5 s window, 10 s session → L = 200 > 100 → cap at 100 concurrent |
-| Worked Example 2 | 100 users, 5 s window, 500 s session (150+50+300) → L = 10 000 > 100 → cap at 100 concurrent |
-| Worked Example 3 | 20 users/s arrival rate, 500 s session → L = 10 000; no cap (no total user count given) |
+| Where We Are | Review of modelling block: utilisation law, Little's Law, M/M/1, Forced Flow, Service Demand, bottleneck analysis, Kingman — all prior lectures |
+| Upper Bound on Throughput | D(i) = V(i) × S(i); X0 < 1/D(b) where D(b) is the bottleneck demand; practical 70% planning rule |
+| Background Load | Devices have pre-existing utilisation b(k); effective capacity for new requests = (Capacity − b(k)) / D(k) |
+| Lower Bound on Response Time | R0 ≥ Σ D(i); best-case response time is the sum of all demands (no queueing anywhere) |
+| Execution Models | Estimating S from UML activity/sequence diagrams before a system exists; Smith & Williams (2001) |
+| Lost Work / Erlang B | Erlang loss formula B(m, ρ); sizing m given offered load ρ and target loss probability ε |
+| Worked Example: Throughput | E-commerce checkout: five services; bottleneck = payment gateway (D = 25 ms) → X0 < 40 req/s |
+| Worked Example: Background Load | Database server with four devices (CPU, Memory, Disk1, Disk2); effective ceilings per device |
+| Worked Example: Response Time | Minimum response time for checkout system = Σ D(i) |
+| Worked Example: Service Estimation | Async network request + three-way branch; parallel max + weighted branch expected value |
+| Worked Example: Erlang Router | λ = 300 pkt/s, μ = 500 pkt/s → ρ = 0.6; find m such that B(m, 0.6) < 10⁻⁶ → m = 7 |
+| Worked Example: Connection Pool | λ = 7 req/s, S = 100 ms → ρ = 0.7; 99.9% availability → at least one spare → find m |
 
 ---
 
-## Core Formula
-
-**Little's Law applied to test plan sizing:**
+## Core Formulae
 
 ```
-L = λ × W
+Demand:
+  D(i) = V(i) × S(i)
+  where V(i) = visit count, S(i) = average service time per visit
 
-where:
-  L = number of concurrent users (Threads in JMeter)
-  λ = arrival rate (users/second)
-  W = average session time (seconds)
+Upper bound on throughput:
+  U(i) = X0 × D(i)     [from Utilisation Law + Forced Flow Law]
+  X0 < 1 / D(b)        [D(b) = max demand across all services]
 
-For a batch arrival scenario:
-  λ = N_total_users / Ramp_up_period_seconds
-  L = (N_total_users / Ramp_up_period) × W
+With background load b(k) on device k, capacity C(k):
+  Max arrival rate for device k = (C(k) − b(k)) / D(k)
 
-Rule: L is capped by N_total_users — you cannot have more concurrent users than you have users.
+Lower bound on response time (no queueing, sequential):
+  R0 ≥ Σ D(i) = Σ V(i) × S(i)
 
-Inverse (solve for Ramp-up given target L and known W):
-  Ramp_up = N_total_users × W / L
+Execution model time rules:
+  Sequential tasks: sum the times
+  Parallel tasks: take the maximum
+  Branches: Σ p(branch) × t(branch)
+
+Erlang B (loss formula):
+  ρ = λ × S    (offered load)
+  B(m, ρ) = (ρᵐ / m!) / Σₖ₌₀ᵐ (ρᵏ / k!)
+  Size m as: smallest m such that B(m, ρ) ≤ ε
 ```
 
 ---
 
-## JMeter Thread Group Parameters — Mapping to Little's Law
+## Worked Examples (Solutions)
 
-| JMeter Field | Little's Law Mapping | Notes |
-|---|---|---|
-| Number of Threads | N_total_users (upper bound) | Total users across the test run |
-| Ramp-up Period (s) | Arrival window T | One user added per T/N seconds on average |
-| Loop Count | Controls whether each user makes 1 or many requests | Set to 1 for a single-pass session test |
-| Constant Timer delay | W per-request component | Fixed think time (dwell) between actions in a session |
-| Gaussian Random Timer deviation+offset | W per-request component | Realistic think time centred on `deviation + offset` ms |
+### Throughput Upper Bound — Checkout System
 
----
+| Service | V | S (ms) | D = V × S (ms) |
+|---------|---|--------|----------------|
+| API gateway | 1 | 5 | 5 |
+| Auth service | 1 | 10 | 10 |
+| Product DB | 3 | 12 | 36 |
+| Cache | 4 | 1 | 4 |
+| Payment gateway | 1 | 25 | **25** (bottleneck) |
 
-## Timers
+**X0 < 1 / 0.025 = 40 req/s.** Practical ceiling at 70%: ≈ 28 req/s.
 
-| Timer Type | Behaviour | Use Case |
-|---|---|---|
-| **Constant Timer** | Delays execution by a fixed millisecond value | Scripted workflows with known fixed pauses |
-| **Gaussian Random Timer** | Delay drawn from Gaussian distribution: mean = Deviation + Constant Delay Offset | Simulating realistic user think time that varies around an average |
+### Lower Bound on Response Time — Same System
 
-Timers are placed *between* two HTTP Request samplers within the same Thread to model think time between page loads.
+R0 ≥ 5 + 10 + 36 + 4 + 25 = **80 ms** (best possible, no queueing).
 
----
+### Erlang B — Router Buffer Sizing
 
-## APDEX
+ρ = 300 / 500 = 0.6. Target: B < 10⁻⁶. From table: B(7, 0.6) = 3.0 × 10⁻⁶ > 10⁻⁶; B(8, 0.6) = 2.3 × 10⁻⁷ < 10⁻⁶ → **m = 8 buffers.**
 
-The **Application Performance Index** is a standardised 0–1 satisfaction score:
+### Erlang B — Connection Pool
 
-| Score | Interpretation |
-|---|---|
-| 1.0 | All requests within toleration threshold (T) |
-| 0.5–1.0 | Mixed; some requests in frustration zone |
-| 0.0 | Every request exceeds the toleration threshold |
-
-Default JMeter thresholds: T = 500 ms (Tolerated), F = 1 500 ms (Frustrated).
-
-A 5-second artificial `time.sleep(5)` in the Flask route → **APDEX = 0.000** (every request exceeds T by 10×) — this is intentional in the lab to demonstrate what a saturated system looks like in the report.
-
----
-
-## Worked Examples
-
-### Example 1 — Concurrent Users Capped by Total
-
-- 100 users arrive within 5 seconds; average session time 10 seconds.
-- L = (100 / 5) × 10 = **200 → capped at 100** (cannot exceed total user count).
-- JMeter: Threads = 100, Ramp-up = 5, Loop = 1.
-
-### Example 2 — Long Session with Think Time Gap
-
-- 100 users arrive within 5 seconds.
-- Session: 150 s (active browsing) + 50 s (delay) + 300 s (second page) = 500 s.
-- L = (100 / 5) × 500 = **10 000 → capped at 100**.
-- JMeter: Threads = 100, Ramp-up = 5, Loop = 1.
-
-### Example 3 — Arrival Rate Given, No Cap
-
-- Arrival rate: 20 users/second; session: 500 s.
-- L = 20 × 500 = **10 000 concurrent users** (no cap — no total user count given).
-- JMeter: Threads = 10 000, Ramp-up chosen to give λ = 20 users/s → Ramp-up = 500 s.
+ρ = 7 × 0.1 = 0.7. "At least one unused connection 99.9% of the time" means P(all m connections busy) < 0.001 → find smallest m with B(m, 0.7) < 10⁻³. From table: B(5, 0.7) = 7.0 × 10⁻⁴ < 10⁻³ → **m = 5 connections.**
 
 ---
 
 ## Connections
 
-- [[concepts/performance-metrics]] — Little's Law (L = λW); arrival rate; utilisation law
-- [[concepts/performance-engineering]] — JMeter test plan design; load generation as the Measure phase
-- [[concepts/workload-identification]] — arrival rate and session time come from workload characterisation (Lec03)
-- [[concepts/queueing-theory]] — Little's Law is also the basis of the Interactive Response Time Law (R = N/X − Z)
-- [[examples/ict3113-lab2-jmeter-testing]] — practical JMeter lab (Lab 2) that precedes this lecture
-- [[sources/ict3113-pod-l4]] — Lec04: queueing theory and operational laws
+- [[concepts/queueing-theory]] — M/M/1, bottleneck analysis, response time bounds (this lecture adds Erlang B section)
+- [[concepts/performance-engineering]] — execution models; Measure–Model–Optimise–Deploy cycle
+- [[concepts/performance-metrics]] — utilisation law, Little's Law, service demand law
+- [[sources/ict3113-pod-l4]] — Lec04: operational laws, bottleneck analysis, Kingman formula (prerequisite)
+- [[sources/ict3113-pod-l6]] — Lec06: JMeter Recap — applying Little's Law to test plan sizing
 - [[areas/performance-engineering]] — parent area

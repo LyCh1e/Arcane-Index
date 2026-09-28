@@ -161,12 +161,32 @@ Always validate the test plan in GUI mode first (Thread Group → HTTP Request �
 
 ---
 
+## Execution Models (Pre-System Estimation)
+
+When a system does not yet exist, service times cannot be measured. The solution is an **execution model**: an annotated UML activity or sequence diagram where each activity carries a time estimate and each branch a probability (Smith & Williams, 2001).
+
+Solve the model as follows:
+
+| Structure | Computation |
+|-----------|-------------|
+| Sequential tasks | Sum the times |
+| Parallel / async tasks | Take the maximum |
+| Branch | Σ p(branch) × t(branch) |
+
+**Example:** 10 ms decision → async 30 ms network call; while waiting, build response (50%: 12 ms, 40%: 25 ms, 10%: 40 ms).  
+Branch expected time = (0.5×12) + (0.4×25) + (0.1×40) = **20 ms.** Async network (30 ms) > build (20 ms) → parallel max = 30 ms. **Total = 10 + 30 = 40 ms.**
+
+Execution models support the **Model** phase before a system is built; they feed demand estimates into the bounds analysis (see [[concepts/queueing-theory]] §8).
+
+---
+
 ## Key Connections
 
 - [[concepts/performance-metrics]] — detailed reference: metric properties, response time, percentiles, utilisation law, queueing fundamentals; Little's Law
-- [[concepts/queueing-theory]] — analytical toolkit: M/M/c queues, operational laws (Forced Flow, Service Demand), bottleneck analysis, Kingman formula, interactive systems, four-sources diagnostic framework
+- [[concepts/queueing-theory]] — analytical toolkit: M/M/c queues, operational laws, bottleneck analysis, Kingman formula; bounds (§8) and Erlang B (§9)
 - [[concepts/docker-compose]] — container resource configuration
 - [[concepts/database-indexing-transactions]] — database indexing as a performance optimisation
 - [[sources/ict3113-pod-l1]] — module overview and structure
 - [[sources/ict3113-pod-l2]] — performance metrics and modelling fundamentals
-- [[sources/ict3113-pod-l5]] — JMeter test plan sizing; Little's Law in practice; timers; APDEX
+- [[sources/ict3113-pod-l5]] — Lec05: performance bounds, execution models, Erlang B (lost work)
+- [[sources/ict3113-pod-l6]] — Lec06: JMeter test plan sizing, Little's Law applied, timers, APDEX

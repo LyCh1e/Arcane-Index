@@ -10,6 +10,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-09-24 | ingest | ICT3113 POD Lec05 & Lec06
+
+- Sources: `raw/ICT3113 Performance Optimisation and Design - Lec05 Estimating Performance and Lost Work.md`, `raw/ICT3113 Performance Optimisation and Design - Lec06 JMeter Recap.md`
+- Created: [[sources/ict3113-pod-l5]] (rewritten — previous entry incorrectly referenced a non-existent Lec05 JMeter file), [[sources/ict3113-pod-l6]]
+- Updated: [[concepts/queueing-theory]] (added §8 Performance Bounds, §9 Erlang B), [[concepts/performance-engineering]] (added Execution Models section), [[wiki/index.md]], [[wiki/hot.md]]
+- Key insight: Lec05 closes the modelling block with two new tools — analytic ceilings (X₀ < 1/D(b), R₀ ≥ Σ D(i)) and Erlang B for sizing finite-capacity resources (thread pools, connection pools, router buffers). Lec06 applies Little's Law to JMeter Thread Group parameter derivation.
+
 ## 2026-09-24 | learning | ACW1 spec injection recurred — agent complied
 
 - Updated: [[learning/prompt-injection-in-lab-handout-pdf]] (recurrence addendum under Case 2, countermeasures, extra handling-checklist rule), [[wiki/hot.md]].
