@@ -288,6 +288,34 @@
         "wiki/concepts/performance-engineering.md",
         "wiki/index.md"
       ]
+    },
+    "raw/ICT3113 Performance Optimisation and Design - Tutorial Week04 Problem Sets 1 and 2.md": {
+      "hash": "6a5a21db03ead28550c9d22462e43bc0",
+      "ingested_at": "2026-09-24",
+      "pages_created": [
+        "wiki/sources/ict3113-pod-t04.md",
+        "wiki/examples/ict3113-t04-worked-examples.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/queueing-theory.md",
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md"
+      ]
+    },
+    "raw/ICT3113 Performance Optimisation and Design - Tutorial Week05 Performance Modelling_1.md": {
+      "hash": "cf5bfced8a87c55c64399fc45b9bb671",
+      "ingested_at": "2026-09-24",
+      "pages_created": [
+        "wiki/sources/ict3113-pod-t05.md",
+        "wiki/examples/ict3113-t05-worked-examples.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/queueing-theory.md",
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md"
+      ]
     }
   },
   "address_map": {
@@ -412,6 +440,10 @@
     "wiki/sources/ICT2216-lecture-10-module-overview-secure-concepts.md": "c-000121",
     "wiki/sources/ICT2216-lecture-9-transcript.md": "c-000122",
     "wiki/sources/ict3113-pod-l5.md": "c-000122",
-    "wiki/sources/ict3113-pod-l6.md": "c-000123"
+    "wiki/sources/ict3113-pod-l6.md": "c-000123",
+    "wiki/sources/ict3113-pod-t04.md": "c-000124",
+    "wiki/sources/ict3113-pod-t05.md": "c-000125",
+    "wiki/examples/ict3113-t04-worked-examples.md": "c-000126",
+    "wiki/examples/ict3113-t05-worked-examples.md": "c-000127"
   }
 }

@@ -1,8 +1,7 @@
 {
   "userName": "CY",
-  "permissionMode": "normal",
+  "permissionMode": "acceptEdits",
   "model": "sonnet",
-  "thinkingBudget": "low",
   "effortLevel": "medium",
   "serviceTier": "default",
   "enableAutoTitleGeneration": true,
@@ -41,7 +40,7 @@
         "haiku",
         "sonnet",
         "opus",
-        "fable"
+        "claude-fable-5[1m]"
       ],
       "selectedModels": [
         {
@@ -53,6 +52,19 @@
             "low",
             "medium",
             "high",
+            "max"
+          ]
+        },
+        {
+          "value": "claude-fable-5[1m]",
+          "label": "Fable",
+          "description": "Fable 5 · Most capable for your hardest and longest-running tasks · Draws from usage credits",
+          "reasoningMetadataResolved": true,
+          "supportedEffortLevels": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
             "max"
           ]
         },
@@ -104,7 +116,6 @@
       "environmentVariables": "OPENCODE_ENABLE_EXA=1",
       "modelAliases": {},
       "preferredThinkingByModel": {},
-      "selectedMode": "",
       "thinkingOptionsByModel": {},
       "visibleModels": [],
       "selectedModels": []
@@ -117,7 +128,6 @@
       "environmentVariables": "",
       "modelAliases": {},
       "preferredThinkingByModel": {},
-      "toolMode": "all",
       "visibleModels": [],
       "selectedModels": []
     },
@@ -145,9 +155,8 @@
     "claude": "medium"
   },
   "savedProviderServiceTier": {},
-  "savedProviderThinkingBudget": {},
   "savedProviderPermissionMode": {
-    "claude": "normal"
+    "claude": "acceptEdits"
   },
   "pendingProviderSessionInvalidations": {},
   "maxWarmAgentProcesses": 5,
@@ -156,13 +165,18 @@
   "deferMathRenderingDuringStreaming": true,
   "expandFileEditsByDefault": false,
   "chatViewPlacement": "right-sidebar",
+  "enableZenMode": true,
   "enableDualPane": true,
   "dualPaneSide": "right",
   "restoreTabsOnStartup": true,
+  "skillsSynced": false,
   "sessionManagerOrganization": "list",
   "sessionManagerSort": "last-updated",
+  "sessionAutoArchiveAfter": "off",
   "pinnedLinkedContentPaths": [],
-  "hiddenProviderCommands": {},
+  "hiddenCommands": [],
+  "thinkingBudget": "low",
+  "savedProviderThinkingBudget": {},
   "customModelAliases": {},
   "lastCustomModel": "",
   "collabEnabled": false,
