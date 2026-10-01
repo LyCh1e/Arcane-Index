@@ -10,6 +10,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-09-24 | ingest | ICT3113 POD Tutorial Week 04 & 05
+
+- Sources: `raw/ICT3113 Performance Optimisation and Design - Tutorial Week04 Problem Sets 1 and 2.md`, `raw/ICT3113 Performance Optimisation and Design - Tutorial Week05 Performance Modelling_1.md`
+- Created: [[sources/ict3113-pod-t04]], [[sources/ict3113-pod-t05]], [[examples/ict3113-t04-worked-examples]], [[examples/ict3113-t05-worked-examples]]
+- Updated: [[concepts/queueing-theory]] (Erlang B recursion formula added to §9.2; table expanded to ρ=0.25–4, m=1–10), [[wiki/index.md]], [[wiki/hot.md]]
+- Key insight: Tutorial Week 05 adds the Erlang B recursion B(m) = ρB(m−1)/(m+ρB(m−1)) (avoids factorials, works for any ρ) and a complete reference table. Tutorial Week 04 demonstrates retry visit-count (V=1/(1−p)), growth-to-saturation (U(t)=U₀×(1+g)^t), and read-replica demand splitting as exam-ready capacity planning techniques.
+
 ## 2026-09-24 | ingest | ICT3113 POD Lec05 & Lec06
 
 - Sources: `raw/ICT3113 Performance Optimisation and Design - Lec05 Estimating Performance and Lost Work.md`, `raw/ICT3113 Performance Optimisation and Design - Lec06 JMeter Recap.md`

@@ -113,6 +113,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3113-pod-l4\|ICT3113 POD — L4: Performance Modelling (II)]] | lecture-slides | performance-engineering | 2026-09-14 |
 | [[sources/ict3113-pod-l5\|ICT3113 POD — L5: Estimating Performance and Lost Work]] | lecture-slides | performance-engineering | 2026-09-24 |
 | [[sources/ict3113-pod-l6\|ICT3113 POD — L6: JMeter Recap]] | lecture-slides | performance-engineering | 2026-09-24 |
+| [[sources/ict3113-pod-t04\|ICT3113 POD — Tutorial Week 04: Problem Sets 1 and 2]] | tutorial | performance-engineering | 2026-09-24 |
+| [[sources/ict3113-pod-t05\|ICT3113 POD — Tutorial Week 05: Performance Modelling]] | tutorial | performance-engineering | 2026-09-24 |
 | [[sources/opencv-docs\|OpenCV Official Documentation — docs.opencv.org]] | documentation | computer-vision | 2026-09-04 |
 | [[sources/inf2005-csf-crypto1\|INF2005 CSF — Cryptography 1: Key Concepts (Symmetric)]] | lecture-notes | cryptography | 2026-09-07 |
 | [[sources/inf2005-csf-crypto2\|INF2005 CSF — Cryptography 2: Asymmetric, Hashing & Cryptanalysis]] | lecture-notes | cryptography | 2026-09-07 |
@@ -299,6 +301,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict3113-lab1-profiling\|ICT3113 Lab 1 — Introduction to Profiling]] | lab | ICT3113 / performance-engineering | [[concepts/python-profiling\|Python Profiling]] |
 | [[examples/ict3113-lab2-jmeter-testing\|ICT3113 Lab 2 — Introduction to Testing (Flask Profiling + JMeter)]] | lab | ICT3113 / performance-engineering | [[concepts/performance-metrics\|Performance Metrics]] |
 | [[examples/ict3113-a1-ticket-triage-service\|ICT3113 Assignment 1 — Ticket Triage Service (FastAPI + Ollama + Docker)]] | project | ICT3113 / performance-engineering | [[resources/ollama-local-inference\|Ollama]] |
+| [[examples/ict3113-t04-worked-examples\|ICT3113 Tutorial Week 04 — Worked Examples (pipeline capacity, retries, replicas)]] | tutorial | ICT3113 / performance-engineering | [[concepts/queueing-theory\|Queueing Theory]] |
+| [[examples/ict3113-t05-worked-examples\|ICT3113 Tutorial Week 05 — Worked Examples (bounds, MapReduce, Erlang B)]] | tutorial | ICT3113 / performance-engineering | [[concepts/queueing-theory\|Queueing Theory]] |
 | [[examples/ict2216-project-phase4-auth\|ICT2216 Project — Phase 4: Authentication (Register/Login/MFA/Logout)]] | project | ICT2216 / secure-software-development | [[concepts/secure-software-requirements\|Secure Software Requirements]] |
 | [[examples/ict2216-project-deployment-phases-9-12\|ICT2216 Project — Phases 9–12: Frontend Wiring, Hardening & EC2 Deployment]] | project | ICT2216 / devops | [[concepts/docker-compose\|Docker Compose]] |
 | [[examples/ict2216-practical-test-secure-webapp\|ICT2216 Practical Test — Secure Web App + Full DevSecOps Stack (Gitea, act_runner, SonarQube, ESLint)]] | project | ICT2216 / secure-software-development | [[concepts/github-actions-cicd\|GitHub Actions CI/CD]] |

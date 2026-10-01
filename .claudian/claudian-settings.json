@@ -47,7 +47,7 @@
         {
           "value": "sonnet",
           "label": "Sonnet",
-          "description": "Sonnet 4.6 · Efficient for routine tasks · $3/$15 per Mtok",
+          "description": "Sonnet 4.6 · Efficient for routine tasks",
           "reasoningMetadataResolved": true,
           "supportedEffortLevels": [
             "low",
@@ -57,9 +57,22 @@
           ]
         },
         {
+          "value": "opus",
+          "label": "Opus",
+          "description": "Opus 4.8 · Best for everyday, complex tasks · ~2× usage vs Sonnet",
+          "reasoningMetadataResolved": true,
+          "supportedEffortLevels": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        {
           "value": "haiku",
           "label": "Haiku",
-          "description": "Haiku 4.5 · Fastest for quick answers · $1/$5 per Mtok",
+          "description": "Haiku 4.5 · Fastest for quick answers",
           "reasoningMetadataResolved": true,
           "supportedEffortLevels": []
         }

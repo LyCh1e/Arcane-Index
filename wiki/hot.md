@@ -10,6 +10,14 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-09-24. **Session: ingest — ICT3113 POD Tutorial Week 04 & 05.** Created: [[sources/ict3113-pod-t04]], [[sources/ict3113-pod-t05]], [[examples/ict3113-t04-worked-examples]], [[examples/ict3113-t05-worked-examples]]. Updated: [[concepts/queueing-theory]] (Erlang B recursion + extended table).
+
+**Tutorial Week 04** covers two problem sets. PS1 (e-commerce API): retry visit count V=1/(1−p) gives attempt rate and utilisation; minimum instances = ceil(offered_load / U_cap); working backwards through yield stages. PS2 (food delivery): mixed workload weighted demand; fan-out via Forced Flow Law; per-server demand for bottleneck; growth to saturation U(t)=U₀×(1+g)^t (saturates Year 2 at g=20%, U₀=80%); read-replica primary demand = D_writes + D_reads/(1+replicas).
+
+**Tutorial Week 05** covers the Lec05 toolkit directly. Q1: read S, R, λ, X, W from a job log — all five quantities from two columns. Q2: D_i = V_i × S_i; R_min = Σ D_i = 155 ms; X_max = 1/D_max = 25 req/s (Device 4 bottleneck). Q3: MapReduce execution model — Map serial (0.015r), Compute parallel (0.1r/n), Reduce serial (n); optimal n* = √(0.1r). Q4: Erlang B recursion B(m) = ρB(m−1)/(m+ρB(m−1)), B(0)=1; ρ=0.75 → m=5 at 0.093% loss. New: extended Erlang B table (ρ=0.25–4, m=1–10) added to [[concepts/queueing-theory]] §9.
+
+---
+
 2026-09-24. **Session: ingest — ICT3113 POD Lec05 & Lec06.** Created: [[sources/ict3113-pod-l5]] (Estimating Performance and Lost Work), [[sources/ict3113-pod-l6]] (JMeter Recap). Updated: [[concepts/queueing-theory]] (§8 bounds, §9 Erlang B), [[concepts/performance-engineering]] (execution models), [[wiki/index.md]], [[wiki/log.md]].
 
 **Lec05 — Estimating Performance and Lost Work.** Two new analytical tools completing the modelling block:
