@@ -2,13 +2,43 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-09-24
+updated: 2026-10-02
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-10-02. **Session: autoresearch — File-Format Prompt Injection.** New: [[concepts/file-format-prompt-injection]]. Updated: [[concepts/prompt-injection]] (cross-link), [[wiki/index.md]], [[wiki/log.md]].
+
+Researched file-format-specific prompt injection vectors: how adversarial instructions are hidden inside PDFs, images, CSV files, plain-text documents, and agent skill files in a way that looks normal to the sender but is read as commands by the LLM.
+
+**PDF** is the richest surface. Six concealment techniques: (1) white-on-white text (RGB fill > 0.9); (2) sub-2pt font; (3) off-page coordinates (negative x/y); (4) render mode 3 (invisible glyphs); (5) custom font glyph-code discrepancy; (6) metadata fields. Real-world scale: 17 academic preprints across 14 universities embedded bias instructions for AI peer reviewers — GPT-5-Mini and Gemini 2.5 Pro reached 100% acceptance-rate shift under positive injection. ManpowerGroup estimates ~100,000 CVs/year contain hidden text targeting AI screeners.
+
+**Images** bypass all string-level filters (the attack is pixel-encoded): typographic overlay, adversarial pixel perturbation (L∞ < 0.02), steganographic LSB/DCT encoding, EXIF metadata. Success rates up to 82% across GPT-4V, Claude 3, and LLaVA.
+
+**CSV/XLSX**: natural-language override instructions in cells, or hidden rows (height 0). **Plain text/Markdown**: invisible Unicode characters (U+200B, tag block U+E0000–U+E007F); HTML comments; acrostic encoding. Acrostic attacks achieve only 0.424 paired-rank detection accuracy — the hardest variant to detect automatically.
+
+**Skill files** (YAML/Python agent extensions): injected docstrings and `description` fields are authoritative context at skill-load time. SKILL-INJECT benchmark (202 pairs) confirmed high success rates across Claude, OpenAI, and Vercel agents.
+
+**Key detection insight (CrackedPDFs benchmark, 29,322 PDFs):** structural analysis (detect *how* text is hidden, not *what* it says) achieves F1 = 0.960, ROC-AUC = 0.998. Text-only classifiers (PromptGuard-style) achieve only F1 = 0.390. Image-based PDF rendering defeats most PDF-text attacks but is not a permanent fix.
+
+---
+
+2026-10-02. **Session: build + ingest — ICT3112 SVV Lab 4 (Selenium browser-based system testing).** New: [[sources/ict3112-svv-lab4]], [[concepts/browser-based-system-testing]], [[examples/ict3112-lab4-selenium-browser-testing]]. Updated: [[concepts/software-testing-fundamentals]] (labels depend on the boundary), [[learning/prompt-injection-in-lab-handout-pdf]] (Lab 3/4 clean), [[wiki/index.md]], [[wiki/log.md]].
+
+**Handout theory in one line:** a Selenium test of our local app is a browser-based functional *system* test — not automatically end-to-end, not the same as acceptance/UAT; the pyramid is a guide, not a ratio; keep EP/BVA cases in unit tests and only representative journeys in the browser.
+
+Copied the Lab 3 solution to `Labs/Lab4/SOFTEST_INTRO_Labs` and followed the handout's arc so each checkpoint was real. An ASP.NET Core minimal-API page (`data-testid` hooks, `/calculate` with a deliberate 300 ms delay) sits in front of `Calculator`. A new NUnit `WebUiTests` project references only Web. Red first ("6" vs "5"). Removing `Thread.Sleep` failed 3/3 with an empty result, and an explicit `WebDriverWait` on non-empty text passed 3/3. Then came the Page Object (`CalculatorPage`, no assertions), headless mode, and `BrowserFactory` (Chrome/Firefox). Final: 75 unit + 4 integration + 23 acceptance + 2 browser = 104.
+
+**Key idea worth remembering:** `WebApplicationFactory<Program>().UseKestrel(0)` hosts the real app on an OS-chosen port that a real browser can reach (the default TestServer is in-memory only). The fixture disposes only an app it created. When `SOFTEST_INTRO_BASE_URL` is set, it validates and reuses an external server and never stops it. That ownership split also separates "server unreachable" (OneTimeSetUp) from "browser failed to start" (SetUp).
+
+**Surprise:** Firefox was not installed, yet the Firefox run passed. Selenium Manager 4.50 downloaded a browser itself (72 s first run).
+
+**Honest gap:** nothing was committed or pushed. The CI workflow (repo root, `working-directory: Lab4/SOFTEST_INTRO_Labs`) was replayed command-for-command on a clean copy, and the deliberate 5→6 CI failure was shown there (exit 1).
+
+---
 
 2026-09-24. **Session: ingest — ICT3113 POD Tutorial Week 04 & 05.** Created: [[sources/ict3113-pod-t04]], [[sources/ict3113-pod-t05]], [[examples/ict3113-t04-worked-examples]], [[examples/ict3113-t05-worked-examples]]. Updated: [[concepts/queueing-theory]] (Erlang B recursion + extended table).
 

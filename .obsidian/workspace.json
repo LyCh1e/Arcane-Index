@@ -20,9 +20,13 @@
                     {
                       "tabId": "tab-1790149742271-onhb4wf",
                       "conversationId": "conv-1790149794541-oglouo9hz"
+                    },
+                    {
+                      "tabId": "tab-1790930976894-k8d5nqd",
+                      "conversationId": "conv-1790931003628-40dgeu2w4"
                     }
                   ],
-                  "activeTabId": "tab-1790149742271-onhb4wf"
+                  "activeTabId": "tab-1790930976894-k8d5nqd"
                 }
               },
               "pinned": true,
@@ -140,8 +144,7 @@
               "title": "log"
             }
           }
-        ],
-        "currentTab": 8
+        ]
       }
     ],
     "direction": "vertical"
@@ -330,8 +333,14 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "49d1a90f1ebc5a61",
+  "active": "c34294748e14f3a7",
   "lastOpenFiles": [
+    "wiki/concepts/file-format-prompt-injection.md",
+    "wiki/concepts/file-format-prompt-injection.md.tmp.15336.afc53bc0f2a0",
+    "wiki/concepts/browser-based-system-testing.md",
+    "wiki/sources/ict3112-svv-lab4.md",
+    "raw/ICT3112 Software Verification and Validation - Lab4_BrowserBasedSystemTesting.md",
+    "study-notes/log.md",
     "wiki/log.md.tmp.17000.d0e833783032",
     "wiki/index.md.tmp.17000.52bfdcf2c3ff",
     "wiki/concepts/queueing-theory.md.tmp.17000.542be9b7186b",
@@ -353,7 +362,6 @@
     "skills/notes-maker/SKILL.md",
     "skills/notes-maker",
     "agents/tutor.md",
-    "study-notes/log.md",
     "agents/tutor-topic-history.md",
     "agents/tutor-artifact-links.md",
     "study-notes/index.md",
@@ -364,11 +372,6 @@
     "study-notes/INF2005 - Formula Sheet.md",
     "study-notes/daily-reads/2026-09-27-INF2005.md",
     "study-notes/daily-reads/2026-09-27-ICT3113.md",
-    "study-notes/daily-reads/2026-09-27-ICT3112.md",
-    "study-notes/daily-reads/2026-09-24.md",
-    "study-notes/daily-reads/2026-09-24-ICT3113.md",
-    "Claude outputs/2026-09-27-INF2005.html",
-    "Claude outputs/2026-09-27-ICT3113.html",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",
     "claude-obsidian-main/wiki/canvases/claude-obsidian-presentation.canvas",

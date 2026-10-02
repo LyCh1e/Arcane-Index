@@ -2,13 +2,33 @@
 type: meta
 status: established
 title: "Operation Log"
-updated: 2026-09-24
+updated: 2026-10-02
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## 2026-10-02 | autoresearch | File-Format Prompt Injection
+
+- Research method: 5 web searches + 4 deep fetches (DEV Community, arXiv 2509.10248, CrackedPDFs arXiv 2607.19396, SKILL-INJECT arXiv 2602.20156)
+- Created: [[concepts/file-format-prompt-injection]]
+- Updated: [[concepts/prompt-injection]] (cross-link added), [[wiki/index.md]], [[wiki/hot.md]], [[wiki/log.md]]
+- Key sources: CrackedPDFs benchmark (29,322 PDFs), SKILL-INJECT (202 injection-task pairs), LLM peer-review manipulation study (17 papers, 14 universities), ManpowerGroup CVs (100k/year), CSA image-injection report 2026
+
+## 2026-10-02 | ingest | ICT3112 SVV Lab 4 handout
+
+- Source: `raw/ICT3112 Software Verification and Validation - Lab4_BrowserBasedSystemTesting.md` (pypdf extraction of the 20-page handout)
+- Created: [[sources/ict3112-svv-lab4]], [[concepts/browser-based-system-testing]]
+- Updated: [[concepts/software-testing-fundamentals]] (boundary-dependent test-label table; pyramid-is-a-guide caveat), [[learning/prompt-injection-in-lab-handout-pdf]] (Lab 3 + Lab 4 added to clear checks), [[examples/ict3112-lab4-selenium-browser-testing]] (links), [[wiki/index.md]], [[wiki/hot.md]]
+- Key insight: test labels depend on the chosen boundary — a Selenium test of a local app is a browser-based *system* test, not automatically end-to-end, and not synonymous with acceptance testing. Injection scan targeted the Lab 1 pattern (hidden white/spaced text) — clean.
+
+## 2026-10-02 | build | ICT3112 SVV Lab 4 — Selenium browser testing
+
+- Repo output: `Labs/Lab4/SOFTEST_INTRO_Labs/` (+ Web, WebUiTests), `Labs/Lab4/LAB4_NOTES.md`, root `.github/workflows/dotnet.yml` retargeted to Lab 4, README updated. Not committed/pushed.
+- Created: [[examples/ict3112-lab4-selenium-browser-testing]]. Updated: [[wiki/index.md]], [[wiki/hot.md]].
+- Key insight: `WebApplicationFactory.UseKestrel(0)` gives Selenium a real port; the fixture-owns vs externally-hosted split (`SOFTEST_INTRO_BASE_URL`) separates server-down from browser-startup failures. Selenium Manager will download Firefox itself if it is missing. Handout PDF clean.
 
 ## 2026-09-24 | ingest | ICT3113 POD Tutorial Week 04 & 05
 

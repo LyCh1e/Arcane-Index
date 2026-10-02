@@ -5,7 +5,7 @@ domain: software-engineering
 complexity: high
 status: established
 created: 2026-05-21
-updated: 2026-05-21
+updated: 2026-10-02
 tags: [software-testing, quality-assurance, unit-testing, integration-testing, system-testing, acceptance-testing, testing-pyramid, regression-testing, static-testing, dynamic-testing]
 ---
 
@@ -91,6 +91,18 @@ The final gate before release. Verifies the system meets business requirements a
 - **Alpha testing** — internal users test the pre-release system
 - **Beta testing** — external users test a near-final release in production-like conditions
 
+### Labels depend on the boundary (ICT3112 Lab 4)
+
+| Test | Primary evidence | Does not establish alone |
+|---|---|---|
+| Unit | Focused rule correct under controlled inputs | System works through its external interface |
+| Integration | Selected components / real dependency cooperate | Every component and journey works as a whole |
+| Acceptance | Agreed example of required behaviour satisfied | A technical layer — need not use a browser |
+| Browser UI / system | Integrated local system behaves via the browser | Every production service is present |
+| End-to-end | Representative journey across the production-like boundary | All journeys, failures or qualities |
+
+Browser test ≠ automatically end-to-end; acceptance ≠ browser ≠ UAT; test *level* (scope) and *technique* (white/black-box derivation) are separate axes. Detail: [[concepts/browser-based-system-testing]].
+
 ---
 
 ## The Testing Pyramid
@@ -108,6 +120,8 @@ Coined by Mike Cohn (*Succeeding with Agile*, 2009); formalised by Martin Fowler
 ```
 
 **Recommended distribution**: 70% unit — 20% integration — 10% end-to-end.
+
+> ICT3112 Lab 4 caveat: the pyramid is a *guiding model*, not a required ratio — the right balance depends on the system, its risks and the evidence needed ([[sources/ict3112-svv-lab4]]).
 
 ### Anti-Pattern: Ice Cream Cone
 
@@ -212,6 +226,7 @@ This applies equally to other testing metrics (code coverage %, bug count, etc.)
 
 ## Key Connections
 
+- [[concepts/browser-based-system-testing]] — Selenium system tests at the top of the pyramid: explicit waits, Page Objects, hosting ownership, CI orchestration (ICT3112 Lab 4)
 - [[concepts/test-driven-development]] — TDD keeps the unit-test layer dense and current by writing tests before code
 - [[concepts/test-design-techniques]] — black-box and white-box design techniques that populate each layer
 - [[concepts/whitebox-testing-techniques]] — detailed CFG, coverage criteria, cyclomatic complexity, LCSAJ (ICT3112)

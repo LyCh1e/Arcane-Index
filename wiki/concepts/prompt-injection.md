@@ -239,3 +239,4 @@ Only **18%** of organisations have fully implemented AI governance frameworks de
 | [[concepts/threat-modeling]] | Promptware Kill Chain maps onto STRIDE: Spoofing (impersonating user intent), Tampering (poisoning RAG), Elevation of Privilege (jailbreaking safety), Denial of Service (forcing refusal loops) |
 | [[concepts/social-engineering]] | Indirect prompt injection is a technical analogue of social engineering: both manipulate a trusted actor (human / LLM) into taking unintended actions via crafted input |
 | [[concepts/secure-input-validation]] | LLM input validation draws on the same allow-list-over-block-list principles as traditional input validation, applied at the semantic layer |
+| [[concepts/file-format-prompt-injection]] | Deep-dive sub-page: file-format-specific attack vectors — PDF hidden text, image steganography, CSV formula cells, invisible Unicode in TXT/MD, skill file injection |

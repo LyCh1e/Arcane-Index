@@ -194,20 +194,32 @@ shown to the student immediately after they tap an option.
 Check the "Artefact Links" table in `study-notes/log.md` (already read in
 Step 3).
 
+Every page's name — both the in-page `<title>` tag (and its matching
+`<h1>`) and, on a module's first publish, the Artifact tool's `title`
+parameter — follows one fixed format: **`<MODULE> <Title> Study & Quiz`**,
+where `<Title>` is that module's human-readable title exactly as it
+appears in the "Title" column of `study-notes/index.md`'s "Create Study
+Notes For" table (e.g. `ICT3113 Performance Optimisation and Design Study
+& Quiz`). Use this full form every run, not just on first publish — update
+the `<title>`/`<h1>` text in the HTML even on a plain republish, since the
+Artifact tool's `title` parameter is only a fallback and the in-page
+`<title>` tag is what actually names the page.
+
 - **If this module already has a URL on file**, build the page content (no
   `<!doctype>`/`<html>`/`<head>`/`<body>` — the Artifact tool wraps the file
   in its own skeleton — starting with `<title>`, then `<style>`, then the
   body markup) and call the `Artifact` tool to **republish to that same
   URL** (pass `url=<the recorded link>`). Omit `icon` and `title` on this
   republish (they only apply on first publish; omitting them keeps the
-  artefact's existing identity stable).
+  artefact's existing identity stable) — the page's own `<title>`/`<h1>`
+  is what carries the `<MODULE> <Title> Study & Quiz` name regardless.
 - **If this module has no URL on file yet** (a new row was added to
   `study-notes/index.md` since the last run), build the same page and
   publish it **fresh, without a `url` parameter**, passing `icon="quiz"`
-  and a short 2–4 word `title` (e.g. "`<MODULE>` Quiz"). Record the URL the
-  tool returns as a new row in the "Artefact Links" table in
-  `study-notes/log.md` — from then on, every future run republishes to
-  that same URL.
+  and `title="<MODULE> <Title> Study & Quiz"` (the same full format, not a
+  short 2–4 word title). Record the URL the tool returns as a new row in
+  the "Artefact Links" table in `study-notes/log.md` — from then on, every
+  future run republishes to that same URL.
 
 Never publish fresh for a module that already has a URL recorded — that
 would create a duplicate page and break the student's existing phone

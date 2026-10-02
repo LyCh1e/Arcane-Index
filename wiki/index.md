@@ -2,7 +2,7 @@
 type: meta
 status: established
 title: "Wiki Index"
-updated: 2026-09-15T00:00:00
+updated: 2026-10-02
 tags: [meta, index]
 ---
 
@@ -107,6 +107,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3112-svv-l6-0\|ICT3112 SVV — L6.0: Blackbox Testing — Intro and Use Case Testing]] | lecture-slides | software-verification-validation | 2026-08-31 |
 | [[sources/ict3112-svv-l6-1\|ICT3112 SVV — L6.1: Equivalence Partitioning and Boundary Value Analysis]] | lecture-slides | software-verification-validation | 2026-08-31 |
 | [[sources/ict3112-svv-l6-2\|ICT3112 SVV — L6.2: Decision Table Testing and State Transition Testing]] | lecture-slides | software-verification-validation | 2026-08-31 |
+| [[sources/ict3112-svv-lab4\|ICT3112 SVV — Lab 4: Browser-based System Testing with Selenium]] | lab-handout | software-verification-validation | 2026-10-02 |
 | [[sources/ict3113-pod-l1\|ICT3113 POD — L1: Course Overview]] | lecture-slides | performance-engineering | 2026-08-31 |
 | [[sources/ict3113-pod-l2\|ICT3113 POD — L2: Performance Metrics and System Modelling]] | lecture-slides | performance-engineering | 2026-08-31 |
 | [[sources/ict3113-pod-l3\|ICT3113 POD — L3: Workload Identification]] | lecture-slides | performance-engineering | 2026-09-07 |
@@ -159,6 +160,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/software-testing-fundamentals\|Software Testing Fundamentals]] | software-engineering | high |
 | [[concepts/test-driven-development\|Test-Driven Development (TDD) and BDD]] | software-engineering | high |
 | [[concepts/test-doubles-and-dependency-injection\|Test Doubles and Dependency Injection]] | software-engineering | medium |
+| [[concepts/browser-based-system-testing\|Browser-based System Testing (Selenium)]] | software-engineering | medium |
 | [[concepts/test-design-techniques\|Test Design Techniques]] | software-engineering | high |
 | [[concepts/discrete-mathematics-foundations\|Discrete Mathematics Foundations]] | mathematics | medium |
 | [[concepts/combinatorics\|Combinatorics]] | mathematics | medium |
@@ -260,6 +262,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/static-code-analysis\|Static Code Analysis]] | secure-software-development | high |
 | [[concepts/social-engineering\|Social Engineering]] | secure-software-development | high |
 | [[concepts/prompt-injection\|Prompt Injection]] | ai-engineering | high |
+| [[concepts/file-format-prompt-injection\|File-Format Prompt Injection]] | ai-engineering | high |
 | [[concepts/browser-extensions\|Browser Extensions]] | web-development | high |
 | [[concepts/blockchain-microcredentials\|Blockchain Microcredentials and Verifiable Credentials]] | blockchain | high |
 | [[concepts/bitcoin-history\|History of Bitcoin]] | blockchain | high |
@@ -298,6 +301,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict3112-lab1-nunit-tdd-calculator\|ICT3112 SVV Lab 1 — NUnit + TDD Calculator]] | lab | ICT3112 / software-verification-validation | [[concepts/test-driven-development\|Test-Driven Development]] |
 | [[examples/ict3112-lab2-reqnroll-bdd\|ICT3112 SVV Lab 2 — Reqnroll BDD + Acceptance Testing]] | lab | ICT3112 / software-verification-validation | [[concepts/test-driven-development\|Test-Driven Development]] |
 | [[examples/ict3112-lab3-ci-and-dependencies\|ICT3112 SVV Lab 3 — CI + Testing with Dependencies]] | lab | ICT3112 / software-verification-validation | [[concepts/test-doubles-and-dependency-injection\|Test Doubles and Dependency Injection]] |
+| [[examples/ict3112-lab4-selenium-browser-testing\|ICT3112 SVV Lab 4 — Selenium Browser-based System Testing]] | lab | ICT3112 / software-verification-validation | [[concepts/browser-based-system-testing\|Browser-based System Testing]] |
 | [[examples/ict3113-lab1-profiling\|ICT3113 Lab 1 — Introduction to Profiling]] | lab | ICT3113 / performance-engineering | [[concepts/python-profiling\|Python Profiling]] |
 | [[examples/ict3113-lab2-jmeter-testing\|ICT3113 Lab 2 — Introduction to Testing (Flask Profiling + JMeter)]] | lab | ICT3113 / performance-engineering | [[concepts/performance-metrics\|Performance Metrics]] |
 | [[examples/ict3113-a1-ticket-triage-service\|ICT3113 Assignment 1 — Ticket Triage Service (FastAPI + Ollama + Docker)]] | project | ICT3113 / performance-engineering | [[resources/ollama-local-inference\|Ollama]] |

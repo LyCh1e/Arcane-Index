@@ -40,7 +40,7 @@
         "haiku",
         "sonnet",
         "opus",
-        "claude-fable-5[1m]"
+        "claude-fable-5-1[1m]"
       ],
       "selectedModels": [
         {
@@ -56,9 +56,9 @@
           ]
         },
         {
-          "value": "claude-fable-5[1m]",
+          "value": "claude-fable-5-1[1m]",
           "label": "Fable",
-          "description": "Fable 5 · Most capable for your hardest and longest-running tasks · Draws from usage credits",
+          "description": "Fable 5.1 · Most capable for your hardest and longest-running tasks · Draws from usage credits",
           "reasoningMetadataResolved": true,
           "supportedEffortLevels": [
             "low",

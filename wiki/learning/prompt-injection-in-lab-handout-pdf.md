@@ -2,7 +2,7 @@
 type: learning
 status: established
 title: "Prompt injection embedded in a course lab PDF"
-updated: 2026-09-24
+updated: 2026-10-02
 tags: [learning, security, prompt-injection, ai-agents, ict3112, ict3113, inf2005]
 ---
 
@@ -128,6 +128,8 @@ Full write-up: [[examples/ict3112-lab2-reqnroll-bdd]].
 
 - **INF2005 Cryptography Lab Wk 1** (`Cryptography Lab Wk 1 AY26.pdf`, team-challenge PDF) — checked 2026-09-03, nothing hidden. See [[examples/inf2005-lab-wk1-cryptography]].
 - **ICT3113 Lab 1 profiling notebook** — student skeleton, no injected text.
+- **ICT3112 SVV Lab 3** (`Lab3_ContinuousIntegration_TestingDependencies.pdf`) — text, metadata, annotations checked 2026-09-19; clean. See [[learning/ict3112-lab3-tooling-gotchas]].
+- **ICT3112 SVV Lab 4** (`Lab4_BrowserBasedSystemTesting.pdf`) — checked 2026-10-02 against the Case 1 pattern specifically: no white/near-white fill, no text < 4 pt, no spaced-out letter runs, no Case 1 phrases (`pdftotext` + `pypdf`), 13 reference-link annotations only, no embedded files/JS/OpenAction. The step-14 "change 5 to 6 and push" is a visible, explained, immediately-reverted exercise (Case 3 family, benign). See [[sources/ict3112-svv-lab4]].
 
 Recording the negatives matters: "checked and clean" is a different claim from "didn't look".
 
