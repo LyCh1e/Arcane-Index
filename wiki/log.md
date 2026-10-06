@@ -10,6 +10,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-10-06 | ingest | ICT3113 POD Lec07 — Performance Testing
+
+- Source: `raw/ICT3113 Performance Optimisation and Design - Lec07 Performance Testing.md` (65 slides)
+- Created: [[sources/ict3113-pod-l7]]
+- Updated: [[concepts/performance-engineering]] (§Performance Testing added — six test types, open/closed loop, Bondi requirement structure, Eckhardt sentence patterns, test environment, playbook), [[wiki/index.md]], [[wiki/hot.md]], [[wiki/log.md]]
+- Key insights: pipe-clean test — "green means the test ran, not that the system worked"; open-loop vs closed-loop distinction changes what is measured; stress test catches failure modes that load tests cannot; soak test slope (not absolute growth) is the actionable number; benchmark ranking depends on load — always attach the load to the result
+
 ## 2026-10-02 | autoresearch | File-Format Prompt Injection
 
 - Research method: 5 web searches + 4 deep fetches (DEV Community, arXiv 2509.10248, CrackedPDFs arXiv 2607.19396, SKILL-INJECT arXiv 2602.20156)

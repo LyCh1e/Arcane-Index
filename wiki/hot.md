@@ -10,6 +10,30 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-10-06. **Session: ingest — ICT3113 POD Lec07 (Performance Testing).** New: [[sources/ict3113-pod-l7]]. Updated: [[concepts/performance-engineering]] (§Performance Testing), [[wiki/index.md]], [[wiki/log.md]].
+
+Lec07 closes the model-to-measurement arc: you have a workload model (Lec03) and a queueing prediction (Lec04/05), now you check both against the real system.
+
+**Four documents, different audiences:** requirements doc (everyone — the contract), measurement plan (instruments), test plan (playbook + load model), capacity management plan (operations post-launch).
+
+**Bondi's 10-field requirement structure.** Fields 3 (statement), 6 (derivation), 8 (assumptions), 9 (measurement) are where requirements most often fail. The statement must name the request, the statistic, the condition, and the time scale in a single sentence.
+
+**Open-loop vs closed-loop.** Closed-loop (standard JMeter Thread Group): each virtual user waits for its reply before sending the next — load backs off as the system slows, masking saturation. Open-loop (Open Model Thread Group): requests arrive at a fixed rate regardless of replies — queue grows if system falls behind. Use open-loop whenever results will be compared with queueing-model predictions.
+
+**Six test types, each answering a different question:**
+1. **Load** — does it meet the target at the expected load? (nothing varies)
+2. **Stress** — where does it break, and how? (load stepped upward past expected range) → reveals the knee, ceiling, and failure mode; Pokémon Go: planned 5×, got 50× — a stress test would have found the ceiling and the ungraceful collapse
+3. **Soak** — does it stay healthy over time? (time varies, load held steady) → report the slope, not absolute growth; extrapolate time to failure
+4. **Regression** — did the last change make it slower? (build varies, everything else fixed)
+5. **Benchmark** — how does it compare? (system varies, load is the standard) → ranking depends on the load, always attach it
+6. **Pipe-clean** — is the test itself correct? (low load, validate plumbing before every real run)
+
+**Critical insight (Demo 6):** generator reported 100% success, p95 39 ms, 4.9 req/s. Server created 0 orders — every request returned HTTP 200 with an error body. Assert on the body (`order_id` present), not the status code. Compare every result with the written-down prediction; reconcile generator count vs server log vs data store count — all three must agree.
+
+**Test environment principle:** match production in structure, not just size. Write down what the scaled-down environment does not test — that list is a result, not a caveat. Ceiling scales with cores; soak lifetime scales with RAM — they do not scale together.
+
+---
+
 2026-10-02. **Session: autoresearch — File-Format Prompt Injection.** New: [[concepts/file-format-prompt-injection]]. Updated: [[concepts/prompt-injection]] (cross-link), [[wiki/index.md]], [[wiki/log.md]].
 
 Researched file-format-specific prompt injection vectors: how adversarial instructions are hidden inside PDFs, images, CSV files, plain-text documents, and agent skill files in a way that looks normal to the sender but is read as commands by the LLM.

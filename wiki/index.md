@@ -114,6 +114,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3113-pod-l4\|ICT3113 POD — L4: Performance Modelling (II)]] | lecture-slides | performance-engineering | 2026-09-14 |
 | [[sources/ict3113-pod-l5\|ICT3113 POD — L5: Estimating Performance and Lost Work]] | lecture-slides | performance-engineering | 2026-09-24 |
 | [[sources/ict3113-pod-l6\|ICT3113 POD — L6: JMeter Recap]] | lecture-slides | performance-engineering | 2026-09-24 |
+| [[sources/ict3113-pod-l7\|ICT3113 POD — L7: Performance Testing]] | lecture-notes | performance-engineering | 2026-10-06 |
 | [[sources/ict3113-pod-t04\|ICT3113 POD — Tutorial Week 04: Problem Sets 1 and 2]] | tutorial | performance-engineering | 2026-09-24 |
 | [[sources/ict3113-pod-t05\|ICT3113 POD — Tutorial Week 05: Performance Modelling]] | tutorial | performance-engineering | 2026-09-24 |
 | [[sources/opencv-docs\|OpenCV Official Documentation — docs.opencv.org]] | documentation | computer-vision | 2026-09-04 |
