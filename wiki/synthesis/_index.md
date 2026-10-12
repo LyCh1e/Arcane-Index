@@ -27,6 +27,7 @@ Evolving "state of my understanding" pages — where disparate concepts, sources
 | [[synthesis/research-ai-workflows\|Research: AI Workflows]] | ai-engineering | 2026-06-23 | developing |
 | [[synthesis/research-data-mapping\|Research: Data Mapping]] | data-engineering | 2026-06-25 | developing |
 | [[synthesis/research-kubernetes\|Research: Kubernetes]] | devops | 2026-06-26 | developing |
+| [[synthesis/research-simple-saas-ideas\|Research: Simple SaaS Ideas Built From the Vault]] | business / software-engineering | 2026-10-12 | developing |
 
 ## How Synthesis Pages Work
 

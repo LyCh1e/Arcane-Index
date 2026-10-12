@@ -10,6 +10,12 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-10-12. **Session: research + ingest — Simple SaaS ideas.** New: [[synthesis/research-simple-saas-ideas]]. Updated: [[wiki/index.md]], [[wiki/log.md]], `raw/.manifest.json`.
+
+The vault holds the technical building blocks but nothing on SaaS markets, so web evidence was added. Six ideas ranked: (1) **Upload Guard**, a hidden-text / prompt-injection scanner for PDFs, CSVs and CVs, built on [[concepts/file-format-prompt-injection]] (structural detection F1 0.960 vs 0.390 for text classifiers); (2) a flat-price niche RAG support bot (commodity tiers $19–$399/month); (3) a PR performance-regression gate from the Lec07 test types; (4) cheap `did:web` credential issuing for small training providers; (5) a PDPA redaction gateway; (6) local-model ticket triage. Recommendation: validate Upload Guard with 10–20 conversations first. Figures are vendor or blog claims; competitors for ideas 1, 3, 5, 6 not checked.
+
+---
+
 2026-10-06. **Session: ingest — ICT3113 POD Lec07 (Performance Testing).** New: [[sources/ict3113-pod-l7]]. Updated: [[concepts/performance-engineering]] (§Performance Testing), [[wiki/index.md]], [[wiki/log.md]].
 
 Lec07 closes the model-to-measurement arc: you have a workload model (Lec03) and a queueing prediction (Lec04/05), now you check both against the real system.

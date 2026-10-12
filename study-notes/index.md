@@ -50,6 +50,7 @@ All exam notes and formula sheets in this folder. Each module has a full notes f
 
 ## See Also
 
+- [[ICT3113 - Performance Testing and Optimisation Cheat Sheet]] — ICT3113 testing types, JMeter sizing, Erlang B and optimisation levers with formulas and worked examples
 - [[wiki/index|Wiki Index]] — master catalogue of all ingested sources, concepts, and pages
 - [[wiki/hot|Recent Context]] — latest session output (~300 words)
 - [[wiki/log|Operation Log]] — chronological record of every ingest and update

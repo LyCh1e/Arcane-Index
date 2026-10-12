@@ -10,6 +10,21 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-10-12 | research | Simple SaaS Ideas
+
+- Research method: vault search first (no SaaS-market pages found), then 4 searches + 5 page fetches (Redwerk, Dodo Payments, Ailog, GetApp Accredible, PromptBrake)
+- Source: `raw/articles/simple-saas-market-evidence-2026-10-12.md`
+- Created: [[synthesis/research-simple-saas-ideas]]
+- Updated: [[wiki/index.md]], [[synthesis/_index]], [[wiki/hot.md]], `raw/.manifest.json`
+- Key insight: the vault's file-format prompt-injection page supports the cheapest product to test (Upload Guard); market numbers are unverified vendor or blog claims
+
+## 2026-10-12 | study-notes | ICT3113 Performance Testing and Optimisation Cheat Sheet
+
+- Sources: `raw/ICT3113 ... Lec02` to `Lec07`, Tutorial Wk04 and Wk05 (all already ingested; no external research required)
+- Created: [[ICT3113 - Performance Testing and Optimisation Cheat Sheet]] (in `study-notes/`)
+- Updated: `study-notes/index.md` (See Also link), [[wiki/log.md]]
+- Key insight: consolidates the six test types, open- versus closed-loop load, JMeter sizing, Erlang B, bounds and optimisation levers into one page with formulas and worked examples; Amdahl's Law is marked as general knowledge because the wiki mentions it without stating the formula
+
 ## 2026-10-06 | ingest | ICT3113 POD Lec07 — Performance Testing
 
 - Source: `raw/ICT3113 Performance Optimisation and Design - Lec07 Performance Testing.md` (65 slides)

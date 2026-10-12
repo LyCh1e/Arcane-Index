@@ -78,7 +78,7 @@
     "raw/ICT2216 Lecture 1 Secure Software Development.md": {
       "ingested": "2026-05-11",
       "course": "ICT2216",
-      "title": "Secure Software Development \u00e2\u20ac\u201d Lecture 1",
+      "title": "Secure Software Development â€” Lecture 1",
       "domain": "secure-software-development",
       "source_index": "wiki/sources/ICT2216-secure-software-development.md",
       "concept_pages": [
@@ -88,7 +88,7 @@
     "raw/ICT2216 Lecture 2 Secure Software Development.md": {
       "ingested": "2026-05-11",
       "course": "ICT2216",
-      "title": "Secure Software Development \u00e2\u20ac\u201d Lecture 2",
+      "title": "Secure Software Development â€” Lecture 2",
       "domain": "secure-software-development",
       "source_index": "wiki/sources/ICT2216-secure-software-development.md",
       "concept_pages": [
@@ -197,7 +197,7 @@
     "raw/ICT2216 Lecture 8 Secure Software Development.md": {
       "ingested": "2026-07-09",
       "course": "ICT2216",
-      "title": "Secure Software Development \u00e2\u20ac\u201d Lecture 8: Test Automation & Security Testing References",
+      "title": "Secure Software Development â€” Lecture 8: Test Automation & Security Testing References",
       "domain": "secure-software-development",
       "source_index": "wiki/sources/ICT2216-lecture-8-secure-testing.md",
       "concept_pages": [
@@ -208,7 +208,7 @@
     "raw/ICT2216 Lecture 9 Secure Software Development.md": {
       "ingested": "2026-07-16",
       "course": "ICT2216",
-      "title": "Secure Software Development \u00e2\u20ac\u201d Lecture 9: Static Code Analysis (Part 1)",
+      "title": "Secure Software Development â€” Lecture 9: Static Code Analysis (Part 1)",
       "domain": "secure-software-development",
       "source_index": "wiki/sources/ICT2216-lecture-9-static-code-analysis.md",
       "concept_pages": [
@@ -229,7 +229,7 @@
     },
     "https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes": {
       "ingested": "2026-07-12",
-      "title": "Learn LaTeX in 30 Minutes \u00e2\u20ac\u201d Overleaf",
+      "title": "Learn LaTeX in 30 Minutes â€” Overleaf",
       "domain": "academic-writing",
       "source_index": "wiki/sources/overleaf-learn-latex-30min.md",
       "concept_pages": [
@@ -247,7 +247,7 @@
     },
     "https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026": {
       "ingested": "2026-07-19",
-      "title": "Best AI Agent Frameworks 2026 \u00e2\u20ac\u201d Alice Labs",
+      "title": "Best AI Agent Frameworks 2026 â€” Alice Labs",
       "domain": "ai-engineering",
       "source_index": "wiki/sources/alice-labs-agent-frameworks-2026.md",
       "concept_pages": [
@@ -256,7 +256,7 @@
     },
     "https://patrickemonts.com/post/latex_best_practice/": {
       "ingested": "2026-07-12",
-      "title": "LaTeX Best Practices \u00e2\u20ac\u201d Patrick Emonts",
+      "title": "LaTeX Best Practices â€” Patrick Emonts",
       "domain": "academic-writing",
       "source_index": "wiki/sources/emonts-latex-best-practices.md",
       "concept_pages": [
@@ -316,6 +316,13 @@
         "wiki/hot.md",
         "wiki/log.md"
       ]
+    },
+    "raw/articles/simple-saas-market-evidence-2026-10-12.md": {
+      "ingested": "2026-10-12",
+      "title": "Simple SaaS market evidence",
+      "domain": "business",
+      "source_index": "wiki/synthesis/research-simple-saas-ideas.md",
+      "concept_pages": []
     }
   },
   "address_map": {
