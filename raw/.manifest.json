@@ -323,6 +323,20 @@
       "domain": "business",
       "source_index": "wiki/synthesis/research-simple-saas-ideas.md",
       "concept_pages": []
+    },
+    "raw/articles/game-tools-saas-evidence-2026-10-12.md": {
+      "ingested": "2026-10-12",
+      "title": "Game tools SaaS evidence",
+      "domain": "business",
+      "source_index": "wiki/synthesis/research-game-saas-ideas.md",
+      "concept_pages": []
+    },
+    "raw/articles/non-game-niche-saas-evidence-2026-10-12.md": {
+      "ingested": "2026-10-12",
+      "title": "Non-game niche SaaS evidence",
+      "domain": "business",
+      "source_index": "wiki/synthesis/research-non-game-niche-saas.md",
+      "concept_pages": []
     }
   },
   "address_map": {

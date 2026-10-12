@@ -391,6 +391,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[synthesis/research-ai-agent-setup\|Research: Setting Up AI Agents]] | ai-engineering | complete |
 | [[synthesis/research-accenture-pte-ltd\|Research: Accenture PTE LTD]] | business / consulting | developing |
 | [[synthesis/research-simple-saas-ideas\|Research: Simple SaaS Ideas Built From the Vault]] | business / software-engineering | developing |
+| [[synthesis/research-game-saas-ideas\|Research: Niche SaaS Ideas for Game Communities]] | business / software-engineering | developing |
+| [[synthesis/research-non-game-niche-saas\|Research: Niche SaaS Ideas Beyond Games]] | business / software-engineering | developing |
 | [[synthesis/research-latex-formatting\|Research: LaTeX Formatting]] | academic-writing | complete |
 | [[synthesis/research-social-engineering\|Research: Social Engineering]] | secure-software-development | established |
 | [[synthesis/research-prompt-injection\|Research: Prompt Injection]] | ai-engineering | established |

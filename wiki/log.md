@@ -10,6 +10,28 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-10-12 | synthesis | Software-only SaaS shortlist
+
+- Method: re-filtered existing research; no new sources
+- Updated: [[synthesis/research-simple-saas-ideas]], [[wiki/hot.md]]
+- Key insight: excluding hardware leaves ten ideas; effort tiers are estimates
+
+## 2026-10-12 | research | Niche SaaS Ideas Beyond Games
+
+- Research method: vault search, 4 searches + 3 fetches
+- Source: `raw/articles/non-game-niche-saas-evidence-2026-10-12.md`
+- Created: [[synthesis/research-non-game-niche-saas]]
+- Updated: [[wiki/index.md]], [[synthesis/_index]], [[wiki/hot.md]], `raw/.manifest.json`
+- Key insight: sensor, forecasting and vision notes map onto small-business niches; cheapest validation is a pre-sell
+
+## 2026-10-12 | research | Niche SaaS Ideas for Game Communities
+
+- Research method: vault search (no game pages), 4 searches + 2 fetches
+- Source: `raw/articles/game-tools-saas-evidence-2026-10-12.md`
+- Created: [[synthesis/research-game-saas-ideas]]
+- Updated: [[wiki/index.md]], [[synthesis/_index]], [[wiki/hot.md]], `raw/.manifest.json`
+- Key insight: existing vault code (stock prediction, graph algorithms, MCP, RAG) maps onto game tools; willingness to pay is low and terms-of-service risk rules out gameplay-automation bots
+
 ## 2026-10-12 | research | Simple SaaS Ideas
 
 - Research method: vault search first (no SaaS-market pages found), then 4 searches + 5 page fetches (Redwerk, Dodo Payments, Ailog, GetApp Accredible, PromptBrake)

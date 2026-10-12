@@ -88,3 +88,12 @@ sources:
 - No check of competitors for ideas 1, 3, 5 and 6.
 - No Singapore-specific pricing beyond the Accredible listing.
 - All revenue figures are unverified estimates.
+
+## Software-only shortlist (added 2026-10-12)
+
+Hardware ideas (temperature monitoring, predictive maintenance) are excluded. Effort tiers are the author's estimates, not researched figures.
+
+- **Weekend to two weeks:** Upload Guard; game build and farming planner with drop-rate calculator ([[synthesis/research-game-saas-ideas]]); licence and certification expiry tracker ([[synthesis/research-non-game-niche-saas]]).
+- **Two to four weeks:** vault-to-quiz tool; performance-regression gate; PDPA redaction gateway.
+- **Longer, with outside dependencies:** niche support bot (client documents), cash-flow forecaster (accounting integrations), photo inspection reports (labelled photos), credential issuing (standards and incumbents).
+- **First three to try:** Upload Guard, vault-to-quiz tool, redaction gateway. Check open-source redaction libraries before building the last.

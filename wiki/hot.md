@@ -10,6 +10,22 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-10-12. **Session: software-only SaaS shortlist.** Updated: [[synthesis/research-simple-saas-ideas]] (new section), [[wiki/log.md]]. Hardware ideas removed; ten software-only options tiered by estimated effort, with Upload Guard, the vault-to-quiz tool and the PDPA redaction gateway as the first three to try.
+
+---
+
+2026-10-12. **Session: research + ingest — niche SaaS beyond games.** New: [[synthesis/research-non-game-niche-saas]]. Updated: [[wiki/index.md]], [[wiki/log.md]], `raw/.manifest.json`.
+
+Six ideas: vault-to-quiz tool (paid Obsidian plugins sell at $19–$149; pre-sell before building), SMB cash-flow forecaster, cheap temperature monitoring for small food businesses, predictive maintenance for small manufacturers, trade licence expiry tracker, photo inspection reports. All income figures are self-reported or blog estimates; competitors unchecked.
+
+---
+
+2026-10-12. **Session: research + ingest — niche SaaS for game communities.** New: [[synthesis/research-game-saas-ideas]]. Updated: [[wiki/index.md]], [[wiki/log.md]], `raw/.manifest.json`.
+
+Six read-only companion-tool ideas: market price tracker reusing the stock-prediction network, Discord bot with premium tier and wiki RAG, build and farming planner (dependency graph plus geometric-distribution drop calculator), game-knowledge MCP server, overlay app, clan manager. Evidence is thin (Discord paid communities $3–$9/month for hobby servers, 8–15% monthly churn). Bots that automate gameplay are avoided because of terms-of-service risk.
+
+---
+
 2026-10-12. **Session: research + ingest — Simple SaaS ideas.** New: [[synthesis/research-simple-saas-ideas]]. Updated: [[wiki/index.md]], [[wiki/log.md]], `raw/.manifest.json`.
 
 The vault holds the technical building blocks but nothing on SaaS markets, so web evidence was added. Six ideas ranked: (1) **Upload Guard**, a hidden-text / prompt-injection scanner for PDFs, CSVs and CVs, built on [[concepts/file-format-prompt-injection]] (structural detection F1 0.960 vs 0.390 for text classifiers); (2) a flat-price niche RAG support bot (commodity tiers $19–$399/month); (3) a PR performance-regression gate from the Lec07 test types; (4) cheap `did:web` credential issuing for small training providers; (5) a PDPA redaction gateway; (6) local-model ticket triage. Recommendation: validate Upload Guard with 10–20 conversations first. Figures are vendor or blog claims; competitors for ideas 1, 3, 5, 6 not checked.

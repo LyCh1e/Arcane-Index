@@ -28,6 +28,8 @@ Evolving "state of my understanding" pages — where disparate concepts, sources
 | [[synthesis/research-data-mapping\|Research: Data Mapping]] | data-engineering | 2026-06-25 | developing |
 | [[synthesis/research-kubernetes\|Research: Kubernetes]] | devops | 2026-06-26 | developing |
 | [[synthesis/research-simple-saas-ideas\|Research: Simple SaaS Ideas Built From the Vault]] | business / software-engineering | 2026-10-12 | developing |
+| [[synthesis/research-game-saas-ideas\|Research: Niche SaaS Ideas for Game Communities]] | business / software-engineering | 2026-10-12 | developing |
+| [[synthesis/research-non-game-niche-saas\|Research: Niche SaaS Ideas Beyond Games]] | business / software-engineering | 2026-10-12 | developing |
 
 ## How Synthesis Pages Work
 
