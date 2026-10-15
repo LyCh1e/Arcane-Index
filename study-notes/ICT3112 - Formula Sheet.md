@@ -1,9 +1,9 @@
 ---
 type: study-notes
 title: "ICT3112 SVV — Quick Reference Sheet"
-tags: [study-notes, ict3112, formula-sheet, exam-prep]
+tags: [study-notes, ict3112, formula-sheet, hoare-logic, formal-verification, exam-prep]
 created: 2026-09-14
-updated: 2026-09-14
+updated: 2026-10-15
 ---
 
 # ICT3112 Software Verification and Validation
@@ -207,3 +207,91 @@ Informal Review → Walkthrough (author-led) → Technical Review (moderator) �
 | Architecture Design | Integration Testing |
 | Detailed Design | Unit Testing |
 | *Coding* | *(centre)* |
+
+---
+
+## Hoare Logic (Axiomatic Semantics)
+
+### Hoare Triple
+
+$$\{P\} \; C \; \{Q\}$$
+
+If P holds before C and C terminates, then Q holds after. (Partial correctness.)
+
+---
+
+### Partial vs Total Correctness
+
+| Type | Guarantees |
+|------|-----------|
+| **Partial** | *If* C terminates, Q holds |
+| **Total** | C terminates **and** Q holds |
+
+---
+
+### Inference Rules — Quick Reference
+
+| Rule | Form |
+|------|------|
+| **SKIP** | `{P} skip {P}` |
+| **ASSIGN** | `{Q[x ← E]} x := E {Q}` |
+| **CONSEQUENCE** | P ⇒ P′, `{P′} C {Q′}`, Q′ ⇒ Q → `{P} C {Q}` |
+| **SEQ** | `{P} C₁ {R}`, `{R} C₂ {Q}` → `{P} C₁;C₂ {Q}` |
+| **IF** | `{P∧B} C₁ {Q}`, `{P∧¬B} C₂ {Q}` → `{P} if B then C₁ else C₂ {Q}` |
+| **WHILE** | `{I∧B} C {I}` → `{I} while B do C {I∧¬B}` |
+
+---
+
+### WP Formulas
+
+| Command | wp(C, Q) |
+|---------|----------|
+| `skip` | Q |
+| `x := E` | **Q[x ← E]** |
+| `C₁; C₂` | wp(C₁, wp(C₂, Q)) — compute right to left |
+| `if B then C₁ else C₂` | (B ∧ wp(C₁, Q)) ∨ (¬B ∧ wp(C₂, Q)) |
+| `while B do C` | Requires invariant I |
+
+> **Remember:** wp goes **right to left** through a sequence.
+
+---
+
+### Array Rules
+
+| Rule | Key Condition |
+|------|-------------|
+| **ARRAY-READ** `x := a[i]` | Requires `def(a[i])` = `0 ≤ i < sizeof(a)` |
+| **ARRAY-ASSIGN** `a[i] := E` | Substitution: `Q[a ← a[i ← E]]` |
+
+---
+
+### Loop Invariant Obligations
+
+| Obligation | Condition |
+|------------|-----------|
+| **Establishment** | P ⇒ I |
+| **Preservation** | {I ∧ B} C {I} |
+| **Exit** | I ∧ ¬B ⇒ Q |
+| **Termination** | Variant E ≥ 0 and strictly decreases each iteration |
+
+---
+
+### Five-Step Invariant Recipe
+
+| Step | Action |
+|------|--------|
+| **1. Q** | Write down the postcondition |
+| **2. Trace** | Table of variable values at each loop-head pass |
+| **3. Generalise** | Replace the final value with a progress variable |
+| **4. Bounds** | Add counter range (e.g. `0 ≤ i ≤ n`) |
+| **5. Check** | Verify all four obligations mechanically |
+
+---
+
+### Common Variant Patterns
+
+| Loop structure | Variant E |
+|----------------|-----------|
+| Count up from 0 to n | n − i |
+| Count down from n to 0 | i (or current value) |
+| Halving a value | x (when `x := x div 2`) |

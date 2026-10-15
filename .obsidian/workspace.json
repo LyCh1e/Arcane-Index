@@ -26,12 +26,12 @@
                       "conversationId": "conv-1792066967697-mbgf2gjki"
                     },
                     {
-                      "tabId": "tab-1792067054279-lzmj9qz",
+                      "tabId": "tab-1792068143184-ryqu1ln",
                       "conversationId": "conv-1792066967697-mbgf2gjki",
                       "preview": true
                     }
                   ],
-                  "activeTabId": "tab-1792067054279-lzmj9qz"
+                  "activeTabId": "tab-1792068143184-ryqu1ln"
                 }
               },
               "pinned": true,
@@ -340,6 +340,9 @@
   },
   "active": "c34294748e14f3a7",
   "lastOpenFiles": [
+    "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md.tmp.22040.49cc1aa980c5",
+    "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md.tmp.22040.6e5280a4ff8b",
+    "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md.tmp.22040.89cfa99500be",
     "wiki/hot.md.tmp.22040.1bed9cc80f8a",
     "wiki/hot.md.tmp.22040.725db3e7fdcc",
     "wiki/index.md.tmp.22040.046a3b5abeb0",
@@ -373,9 +376,6 @@
     "wiki/concepts/performance-engineering.md.tmp.7008.fa26ed167d78",
     "wiki/sources/ict3113-pod-l7.md.tmp.7008.9519ff79c953",
     "wiki/concepts/file-format-prompt-injection.md.tmp.15336.afc53bc0f2a0",
-    "wiki/log.md.tmp.17000.d0e833783032",
-    "wiki/index.md.tmp.17000.52bfdcf2c3ff",
-    "wiki/concepts/queueing-theory.md.tmp.17000.542be9b7186b",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",

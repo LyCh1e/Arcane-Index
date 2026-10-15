@@ -2,9 +2,9 @@
 type: study-notes
 title: "ICT3112 Software Verification and Validation — Exam Notes"
 module: ICT3112
-tags: [study-notes, ict3112, svv, verification, validation, whitebox, blackbox, reliability, exam-prep]
+tags: [study-notes, ict3112, svv, verification, validation, whitebox, blackbox, reliability, hoare-logic, formal-verification, exam-prep]
 created: 2026-09-14
-updated: 2026-09-14
+updated: 2026-10-15
 ---
 
 # ICT3112 Software Verification and Validation
@@ -26,6 +26,7 @@ flowchart TD
     B --> E & F
     E["§5 Whitebox Testing\nCFG, Coverage Criteria\nCyclomatic Complexity\nBasis Paths, LCSAJ"]
     F["§6 Blackbox Testing\nUse Case Testing\nEP, BVA\nDecision Tables\nState Transition"]
+    B --> G["§8 Axiomatic Semantics\nHoare Logic\nWP Calculus\nLoop Invariants\nArray Rules"]
 ```
 
 ---
@@ -878,7 +879,166 @@ flowchart LR
 
 ---
 
-## 8. Key Formulas Reference Sheet
+## 8. Axiomatic Semantics (Hoare Logic)
+
+> **"Proving programme correctness by logical inference rather than testing."** Introduced by Sir Tony Hoare (1969). ICT3112 Modules 0–8.
+
+### Hoare Triple
+
+$$\{P\} \; C \; \{Q\}$$
+
+- **P** = precondition — must hold *before* C executes
+- **C** = command / programme fragment
+- **Q** = postcondition — holds *after* C terminates
+
+#### Partial vs Total Correctness
+
+| Type | Meaning |
+|------|---------|
+| **Partial correctness** | *If* C terminates, then Q holds; does **not** guarantee termination |
+| **Total correctness** | C terminates **and** Q holds |
+
+> Hoare's original system is partial. Add a termination variant argument for total correctness.
+
+---
+
+### The Six Inference Rules
+
+#### SKIP
+
+$$\frac{}{\{P\} \; \textbf{skip} \; \{P\}}$$
+
+Skip changes nothing — precondition equals postcondition.
+
+---
+
+#### ASSIGN
+
+$$\frac{}{\{Q[x \leftarrow E]\} \; x := E \; \{Q\}}$$
+
+Work **backwards**: substitute `x ← E` into Q to obtain the precondition.
+
+> [!example] `{?} x := x + 1 {x = 5}` → substitute: `x + 1 = 5` → precondition: `x = 4`.
+
+---
+
+#### CONSEQUENCE (Strengthen Pre / Weaken Post)
+
+$$\frac{P \Rightarrow P', \quad \{P'\} \; C \; \{Q'\}, \quad Q' \Rightarrow Q}{\{P\} \; C \; \{Q\}}$$
+
+Use when the given P is stronger than required, or the given Q is weaker than what the rule produces.
+
+---
+
+#### SEQ (Sequential Composition)
+
+$$\frac{\{P\} \; C_1 \; \{R\}, \quad \{R\} \; C_2 \; \{Q\}}{\{P\} \; C_1 ; C_2 \; \{Q\}}$$
+
+Chain triples through a shared intermediate assertion R. In practice: compute wp backwards from Q.
+
+---
+
+#### IF
+
+$$\frac{\{P \wedge B\} \; C_1 \; \{Q\}, \quad \{P \wedge \neg B\} \; C_2 \; \{Q\}}{\{P\} \; \textbf{if } B \textbf{ then } C_1 \textbf{ else } C_2 \; \{Q\}}$$
+
+Both branches must establish Q; the guard B is added to the precondition of the taken branch and ¬B to the other.
+
+---
+
+#### WHILE
+
+$$\frac{\{I \wedge B\} \; C \; \{I\}}{\{I\} \; \textbf{while } B \textbf{ do } C \; \{I \wedge \neg B\}}$$
+
+I is the **loop invariant**. At exit: invariant holds and guard is false.
+
+---
+
+### Weakest Precondition (WP) Calculus
+
+`wp(C, Q)` = the *largest* set of states from which C terminates in a state satisfying Q.
+
+| Command | wp(C, Q) |
+|---------|----------|
+| `skip` | Q |
+| `x := E` | Q[x ← E] |
+| `C₁; C₂` | wp(C₁, wp(C₂, Q)) |
+| `if B then C₁ else C₂` | (B ∧ wp(C₁, Q)) ∨ (¬B ∧ wp(C₂, Q)) |
+| `while B do C` | Requires loop invariant I |
+
+> **Key rule:** `wp(x := E, Q) = Q[x ← E]` — substitute E for every free occurrence of x in Q.
+
+---
+
+### Loop Invariants
+
+A loop invariant I must satisfy **four obligations**:
+
+| Obligation | Formal Form | Meaning |
+|------------|------------|---------|
+| **Establishment** | P ⇒ I | Invariant holds before the first iteration |
+| **Preservation** | {I ∧ B} C {I} | Loop body maintains the invariant |
+| **Exit** | I ∧ ¬B ⇒ Q | Invariant plus loop-exit implies postcondition |
+| **Termination** | Variant E ≥ 0 and strictly decreases | Loop terminates |
+
+#### Five-Step Invariant Recipe
+
+| Step | Action |
+|------|--------|
+| **1. Q** | Write down the postcondition |
+| **2. Trace** | Table of variable values at each loop-head pass |
+| **3. Generalise** | Replace the final/target value with a *progress variable* |
+| **4. Bounds** | Add a counter range (e.g. `0 ≤ i ≤ n`) |
+| **5. Check** | Verify all four obligations mechanically |
+
+> **Common variant patterns:** loop counter (`E = n − i`), remaining work (`E = n − k`), value itself (`E = x` when x is decremented).
+
+---
+
+### Array Rules
+
+#### ARRAY-READ
+
+Requires `def(a[i])` — i.e. `0 ≤ i < sizeof(a)` — before reading from an array.
+
+$$\frac{\{P \wedge \text{def}(a[i])\} \; x := a[i] \; \{Q[x \leftarrow a[i]]\}}{}$$
+
+#### ARRAY-ASSIGN
+
+Uses array-update notation `a[i ← E]` for substitution:
+
+$$\frac{}{\{Q[a \leftarrow a[i \leftarrow E]]\} \; a[i] := E \; \{Q\}}$$
+
+`a[i ← E]` = array a with index i overwritten by E. Apply this when computing wp backwards through an array assignment.
+
+---
+
+### Common Invariant Patterns
+
+| Programme structure | Typical invariant form |
+|--------------------|----------------------|
+| Counter summing to `n` | `total = sum(0..i−1)  ∧  0 ≤ i ≤ n` |
+| Running product | `result = init × i  ∧  0 ≤ i ≤ n` |
+| Array scan for maximum | `max = maximum(a[0..i−1])  ∧  0 ≤ i ≤ n` |
+| Bit-manipulation loop | `x · y + z = x′ · y′` (product invariant) |
+
+---
+
+### Proof Outline Format
+
+```
+{P}                          ← precondition
+  statement₁
+{R}                          ← intermediate assertion
+  statement₂
+{Q}                          ← postcondition
+```
+
+Annotations between statements make each inference step independently verifiable.
+
+---
+
+## 9. Key Formulas Reference Sheet
 
 | Formula | Name |
 |---------|------|
@@ -890,10 +1050,33 @@ flowchart LR
 | 2ⁿ | Max rules in decision table (n binary conditions) |
 | Defect Density = Defects / KLOC | Defect rate |
 | PUM = Total Problems / Total User Months | Problems per User Month |
+| {P} C {Q} | Hoare triple (partial correctness) |
+| wp(x := E, Q) = Q[x ← E] | WP for assignment |
+| wp(C₁;C₂, Q) = wp(C₁, wp(C₂, Q)) | WP for sequential composition |
+| wp(if B then C₁ else C₂, Q) = (B ∧ wp(C₁,Q)) ∨ (¬B ∧ wp(C₂,Q)) | WP for conditional |
+| Establishment: P ⇒ I | Loop invariant — initial obligation |
+| Preservation: {I ∧ B} C {I} | Loop invariant — body obligation |
+| Exit: I ∧ ¬B ⇒ Q | Loop invariant — exit obligation |
+| Termination: E ≥ 0, strictly decreasing | Loop invariant — variant obligation |
 
 ---
 
-## 9. Exam Checklist
+## 10. Exam Checklist
+
+> [!tip] For any Hoare Logic / WP question:
+> 1. Identify the **type of statement** (skip, assign, seq, if, while, array)
+> 2. For assignments: apply `wp(x := E, Q) = Q[x ← E]` **right to left**
+> 3. For sequences: chain wp backwards — innermost statement first
+> 4. For loops: identify invariant I using the **5-step recipe** (Q → trace → generalise → bounds → check)
+> 5. Check all **four invariant obligations** (Establishment, Preservation, Exit, Termination)
+> 6. For arrays: always include `def(a[i])` guard and use `a[i ← E]` notation for array-assign substitution
+
+> [!warning] Hoare Logic Common Mistakes
+> - Computing wp **left to right** (it must go **right to left**)
+> - Forgetting to substitute into **all free occurrences** of x in Q, not just the first
+> - Confusing **partial** correctness (if terminates, Q holds) with **total** (terminates AND Q holds)
+> - Omitting the `def(a[i])` guard when applying ARRAY-READ
+> - Using `a[i] = E` in place of the correct `a[i ← E]` array-update notation
 
 > [!tip] For any whitebox question:
 > 1. Draw the **CFG** first — nodes and edges
