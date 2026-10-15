@@ -123,6 +123,10 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/inf2005-csf-steganography\|INF2005 CSF — Steganography]] | lecture-notes | cryptography | 2026-09-07 |
 | [[sources/inf2005-csf-access-control\|INF2005 CSF — Access Control]] | lecture-notes | secure-software-development | 2026-09-07 |
 | [[sources/inf2005-csf-ethical-hacking\|INF2005 CSF — Ethical Hacking]] | lecture-notes | secure-software-development | 2026-09-14 |
+| [[sources/ict3112-hoare-logic-core\|ICT3112 Formal Verification — Hoare Logic Core Rules (Modules 0–6)]] | lecture-notes | formal-verification | 2026-10-15 |
+| [[sources/ict3112-loop-invariants\|ICT3112 Formal Verification — Loop Invariants: Discovering and Recipe (Module 7)]] | lecture-notes | formal-verification | 2026-10-15 |
+| [[sources/ict3112-hoare-arrays\|ICT3112 Formal Verification — Reasoning about Arrays (Module 8)]] | lecture-notes | formal-verification | 2026-10-15 |
+| [[sources/ict3112-hoare-exercises\|ICT3112 Formal Verification — Hoare Logic Exercises 1–3 (Solved)]] | exercise-solutions | formal-verification | 2026-10-15 |
 
 ## Concepts
 
@@ -284,6 +288,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] | python-gui | medium |
 | [[concepts/ethical-hacking\|Ethical Hacking and Penetration Testing]] | secure-software-development | high |
 | [[concepts/queueing-theory\|Queueing Theory for Performance Engineering]] | performance-engineering | high |
+| [[concepts/hoare-logic\|Hoare Logic]] | formal-verification | high |
+| [[concepts/loop-invariants\|Loop Invariants]] | formal-verification | high |
 
 ## Examples
 
@@ -328,6 +334,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/hedera-hts-hcs-batch-js\|Hedera HTS, HCS, and Batch Transactions — JavaScript (TokenCreate, TopicCreate, HIP-551, HIP-904)]] | code-session | blockchain | [[concepts/hedera-network\|Hedera Network]] |
 | [[examples/inf2005-lab-wk1-cryptography\|INF2005 Lab Wk 1 — Cryptography (Ciphers, Cryptanalysis & RSA Team Challenge)]] | lab | INF2005 / cryptography | [[concepts/classical-ciphers-and-cryptanalysis\|Classical Ciphers and Cryptanalysis]] |
 | [[examples/inf2005-acw1-stego-verification\|INF2005 ACW1 — Steganographic Integrity Verification with Digital Signatures]] | project | INF2005 / secure-software-development | [[concepts/steganography\|Steganography]] |
+| [[examples/ict3112-hoare-exercises-worked\|ICT3112 Hoare Logic — Key Worked Proofs]] | practice | ICT3112 / formal-verification | [[concepts/hoare-logic\|Hoare Logic]] |
 
 ## Entities
 

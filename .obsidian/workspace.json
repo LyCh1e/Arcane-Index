@@ -149,7 +149,8 @@
               "title": "log"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -338,8 +339,17 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "c34294748e14f3a7",
+  "active": "aa21592bb12da3f9",
   "lastOpenFiles": [
+    "wiki/hot.md.tmp.22040.1bed9cc80f8a",
+    "wiki/hot.md.tmp.22040.725db3e7fdcc",
+    "wiki/index.md.tmp.22040.046a3b5abeb0",
+    "wiki/examples/ict3112-hoare-exercises-worked.md",
+    "wiki/concepts/loop-invariants.md",
+    "wiki/concepts/hoare-logic.md",
+    "wiki/sources/ict3112-hoare-exercises.md",
+    "wiki/sources/ict3112-hoare-arrays.md",
+    "wiki/sources/ict3112-loop-invariants.md",
     "wiki/sources/ict3112-hoare-logic-core.md",
     "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 3c.md",
     "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 3b.md",
@@ -359,13 +369,6 @@
     "raw/ICT3112 - 8 - Reasoning about Arrays - 3b.md",
     "raw/ICT3112 - 8 - Reasoning about Arrays - 3a.md",
     "raw/ICT3112 - 8 - Reasoning about Arrays - 2b.md",
-    "raw/ICT3112 - 8 - Reasoning about Arrays - 2a.md",
-    "raw/ICT3112 - 8 - Reasoning about Arrays - 1b.md",
-    "raw/ICT3112 - 8 - Reasoning about Arrays - 1a.md",
-    "raw/ICT3112 - 7 - Recepy for Loop Invariants - tips b.md",
-    "raw/ICT3112 - 7 - Recepy for Loop Invariants - tips a.md",
-    "raw/ICT3112 - 7 - Recepy for Loop Invariants - exercises.md",
-    "raw/ICT3112 - 7 - Recepy for Loop Invariants - Example 3b.md",
     "wiki/hot.md.tmp.7008.dd5542ded294",
     "wiki/log.md.tmp.7008.c9f06d62d99c",
     "wiki/concepts/performance-engineering.md.tmp.7008.fa26ed167d78",
@@ -374,8 +377,6 @@
     "wiki/log.md.tmp.17000.d0e833783032",
     "wiki/index.md.tmp.17000.52bfdcf2c3ff",
     "wiki/concepts/queueing-theory.md.tmp.17000.542be9b7186b",
-    "wiki/examples/ict3113-t04-worked-examples.md.tmp.17000.ccdea239bff0",
-    "wiki/sources/ict3113-pod-t04.md.tmp.17000.d1d7f408a1ba",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",

@@ -10,6 +10,17 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-10-15 | ingest | ICT3112 Formal Verification — Hoare Logic (Modules 0–8 + Exercises)
+
+- Sources ingested: 32 files across 4 logical groups
+  - Modules 0–6 (Introduction, Skip, Assign, Consequence, Seq, If, While) → [[sources/ict3112-hoare-logic-core]]
+  - Module 7 (Discovering loop invariants + 5-step recipe, 15 files) → [[sources/ict3112-loop-invariants]]
+  - Module 8 (Reasoning about arrays, 7 files) → [[sources/ict3112-hoare-arrays]]
+  - Hoare Logic Exercises 1–3 (solved) → [[sources/ict3112-hoare-exercises]]
+- Created: [[concepts/hoare-logic]], [[concepts/loop-invariants]], [[examples/ict3112-hoare-exercises-worked]]
+- Updated: [[wiki/index.md]], [[wiki/log.md]], [[wiki/hot.md]], `raw/.manifest.json`
+- Key content: all 6 Hoare Logic inference rules, Dijkstra's WP calculus, loop invariant discovery recipe, array rules [ARRAY-READ] and [ARRAY-ASSIGN], worked proof outlines
+
 ## 2026-10-12 | synthesis | Software-only SaaS shortlist
 
 - Method: re-filtered existing research; no new sources

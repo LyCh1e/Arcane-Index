@@ -2,13 +2,19 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-10-02
+updated: 2026-10-15
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-10-15. **Session: ingest — ICT3112 Formal Verification, Hoare Logic (Modules 0–8 + Exercises).** New sources: [[sources/ict3112-hoare-logic-core]], [[sources/ict3112-loop-invariants]], [[sources/ict3112-hoare-arrays]], [[sources/ict3112-hoare-exercises]]. New concepts: [[concepts/hoare-logic]], [[concepts/loop-invariants]]. New example: [[examples/ict3112-hoare-exercises-worked]].
+
+32 lecture-slide files (plus 3 exercise sheets) from Dr. David Sanan's ICT3112 Formal Verification module ingested. The content covers the complete Hoare Logic proof system: all six inference rules (SKIP, ASSIGN, CONSEQUENCE, SEQ, IF, WHILE), Dijkstra's Weakest Precondition Calculus, the five-step loop-invariant discovery recipe, the four proof obligations (Establishment, Preservation, Exit, Termination via variant), and the extended array rules (ARRAY-READ and ARRAY-ASSIGN with bounds-checking). Worked examples include triangular sum, multiplication by counting, Russian peasant multiplication, and the maximum-element array scan.
+
+---
 
 2026-10-12. **Session: software-only SaaS shortlist.** Updated: [[synthesis/research-simple-saas-ideas]] (new section), [[wiki/log.md]]. Hardware ideas removed; ten software-only options tiered by estimated effort, with Upload Guard, the vault-to-quiz tool and the PDPA redaction gateway as the first three to try.
 
