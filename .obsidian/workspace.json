@@ -149,8 +149,7 @@
               "title": "log"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -339,7 +338,7 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "aa21592bb12da3f9",
+  "active": "c34294748e14f3a7",
   "lastOpenFiles": [
     "wiki/hot.md.tmp.22040.1bed9cc80f8a",
     "wiki/hot.md.tmp.22040.725db3e7fdcc",
