@@ -149,7 +149,8 @@
               "title": "log"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -338,7 +339,7 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "c34294748e14f3a7",
+  "active": "aa21592bb12da3f9",
   "lastOpenFiles": [
     "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md.tmp.22040.49cc1aa980c5",
     "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md.tmp.22040.6e5280a4ff8b",
