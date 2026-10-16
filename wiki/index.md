@@ -123,6 +123,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/inf2005-csf-steganography\|INF2005 CSF — Steganography]] | lecture-notes | cryptography | 2026-09-07 |
 | [[sources/inf2005-csf-access-control\|INF2005 CSF — Access Control]] | lecture-notes | secure-software-development | 2026-09-07 |
 | [[sources/inf2005-csf-ethical-hacking\|INF2005 CSF — Ethical Hacking]] | lecture-notes | secure-software-development | 2026-09-14 |
+| [[sources/inf2005-csf-social-engineering\|INF2005 CSF — Social Engineering]] | lecture-notes | secure-software-development | 2026-10-16 |
 | [[sources/ict3112-hoare-logic-core\|ICT3112 Formal Verification — Hoare Logic Core Rules (Modules 0–6)]] | lecture-notes | formal-verification | 2026-10-15 |
 | [[sources/ict3112-loop-invariants\|ICT3112 Formal Verification — Loop Invariants: Discovering and Recipe (Module 7)]] | lecture-notes | formal-verification | 2026-10-15 |
 | [[sources/ict3112-hoare-arrays\|ICT3112 Formal Verification — Reasoning about Arrays (Module 8)]] | lecture-notes | formal-verification | 2026-10-15 |

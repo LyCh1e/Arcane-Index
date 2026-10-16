@@ -10,6 +10,12 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-10-16 | ingest | INF2005 CSF — Social Engineering (Phishing, Pharming, No-Tech Attacks)
+
+- Source ingested: 1 file → [[sources/inf2005-csf-social-engineering]]
+- Updated concept: [[concepts/social-engineering]] — added Pharming section (Network and Browser-Layer Attacks) and Phishing Detection Tools table
+- Pages created: 0 new concepts (existing concept page extended); 1 new source page
+
 ## 2026-10-15 | ingest | ICT3112 Formal Verification — Hoare Logic (Modules 0–8 + Exercises)
 
 - Sources ingested: 32 files across 4 logical groups

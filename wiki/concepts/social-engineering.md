@@ -4,7 +4,7 @@ title: "Social Engineering"
 domain: secure-software-development
 complexity: high
 tags: [security, social-engineering, phishing, pretexting, vishing, psychology, human-factors, cialdini]
-updated: 2026-07-28
+updated: 2026-10-16
 status: established
 created: 2026-07-28
 ---
@@ -51,6 +51,14 @@ Additional psychological levers not in Cialdini's original model:
 | **Whaling** | Spear phishing targeting C-suite executives where a single successful compromise yields high-value access. |
 | **Clone Phishing** | A legitimate email is duplicated with links or attachments replaced by malicious versions, re-sent from a spoofed address. |
 | **Business Email Compromise (BEC)** | Attacker impersonates an executive via email to redirect payments or sensitive data. Caused **$4.4 billion** in losses in 2024 (FBI IC3). No malware involved; relies entirely on pretexting and perceived authority. |
+
+### Network and Browser-Layer Attacks
+
+| Attack | Description |
+|--------|-------------|
+| **Pharming** | Redirects a website's traffic to an attacker-controlled server by tampering with the victim's hosts file (via malware) or poisoning a DNS cache. The victim types the correct, legitimate URL but is delivered to a fake site. Less common than phishing but harder to detect because the URL typed was correct. Detection: check the actual URL displayed in the browser address bar after loading. |
+
+---
 
 ### Telephone and Voice Attacks
 
@@ -116,6 +124,18 @@ Individual recognition remains the primary last line of defence when technical c
 - **Unexpected credential requests**: no legitimate IT team or bank ever needs your password
 - **Mismatched URLs**: hover before clicking; display text and actual URL differ
 - **Pressure to bypass procedure**: "the normal approval process will take too long this time"
+
+### Phishing Detection Tools
+
+| Tool | Purpose |
+|------|---------|
+| **virustotal.com** | Scan files and URLs against multiple antivirus and threat-intelligence engines |
+| **urlvoid.com** | Check a URL against blacklists and reputation databases |
+| **checkshorturl.com** | Expand shortened URLs to reveal their true destination before clicking |
+| **scanurl.net** | Third-party URL reputation and safety check |
+| **phishtank.com** | Community-sourced database of confirmed phishing sites; provides a developer API |
+
+> **Practical habit:** open suspicious links inside a virtual machine (VM) so any payload executes in an isolated environment rather than on the host.
 
 ---
 

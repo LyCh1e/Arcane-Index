@@ -2,13 +2,15 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-10-15
+updated: 2026-10-16
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-10-16. **Session: ingest — INF2005 CSF Social Engineering (Phishing, Pharming, No-Tech Attacks).** New source: [[sources/inf2005-csf-social-engineering]]. Updated concept: [[concepts/social-engineering]] — Pharming section added and Phishing Detection Tools table added. Key content: 7-point phishing detection checklist, pharming vs phishing comparison table, five social engineering techniques (Authority with Legal/Organisational/Social sub-types, Charm, Pretext, Baiting, Reciprocation/Quid Pro Quo), DNS cache poisoning and hosts-file tampering as pharming vectors, detection tools (virustotal, urlvoid, checkshorturl, scanurl, PhishTank).
 
 2026-10-15. **Session: ingest — ICT3112 Formal Verification, Hoare Logic (Modules 0–8 + Exercises).** New sources: [[sources/ict3112-hoare-logic-core]], [[sources/ict3112-loop-invariants]], [[sources/ict3112-hoare-arrays]], [[sources/ict3112-hoare-exercises]]. New concepts: [[concepts/hoare-logic]], [[concepts/loop-invariants]]. New example: [[examples/ict3112-hoare-exercises-worked]].
 

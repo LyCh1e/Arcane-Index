@@ -340,76 +340,241 @@
     },
     "raw/ICT3112 Software Verification and Validation - ICT3112 - 0 - Introduction - Copy.md": {
       "ingested_at": "2026-10-15",
-      "pages_created": ["wiki/sources/ict3112-hoare-logic-core.md"],
-      "pages_updated": ["wiki/concepts/hoare-logic.md", "wiki/index.md", "wiki/hot.md", "wiki/log.md"]
+      "pages_created": [
+        "wiki/sources/ict3112-hoare-logic-core.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/hoare-logic.md",
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md"
+      ]
     },
     "raw/ICT3112 Software Verification and Validation - ICT3112 - 1 - Hoare Logic and Skip Rule - Copy.md": {
       "ingested_at": "2026-10-15",
       "pages_created": [],
-      "pages_updated": ["wiki/sources/ict3112-hoare-logic-core.md"]
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-logic-core.md"
+      ]
     },
     "raw/ICT3112 Software Verification and Validation - ICT3112 - 2 - Assignment Rule.md": {
       "ingested_at": "2026-10-15",
       "pages_created": [],
-      "pages_updated": ["wiki/sources/ict3112-hoare-logic-core.md"]
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-logic-core.md"
+      ]
     },
     "raw/ICT3112 Software Verification and Validation - ICT3112 - 3 - Consequence Rule.md": {
       "ingested_at": "2026-10-15",
       "pages_created": [],
-      "pages_updated": ["wiki/sources/ict3112-hoare-logic-core.md"]
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-logic-core.md"
+      ]
     },
     "raw/ICT3112 Software Verification and Validation - ICT3112 - 4 - Sequential Composition Rule.md": {
       "ingested_at": "2026-10-15",
       "pages_created": [],
-      "pages_updated": ["wiki/sources/ict3112-hoare-logic-core.md"]
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-logic-core.md"
+      ]
     },
     "raw/ICT3112 Software Verification and Validation - ICT3112 - 5 - Conditional Rule.md": {
       "ingested_at": "2026-10-15",
       "pages_created": [],
-      "pages_updated": ["wiki/sources/ict3112-hoare-logic-core.md"]
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-logic-core.md"
+      ]
     },
     "raw/ICT3112 Software Verification and Validation - ICT3112 - 6 - Loops.md": {
       "ingested_at": "2026-10-15",
       "pages_created": [],
-      "pages_updated": ["wiki/sources/ict3112-hoare-logic-core.md", "wiki/concepts/loop-invariants.md"]
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-logic-core.md",
+        "wiki/concepts/loop-invariants.md"
+      ]
     },
     "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Discovering Loop Invariants.md": {
       "ingested_at": "2026-10-15",
-      "pages_created": ["wiki/sources/ict3112-loop-invariants.md"],
-      "pages_updated": ["wiki/concepts/loop-invariants.md"]
+      "pages_created": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/loop-invariants.md"
+      ]
     },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Discovering Loop Invariants - 0b.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Discovering Loop Invariants - 1a.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Discovering Loop Invariants - 2a.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Discovering Loop Invariants - 2b.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - 0a.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - 0b.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - Example 1a.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - Example 1b.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - Example 2.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - Example 3a.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - Example 3b.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - exercises.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - tips a.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - tips b.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-loop-invariants.md"] },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Discovering Loop Invariants - 0b.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Discovering Loop Invariants - 1a.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Discovering Loop Invariants - 2a.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Discovering Loop Invariants - 2b.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - 0a.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - 0b.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - Example 1a.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - Example 1b.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - Example 2.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - Example 3a.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - Example 3b.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - exercises.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - tips a.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - tips b.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-loop-invariants.md"
+      ]
+    },
     "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 1a.md": {
       "ingested_at": "2026-10-15",
-      "pages_created": ["wiki/sources/ict3112-hoare-arrays.md"],
-      "pages_updated": ["wiki/concepts/hoare-logic.md"]
+      "pages_created": [
+        "wiki/sources/ict3112-hoare-arrays.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/hoare-logic.md"
+      ]
     },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 1b.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-hoare-arrays.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 2a.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-hoare-arrays.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 2b.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-hoare-arrays.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 3a.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-hoare-arrays.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 3b.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-hoare-arrays.md"] },
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 3c.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-hoare-arrays.md"] },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 1b.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-arrays.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 2a.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-arrays.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 2b.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-arrays.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 3a.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-arrays.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 3b.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-arrays.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 3c.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-arrays.md"
+      ]
+    },
     "raw/ICT3112 Software Verification and Validation - Hoare Logic Exercises - 1 - solved.md": {
       "ingested_at": "2026-10-15",
-      "pages_created": ["wiki/sources/ict3112-hoare-exercises.md", "wiki/examples/ict3112-hoare-exercises-worked.md"],
-      "pages_updated": ["wiki/index.md"]
+      "pages_created": [
+        "wiki/sources/ict3112-hoare-exercises.md",
+        "wiki/examples/ict3112-hoare-exercises-worked.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md"
+      ]
     },
-    "raw/ICT3112 Software Verification and Validation - Hoare Logic Exercises - 2 - solved.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-hoare-exercises.md"] },
-    "raw/ICT3112 Software Verification and Validation - Hoare Logic Exercises - 3 - solved.md": { "ingested_at": "2026-10-15", "pages_created": [], "pages_updated": ["wiki/sources/ict3112-hoare-exercises.md"] }
+    "raw/ICT3112 Software Verification and Validation - Hoare Logic Exercises - 2 - solved.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-exercises.md"
+      ]
+    },
+    "raw/ICT3112 Software Verification and Validation - Hoare Logic Exercises - 3 - solved.md": {
+      "ingested_at": "2026-10-15",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/ict3112-hoare-exercises.md"
+      ]
+    }
   },
   "address_map": {
     "wiki/sources/ICT2113-software-modelling.md": "s-000001",
@@ -538,5 +703,17 @@
     "wiki/sources/ict3113-pod-t05.md": "c-000125",
     "wiki/examples/ict3113-t04-worked-examples.md": "c-000126",
     "wiki/examples/ict3113-t05-worked-examples.md": "c-000127"
+  },
+  "INF2005 Cyber Security Fundamentals - Social Engineering.md": {
+    "ingested_at": "2026-10-16",
+    "pages_created": [
+      "wiki/sources/inf2005-csf-social-engineering.md"
+    ],
+    "pages_updated": [
+      "wiki/concepts/social-engineering.md",
+      "wiki/index.md",
+      "wiki/log.md",
+      "wiki/hot.md"
+    ]
   }
 }
