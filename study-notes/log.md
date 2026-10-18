@@ -18,9 +18,9 @@ Each link is a persistent URL: republishing to the same URL updates the page's c
 
 | Module | Artefact URL | Last Published |
 |---|---|---|
-| ICT3112 | https://claude.ai/artifact/8CuL27NdrZqYRu1qBG9rJV | 2026-10-16 |
-| ICT3113 | https://claude.ai/artifact/VC19BXRWz158dszEdJ79G1 | 2026-10-16 |
-| INF2005 | https://claude.ai/artifact/Ar7Qj3yH2fua71nW2rXuUv | 2026-10-16 |
+| ICT3112 | https://claude.ai/artifact/8CuL27NdrZqYRu1qBG9rJV | 2026-10-18 |
+| ICT3113 | https://claude.ai/artifact/VC19BXRWz158dszEdJ79G1 | 2026-10-18 |
+| INF2005 | https://claude.ai/artifact/Ar7Qj3yH2fua71nW2rXuUv | 2026-10-18 |
 
 If a publish ever returns a different URL than the one listed here (for example, if an artefact was deleted), replace the affected row above with the new URL so future runs update the correct page. If a module is removed from `study-notes/index.md`, leave its row here untouched — never delete an Artefact page automatically.
 
@@ -36,32 +36,38 @@ If a publish ever returns a different URL than the one listed here (for example,
 > [!note] Evening run (run 32) on 2026-10-16
 > This file already recorded a "run 31" for 2026-10-16 (an earlier, unlogged manual run that day, per `last_fired_at`/mtime evidence — not from this scheduled task, which fires once daily at 22:00 SGT / 14:00 UTC). Before selecting this run's topics, all three live Artefact pages were re-read and confirmed to match the "run 31" entries exactly, so today's rotation correctly avoided those topics on top of the usual ~5-run history. This is the first time two runs have landed on the same calendar date — both are kept as separate dated entries below (run 31, run 32) rather than merged.
 
+> [!note] Checked against live pages on 2026-10-18 (run 33)
+> No run was recorded for 2026-10-17. Before selecting today's topics, all three live Artefact pages were read via the Artifact tool and confirmed to match this file's "run 32" (2026-10-16) entries exactly — no unlogged gap, file was in sync.
+
 ---
+
+
+> [!note] Checked against live pages before run 34 on 2026-10-18
+> Before selecting this run's topics, all three live Artefact pages were re-read via the Artifact tool and confirmed to match this file's "run 33" (2026-10-18) entries exactly. This scheduled run (trigger "Daily Readings", 09:36 UTC) is a second run on the same calendar date as the earlier manual/unlogged run 33 — both are kept as separate dated entries, following the same pattern as runs 31/32 on 2026-10-16.
+
+
+> [!note] Checked against live pages before run 35 on 2026-10-18
+> Before selecting this run’s topics, all three live Artefact pages were re-read via the Artifact tool and confirmed to match this file’s "run 34" (2026-10-18) entries exactly. This scheduled run (trigger "Daily Readings") is a third run on the same calendar date, following the same pattern as runs 31/32 on 2026-10-16 and runs 33/34 earlier today — all kept as separate dated entries.
 
 ## Topic Rotation History
 
 Tracks roughly the last 5 runs' subtopics per module, so the tutor agent can avoid repeating recent content without needing to scan local daily files (there are none). Each run appends its selections to the relevant module's list and prunes older entries down to about 5. A module new to the index simply starts with an empty list here.
 
 ### ICT3112
-
-- 2026-10-12 (run 28): Control Flow Graphs (CFGs) & the Coverage Criteria Hierarchy; Use Case Testing & Boundary Value Analysis (BVA); The Musa Reliability Models — Basic & Logarithmic
-- 2026-10-13/14 (unlogged run, found live): Eight Good Testing Practices & Goodhart's Law; Defect Density & Customer-Facing Metrics; Coverage Criteria in Detail
-- 2026-10-15 (run 30): Static Testing Techniques — The Formality Spectrum; Coverage Criteria — The Complete Hierarchy at a Glance; Axiomatic Semantics (Hoare Logic) — Hoare Triples & the Six Inference Rules
 - 2026-10-16 (run 31): The Seven ISTQB Principles; Cyclomatic Complexity (McCabe, 1976) & Basis Path Testing; Decision Table Testing
 - 2026-10-16 (run 32): Static vs Dynamic V&V & the V-Model; Static Analysis — Data Flow Defect Classes; Equivalence Partitioning (EP) & LCSAJ
-
+- 2026-10-18 (run 33): Root Causes of Poor Software Quality — the Six DORA Categories; Four Testing Levels & the Testing Pyramid; State Transition Testing — 0-Switch & 1-Switch Coverage
+- 2026-10-18 (run 34): The Error → Defect → Failure Chain & Retesting vs Regression Testing; Boundary Value Analysis (BVA) & Use Case Testing; Software Reliability Metrics — Core Metrics & the Musa Reliability Models
+- 2026-10-18 (run 35): Control Flow Graphs (CFGs) & the Factorial Reference Example; Eight Good Testing Practices & Goodhart's Law in Testing; Reliability Metrics Extras — Execution Time vs Calendar Time, Defect Density & Customer-Facing Metrics
 ### ICT3113
-
-- 2026-10-12 (run 28): Response Time (R = W + S) & Why the Tail Matters — the Fan-Out Formula; Multi-Server Queues — M/M/c Structure & the Key Formula; Variability — Coefficient of Variation, the Kingman Formula & Sakasegawa's G/G/c Approximation
-- 2026-10-13/14 (unlogged run, found live): Performance Engineering Philosophy; User Perception & Open vs Closed Systems; The Four Sources Framework
-- 2026-10-15 (run 30): The Interactive Response Time Law; Workload Identification — Three Components & Estimation Methodology (Decomposition Chain); Variability in Practice
 - 2026-10-16 (run 31): Little's Law & the M/M/1 Single-Server Queue; The Utilisation Law (U = X×S) & Utilisation vs Response Time; Bottleneck Analysis — Capacity Bottleneck vs Congestion Hotspot & the Three Levers to Fix
 - 2026-10-16 (run 32): Percentiles, Tail Latency & SLI/SLO/SLA; When to Optimise & Classical Optimisation Techniques; Workload Mistakes & Peak vs Average
-
+- 2026-10-18 (run 33): Six Properties of a Good Metric (LRRECI) & Three Classes of Metrics; Operational Laws — Forced Flow, Service Demand & Service Demand Law; Case Study Diagnosis — Online Service & Wafer Fab
+- 2026-10-18 (run 34): Response Time Fundamentals (R = W + S) & the Fan-Out Formula; Multi-Server Queues — M/M/c: Structure, Key Formula & One Fast Server vs Many Slow Servers; The Kingman Formula (G/G/1) & Sakasegawa's G/G/c Approximation
+- 2026-10-18 (run 35): The Core Loop & User Perception Thresholds; Open vs Closed Systems; The Four Sources Framework & the Observation Boundary Effect
 ### INF2005
-
-- 2026-10-12 (run 28): Diffie–Hellman Key Exchange & the Key Distribution Problem; Steganography in Depth — LSB Algorithms, Bit Planes & BPCS; Biometric Authentication & Authorisation Models (DAC/RBAC/MAC)
-- 2026-10-13/14 (unlogged run, found live): One-Time Pad & Random Number Generators; Confidentiality vs Authentication — Key Pair Roles; Steganalysis & Cross-Cutting Access Controls
-- 2026-10-15 (run 30): The Key Distribution Problem — Why Asymmetric Crypto Exists; Ethical Hacking — The Defining Line & Legal Framework; Pen Testing Approaches
 - 2026-10-16 (run 31): RSA & One-Way Functions; The 6-Stage Hacking Process (Reconnaissance → Covering Tracks); The CIA Triad & the Threat Model (Alice, Bob, Eve)
 - 2026-10-16 (run 32): Classical Ciphers & Kerckhoffs's Principle; Hash Functions, Digital Signatures & the Birthday Attack; Passwords & the Access Control Pipeline
+- 2026-10-18 (run 33): Modern Symmetric Algorithms — DES, 3DES & AES; Cryptanalysis — Attacking Ciphers (Brute Force, Frequency Analysis, Known Plaintext); Graphical & Token Authentication, and the Passphrase Technique
+- 2026-10-18 (run 34): Diffie–Hellman Key Exchange; Steganography Techniques — LSB Algorithms, Bit Planes & BPCS; Biometric Authentication & Authorisation Models (DAC/RBAC/MAC)
+- 2026-10-18 (run 35): One-Time Pad (OTP) & Random Number Generators; Asymmetric Crypto Foundations — Key Pair Roles & Confidentiality vs Authentication; Steganalysis & Hacker Types

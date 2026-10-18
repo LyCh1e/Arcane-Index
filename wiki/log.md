@@ -10,6 +10,14 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-10-18 | ingest | ICT3113 Week 03 Introduction to Testing — Solution notebook
+
+- Source ingested: `Labs/Lab3/ICT3113_Week03_Introduction_to_Testing_Solution.ipynb` (instructor reference copy, 44 cells, Colab outputs retained)
+- Already covered by [[examples/ict3113-lab2-jmeter-testing]] (2026-09-15), so updated that page rather than creating a duplicate: new "Instructor reference copy" section
+- New facts captured: reference stress-test parameters (5000 threads / 50 s ramp / 2 s), knee at ~17 concurrent users under 50 ms, the MongoDB storage-engine fix with pymongo 3.13.0 and basicAuth on, Colab-log observations (404 from pasted host in URL, 308 redirect on `/flask-profiler`), answers to the notebook's open "why" questions
+- Updated: [[concepts/performance-engineering]] (knee read-off note), [[wiki/hot.md]], [[wiki/log.md]]; `index.md` unchanged (row already present)
+- Note: lab folder is now `Labs/Lab3/` (earlier page said `Lab2/`)
+
 ## 2026-10-16 | ingest | INF2005 CSF — Social Engineering (Phishing, Pharming, No-Tech Attacks)
 
 - Source ingested: 1 file → [[sources/inf2005-csf-social-engineering]]

@@ -4,7 +4,7 @@ title: "ICT3113 — Performance Testing and Optimisation Cheat Sheet"
 module: ICT3113
 tags: [study-notes, ict3113, cheat-sheet, performance-testing, performance-optimisation, formula-sheet, exam-prep]
 created: 2026-10-12
-sources: [Lec02, Lec03, Lec04, Lec05, Lec06, Lec07, Tutorial Wk04, Tutorial Wk05]
+sources: [Lec02, Lec03, Lec04, Lec05, Lec06, Lec07, Lab 1, Lab 2, Assignment 1, Tutorial Wk04, Tutorial Wk05]
 ---
 
 # ICT3113 — Performance Testing and Optimisation Cheat Sheet
@@ -519,3 +519,167 @@ Use it to decide whether a fix is worth it: p = 0.6, s = 4 → 1.82×; ceiling 2
 | X | Throughput (supply) | Cₐ, Cₛ | CV of inter-arrival / service times |
 | U | Utilisation | ρ | Traffic intensity (λS, or λS/c) |
 | B(m,ρ) | Erlang B loss probability | L | Concurrent users |
+
+---
+
+## 12. Profiling Toolkit (Lab 1, Week 2)
+
+**Use when:** you must find *where* one program spends time or memory before optimising it. A profile gives the service time $S$ that the workload model multiplies by $\lambda$ (§1, §4).
+
+### 12.1 Deterministic versus statistical profiling
+
+| | Deterministic (tracing) | Statistical (sampling) |
+|---|---|---|
+| Mechanism | Instruments every call, return and exception | Samples the call stack $N$ times per second |
+| Overhead | High (2–10×); distorts what it measures | Low (a few % or less); safe on production |
+| Output | Exact call counts and timings | Estimate: a function's sample share ≈ its time share |
+| Tools | `cProfile`, `profile` | `py-spy`, `pyinstrument`, `perf` |
+| Use when | Offline; you need call counts or a call graph | Long-running or production process you cannot edit or restart |
+
+### 12.2 Which tool do I need?
+
+| Question | Tool | Call |
+|---|---|---|
+| How long does this block take? | `time.perf_counter` | `t0 = perf_counter(); …; perf_counter() - t0` |
+| Repeatable timing of a snippet | `timeit.repeat` | `repeat(stmt, setup, repeat=10, number=1)` → report **min** |
+| Which function is hot? | `cProfile` | `python -m cProfile -s tottime script.py` |
+| Whole call tree | `gprof2dot`, `snakeviz` | `.pstats` → `.dot` → `dot -Tpng` |
+| Long-running or production process | `py-spy` | `py-spy record --rate 100 --format flamegraph -o f.svg -- python s.py`; `py-spy top --pid N`; `py-spy dump --pid N` |
+| Which **line** grows memory? | `memory_profiler` | `@profile` + `python -m memory_profiler`; `%memit` |
+| Which **allocation site**, and the peak? | `tracemalloc` | `start()`, `take_snapshot()`, `compare_to()`, `get_traced_memory()` → (current, peak) |
+| Which machine produced this number? | `psutil`, `platform` | `cpu_count()`, `cpu_freq()`, `virtual_memory()` |
+
+### 12.3 Reading the output
+
+| `cProfile` column | Meaning | Use |
+|---|---|---|
+| `ncalls` | Number of calls (`36/1` = 36 total, 1 primitive) | Spot runaway recursion |
+| `tottime` | Time in the function **only**, excluding callees | **Optimise here** (sort by it for hot spots) |
+| `cumtime` | Time in the function **and everything it calls** | Find expensive call trees |
+| `percall` | tottime / ncalls (or cumtime / primitive calls) | Per-call cost |
+
+**Flame graph:** width = share of samples (**not** time order; x is alphabetical), y = stack depth. Wide boxes are where the program lives.
+
+| Formula | Meaning | Example |
+|---|---|---|
+| $\text{overhead}=\dfrac{t_{profiled}}{t_{plain}}$ | Cost of the profiler | 9.56 s ÷ 1.83 s = **5.2×** under `cProfile` |
+| $f_i=\dfrac{n_i}{\sum_j n_j}$ | `py-spy` self-time share (leaf frame) | `func_b` 49%, `func_c` 32%, `func_e` 18% |
+| $\text{Speedup}=\dfrac{1}{(1-p)+p/s}$ | Amdahl **(general)** | 2× on a function that is 1% of runtime: $1/(0.99+0.005)=1.005\times$ |
+| $T_{fib}(n)=T(n-1)+T(n-2)+1$ | Naive recursion → $O(\varphi^n)$; memoised → $O(n)$ | `fib(30)`: **2,692,537** calls vs memoised `fib(34)`: **35** |
+
+### 12.4 Measured results (Ryzen, 16 logical CPUs)
+
+| Test | Result |
+|---|---|
+| Insertion ÷ merge sort time, n = 500 / 1000 / 2000 / 4000 | ×6.7 / ×12.6 / ×24.7 / ×50.4 (the ratio grows roughly like $n/\log n$) |
+| `cProfile` overhead | 1.83 s → 9.56 s; `py-spy` at 100 Hz: no perceptible slowdown |
+| `tracemalloc` peak, n = 2000 | insertion **0.8 KiB**, quick **1.7 KiB**, merge **19.5 KiB** (copies sub-arrays) |
+| Same script, local versus Colab (2-core Xeon) | 9.56 s versus 12.79 s: **timings do not transfer; call counts do** (35 calls on both) |
+
+### 12.5 Traps
+
+| Trap | Fix |
+|---|---|
+| `timeit` runs `setup` **once**: an in-place sort sees sorted data from run 2 | `repeat(..., number=1)` so each run gets fresh setup; report the **minimum** (least disturbed), not the mean |
+| Profiler distorts the thing measured | Take an **unprofiled baseline** first |
+| Irreproducible inputs | Fix the RNG seed; record the environment (`psutil`) with every result |
+| `memory_profiler` samples RSS (≈ 64–125 MiB interpreter baseline) and is unreadable on recursion | Use `tracemalloc` for peaks; it sees Python allocations only |
+| `py-spy top` is a terminal UI | Capture `--format raw`, attribute each sample to its leaf frame |
+| No Graphviz `dot` on Windows | Read `.pstats` and bar-chart with matplotlib |
+| Handout `fib` recurses on `n-1` instead of `n-2`: every cached value shifts by one index and the driver's `fib_dict[n-1]` cancels it | "Final number correct" ≠ "cache correct": spot-check intermediates (`fib_dict[10]` should be 55). A profiler cannot catch this |
+
+**Method:** record environment → fix inputs → unprofiled baseline → `cProfile` (exact) or `py-spy` (low overhead) → optimise the top `tottime` → re-measure → repeat until flat or on target.
+
+---
+
+## 13. Flask + JMeter Lab (Lab 2, Week 3)
+
+Stack: Flask `/sort` endpoint, `flask-profiler` (`@flask_profiler.profile()`, sqlite storage, dashboard at `/flask-profiler/`), JMeter 5.6.
+
+### 13.1 Plan and sizing
+
+| Item | Rule |
+|---|---|
+| Build order | Validate in the GUI (Thread Group → HTTP Request → View Results Tree), then run **non-GUI** |
+| Command | `jmeter -n -t plan.jmx -Jthreads=50 -Jrampup=5 -Jloops=10 -l results.csv -e -o report/` |
+| Parametrise | `${__P(threads,1)}` etc., so one plan serves every run |
+| Arrival rate | $\lambda = \text{threads}/\text{ramp-up}$: 50/5 = 10 users/s; 5000/50 = 100 users/s |
+| Samples | $\text{threads}\times\text{loops}\times\text{samplers per loop}$: 50 × 10 = 500 |
+| Concurrent users | $L=\lambda W$ (Little), capped at $N$ (§4) |
+| Knee | Plot response time against active threads; the knee is where R leaves its flat region. Lab reference: R < 50 ms up to ≈ **17 concurrent users** |
+| Reference stress recipe | 5000 threads, 50 s ramp-up on the instructor's CPU: machine-specific, a recipe and not a result |
+| Think time | Constant Timer (fixed) or Gaussian Random Timer (mean = offset, spread = deviation) |
+
+### 13.2 The "recursive use of cursors" crash
+
+| Step | Finding |
+|---|---|
+| Symptom | 50 threads, 5 s ramp-up, 10 loops: **100% errors**, server dead in ≈ 5 s, `sqlite3.ProgrammingError: Recursive use of cursors not allowed` |
+| Root cause | Flask `app.run()` is **threaded by default** (since 1.0), and flask-profiler's sqlite backend shares **one cursor** for the app's lifetime. `check_same_thread=False` lifts the thread guard but does not make concurrent `execute()` on one cursor safe |
+| Control run | Same plan with `threaded=False`: **0% errors**, 500/500, average 158 ms |
+| Fixes | `threaded=False` (trades concurrency); a `threading.Lock` around the cursor; MongoDB storage engine (`pymongo==3.13.0`, pooled per-thread connections, needs `mongod`) |
+
+> [!tip] Method
+> Isolate the cause by changing **one variable** (the threading model). Do not blame the load tool or the network without a control run.
+
+### 13.3 Lab lessons
+
+- **The profiler is an observer.** It writes every call to storage and can limit the throughput of the system under test. flask-profiler time is wall-clock (running **plus** waiting on I/O and GIL contention).
+- **View Results Tree** stores every sample: remove it for real runs; use non-GUI mode plus the HTML dashboard.
+- **Tester and server on one machine** compete for CPU and give less accurate results; separate them (Docker Compose).
+- **Close the profiler dashboard** during a load test: each load fires about 10 asset and API calls (and a 308 redirect to `/flask-profiler/`).
+- **Read the server log line** before blaming the endpoint (one 404 came from a URL pasted after the Colab host).
+- **`curl` needs `-g`** (or quotes) for URLs containing `[ ]`.
+- **Virtual environments:** `python -m venv test_env` → activate → `pip install flask flask-profiler==1.8.1`; `pip freeze` isolates versions per project.
+- **Apdex = 0.000** when every response exceeds T (for example `time.sleep(5)` against T = 500 ms).
+
+---
+
+## 14. Assignment 1: Ticket Triage Service
+
+**Task:** test an intentionally naive, CPU-only LLM ticket classifier (7 categories) to get an honest baseline before the optimisation assignment.
+
+### 14.1 Method
+
+1. **Golden test set first** (150–200 items): labels before any model exists; drop the noisy source label so raters are not anchored; resolve disagreements.
+2. **Baseline = the straightforward version:** synchronous `POST /tickets`, no cache, no queue, a fresh SQLite connection per request. Do **not** pre-optimise.
+3. **Instrument:** one JSON line per request and per classification (`ticket_id`, `model`, `category`, `classify_latency_ms`, `fallback_used`). Every JMeter number must reconcile with a log entry.
+4. **Swap the model only through an environment variable** (`OLLAMA_MODEL`): 3–5 pinned models across at least 2 size classes under an identical harness.
+5. **Apply §8:** load (expected λ) · stress (find the knee: Ollama CPU, SQLite lock contention) · pipe-clean (assert the body category is one of the 7) · benchmark per model (one variable at a time).
+
+Classifier fallback: exact match → substring match → fixed fallback category. `fallback_used` separates "the model was wrong" from "the model ignored the output format".
+
+### 14.2 Formulas
+
+| Quantity | Formula | Example |
+|---|---|---|
+| Accuracy **(general)** | correct ÷ total | — |
+| Fallback rate **(general)** | `fallback_used` ÷ total | — |
+| Cohen's κ (2 raters) | $\kappa=\dfrac{p_o-p_e}{1-p_e}$ | $p_o=0.80$ (40 of 50), 3 equally used categories → $p_e=1/3$ → κ = 0.467/0.667 = **0.70** |
+| Fleiss' κ (3+ raters) | $\kappa=\dfrac{\bar P-\bar P_e}{1-\bar P_e}$ | Same idea, averaged over items |
+| Interpretation (Landis & Koch, **general**) | < 0 poor · 0–0.20 slight · 0.21–0.40 fair · 0.41–0.60 moderate · **0.61–0.80 substantial** · 0.81–1 almost perfect | κ is below raw agreement because chance agreement is subtracted |
+
+Practical tips: read the CSV with `csv.DictReader` (quoted narratives contain newlines, so `wc -l` overcounts); use `with TestClient(app)` so start-up events run; mock `classify` when Docker or Ollama is unavailable.
+
+---
+
+## 15. Capacity-Planning Formulas (Tutorial Week 4)
+
+| Quantity | Formula | Example |
+|---|---|---|
+| End-to-end yield | $Y=\prod \text{pass rates}$ | 0.90 × 0.975 = **87.75%** |
+| Required incoming | $\text{target}/Y$ | 100,000 ÷ (0.96 × 0.95) = 109,650 /day (round up) |
+| Mixed-workload demand | $D=\sum p_i D_i$ | 0.9(5) + 0.1(30) = **7.5 ms**; 120 req/s × 7.5 ms = 90% |
+| Mean fan-out | $V=\sum p_i V_i$ | 0.9(2) + 0.1(8) = 2.6; × 1,200 = **3,120 qps** |
+| Retry visits | $V=\dfrac{1}{1-p_{fail}}$; attempts/s = $X\cdot V$ | p = 0.1: 1.111; 90 → 100 attempts/s; U = 100 × 8 ms = **80%** |
+| Instances needed | $m=\left\lceil\dfrac{\lambda S}{U_{cap}}\right\rceil$ | 250 × 0.04 = 10 Erlangs; 10 ÷ 0.8 = 12.5 → **13** (76.9%) |
+| Max rate from the bottleneck | $X_{max}=c/S$, then × downstream pass rate | 24 × 25/s = 600 attempts/s × 0.96 = **576 orders/s** |
+| Propagate upstream | $\lambda_{up}=\lambda_{down}/\text{pass rate}$ | 600 ÷ 0.80 = 750 req/s; 250 per validator × 2 ms = **50%** |
+| Thread-pool check | $\bar n=\lambda R$ against thread count (mean, not peak) | 250 × 0.12 = 30 < 48 threads; saturates at R = 48/250 = **192 ms** |
+| SLO tail count | $(1-p)\times N$ | 5% × 1,080,000 = **54,000** above p95 |
+| Growth to saturation | $t=\dfrac{\ln(1/U_0)}{\ln(1+g)}$ | $U_0=0.8$, $g=20\%$: **1.22 years** |
+| Query optimisation | $X_{max}=U_{cap}/D_{new}$ | 0.8 ÷ 1.25 ms = 640 req/s < 691 (year-3 peak): buys ≈ 2.6 years |
+| Read replicas | $D_{primary}=(1-r)D+\dfrac{rD}{1+k}$ | $r=0.7,\ k=2$: 0.6 + 0.467 = 1.067 ms → U = 691.2 × 1.067 ms = **73.7%** |
+
+> [!tip] Pattern
+> Find the bottleneck → compute U at the planning horizon → compare each option against the U cap (70–80%).

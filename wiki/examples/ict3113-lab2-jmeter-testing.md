@@ -2,7 +2,7 @@
 type: example
 status: established
 created: 2026-09-15
-updated: 2026-09-15
+updated: 2026-10-18
 name: ict3113-lab2-jmeter-testing
 description: ICT3113 Week 3 lab — Flask profiling with flask-profiler and JMeter load/stress testing, completed and executed locally on Windows; reproduces and root-causes the notebook's "recursive use of cursors" server crash under concurrent load
 metadata:
@@ -78,6 +78,31 @@ sqlite3.ProgrammingError: Recursive use of cursors not allowed.
 **Confirmed with a control run.** Same server, same JMeter plan, only difference `app.run(..., threaded=False)`: **0% errors**, 500/500 requests succeeded, avg 158 ms, server stayed up for the whole run. This isolates the bug to Flask's threading model + flask-profiler's cursor sharing — not JMeter, not the network stack, not the `/sort` logic.
 
 This also explains *why* the lab's suggested fix (MongoDB storage engine) works: the MongoDB Python driver manages its own per-thread/pooled connections instead of one hand-rolled shared cursor. A cheaper fix for a single dev box, with no extra service to install, is `app.run(threaded=False)` (trades concurrency for correctness) or wrapping the shared cursor's access in a `threading.Lock`.
+
+---
+
+## Instructor reference copy (`..._Solution.ipynb`, ingested 2026-10-18)
+
+The folder now lives at `Labs/Lab3/` and holds two notebooks: the commented working copy above, and `ICT3113_Week03_Introduction_to_Testing_Solution.ipynb` — the instructor's original, uncommented, with Colab run outputs kept. Same 44 content cells (my copy adds only a local-reproduction cell and code comments), so the extra value is the lecturer's **reference numbers and run logs**:
+
+**Reference stress-test parameters (§3.4.3):** 5000 threads · 50 s ramp-up · 2 s (loop/duration) on the lecturer's CPU. Described as machine-specific: "it definitely will not work for you", and other processes (e.g. Zoom) shift results. Treat as a recipe, not an expected result.
+
+**The knee:** with response time held **below 50 ms**, the knee sat at **about 17 concurrent users** (response-time-vs-concurrency curve from the JMeter report). This is the practical read-off for [[concepts/performance-engineering]]'s stress-test "knee" — the load where latency starts climbing, found by plotting response time against active threads, not from throughput.
+
+**Instructor's MongoDB fix (§3.4.2):** `pip install "pymongo==3.13.0"`, then set `storage.engine` to `"mongodb"` (needs a local `mongod` running — the lab's prerequisite list includes MongoDB for this reason). The reference snippet also flips `basicAuth.enabled` to `True` (`admin`/`admin`), so the dashboard then needs a login. Caveat from the notebook itself: if the machine can't cope, reduce users or lengthen ramp-up — "the profiler is probably what limits throughput of the system under test". The profiler is an observer that changes the thing observed.
+
+**Things visible only in the Colab logs:**
+- The instructor's own `/sort` call 404'd: the URL was pasted *after* the Colab host (`GET /5000-m-s-...colab.dev/sort?...`), so Flask saw the host as a path. Check the log line before blaming the endpoint.
+- `GET /flask-profiler` returns **308** to `/flask-profiler/` (trailing slash), then the dashboard fires ~10 asset and API calls (`methodDistribution`, `timeseries`, `grouped`). Those dashboard requests are not profiled (only `@flask_profiler.profile()`-decorated routes are), but they do hit the server, so don't leave the dashboard open during a load test.
+- The reference cell calls `app.run()` with no `threaded=` argument — the same default that causes the cursor crash above.
+
+**Conceptual questions the notebook leaves open (answers):**
+- *Why does flask-profiler's time = running + waiting?* It wraps the whole view call with wall-clock timing, so it includes time blocked on I/O and GIL/thread contention, not just CPU time.
+- *Why does Colab crash under the JMeter plan?* Free-tier VM has little CPU/RAM, the profiler writes every call to sqlite, and View Results Tree in JMeter adds client overhead; lower the thread count.
+- *Why drop View Results Tree for real runs?* It stores every sample in memory/GUI, consuming resources that distort the measurement. Use non-GUI mode plus the HTML dashboard.
+- *Tester and server on one machine* (§3.4) gives less accurate results because the load generator competes for the same CPU; §3.5 / [[concepts/docker-compose]] separate them.
+
+**Venv commands used (Windows):** `python -m venv test_env` → `.\test_env\Scripts\activate` → `pip install Flask` → `pip freeze` (empty before install, so version conflicts between projects are isolated).
 
 ---
 

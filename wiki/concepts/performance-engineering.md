@@ -270,6 +270,8 @@ Each type answers a different question. Using the wrong test gives a correct ans
 
 Read the `throughput` column for the ceiling, the `p95` column for the knee, and the `err%` column for the failure mode.
 
+**Finding the knee with JMeter:** plot response time against concurrent threads from the report. The knee is the thread count where latency leaves its flat region, or where it crosses your latency budget. In the ICT3113 Week 3 lab the lecturer's run held response time under 50 ms up to about 17 concurrent users (5000 threads, 50 s ramp-up; machine-specific). See [[examples/ict3113-lab2-jmeter-testing]]. Keep the load generator off the server's machine, or it eats the CPU it is measuring.
+
 **p50 falling as load rises** means the failure path is faster than the success path — fast errors drag the median down. This is not a good sign; look at the error column.
 
 #### The soak test slope

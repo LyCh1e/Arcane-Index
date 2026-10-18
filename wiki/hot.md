@@ -10,6 +10,10 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-10-18. **Session: ingest — ICT3113 Week 03 Introduction to Testing (Solution notebook).** Updated: [[examples/ict3113-lab2-jmeter-testing]] (new "Instructor reference copy" section), [[concepts/performance-engineering]]. The lab was already in the vault, so no duplicate page. New facts: the lecturer's reference run was 5000 threads / 50 s ramp-up, with the response-time knee at about 17 concurrent users under 50 ms (machine-specific, a recipe rather than an expected result). The MongoDB fix needs `pymongo==3.13.0` and a running `mongod`. The profiler itself limits throughput, so it perturbs what it measures. Colab logs show a 404 caused by pasting the URL after the Colab host, and a 308 redirect on `/flask-profiler`. The notebook's open "why" questions are answered on the page.
+
+---
+
 2026-10-16. **Session: ingest — INF2005 CSF Social Engineering (Phishing, Pharming, No-Tech Attacks).** New source: [[sources/inf2005-csf-social-engineering]]. Updated concept: [[concepts/social-engineering]] — Pharming section added and Phishing Detection Tools table added. Key content: 7-point phishing detection checklist, pharming vs phishing comparison table, five social engineering techniques (Authority with Legal/Organisational/Social sub-types, Charm, Pretext, Baiting, Reciprocation/Quid Pro Quo), DNS cache poisoning and hosts-file tampering as pharming vectors, detection tools (virustotal, urlvoid, checkshorturl, scanurl, PhishTank).
 
 2026-10-15. **Session: ingest — ICT3112 Formal Verification, Hoare Logic (Modules 0–8 + Exercises).** New sources: [[sources/ict3112-hoare-logic-core]], [[sources/ict3112-loop-invariants]], [[sources/ict3112-hoare-arrays]], [[sources/ict3112-hoare-exercises]]. New concepts: [[concepts/hoare-logic]], [[concepts/loop-invariants]]. New example: [[examples/ict3112-hoare-exercises-worked]].
