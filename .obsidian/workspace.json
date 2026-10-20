@@ -139,8 +139,23 @@
               "icon": "lucide-file",
               "title": "log"
             }
+          },
+          {
+            "id": "b6eaa593bf5b54fc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CLAUDE.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CLAUDE"
+            }
           }
-        ]
+        ],
+        "currentTab": 9
       }
     ],
     "direction": "vertical"
@@ -329,8 +344,28 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "c34294748e14f3a7",
+  "active": "b6eaa593bf5b54fc",
   "lastOpenFiles": [
+    "wiki/examples/ict3112-frama-c-lab2-loops.md",
+    "wiki/examples/ict3112-frama-c-lab2-loops.md.tmp.19304.9adc26080b9a",
+    "wiki/examples/ict3112-frama-c-lab1-first-steps.md",
+    "wiki/examples/ict3112-frama-c-lab1-first-steps.md.tmp.19304.248a2d744279",
+    "wiki/examples/ict3112-frama-c-lab0-installation.md",
+    "wiki/resources/frama-c.md",
+    "wiki/learning/frama-c-wsl-install-gotchas.md",
+    "wiki/learning/frama-c-wsl-install-gotchas.md.tmp.19304.c84e811115bb",
+    "wiki/examples/ict3112-frama-c-labs-0-2.md",
+    "skills/wiki-lint/SKILL.md",
+    "skills/critique/SKILL.md",
+    "skills/defuddle/SKILL.md",
+    "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md",
+    "study-notes/ICT3112 - Formula Sheet.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "study-notes/log.md",
+    "study-notes/index.md",
+    "skills/daily-notes/SKILL.md",
+    "agents/tutor.md",
     "wiki/hot.md.tmp.31632.4c4169907671",
     "wiki/concepts/social-engineering.md.tmp.31632.92e74e1cfce7",
     "wiki/sources/inf2005-csf-social-engineering.md",
@@ -339,7 +374,6 @@
     "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md.tmp.22040.89cfa99500be",
     "wiki/hot.md.tmp.22040.1bed9cc80f8a",
     "wiki/hot.md.tmp.22040.725db3e7fdcc",
-    "wiki/index.md.tmp.22040.046a3b5abeb0",
     "wiki/examples/ict3112-hoare-exercises-worked.md",
     "wiki/concepts/loop-invariants.md",
     "wiki/concepts/hoare-logic.md",
@@ -348,25 +382,6 @@
     "wiki/sources/ict3112-loop-invariants.md",
     "wiki/sources/ict3112-hoare-logic-core.md",
     "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 3c.md",
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 3b.md",
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 3a.md",
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 2b.md",
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 2a.md",
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 1b.md",
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - Example 1a.md",
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - 0b.md",
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Recepy for Loop Invariants - 0a.md",
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Discovering Loop Invariants.md",
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 7 - Discovering Loop Invariants - 2b.md",
-    "raw/ICT3112 Software Verification and Validation - Hoare Logic Exercises - 3 - solved.md",
-    "raw/ICT3112 Software Verification and Validation - Hoare Logic Exercises - 2 - solved.md",
-    "raw/ICT3112 Software Verification and Validation - Hoare Logic Exercises - 1 - solved.md",
-    "raw/ICT3112 - 8 - Reasoning about Arrays - 3c.md",
-    "raw/ICT3112 - 8 - Reasoning about Arrays - 3b.md",
-    "raw/ICT3112 - 8 - Reasoning about Arrays - 3a.md",
-    "wiki/hot.md.tmp.7008.dd5542ded294",
-    "wiki/log.md.tmp.7008.c9f06d62d99c",
-    "wiki/concepts/performance-engineering.md.tmp.7008.fa26ed167d78",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",

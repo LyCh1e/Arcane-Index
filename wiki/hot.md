@@ -10,6 +10,10 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-10-20. **Session: ICT3112 Frama-C Labs 0–2.** Installed Frama-C 33.0 in WSL Ubuntu via opam and proved all lab exercises (contracts, behaviors, loop invariants/variants/assigns, array search/reset/replace). New: [[examples/ict3112-frama-c-labs-0-2]], [[learning/frama-c-wsl-install-gotchas]], [[resources/frama-c]]. Key lessons: run opam through `opam exec` or a script file because WSL inherits the Windows PATH; `-rte` gives 4 unavoidable pointer-alignment timeouts on size_t array code; `loop assigns` is shorthand for an invariant stating untouched variables are unchanged. GUI follow-up: `frama-c-gui` needs Node 24 + yarn (nvm) and Electron libs (`libnspr4` etc.) in WSL, and works after adding the opam env to `~/.bashrc`; per-lab pages: [[examples/ict3112-frama-c-lab0-installation]], [[examples/ict3112-frama-c-lab1-first-steps]], [[examples/ict3112-frama-c-lab2-loops]].
+
+---
+
 2026-10-18. **Session: ingest — ICT3113 Week 03 Introduction to Testing (Solution notebook).** Updated: [[examples/ict3113-lab2-jmeter-testing]] (new "Instructor reference copy" section), [[concepts/performance-engineering]]. The lab was already in the vault, so no duplicate page. New facts: the lecturer's reference run was 5000 threads / 50 s ramp-up, with the response-time knee at about 17 concurrent users under 50 ms (machine-specific, a recipe rather than an expected result). The MongoDB fix needs `pymongo==3.13.0` and a running `mongod`. The profiler itself limits throughput, so it perturbs what it measures. Colab logs show a 404 caused by pasting the URL after the Colab host, and a 308 redirect on `/flask-profiler`. The notebook's open "why" questions are answered on the page.
 
 ---

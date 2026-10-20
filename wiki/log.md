@@ -10,6 +10,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-10-20 | ingest | ICT3112 Frama-C Labs 0–2 (install, contracts, loops)
+
+- Source: `Formal Methods/Labs/` Lab0 installation, Lab1 first steps, Lab2 loops (markdown copies of the PDFs); 17 C files written and proved with Frama-C 33.0 + Alt-Ergo/Z3/cvc5
+- New: [[examples/ict3112-frama-c-labs-0-2]], [[learning/frama-c-wsl-install-gotchas]], [[resources/frama-c]]
+- Result: every contract and loop goal proved; expected non-proofs are the smoke test and the weak-invariant exercise; 4 `rte_pointer_alignment` goals in arrays.c time out (WP `ligned` unimplemented)
+- Per-lab learning pages: [[examples/ict3112-frama-c-lab0-installation]], [[examples/ict3112-frama-c-lab1-first-steps]], [[examples/ict3112-frama-c-lab2-loops]]; copies saved as `Labs/Lab0-Notes.md`, `Lab1-Notes.md`, `Lab2-Notes.md`
+- Updated: `index.md`, `hot.md`
+- Follow-up: Frama-C GUI (Ivette) working under WSLg after installing Node 24 + yarn via nvm and the Electron system libs; opam env added to `~/.bashrc`; all three recorded in [[learning/frama-c-wsl-install-gotchas]]; helper scripts kept in the Labs folder: `run_all.sh`, `gui.sh`, `copy_to_wsl.sh` (one-shot setup scripts were removed)
+
 ## 2026-10-18 | ingest | ICT3113 Week 03 Introduction to Testing — Solution notebook
 
 - Source ingested: `Labs/Lab3/ICT3113_Week03_Introduction_to_Testing_Solution.ipynb` (instructor reference copy, 44 cells, Colab outputs retained)

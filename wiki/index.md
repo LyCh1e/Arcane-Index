@@ -336,6 +336,10 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/inf2005-lab-wk1-cryptography\|INF2005 Lab Wk 1 — Cryptography (Ciphers, Cryptanalysis & RSA Team Challenge)]] | lab | INF2005 / cryptography | [[concepts/classical-ciphers-and-cryptanalysis\|Classical Ciphers and Cryptanalysis]] |
 | [[examples/inf2005-acw1-stego-verification\|INF2005 ACW1 — Steganographic Integrity Verification with Digital Signatures]] | project | INF2005 / secure-software-development | [[concepts/steganography\|Steganography]] |
 | [[examples/ict3112-hoare-exercises-worked\|ICT3112 Hoare Logic — Key Worked Proofs]] | practice | ICT3112 / formal-verification | [[concepts/hoare-logic\|Hoare Logic]] |
+| [[examples/ict3112-frama-c-labs-0-2\|ICT3112 Frama-C Labs 0–2 — Install, Contracts, Loops]] | lab | ICT3112 / formal-verification | [[concepts/loop-invariants\|Loop Invariants]] |
+| [[examples/ict3112-frama-c-lab0-installation\|ICT3112 Frama-C Lab 0 — Installation]] | lab | ICT3112 / formal-verification | [[resources/frama-c\|Frama-C]] |
+| [[examples/ict3112-frama-c-lab1-first-steps\|ICT3112 Frama-C Lab 1 — Contracts, Pointers, Behaviors]] | lab | ICT3112 / formal-verification | [[resources/frama-c\|Frama-C]] |
+| [[examples/ict3112-frama-c-lab2-loops\|ICT3112 Frama-C Lab 2 — Loops]] | lab | ICT3112 / formal-verification | [[concepts/loop-invariants\|Loop Invariants]] |
 
 ## Entities
 
@@ -364,6 +368,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/prompt-injection-in-lab-handout-pdf\|Prompt Injection Embedded in a Course Lab PDF]] | security | resolved |
 | [[learning/dotnet-locked-exe-msb3021\|dotnet build MSB3021/MSB3027: Output exe Locked by Running Process]] | dotnet | resolved |
 | [[learning/ict3112-lab3-tooling-gotchas\|ICT3112 Lab 3 — PDF false password error, robocopy in Git Bash, MAX_PATH]] | windows | resolved |
+| [[learning/frama-c-wsl-install-gotchas\|Frama-C 33 on WSL Ubuntu — opam install gotchas]] | tooling | resolved |
 | [[learning/docker-compose-build-context\|Docker Compose: Build Context Controls What COPY Can See]] | devops | resolved |
 | [[learning/docker-named-volume-stale-content\|Docker Named Volumes: Rebuilding the Image Does NOT Update an Existing Volume]] | devops | resolved |
 | [[learning/docker-volume-host-dir-created-as-root\|Docker Bind Mount: Host Dir Created as Root if Missing]] | devops | resolved |
@@ -430,3 +435,4 @@ Master catalog of all pages. Updated on every ingest.
 | [[resources/latex-essential-packages\|LaTeX Essential Packages]] | reference |
 | [[resources/gitea-and-act-runner\|Gitea and act_runner]] | tool |
 | [[resources/pyarmor\|PyArmor]] | tool |
+| [[resources/frama-c\|Frama-C (WP plugin) and ACSL]] | tool |
