@@ -18,6 +18,18 @@ Deductive verification of C. Annotations are ACSL comments (`/*@ ... */`, `//@ .
 - `-wp-no-simpl` — show raw VCs; `-wp-prover alt-ergo,z3,cvc5`; `-wp-timeout N`.
 - `why3 config detect` — re-run after installing any prover.
 
+## Purpose: proof, not debugging
+
+A debugger runs one input and shows what happened; Frama-C never runs the code and reasons symbolically, so a proved goal holds for every input (it found the `INT_MIN` overflow in `abs` with no test). It needs a contract from you, and a proof is only as strong as that contract: a wrong or weak spec proves the wrong thing. `Timeout`/`Unknown` is not a disproof. Best spent on small, critical code; testing and proof complement each other.
+
+## Verified option notes (Frama-C 33.0)
+
+- `-wp-rte` (slide option) skips the unsupported alignment/function-pointer guards; plain `-rte` adds `rte_pointer_alignment` goals that time out on `size_t*` array code.
+- `-wp-no-simpl` (in the lab text) is a **deprecated alias of `-wp-no-subst`**; it still runs but warns. `-wp-no-qed` disables Qed simplification so raw VCs show in the GUI.
+- `-wp-fct f` proves one function; `-wp-cache none` avoids the `.frama-c/` proof-cache folder; `-wp-timeout` defaults to 2 s.
+- Several files each defining `main` (or the same function) cannot be loaded into one GUI session.
+- Full list kept in `Labs/Frama-C-Commands.md` (CLAUDE.md requires updating it whenever a new command is verified).
+
 ## ACSL cheat sheet
 
 `requires` / `ensures` / `assigns` / `\nothing` / `\old` / `\at(e,Pre|Here|LoopEntry|LoopCurrent|Label)` / `\valid` / `\valid_read` / `\separated` / `behavior` + `assumes` + `complete|disjoint behaviors` / `loop invariant` / `loop assigns` / `loop variant` / `\forall T x; range ==> P` / `\exists T x; range && P` (use `==>` with forall, `&&` with exists).

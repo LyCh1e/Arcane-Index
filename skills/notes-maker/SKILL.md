@@ -1,17 +1,19 @@
 ---
 name: notes-maker
 description: >
-  Generates a fresh daily reading + 20-question MCQ quiz for every module
-  listed in `study-notes/index.md`'s "Create Study Notes For" table, and
-  publishes each straight to that module's permanent hosted Artifact page —
-  no Markdown or HTML file is written to the vault. Topics rotate per
-  module so no two consecutive runs repeat the same subtopics, and the
-  persistent Artifact URLs stay the same forever — both are tracked in one
-  file, `study-notes/log.md`. Every run republishes to those same links
-  rather than creating new pages, and does a one-time first publish for
-  any module newly added to the index. To change which courses get a
-  daily read, edit the table in `study-notes/index.md` — nothing in this
-  skill or the agent needs to change.
+  Generates a fresh ~10-minute daily reading (3 lecture subtopics plus a
+  lab/practical topic, when lab material exists) + 20-question MCQ quiz
+  for every module listed in `study-notes/index.md`'s "Create Study Notes
+  For" table, and publishes each straight to that module's permanent
+  hosted Artifact page — no Markdown or HTML file is written to the
+  vault. Topics rotate per module so no two consecutive runs repeat the
+  same subtopics, and the persistent Artifact URLs stay the same forever —
+  both are tracked in one file, `study-notes/log.md`. Every run
+  republishes to those same links rather than creating new pages, and
+  does a one-time first publish for any module newly added to the index.
+  To change which courses get a daily read, edit the table in
+  `study-notes/index.md` — nothing in this skill or the agent needs to
+  change.
   Triggers on: "notes-maker", "tutor", "daily read", "create today's study
   note", "generate daily note", or called automatically by this project's
   scheduled task.
@@ -21,9 +23,13 @@ allowed-tools: Read Write Edit Glob Grep Bash Artifact
 # notes-maker: Daily Study Note Generator
 
 Produces an exam-focused daily reading + quiz session for every module
-listed in the vault's course index — fresh reading content followed
-immediately by a 20-question MCQ quiz testing only that module's content.
-Runs on demand, or automatically via this project's scheduled task.
+listed in the vault's course index — fresh reading content (3 lecture
+subtopics, plus a lab/practical topic whenever that module has lab
+material under `wiki/examples/`) followed immediately by a 20-question
+MCQ quiz testing only that module's content. Each page targets roughly
+10 minutes of reading, giving room for the lab section alongside the
+usual lecture coverage. Runs on demand, or automatically via this
+project's scheduled task.
 
 There is no local file output. Each module has one permanent, bookmarkable
 Artifact page; every run rebuilds that module's content and republishes it
@@ -65,9 +71,10 @@ left alone, not deleted.
 
 This skill dispatches the **tutor** agent (defined in `agents/tutor.md`).
 The agent handles: reading the course index, and then independently for
-each module in it — topic selection, content synthesis, quiz generation,
-Artifact page build, and publishing (first-time or republish) to that
-module's URL. See `agents/tutor.md` for the full step-by-step process.
+each module in it — topic selection (lecture subtopics plus a lab topic,
+when available), content synthesis, quiz generation, Artifact page build,
+and publishing (first-time or republish) to that module's URL. See
+`agents/tutor.md` for the full step-by-step process.
 
 ---
 
@@ -78,9 +85,11 @@ To regenerate today's quiz pages immediately (outside the scheduled run):
 > Tell Claude: **"create today's daily read"**, **"run tutor"**, or **"run notes-maker"**
 
 Claude will invoke the tutor agent, which reads `study-notes/index.md` for
-the current module list, then for each one reads its study notes, selects 3
-fresh subtopics, writes the reading + 20-question quiz content, and
-publishes it to that module's Artifact URL (existing or newly created).
+the current module list, then for each one reads its study notes (and any
+lab/practical write-ups under `wiki/examples/`), selects 3 fresh lecture
+subtopics plus 1 lab topic (when lab material exists for that module),
+writes the reading + 20-question quiz content, and publishes it to that
+module's Artifact URL (existing or newly created).
 
 ---
 
@@ -96,8 +105,11 @@ study-notes/log.md      ← one permanent Artifact URL + topic history, per modu
 
 Each module's Artifact page is a self-contained reading + quiz session,
 rebuilt fresh every run:
-- A lecture-notes card covering that module's 3 subtopics for today
-  (headings, worked examples, "Watch out" callouts, mnemonics).
+- A notes section covering that module's 3 lecture subtopics for today
+  (headings, worked examples, "Watch out" callouts, mnemonics), plus a
+  lab/practical section drawn from that module's `wiki/examples/` write-ups
+  whenever lab material exists for it. Together these target roughly 10
+  minutes of reading.
 - The full 20-question quiz rendered below it on the same page — every
   question visible, answerable in any order, with instant feedback per
   question, a live sticky score readout, and a results block at the bottom

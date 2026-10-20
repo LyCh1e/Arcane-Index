@@ -23,5 +23,7 @@ Context: ICT3112 Lab 0. See [[resources/frama-c]] and [[examples/ict3112-frama-c
 | `frama-c-gui`: "requires node version 24 or later" | No Node/yarn in WSL | Install nvm, `nvm install 24`, `npm install -g yarn` (Lab 0 section 2.2.3) |
 | `frama-c-gui`: `libnspr4.so: cannot open shared object file` | Electron (Ivette) system libs missing from Ubuntu | `apt install libnspr4 libnss3 libgbm1 libasound2t64 libgtk-3-0t64 libxss1 libxtst6 libxkbcommon0 libdrm2 libatk-bridge2.0-0t64 libcups2t64` |
 | `frama-c` not found in a fresh terminal | opam switch not on PATH | Append `eval "$(opam env --switch=frama --set-switch)"` to `~/.bashrc` |
+| `frama-c` warns `-wp-no-simpl is a deprecated alias for -wp-no-subst` | Lab text uses an old option name | Use `-wp-no-subst` (or `-wp-no-qed`) |
+| `-rte` shows 4 `rte_pointer_alignment` timeouts on array code | `ligned` unsupported in WP 33.0 | Use `-wp-rte` (skips those guards) or run without `-rte` |
 
 Build takes ~30–40 minutes (OCaml compiler plus Frama-C from source). The GUI (`frama-c-gui`, Ivette) builds itself on first start (a few minutes) and opens through WSLg. The CLI `frama-c -wp -rte` is enough for all lab proofs.

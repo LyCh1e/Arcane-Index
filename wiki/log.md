@@ -10,6 +10,12 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-10-20 | ingest | ICT3112 Frama-C — exercise 1, option findings, purpose
+
+- Exercise 1 `clamp` proved 17/17 (behaviors needed; added to [[examples/ict3112-frama-c-labs-0-2]]); exercises 2–5 pending
+- [[resources/frama-c]]: purpose (proof vs debugger) and verified option notes (`-wp-rte`, `-wp-no-simpl` deprecated alias, `-wp-no-qed`, `-wp-fct`, `-wp-cache`)
+- [[learning/frama-c-wsl-install-gotchas]]: two new rows; `Labs/Frama-C-Commands.md` created, CLAUDE.md now requires keeping it current; project copied to WSL `~/ICT3112-Software-Verification-and-Validation`
+
 ## 2026-10-20 | ingest | ICT3112 Frama-C Labs 0–2 (install, contracts, loops)
 
 - Source: `Formal Methods/Labs/` Lab0 installation, Lab1 first steps, Lab2 loops (markdown copies of the PDFs); 17 C files written and proved with Frama-C 33.0 + Alt-Ergo/Z3/cvc5

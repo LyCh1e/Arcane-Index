@@ -153,9 +153,23 @@
               "icon": "lucide-file",
               "title": "CLAUDE"
             }
+          },
+          {
+            "id": "777569c54ac92aab",
+            "type": "leaf",
+            "state": {
+              "type": "split-diff-view",
+              "state": {
+                "aFile": "agents/tutor.md",
+                "bFile": "agents/tutor.md",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: tutor  (Working Tree)"
+            }
           }
         ],
-        "currentTab": 9
+        "currentTab": 10
       }
     ],
     "direction": "vertical"
@@ -344,8 +358,9 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "b6eaa593bf5b54fc",
+  "active": "777569c54ac92aab",
   "lastOpenFiles": [
+    "CLAUDE.md",
     "wiki/examples/ict3112-frama-c-lab2-loops.md",
     "wiki/examples/ict3112-frama-c-lab2-loops.md.tmp.19304.9adc26080b9a",
     "wiki/examples/ict3112-frama-c-lab1-first-steps.md",
@@ -361,7 +376,6 @@
     "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md",
     "study-notes/ICT3112 - Formula Sheet.md",
     "AGENTS.md",
-    "CLAUDE.md",
     "study-notes/log.md",
     "study-notes/index.md",
     "skills/daily-notes/SKILL.md",

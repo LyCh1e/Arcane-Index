@@ -49,3 +49,8 @@ Command used for every file: `frama-c -wp -rte -wp-prover alt-ergo,z3 file.c` (l
 ## Caveat: pointer-alignment RTE goals
 
 With `-rte` on `arrays.c`, four `rte_pointer_alignment` goals time out ("`\aligned` not yet implemented" warning). This is a WP limitation in 33.0, not a proof error; all contract and loop goals are proved (47/47 without `-rte`). `-rte` has no switch to disable alignment checks.
+
+## In-class Exercise 1 — `clamp` (`exercises/ex1_clamp.c`)
+
+Workflow from the slide: English description, ACSL contract (LLM-assisted), `frama-c -wp -wp-rte`, then check the contract says what the English says. Contract: `requires lo <= hi; assigns 
+othing; ensures lo <= esult <= hi;` plus behaviors `below` (returns `lo`), `above` (returns `hi`), `inside` (returns `v`), `complete` and `disjoint`. Result: **17/17 proved**, including both assertions in `test`. The hint holds: the range postcondition alone is correct but too weak to prove `a == 10` / `b == 5`; the per-case behaviors give the exact result (same lesson as `max`). Exercises 2–5 (`ex2_midnight`, `ex3_tick`, `ex4_swap`, `ex5_deposit`) are in the folder but not yet done.
