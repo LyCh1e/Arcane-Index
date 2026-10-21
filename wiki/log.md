@@ -2,13 +2,20 @@
 type: meta
 status: established
 title: "Operation Log"
-updated: 2026-10-02
+updated: 2026-10-21
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## 2026-10-21 | ingest | Learnix — HCI pass, client caching, loading improvements
+
+- Source: the Learnix repo session (code + `cy-documentation.md` entries of 2026-10-21); verified headlessly, not in the running app
+- New: [[examples/learnix-hci-caching-and-loading-session]], [[concepts/stale-while-revalidate-client-cache]], [[learning/n-plus-one-remote-queries-token-usage]], [[learning/mixin-type-checking-pylance]], [[resources/fake-indexeddb]]
+- Updated: [[concepts/customtkinter-widget-scaling]] (`place()` scales by widget scaling, not window scaling), `index.md`, `learning/_index.md`, `hot.md`
+- Key numbers: admin token-usage query 13.8 s → 3.4 s cold / ≈1.5 s warm with identical output; contrast fixes from 2.2:1 / 2.1:1 to ≥4.5:1; 448 desktop tests pass
 
 ## 2026-10-20 | ingest | ICT3112 Frama-C — exercise 1, option findings, purpose
 

@@ -2,13 +2,21 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-10-16
+updated: 2026-10-21
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-10-21. **Session: build — Learnix HCI pass, client caching, loading.** New: [[examples/learnix-hci-caching-and-loading-session]], [[concepts/stale-while-revalidate-client-cache]], [[learning/n-plus-one-remote-queries-token-usage]], [[learning/mixin-type-checking-pylance]], [[resources/fake-indexeddb]]. Updated: [[concepts/customtkinter-widget-scaling]].
+
+Desktop chat gained shortcuts, a stop button (late replies discarded via a request counter) and copy / selectable messages; WCAG contrast fixed in both themes (new `ON_BLUE`); a view-menu misalignment traced to `place()` using **widget** scaling, not window scaling. The React frontend got a Map + IndexedDB stale-while-revalidate cache, scoped per user and wiped on logout. The slow token-usage page was **one serial remote query per user**: measured 13.8 s for 583 records, cut to 3.4 s cold / ≈1.5 s warm (parallel reads, field projection, skipping empty collections) with identical output; the page now shows cached data with "Refreshing…", and one shared `LoadingIndicator` (also on the startup splash) replaced the ad-hoc "Loading…" labels. Pylance mixin warnings fixed with value-less annotations, `TYPE_CHECKING` stubs and a type-only base class.
+
+**Honest gap:** headless/Node/test-suite verification only; nothing clicked through in the running app, and nothing committed.
+
+---
 
 2026-10-20. **Session: ICT3112 Frama-C Labs 0–2 (+ clamp exercise).** Exercise 1 `clamp` proved 17/17 with behaviors; exercises 2–5 still to do. Frama-C is a proof checker, not a debugger: it proves contracts for all inputs but only as strong as the spec. Use `-wp-rte` to dodge alignment timeouts; `-wp-no-simpl` is deprecated for `-wp-no-subst`. Commands live in `Labs/Frama-C-Commands.md`. Installed Frama-C 33.0 in WSL Ubuntu via opam and proved all lab exercises (contracts, behaviors, loop invariants/variants/assigns, array search/reset/replace). New: [[examples/ict3112-frama-c-labs-0-2]], [[learning/frama-c-wsl-install-gotchas]], [[resources/frama-c]]. Key lessons: run opam through `opam exec` or a script file because WSL inherits the Windows PATH; `-rte` gives 4 unavoidable pointer-alignment timeouts on size_t array code; `loop assigns` is shorthand for an invariant stating untouched variables are unchanged. GUI follow-up: `frama-c-gui` needs Node 24 + yarn (nvm) and Electron libs (`libnspr4` etc.) in WSL, and works after adding the opam env to `~/.bashrc`; per-lab pages: [[examples/ict3112-frama-c-lab0-installation]], [[examples/ict3112-frama-c-lab1-first-steps]], [[examples/ict3112-frama-c-lab2-loops]].
 

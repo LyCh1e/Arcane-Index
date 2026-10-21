@@ -127,13 +127,17 @@ content.
 
 For each module independently, the tutor reads the "Topic Rotation History"
 section of `study-notes/log.md` to build a "recently covered" set (roughly
-the last 5 runs). It then picks 3
-subtopics for that module that have NOT been covered recently, rotating
-through the full syllabus over time so all topics are revisited
-periodically. Rotation is tracked per module — one module's history never
-affects what another selects. After each run, today's selections are
-appended to that same file (older entries pruned so it stays small). A
-module that's new to the index simply starts with an empty history.
+the last 5 runs). It then picks 3 lecture subtopics for that module that
+have NOT been covered recently, rotating through the full syllabus over
+time so all topics are revisited periodically. Lab topics (sourced from
+`wiki/examples/` write-ups matching that module's Source Pattern) rotate
+as a separate pool from lecture subtopics, logged with a `[Lab]` prefix,
+so a lab topic being recently covered never blocks a lecture subtopic and
+vice versa. Rotation is tracked per module — one module's history never
+affects what another selects. After each run, today's selections (lecture
+and, when available, lab) are appended to that same file (older entries
+pruned so it stays small). A module that's new to the index simply starts
+with an empty history.
 
 ---
 

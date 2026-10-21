@@ -17,6 +17,8 @@ Exam-prep summaries, study notes, and structured knowledge pathways for each mod
 | [[learning/inf1008-data-structures-algorithms-study-notes\|INF1008 Study Notes]] | INF1008 — Data Structures & Algorithms | computer-science | 2026-05-15 |
 | [[learning/inf1005-web-systems-study-notes\|INF1005 Study Notes]] | INF1005 — Web Systems & Technologies | web-development | 2026-05-15 |
 | [[learning/learnix-srl-keyword-detection-pitfalls\|Learnix SRL Keyword Detection Pitfalls]] | ICT2114 ITP (Learnix) | llm-tutoring | 2026-09-21 |
+| [[learning/n-plus-one-remote-queries-token-usage\|N+1 Serial Remote Queries (Learnix Token Usage)]] | ICT2114 ITP (Learnix) | databases | 2026-10-21 |
+| [[learning/mixin-type-checking-pylance\|Type-Checking Mixin Classes (Pylance)]] | ICT2114 ITP (Learnix) | python | 2026-10-21 |
 | [[learning/docker-windows-crlf\|Docker CRLF Fix on Windows]] | ICT2216 — Secure Software Development | secure-software-development | 2026-05-11 |
 | [[learning/scrum-open-assessment-study-notes\|Scrum Open Assessment Study Notes]] | Scrum Guide 2020 | agile-project-management | 2026-05-19 |
 | [[learning/scrum-master-exam-study-notes\|Scrum Master Exam Study Notes (80 Questions)]] | Scrum Guide 2020 | agile-project-management | 2026-05-19 |

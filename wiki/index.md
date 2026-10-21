@@ -2,7 +2,7 @@
 type: meta
 status: established
 title: "Wiki Index"
-updated: 2026-10-02
+updated: 2026-10-21
 tags: [meta, index]
 ---
 
@@ -286,6 +286,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/latex-formatting\|LaTeX Formatting]] | academic-writing | medium |
 | [[concepts/management-consulting-industry\|Management Consulting Industry]] | business | medium |
 | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] | python-gui | low |
+| [[concepts/stale-while-revalidate-client-cache\|Stale-While-Revalidate Client Cache]] | web-frontend | medium |
 | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] | python-gui | medium |
 | [[concepts/ethical-hacking\|Ethical Hacking and Penetration Testing]] | secure-software-development | high |
 | [[concepts/queueing-theory\|Queueing Theory for Performance Engineering]] | performance-engineering | high |
@@ -328,6 +329,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/leetcode-longest-substring-python\|LeetCode 3 — Longest Substring Without Repeating Characters (Python)]] | practice | computer-science | [[concepts/sliding-window-patterns\|Sliding Window Patterns]] |
 | [[examples/leetcode-merge-alternately-python\|LeetCode 1768 — Merge Strings Alternately (Python)]] | practice | computer-science | [[concepts/array-manipulation-patterns\|Array Manipulation Patterns]] |
 | [[examples/learnix-fontsize-and-srl-pacing\|Learnix — Font-Size Setting + Slower Forethought SRL Pacing]] | project | python-gui / software-engineering | [[concepts/customtkinter-widget-scaling\|CustomTkinter Widget Scaling]] |
+| [[examples/learnix-hci-caching-and-loading-session\|Learnix — HCI Pass, Client Caching and Loading Improvements]] | project | python-gui / web-frontend | [[concepts/stale-while-revalidate-client-cache\|Stale-While-Revalidate Client Cache]] |
 | [[examples/learnix-encrypted-env-build\|Learnix — Encrypted .env + PyArmor Build Pipeline]] | project | python-gui / secure-software-development | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] |
 | [[examples/hedera-local-ledger-js\|Hedera Local Ledger — Hash-Chained Audit Trail + Testnet Transactions (JavaScript)]] | project | blockchain | [[concepts/hedera-network\|Hedera Network]] |
 | [[examples/hedera-lecture4-voting-contract\|Hedera Lecture 4 — Voting Contract (Poll V1 and V2)]] | course-example | blockchain | [[concepts/solidity-fundamentals\|Solidity Fundamentals]] |
@@ -365,6 +367,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/psm1-cheatsheet-study-notes\|PSM I Cheatsheet Study Notes]] | agile-project-management | active |
 | [[learning/customtkinter-after-teardown\|CustomTkinter: `invalid command name` on Window Teardown]] | python-gui | resolved |
 | [[learning/learnix-srl-keyword-detection-pitfalls\|Learnix: SRL Keyword Detection Pitfalls]] | llm-tutoring | open |
+| [[learning/n-plus-one-remote-queries-token-usage\|N+1 Serial Remote Queries (Learnix Token Usage)]] | databases | resolved |
+| [[learning/mixin-type-checking-pylance\|Type-Checking Mixin Classes (Pylance)]] | python | resolved |
 | [[learning/prompt-injection-in-lab-handout-pdf\|Prompt Injection Embedded in a Course Lab PDF]] | security | resolved |
 | [[learning/dotnet-locked-exe-msb3021\|dotnet build MSB3021/MSB3027: Output exe Locked by Running Process]] | dotnet | resolved |
 | [[learning/ict3112-lab3-tooling-gotchas\|ICT3112 Lab 3 — PDF false password error, robocopy in Git Bash, MAX_PATH]] | windows | resolved |
@@ -436,3 +440,4 @@ Master catalog of all pages. Updated on every ingest.
 | [[resources/gitea-and-act-runner\|Gitea and act_runner]] | tool |
 | [[resources/pyarmor\|PyArmor]] | tool |
 | [[resources/frama-c\|Frama-C (WP plugin) and ACSL]] | tool |
+| [[resources/fake-indexeddb\|fake-indexeddb]] | tool |

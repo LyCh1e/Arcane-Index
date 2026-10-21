@@ -2,7 +2,7 @@
 type: concept
 status: established
 created: 2026-07-24
-updated: 2026-07-24
+updated: 2026-10-21
 name: customtkinter-widget-scaling
 description: CTk's built-in set_widget_scaling() live-rescales every constructed CTkFont and widget dimension without a rebuild — the cheap alternative to the colour-rebind-and-rebuild pattern, useful for user-facing font-size / accessibility-zoom settings.
 metadata:
@@ -68,6 +68,14 @@ function call at each entry point, not a colour-style rebuild.
 - **`set_widget_scaling` is global, not per-window.** If the app ever opens
   two `CTk` roots at once, both will scale together — there is no per-window
   override.
+- **`place(x=, y=)` coordinates scale with *widget* scaling, not window scaling.**
+  `ctk.ScalingTracker.get_widget_scaling(widget)` is what CTk applies to `place()`
+  positions and widget sizes (DPI × the UI-size setting). `get_window_scaling`
+  stays at 1.0 when only `set_widget_scaling` is used. A pop-up menu positioned
+  from `winfo_rootx()/winfo_width()` divided by the *window* factor lands in the
+  wrong spot (and clips at the right edge) at any size other than 100 % — divide
+  by the widget factor instead. Learnix's view-menu bug; see
+  [[examples/learnix-hci-caching-and-loading-session]].
 - Distinguish from `ctk.set_window_scaling()`, which scales window geometry
   (DPI), not font/widget size — the two are independent knobs.
 

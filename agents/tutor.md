@@ -250,6 +250,16 @@ Each question must:
 - Test understanding, not just memorisation.
 - Draw on a genuinely different fact, angle, or worked-example variation
   than any other question in the same quiz — no near-duplicate questions.
+- Keep all four options close to the same length and level of detail — the
+  correct option must never be the one that's noticeably longer, more
+  precise, or more heavily qualified than the three distractors (this is a
+  known tell the user has specifically flagged: don't let "the longest
+  option" become a shortcut to the right answer). If the correct answer
+  genuinely needs more words to state precisely, write the three
+  distractors with matching length and specificity — plausible wrong
+  details, not vague filler — rather than leaving the correct option
+  visibly longer. Likewise, vary which letter (A–D) holds the correct
+  answer across the 20 questions instead of clustering it on one position.
 
 Each question needs a one-sentence explanation for its correct answer,
 shown to the student immediately after they tap an option.
