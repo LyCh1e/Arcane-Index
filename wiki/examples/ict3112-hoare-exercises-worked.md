@@ -4,13 +4,32 @@ title: "ICT3112 Hoare Logic — Key Worked Proofs"
 domain: formal-verification
 course: ICT3112
 created: 2026-10-15
-updated: 2026-10-15
+updated: 2026-10-22
 tags: [hoare-logic, weakest-precondition, loop-invariants, proof-outline, worked-examples]
 ---
 
 # ICT3112 Hoare Logic — Key Worked Proofs
 
-Condensed, high-value examples from the three solved exercise sheets.
+Condensed, high-value examples from the three solved exercise sheets and live lecture walkthroughs.
+
+---
+
+## 0. Lecture Example — Simple Two-Assignment Sequence (Week 4)
+
+**Claim:** `{A > 2}  A := A*2;  B := A+1  {B > 5}`
+
+Work **bottom-up** (right to left):
+
+| Step | Statement | Postcondition | Substitution | Result |
+|---|---|---|---|---|
+| 1 | `B := A+1` | `B > 5` | B ← A+1 | `A+1 > 5` |
+| 2 | `A := A*2` | `A+1 > 5` | A ← A*2 | `A*2+1 > 5` |
+
+**WP = `A*2+1 > 5`.**  
+Simplify: `A*2 > 4` ↔ `A > 2`.  
+Check: `A > 2 ⟹ A > 2`. ✓ Triple is **correct**.
+
+> **Warning:** the professor explicitly stated that top-down proofs receive zero marks on assessments — see [[learning/hoare-logic-bottom-up-proof-method]].
 
 ---
 

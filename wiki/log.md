@@ -10,6 +10,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-10-22 | ingest | ICT3112 Week 4 — Second Half Intro Lecture Transcript
+
+- Source: live lecture transcript (Dr David Sanan, ICT3112 second half kick-off)
+- New: [[sources/ict3112-lecture-w4-sec2-intro-transcript]], [[learning/hoare-logic-bottom-up-proof-method]]
+- Updated: [[examples/ict3112-hoare-exercises-worked]] (added Week 4 lecture warmup proof), [[learning/_index]], `index.md`, `hot.md`
+- Key content: bottom-up proof methodology is **mandatory** (top-down = 0 marks); lab methodology change to natural-language → LLM → ACSL → Frama-C; project is a multi-agent automated verification pipeline; assessment structure (Quiz W3: assign+conditionals, Quiz W6: loops+arrays, Project W6); implication truth table set-theoretic review; worked `{A>2} A:=A*2; B:=A+1 {B>5}` proof
+
 ## 2026-10-21 | ingest | Learnix — HCI pass, client caching, loading improvements
 
 - Source: the Learnix repo session (code + `cy-documentation.md` entries of 2026-10-21); verified headlessly, not in the running app

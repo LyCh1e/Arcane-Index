@@ -20,9 +20,13 @@
                     {
                       "tabId": "tab-1792068143184-ryqu1ln",
                       "conversationId": "conv-1792066967697-mbgf2gjki"
+                    },
+                    {
+                      "tabId": "tab-1792654053294-2si70i9",
+                      "conversationId": "conv-1792654059548-7hjrp9qnr"
                     }
                   ],
-                  "activeTabId": "tab-1792068143184-ryqu1ln"
+                  "activeTabId": "tab-1792654053294-2si70i9"
                 }
               },
               "pinned": true,
@@ -168,8 +172,7 @@
               "title": "Diff: tutor  (Working Tree)"
             }
           }
-        ],
-        "currentTab": 10
+        ]
       }
     ],
     "direction": "vertical"
@@ -358,8 +361,11 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "777569c54ac92aab",
+  "active": "c34294748e14f3a7",
   "lastOpenFiles": [
+    "wiki/learning/hoare-logic-bottom-up-proof-method.md",
+    "wiki/sources/ict3112-lecture-w4-sec2-intro-transcript.md",
+    "wiki/sources/ict3112-lecture-w4-sec2-intro-transcript.md.tmp.21880.bfc14d289987",
     "CLAUDE.md",
     "wiki/examples/ict3112-frama-c-lab2-loops.md",
     "wiki/examples/ict3112-frama-c-lab2-loops.md.tmp.19304.9adc26080b9a",
@@ -387,15 +393,12 @@
     "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md.tmp.22040.6e5280a4ff8b",
     "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md.tmp.22040.89cfa99500be",
     "wiki/hot.md.tmp.22040.1bed9cc80f8a",
-    "wiki/hot.md.tmp.22040.725db3e7fdcc",
     "wiki/examples/ict3112-hoare-exercises-worked.md",
     "wiki/concepts/loop-invariants.md",
     "wiki/concepts/hoare-logic.md",
     "wiki/sources/ict3112-hoare-exercises.md",
     "wiki/sources/ict3112-hoare-arrays.md",
     "wiki/sources/ict3112-loop-invariants.md",
-    "wiki/sources/ict3112-hoare-logic-core.md",
-    "raw/ICT3112 Software Verification and Validation - ICT3112 - 8 - Reasoning about Arrays - 3c.md",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",

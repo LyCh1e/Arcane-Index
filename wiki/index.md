@@ -128,6 +128,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3112-loop-invariants\|ICT3112 Formal Verification — Loop Invariants: Discovering and Recipe (Module 7)]] | lecture-notes | formal-verification | 2026-10-15 |
 | [[sources/ict3112-hoare-arrays\|ICT3112 Formal Verification — Reasoning about Arrays (Module 8)]] | lecture-notes | formal-verification | 2026-10-15 |
 | [[sources/ict3112-hoare-exercises\|ICT3112 Formal Verification — Hoare Logic Exercises 1–3 (Solved)]] | exercise-solutions | formal-verification | 2026-10-15 |
+| [[sources/ict3112-lecture-w4-sec2-intro-transcript\|ICT3112 — Week 4 Lecture: Second Half Module Intro (Transcript)]] | lecture-transcript | formal-verification | 2026-10-22 |
 
 ## Concepts
 

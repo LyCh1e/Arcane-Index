@@ -10,6 +10,16 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-10-22. **Session: ingest — ICT3112 Week 4 second half intro lecture.** New: [[sources/ict3112-lecture-w4-sec2-intro-transcript]], [[learning/hoare-logic-bottom-up-proof-method]]. Updated: [[examples/ict3112-hoare-exercises-worked]].
+
+The lecture opened the second half of ICT3112 (Weeks 4–6). Model checking (Promela/SPIN) has been dropped; the module now extends Hoare Logic to cover loops and arrays fully. **Critical assessment note:** the professor stated explicitly that top-down proofs receive **zero marks** — always work bottom-up (postcondition → precondition using [ASSIGN] substitution). Top-down requires existential quantification when the assigned variable appears in the RHS expression, which is outside the module's rule set.
+
+Lab methodology changes: instead of writing ACSL annotations by hand, students now describe specs in natural language, feed them to an LLM to produce ACSL, paste the output into C, and run Frama-C. If Frama-C rejects the spec, the error is fed back to the LLM and the loop repeats. The project (due Week 6) is a multi-agent automated pipeline implementing this loop end-to-end. Assessment: Quiz W3 (assignments + conditionals, easy), Lab assessment W3, Quiz W6 (loops + arrays, harder), Project W6 (LLM + Frama-C pipeline).
+
+Worked example from lecture: `{A > 2}  A := A*2;  B := A+1  {B > 5}` — wp of `B:=A+1` w.r.t. `B>5` is `A+1>5`; wp of `A:=A*2` w.r.t. `A+1>5` is `A*2+1>5`; simplifies to `A>2`; check `A>2 ⟹ A>2` ✓.
+
+---
+
 2026-10-21. **Session: build — Learnix HCI pass, client caching, loading.** New: [[examples/learnix-hci-caching-and-loading-session]], [[concepts/stale-while-revalidate-client-cache]], [[learning/n-plus-one-remote-queries-token-usage]], [[learning/mixin-type-checking-pylance]], [[resources/fake-indexeddb]]. Updated: [[concepts/customtkinter-widget-scaling]].
 
 Desktop chat gained shortcuts, a stop button (late replies discarded via a request counter) and copy / selectable messages; WCAG contrast fixed in both themes (new `ON_BLUE`); a view-menu misalignment traced to `place()` using **widget** scaling, not window scaling. The React frontend got a Map + IndexedDB stale-while-revalidate cache, scoped per user and wiped on logout. The slow token-usage page was **one serial remote query per user**: measured 13.8 s for 583 records, cut to 3.4 s cold / ≈1.5 s warm (parallel reads, field projection, skipping empty collections) with identical output; the page now shows cached data with "Refreshing…", and one shared `LoadingIndicator` (also on the startup splash) replaced the ad-hoc "Loading…" labels. Pylance mixin warnings fixed with value-less annotations, `TYPE_CHECKING` stubs and a type-only base class.
