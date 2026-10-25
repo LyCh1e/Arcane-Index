@@ -17,6 +17,15 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Updated: [[learning/frama-c-wsl-install-gotchas]] (GUI dies with launching shell; Alt-Ergo-only 92/94 fixed by CVC5/Z3; PDF false password error), [[resources/frama-c]] (multi-prover note), `index.md`, `hot.md`; `Labs/Frama-C-Commands.md` updated in the project
 - Key result: 94/94 goals proved with `-wp-prover alt-ergo,z3,cvc5 -wp-timeout 30`; 92/94 with Alt-Ergo only. Honest gaps: spec derived from the code rather than English-first as the brief requires; GUI proof panel not inspected
 
+## 2026-10-25 | ingest | INF2005 CSF Week 8 — Malware Introduction + System Security
+
+- Sources: `INF2005 Cyber Security Fundamentals - Malware Introduction.md` and `- System Security.md` (Dr Aris Cahyadi Risdianto, Week 8)
+- New: [[sources/inf2005-csf-malware-introduction]], [[sources/inf2005-csf-system-security]], [[concepts/malware]], [[concepts/system-security]]
+- Updated: `index.md`, `log.md`, `hot.md`
+- Key content:
+  - **Malware:** three core types (virus = host + interaction; worm = no host, self-propagating; trojan = disguised, backdoor); virus anatomy (concealment/propagation/payload); polymorphic vs. metamorphic; logic bombs; notable worms (Morris 1988 → EternalRocks 2017); Adwind cross-platform RAT; seven infection vectors; signs of infection
+  - **System Security:** attack layers (hardware → OS → system software); Spectre (speculative execution + timing side-channel, no easy fix); command injection via shell concatenation; hypervisor types; VM escape (VENOM CVE-2015-3456); hyperjacking; kernel rootkits (require full reinstall); privilege escalation (horizontal vs. vertical), 4-step attack chain; LD_PRELOAD hijacking; WannaCry (patched CVE exploited because organisations hadn't patched)
+
 ## 2026-10-22 | ingest | ICT3112 Week 4 — Second Half Intro Lecture Transcript
 
 - Source: live lecture transcript (Dr David Sanan, ICT3112 second half kick-off)
