@@ -129,6 +129,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3112-hoare-arrays\|ICT3112 Formal Verification — Reasoning about Arrays (Module 8)]] | lecture-notes | formal-verification | 2026-10-15 |
 | [[sources/ict3112-hoare-exercises\|ICT3112 Formal Verification — Hoare Logic Exercises 1–3 (Solved)]] | exercise-solutions | formal-verification | 2026-10-15 |
 | [[sources/ict3112-lecture-w4-sec2-intro-transcript\|ICT3112 — Week 4 Lecture: Second Half Module Intro (Transcript)]] | lecture-transcript | formal-verification | 2026-10-22 |
+| [[sources/ict3112-assignment1-leaderboard-brief\|ICT3112 Assignment 1 — Bounded Leaderboard Verification in Frama-C (Brief)]] | assignment-brief | formal-verification | 2026-10-24 |
 
 ## Concepts
 
@@ -293,6 +294,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/queueing-theory\|Queueing Theory for Performance Engineering]] | performance-engineering | high |
 | [[concepts/hoare-logic\|Hoare Logic]] | formal-verification | high |
 | [[concepts/loop-invariants\|Loop Invariants]] | formal-verification | high |
+| [[concepts/acsl-sorted-array-insert-pattern\|ACSL Pattern: Binary Search and Ordered Insertion]] | formal-verification | medium |
 
 ## Examples
 
@@ -343,6 +345,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict3112-frama-c-lab0-installation\|ICT3112 Frama-C Lab 0 — Installation]] | lab | ICT3112 / formal-verification | [[resources/frama-c\|Frama-C]] |
 | [[examples/ict3112-frama-c-lab1-first-steps\|ICT3112 Frama-C Lab 1 — Contracts, Pointers, Behaviors]] | lab | ICT3112 / formal-verification | [[resources/frama-c\|Frama-C]] |
 | [[examples/ict3112-frama-c-lab2-loops\|ICT3112 Frama-C Lab 2 — Loops]] | lab | ICT3112 / formal-verification | [[concepts/loop-invariants\|Loop Invariants]] |
+| [[examples/ict3112-frama-c-assignment1-leaderboard\|ICT3112 Assignment 1 — Bounded Leaderboard, ACSL Specification (94/94 proved)]] | assignment | ICT3112 / formal-verification | [[concepts/acsl-sorted-array-insert-pattern\|ACSL Sorted-Array Insert Pattern]] |
 
 ## Entities
 

@@ -10,6 +10,12 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-10-24. **Session: ingest — ICT3112 Assignment 1 (Bounded Leaderboard, Frama-C).** New: [[sources/ict3112-assignment1-leaderboard-brief]], [[examples/ict3112-frama-c-assignment1-leaderboard]], [[concepts/acsl-sorted-array-insert-pattern]]. Updated: [[learning/frama-c-wsl-install-gotchas]], [[resources/frama-c]].
+
+`insert_position` (binary search) and `submit` (ordered insert with shift loop) were specified in ACSL without changing the code (121 lines added). Result **94/94 proved** with `-wp-prover alt-ergo,z3,cvc5 -wp-timeout 30`; Alt-Ergo alone gives 92/94 because the post-loop `non_increasing` asserts time out. Key ideas: `\separated(n, scores+(0..cap-1))` stops the shift loop clobbering `*n`; rejected iff full and `scores[cap-1] >= x` (ties lose); `\at(.., LoopEntry)` for shift-loop invariants; split the sortedness goal with asserts. Gaps: the brief wants English first then LLM translation, but this spec was derived from the code, so re-explain it for the quiz (part 2 changes a few lines); the GUI panel was never inspected, and the GUI window dies if launched in the background of a short `wsl` call.
+
+---
+
 2026-10-22. **Session: ingest — ICT3112 Week 4 second half intro lecture.** New: [[sources/ict3112-lecture-w4-sec2-intro-transcript]], [[learning/hoare-logic-bottom-up-proof-method]]. Updated: [[examples/ict3112-hoare-exercises-worked]].
 
 The lecture opened the second half of ICT3112 (Weeks 4–6). Model checking (Promela/SPIN) has been dropped; the module now extends Hoare Logic to cover loops and arrays fully. **Critical assessment note:** the professor stated explicitly that top-down proofs receive **zero marks** — always work bottom-up (postcondition → precondition using [ASSIGN] substitution). Top-down requires existential quantification when the assigned variable appears in the RHS expression, which is outside the module's rule set.

@@ -28,6 +28,7 @@ A debugger runs one input and shows what happened; Frama-C never runs the code a
 - `-wp-no-simpl` (in the lab text) is a **deprecated alias of `-wp-no-subst`**; it still runs but warns. `-wp-no-qed` disables Qed simplification so raw VCs show in the GUI.
 - `-wp-fct f` proves one function; `-wp-cache none` avoids the `.frama-c/` proof-cache folder; `-wp-timeout` defaults to 2 s.
 - Several files each defining `main` (or the same function) cannot be loaded into one GUI session.
+- `-wp-prover alt-ergo,z3,cvc5 -wp-timeout 30` can turn timeouts into proofs: Assignment 1 went 92/94 (Alt-Ergo only) to 94/94, with CVC5 closing the two `non_increasing` asserts. Run with `-wp-cache none` to see a true uncached breakdown (Qed 45, Alt-Ergo 40, CVC5 4, Z3 3). See [[examples/ict3112-frama-c-assignment1-leaderboard]] and [[concepts/acsl-sorted-array-insert-pattern]].
 - Full list kept in `Labs/Frama-C-Commands.md` (CLAUDE.md requires updating it whenever a new command is verified).
 
 ## ACSL cheat sheet

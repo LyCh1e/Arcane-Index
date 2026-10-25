@@ -25,5 +25,8 @@ Context: ICT3112 Lab 0. See [[resources/frama-c]] and [[examples/ict3112-frama-c
 | `frama-c` not found in a fresh terminal | opam switch not on PATH | Append `eval "$(opam env --switch=frama --set-switch)"` to `~/.bashrc` |
 | `frama-c` warns `-wp-no-simpl is a deprecated alias for -wp-no-subst` | Lab text uses an old option name | Use `-wp-no-subst` (or `-wp-no-qed`) |
 | `-rte` shows 4 `rte_pointer_alignment` timeouts on array code | `ligned` unsupported in WP 33.0 | Use `-wp-rte` (skips those guards) or run without `-rte` |
+| `frama-c-gui` window opens then vanishes (started with `wsl -- bash -lc "... &"`) | WSL kills background children when the launching shell exits | Run the GUI as the foreground command of a long-lived task (e.g. Claude Code `run_in_background`), not backgrounded inside a short `wsl` call |
+| Annotated file proves 92/94 with the default prover; the two failures are `assert non_increasing(...)` after a shifting loop | Alt-Ergo alone times out on the nested `\forall` in the predicate | `-wp-prover alt-ergo,z3,cvc5 -wp-timeout 30` closes them (94/94, Assignment 1) |
+| Read tool says the assignment PDF is "password-protected" | False positive, same as [[learning/ict3112-lab3-tooling-gotchas]] | `python -c "import pypdf; ..."` extracts the text; `is_encrypted` is False |
 
 Build takes ~30–40 minutes (OCaml compiler plus Frama-C from source). The GUI (`frama-c-gui`, Ivette) builds itself on first start (a few minutes) and opens through WSLg. The CLI `frama-c -wp -rte` is enough for all lab proofs.

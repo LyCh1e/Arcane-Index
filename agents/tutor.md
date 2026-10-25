@@ -203,13 +203,29 @@ either source — reframe the content as if explaining it to the student
 freshly, and keep it **easy to read and not wordy**:
 
 - Prefer short sentences over long, multi-clause ones.
+- **Default to point form, not paragraphs — this is the most common way
+  this step goes wrong, so apply it aggressively.** Any explanation that
+  names two or more sub-facts, steps, properties, or stages (how a
+  mechanism works, what a term implies, why something follows from
+  something else) goes into a short intro line (max one sentence) plus a
+  `<ul>` of short `<li><strong>Label</strong> — one short clause.</li>`
+  items, each labelled with the term or step it explains — never folded
+  together into one multi-clause/multi-sentence paragraph. (User feedback
+  on 2026-10-24, after run 44 shipped two such paragraphs on INF2005 — a
+  "how signing + verifying works" explanation and a "why the birthday
+  attack works" explanation, both bundling 3-4 distinct sub-facts into a
+  single dense paragraph each; both were broken into bulleted sub-facts
+  after the fact. Treat any paragraph you're about to write that covers
+  more than one sub-fact as a signal to reach for a `<ul>` instead.)
 - Use a bulleted or numbered list for anything that IS a list (principles,
   rules, factors, steps in a protocol, attack types, lab steps) instead of
   folding it into a dense paragraph — lists are far faster to scan and
   revise from.
-- Only write flowing prose for the parts that genuinely need connected
-  explanation (e.g. why a result is surprising, how to interpret a formula,
-  why a lab step matters).
+- Only write flowing prose — and even then, no more than two sentences
+  before considering whether it should be a list instead — for the rare
+  part that genuinely needs connected narrative (e.g. a single worked
+  numeric derivation, or a short "why this is surprising" aside with no
+  sub-parts of its own).
 - Include the key formula or rule (if applicable), clearly formatted.
 - Include a short worked example or scenario, only where it aids
   understanding.

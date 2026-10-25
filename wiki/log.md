@@ -10,6 +10,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-10-24 | ingest | ICT3112 Assignment 1 — Bounded Leaderboard (Frama-C / ACSL)
+
+- Source: `Labs/Assignment1/` (assignment PDF, `leaderboard.c`) plus the annotated solution `ICT3112_Lab1_Chiyung.c`, `explanation.md`, `Testing-Guide.md`
+- New: [[sources/ict3112-assignment1-leaderboard-brief]], [[examples/ict3112-frama-c-assignment1-leaderboard]], [[concepts/acsl-sorted-array-insert-pattern]]
+- Updated: [[learning/frama-c-wsl-install-gotchas]] (GUI dies with launching shell; Alt-Ergo-only 92/94 fixed by CVC5/Z3; PDF false password error), [[resources/frama-c]] (multi-prover note), `index.md`, `hot.md`; `Labs/Frama-C-Commands.md` updated in the project
+- Key result: 94/94 goals proved with `-wp-prover alt-ergo,z3,cvc5 -wp-timeout 30`; 92/94 with Alt-Ergo only. Honest gaps: spec derived from the code rather than English-first as the brief requires; GUI proof panel not inspected
+
 ## 2026-10-22 | ingest | ICT3112 Week 4 — Second Half Intro Lecture Transcript
 
 - Source: live lecture transcript (Dr David Sanan, ICT3112 second half kick-off)
