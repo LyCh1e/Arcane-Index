@@ -97,8 +97,23 @@
               "icon": "lucide-file",
               "title": "SKILL"
             }
+          },
+          {
+            "id": "6b1e93eca4c5e4ba",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_templates/skill.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "skill"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -287,28 +302,30 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "c34294748e14f3a7",
+  "active": "aa21592bb12da3f9",
   "lastOpenFiles": [
+    "_templates/skill.md",
+    "skills/skill-creator/eval-viewer/viewer.html",
+    "skills/skill-creator/eval-viewer/generate_review.py",
+    "skills/skill-creator/eval-viewer",
+    "_templates/agent.md",
+    "skills/skill-creator/LICENSE.txt",
+    "skills/skill-creator",
+    "skills/skill-creator.zip",
+    "agents/tutor.md",
+    "skills/writer/SKILL.md",
     "skills/editor.zip",
     "skills/writer.zip",
     "skills/editor/SKILL.md",
-    "skills/writer/SKILL.md",
     "skills/editor",
     "skills/writer",
-    "wiki/hot.md.tmp.12576.812d792426f7",
-    "wiki/index.md.tmp.12576.75730c550657",
     "wiki/concepts/network-security-attacks.md",
     "wiki/sources/inf2005-csf-network-security-attacks.md",
-    "wiki/sources/inf2005-csf-network-security-attacks.md.tmp.12576.1fafe6158ca1",
     "raw/INF2005 Cyber Security Fundamentals - Network Security Attacks.md",
     "wiki/areas/software-verification-validation.md",
     "wiki/concepts/hoare-logic.md",
     "wiki/resources/hoare-logic-notation-cheatsheet.md",
-    "wiki/resources/hoare-logic-notation-cheatsheet.md.tmp.6584.85b05e772c1b",
     "wiki/resources/hoare-logic-workbench.md",
-    "wiki/hot.md.tmp.32620.7dace0a7056e",
-    "wiki/log.md.tmp.32620.f4f5e4c78b3f",
-    "wiki/index.md.tmp.32620.c4d5dd5196f4",
     "wiki/concepts/system-security.md",
     "wiki/concepts/malware.md",
     "wiki/sources/inf2005-csf-system-security.md",
@@ -322,9 +339,6 @@
     "wiki/resources/frama-c.md",
     "wiki/learning/frama-c-wsl-install-gotchas.md",
     "wiki/examples/ict3112-frama-c-labs-0-2.md",
-    "skills/wiki-lint/SKILL.md",
-    "skills/critique/SKILL.md",
-    "skills/defuddle/SKILL.md",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",
