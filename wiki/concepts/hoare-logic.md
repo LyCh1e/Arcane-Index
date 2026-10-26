@@ -236,25 +236,25 @@ Specifications often need to refer to the value a variable had at the start. **L
 
 The WP calculator and `.hl` exercise files accept plain ASCII. The workbench renders it as the slide notation.
 
-| You type | Displayed as | Meaning |
-|---|---|---|
-| `&&` or `/\` | A ∧ B | and |
-| `\|\|` or `\/` | A ∨ B | or |
-| `!` | ¬A | not |
-| `==>` or `=>` | A ⇒ B | implies |
-| `<=>` | A ⟺ B | if and only if |
-| `=` or `==`, `!=` | x = y, x ≠ y | equality, difference |
-| `<=`, `>=` | x ≤ y, x ≥ y | comparisons; chains `0 <= i <= n` allowed |
-| `x'` | x′ | logical variable (prime) |
-| `A0`, `x_k` | A₀, xₖ | name with subscript |
-| `2^n` | 2ⁿ | power |
-| `fact(n)` or `n!` | n! | factorial |
-| `Q[x <- E]` | Q[x ← E] | substitution |
-| `a[i \|-> e]` | a[i ↦ e] | array a updated at i |
-| `sum(k, 0, n-1, a[k])` | Σ a[k] | a[0] + … + a[n−1] |
-| `forall k. P` | ∀k. P | for every k |
-| `exists k. P` | ∃k. P | there exists k |
-| `wp(x := E, Q)` | wp(x := E, Q) | weakest precondition |
+| You type               | Displayed as | Meaning                                               |
+| ---------------------- | ------------ | ----------------------------------------------------- |
+| `&&` or `/\`           | A ∧ B        | and                                                   |
+| `\|\|` or `\/`         | A ∨ B        | or                                                    |
+| `!`                    | ¬A           | not                                                   |
+| `==>` or `=>`          | A ⇒ B        | implies                                               |
+| `<=>`                  | A ⇔ B        | if and only if                                        |
+| `=` or `==`, `!=`      | x = y, x ≠ y | equality, difference                                  |
+| `<=`, `>=`             | x ≤ y, x ≥ y | comparisons; chains such as `0 <= i <= n` are allowed |
+| `x'`                   | x′           | a logical variable                                    |
+| `A0`, `x_k`            | A₀, xₖ       | a name with a subscript                               |
+| `2^n`                  | 2ⁿ           | power                                                 |
+| `fact(n)` or `n!`      | n!           | factorial                                             |
+| `Q[x <- E]`            | Q[x ← E]     | substitution                                          |
+| `a[i \|-> e]`          | a[i ↦ e]     | array a updated at i                                  |
+| `sum(k, 0, n-1, a[k])` | Σₖ₌₀ⁿ⁻¹ a[k] | a[0] + ... + a[n - 1]                                 |
+| `forall k. P`          | ∀k. P        | for every k                                           |
+| `wp(x := E, Q)`        | wp(x ≔ E, Q) | weakest precondition                                  |
+| `x := E`               | `x := E`     | assignment, in programs                               |
 
 Unicode symbols from the slides (∧ ∨ ¬ ⇒ ≤ ≥ ≠ ≔ ←) are also accepted.
 

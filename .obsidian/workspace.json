@@ -20,14 +20,46 @@
                     {
                       "tabId": "tab-1792654053294-2si70i9",
                       "conversationId": "conv-1792654059548-7hjrp9qnr"
+                    },
+                    {
+                      "tabId": "tab-1792985703801-0awsl3k",
+                      "conversationId": "conv-1792985728276-kj0k0pnsp"
                     }
                   ],
-                  "activeTabId": "tab-1792654053294-2si70i9"
+                  "activeTabId": "tab-1792985703801-0awsl3k"
                 }
               },
               "pinned": true,
               "icon": "bot",
               "title": "Claudian"
+            }
+          },
+          {
+            "id": "1fd4589c8974e68a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/resources/hoare-logic-notation-cheatsheet.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "hoare-logic-notation-cheatsheet"
+            }
+          },
+          {
+            "id": "2f71a51a43c514e6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/concepts/hoare-logic.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "hoare-logic"
             }
           },
           {
@@ -55,134 +87,9 @@
               "icon": "lucide-file",
               "title": "CLAUDE"
             }
-          },
-          {
-            "id": "c45567700e1d9e48",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "study-notes/index.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "index"
-            }
-          },
-          {
-            "id": "592451f9636ab195",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "agents/tutor.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "tutor"
-            }
-          },
-          {
-            "id": "ea495050d1f1d28f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "study-notes/index.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "index"
-            }
-          },
-          {
-            "id": "e1a35e2773dfa8cb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "agents/tutor.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "tutor"
-            }
-          },
-          {
-            "id": "79c1bd52c36ea9ab",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "agents/tutor.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "tutor"
-            }
-          },
-          {
-            "id": "49d1a90f1ebc5a61",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "study-notes/log.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "log"
-            }
-          },
-          {
-            "id": "b6eaa593bf5b54fc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CLAUDE.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "CLAUDE"
-            }
-          },
-          {
-            "id": "777569c54ac92aab",
-            "type": "leaf",
-            "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": "agents/tutor.md",
-                "bFile": "agents/tutor.md",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: tutor  (Working Tree)"
-            }
-          },
-          {
-            "id": "ccf4f14c0b109a4a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CLAUDE.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "CLAUDE"
-            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -371,13 +278,16 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "c34294748e14f3a7",
+  "active": "2f71a51a43c514e6",
   "lastOpenFiles": [
+    "wiki/resources/hoare-logic-notation-cheatsheet.md",
+    "wiki/concepts/hoare-logic.md",
+    "wiki/resources/hoare-logic-notation-cheatsheet.md.tmp.6584.85b05e772c1b",
+    "wiki/resources/hoare-logic-workbench.md",
     "wiki/hot.md.tmp.32620.7dace0a7056e",
     "wiki/log.md.tmp.32620.f4f5e4c78b3f",
     "wiki/index.md.tmp.32620.c4d5dd5196f4",
     "wiki/concepts/hoare-logic.md.tmp.32620.e50e3373ee3c",
-    "wiki/resources/hoare-logic-workbench.md",
     "wiki/resources/hoare-logic-workbench.md.tmp.32620.7c30b64c4db1",
     "wiki/hot.md.tmp.33320.e0e4baefdb4e",
     "wiki/index.md.tmp.33320.27380c73fc38",
@@ -391,9 +301,7 @@
     "wiki/sources/ict3112-lecture-w4-sec2-intro-transcript.md",
     "wiki/sources/ict3112-lecture-w4-sec2-intro-transcript.md.tmp.21880.bfc14d289987",
     "wiki/examples/ict3112-frama-c-lab2-loops.md",
-    "wiki/examples/ict3112-frama-c-lab2-loops.md.tmp.19304.9adc26080b9a",
     "wiki/examples/ict3112-frama-c-lab1-first-steps.md",
-    "wiki/examples/ict3112-frama-c-lab1-first-steps.md.tmp.19304.248a2d744279",
     "wiki/examples/ict3112-frama-c-lab0-installation.md",
     "wiki/resources/frama-c.md",
     "wiki/learning/frama-c-wsl-install-gotchas.md",
@@ -407,8 +315,6 @@
     "study-notes/log.md",
     "study-notes/index.md",
     "skills/daily-notes/SKILL.md",
-    "agents/tutor.md",
-    "wiki/sources/inf2005-csf-social-engineering.md",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",
