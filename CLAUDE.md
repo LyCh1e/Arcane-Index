@@ -172,6 +172,8 @@ Add to the project's `.vscode/tasks.json`:
 | `/workflow-loop [goal]` | Designs a complete workflow loop: interviews for goal/pattern/agent/tools/prompt/stopping condition; writes vault note + ready-to-run /loop invocation |
 | `update study notes` | Reads `study notes/index.md`, diffs wiki against existing notes, patches all tracked modules |
 | `/daily-notes` | Reads `study notes/index.md` for the module list, generates a dated session worksheet per module under `study notes/daily/` |
+| `/writer [mode]` | Structured writing agent — three modes: **academic** (essays, lit reviews, thesis), **report** (technical, findings, lab, incident), **proposal** (project, grant, research). Reads wiki for context first, outlines before drafting, enforces British English. |
+| `/editor` | Structured editing agent — three-phase review: **grammar & mechanics** (subject–verb, tense, punctuation, British English compliance), **vocabulary & register** (precision, nominalisation, colloquialism), **flow & continuity** (structural coherence, paragraph logic, gap detection, repetition). Produces an annotated edit report with priority action list and overall rating. |
 
 ## Writing Style
 
