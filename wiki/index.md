@@ -132,6 +132,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3112-assignment1-leaderboard-brief\|ICT3112 Assignment 1 — Bounded Leaderboard Verification in Frama-C (Brief)]] | assignment-brief | formal-verification | 2026-10-24 |
 | [[sources/inf2005-csf-malware-introduction\|INF2005 CSF — Malware: Introduction]] | lecture-notes | secure-software-development | 2026-10-25 |
 | [[sources/inf2005-csf-system-security\|INF2005 CSF — (Operating) System Security]] | lecture-notes | secure-software-development | 2026-10-25 |
+| [[sources/inf2005-csf-network-security-attacks\|INF2005 CSF — Network Security: Vulnerabilities and Exploits]] | lecture-notes | cyber-security | 2026-10-26 |
 
 ## Concepts
 

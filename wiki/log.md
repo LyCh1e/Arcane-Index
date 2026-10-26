@@ -17,6 +17,13 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Updated: [[learning/frama-c-wsl-install-gotchas]] (GUI dies with launching shell; Alt-Ergo-only 92/94 fixed by CVC5/Z3; PDF false password error), [[resources/frama-c]] (multi-prover note), `index.md`, `hot.md`; `Labs/Frama-C-Commands.md` updated in the project
 - Key result: 94/94 goals proved with `-wp-prover alt-ergo,z3,cvc5 -wp-timeout 30`; 92/94 with Alt-Ergo only. Honest gaps: spec derived from the code rather than English-first as the brief requires; GUI proof panel not inspected
 
+## 2026-10-26 | ingest | INF2005 CSF — Network Security: Vulnerabilities and Exploits
+
+- Source: `INF2005 Cyber Security Fundamentals - Network Security Attacks.md` (Week 9, Dr Aris Cahyadi Risdianto)
+- New: [[sources/inf2005-csf-network-security-attacks]], [[concepts/network-security-attacks]]
+- Key concepts: risk = vulnerability + threat; DoS/DDoS/DRDoS; botnets and IoT zombies; Evil Twin and wardriving; passive vs. active packet sniffing (promiscuous mode vs. ARP poisoning); ARP spoofing mechanics; port spoofing and Deep Packet Inspection; nmap port scanning; CVE/NVD cross-referencing
+- Updated: `index.md`, `hot.md`
+
 ## 2026-10-26 | ingest | Hoare Logic Workbench (davidsanan.github.io/Hoare-Logic)
 
 - Source: https://davidsanan.github.io/Hoare-Logic/ (Dr David Sanan, ICT3112 companion tool); pulled via GitHub raw API from `js/content.js`

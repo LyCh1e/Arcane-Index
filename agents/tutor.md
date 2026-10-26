@@ -269,13 +269,24 @@ Each question must:
 - Keep all four options close to the same length and level of detail — the
   correct option must never be the one that's noticeably longer, more
   precise, or more heavily qualified than the three distractors (this is a
-  known tell the user has specifically flagged: don't let "the longest
-  option" become a shortcut to the right answer). If the correct answer
+  known tell the user has specifically flagged, and it has recurred on
+  fresh content more than once even with this instruction in place — treat
+  it as a hard constraint, not a style preference). If the correct answer
   genuinely needs more words to state precisely, write the three
   distractors with matching length and specificity — plausible wrong
   details, not vague filler — rather than leaving the correct option
-  visibly longer. Likewise, vary which letter (A–D) holds the correct
-  answer across the 20 questions instead of clustering it on one position.
+  visibly longer.
+  **Run this self-check before publishing, for every single question, not
+  just a spot-check:** count the characters in each of the 4 options. If
+  `len(correct) - len(longest distractor) > 15`, the question fails the
+  check — rewrite it before moving on: either lengthen the distractors with
+  specific plausible wrong detail (a wrong number, a wrong mechanism, a
+  wrong named cause — never generic filler words), or lightly trim the
+  correct option's wording (meaning preserved) until the gap closes. Do not
+  consider Step 8 done until every question in the quiz passes this check.
+  Likewise, vary which letter (A–D) holds the correct answer across the 20
+  questions — aim for roughly 5 per letter — instead of clustering it on
+  one or two positions.
 
 Each question needs a one-sentence explanation for its correct answer,
 shown to the student immediately after they tap an option.

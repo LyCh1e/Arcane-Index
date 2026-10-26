@@ -10,6 +10,24 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-10-26. **Session: ingest — INF2005 CSF Week 9: Network Security: Vulnerabilities and Exploits.** New: [[sources/inf2005-csf-network-security-attacks]], [[concepts/network-security-attacks]].
+
+Week 9 lecture by Dr Aris Cahyadi Risdianto. Core formula: **risk = vulnerability + threat** — a vulnerability causes no harm until exploited; CVSS scores severity × likelihood. Five common network vulnerabilities: unsecured SSID, unfiltered ports, unsecured physical ports, malicious users, unencrypted packets.
+
+**DoS/DDoS:** two forms — bandwidth flood (saturate capacity) and service request flood (exhaust resources; SYN flood is the canonical example). **DRDoS** amplifies via spoofed source addresses: bots send requests on behalf of the victim, and reflectors' replies flood the victim. IoT botnets are especially easy to build because device firmware is typically stripped-down Linux, making malware cross-compilation trivial.
+
+**MitM via wireless:** wardriving maps exploitable APs; the Evil Twin is a cloned SSID that intercepts all victim traffic. On a switched wired network, the attacker first needs an ARP-level foothold.
+
+**Packet sniffing:** passive sniffing puts the NIC in promiscuous mode (works on hubs, not switches). On switches, active sniffing injects ARP packets to redirect unicast frames. Unencrypted HTTP passwords are visible in plain text via Wireshark → countermeasure: HTTPS everywhere.
+
+**ARP spoofing:** ARP is stateless and unauthenticated. A forged, unsolicited reply poisons the victim's ARP cache, redirecting its frames to the attacker. The attacker must keep re-sending because entries expire. Countermeasure: Dynamic ARP Inspection (DAI) on managed switches.
+
+**Port spoofing / DPI:** port-based firewalls are fooled by running SSH on a non-standard port. Deep Packet Inspection looks at the payload to identify the actual protocol and forward suspicious traffic for analysis.
+
+**Port scanning (nmap):** `nmap -sT` (logged TCP connect), `nmap -p` (focused), `nmap -T4 -F` (top 100 quick). Findings are cross-referenced with cve.mitre.org and nvd.nist.gov.
+
+---
+
 2026-10-26. **Session: ingest — Hoare Logic Workbench (davidsanan.github.io/Hoare-Logic).** New: [[resources/hoare-logic-workbench]]. Updated: [[concepts/hoare-logic]], [[concepts/loop-invariants]].
 
 Content pulled directly from the GitHub source (`js/content.js`). The workbench is Dr Sanan's interactive companion to ICT3112 — it has a WP calculator, 40+ exercises from skip through array aliasing, and an exercise editor. Key new content added to the wiki:
