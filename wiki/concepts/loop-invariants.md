@@ -4,8 +4,8 @@ title: "Loop Invariants"
 domain: formal-verification
 status: established
 created: 2026-10-15
-updated: 2026-10-15
-sources: [ict3112-loop-invariants, ict3112-hoare-logic-core, ict3112-hoare-exercises]
+updated: 2026-10-26
+sources: [ict3112-loop-invariants, ict3112-hoare-logic-core, ict3112-hoare-exercises, hoare-logic-workbench]
 tags: [loop-invariants, hoare-logic, formal-verification, weakest-precondition, termination, variant, invariant-discovery]
 ---
 
@@ -121,6 +121,33 @@ If a check fails, the failure tells you what to add or fix in the invariant.
 | Multiplication by repeated addition | `p = i · m  ∧  0 ≤ i ≤ n` |
 | Binary algorithm (halving) | `x' · y' = x · y + z  ∧  x ≥ 0` |
 | Sorting (partial) | `A[0..i-1] sorted  ∧  0 ≤ i ≤ n` |
+
+---
+
+## Other Ways to Build a Candidate
+
+Replacing a final constant with the progress variable (Step 3) is the most common technique, but there are three others:
+
+| Strategy | When to use | Example |
+|---|---|---|
+| **Drop a conjunct** | Part of Q is already given by ¬B at exit (search loops) | A search that finds an index: Q says `a[result] = x`; `!B` already gives the position, so the invariant only needs `not found yet` |
+| **Use two progress variables** | The loop works on a range from both ends | Reversing an array uses indices `i` (from left) and `j` (from right); invariant covers `A[0..i-1]` and `A[j+1..n-1]` swapped |
+| **Add what preservation needs** | Preservation fails because the body uses a variable the candidate says nothing about | Fibonacci loop: candidate `a = fib(i)` fails preservation because the body also uses `b`; add `b = fib(i+1)` to the invariant |
+
+---
+
+## What to Do When a Check Fails
+
+Source: Hoare Logic Workbench (`content.js`).
+
+| Failing check | What the failing state shows | What to do |
+|---|---|---|
+| **Establishment** | A real start state that the candidate rejects | The candidate is **too strong** — weaken it |
+| **Preservation** | A state the candidate accepts, from which one iteration leaves the candidate | The candidate is **too weak** — add the fact that rules out that state |
+| **Exit** | A state satisfying I ∧ ¬B but not Q | The candidate is **too weak** — the bounds are usually missing |
+
+**Example:** Candidate `p = a * i` for a multiplication loop `while i < b do (p := p + a; i := i + 1)`.  
+The state `a = 2, b = 3, i = 4, p = 8` satisfies `I ∧ ¬B` but `p ≠ a * b`. The missing fact is `0 ≤ i ≤ b`.
 
 ---
 

@@ -17,6 +17,13 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Updated: [[learning/frama-c-wsl-install-gotchas]] (GUI dies with launching shell; Alt-Ergo-only 92/94 fixed by CVC5/Z3; PDF false password error), [[resources/frama-c]] (multi-prover note), `index.md`, `hot.md`; `Labs/Frama-C-Commands.md` updated in the project
 - Key result: 94/94 goals proved with `-wp-prover alt-ergo,z3,cvc5 -wp-timeout 30`; 92/94 with Alt-Ergo only. Honest gaps: spec derived from the code rather than English-first as the brief requires; GUI proof panel not inspected
 
+## 2026-10-26 | ingest | Hoare Logic Workbench (davidsanan.github.io/Hoare-Logic)
+
+- Source: https://davidsanan.github.io/Hoare-Logic/ (Dr David Sanan, ICT3112 companion tool); pulled via GitHub raw API from `js/content.js`
+- New: [[resources/hoare-logic-workbench]]
+- Updated: [[concepts/hoare-logic]] (added Logical Variables section, ASCII notation input table, specification language functions, 5-item Frequent Mistakes list), [[concepts/loop-invariants]] (added "Other ways to build a candidate" table, "What to do when a check fails" table), `index.md`, `log.md`, `hot.md`
+- Key additions: (1) logical variables warning — x and x′ are different, substitution never replaces x′; (2) full ASCII ↔ slide notation table; (3) spec language functions (fib, fact, sum, prod, forall, exists, def, sizeof); (4) 5 frequent exam mistakes; (5) three extra invariant-building strategies (drop conjunct, two progress vars, add preservation fact); (6) diagnosis table for failing checks with concrete counterexample pattern; (7) full exercise catalogue (40+ files, skip through arrays)
+
 ## 2026-10-25 | ingest | INF2005 CSF Week 8 — Malware Introduction + System Security
 
 - Sources: `INF2005 Cyber Security Fundamentals - Malware Introduction.md` and `- System Security.md` (Dr Aris Cahyadi Risdianto, Week 8)

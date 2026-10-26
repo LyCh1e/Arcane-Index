@@ -10,6 +10,22 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-10-26. **Session: ingest — Hoare Logic Workbench (davidsanan.github.io/Hoare-Logic).** New: [[resources/hoare-logic-workbench]]. Updated: [[concepts/hoare-logic]], [[concepts/loop-invariants]].
+
+Content pulled directly from the GitHub source (`js/content.js`). The workbench is Dr Sanan's interactive companion to ICT3112 — it has a WP calculator, 40+ exercises from skip through array aliasing, and an exercise editor. Key new content added to the wiki:
+
+**Logical variables (hoare-logic.md):** `x` and `x′` are two different variables. The substitution `[x ← x − y]` replaces `x` only — `x′` is never touched. Confusing them is called out explicitly as one of the most common exam mistakes.
+
+**5 Frequent Mistakes (hoare-logic.md):** (1) Going forwards — always work bottom-up from postcondition. (2) Mixing x and x′. (3) Inventing conjuncts not produced by any rule. (4) Writing assertions not justified by a rule. (5) Sign errors — `x − (x − y) = y`, not `−y`.
+
+**Full ASCII notation table (hoare-logic.md):** `&&`/`/\` = ∧, `||`/`\/` = ∨, `!` = ¬, `==>` = ⇒, `<=>` = ⟺, `x'` = x′, `a[i |-> e]` = a[i↦e], `sum(k, 0, n-1, a[k])` = Σ. Unicode from slides also accepted.
+
+**Three extra invariant strategies (loop-invariants.md):** Drop a conjunct when ¬B already gives part of Q (search loops); use two progress variables for two-ended traversal; add the fact preservation needs when the body uses a variable not in the candidate (Fibonacci: add `b = fib(i+1)`).
+
+**Check-fails diagnosis table (loop-invariants.md):** Establishment fails → candidate too strong, weaken it. Preservation fails → too weak, add the ruling-out fact. Exit fails → bounds missing.
+
+---
+
 2026-10-25. **Session: ingest — INF2005 CSF Week 8: Malware Introduction + System Security.** New: [[sources/inf2005-csf-malware-introduction]], [[sources/inf2005-csf-system-security]], [[concepts/malware]], [[concepts/system-security]].
 
 Two companion lectures from Dr Aris Cahyadi Risdianto (INF2005, Week 8). **Malware:** three types — virus (needs a host file, requires user interaction to replicate, inserts a marker to avoid re-infection), worm (no host, auto-propagates over networks, acts as a carrier for payloads — notable: Morris 1988 through EternalRocks 2017), trojan (disguised programme, no self-replication, opens a backdoor; often includes a keylogger). Virus anatomy: concealment, propagation, payload. Polymorphic viruses encrypt themselves; metamorphic viruses mutate their code. Logic bombs trigger on events; time bombs on dates. Infection vectors: email attachments, drive-by downloads, app/OS vulnerabilities, removable media, social engineering — commonly combined. Signs of infection: unexplained slowdowns, memory drops, changed file lengths, odd network traffic, key-display mismatches.

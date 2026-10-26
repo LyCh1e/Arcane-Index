@@ -449,3 +449,4 @@ Master catalog of all pages. Updated on every ingest.
 | [[resources/pyarmor\|PyArmor]] | tool |
 | [[resources/frama-c\|Frama-C (WP plugin) and ACSL]] | tool |
 | [[resources/fake-indexeddb\|fake-indexeddb]] | tool |
+| [[resources/hoare-logic-workbench\|Hoare Logic Workbench — davidsanan.github.io/Hoare-Logic]] | interactive tool |

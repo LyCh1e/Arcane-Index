@@ -4,8 +4,8 @@ title: "Hoare Logic"
 domain: formal-verification
 status: established
 created: 2026-10-15
-updated: 2026-10-15
-sources: [ict3112-hoare-logic-core, ict3112-hoare-arrays]
+updated: 2026-10-26
+sources: [ict3112-hoare-logic-core, ict3112-hoare-arrays, hoare-logic-workbench]
 tags: [hoare-logic, formal-verification, axiomatic-semantics, weakest-precondition, inference-rules, partial-correctness, total-correctness]
 ---
 
@@ -221,6 +221,67 @@ stmt₂;
 ```
 
 Each consecutive pair `{Rₖ} stmtₖ₊₁ {Rₖ₊₁}` must be a valid Hoare triple.
+
+---
+
+## Logical Variables
+
+Specifications often need to refer to the value a variable had at the start. **Logical variables** are names (such as `x'`, `A`, or `n`) that the programme never assigns. The precondition `x = x' && y = y'` names the initial values; the postcondition `x = y' && y = x'` says the values were swapped.
+
+> **Critical:** `x` and `x'` are two *different* variables. When the [ASSIGN] rule substitutes `x ← E`, the variable `x'` is unchanged. Confusing them is one of the most common mistakes in assessments.
+
+---
+
+## Notation — ASCII Input Reference
+
+The WP calculator and `.hl` exercise files accept plain ASCII. The workbench renders it as the slide notation.
+
+| You type | Displayed as | Meaning |
+|---|---|---|
+| `&&` or `/\` | A ∧ B | and |
+| `\|\|` or `\/` | A ∨ B | or |
+| `!` | ¬A | not |
+| `==>` or `=>` | A ⇒ B | implies |
+| `<=>` | A ⟺ B | if and only if |
+| `=` or `==`, `!=` | x = y, x ≠ y | equality, difference |
+| `<=`, `>=` | x ≤ y, x ≥ y | comparisons; chains `0 <= i <= n` allowed |
+| `x'` | x′ | logical variable (prime) |
+| `A0`, `x_k` | A₀, xₖ | name with subscript |
+| `2^n` | 2ⁿ | power |
+| `fact(n)` or `n!` | n! | factorial |
+| `Q[x <- E]` | Q[x ← E] | substitution |
+| `a[i \|-> e]` | a[i ↦ e] | array a updated at i |
+| `sum(k, 0, n-1, a[k])` | Σ a[k] | a[0] + … + a[n−1] |
+| `forall k. P` | ∀k. P | for every k |
+| `exists k. P` | ∃k. P | there exists k |
+| `wp(x := E, Q)` | wp(x := E, Q) | weakest precondition |
+
+Unicode symbols from the slides (∧ ∨ ¬ ⇒ ≤ ≥ ≠ ≔ ←) are also accepted.
+
+Multiplication must be written explicitly: `n * (n + 1)`, not `n(n + 1)` (which is parsed as a function call).
+
+### Specification Language Functions
+
+`fib(n)`, `fact(n)` (= n!), `pow(a, b)` (= aᵇ), `abs(x)`, `even(x)`, `odd(x)`, `min`, `max`, `sizeof(a)`, `def(a[i])` (= 0 ≤ i < sizeof(a))  
+Sums: `sum(k, lo, hi, e)` = e[k=lo] + … + e[k=hi]  
+Products: `prod(k, lo, hi, e)`  
+Quantifiers: `forall k. P`, `exists k. P`
+
+---
+
+## Frequent Mistakes
+
+From the Hoare Logic Workbench (source: `content.js`):
+
+1. **Going forwards.** Rules are applied *from the postcondition up to the precondition*. Starting from the precondition and pushing down does not follow the [ASSIGN] rule and will produce wrong results.
+
+2. **Mixing x and x′.** They are *different* variables. The substitution `[x ← x − y]` replaces `x` only. For example, `(x = y' && y = x')[x ← x − y]` is `x − y = y' && y = x'` — the `x'` is untouched.
+
+3. **Inventing conjuncts.** Every intermediate assertion must come from a rule. Adding a conjunct about a variable not in the formula (e.g. `k = k'`) is at best unnecessary and often wrong.
+
+4. **Writing an assertion that no rule produced.** Every assertion in a proof outline must be justified by the rule of the adjacent command, or by an implication in the Consequence rule.
+
+5. **Sign errors when simplifying.** `x − (x − y)` is `y`, not `−y`. Keep parentheses introduced by a substitution until you have simplified them carefully.
 
 ---
 
