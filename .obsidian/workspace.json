@@ -41,7 +41,7 @@
               "type": "markdown",
               "state": {
                 "file": "wiki/resources/hoare-logic-notation-cheatsheet.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -55,7 +55,7 @@
               "type": "markdown",
               "state": {
                 "file": "wiki/concepts/hoare-logic.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
