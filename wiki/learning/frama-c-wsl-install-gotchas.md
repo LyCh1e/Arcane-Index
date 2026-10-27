@@ -28,5 +28,13 @@ Context: ICT3112 Lab 0. See [[resources/frama-c]] and [[examples/ict3112-frama-c
 | `frama-c-gui` window opens then vanishes (started with `wsl -- bash -lc "... &"`) | WSL kills background children when the launching shell exits | Run the GUI as the foreground command of a long-lived task (e.g. Claude Code `run_in_background`), not backgrounded inside a short `wsl` call |
 | Annotated file proves 92/94 with the default prover; the two failures are `assert non_increasing(...)` after a shifting loop | Alt-Ergo alone times out on the nested `\forall` in the predicate | `-wp-prover alt-ergo,z3,cvc5 -wp-timeout 30` closes them (94/94, Assignment 1) |
 | Read tool says the assignment PDF is "password-protected" | False positive, same as [[learning/ict3112-lab3-tooling-gotchas]] | `python -c "import pypdf; ..."` extracts the text; `is_encrypted` is False |
+| Running all of `lab3/*.c` in one `frama-c` call reports on the wrong code | Frama-C keeps the first definition of a duplicated `main`/`swap` and only warns `conflicts ... keeping the one at` | One session per file, or conflict-free groups; never trust a multi-file run of lab files |
+| `wsl.exe -e bash -lc 'cd "/mnt/c/path with spaces"'` from PowerShell fails (`cd: .../Trimester: No such file`) | PowerShell strips the inner quotes | Put the commands in a script file and call `wsl.exe -d Ubuntu -e bash /mnt/c/.../script.sh` (forward slashes, no spaces in the script path) |
+| `wslpath -a C:\Users\...` returns the path with backslashes removed | Same quoting loss | Write the `/mnt/c/...` path by hand |
+| `wsl.exe -l -v` prints `U b u n t u` | UTF-16 output | Cosmetic |
+| `wsl.exe` from Git Bash: `The parameter is incorrect` (`E_INVALIDARG`) or `C:/Git/mnt/c/...` | MSYS path conversion of `/mnt/...` arguments | Call it from PowerShell |
+| Ivette log shows `dbus ... systemd1.Manager.StartTransientUnit` | WSL has no systemd user session | Harmless, the window still opens |
+| Ivette does not show edits made in the Windows folder | GUI reads the WSL copy under `~/ICT3112-Software-Verification-and-Validation` | `bash copy_to_wsl.sh` after editing |
+| `python3` in Git Bash prints "Python was not found; run without arguments to install from the Microsoft Store" | `python3` resolves to the Store stub in `%LOCALAPPDATA%\Microsoft\WindowsApps` ahead of the real install (Python 3.14 is at `C:\Python314`) | Call `python` or `py` instead, or turn off the `python3.exe` app-execution alias in Settings > Apps > Advanced app settings |
 
 Build takes ~30–40 minutes (OCaml compiler plus Frama-C from source). The GUI (`frama-c-gui`, Ivette) builds itself on first start (a few minutes) and opens through WSLg. The CLI `frama-c -wp -rte` is enough for all lab proofs.

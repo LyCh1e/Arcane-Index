@@ -10,6 +10,16 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-10-27. **Session: ingest — ICT3112 Frama-C slide labs (Lab 1 + Lab 2 Pointers) and a run of the whole `lab3` folder.** New: [[sources/ict3112-frama-c-lab1-lab2-pointers-slides]], [[concepts/acsl-contract-strength-and-pointer-memory]], [[examples/ict3112-frama-c-lab3-pointers-run]]. Updated: [[resources/frama-c]], [[learning/frama-c-wsl-install-gotchas]].
+
+**Contracts are sets of allowed results.** A proved contract can still be too weak for its callers (`max` with only `== a || == b`), and contradictory `requires` make everything provable (`-wp-smoke-tests` reports *Doomed*). **RTE goals are missing preconditions** (`INT_MIN < val`, `counter < INT_MAX`, overflow bounds). **Pointer repair order:** `\valid`/`\valid_read` → `assigns` → `\separated` → overflow bounds. A `const` object is only `\valid_read`. Labels: `\old` only in `ensures`, `\at(x, L)` is the value at `L`, a variable declared after `L` is an annotation error that aborts the run.
+
+**Reading an unproved goal:** find values satisfying Assume but not Prove. If they exist the goal is false (`take`, `ex5_volume`'s `<= 10`, `ex6_next` with `i == 3`). If not, it is true but hard: Z3 proves `sumsq` where Alt-Ergo times out, or add `assert (x-y)*(x-y) >= 0`.
+
+**Run results (Frama-C 33, `-wp -wp-rte`):** 13 lecture files match the slides; ex1–ex6 have no contracts yet (4/7, 4/9, 4/12, 5/11, 7/8, 10/11 proved). **Trap:** Frama-C silently drops duplicate definitions across files, so run one file or conflict-free group per session; 9 Ivette windows opened that way. From PowerShell use `wsl.exe -d Ubuntu -e bash /mnt/c/.../script.sh`, never inline quoted paths. **Update:** exercises ex1–ex6 are now completed and fully proved (10/10, 16/16, 19/19, 18/18, 8/8, 11/11); two needed a fix beyond the contract: `ex5_volume` code `<= 10` to `< 10`, `ex6_next` precondition to `i <= 2`; `ex4_transfer` needs `\separated(from, to)` because aliasing destroys the money. Details in [[examples/ict3112-frama-c-lab3-pointers-run]].
+
+---
+
 2026-10-26. **Session: ingest — INF2005 CSF Week 9: Network Security: Vulnerabilities and Exploits.** New: [[sources/inf2005-csf-network-security-attacks]], [[concepts/network-security-attacks]].
 
 Week 9 lecture by Dr Aris Cahyadi Risdianto. Core formula: **risk = vulnerability + threat** — a vulnerability causes no harm until exploited; CVSS scores severity × likelihood. Five common network vulnerabilities: unsecured SSID, unfiltered ports, unsecured physical ports, malicious users, unencrypted packets.

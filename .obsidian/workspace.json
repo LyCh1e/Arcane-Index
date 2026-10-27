@@ -18,18 +18,6 @@
                   "version": 1,
                   "openTabs": [
                     {
-                      "tabId": "tab-1792654053294-2si70i9",
-                      "conversationId": "conv-1792654059548-7hjrp9qnr"
-                    },
-                    {
-                      "tabId": "tab-1792985703801-0awsl3k",
-                      "conversationId": "conv-1792985728276-kj0k0pnsp"
-                    },
-                    {
-                      "tabId": "tab-1792986266808-ctsqxv3",
-                      "conversationId": "conv-1793002821859-0utyk2ogq"
-                    },
-                    {
                       "tabId": "tab-1793033514819-i7p20mo",
                       "conversationId": null,
                       "draftModel": "sonnet",
@@ -111,9 +99,22 @@
               "icon": "lucide-file",
               "title": "skill"
             }
+          },
+          {
+            "id": "569eb3656b258ea7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_templates/question.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "question"
+            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -302,23 +303,28 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "aa21592bb12da3f9",
+  "active": "c34294748e14f3a7",
   "lastOpenFiles": [
+    "_templates/goal.md",
+    "_templates/concept.md",
+    "_templates/agent.md",
+    "wiki/log.md.tmp.18712.31a538ed376a",
+    "wiki/learning/frama-c-wsl-install-gotchas.md.tmp.18712.08fa078a40df",
+    "wiki/index.md.tmp.18712.bc201be3bbaf",
+    "wiki/index.md.tmp.18712.6674f7d0bb19",
+    "wiki/index.md.tmp.18712.af1f8f2a84ca",
+    "wiki/resources/frama-c.md.tmp.18712.19f5caf63394",
+    "wiki/examples/ict3112-frama-c-lab3-pointers-run.md",
+    "wiki/examples/ict3112-frama-c-lab3-pointers-run.md.tmp.18712.4472526e9dca",
+    "wiki/concepts/acsl-contract-strength-and-pointer-memory.md",
+    "wiki/sources/ict3112-frama-c-lab1-lab2-pointers-slides.md",
     "_templates/skill.md",
     "skills/skill-creator/eval-viewer/viewer.html",
     "skills/skill-creator/eval-viewer/generate_review.py",
     "skills/skill-creator/eval-viewer",
-    "_templates/agent.md",
-    "skills/skill-creator/LICENSE.txt",
-    "skills/skill-creator",
-    "skills/skill-creator.zip",
     "agents/tutor.md",
     "skills/writer/SKILL.md",
-    "skills/editor.zip",
-    "skills/writer.zip",
     "skills/editor/SKILL.md",
-    "skills/editor",
-    "skills/writer",
     "wiki/concepts/network-security-attacks.md",
     "wiki/sources/inf2005-csf-network-security-attacks.md",
     "raw/INF2005 Cyber Security Fundamentals - Network Security Attacks.md",
@@ -335,10 +341,6 @@
     "wiki/sources/ict3112-lecture-w4-sec2-intro-transcript.md",
     "wiki/examples/ict3112-frama-c-lab2-loops.md",
     "wiki/examples/ict3112-frama-c-lab1-first-steps.md",
-    "wiki/examples/ict3112-frama-c-lab0-installation.md",
-    "wiki/resources/frama-c.md",
-    "wiki/learning/frama-c-wsl-install-gotchas.md",
-    "wiki/examples/ict3112-frama-c-labs-0-2.md",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",

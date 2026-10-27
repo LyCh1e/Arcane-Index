@@ -27,7 +27,10 @@ A debugger runs one input and shows what happened; Frama-C never runs the code a
 - `-wp-rte` (slide option) skips the unsupported alignment/function-pointer guards; plain `-rte` adds `rte_pointer_alignment` goals that time out on `size_t*` array code.
 - `-wp-no-simpl` (in the lab text) is a **deprecated alias of `-wp-no-subst`**; it still runs but warns. `-wp-no-qed` disables Qed simplification so raw VCs show in the GUI.
 - `-wp-fct f` proves one function; `-wp-cache none` avoids the `.frama-c/` proof-cache folder; `-wp-timeout` defaults to 2 s.
-- Several files each defining `main` (or the same function) cannot be loaded into one GUI session.
+- Several files each defining `main` (or the same function) cannot be loaded into one session. Frama-C does not fail: it warns `def'n of func main ... conflicts ... keeping the one at ...` and **silently drops the later definition**, so a combined run reports on the wrong code. Use one session per file or per conflict-free group ([[examples/ict3112-frama-c-lab3-pointers-run]]).
+- `-wp-prover z3` alone proves `sumsq` (`ensures \result >= 2*x*y`) 9/9 where Alt-Ergo times out; Z3 answering *Unknown* at once (as on `take.c`) hints that the goal is false.
+- `-kernel-warn-key annot-error=active` turns a bad annotation (e.g. `\at(x, L)` with `x` declared after `L`) from a fatal abort into a warning. `\post(*a)` does not exist in Frama-C 33; use `\at(*a, Post)`.
+- Contract patterns for `\valid`, `assigns`, `\separated`, RTE and labels: [[concepts/acsl-contract-strength-and-pointer-memory]].
 - `-wp-prover alt-ergo,z3,cvc5 -wp-timeout 30` can turn timeouts into proofs: Assignment 1 went 92/94 (Alt-Ergo only) to 94/94, with CVC5 closing the two `non_increasing` asserts. Run with `-wp-cache none` to see a true uncached breakdown (Qed 45, Alt-Ergo 40, CVC5 4, Z3 3). See [[examples/ict3112-frama-c-assignment1-leaderboard]] and [[concepts/acsl-sorted-array-insert-pattern]].
 - Full list kept in `Labs/Frama-C-Commands.md` (CLAUDE.md requires updating it whenever a new command is verified).
 

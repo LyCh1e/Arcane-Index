@@ -10,6 +10,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## 2026-10-27 | ingest | ICT3112 Frama-C slide labs (Lab 1 + Lab 2 Pointers PDFs) and the lab3 run session
+
+- Source: `Labs/lab3/` — `ICT3112 - Lab1 - Frama-C.pdf`, `ICT3112 - Lab2 - Frama-C-pointers.pdf`, `ICT3112 - Lab2 - Frama-C-pointers_exercises.pdf` (no embedded instructions found) plus this chat (running all 19 `.c` files, GUI launch)
+- New: [[sources/ict3112-frama-c-lab1-lab2-pointers-slides]], [[concepts/acsl-contract-strength-and-pointer-memory]], [[examples/ict3112-frama-c-lab3-pointers-run]]
+- Updated: [[resources/frama-c]] (duplicate-definition trap, Z3 on `sumsq`, `annot-error`), [[learning/frama-c-wsl-install-gotchas]] (7 rows: wsl.exe quoting from PowerShell/Git Bash, multi-file run, dbus noise, WSL copy), `index.md`, `hot.md`; `Labs/Frama-C-Commands.md` updated in the project and re-synced to WSL
+- Key results: 13 lecture files match the slides (swap2, side1/3, sep3, sumsq_assert, take_fix fully proved; sumsq 9/9 with Z3); `take.c` is a false goal; exercises ex1–ex6 are uncontracted (ex5 has a code bug `<= 10`, ex6 needs `i <= 2`). Frama-C silently drops duplicate definitions across files, so each file/group must run in its own session; 9 Ivette windows opened for the groups. Exercises ex1–ex6 then completed in `Labs/lab3/` and re-run: 10/10, 16/16, 19/19, 18/18, 8/8, 11/11 proved (ex5 code fix `<= 10` to `< 10`, ex6 `requires i <= 2`); table in [[examples/ict3112-frama-c-lab3-pointers-run]]
+
 ## 2026-10-24 | ingest | ICT3112 Assignment 1 — Bounded Leaderboard (Frama-C / ACSL)
 
 - Source: `Labs/Assignment1/` (assignment PDF, `leaderboard.c`) plus the annotated solution `ICT3112_Lab1_Chiyung.c`, `explanation.md`, `Testing-Guide.md`
