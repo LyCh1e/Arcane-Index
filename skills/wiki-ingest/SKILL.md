@@ -152,13 +152,13 @@ Steps:
     INGESTED_SLUG="<slug of the file just ingested>"
     ```
 
-    a. Read `study-notes/index.md`. Locate the **"Create Study Notes For"** table.
+    a. Read `study notes/index.md`. Locate the **"Create Study Notes For"** table.
     b. For each row where **Auto-Update** = `yes`, check whether `INGESTED_SLUG` contains the row's **Source Pattern** (case-insensitive substring match).
     c. For every matching row, run the `update-study-notes` skill in **automatic mode** for that module:
        - Read the module's existing notes file and formula sheet.
        - Diff the newly ingested source's content against the existing notes (Steps 3–5 of the `update-study-notes` skill).
        - Patch any gaps. Update the formula sheet if new formulas were introduced.
-       - Update the **Coverage Summary** row in `study-notes/index.md` with any new topic keywords.
+       - Update the **Coverage Summary** row in `study notes/index.md` with any new topic keywords.
     d. If no row matches the ingested slug, skip silently — not every source belongs to a tracked module.
     e. Report the outcome alongside the ingest summary: e.g. `"📚 Study notes updated: ICT3113 — added §8 Lost Work / Erlang B."` or `"📚 No tracked module matched this source — study notes unchanged."`
 

@@ -43,21 +43,10 @@
       ],
       "selectedModels": [
         {
-          "value": "sonnet",
-          "label": "Sonnet",
-          "description": "Sonnet 4.6 · Efficient for routine tasks",
-          "reasoningMetadataResolved": true,
-          "supportedEffortLevels": [
-            "low",
-            "medium",
-            "high",
-            "max"
-          ]
-        },
-        {
-          "value": "claude-fable-5[1m]",
-          "label": "Fable",
-          "description": "Fable 5 · Most capable for your hardest and longest-running tasks · Draws from usage credits",
+          "value": "opus",
+          "label": "Opus 5.5",
+          "description": "For complex work and everyday tasks",
+          "resolvedModel": "claude-opus-5-5",
           "reasoningMetadataResolved": true,
           "supportedEffortLevels": [
             "low",
@@ -68,9 +57,10 @@
           ]
         },
         {
-          "value": "opus",
-          "label": "Opus",
-          "description": "Opus 4.8 · Best for everyday, complex tasks · ~2× usage vs Sonnet",
+          "value": "sonnet",
+          "label": "Sonnet 5.5",
+          "description": "Most efficient for simpler tasks",
+          "resolvedModel": "claude-sonnet-5-5",
           "reasoningMetadataResolved": true,
           "supportedEffortLevels": [
             "low",
@@ -82,10 +72,17 @@
         },
         {
           "value": "haiku",
-          "label": "Haiku",
-          "description": "Haiku 4.5 · Fastest for quick answers",
+          "label": "Haiku 5.5",
+          "description": "Fastest for quick answers",
+          "resolvedModel": "claude-haiku-5-5",
           "reasoningMetadataResolved": true,
-          "supportedEffortLevels": []
+          "supportedEffortLevels": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
         }
       ],
       "outputStyle": null,
@@ -93,6 +90,7 @@
       "discoveredOutputStyles": [
         "default",
         "Proactive",
+        "Concise",
         "Explanatory",
         "Learning"
       ],
