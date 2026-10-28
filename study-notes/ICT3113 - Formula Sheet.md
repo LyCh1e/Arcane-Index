@@ -145,6 +145,50 @@ Bottleneck shifts unexpectedly  → DEMAND         → reduce V or S
 
 ---
 
+## Erlang B — Lost Work
+
+$$B(m, \rho) = \frac{\rho^m / m!}{\sum_{k=0}^{m} \rho^k / k!}$$
+
+**Recursion (practical):**
+```
+B(0) = 1
+B(m) = [ρ × B(m−1)] / [m + ρ × B(m−1)]
+```
+
+| Given | Find |
+|-------|------|
+| λ, S | ρ = λ × S |
+| ρ, target ε | Minimum m with B(m, ρ) ≤ ε (use table or recursion) |
+
+> Assumes lost jobs do NOT retry. If they retry, effective ρ increases.
+
+---
+
+## JMeter Sizing (Little's Law)
+
+$$N_{\text{threads}} = X_{\text{target}} \times (R_{\text{budget}} + Z_{\text{think}})$$
+
+**APDEX:**
+
+$$\text{APDEX} = \frac{\text{Satisfied} + 0.5 \times \text{Tolerating}}{\text{Total}}$$
+
+(Satisfied: R ≤ T; Tolerating: T < R ≤ 4T; Frustrated: R > 4T)
+
+---
+
+## Six Performance Test Types (Quick Reference)
+
+| Type | Question |
+|------|---------|
+| **Load** | Do we meet the SLO at expected load? |
+| **Stress** | Where is the ceiling and how does it fail? |
+| **Soak** | Do we leak resources over time? |
+| **Regression** | Has a code change harmed performance? |
+| **Benchmark** | Which option (config/algo) is better? |
+| **Pipe-clean** | Is the test actually measuring the right thing? |
+
+---
+
 ## Symbol Cheat Sheet
 
 | Symbol | Name |

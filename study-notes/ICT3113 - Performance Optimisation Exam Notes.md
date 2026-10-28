@@ -5,7 +5,7 @@ module: ICT3113
 lecturer: "A/Prof Donny Soh"
 tags: [study-notes, ict3113, performance-engineering, queueing-theory, exam-prep]
 created: 2026-09-14
-updated: 2026-09-14
+updated: 2026-10-28
 ---
 
 # ICT3113 Performance Optimisation and Design
@@ -937,6 +937,177 @@ Priority discipline: Hot lots — 3.2 h queue; Normal lots — 8.0 h queue.
 
 ---
 
+## 14. Performance Testing
+
+> "A load test tells you whether you *meet* the requirement. A stress test tells you *what happens when you don't*." — Lec07
+
+### Four Supporting Documents
+
+| Document | What it is |
+|---|---|
+| **Performance requirements** | Formal statement of SLO per operation (Bondi 10-field structure) |
+| **Workload model** | Business quantities translated into λ, S, and D per device |
+| **Test playbook** | Step-by-step recipe another person can follow to reproduce any result |
+| **Results report** | What was measured, under what workload, and whether the requirement was met |
+
+### Bondi's 10-Field Performance Requirement
+
+A requirement without a load and a measurement procedure is not a requirement. The Bondi structure captures:
+
+| Field | Example |
+|---|---|
+| **Who** | End users of the checkout flow |
+| **Under what workload** | 50 concurrent users, 60% add-to-cart |
+| **Operation** | Place order |
+| **Metric** | p95 response time |
+| **Target** | ≤ 500 ms |
+| **Measurement method** | JMeter test under specified load profile |
+
+---
+
+### Six Performance Test Types
+
+> [!tip] Exam Favourite — Know all six types and which question each one answers.
+
+| Test Type | Question it Answers | Setup | What to Look For |
+|---|---|---|---|
+| **Load test** | Do we meet the SLO under expected load? | Flat load at design point; multiple runs | p50/p95 vs target; CPU utilisation vs prediction |
+| **Stress test** | Where is the ceiling, and how does it fail? | Step load upwards until failure | Knee point; failure mode (errors vs graceful slowdown) |
+| **Soak test** | Do we leak resources over time? | Steady load for an extended period (hours) | Memory growth rate; extrapolate to failure time |
+| **Regression test** | Has a code change harmed performance? | Identical load on Build A vs Build B | p50/p95 change; slope detectable only at higher load |
+| **Benchmark** | Which option (config/algorithm/service) is better? | Same load; one variable differs | Direct comparison — load must be attached to the result |
+| **Pipe-clean** | Is the test itself measuring the right thing? | Single request; verify response body and timing | Error overhead masquerading as service time; wrong endpoint |
+
+> [!warning] The pipe-clean is not optional. Demo 6: 100% "success" reported while 0 actual orders were created — test was measuring error overhead (39 ms vs expected 360 ms). A green test can be measuring nothing.
+
+---
+
+### Open-Loop vs Closed-Loop Load Generation
+
+| | **Closed loop** (JMeter Thread Group) | **Open loop** (JMeter Open Model / k6) |
+|---|---|---|
+| Arrival pattern | Next request starts when previous finishes + think time | Arrivals independent of system response |
+| Behaviour at saturation | Throughput automatically caps at ceiling | Queue builds; response time diverges |
+| Models | Load testing tools with fixed virtual users | Real internet traffic |
+| Risk | **Underestimates** real latency under overload | Requires careful ceiling estimation |
+
+> [!warning] Closed-loop tools mask overload: when the system is slow, each virtual user just waits longer before sending the next request, keeping throughput below the ceiling even as the server is saturated.
+
+---
+
+### JMeter Test Plan Sizing (Little's Law Bridge)
+
+**The relationship:**
+
+$$N_{\text{threads}} = X_{\text{target}} \times (R_{\text{budget}} + Z_{\text{think}})$$
+
+Where:
+- N = thread count to set in JMeter
+- X = target throughput
+- R = expected response time (use your model or SLO)
+- Z = think time between requests
+
+**Two JMeter timers:**
+- **Constant Timer** — fixed pause Z after each request
+- **Gaussian Random Timer** — Z ± σ, models user behavioural variability
+
+**APDEX (Application Performance Index):**
+
+$$\text{APDEX} = \frac{\text{Satisfied} + 0.5 \times \text{Tolerating}}{\text{Total}}$$
+
+- **Satisfied:** response ≤ T (target threshold)
+- **Tolerating:** T < response ≤ 4T
+- **Frustrated:** response > 4T
+- Score of 1.0 = all users satisfied; 0.0 = all frustrated
+
+---
+
+### Test Environment Principles
+
+| Principle | Why it Matters |
+|---|---|
+| **Scale consistently** | If production is 10 servers, test at 10 — or model the scaling explicitly |
+| **Isolate the load generator** | Run JMeter on a separate machine; otherwise it consumes CPU being measured |
+| **Observer effect** | Profilers add overhead — e.g. cProfile can double response time on pure Python handlers |
+| **Know when the environment cannot stand in** | Different hardware gives different absolute numbers; relative comparisons (Build A vs B) are still valid |
+
+---
+
+### Reading Results: Saturation vs Bug
+
+| Signal | Diagnosis |
+|---|---|
+| Throughput plateaus; errors rise sharply | **Saturation** at the bottleneck — ceiling reached |
+| Response time rises steeply without errors | **Queue building** — approaching but not yet at ceiling |
+| p50 drops while p95 rises | Fast errors masking real service time — check error rate |
+| Linear memory growth on soak plot | **Memory leak** — extrapolate slope to predict failure time |
+| p95 much higher than p50 | **Variability** — mixed workload or bursty arrivals |
+
+---
+
+## 15. Lost Work and the Erlang B Formula
+
+When a resource has **finite capacity m** (threads, connections, buffers) and a new job arrives when all m are occupied, the job is **lost** (dropped). The Erlang B model quantifies this.
+
+### Formula
+
+Let:
+- **m** = capacity (maximum concurrent jobs)
+- **ρ = λ × S** = offered load (dimensionless traffic intensity)
+- **B(m, ρ)** = probability a job is lost (blocking probability)
+
+$$B(m, \rho) = \frac{\rho^m / m!}{\sum_{k=0}^{m} \rho^k / k!}$$
+
+**Sizing rule:** given ρ and a target loss probability ε, choose the **smallest m with B(m, ρ) ≤ ε**.
+
+---
+
+### Erlang B Recursion (Practical Computation)
+
+Avoids large factorials:
+
+```
+B(0) = 1
+B(m) = [ρ × B(m−1)] / [m + ρ × B(m−1)]
+```
+
+Equivalent to the closed-form. Use when ρ is not in the table.
+
+---
+
+### Erlang B Table (blocking probability %)
+
+| m | ρ=0.25 | ρ=0.5 | ρ=0.75 | ρ=1 | ρ=1.5 | ρ=2 | ρ=3 | ρ=4 |
+|---|--------|-------|--------|-----|--------|-----|-----|-----|
+| 1 | 20.000 | 33.333 | 42.857 | 50.000 | 60.000 | 66.667 | 75.000 | 80.000 |
+| 2 | 2.439 | 7.692 | 13.846 | 20.000 | 31.034 | 40.000 | 52.941 | 61.538 |
+| 3 | 0.203 | 1.266 | 3.346 | 6.250 | 13.433 | 21.053 | 34.615 | 45.070 |
+| 4 | 0.013 | 0.158 | 0.623 | 1.538 | 4.796 | 9.524 | 20.611 | 31.068 |
+| 5 | <0.001 | 0.016 | 0.093 | 0.307 | 1.418 | 3.670 | 11.005 | 19.907 |
+| 6 | <0.001 | 0.001 | 0.012 | 0.051 | 0.353 | 1.208 | 5.216 | 11.716 |
+| 7 | <0.001 | <0.001 | 0.001 | 0.007 | 0.076 | 0.344 | 2.186 | 6.275 |
+| 8 | <0.001 | <0.001 | <0.001 | <0.001 | 0.014 | 0.086 | 0.813 | 3.042 |
+
+> [!warning] Erlang B assumes **lost jobs do not retry**. If dropped requests immediately retry, the effective offered load increases — this is a separate (Erlang C) model.
+
+---
+
+### Worked Examples
+
+> [!example] Router Buffer Sizing
+> λ = 300 pkt/s, capacity = 500 pkt/s, target loss < 10⁻⁶
+> ρ = 300/500 = **0.6**
+> From table: B(7, 0.6) = 3.0×10⁻⁶ > 10⁻⁶; B(8, 0.6) = 2.3×10⁻⁷ < 10⁻⁶
+> **Answer: m = 8 buffers**
+
+> [!example] DB Connection Pool
+> λ = 7 req/s, S = 100 ms, need P(spare connection) ≥ 99.9%
+> ρ = 7 × 0.1 = **0.7**; need B(m, 0.7) < 0.001
+> From table: B(5, 0.7) ≈ 9.3×10⁻⁴ < 10⁻³
+> **Answer: m = 5 connections**
+
+---
+
 ## Exam Strategy Checklist
 
 > [!tip] For any performance question:
@@ -947,9 +1118,19 @@ Priority discipline: Hot lots — 3.2 h queue; Normal lots — 8.0 h queue.
 > 5. **Apply the right formula** based on what is asked (Kingman = variability; Interactive Law = closed system; Forced Flow = device throughput)
 > 6. **Check if the answer makes sense** — U should be < 1 in a stable system; R should be ≥ S
 
+> [!tip] For performance testing questions:
+> 1. Identify the **test type** — load, stress, soak, regression, benchmark, or pipe-clean
+> 2. State the **question it answers** (§14 table) — not just "it tests performance"
+> 3. For JMeter sizing: derive N from Little's Law — N = X × (R + Z)
+> 4. For Erlang B: compute ρ = λ × S first; then use table or recursion to find minimum m for target loss probability
+> 5. Distinguish **open-loop** (fixed arrival rate) from **closed-loop** (fixed virtual users) — they behave differently at saturation
+
 > [!warning] Common Exam Mistakes
 > - Using λ instead of X in Utilisation Law when the system is overloaded
 > - Confusing **capacity bottleneck** (lowest ceiling) with **largest demand** (not the same when c differs)
 > - Forgetting to divide demand by server count c when computing the ceiling
 > - Computing 1/λ from the mean of observed inter-arrival gaps instead of from the full window
 > - Assuming the largest-demand device is automatically the congestion hotspot — it may not be if variability is driving the queue elsewhere
+> - Skipping the **pipe-clean step** — a test showing 100% success may be measuring error overhead, not service time
+> - Applying Erlang B when jobs **retry on drop** — retry increases the effective offered load (use a different model)
+> - Confusing **Erlang B** (finite capacity, jobs are lost) with **M/M/c** (infinite queue, jobs wait)

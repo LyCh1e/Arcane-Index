@@ -10,6 +10,30 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## [2026-10-28] update | Study notes — major content refresh across all three modules
+
+**ICT3112 — Software Verification and Validation Exam Notes:**
+- Added §7: Browser-Based System Testing (Selenium WebDriver, explicit waits, Page Object pattern, CI orchestration, locator ranking, hosting modes)
+- Added §9: Frama-C / ACSL (contracts, RTE annotations, pointer validity/assigns/separated, loop annotations, vacuity detection, array range notation, binary-search invariant pattern, WP flags)
+- Updated §11 Exam Checklist with Frama-C and Selenium tips + 6 new common mistakes
+
+**ICT3113 — Performance Optimisation and Design Exam Notes:**
+- Added §14: Performance Testing (six test types, Bondi 10-field requirements, open/closed-loop load generation, JMeter sizing via Little's Law, APDEX, test environment principles, result interpretation)
+- Added §15: Erlang B / Lost Work (formula, recursion, full table, two worked examples)
+- Updated Exam Strategy Checklist with 5 new performance testing tips + 3 new common mistakes
+- Updated Formula Sheet with Erlang B recursion, JMeter sizing formula, APDEX, six test types quick reference
+
+**INF2005 — Cyber Security Fundamentals Exam Notes:**
+- Added §8: Social Engineering (Cialdini's 6 principles, all attack types: phishing/spear/whaling/BEC/clone, vishing/TOAD/AI voice, tailgating/USB baiting, pretexting/pharming/MFA fatigue/deepfakes/quishing, red flags, URL tools, defence layers)
+- Added §9: Malware (virus/worm/trojan comparison table, anatomy, triggers, evasion techniques, infection vectors, signs of infection)
+- Added §10: System Security (attack layer stack, hardware/software/hypervisor/OS attacks, privilege escalation chain, ransomware/WannaCry, defensive principles)
+- Added §11: Network Security Attacks (DoS/DDoS/DRDoS, botnets, Evil Twin, passive vs active sniffing, ARP poisoning mechanics, DPI, port scanning with nmap)
+- Updated §12 Quick-Reference and §13 Common Exam Mistakes (7 new mistakes)
+
+**Study Notes Index:**
+- Updated Coverage Summary for all three modules to reflect actual current content
+- Updated date to 2026-10-28
+
 ## [2026-10-28] ingest | ICT3113 POD Lec 11–12: Learning Kubernetes and Docker Fundamentals (Dell industry session)
 - New: [[sources/ict3113-pod-lec11-12-kubernetes-docker]]
 - New concept: [[concepts/cloud-native]] — CNCF definition, five traits, five elements, monolith vs microservices, 8 fallacies, distributed app design considerations

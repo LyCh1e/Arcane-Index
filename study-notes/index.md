@@ -1,7 +1,7 @@
 ---
 type: index
 title: "Study Notes — Index"
-updated: 2026-09-23
+updated: 2026-10-28
 tags: [index, study-notes]
 ---
 
@@ -42,9 +42,9 @@ All exam notes and formula sheets in this folder. Each module has a full notes f
 
 | Module | Topics Covered |
 |--------|---------------|
-| **ICT3112 SVV** | V&V fundamentals · Static vs dynamic · V-Model · ISTQB principles · Reliability (MTTF/MTTR/MTBF, Musa models) · Static analysis · Whitebox testing (CFG, coverage criteria, cyclomatic complexity, basis paths, LCSAJ) · Blackbox testing (use case, EP, BVA, decision tables, state transition) |
-| **ICT3113 POD** | Performance metrics · CIA constraints · Utilisation law · Little's Law · M/M/1 queueing · Multi-server queues (M/M/c) · Operational laws (Forced Flow, Service Demand) · Bottleneck analysis · Kingman formula · Interactive Response Time Law · JMeter test plan sizing |
-| **INF2005 CSF** | CIA triad · Symmetric crypto (substitution, transposition, DES/3DES/AES, OTP) · Kerckhoffs's Principle · Asymmetric crypto (RSA, Diffie–Hellman) · Hashing & digital signatures · Cryptanalysis (brute force, frequency analysis, known plaintext, birthday attack) · Steganography (LSB, BPCS, steganalysis) · Access control (passwords, biometrics, DAC/RBAC/MAC) · Ethical hacking (CMA, hat types, pen testing stages) |
+| **ICT3112 SVV** | V&V fundamentals · Static vs dynamic · V-Model · ISTQB principles · Reliability (MTTF/MTTR/MTBF, Musa models) · Static analysis · Whitebox testing (CFG, coverage criteria, cyclomatic complexity, basis paths, LCSAJ) · Blackbox testing (use case, EP, BVA, decision tables, state transition) · Browser-based system testing (Selenium WebDriver, explicit waits, Page Object, CI) · Hoare logic (partial/total correctness, 6 inference rules, WP calculus) · Loop invariants (4 obligations, 5-step recipe) · Array rules (ARRAY-READ, ARRAY-ASSIGN) · Frama-C / ACSL (contracts, RTE annotations, pointer validity, loop annotations, vacuity, ACSL array patterns) |
+| **ICT3113 POD** | Performance metrics · Utilisation law · Little's Law · M/M/1 queueing · Multi-server queues (M/M/c) · Operational laws (Forced Flow, Service Demand) · Bottleneck analysis · Kingman formula · Sakasegawa formula · Interactive Response Time Law · Four Sources Framework · Performance testing types (load, stress, soak, regression, benchmark, pipe-clean) · Open-loop vs closed-loop load generation · JMeter test plan sizing (Little's Law bridge, APDEX) · Lost work and Erlang B (formula, recursion, table, sizing) |
+| **INF2005 CSF** | CIA triad · Symmetric crypto (substitution, transposition, DES/3DES/AES, OTP) · Kerckhoffs's Principle · Asymmetric crypto (RSA, Diffie–Hellman) · Hashing & digital signatures · Cryptanalysis (brute force, frequency analysis, known plaintext, birthday attack) · Steganography (LSB, BPCS, steganalysis) · Access control (passwords, biometrics, DAC/RBAC/MAC) · Ethical hacking (CMA, hat types, pen testing stages) · Social engineering (Cialdini principles, phishing/spear/whaling/BEC, vishing, pretexting, deepfakes, MFA fatigue) · Malware (virus/worm/trojan, infection vectors, polymorphic/metamorphic, signs of infection) · System security (hardware/software/OS/hypervisor attacks, privilege escalation, ransomware/WannaCry) · Network security (DoS/DDoS/DRDoS, Evil Twin, ARP poisoning, packet sniffing, port scanning, DPI) |
 
 ---
 

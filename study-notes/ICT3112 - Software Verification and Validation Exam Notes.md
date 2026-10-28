@@ -4,7 +4,7 @@ title: "ICT3112 Software Verification and Validation — Exam Notes"
 module: ICT3112
 tags: [study-notes, ict3112, svv, verification, validation, whitebox, blackbox, reliability, hoare-logic, formal-verification, exam-prep]
 created: 2026-09-14
-updated: 2026-10-15
+updated: 2026-10-28
 ---
 
 # ICT3112 Software Verification and Validation
@@ -27,6 +27,8 @@ flowchart TD
     E["§5 Whitebox Testing\nCFG, Coverage Criteria\nCyclomatic Complexity\nBasis Paths, LCSAJ"]
     F["§6 Blackbox Testing\nUse Case Testing\nEP, BVA\nDecision Tables\nState Transition"]
     B --> G["§8 Axiomatic Semantics\nHoare Logic\nWP Calculus\nLoop Invariants\nArray Rules"]
+    B --> H["§7 Browser Testing\nSelenium WebDriver\nExplicit Waits\nPage Object Pattern\nCI Orchestration"]
+    G --> I["§9 Frama-C / ACSL\nACSQL Contracts\nRuntime Errors\nPointer Memory\nLoop Annotations"]
 ```
 
 ---
@@ -853,7 +855,137 @@ Tests every unique **pair** of consecutive transitions. Self-loops excluded.
 
 ---
 
-## 7. Comparing Whitebox vs Blackbox
+## 7. Browser-Based System Testing (Selenium)
+
+> A browser test checks that the **rendered page, client JS, HTTP endpoint, and domain logic cooperate** through the interface a person uses. It catches broken element wiring, bad routes, and response rendering — none of which a unit test can see.
+
+### Where It Sits in the Test Hierarchy
+
+```
+Level:     Unit → Integration → System → Acceptance
+Browser:   ─────────────────────────► System (primary)
+
+Technique: Blackbox (tests from outside the codebase boundary)
+```
+
+- **System test** — when driving browser → JS → local server → domain class
+- **End-to-end** only if the route spans the full production boundary (auth, DB, payments)
+- **Acceptance ≠ browser test ≠ UAT** — these are separate concepts on separate axes
+
+**Portfolio guidance:** many unit tests, fewer integration, **a few browser journeys** covering primary and alternative flows. Keep EP/BVA cases in unit tests.
+
+---
+
+### WebDriver Architecture
+
+```
+NUnit test → IWebDriver / By / WebDriverWait
+          → browser driver (WebDriver protocol)
+          → browser (loads pages, runs JS, renders)
+```
+
+**Selenium Manager** (v4.6+): automatically finds the installed browser, resolves and caches a matching driver. No driver NuGet, no binary in the repo, no path setting needed. First run is slow and requires network access.
+
+> The *browser driver* here is different from the *test driver stub* used in bottom-up integration testing.
+
+---
+
+### Flakiness and Waits
+
+> [!warning] Never use `Thread.Sleep(n)` — it wastes time when the app is fast and still fails when it is slow.
+
+| Wait Type | How it Works | Use When |
+|---|---|---|
+| **Explicit wait** | `WebDriverWait.Until(condition)` — polls until condition is true or timeout | Element state changes (text updates, visibility toggles) |
+| **Implicit wait** | Retries element lookup only | Rarely — element lookup failure only |
+
+> Do **not** mix implicit and explicit waits — combined timeouts become unpredictable.
+
+**Why flakiness occurs:** timing assumptions in the test. An element may exist in the DOM but its text has not yet been updated by the server. An explicit wait on non-empty text fixes this.
+
+---
+
+### Stable Locators (Ranked)
+
+```
+Fragile → Stable:
+  Absolute XPath (DOM position)
+  → CSS styling classes
+  → id attribute
+  → accessible role / name
+  → data-testid (most stable — team contract)
+```
+
+**`data-testid`** is a team contract: it keeps its meaning like a public API route. Add it to elements that tests must target.
+
+---
+
+### Page Object Pattern
+
+A class representing a page through the **services** it offers — not the clicks it performs.
+
+```
+Page Object owns:
+  - Locators (static readonly By)
+  - Interaction methods (Open, Calculate, Submit)
+  - Waits
+  - Returns values
+
+Test owns:
+  - Inputs
+  - Definition of "correct"
+  - Assertions (NO assertions inside Page Object)
+```
+
+**Payoff:** a markup change is repaired in one class; tests read in domain language.
+
+---
+
+### Independence, Headless, and Cross-Browser
+
+| Concern | Guidance |
+|---|---|
+| **Fresh browser per test** | SetUp/TearDown removes cookies and sessions; does NOT reset server-side state (DB needs separate data isolation) |
+| **Headless** | `--headless=new` (Chrome) or `-headless` (Firefox) — same real engine, same evidence scope; default for CI |
+| **Cross-browser** | Select high-value journeys based on user base and browser-specific risk |
+| **Parallelism** | Only after tests and data are fully isolated; browsers are CPU/memory hungry |
+
+---
+
+### Hosting the Application Under Test
+
+| Mode | How | Key Point |
+|---|---|---|
+| **Self-hosted** | `WebApplicationFactory<Program>().UseKestrel(0)` | Real Kestrel on OS-chosen port; poll `/` for readiness; dispose in OneTimeTearDown |
+| **External** | Base-URL env var | Validate as absolute http(s) URL; poll it; **never stop it** |
+
+> "The browser started" ≠ "the app is up." `ERR_CONNECTION_REFUSED` means the browser works and no server is listening.
+
+**Rule:** dispose only what you created.
+
+---
+
+### CI Orchestration (Key Steps)
+
+1. Build once (Release)
+2. Run non-browser tests: `dotnet test --filter "TestCategory!=Browser"`
+3. Start app in background: `dotnet run --no-build --no-launch-profile &`
+4. Curl readiness loop
+5. Run browser tests headless with base URL set
+
+> Check that **both test groups were discovered**. A green tick with 0 browser tests is not a pass.
+
+---
+
+### What a Passing Journey Does NOT Prove
+
+Visual correctness · Accessibility · Performance · Security · Every device/browser/version · Usability · Real production dependencies
+
+Each needs its own oracle and tooling. Browser automation **complements** — it does not replace — unit, exploratory, and non-functional testing.
+
+---
+
+## 7b. Comparing Whitebox vs Blackbox
 
 ```mermaid
 flowchart LR
@@ -1038,7 +1170,164 @@ Annotations between statements make each inference step independently verifiable
 
 ---
 
-## 9. Key Formulas Reference Sheet
+## 9. Frama-C and ACSL (Practical Formal Verification)
+
+> **Frama-C** is an open-source C analysis platform. The **WP (Weakest Precondition)** plugin proves ACSL-annotated C functions correct using automated theorem provers (Alt-Ergo, Z3, CVC5). **ACSL** (ANSI/ISO C Specification Language) is the annotation language — it is Hoare logic written in C-comment syntax.
+
+### ACSL Contract = Hoare Triple in C
+
+```c
+/*@
+  requires P;       // precondition
+  assigns x, *p;   // frame condition — what may change
+  ensures Q;        // postcondition
+*/
+int my_function(int x, int *p);
+```
+
+`{requires} body {ensures}` is exactly the Hoare triple `{P} C {Q}`.
+
+---
+
+### Core ACSL Keywords
+
+| Keyword | Meaning |
+|---|---|
+| `requires E` | Precondition — must hold before call |
+| `ensures E` | Postcondition — must hold after return |
+| `assigns x, *p` | Frame condition — only these may change; `assigns \nothing` = pure function |
+| `\result` | Return value of the function |
+| `\old(e)` | Value of expression `e` at the moment of call (= `\at(e, Pre)`) |
+| `\valid(p)` | Pointer `p` is valid for reading *and* writing |
+| `\valid_read(p)` | Pointer is valid for reading only (use for `const` data) |
+| `\separated(a, b)` | Pointers `a` and `b` do not alias |
+| `\at(e, L)` | Value of `e` at label `L` |
+
+---
+
+### Runtime Error Annotations (`-wp-rte`)
+
+`-wp-rte` converts C's undefined behaviour into assertions WP must prove:
+
+| RTE Type | ACSL Precondition Needed |
+|---|---|
+| Signed integer overflow | `INT_MIN <= x + y <= INT_MAX` |
+| Array out-of-bounds | `\valid(a + (0 .. n-1))` |
+| Null dereference | `\valid(p)` or `\valid_read(p)` |
+| Division by zero | `divisor != 0` |
+
+> An RTE goal you cannot prove is usually a **missing `requires`**. A half-green assertion means it was proved by assuming an unproved RTE above it — fix the RTE first.
+
+---
+
+### Pointer Contract Pattern
+
+```c
+/*@
+  requires \valid(a) && \valid(b);       // read-write access
+  requires \separated(a, b);             // no aliasing
+  assigns *a, *b;                        // frame: only these change
+  ensures *a == \old(*b) && *b == \old(*a);
+*/
+void swap(int *a, int *b);
+```
+
+**Order of repair for a failing pointer function:**
+1. `\valid` / `\valid_read`
+2. `assigns`
+3. `\separated`
+4. Overflow bounds
+
+---
+
+### Loop Annotations in Frama-C
+
+```c
+/*@ loop invariant I;
+    loop assigns x, i;
+    loop variant E;
+*/
+while (condition) { ... }
+```
+
+- **loop invariant** = same four obligations as in §8 (Establishment, Preservation, Exit, Termination)
+- **loop assigns** = frame condition for loop body
+- **loop variant** = strictly decreasing non-negative expression (termination)
+
+---
+
+### Contract Strength and Vacuity
+
+| Issue | Symptom | Fix |
+|---|---|---|
+| **Too-weak ensures** | Contract proved but caller assertion fails | Strengthen `ensures` to capture the precise postcondition |
+| **Vacuous contract** | Contradictory `requires` → every `ensures` provable including `\false` | Check `requires` for contradictions; run `-wp-smoke-tests` |
+| **Vacuity symptom** | Call-site precondition goal is `Prove: false` | Inspect `requires` clauses |
+
+> **Key insight:** `ensures` defines a *set of allowed results*. A too-weak `ensures` (e.g. `\result == a || \result == b`) is proved but does not give callers enough information to prove their own goals.
+
+---
+
+### Diagnosing an Unproved Goal
+
+Open the goal's *Let / Assume / Prove* text and classify it:
+
+| Evidence | Diagnosis | Action |
+|---|---|---|
+| Concrete assignment satisfies Assume but falsifies Prove | Goal is **false** — spec or code wrong | Add `requires` or fix the code |
+| Goal is a true but hard arithmetic fact | **Prover gap** | Try Z3/CVC5 or add a helper `assert` |
+| Z3 and CVC5 say *Unknown* immediately | Strong hint goal is false | Stop tuning provers; revisit the contract |
+| `assert` is half-green | Proved by assuming an unproved RTE above it | Fix the RTE goal first |
+
+---
+
+### ACSL Array Range Notation
+
+```c
+// Validity for an array prefix:
+requires \valid(a + (0 .. n-1));
+
+// Array-update in postcondition (matches Hoare array-assign rule):
+ensures a[i] == \old(a[i]) || (i == k && a[i] == v);
+```
+
+This mirrors the `a[i ← E]` notation from §8 — `a` with index `i` overwritten by `E`.
+
+---
+
+### Binary Search / Ordered Insert Pattern (ACSL)
+
+**Sorted-array invariant:**
+
+```c
+/*@ predicate Sorted(int *a, int n) =
+      \forall int i, j; 0 <= i < j < n ==> a[i] <= a[j];
+*/
+```
+
+**Insert-while-maintaining-order loop invariant template:**
+
+```
+loop invariant 0 <= i <= n;
+loop invariant Sorted(a, n+1 with a[i..n] shifted right by 1);
+loop invariant \forall int k; i < k <= n ==> a[k] == \old(a[k-1]);
+```
+
+---
+
+### Key `-wp` Flags Reference
+
+| Flag | Purpose |
+|---|---|
+| `-wp` | Enable WP plugin |
+| `-wp-rte` | Generate runtime error assertions |
+| `-wp-prover alt-ergo,z3` | Use both Alt-Ergo and Z3 |
+| `-wp-smoke-tests` | Detect vacuous (doomed) contracts |
+| `-kernel-warn-key annot-error=active` | Downgrade annotation errors to warnings |
+
+---
+
+## 10. Key Formulas Reference Sheet
 
 | Formula | Name |
 |---------|------|
@@ -1061,7 +1350,7 @@ Annotations between statements make each inference step independently verifiable
 
 ---
 
-## 10. Exam Checklist
+## 11. Exam Checklist
 
 > [!tip] For any Hoare Logic / WP question:
 > 1. Identify the **type of statement** (skip, assign, seq, if, while, array)
@@ -1091,6 +1380,22 @@ Annotations between statements make each inference step independently verifiable
 > 3. **Decision table** — list all conditions → 2ⁿ columns max → identify irrelevant/impossible combos
 > 4. **State transition** — draw the diagram; find unspecified/unreachable/dead states; 0-switch = one TC per transition
 
+> [!tip] For any Frama-C / ACSL question:
+> 1. Write the **Hoare triple** in natural language first, then translate to ACSL
+> 2. Add `\valid` / `\valid_read` for every pointer parameter
+> 3. Add `assigns` — without it, WP assumes the function may change everything
+> 4. Add `\separated` when two pointers must not alias
+> 5. Add `loop invariant`, `loop assigns`, and `loop variant` for every loop
+> 6. Run `-wp-rte` and treat each unproved RTE as a missing `requires`
+> 7. Check for vacuity: if the contract proves `\false`, your `requires` is contradictory
+
+> [!tip] For a browser testing question:
+> 1. Classify as **system test** (local server + browser) or **E2E** (full production boundary)
+> 2. Use **explicit waits** — never `Thread.Sleep`
+> 3. Use **`data-testid`** locators — most stable
+> 4. Assertions belong in the **test**, not the Page Object
+> 5. In CI: pipe-clean first, then run headless with base URL set
+
 > [!warning] Common Mistakes to Avoid
 > - Confusing **Verification** (right product?) with **Validation** (right way?)
 > - Stating that condition coverage subsumes decision coverage — **it does not**
@@ -1099,3 +1404,9 @@ Annotations between statements make each inference step independently verifiable
 > - Forgetting self-loops are **excluded** from 1-switch coverage count
 > - Omitting test cases for **invalid partitions** in EP — invalid inputs must also be tested
 > - Ignoring **output** boundaries in BVA — outputs can also have boundary conditions
+> - Writing ACSL `\result == a || \result == b` and expecting callers to prove `max(a, b)` — the `ensures` is **too weak** even though WP proves it for the body
+> - Forgetting `assigns` in an ACSL contract — WP will assume the function may change any memory, making caller proofs impossible
+> - Omitting `\separated` when two pointer parameters must not alias — `swap(a, a)` breaks the `ensures` without it
+> - Confusing `\old(e)` (value at call time) with `\at(e, Here)` (current value) — `\old` is only valid in `ensures`
+> - Using `Thread.Sleep` instead of explicit waits in Selenium — the test becomes timing-dependent and flaky
+> - Putting assertions inside the Page Object — breaks separation; assertions belong in the test class

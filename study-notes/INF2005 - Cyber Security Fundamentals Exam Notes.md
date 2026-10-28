@@ -4,7 +4,7 @@ title: "INF2005 Cyber Security Fundamentals — Exam Notes"
 module: INF2005
 tags: [study-notes, inf2005, cyber-security, cryptography, steganography, access-control, ethical-hacking, exam-prep]
 created: 2026-09-21
-updated: 2026-09-21
+updated: 2026-10-28
 ---
 
 # INF2005 Cyber Security Fundamentals
@@ -27,6 +27,11 @@ flowchart TD
     E["§5 Steganography\nPayload + Cover → Stego\nLSB Replacement / Matching\nBPCS / Steganalysis"]
     F["§6 Access Control\nIdentification → Auth → Authorisation\nPasswords / Biometrics\nDAC / RBAC / MAC"]
     G["§7 Ethical Hacking\nLegal Framework\nHat Types\nRecon → Scan → Exploit → Post → Clean"]
+    A --> H & I & J & K
+    H["§8 Social Engineering\nCialdini Principles\nPhishing / Vishing / BEC\nPretexting / Deepfakes"]
+    I["§9 Malware\nVirus / Worm / Trojan\nInfection Vectors\nPolymorphic / Metamorphic"]
+    J["§10 System Security\nHardware / Software / OS\nPrivilege Escalation\nRansomware / WannaCry"]
+    K["§11 Network Security\nDoS / DDoS / DRDoS\nARP Poisoning / Evil Twin\nPacket Sniffing / Port Scan"]
 ```
 
 ---
@@ -612,7 +617,399 @@ A professional engagement concludes with a report delivered to an **authorised o
 
 ---
 
-## §8 — Quick-Reference Summary Tables
+## §8 — Social Engineering
+
+> Social engineering exploits **human psychology** rather than technical vulnerabilities. It is involved in approximately **60% of all breaches** (Verizon DBIR 2025).
+
+### Why It Works — Cialdini's Six Principles
+
+| Principle | How Attackers Exploit It |
+|-----------|------------------------|
+| **Authority** | Impersonate executives, IT support, government officials |
+| **Urgency / Scarcity** | "Your account will be deactivated in 24 hours" — forces hasty action |
+| **Reciprocity** | Offer a small favour before making a larger request |
+| **Consistency** | Small initial agreement escalates to larger compliance |
+| **Social Proof** | "Your colleagues have already verified their credentials" |
+| **Liking** | Extended rapport-building, matching targets' interests |
+
+Additional levers: **Fear** (fake virus alerts), **Curiosity** (dropped USB drives), **Sympathy** (impersonating distressed colleague).
+
+---
+
+### Attack Types
+
+#### Email-Based
+
+| Attack | Description |
+|--------|-------------|
+| **Phishing** | Mass deceptive emails to fake login portals or malicious downloads |
+| **Spear Phishing** | Personalised; uses victim-specific reconnaissance |
+| **Whaling** | Spear phishing targeting C-suite executives |
+| **Clone Phishing** | Duplicate of a legitimate email with links replaced by malicious ones |
+| **Business Email Compromise (BEC)** | Impersonates an executive to redirect payments; **$4.4 billion** in losses in 2024 (FBI IC3) |
+
+#### Telephone / Voice
+
+| Attack | Description |
+|--------|-------------|
+| **Vishing** | Voice phishing via phone; impersonates IT helpdesk, bank, government |
+| **Callback Phishing (TOAD)** | Email claims subscription requires phone cancellation; victim calls, operator installs RAT |
+| **AI Voice Cloning** | Generative AI replicates a known contact's voice in real-time |
+
+#### Physical / In-Person
+
+| Attack | Description |
+|--------|-------------|
+| **Tailgating / Piggybacking** | Follows an authorised employee through a secured door |
+| **Shoulder Surfing** | Observes credentials or PINs in public |
+| **Baiting (USB Drop)** | Infected USB left in car park; DHS: 60% plugged in (90% if branded) |
+
+#### Advanced / Multi-Vector
+
+| Attack | Description |
+|--------|-------------|
+| **Pretexting** | Detailed fabricated scenario + fake identity; 27% of SE incidents (DBIR 2024) |
+| **Pharming** | Redirects legitimate URL traffic to attacker-controlled server via DNS poisoning or hosts file modification |
+| **MFA Fatigue (Push Bombing)** | Repeated push notifications until exhausted user approves; bypasses MFA |
+| **Deepfake Video / Audio** | AI-generated impersonation in real-time video calls; $25M CFO fraud (2024) |
+| **Quishing** | Malicious QR codes bypass email security gateways |
+| **Watering Hole** | Compromise a site frequented by the target group |
+| **Scareware** | Fake security alerts direct victim to purchase fraudulent antivirus |
+
+---
+
+### Red Flags
+
+- Unsolicited urgency; pressure to act before your manager knows
+- Unusual request channel (executive via personal email / WhatsApp)
+- Demands for secrecy; "don't tell IT"
+- Identity mismatch: caller ID, domain, or display name differs subtly
+- Mismatched URLs: hover before clicking
+- Any request for your password — **no legitimate service ever needs it**
+
+### URL Checking Tools
+
+| Tool | Purpose |
+|------|---------|
+| `virustotal.com` | Scan files / URLs against antivirus engines |
+| `urlvoid.com` | Check URL against blacklists |
+| `checkshorturl.com` | Expand shortened URLs |
+| `phishtank.com` | Community-sourced phishing database |
+
+---
+
+### Defence Layers
+
+| Layer | Controls |
+|-------|---------|
+| **People** | Continuous security awareness training; reward rapid reporting |
+| **Process** | Out-of-band verification for payments; SoD for financial ops; strict helpdesk reset protocols |
+| **Technology** | Phishing-resistant MFA (FIDO2/passkeys); email gateways; URL sandboxing; anomaly detection |
+
+> [!tip] FIDO2/passkeys are **origin-bound** — a phished site cannot trigger the registered key, directly neutralising credential-phishing and MFA fatigue.
+
+---
+
+## §9 — Malware
+
+**Malware** = any software designed to intrude, disrupt, or damage a computer or its contents.
+
+### Impact Areas
+
+| Area | Impact |
+|------|--------|
+| **Data** | Change or exfiltrate file contents |
+| **Time** | Render system unusable until removed |
+| **Hardware** | Break drivers / critical system software |
+| **Reputation** | Leaked data erodes customer confidence; financial loss |
+
+---
+
+### Three Core Types
+
+```
+Virus · Worm · Trojan  (+triggers: Logic Bomb, Time Bomb)
+```
+
+#### Virus
+
+- **Attaches to a host** file or programme (`.exe`, scripts, batch files)
+- **Does not auto-replicate** — user interaction required to spread
+- **Inserts a marker** to avoid re-infecting the same host
+
+| Anatomy Part | Purpose |
+|---|---|
+| **Concealment** | Hide from antivirus |
+| **Propagation** | Locate and infect files |
+| **Payload** | The damaging code (often a separate piece of malware) |
+
+**Triggers:** Logic bomb = event-triggered; Time bomb = date/time-triggered.
+
+**Evasion:** Polymorphic = encrypts body per copy; Metamorphic = rewrites own code.
+
+#### Worm
+
+- **No user interaction** and **no host file** needed
+- **Auto-replicates** across networks by exploiting vulnerabilities
+- Acts as a **carrier** — may deliver additional attack tools
+
+| Notable Worm | Year | Notes |
+|---|---|---|
+| **Morris** | 1988 | First major internet worm; password cracking |
+| **Blaster** | 2003 | Windows RPC/DCOM exploit |
+| **Stuxnet** | 2010 | Nation-state weapon; targeted Iranian nuclear centrifuges |
+| **EternalRocks** | 2017 | Used NSA's EternalBlue + 6 more exploits |
+
+#### Trojan
+
+- **Hidden inside an innocuous-looking programme**; does not self-replicate
+- Relies on user running the host programme (social engineering)
+- Typically includes a **back door**, **keylogger**, and/or webcam control
+
+---
+
+### Comparison Table
+
+| | **Virus** | **Worm** | **Trojan** |
+|---|---|---|---|
+| Self-replicates | On attachment (needs user) | Yes, automatically | No |
+| Needs a host file | Yes | No | Hidden inside legitimate programme |
+| User interaction | Required | Not required | Required |
+| Spreads via | Infected files | Networks / vulnerabilities | Social engineering |
+
+---
+
+### Infection Vectors
+
+1. **Email attachments** — user opens malicious file
+2. **Drive-by download** — authorised (hidden payload) or unauthorised (silent)
+3. **Exploiting application vulnerabilities** — Adobe Flash, IE "Double Kill"
+4. **Exploiting OS vulnerabilities** — unpatched kernel bugs
+5. **Removable media (BYOD)** — running software from USB
+6. **Social engineering** — deceiving user into installing malware
+
+### Signs of Infection
+
+- Programmes slow down or take longer to start
+- Sudden drop in available memory
+- Changing programme file lengths (classic virus indicator)
+- Old file with unexpectedly recent modification date
+- Unusually heavy network traffic
+- Key typed does not match key displayed (keylogger indicator)
+
+---
+
+## §10 — System Security
+
+A system = hardware + software + data. Vulnerabilities routinely **cross layer boundaries**; defenders must understand the full stack.
+
+**Von Neumann architecture note:** memory holds both data *and* instructions — this is what makes injection and control-flow attacks possible.
+
+### Attack Layer Stack
+
+```
+Applications
+System Software  (package managers, dynamic linker)
+Operating System (kernel, kernel modules)
+Hypervisor       (Type-1, Type-2, OS-level)
+Software         (user-space programmes)
+Hardware         (CPU, DRAM, peripherals)
+```
+
+---
+
+### 1. Hardware Attacks
+
+| Attack | Description |
+|---|---|
+| **Counterfeit** | Malicious hardware in the supply chain; hardware trojans with backdoors |
+| **Fault injection** | Physically alters hardware — voltage/clock glitching, EM pulses |
+| **Micro-architectural** | Targets CPU implementation — Spectre (speculative execution timing side-channel), Rowhammer |
+
+> **Spectre:** CPU speculatively executes instructions; wrong-path traces remain in cache state and can be read via timing. A CPU *design flaw* — mitigation requires expensive software patches (KPTI, retpoline).
+
+---
+
+### 2. Software Attacks
+
+| Technique | Mechanism |
+|---|---|
+| **Stack smashing** | Overflow a buffer to overwrite the return address on the call stack |
+| **Return-oriented programming (ROP)** | Chain existing code "gadgets" (ending in `ret`) to build malicious logic without injecting new code |
+| **Code injection** | Input to a *generator* programme produces code that an *executor* programme runs |
+| **Command injection** | Attacker-supplied input reaches a command interpreter (shell) → arbitrary commands execute |
+
+**Defence:** never concatenate unsanitised input into a command string; use parameterised APIs.
+
+---
+
+### 3. Hypervisor / Virtualisation Attacks
+
+| Type | Description |
+|---|---|
+| **Type-1 (bare-metal)** | Runs directly on hardware (VMware ESXi, Xen, Hyper-V) |
+| **Type-2 (hosted)** | Runs on top of a host OS (VirtualBox, VMware Workstation) |
+| **OS-level (container)** | Virtualises at OS level (Docker, LXC) |
+
+| Attack | Description |
+|---|---|
+| **Hyperjacking** | Replaces the legitimate hypervisor with a malicious one — nearly undetectable from the OS |
+| **VM escape** | Breaks hypervisor isolation so a guest VM can interact with the host |
+| **VM rootkit** | Rootkit running *beneath* the OS in a separate, invisible VM |
+
+> Notable VM escapes: **VENOM (CVE-2015-3456)** — QEMU virtual floppy controller out-of-bounds write.
+
+---
+
+### 4. OS Attacks
+
+| Attack | Description |
+|---|---|
+| **Loadable kernel module** | Injects malicious code into the kernel via a driver |
+| **Kernel rootkit** | Installs rootkit in the kernel; nearly impossible to detect — complete reinstallation required |
+| **Privilege escalation — horizontal** | Gains access to another user's account at the *same* privilege level |
+| **Privilege escalation — vertical** | *Raises* a compromised account's privileges to admin/root |
+
+#### Typical Attack Chain
+
+1. Initial exploit → **unprivileged access**
+2. Privilege escalation exploit → **root/kernel access**
+3. Install **persistent rootkit** (backdoors, hides presence)
+4. Exfiltrate data, block access, or launch further attacks
+
+---
+
+### 5. Ransomware
+
+A **crypto-virology** attack permanently blocking access to the victim's data:
+- Encrypts files with a random key (victim cannot decrypt without paying)
+- **Targets backups** to maximise pressure
+- Advanced variants **exfiltrate before encrypting** (*double extortion*)
+
+> **WannaCry (2017):** 200,000+ computers, 150+ countries, in under 2 days. Exploited EternalBlue (MS17-010). Microsoft patch was issued in March 2017 — victims failed to apply it.
+
+---
+
+### Defensive Principles
+
+| Principle | Practice |
+|---|---|
+| Patch promptly | WannaCry exploited a *patched* vulnerability; delay = exposure |
+| Defence in depth | No single layer is sufficient |
+| Least privilege | Limits blast radius of a compromise |
+| Input validation | Prevents injection attacks |
+| Assume breach | Plan detection and response, not just prevention |
+
+---
+
+## §11 — Network Security Attacks
+
+```
+Vulnerabilities + Threats = Risks
+```
+
+Severity and likelihood are quantified using the **CVSS** (Common Vulnerability Scoring System).
+
+### Common Network Vulnerabilities
+
+| Vulnerability | What it Enables |
+|---|---|
+| Unsecured SSID / fake AP | Evil Twin, traffic interception |
+| Unfiltered service ports | DoS, reconnaissance scanning |
+| Unencrypted packets | Credential theft via sniffing |
+| Stateless ARP protocol | ARP poisoning → MitM |
+
+---
+
+### 1. Denial of Service (DoS / DDoS)
+
+Targets **availability** — does not need to breach confidentiality or integrity.
+
+| Type | Mechanism |
+|---|---|
+| **Bandwidth flood** | Sends more traffic than target can handle |
+| **Service request flood** | SYN flood — sends SYN packets without completing the handshake; fills connection table |
+| **Distributed Reflective DoS (DRDoS)** | Spoofed source IP → reflectors send replies to the victim; amplified via botnets |
+
+**Botnet terminology:**
+- **Bot** — malware granting remote control
+- **Zombie** — an infected internet-connected computer
+- **Botnet** — coordinated collection of zombies; IoT devices are common targets
+
+---
+
+### 2. Man-in-the-Middle: Wireless Access Point Attacks
+
+- **Wardriving** — mapping WiFi APs while driving to locate exploitable targets
+- **Evil Twin** — fake AP with an SSID mimicking a legitimate network; all traffic flows through attacker
+- **Access point hijacking** — attacker's AP sits in the traffic path for full interception
+
+---
+
+### 3. Packet Sniffing
+
+| | **Passive** | **Active** |
+|---|---|---|
+| Technique | NIC in promiscuous mode | Injects packets to redirect traffic |
+| Works on | **Hubs** (broadcast to all ports) | **Switched networks** |
+| Detection | Difficult | More detectable |
+| Tools | Wireshark, Cain and Abel | ArpSpoof |
+
+> On a switch, unicast frames go to the correct port only — the attacker must first **poison the ARP cache** to redirect traffic.
+
+**Risk:** Any credentials over unencrypted HTTP are visible in plaintext. A `http.request.method == POST` Wireshark filter exposes passwords immediately. **Countermeasure: enforce HTTPS/TLS.**
+
+---
+
+### 4. ARP Spoofing (ARP Poisoning)
+
+**ARP** maps a 32-bit IP address → 48-bit MAC address. It is **stateless** — there is no authentication; unsolicited replies are accepted.
+
+**Attack steps:**
+1. Attacker sends forged ARP reply: maps the gateway's IP to the attacker's MAC
+2. Victim accepts the unsolicited reply and updates its ARP cache
+3. Victim's frames for the gateway now go to the attacker → **MitM on a switched network**
+4. Attacker continuously re-sends forged replies (cache entries expire)
+
+**Countermeasure:** Dynamic ARP Inspection (DAI) on managed switches; static ARP entries for critical hosts.
+
+---
+
+### 5. Port Spoofing and Deep Packet Inspection (DPI)
+
+- **Port spoofing:** tunnel malicious traffic over unexpected ports (e.g. SSH over port 80) to evade port-based firewalls
+- **DPI:** inspects the payload — not just headers — to identify actual application protocol regardless of port; classifies and blocks evasion attempts
+
+---
+
+### 6. Port Scanning
+
+Probes TCP/UDP ports to determine open/closed/filtered status. Primary reconnaissance technique.
+
+| Scan type | Command | Notes |
+|---|---|---|
+| TCP Connect | `nmap -sT <ip>` | Full handshake; **logged by target** |
+| Focused | `nmap -p <port> <ip>` | Single port or range |
+| Zenmap Quick | `nmap -T4 -F <ip>` | Top 100 ports; faster |
+
+Cross-reference results with **cve.mitre.org** and **nvd.nist.gov** for known exploits.
+
+---
+
+### Attack–Countermeasure Summary
+
+| Attack | Countermeasure |
+|---|---|
+| DoS / DDoS | Rate limiting, SYN cookies, upstream scrubbing |
+| Evil Twin | Mutual authentication (WPA3-Enterprise, 802.1X) |
+| Packet sniffing | Enforce HTTPS/TLS on all sensitive traffic |
+| ARP poisoning | DAI on managed switches; static ARP for critical hosts |
+| Port spoofing | DPI; application-layer firewalls |
+| Port scan recon | Host-based firewalls; IDS logging |
+
+---
+
+## §12 — Quick-Reference Summary Tables
 
 ### Cryptography Decision Matrix
 
@@ -645,7 +1042,7 @@ A professional engagement concludes with a report delivered to an **authorised o
 
 ---
 
-## §9 — Common Exam Mistakes
+## §13 — Common Exam Mistakes
 
 > [!warning] Common Mistakes — Memorise These
 
@@ -659,3 +1056,10 @@ A professional engagement concludes with a report delivered to an **authorised o
 8. **Authentication ≠ Authorisation** — authentication proves identity; authorisation determines what that identity may do.
 9. **RBAC Role Creep** — always mention the need for ongoing role review when writing about RBAC.
 10. **Ethical hacking requires *legal authorisation*, not just good intentions** — intentions alone never make it legal.
+11. **Virus ≠ Worm ≠ Trojan** — a virus needs user interaction to spread; a worm does not; a trojan does not self-replicate at all.
+12. **Social engineering is NOT a purely technical attack** — Cialdini's psychological principles (authority, urgency, etc.) are the mechanism; the attacker exploits *people*, not software.
+13. **Pharming ≠ Phishing** — phishing uses a deceptive link; pharming redirects the *correct* URL to a malicious server via DNS poisoning or hosts-file modification.
+14. **DoS targets Availability only** — it does not breach Confidentiality or Integrity.
+15. **Passive sniffing works on hubs; active (ARP-poisoning) is needed on switches** — do not state that sniffing "just works" on modern switched networks.
+16. **ARP has no authentication** — unsolicited ARP replies are accepted; this is the root cause of ARP poisoning.
+17. **Ransomware also targets backups** — stating "restore from backup" without noting attackers specifically target backups misses the double-extortion threat model.
