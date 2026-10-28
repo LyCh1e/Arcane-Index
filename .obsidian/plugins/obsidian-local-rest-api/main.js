@@ -19131,8 +19131,8 @@ var require_node = __commonJS({
           }
           break;
         case "FILE":
-          var fs = require("fs");
-          stream2 = new fs.SyncWriteStream(fd2, { autoClose: false });
+          var fs2 = require("fs");
+          stream2 = new fs2.SyncWriteStream(fd2, { autoClose: false });
           stream2._type = "fs";
           break;
         case "PIPE":
@@ -19271,7 +19271,7 @@ var require_safer = __commonJS({
   "node_modules/safer-buffer/safer.js"(exports2, module2) {
     "use strict";
     var buffer = require("buffer");
-    var Buffer2 = buffer.Buffer;
+    var Buffer3 = buffer.Buffer;
     var safer = {};
     var key;
     for (key in buffer) {
@@ -19280,12 +19280,12 @@ var require_safer = __commonJS({
       safer[key] = buffer[key];
     }
     var Safer = safer.Buffer = {};
-    for (key in Buffer2) {
-      if (!Buffer2.hasOwnProperty(key)) continue;
+    for (key in Buffer3) {
+      if (!Buffer3.hasOwnProperty(key)) continue;
       if (key === "allocUnsafe" || key === "allocUnsafeSlow") continue;
-      Safer[key] = Buffer2[key];
+      Safer[key] = Buffer3[key];
     }
-    safer.Buffer.prototype = Buffer2.prototype;
+    safer.Buffer.prototype = Buffer3.prototype;
     if (!Safer.from || Safer.from === Uint8Array.from) {
       Safer.from = function(value, encodingOrOffset, length) {
         if (typeof value === "number") {
@@ -19294,7 +19294,7 @@ var require_safer = __commonJS({
         if (value && typeof value.length === "undefined") {
           throw new TypeError("The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type " + typeof value);
         }
-        return Buffer2(value, encodingOrOffset, length);
+        return Buffer3(value, encodingOrOffset, length);
       };
     }
     if (!Safer.alloc) {
@@ -19305,7 +19305,7 @@ var require_safer = __commonJS({
         if (size < 0 || size >= 2 * (1 << 30)) {
           throw new RangeError('The value "' + size + '" is invalid for option "size"');
         }
-        var buf = Buffer2(size);
+        var buf = Buffer3(size);
         if (!fill || fill.length === 0) {
           buf.fill(0);
         } else if (typeof encoding === "string") {
@@ -19382,7 +19382,7 @@ var require_bom_handling = __commonJS({
 var require_internal = __commonJS({
   "node_modules/iconv-lite/encodings/internal.js"(exports2, module2) {
     "use strict";
-    var Buffer2 = require_safer().Buffer;
+    var Buffer3 = require_safer().Buffer;
     module2.exports = {
       // Encodings
       utf8: { type: "_internal", bomAware: true },
@@ -19404,7 +19404,7 @@ var require_internal = __commonJS({
       else if (this.enc === "cesu8") {
         this.enc = "utf8";
         this.encoder = InternalEncoderCesu8;
-        if (Buffer2.from("eda0bdedb2a9", "hex").toString() !== "\u{1F4A9}") {
+        if (Buffer3.from("eda0bdedb2a9", "hex").toString() !== "\u{1F4A9}") {
           this.decoder = InternalDecoderCesu8;
           this.defaultCharUnicode = iconv.defaultCharUnicode;
         }
@@ -19424,7 +19424,7 @@ var require_internal = __commonJS({
       this.enc = codec.enc;
     }
     InternalEncoder.prototype.write = function(str) {
-      return Buffer2.from(str, this.enc);
+      return Buffer3.from(str, this.enc);
     };
     InternalEncoder.prototype.end = function() {
     };
@@ -19436,15 +19436,15 @@ var require_internal = __commonJS({
       var completeQuads = str.length - str.length % 4;
       this.prevStr = str.slice(completeQuads);
       str = str.slice(0, completeQuads);
-      return Buffer2.from(str, "base64");
+      return Buffer3.from(str, "base64");
     };
     InternalEncoderBase64.prototype.end = function() {
-      return Buffer2.from(this.prevStr, "base64");
+      return Buffer3.from(this.prevStr, "base64");
     };
     function InternalEncoderCesu8(options, codec) {
     }
     InternalEncoderCesu8.prototype.write = function(str) {
-      var buf = Buffer2.alloc(str.length * 3), bufIdx = 0;
+      var buf = Buffer3.alloc(str.length * 3), bufIdx = 0;
       for (var i = 0; i < str.length; i++) {
         var charCode = str.charCodeAt(i);
         if (charCode < 128)
@@ -19526,7 +19526,7 @@ var require_internal = __commonJS({
 var require_utf16 = __commonJS({
   "node_modules/iconv-lite/encodings/utf16.js"(exports2) {
     "use strict";
-    var Buffer2 = require_safer().Buffer;
+    var Buffer3 = require_safer().Buffer;
     exports2.utf16be = Utf16BECodec;
     function Utf16BECodec() {
     }
@@ -19536,7 +19536,7 @@ var require_utf16 = __commonJS({
     function Utf16BEEncoder() {
     }
     Utf16BEEncoder.prototype.write = function(str) {
-      var buf = Buffer2.from(str, "ucs2");
+      var buf = Buffer3.from(str, "ucs2");
       for (var i = 0; i < buf.length; i += 2) {
         var tmp = buf[i];
         buf[i] = buf[i + 1];
@@ -19552,7 +19552,7 @@ var require_utf16 = __commonJS({
     Utf16BEDecoder.prototype.write = function(buf) {
       if (buf.length == 0)
         return "";
-      var buf2 = Buffer2.alloc(buf.length + 1), i = 0, j2 = 0;
+      var buf2 = Buffer3.alloc(buf.length + 1), i = 0, j2 = 0;
       if (this.overflowByte !== -1) {
         buf2[0] = buf[0];
         buf2[1] = this.overflowByte;
@@ -19599,7 +19599,7 @@ var require_utf16 = __commonJS({
         this.initialBytesLen += buf.length;
         if (this.initialBytesLen < 16)
           return "";
-        var buf = Buffer2.concat(this.initialBytes), encoding = detectEncoding(buf, this.options.defaultEncoding);
+        var buf = Buffer3.concat(this.initialBytes), encoding = detectEncoding(buf, this.options.defaultEncoding);
         this.decoder = this.iconv.getDecoder(encoding, this.options);
         this.initialBytes.length = this.initialBytesLen = 0;
       }
@@ -19607,7 +19607,7 @@ var require_utf16 = __commonJS({
     };
     Utf16Decoder.prototype.end = function() {
       if (!this.decoder) {
-        var buf = Buffer2.concat(this.initialBytes), encoding = detectEncoding(buf, this.options.defaultEncoding);
+        var buf = Buffer3.concat(this.initialBytes), encoding = detectEncoding(buf, this.options.defaultEncoding);
         this.decoder = this.iconv.getDecoder(encoding, this.options);
         var res = this.decoder.write(buf), trail = this.decoder.end();
         return trail ? res + trail : res;
@@ -19642,7 +19642,7 @@ var require_utf16 = __commonJS({
 var require_utf7 = __commonJS({
   "node_modules/iconv-lite/encodings/utf7.js"(exports2) {
     "use strict";
-    var Buffer2 = require_safer().Buffer;
+    var Buffer3 = require_safer().Buffer;
     exports2.utf7 = Utf7Codec;
     exports2.unicode11utf7 = "utf7";
     function Utf7Codec(codecOptions, iconv) {
@@ -19656,7 +19656,7 @@ var require_utf7 = __commonJS({
       this.iconv = codec.iconv;
     }
     Utf7Encoder.prototype.write = function(str) {
-      return Buffer2.from(str.replace(nonDirectChars, function(chunk) {
+      return Buffer3.from(str.replace(nonDirectChars, function(chunk) {
         return "+" + (chunk === "+" ? "" : this.iconv.encode(chunk, "utf16-be").toString("base64").replace(/=+$/, "")) + "-";
       }.bind(this)));
     };
@@ -19690,7 +19690,7 @@ var require_utf7 = __commonJS({
               res += "+";
             } else {
               var b64str = base64Accum + buf.slice(lastI, i2).toString();
-              res += this.iconv.decode(Buffer2.from(b64str, "base64"), "utf16-be");
+              res += this.iconv.decode(Buffer3.from(b64str, "base64"), "utf16-be");
             }
             if (buf[i2] != minusChar)
               i2--;
@@ -19707,7 +19707,7 @@ var require_utf7 = __commonJS({
         var canBeDecoded = b64str.length - b64str.length % 8;
         base64Accum = b64str.slice(canBeDecoded);
         b64str = b64str.slice(0, canBeDecoded);
-        res += this.iconv.decode(Buffer2.from(b64str, "base64"), "utf16-be");
+        res += this.iconv.decode(Buffer3.from(b64str, "base64"), "utf16-be");
       }
       this.inBase64 = inBase64;
       this.base64Accum = base64Accum;
@@ -19716,7 +19716,7 @@ var require_utf7 = __commonJS({
     Utf7Decoder.prototype.end = function() {
       var res = "";
       if (this.inBase64 && this.base64Accum.length > 0)
-        res = this.iconv.decode(Buffer2.from(this.base64Accum, "base64"), "utf16-be");
+        res = this.iconv.decode(Buffer3.from(this.base64Accum, "base64"), "utf16-be");
       this.inBase64 = false;
       this.base64Accum = "";
       return res;
@@ -19731,11 +19731,11 @@ var require_utf7 = __commonJS({
     function Utf7IMAPEncoder(options, codec) {
       this.iconv = codec.iconv;
       this.inBase64 = false;
-      this.base64Accum = Buffer2.alloc(6);
+      this.base64Accum = Buffer3.alloc(6);
       this.base64AccumIdx = 0;
     }
     Utf7IMAPEncoder.prototype.write = function(str) {
-      var inBase64 = this.inBase64, base64Accum = this.base64Accum, base64AccumIdx = this.base64AccumIdx, buf = Buffer2.alloc(str.length * 5 + 10), bufIdx = 0;
+      var inBase64 = this.inBase64, base64Accum = this.base64Accum, base64AccumIdx = this.base64AccumIdx, buf = Buffer3.alloc(str.length * 5 + 10), bufIdx = 0;
       for (var i2 = 0; i2 < str.length; i2++) {
         var uChar = str.charCodeAt(i2);
         if (32 <= uChar && uChar <= 126) {
@@ -19772,7 +19772,7 @@ var require_utf7 = __commonJS({
       return buf.slice(0, bufIdx);
     };
     Utf7IMAPEncoder.prototype.end = function() {
-      var buf = Buffer2.alloc(10), bufIdx = 0;
+      var buf = Buffer3.alloc(10), bufIdx = 0;
       if (this.inBase64) {
         if (this.base64AccumIdx > 0) {
           bufIdx += buf.write(this.base64Accum.slice(0, this.base64AccumIdx).toString("base64").replace(/\//g, ",").replace(/=+$/, ""), bufIdx);
@@ -19805,7 +19805,7 @@ var require_utf7 = __commonJS({
               res += "&";
             } else {
               var b64str = base64Accum + buf.slice(lastI, i2).toString().replace(/,/g, "/");
-              res += this.iconv.decode(Buffer2.from(b64str, "base64"), "utf16-be");
+              res += this.iconv.decode(Buffer3.from(b64str, "base64"), "utf16-be");
             }
             if (buf[i2] != minusChar)
               i2--;
@@ -19822,7 +19822,7 @@ var require_utf7 = __commonJS({
         var canBeDecoded = b64str.length - b64str.length % 8;
         base64Accum = b64str.slice(canBeDecoded);
         b64str = b64str.slice(0, canBeDecoded);
-        res += this.iconv.decode(Buffer2.from(b64str, "base64"), "utf16-be");
+        res += this.iconv.decode(Buffer3.from(b64str, "base64"), "utf16-be");
       }
       this.inBase64 = inBase64;
       this.base64Accum = base64Accum;
@@ -19831,7 +19831,7 @@ var require_utf7 = __commonJS({
     Utf7IMAPDecoder.prototype.end = function() {
       var res = "";
       if (this.inBase64 && this.base64Accum.length > 0)
-        res = this.iconv.decode(Buffer2.from(this.base64Accum, "base64"), "utf16-be");
+        res = this.iconv.decode(Buffer3.from(this.base64Accum, "base64"), "utf16-be");
       this.inBase64 = false;
       this.base64Accum = "";
       return res;
@@ -19843,7 +19843,7 @@ var require_utf7 = __commonJS({
 var require_sbcs_codec = __commonJS({
   "node_modules/iconv-lite/encodings/sbcs-codec.js"(exports2) {
     "use strict";
-    var Buffer2 = require_safer().Buffer;
+    var Buffer3 = require_safer().Buffer;
     exports2._sbcs = SBCSCodec;
     function SBCSCodec(codecOptions, iconv) {
       if (!codecOptions)
@@ -19856,8 +19856,8 @@ var require_sbcs_codec = __commonJS({
           asciiString += String.fromCharCode(i);
         codecOptions.chars = asciiString + codecOptions.chars;
       }
-      this.decodeBuf = Buffer2.from(codecOptions.chars, "ucs2");
-      var encodeBuf = Buffer2.alloc(65536, iconv.defaultCharSingleByte.charCodeAt(0));
+      this.decodeBuf = Buffer3.from(codecOptions.chars, "ucs2");
+      var encodeBuf = Buffer3.alloc(65536, iconv.defaultCharSingleByte.charCodeAt(0));
       for (var i = 0; i < codecOptions.chars.length; i++)
         encodeBuf[codecOptions.chars.charCodeAt(i)] = i;
       this.encodeBuf = encodeBuf;
@@ -19868,7 +19868,7 @@ var require_sbcs_codec = __commonJS({
       this.encodeBuf = codec.encodeBuf;
     }
     SBCSEncoder.prototype.write = function(str) {
-      var buf = Buffer2.alloc(str.length);
+      var buf = Buffer3.alloc(str.length);
       for (var i = 0; i < str.length; i++)
         buf[i] = this.encodeBuf[str.charCodeAt(i)];
       return buf;
@@ -19880,7 +19880,7 @@ var require_sbcs_codec = __commonJS({
     }
     SBCSDecoder.prototype.write = function(buf) {
       var decodeBuf = this.decodeBuf;
-      var newBuf = Buffer2.alloc(buf.length * 2);
+      var newBuf = Buffer3.alloc(buf.length * 2);
       var idx1 = 0, idx2 = 0;
       for (var i = 0; i < buf.length; i++) {
         idx1 = buf[i] * 2;
@@ -20503,7 +20503,7 @@ var require_sbcs_data_generated = __commonJS({
 var require_dbcs_codec = __commonJS({
   "node_modules/iconv-lite/encodings/dbcs-codec.js"(exports2) {
     "use strict";
-    var Buffer2 = require_safer().Buffer;
+    var Buffer3 = require_safer().Buffer;
     exports2._dbcs = DBCSCodec;
     var UNASSIGNED = -1;
     var GB18030_CODE = -2;
@@ -20686,7 +20686,7 @@ var require_dbcs_codec = __commonJS({
       this.gb18030 = codec.gb18030;
     }
     DBCSEncoder.prototype.write = function(str) {
-      var newBuf = Buffer2.alloc(str.length * (this.gb18030 ? 4 : 3)), leadSurrogate = this.leadSurrogate, seqObj = this.seqObj, nextChar = -1, i2 = 0, j2 = 0;
+      var newBuf = Buffer3.alloc(str.length * (this.gb18030 ? 4 : 3)), leadSurrogate = this.leadSurrogate, seqObj = this.seqObj, nextChar = -1, i2 = 0, j2 = 0;
       while (true) {
         if (nextChar === -1) {
           if (i2 == str.length) break;
@@ -20777,7 +20777,7 @@ var require_dbcs_codec = __commonJS({
     DBCSEncoder.prototype.end = function() {
       if (this.leadSurrogate === -1 && this.seqObj === void 0)
         return;
-      var newBuf = Buffer2.alloc(10), j2 = 0;
+      var newBuf = Buffer3.alloc(10), j2 = 0;
       if (this.seqObj) {
         var dbcsCode = this.seqObj[DEF_CHAR];
         if (dbcsCode !== void 0) {
@@ -20800,16 +20800,16 @@ var require_dbcs_codec = __commonJS({
     DBCSEncoder.prototype.findIdx = findIdx;
     function DBCSDecoder(options, codec) {
       this.nodeIdx = 0;
-      this.prevBuf = Buffer2.alloc(0);
+      this.prevBuf = Buffer3.alloc(0);
       this.decodeTables = codec.decodeTables;
       this.decodeTableSeq = codec.decodeTableSeq;
       this.defaultCharUnicode = codec.defaultCharUnicode;
       this.gb18030 = codec.gb18030;
     }
     DBCSDecoder.prototype.write = function(buf) {
-      var newBuf = Buffer2.alloc(buf.length * 2), nodeIdx = this.nodeIdx, prevBuf = this.prevBuf, prevBufOffset = this.prevBuf.length, seqStart = -this.prevBuf.length, uCode;
+      var newBuf = Buffer3.alloc(buf.length * 2), nodeIdx = this.nodeIdx, prevBuf = this.prevBuf, prevBufOffset = this.prevBuf.length, seqStart = -this.prevBuf.length, uCode;
       if (prevBufOffset > 0)
-        prevBuf = Buffer2.concat([prevBuf, buf.slice(0, 10)]);
+        prevBuf = Buffer3.concat([prevBuf, buf.slice(0, 10)]);
       for (var i2 = 0, j2 = 0; i2 < buf.length; i2++) {
         var curByte = i2 >= 0 ? buf[i2] : prevBuf[i2 + prevBufOffset];
         var uCode = this.decodeTables[nodeIdx][curByte];
@@ -20856,7 +20856,7 @@ var require_dbcs_codec = __commonJS({
       while (this.prevBuf.length > 0) {
         ret += this.defaultCharUnicode;
         var buf = this.prevBuf.slice(1);
-        this.prevBuf = Buffer2.alloc(0);
+        this.prevBuf = Buffer3.alloc(0);
         this.nodeIdx = 0;
         if (buf.length > 0)
           ret += this.write(buf);
@@ -22332,7 +22332,7 @@ var require_encodings = __commonJS({
 var require_streams = __commonJS({
   "node_modules/iconv-lite/lib/streams.js"(exports2, module2) {
     "use strict";
-    var Buffer2 = require("buffer").Buffer;
+    var Buffer3 = require("buffer").Buffer;
     var Transform = require("stream").Transform;
     module2.exports = function(iconv) {
       iconv.encodeStream = function encodeStream(encoding, options) {
@@ -22382,7 +22382,7 @@ var require_streams = __commonJS({
         chunks.push(chunk);
       });
       this.on("end", function() {
-        cb(null, Buffer2.concat(chunks));
+        cb(null, Buffer3.concat(chunks));
       });
       return this;
     };
@@ -22396,7 +22396,7 @@ var require_streams = __commonJS({
       constructor: { value: IconvLiteDecoderStream }
     });
     IconvLiteDecoderStream.prototype._transform = function(chunk, encoding, done) {
-      if (!Buffer2.isBuffer(chunk))
+      if (!Buffer3.isBuffer(chunk))
         return done(new Error("Iconv decoding stream needs buffers as its input."));
       try {
         var res = this.conv.write(chunk);
@@ -22433,10 +22433,10 @@ var require_streams = __commonJS({
 var require_extend_node = __commonJS({
   "node_modules/iconv-lite/lib/extend-node.js"(exports2, module2) {
     "use strict";
-    var Buffer2 = require("buffer").Buffer;
+    var Buffer3 = require("buffer").Buffer;
     module2.exports = function(iconv) {
       var original = void 0;
-      iconv.supportsNodeEncodingsExtension = !(Buffer2.from || new Buffer2(0) instanceof Uint8Array);
+      iconv.supportsNodeEncodingsExtension = !(Buffer3.from || new Buffer3(0) instanceof Uint8Array);
       iconv.extendNodeEncodings = function extendNodeEncodings() {
         if (original) return;
         original = {};
@@ -22457,14 +22457,14 @@ var require_extend_node = __commonJS({
           "utf16le": true,
           "utf-16le": true
         };
-        Buffer2.isNativeEncoding = function(enc) {
+        Buffer3.isNativeEncoding = function(enc) {
           return enc && nodeNativeEncodings[enc.toLowerCase()];
         };
         var SlowBuffer = require("buffer").SlowBuffer;
         original.SlowBufferToString = SlowBuffer.prototype.toString;
         SlowBuffer.prototype.toString = function(encoding, start, end) {
           encoding = String(encoding || "utf8").toLowerCase();
-          if (Buffer2.isNativeEncoding(encoding))
+          if (Buffer3.isNativeEncoding(encoding))
             return original.SlowBufferToString.call(this, encoding, start, end);
           if (typeof start == "undefined") start = 0;
           if (typeof end == "undefined") end = this.length;
@@ -22494,7 +22494,7 @@ var require_extend_node = __commonJS({
             }
           }
           encoding = String(encoding || "utf8").toLowerCase();
-          if (Buffer2.isNativeEncoding(encoding))
+          if (Buffer3.isNativeEncoding(encoding))
             return original.SlowBufferWrite.call(this, string6, offset, length, encoding);
           if (string6.length > 0 && (length < 0 || offset < 0))
             throw new RangeError("attempt to write beyond buffer bounds");
@@ -22503,28 +22503,28 @@ var require_extend_node = __commonJS({
           buf.copy(this, offset, 0, length);
           return length;
         };
-        original.BufferIsEncoding = Buffer2.isEncoding;
-        Buffer2.isEncoding = function(encoding) {
-          return Buffer2.isNativeEncoding(encoding) || iconv.encodingExists(encoding);
+        original.BufferIsEncoding = Buffer3.isEncoding;
+        Buffer3.isEncoding = function(encoding) {
+          return Buffer3.isNativeEncoding(encoding) || iconv.encodingExists(encoding);
         };
-        original.BufferByteLength = Buffer2.byteLength;
-        Buffer2.byteLength = SlowBuffer.byteLength = function(str, encoding) {
+        original.BufferByteLength = Buffer3.byteLength;
+        Buffer3.byteLength = SlowBuffer.byteLength = function(str, encoding) {
           encoding = String(encoding || "utf8").toLowerCase();
-          if (Buffer2.isNativeEncoding(encoding))
+          if (Buffer3.isNativeEncoding(encoding))
             return original.BufferByteLength.call(this, str, encoding);
           return iconv.encode(str, encoding).length;
         };
-        original.BufferToString = Buffer2.prototype.toString;
-        Buffer2.prototype.toString = function(encoding, start, end) {
+        original.BufferToString = Buffer3.prototype.toString;
+        Buffer3.prototype.toString = function(encoding, start, end) {
           encoding = String(encoding || "utf8").toLowerCase();
-          if (Buffer2.isNativeEncoding(encoding))
+          if (Buffer3.isNativeEncoding(encoding))
             return original.BufferToString.call(this, encoding, start, end);
           if (typeof start == "undefined") start = 0;
           if (typeof end == "undefined") end = this.length;
           return iconv.decode(this.slice(start, end), encoding);
         };
-        original.BufferWrite = Buffer2.prototype.write;
-        Buffer2.prototype.write = function(string6, offset, length, encoding) {
+        original.BufferWrite = Buffer3.prototype.write;
+        Buffer3.prototype.write = function(string6, offset, length, encoding) {
           var _offset = offset, _length3 = length, _encoding = encoding;
           if (isFinite(offset)) {
             if (!isFinite(length)) {
@@ -22538,7 +22538,7 @@ var require_extend_node = __commonJS({
             length = swap;
           }
           encoding = String(encoding || "utf8").toLowerCase();
-          if (Buffer2.isNativeEncoding(encoding))
+          if (Buffer3.isNativeEncoding(encoding))
             return original.BufferWrite.call(this, string6, _offset, _length3, _encoding);
           offset = +offset || 0;
           var remaining = this.length - offset;
@@ -22572,14 +22572,14 @@ var require_extend_node = __commonJS({
           return;
         if (!original)
           throw new Error("require('iconv-lite').undoExtendNodeEncodings(): Nothing to undo; extendNodeEncodings() is not called.");
-        delete Buffer2.isNativeEncoding;
+        delete Buffer3.isNativeEncoding;
         var SlowBuffer = require("buffer").SlowBuffer;
         SlowBuffer.prototype.toString = original.SlowBufferToString;
         SlowBuffer.prototype.write = original.SlowBufferWrite;
-        Buffer2.isEncoding = original.BufferIsEncoding;
-        Buffer2.byteLength = original.BufferByteLength;
-        Buffer2.prototype.toString = original.BufferToString;
-        Buffer2.prototype.write = original.BufferWrite;
+        Buffer3.isEncoding = original.BufferIsEncoding;
+        Buffer3.byteLength = original.BufferByteLength;
+        Buffer3.prototype.toString = original.BufferToString;
+        Buffer3.prototype.write = original.BufferWrite;
         if (iconv.supportsStreams) {
           var Readable3 = require("stream").Readable;
           Readable3.prototype.setEncoding = original.ReadableSetEncoding;
@@ -22595,7 +22595,7 @@ var require_extend_node = __commonJS({
 var require_lib2 = __commonJS({
   "node_modules/iconv-lite/lib/index.js"(exports2, module2) {
     "use strict";
-    var Buffer2 = require_safer().Buffer;
+    var Buffer3 = require_safer().Buffer;
     var bomHandling = require_bom_handling();
     var iconv = module2.exports;
     iconv.encodings = null;
@@ -22606,7 +22606,7 @@ var require_lib2 = __commonJS({
       var encoder = iconv.getEncoder(encoding, options);
       var res = encoder.write(str);
       var trail = encoder.end();
-      return trail && trail.length > 0 ? Buffer2.concat([res, trail]) : res;
+      return trail && trail.length > 0 ? Buffer3.concat([res, trail]) : res;
     };
     iconv.decode = function decode3(buf, encoding, options) {
       if (typeof buf === "string") {
@@ -22614,7 +22614,7 @@ var require_lib2 = __commonJS({
           console.error("Iconv-lite warning: decode()-ing strings is deprecated. Refer to https://github.com/ashtuchkin/iconv-lite/wiki/Use-Buffers-when-decoding");
           iconv.skipDecodeWarning = true;
         }
-        buf = Buffer2.from("" + (buf || ""), "binary");
+        buf = Buffer3.from("" + (buf || ""), "binary");
       }
       var decoder = iconv.getDecoder(encoding, options);
       var res = decoder.write(buf);
@@ -31919,11 +31919,11 @@ var require_mime_types = __commonJS({
       }
       return exts[0];
     }
-    function lookup(path2) {
-      if (!path2 || typeof path2 !== "string") {
+    function lookup(path3) {
+      if (!path3 || typeof path3 !== "string") {
         return false;
       }
-      var extension2 = extname("x." + path2).toLowerCase().substr(1);
+      var extension2 = extname("x." + path3).toLowerCase().substr(1);
       if (!extension2) {
         return false;
       }
@@ -32570,10 +32570,10 @@ var require_object_inspect = __commonJS({
       }
       if (!isDate(obj) && !isRegExp(obj)) {
         var ys = arrObjKeys(obj, inspect);
-        var isPlainObject5 = gPO ? gPO(obj) === Object.prototype : obj instanceof Object || obj.constructor === Object;
+        var isPlainObject6 = gPO ? gPO(obj) === Object.prototype : obj instanceof Object || obj.constructor === Object;
         var protoTag = obj instanceof Object ? "" : "null prototype";
-        var stringTag = !isPlainObject5 && toStringTag && Object(obj) === obj && toStringTag in obj ? $slice.call(toStr(obj), 8, -1) : protoTag ? "Object" : "";
-        var constructorTag = isPlainObject5 || typeof obj.constructor !== "function" ? "" : obj.constructor.name ? obj.constructor.name + " " : "";
+        var stringTag = !isPlainObject6 && toStringTag && Object(obj) === obj && toStringTag in obj ? $slice.call(toStr(obj), 8, -1) : protoTag ? "Object" : "";
+        var constructorTag = isPlainObject6 || typeof obj.constructor !== "function" ? "" : obj.constructor.name ? obj.constructor.name + " " : "";
         var tag = constructorTag + (stringTag || protoTag ? "[" + $join.call($concat.call([], stringTag || [], protoTag || []), ": ") + "] " : "");
         if (ys.length === 0) {
           return tag + "{}";
@@ -35576,8 +35576,8 @@ var require_node2 = __commonJS({
           }
           break;
         case "FILE":
-          var fs = require("fs");
-          stream2 = new fs.SyncWriteStream(fd2, { autoClose: false });
+          var fs2 = require("fs");
+          stream2 = new fs2.SyncWriteStream(fd2, { autoClose: false });
           stream2._type = "fs";
           break;
         case "PIPE":
@@ -36295,8 +36295,8 @@ var require_node3 = __commonJS({
           }
           break;
         case "FILE":
-          var fs = require("fs");
-          stream2 = new fs.SyncWriteStream(fd2, { autoClose: false });
+          var fs2 = require("fs");
+          stream2 = new fs2.SyncWriteStream(fd2, { autoClose: false });
           stream2._type = "fs";
           break;
         case "PIPE":
@@ -36384,7 +36384,7 @@ var require_path_to_regexp = __commonJS({
   "node_modules/path-to-regexp/index.js"(exports2, module2) {
     module2.exports = pathToRegexp;
     var MATCHING_GROUP_REGEXP = /\\.|\((?:\?<(.*?)>)?(?!\?)/g;
-    function pathToRegexp(path2, keys, options) {
+    function pathToRegexp(path3, keys, options) {
       options = options || {};
       keys = keys || [];
       var strict = options.strict;
@@ -36398,8 +36398,8 @@ var require_path_to_regexp = __commonJS({
       var pos = 0;
       var backtrack = "";
       var m2;
-      if (path2 instanceof RegExp) {
-        while (m2 = MATCHING_GROUP_REGEXP.exec(path2.source)) {
+      if (path3 instanceof RegExp) {
+        while (m2 = MATCHING_GROUP_REGEXP.exec(path3.source)) {
           if (m2[0][0] === "\\") continue;
           keys.push({
             name: m2[1] || name++,
@@ -36407,18 +36407,18 @@ var require_path_to_regexp = __commonJS({
             offset: m2.index
           });
         }
-        return path2;
+        return path3;
       }
-      if (Array.isArray(path2)) {
-        path2 = path2.map(function(value) {
+      if (Array.isArray(path3)) {
+        path3 = path3.map(function(value) {
           return pathToRegexp(value, keys, options).source;
         });
-        return new RegExp(path2.join("|"), flags);
+        return new RegExp(path3.join("|"), flags);
       }
-      if (typeof path2 !== "string") {
+      if (typeof path3 !== "string") {
         throw new TypeError("path must be a string, array of strings, or regular expression");
       }
-      path2 = path2.replace(
+      path3 = path3.replace(
         /\\.|(\/)?(\.)?:(\w+)(\(.*?\))?(\*)?(\?)?|[.*]|\/\(/g,
         function(match, slash, format, key, capture, star, optional3, offset) {
           if (match[0] === "\\") {
@@ -36435,7 +36435,7 @@ var require_path_to_regexp = __commonJS({
           if (slash || format) {
             backtrack = "";
           } else {
-            backtrack += path2.slice(pos, offset);
+            backtrack += path3.slice(pos, offset);
           }
           pos = offset + match.length;
           if (match === "*") {
@@ -36465,7 +36465,7 @@ var require_path_to_regexp = __commonJS({
           return result;
         }
       );
-      while (m2 = MATCHING_GROUP_REGEXP.exec(path2)) {
+      while (m2 = MATCHING_GROUP_REGEXP.exec(path3)) {
         if (m2[0][0] === "\\") continue;
         if (keysOffset + i === keys.length || keys[keysOffset + i].offset > m2.index) {
           keys.splice(keysOffset + i, 0, {
@@ -36477,13 +36477,13 @@ var require_path_to_regexp = __commonJS({
         }
         i++;
       }
-      path2 += strict ? "" : path2[path2.length - 1] === "/" ? "?" : "/?";
+      path3 += strict ? "" : path3[path3.length - 1] === "/" ? "?" : "/?";
       if (end) {
-        path2 += "$";
-      } else if (path2[path2.length - 1] !== "/") {
-        path2 += lookahead ? "(?=/|$)" : "(?:/|$)";
+        path3 += "$";
+      } else if (path3[path3.length - 1] !== "/") {
+        path3 += lookahead ? "(?=/|$)" : "(?:/|$)";
       }
-      return new RegExp("^" + path2, flags);
+      return new RegExp("^" + path3, flags);
     }
   }
 });
@@ -36496,19 +36496,19 @@ var require_layer = __commonJS({
     var debug = require_src3()("express:router:layer");
     var hasOwnProperty = Object.prototype.hasOwnProperty;
     module2.exports = Layer;
-    function Layer(path2, options, fn) {
+    function Layer(path3, options, fn) {
       if (!(this instanceof Layer)) {
-        return new Layer(path2, options, fn);
+        return new Layer(path3, options, fn);
       }
-      debug("new %o", path2);
+      debug("new %o", path3);
       var opts = options || {};
       this.handle = fn;
       this.name = fn.name || "<anonymous>";
       this.params = void 0;
       this.path = void 0;
-      this.regexp = pathRegexp(path2, this.keys = [], opts);
-      this.regexp.fast_star = path2 === "*";
-      this.regexp.fast_slash = path2 === "/" && opts.end === false;
+      this.regexp = pathRegexp(path3, this.keys = [], opts);
+      this.regexp.fast_star = path3 === "*";
+      this.regexp.fast_slash = path3 === "/" && opts.end === false;
     }
     Layer.prototype.handle_error = function handle_error(error3, req, res, next) {
       var fn = this.handle;
@@ -36532,20 +36532,20 @@ var require_layer = __commonJS({
         next(err);
       }
     };
-    Layer.prototype.match = function match(path2) {
+    Layer.prototype.match = function match(path3) {
       var match2;
-      if (path2 != null) {
+      if (path3 != null) {
         if (this.regexp.fast_slash) {
           this.params = {};
           this.path = "";
           return true;
         }
         if (this.regexp.fast_star) {
-          this.params = { "0": decode_param(path2) };
-          this.path = path2;
+          this.params = { "0": decode_param(path3) };
+          this.path = path3;
           return true;
         }
-        match2 = this.regexp.exec(path2);
+        match2 = this.regexp.exec(path3);
       }
       if (!match2) {
         this.params = void 0;
@@ -36638,10 +36638,10 @@ var require_route = __commonJS({
     var slice = Array.prototype.slice;
     var toString = Object.prototype.toString;
     module2.exports = Route;
-    function Route(path2) {
-      this.path = path2;
+    function Route(path3) {
+      this.path = path3;
       this.stack = [];
-      debug("new %o", path2);
+      debug("new %o", path3);
       this.methods = {};
     }
     Route.prototype._handles_method = function _handles_method(method) {
@@ -36853,8 +36853,8 @@ var require_router = __commonJS({
         if (++sync > 100) {
           return setImmediate(next, err);
         }
-        var path2 = getPathname(req);
-        if (path2 == null) {
+        var path3 = getPathname(req);
+        if (path3 == null) {
           return done(layerError);
         }
         var layer;
@@ -36862,7 +36862,7 @@ var require_router = __commonJS({
         var route;
         while (match !== true && idx < stack.length) {
           layer = stack[idx++];
-          match = matchLayer(layer, path2);
+          match = matchLayer(layer, path3);
           route = layer.route;
           if (typeof match !== "boolean") {
             layerError = layerError || match;
@@ -36900,18 +36900,18 @@ var require_router = __commonJS({
           } else if (route) {
             layer.handle_request(req, res, next);
           } else {
-            trim_prefix(layer, layerError, layerPath, path2);
+            trim_prefix(layer, layerError, layerPath, path3);
           }
           sync = 0;
         });
       }
-      function trim_prefix(layer, layerError, layerPath, path2) {
+      function trim_prefix(layer, layerError, layerPath, path3) {
         if (layerPath.length !== 0) {
-          if (layerPath !== path2.slice(0, layerPath.length)) {
+          if (layerPath !== path3.slice(0, layerPath.length)) {
             next(layerError);
             return;
           }
-          var c = path2[layerPath.length];
+          var c = path3[layerPath.length];
           if (c && c !== "/" && c !== ".") return next(layerError);
           debug("trim prefix (%s) from url %s", layerPath, req.url);
           removed = layerPath;
@@ -36989,7 +36989,7 @@ var require_router = __commonJS({
     };
     proto.use = function use(fn) {
       var offset = 0;
-      var path2 = "/";
+      var path3 = "/";
       if (typeof fn !== "function") {
         var arg = fn;
         while (Array.isArray(arg) && arg.length !== 0) {
@@ -36997,7 +36997,7 @@ var require_router = __commonJS({
         }
         if (typeof arg !== "function") {
           offset = 1;
-          path2 = fn;
+          path3 = fn;
         }
       }
       var callbacks = flatten(slice.call(arguments, offset));
@@ -37009,8 +37009,8 @@ var require_router = __commonJS({
         if (typeof fn !== "function") {
           throw new TypeError("Router.use() requires a middleware function but got a " + gettype(fn));
         }
-        debug("use %o %s", path2, fn.name || "<anonymous>");
-        var layer = new Layer(path2, {
+        debug("use %o %s", path3, fn.name || "<anonymous>");
+        var layer = new Layer(path3, {
           sensitive: this.caseSensitive,
           strict: false,
           end: false
@@ -37020,9 +37020,9 @@ var require_router = __commonJS({
       }
       return this;
     };
-    proto.route = function route(path2) {
-      var route2 = new Route(path2);
-      var layer = new Layer(path2, {
+    proto.route = function route(path3) {
+      var route2 = new Route(path3);
+      var layer = new Layer(path3, {
         sensitive: this.caseSensitive,
         strict: this.strict,
         end: true
@@ -37032,8 +37032,8 @@ var require_router = __commonJS({
       return route2;
     };
     methods.concat("all").forEach(function(method) {
-      proto[method] = function(path2) {
-        var route = this.route(path2);
+      proto[method] = function(path3) {
+        var route = this.route(path3);
         route[method].apply(route, slice.call(arguments, 1));
         return this;
       };
@@ -37069,9 +37069,9 @@ var require_router = __commonJS({
       }
       return toString.call(obj).replace(objectRegExp, "$1");
     }
-    function matchLayer(layer, path2) {
+    function matchLayer(layer, path3) {
       try {
-        return layer.match(path2);
+        return layer.match(path3);
       } catch (err) {
         return err;
       }
@@ -37189,13 +37189,13 @@ var require_view = __commonJS({
   "node_modules/express/lib/view.js"(exports2, module2) {
     "use strict";
     var debug = require_src3()("express:view");
-    var path2 = require("path");
-    var fs = require("fs");
-    var dirname = path2.dirname;
-    var basename = path2.basename;
-    var extname = path2.extname;
-    var join = path2.join;
-    var resolve = path2.resolve;
+    var path3 = require("path");
+    var fs2 = require("fs");
+    var dirname = path3.dirname;
+    var basename = path3.basename;
+    var extname = path3.extname;
+    var join = path3.join;
+    var resolve = path3.resolve;
     module2.exports = View;
     function View(name, options) {
       var opts = options || {};
@@ -37224,17 +37224,17 @@ var require_view = __commonJS({
       this.path = this.lookup(fileName);
     }
     View.prototype.lookup = function lookup(name) {
-      var path3;
+      var path4;
       var roots = [].concat(this.root);
       debug('lookup "%s"', name);
-      for (var i = 0; i < roots.length && !path3; i++) {
+      for (var i = 0; i < roots.length && !path4; i++) {
         var root = roots[i];
         var loc = resolve(root, name);
         var dir = dirname(loc);
         var file = basename(loc);
-        path3 = this.resolve(dir, file);
+        path4 = this.resolve(dir, file);
       }
-      return path3;
+      return path4;
     };
     View.prototype.render = function render(options, callback) {
       debug('render "%s"', this.path);
@@ -37242,21 +37242,21 @@ var require_view = __commonJS({
     };
     View.prototype.resolve = function resolve2(dir, file) {
       var ext = this.ext;
-      var path3 = join(dir, file);
-      var stat = tryStat(path3);
+      var path4 = join(dir, file);
+      var stat = tryStat(path4);
       if (stat && stat.isFile()) {
-        return path3;
+        return path4;
       }
-      path3 = join(dir, basename(file, ext), "index" + ext);
-      stat = tryStat(path3);
+      path4 = join(dir, basename(file, ext), "index" + ext);
+      stat = tryStat(path4);
       if (stat && stat.isFile()) {
-        return path3;
+        return path4;
       }
     };
-    function tryStat(path3) {
-      debug('stat "%s"', path3);
+    function tryStat(path4) {
+      debug('stat "%s"', path4);
       try {
-        return fs.statSync(path3);
+        return fs2.statSync(path4);
       } catch (e) {
         return void 0;
       }
@@ -37268,34 +37268,34 @@ var require_view = __commonJS({
 var require_safe_buffer = __commonJS({
   "node_modules/safe-buffer/index.js"(exports2, module2) {
     var buffer = require("buffer");
-    var Buffer2 = buffer.Buffer;
+    var Buffer3 = buffer.Buffer;
     function copyProps(src, dst) {
       for (var key in src) {
         dst[key] = src[key];
       }
     }
-    if (Buffer2.from && Buffer2.alloc && Buffer2.allocUnsafe && Buffer2.allocUnsafeSlow) {
+    if (Buffer3.from && Buffer3.alloc && Buffer3.allocUnsafe && Buffer3.allocUnsafeSlow) {
       module2.exports = buffer;
     } else {
       copyProps(buffer, exports2);
       exports2.Buffer = SafeBuffer;
     }
     function SafeBuffer(arg, encodingOrOffset, length) {
-      return Buffer2(arg, encodingOrOffset, length);
+      return Buffer3(arg, encodingOrOffset, length);
     }
-    SafeBuffer.prototype = Object.create(Buffer2.prototype);
-    copyProps(Buffer2, SafeBuffer);
+    SafeBuffer.prototype = Object.create(Buffer3.prototype);
+    copyProps(Buffer3, SafeBuffer);
     SafeBuffer.from = function(arg, encodingOrOffset, length) {
       if (typeof arg === "number") {
         throw new TypeError("Argument must not be a number");
       }
-      return Buffer2(arg, encodingOrOffset, length);
+      return Buffer3(arg, encodingOrOffset, length);
     };
     SafeBuffer.alloc = function(size, fill, encoding) {
       if (typeof size !== "number") {
         throw new TypeError("Argument must be a number");
       }
-      var buf = Buffer2(size);
+      var buf = Buffer3(size);
       if (fill !== void 0) {
         if (typeof encoding === "string") {
           buf.fill(fill, encoding);
@@ -37311,7 +37311,7 @@ var require_safe_buffer = __commonJS({
       if (typeof size !== "number") {
         throw new TypeError("Argument must be a number");
       }
-      return Buffer2(size);
+      return Buffer3(size);
     };
     SafeBuffer.allocUnsafeSlow = function(size) {
       if (typeof size !== "number") {
@@ -37329,7 +37329,7 @@ var require_content_disposition = __commonJS({
     module2.exports = contentDisposition;
     module2.exports.parse = parse4;
     var basename = require("path").basename;
-    var Buffer2 = require_safe_buffer().Buffer;
+    var Buffer3 = require_safe_buffer().Buffer;
     var ENCODE_URL_ATTR_CHAR_REGEXP = /[\x00-\x20"'()*,/:;<=>?@[\\\]{}\x7f]/g;
     var HEX_ESCAPE_REGEXP = /%[0-9A-Fa-f]{2}/;
     var HEX_ESCAPE_REPLACE_REGEXP = /%([0-9A-Fa-f]{2})/g;
@@ -37408,7 +37408,7 @@ var require_content_disposition = __commonJS({
           value = getlatin1(binary);
           break;
         case "utf-8":
-          value = Buffer2.from(binary, "binary").toString("utf8");
+          value = Buffer3.from(binary, "binary").toString("utf8");
           break;
         default:
           throw new TypeError("unsupported charset in extended field");
@@ -37861,8 +37861,8 @@ var require_node4 = __commonJS({
           }
           break;
         case "FILE":
-          var fs = require("fs");
-          stream2 = new fs.SyncWriteStream(fd2, { autoClose: false });
+          var fs2 = require("fs");
+          stream2 = new fs2.SyncWriteStream(fd2, { autoClose: false });
           stream2._type = "fs";
           break;
         case "PIPE":
@@ -38034,8 +38034,8 @@ var require_types = __commonJS({
 // node_modules/mime/mime.js
 var require_mime = __commonJS({
   "node_modules/mime/mime.js"(exports2, module2) {
-    var path2 = require("path");
-    var fs = require("fs");
+    var path3 = require("path");
+    var fs2 = require("fs");
     function Mime() {
       this.types = /* @__PURE__ */ Object.create(null);
       this.extensions = /* @__PURE__ */ Object.create(null);
@@ -38056,7 +38056,7 @@ var require_mime = __commonJS({
     };
     Mime.prototype.load = function(file) {
       this._loading = file;
-      var map = {}, content = fs.readFileSync(file, "ascii"), lines = content.split(/[\r\n]+/);
+      var map = {}, content = fs2.readFileSync(file, "ascii"), lines = content.split(/[\r\n]+/);
       lines.forEach(function(line) {
         var fields = line.replace(/\s*#.*|^\s*|\s*$/g, "").split(/\s+/);
         map[fields.shift()] = fields;
@@ -38064,8 +38064,8 @@ var require_mime = __commonJS({
       this.define(map);
       this._loading = null;
     };
-    Mime.prototype.lookup = function(path3, fallback) {
-      var ext = path3.replace(/^.*[\.\/\\]/, "").toLowerCase();
+    Mime.prototype.lookup = function(path4, fallback) {
+      var ext = path4.replace(/^.*[\.\/\\]/, "").toLowerCase();
       return this.types[ext] || fallback || this.default_type;
     };
     Mime.prototype.extension = function(mimeType) {
@@ -38294,33 +38294,33 @@ var require_send = __commonJS({
     var escapeHtml = require_escape_html();
     var etag = require_etag();
     var fresh = require_fresh();
-    var fs = require("fs");
+    var fs2 = require("fs");
     var mime3 = require_mime();
     var ms = require_ms5();
     var onFinished = require_on_finished();
     var parseRange = require_range_parser();
-    var path2 = require("path");
+    var path3 = require("path");
     var statuses = require_statuses();
     var Stream = require("stream");
     var util2 = require("util");
-    var extname = path2.extname;
-    var join = path2.join;
-    var normalize = path2.normalize;
-    var resolve = path2.resolve;
-    var sep = path2.sep;
+    var extname = path3.extname;
+    var join = path3.join;
+    var normalize = path3.normalize;
+    var resolve = path3.resolve;
+    var sep = path3.sep;
     var BYTES_RANGE_REGEXP = /^ *bytes=/;
     var MAX_MAXAGE = 60 * 60 * 24 * 365 * 1e3;
     var UP_PATH_REGEXP = /(?:^|[\\/])\.\.(?:[\\/]|$)/;
     module2.exports = send;
     module2.exports.mime = mime3;
-    function send(req, path3, options) {
-      return new SendStream(req, path3, options);
+    function send(req, path4, options) {
+      return new SendStream(req, path4, options);
     }
-    function SendStream(req, path3, options) {
+    function SendStream(req, path4, options) {
       Stream.call(this);
       var opts = options || {};
       this.options = opts;
-      this.path = path3;
+      this.path = path4;
       this.req = req;
       this._acceptRanges = opts.acceptRanges !== void 0 ? Boolean(opts.acceptRanges) : true;
       this._cacheControl = opts.cacheControl !== void 0 ? Boolean(opts.cacheControl) : true;
@@ -38366,8 +38366,8 @@ var require_send = __commonJS({
       this._index = index2;
       return this;
     }, "send.index: pass index as option");
-    SendStream.prototype.root = function root(path3) {
-      this._root = resolve(String(path3));
+    SendStream.prototype.root = function root(path4) {
+      this._root = resolve(String(path4));
       debug("root %s", this._root);
       return this;
     };
@@ -38480,10 +38480,10 @@ var require_send = __commonJS({
       var lastModified = this.res.getHeader("Last-Modified");
       return parseHttpDate(lastModified) <= parseHttpDate(ifRange);
     };
-    SendStream.prototype.redirect = function redirect(path3) {
+    SendStream.prototype.redirect = function redirect(path4) {
       var res = this.res;
       if (hasListeners(this, "directory")) {
-        this.emit("directory", res, path3);
+        this.emit("directory", res, path4);
         return;
       }
       if (this.hasTrailingSlash()) {
@@ -38503,42 +38503,42 @@ var require_send = __commonJS({
     SendStream.prototype.pipe = function pipe3(res) {
       var root = this._root;
       this.res = res;
-      var path3 = decode3(this.path);
-      if (path3 === -1) {
+      var path4 = decode3(this.path);
+      if (path4 === -1) {
         this.error(400);
         return res;
       }
-      if (~path3.indexOf("\0")) {
+      if (~path4.indexOf("\0")) {
         this.error(400);
         return res;
       }
       var parts;
       if (root !== null) {
-        if (path3) {
-          path3 = normalize("." + sep + path3);
+        if (path4) {
+          path4 = normalize("." + sep + path4);
         }
-        if (UP_PATH_REGEXP.test(path3)) {
-          debug('malicious path "%s"', path3);
+        if (UP_PATH_REGEXP.test(path4)) {
+          debug('malicious path "%s"', path4);
           this.error(403);
           return res;
         }
-        parts = path3.split(sep);
-        path3 = normalize(join(root, path3));
+        parts = path4.split(sep);
+        path4 = normalize(join(root, path4));
       } else {
-        if (UP_PATH_REGEXP.test(path3)) {
-          debug('malicious path "%s"', path3);
+        if (UP_PATH_REGEXP.test(path4)) {
+          debug('malicious path "%s"', path4);
           this.error(403);
           return res;
         }
-        parts = normalize(path3).split(sep);
-        path3 = resolve(path3);
+        parts = normalize(path4).split(sep);
+        path4 = resolve(path4);
       }
       if (containsDotFile(parts)) {
         var access = this._dotfiles;
         if (access === void 0) {
           access = parts[parts.length - 1][0] === "." ? this._hidden ? "allow" : "ignore" : "allow";
         }
-        debug('%s dotfile "%s"', access, path3);
+        debug('%s dotfile "%s"', access, path4);
         switch (access) {
           case "allow":
             break;
@@ -38552,13 +38552,13 @@ var require_send = __commonJS({
         }
       }
       if (this._index.length && this.hasTrailingSlash()) {
-        this.sendIndex(path3);
+        this.sendIndex(path4);
         return res;
       }
-      this.sendFile(path3);
+      this.sendFile(path4);
       return res;
     };
-    SendStream.prototype.send = function send2(path3, stat) {
+    SendStream.prototype.send = function send2(path4, stat) {
       var len = stat.size;
       var options = this.options;
       var opts = {};
@@ -38570,9 +38570,9 @@ var require_send = __commonJS({
         this.headersAlreadySent();
         return;
       }
-      debug('pipe "%s"', path3);
-      this.setHeader(path3, stat);
-      this.type(path3);
+      debug('pipe "%s"', path4);
+      this.setHeader(path4, stat);
+      this.type(path4);
       if (this.isConditionalGET()) {
         if (this.isPreconditionFailure()) {
           this.error(412);
@@ -38621,28 +38621,28 @@ var require_send = __commonJS({
         res.end();
         return;
       }
-      this.stream(path3, opts);
+      this.stream(path4, opts);
     };
-    SendStream.prototype.sendFile = function sendFile(path3) {
+    SendStream.prototype.sendFile = function sendFile(path4) {
       var i = 0;
       var self2 = this;
-      debug('stat "%s"', path3);
-      fs.stat(path3, function onstat(err, stat) {
-        if (err && err.code === "ENOENT" && !extname(path3) && path3[path3.length - 1] !== sep) {
+      debug('stat "%s"', path4);
+      fs2.stat(path4, function onstat(err, stat) {
+        if (err && err.code === "ENOENT" && !extname(path4) && path4[path4.length - 1] !== sep) {
           return next(err);
         }
         if (err) return self2.onStatError(err);
-        if (stat.isDirectory()) return self2.redirect(path3);
-        self2.emit("file", path3, stat);
-        self2.send(path3, stat);
+        if (stat.isDirectory()) return self2.redirect(path4);
+        self2.emit("file", path4, stat);
+        self2.send(path4, stat);
       });
       function next(err) {
         if (self2._extensions.length <= i) {
           return err ? self2.onStatError(err) : self2.error(404);
         }
-        var p = path3 + "." + self2._extensions[i++];
+        var p = path4 + "." + self2._extensions[i++];
         debug('stat "%s"', p);
-        fs.stat(p, function(err2, stat) {
+        fs2.stat(p, function(err2, stat) {
           if (err2) return next(err2);
           if (stat.isDirectory()) return next();
           self2.emit("file", p, stat);
@@ -38650,7 +38650,7 @@ var require_send = __commonJS({
         });
       }
     };
-    SendStream.prototype.sendIndex = function sendIndex(path3) {
+    SendStream.prototype.sendIndex = function sendIndex(path4) {
       var i = -1;
       var self2 = this;
       function next(err) {
@@ -38658,9 +38658,9 @@ var require_send = __commonJS({
           if (err) return self2.onStatError(err);
           return self2.error(404);
         }
-        var p = join(path3, self2._index[i]);
+        var p = join(path4, self2._index[i]);
         debug('stat "%s"', p);
-        fs.stat(p, function(err2, stat) {
+        fs2.stat(p, function(err2, stat) {
           if (err2) return next(err2);
           if (stat.isDirectory()) return next();
           self2.emit("file", p, stat);
@@ -38669,10 +38669,10 @@ var require_send = __commonJS({
       }
       next();
     };
-    SendStream.prototype.stream = function stream(path3, options) {
+    SendStream.prototype.stream = function stream(path4, options) {
       var self2 = this;
       var res = this.res;
-      var stream2 = fs.createReadStream(path3, options);
+      var stream2 = fs2.createReadStream(path4, options);
       this.emit("stream", stream2);
       stream2.pipe(res);
       function cleanup() {
@@ -38687,10 +38687,10 @@ var require_send = __commonJS({
         self2.emit("end");
       });
     };
-    SendStream.prototype.type = function type(path3) {
+    SendStream.prototype.type = function type(path4) {
       var res = this.res;
       if (res.getHeader("Content-Type")) return;
-      var type2 = mime3.lookup(path3);
+      var type2 = mime3.lookup(path4);
       if (!type2) {
         debug("no content-type");
         return;
@@ -38699,9 +38699,9 @@ var require_send = __commonJS({
       debug("content-type %s", type2);
       res.setHeader("Content-Type", type2 + (charset ? "; charset=" + charset : ""));
     };
-    SendStream.prototype.setHeader = function setHeader(path3, stat) {
+    SendStream.prototype.setHeader = function setHeader(path4, stat) {
       var res = this.res;
-      this.emit("headers", res, path3, stat);
+      this.emit("headers", res, path4, stat);
       if (this._acceptRanges && !res.getHeader("Accept-Ranges")) {
         debug("accept ranges");
         res.setHeader("Accept-Ranges", "bytes");
@@ -38760,9 +38760,9 @@ var require_send = __commonJS({
       }
       return err instanceof Error ? createError(status, err, { expose: false }) : createError(status, err);
     }
-    function decode3(path3) {
+    function decode3(path4) {
       try {
-        return decodeURIComponent(path3);
+        return decodeURIComponent(path4);
       } catch (err) {
         return -1;
       }
@@ -39675,7 +39675,7 @@ var require_proxy_addr = __commonJS({
 var require_utils2 = __commonJS({
   "node_modules/express/lib/utils.js"(exports2) {
     "use strict";
-    var Buffer2 = require_safe_buffer().Buffer;
+    var Buffer3 = require_safe_buffer().Buffer;
     var contentDisposition = require_content_disposition();
     var contentType = require_content_type();
     var deprecate = require_depd()("express");
@@ -39687,10 +39687,10 @@ var require_utils2 = __commonJS({
     var querystring = require("querystring");
     exports2.etag = createETagGenerator({ weak: false });
     exports2.wetag = createETagGenerator({ weak: true });
-    exports2.isAbsolute = function(path2) {
-      if ("/" === path2[0]) return true;
-      if (":" === path2[1] && ("\\" === path2[2] || "/" === path2[2])) return true;
-      if ("\\\\" === path2.substring(0, 2)) return true;
+    exports2.isAbsolute = function(path3) {
+      if ("/" === path3[0]) return true;
+      if (":" === path3[1] && ("\\" === path3[2] || "/" === path3[2])) return true;
+      if ("\\\\" === path3.substring(0, 2)) return true;
     };
     exports2.flatten = deprecate.function(
       flatten,
@@ -39793,7 +39793,7 @@ var require_utils2 = __commonJS({
     };
     function createETagGenerator(options) {
       return function generateETag(body, encoding) {
-        var buf = !Buffer2.isBuffer(body) ? Buffer2.from(body, encoding) : body;
+        var buf = !Buffer3.isBuffer(body) ? Buffer3.from(body, encoding) : body;
         return etag(buf, options);
       };
     }
@@ -39902,7 +39902,7 @@ var require_application = __commonJS({
     };
     app.use = function use(fn) {
       var offset = 0;
-      var path2 = "/";
+      var path3 = "/";
       if (typeof fn !== "function") {
         var arg = fn;
         while (Array.isArray(arg) && arg.length !== 0) {
@@ -39910,7 +39910,7 @@ var require_application = __commonJS({
         }
         if (typeof arg !== "function") {
           offset = 1;
-          path2 = fn;
+          path3 = fn;
         }
       }
       var fns = flatten(slice.call(arguments, offset));
@@ -39921,12 +39921,12 @@ var require_application = __commonJS({
       var router = this._router;
       fns.forEach(function(fn2) {
         if (!fn2 || !fn2.handle || !fn2.set) {
-          return router.use(path2, fn2);
+          return router.use(path3, fn2);
         }
-        debug(".use app under %s", path2);
-        fn2.mountpath = path2;
+        debug(".use app under %s", path3);
+        fn2.mountpath = path3;
         fn2.parent = this;
-        router.use(path2, function mounted_app(req, res, next) {
+        router.use(path3, function mounted_app(req, res, next) {
           var orig = req.app;
           fn2.handle(req, res, function(err) {
             setPrototypeOf(req, orig.request);
@@ -39938,9 +39938,9 @@ var require_application = __commonJS({
       }, this);
       return this;
     };
-    app.route = function route(path2) {
+    app.route = function route(path3) {
       this.lazyrouter();
-      return this._router.route(path2);
+      return this._router.route(path3);
     };
     app.engine = function engine(ext, fn) {
       if (typeof fn !== "function") {
@@ -39991,7 +39991,7 @@ var require_application = __commonJS({
       }
       return this;
     };
-    app.path = function path2() {
+    app.path = function path3() {
       return this.parent ? this.parent.path() + this.mountpath : "";
     };
     app.enabled = function enabled(setting) {
@@ -40007,19 +40007,19 @@ var require_application = __commonJS({
       return this.set(setting, false);
     };
     methods.forEach(function(method) {
-      app[method] = function(path2) {
+      app[method] = function(path3) {
         if (method === "get" && arguments.length === 1) {
-          return this.set(path2);
+          return this.set(path3);
         }
         this.lazyrouter();
-        var route = this._router.route(path2);
+        var route = this._router.route(path3);
         route[method].apply(route, slice.call(arguments, 1));
         return this;
       };
     });
-    app.all = function all(path2) {
+    app.all = function all(path3) {
       this.lazyrouter();
-      var route = this._router.route(path2);
+      var route = this._router.route(path3);
       var args = slice.call(arguments, 1);
       for (var i = 0; i < methods.length; i++) {
         route[methods[i]].apply(route, args);
@@ -40669,7 +40669,7 @@ var require_request = __commonJS({
     "use strict";
     var accepts = require_accepts();
     var deprecate = require_depd()("express");
-    var isIP = require("net").isIP;
+    var isIP2 = require("net").isIP;
     var typeis = require_type_is();
     var http3 = require("http");
     var fresh = require_fresh();
@@ -40775,10 +40775,10 @@ var require_request = __commonJS({
       var hostname = this.hostname;
       if (!hostname) return [];
       var offset = this.app.get("subdomain offset");
-      var subdomains2 = !isIP(hostname) ? hostname.split(".").reverse() : [hostname];
+      var subdomains2 = !isIP2(hostname) ? hostname.split(".").reverse() : [hostname];
       return subdomains2.slice(offset);
     });
-    defineGetter(req, "path", function path2() {
+    defineGetter(req, "path", function path3() {
       return parse4(this).pathname;
     });
     defineGetter(req, "hostname", function hostname() {
@@ -41091,7 +41091,7 @@ var require_vary = __commonJS({
 var require_response = __commonJS({
   "node_modules/express/lib/response.js"(exports2, module2) {
     "use strict";
-    var Buffer2 = require_safe_buffer().Buffer;
+    var Buffer3 = require_safe_buffer().Buffer;
     var contentDisposition = require_content_disposition();
     var createError = require_http_errors();
     var deprecate = require_depd()("express");
@@ -41100,7 +41100,7 @@ var require_response = __commonJS({
     var http3 = require("http");
     var isAbsolute = require_utils2().isAbsolute;
     var onFinished = require_on_finished();
-    var path2 = require("path");
+    var path3 = require("path");
     var statuses = require_statuses();
     var merge3 = require_utils_merge();
     var sign = require_cookie_signature().sign;
@@ -41109,9 +41109,9 @@ var require_response = __commonJS({
     var setCharset = require_utils2().setCharset;
     var cookie = require_cookie();
     var send = require_send();
-    var extname = path2.extname;
+    var extname = path3.extname;
     var mime3 = send.mime;
-    var resolve = path2.resolve;
+    var resolve = path3.resolve;
     var vary = require_vary();
     var res = Object.create(http3.ServerResponse.prototype);
     module2.exports = res;
@@ -41166,7 +41166,7 @@ var require_response = __commonJS({
         case "object":
           if (chunk === null) {
             chunk = "";
-          } else if (Buffer2.isBuffer(chunk)) {
+          } else if (Buffer3.isBuffer(chunk)) {
             if (!this.get("Content-Type")) {
               this.type("bin");
             }
@@ -41186,12 +41186,12 @@ var require_response = __commonJS({
       var generateETag = !this.get("ETag") && typeof etagFn === "function";
       var len;
       if (chunk !== void 0) {
-        if (Buffer2.isBuffer(chunk)) {
+        if (Buffer3.isBuffer(chunk)) {
           len = chunk.length;
         } else if (!generateETag && chunk.length < 1e3) {
-          len = Buffer2.byteLength(chunk, encoding);
+          len = Buffer3.byteLength(chunk, encoding);
         } else {
-          chunk = Buffer2.from(chunk, encoding);
+          chunk = Buffer3.from(chunk, encoding);
           encoding = void 0;
           len = chunk.length;
         }
@@ -41288,26 +41288,26 @@ var require_response = __commonJS({
       this.type("txt");
       return this.send(body);
     };
-    res.sendFile = function sendFile(path3, options, callback) {
+    res.sendFile = function sendFile(path4, options, callback) {
       var done = callback;
       var req = this.req;
       var res2 = this;
       var next = req.next;
       var opts = options || {};
-      if (!path3) {
+      if (!path4) {
         throw new TypeError("path argument is required to res.sendFile");
       }
-      if (typeof path3 !== "string") {
+      if (typeof path4 !== "string") {
         throw new TypeError("path must be a string to res.sendFile");
       }
       if (typeof options === "function") {
         done = options;
         opts = {};
       }
-      if (!opts.root && !isAbsolute(path3)) {
+      if (!opts.root && !isAbsolute(path4)) {
         throw new TypeError("path must be absolute or specify root to res.sendFile");
       }
-      var pathname = encodeURI(path3);
+      var pathname = encodeURI(path4);
       var file = send(req, pathname, opts);
       sendfile(res2, file, opts, function(err) {
         if (done) return done(err);
@@ -41317,7 +41317,7 @@ var require_response = __commonJS({
         }
       });
     };
-    res.sendfile = function(path3, options, callback) {
+    res.sendfile = function(path4, options, callback) {
       var done = callback;
       var req = this.req;
       var res2 = this;
@@ -41327,7 +41327,7 @@ var require_response = __commonJS({
         done = options;
         opts = {};
       }
-      var file = send(req, path3, opts);
+      var file = send(req, path4, opts);
       sendfile(res2, file, opts, function(err) {
         if (done) return done(err);
         if (err && err.code === "EISDIR") return next();
@@ -41340,7 +41340,7 @@ var require_response = __commonJS({
       res.sendfile,
       "res.sendfile: Use res.sendFile instead"
     );
-    res.download = function download(path3, filename, options, callback) {
+    res.download = function download(path4, filename, options, callback) {
       var done = callback;
       var name = filename;
       var opts = options || null;
@@ -41357,7 +41357,7 @@ var require_response = __commonJS({
         opts = filename;
       }
       var headers = {
-        "Content-Disposition": contentDisposition(name || path3)
+        "Content-Disposition": contentDisposition(name || path4)
       };
       if (opts && opts.headers) {
         var keys = Object.keys(opts.headers);
@@ -41370,7 +41370,7 @@ var require_response = __commonJS({
       }
       opts = Object.create(opts);
       opts.headers = headers;
-      var fullPath = !opts.root ? resolve(path3) : path3;
+      var fullPath = !opts.root ? resolve(path4) : path4;
       return this.sendFile(fullPath, opts, done);
     };
     res.contentType = res.type = function contentType(type) {
@@ -41510,7 +41510,7 @@ var require_response = __commonJS({
         }
       });
       this.statusCode = status;
-      this.set("Content-Length", Buffer2.byteLength(body));
+      this.set("Content-Length", Buffer3.byteLength(body));
       if (this.req.method === "HEAD") {
         this.end();
       } else {
@@ -41671,11 +41671,11 @@ var require_serve_static = __commonJS({
         }
         var forwardError = !fallthrough;
         var originalUrl = parseUrl.original(req);
-        var path2 = parseUrl(req).pathname;
-        if (path2 === "/" && originalUrl.pathname.substr(-1) !== "/") {
-          path2 = "";
+        var path3 = parseUrl(req).pathname;
+        if (path3 === "/" && originalUrl.pathname.substr(-1) !== "/") {
+          path3 = "";
         }
-        var stream = send(req, path2, opts);
+        var stream = send(req, path3, opts);
         stream.on("directory", onDirectory);
         if (setHeaders) {
           stream.on("headers", setHeaders);
@@ -42086,6 +42086,2983 @@ var require_lib4 = __commonJS({
       }
       module2.exports = middlewareWrapper;
     })();
+  }
+});
+
+// node_modules/ip-address/dist/address-error.js
+var require_address_error = __commonJS({
+  "node_modules/ip-address/dist/address-error.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.AddressError = void 0;
+    var AddressError = class extends Error {
+      constructor(message, parseMessage) {
+        super(message);
+        this.name = "AddressError";
+        this.parseMessage = parseMessage;
+      }
+    };
+    exports2.AddressError = AddressError;
+  }
+});
+
+// node_modules/ip-address/dist/common.js
+var require_common = __commonJS({
+  "node_modules/ip-address/dist/common.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.isInSubnet = isInSubnet;
+    exports2.isHostInSubnet = isHostInSubnet;
+    exports2.isGloballyReachable = isGloballyReachable;
+    exports2.offsetBigInt = offsetBigInt;
+    exports2.isCorrect = isCorrect;
+    exports2.prefixLengthFromMask = prefixLengthFromMask;
+    exports2.assertByteArray = assertByteArray;
+    exports2.numberToPaddedHex = numberToPaddedHex;
+    exports2.stringToPaddedHex = stringToPaddedHex;
+    exports2.testBit = testBit;
+    var address_error_1 = require_address_error();
+    function isInSubnet(address) {
+      if (this.subnetMask < address.subnetMask) {
+        return false;
+      }
+      return isHostInSubnet.call(this, address);
+    }
+    function isHostInSubnet(address) {
+      if (this.binaryZeroPad().length !== address.binaryZeroPad().length) {
+        return false;
+      }
+      return this.mask(address.subnetMask) === address.mask();
+    }
+    function isGloballyReachable(entries) {
+      let best = null;
+      for (let i = 0; i < entries.length; i++) {
+        const entry = entries[i];
+        if (entry.reachable !== null && isHostInSubnet.call(this, entry.subnet) && (best === null || entry.subnet.subnetMask > best.subnet.subnetMask)) {
+          best = entry;
+        }
+      }
+      return best === null ? true : best.reachable;
+    }
+    function offsetBigInt(value, n, bits, family) {
+      if (typeof n === "number" && !Number.isSafeInteger(n)) {
+        throw new address_error_1.AddressError(`${family} offset must be an integer`);
+      }
+      if (typeof n !== "number" && typeof n !== "bigint") {
+        throw new address_error_1.AddressError(`${family} offset must be an integer`);
+      }
+      const result = value + BigInt(n);
+      if (result < BigInt(0) || result > (BigInt(1) << BigInt(bits)) - BigInt(1)) {
+        throw new address_error_1.AddressError(`${family} offset leaves the address space`);
+      }
+      return result;
+    }
+    function isCorrect(defaultBits) {
+      return function isCorrectForm() {
+        if (this.addressMinusSuffix !== this.correctForm()) {
+          return false;
+        }
+        if (this.subnetMask === defaultBits && !this.parsedSubnet) {
+          return true;
+        }
+        return this.parsedSubnet === String(this.subnetMask);
+      };
+    }
+    function prefixLengthFromMask(value, totalBits) {
+      const binary = value.toString(2).padStart(totalBits, "0");
+      if (binary.length > totalBits) {
+        throw new address_error_1.AddressError("Invalid subnet mask.");
+      }
+      const firstZero = binary.indexOf("0");
+      if (firstZero === -1) {
+        return totalBits;
+      }
+      if (binary.slice(firstZero).includes("1")) {
+        throw new address_error_1.AddressError("Invalid subnet mask.");
+      }
+      return firstZero;
+    }
+    function assertByteArray(bytes, byteCount, family, minimum) {
+      if (bytes.length !== byteCount) {
+        throw new address_error_1.AddressError(`${family} addresses require exactly ${byteCount} bytes`);
+      }
+      for (let i = 0; i < bytes.length; i++) {
+        if (!Number.isInteger(bytes[i]) || bytes[i] < minimum || bytes[i] > 255) {
+          throw new address_error_1.AddressError(`All bytes must be integers between ${minimum} and 255`);
+        }
+      }
+    }
+    function numberToPaddedHex(number6) {
+      return number6.toString(16).padStart(2, "0");
+    }
+    function stringToPaddedHex(numberString) {
+      return numberToPaddedHex(parseInt(numberString, 10));
+    }
+    function testBit(binaryValue, position) {
+      const { length } = binaryValue;
+      if (position > length) {
+        return false;
+      }
+      const positionInString = length - position;
+      return binaryValue.substring(positionInString, positionInString + 1) === "1";
+    }
+  }
+});
+
+// node_modules/ip-address/dist/v4/constants.js
+var require_constants = __commonJS({
+  "node_modules/ip-address/dist/v4/constants.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.SPECIAL_PURPOSE = exports2.RE_SUBNET_STRING = exports2.RE_ADDRESS = exports2.GROUPS = exports2.BITS = void 0;
+    exports2.BITS = 32;
+    exports2.GROUPS = 4;
+    exports2.RE_ADDRESS = /^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$/g;
+    exports2.RE_SUBNET_STRING = /\/\d{1,2}$/;
+    exports2.SPECIAL_PURPOSE = [
+      ["0.0.0.0/8", "This network", false],
+      ["0.0.0.0/32", "This host on this network", false],
+      ["10.0.0.0/8", "Private-Use", false],
+      ["100.64.0.0/10", "Shared Address Space", false],
+      ["127.0.0.0/8", "Loopback", false],
+      ["169.254.0.0/16", "Link Local", false],
+      ["172.16.0.0/12", "Private-Use", false],
+      ["192.0.0.0/24", "IETF Protocol Assignments", false],
+      ["192.0.0.0/29", "IPv4 Service Continuity Prefix", false],
+      ["192.0.0.8/32", "IPv4 dummy address", false],
+      ["192.0.0.9/32", "Port Control Protocol Anycast", true],
+      ["192.0.0.10/32", "Traversal Using Relays around NAT Anycast", true],
+      ["192.0.0.170/32", "NAT64/DNS64 Discovery", false],
+      ["192.0.0.171/32", "NAT64/DNS64 Discovery", false],
+      ["192.0.2.0/24", "Documentation (TEST-NET-1)", false],
+      ["192.31.196.0/24", "AS112-v4", true],
+      ["192.52.193.0/24", "AMT", true],
+      ["192.88.99.0/24", "Deprecated (6to4 Relay Anycast)", null],
+      ["192.88.99.2/32", "6a44-relay anycast address", false],
+      ["192.168.0.0/16", "Private-Use", false],
+      ["192.175.48.0/24", "Direct Delegation AS112 Service", true],
+      ["198.18.0.0/15", "Benchmarking", false],
+      ["198.51.100.0/24", "Documentation (TEST-NET-2)", false],
+      ["203.0.113.0/24", "Documentation (TEST-NET-3)", false],
+      ["240.0.0.0/4", "Reserved", false],
+      ["255.255.255.255/32", "Limited Broadcast", false]
+    ];
+  }
+});
+
+// node_modules/ip-address/dist/ipv4.js
+var require_ipv4 = __commonJS({
+  "node_modules/ip-address/dist/ipv4.js"(exports2) {
+    "use strict";
+    var __createBinding = exports2 && exports2.__createBinding || (Object.create ? (function(o, m2, k2, k22) {
+      if (k22 === void 0) k22 = k2;
+      var desc = Object.getOwnPropertyDescriptor(m2, k2);
+      if (!desc || ("get" in desc ? !m2.__esModule : desc.writable || desc.configurable)) {
+        desc = { enumerable: true, get: function() {
+          return m2[k2];
+        } };
+      }
+      Object.defineProperty(o, k22, desc);
+    }) : (function(o, m2, k2, k22) {
+      if (k22 === void 0) k22 = k2;
+      o[k22] = m2[k2];
+    }));
+    var __setModuleDefault = exports2 && exports2.__setModuleDefault || (Object.create ? (function(o, v2) {
+      Object.defineProperty(o, "default", { enumerable: true, value: v2 });
+    }) : function(o, v2) {
+      o["default"] = v2;
+    });
+    var __importStar = exports2 && exports2.__importStar || function(mod) {
+      if (mod && mod.__esModule) return mod;
+      var result = {};
+      if (mod != null) {
+        for (var k2 in mod) if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)) __createBinding(result, mod, k2);
+      }
+      __setModuleDefault(result, mod);
+      return result;
+    };
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.Address4 = void 0;
+    var common = __importStar(require_common());
+    var constants = __importStar(require_constants());
+    var address_error_1 = require_address_error();
+    var isCorrect4 = common.isCorrect(constants.BITS);
+    var Address4 = class _Address4 {
+      constructor(address) {
+        this.addressMinusSuffix = "";
+        this.groups = constants.GROUPS;
+        this.parsedAddress = [];
+        this.parsedSubnet = "";
+        this.subnet = "/32";
+        this.subnetMask = 32;
+        this.v4 = true;
+        this.isCorrect = isCorrect4;
+        this.isInSubnet = common.isInSubnet;
+        this.isHostInSubnet = common.isHostInSubnet;
+        this.address = address;
+        const subnet = constants.RE_SUBNET_STRING.exec(address);
+        if (subnet) {
+          this.parsedSubnet = subnet[0].replace("/", "");
+          this.subnetMask = parseInt(this.parsedSubnet, 10);
+          this.subnet = `/${this.subnetMask}`;
+          if (this.subnetMask < 0 || this.subnetMask > constants.BITS) {
+            throw new address_error_1.AddressError("Invalid subnet mask.");
+          }
+          address = address.replace(constants.RE_SUBNET_STRING, "");
+        }
+        const longest = constants.GROUPS * 4 - 1;
+        if (address.length > longest) {
+          throw new address_error_1.AddressError(`IPv4 addresses are at most ${longest} characters.`);
+        }
+        this.addressMinusSuffix = address;
+        this.parsedAddress = this.parse(address);
+      }
+      /**
+       * Returns true if the given string is a valid IPv4 address (with optional
+       * CIDR subnet), false otherwise. Host bits in the subnet portion are
+       * allowed (e.g. `192.168.1.5/24` is valid); for strict network-address
+       * validation compare `correctForm()` to `startAddress().correctForm()`,
+       * or use `networkForm()`.
+       */
+      static isValid(address) {
+        try {
+          new _Address4(address);
+          return true;
+        } catch {
+          return false;
+        }
+      }
+      /**
+       * Parses an IPv4 address string into its four octet groups and stores the
+       * result on `this.parsedAddress`. Called automatically by the constructor;
+       * you typically don't need to call it directly. Throws `AddressError` if
+       * the input is not a valid IPv4 address.
+       */
+      parse(address) {
+        const groups = address.split(".");
+        if (groups.some((group) => /^0\d/.test(group))) {
+          throw new address_error_1.AddressError("IPv4 addresses can't have leading zeroes.");
+        }
+        if (!address.match(constants.RE_ADDRESS)) {
+          throw new address_error_1.AddressError("Invalid IPv4 address.");
+        }
+        return groups;
+      }
+      /**
+       * Returns the address in correct form: octets joined with `.` and any
+       * leading zeros stripped (e.g. `192.168.1.1`). For IPv4 this matches the
+       * canonical dotted-decimal representation.
+       */
+      correctForm() {
+        return this.parsedAddress.map((part) => parseInt(part, 10)).join(".");
+      }
+      /**
+       * Construct an `Address4` from an address and a dotted-decimal subnet
+       * mask given as separate strings (e.g. as returned by Node's
+       * `os.networkInterfaces()`). Throws `AddressError` if the mask is
+       * non-contiguous (e.g. `255.0.255.0`).
+       * @example
+       * var address = Address4.fromAddressAndMask('192.168.1.1', '255.255.255.0');
+       * address.subnetMask; // 24
+       */
+      static fromAddressAndMask(address, mask) {
+        const bits = common.prefixLengthFromMask(new _Address4(mask).bigInt(), constants.BITS);
+        return new _Address4(`${address}/${bits}`);
+      }
+      /**
+       * Construct an `Address4` from an address and a Cisco-style wildcard mask
+       * given as separate strings (e.g. `0.0.0.255` for a `/24`). The wildcard
+       * mask is the bitwise inverse of the subnet mask. Throws `AddressError`
+       * if the mask is non-contiguous (e.g. `0.255.0.255`).
+       * @example
+       * var address = Address4.fromAddressAndWildcardMask('10.0.0.1', '0.0.0.255');
+       * address.subnetMask; // 24
+       */
+      static fromAddressAndWildcardMask(address, wildcardMask) {
+        const wildcard = new _Address4(wildcardMask).bigInt();
+        const allOnes = (BigInt(1) << BigInt(constants.BITS)) - BigInt(1);
+        const mask = wildcard ^ allOnes;
+        const bits = common.prefixLengthFromMask(mask, constants.BITS);
+        return new _Address4(`${address}/${bits}`);
+      }
+      /**
+       * Construct an `Address4` from a wildcard pattern with trailing `*`
+       * octets. The number of trailing wildcards determines the prefix
+       * length: each `*` represents 8 bits.
+       *
+       * Only trailing whole-octet wildcards are supported. Partial-octet
+       * wildcards (e.g. `192.168.0.1*`) and interior wildcards (e.g.
+       * `192.*.0.1`) throw `AddressError`.
+       * @example
+       * Address4.fromWildcard('192.168.0.*').subnet;   // '/24'
+       * Address4.fromWildcard('192.168.*.*').subnet;   // '/16'
+       * Address4.fromWildcard('*.*.*.*').subnet;       // '/0'
+       */
+      static fromWildcard(input) {
+        const groups = input.split(".");
+        if (groups.length !== constants.GROUPS) {
+          throw new address_error_1.AddressError("Wildcard pattern must have 4 octets");
+        }
+        let firstWildcard = -1;
+        for (let i = 0; i < groups.length; i++) {
+          if (groups[i] === "*") {
+            if (firstWildcard === -1) {
+              firstWildcard = i;
+            }
+          } else if (firstWildcard !== -1) {
+            throw new address_error_1.AddressError("Wildcard `*` must only appear in trailing octets (e.g. `192.168.0.*`)");
+          }
+        }
+        const trailing = firstWildcard === -1 ? 0 : groups.length - firstWildcard;
+        const replaced = groups.map((g2) => g2 === "*" ? "0" : g2);
+        const subnetBits = constants.BITS - trailing * 8;
+        return new _Address4(`${replaced.join(".")}/${subnetBits}`);
+      }
+      /**
+       * Converts a hex string to an IPv4 address object. Accepts 8 hex digits
+       * with optional `:` separators (e.g. `'7f000001'` or `'7f:00:00:01'`).
+       * Throws `AddressError` for any other length or for non-hex characters.
+       * @param {string} hex - a hex string to convert
+       * @returns {Address4}
+       */
+      static fromHex(hex) {
+        const stripped = hex.replace(/:/g, "");
+        if (!/^[0-9a-fA-F]{8}$/.test(stripped)) {
+          throw new address_error_1.AddressError("IPv4 hex must be exactly 8 hex digits");
+        }
+        const groups = [];
+        for (let i = 0; i < 8; i += 2) {
+          groups.push(parseInt(stripped.slice(i, i + 2), 16));
+        }
+        return new _Address4(groups.join("."));
+      }
+      /**
+       * Converts an integer into a IPv4 address object. The integer must be a
+       * non-negative safe integer in the range `[0, 2**32 - 1]`; otherwise
+       * `AddressError` is thrown.
+       * @param {integer} integer - a number to convert
+       * @returns {Address4}
+       */
+      static fromInteger(integer3) {
+        if (!Number.isInteger(integer3) || integer3 < 0 || integer3 > 4294967295) {
+          throw new address_error_1.AddressError("IPv4 integer must be in the range 0 to 2**32 - 1");
+        }
+        return _Address4.fromHex(integer3.toString(16).padStart(8, "0"));
+      }
+      /**
+       * Return an address from in-addr.arpa form: the four octets reversed, with
+       * or without the `.in-addr.arpa` suffix and root dot, in any case. Throws
+       * `AddressError` unless the reversed labels form a valid IPv4 address, so
+       * `fromArpa(x.reverseForm())` round-trips {@link reverseForm}.
+       * @param {string} arpaFormAddress - an 'in-addr.arpa' form ipv4 address
+       * @returns {Adress4}
+       * @example
+       * var address = Address4.fromArpa('42.2.0.192.in-addr.arpa.')
+       * address.correctForm(); // '192.0.2.42'
+       */
+      static fromArpa(arpaFormAddress) {
+        const leader = arpaFormAddress.replace(/(\.in-addr\.arpa)?\.?$/i, "");
+        const address = leader.split(".").reverse().join(".");
+        return new _Address4(address);
+      }
+      /**
+       * Converts an IPv4 address object to a hex string
+       * @returns {String}
+       */
+      toHex() {
+        return this.parsedAddress.map((part) => common.stringToPaddedHex(part)).join(":");
+      }
+      /**
+       * Converts an IPv4 address object to an array of bytes.
+       *
+       * To get a Node.js `Buffer`, wrap the result: `Buffer.from(address.toArray())`.
+       * @returns {Array}
+       */
+      toArray() {
+        return this.parsedAddress.map((part) => parseInt(part, 10));
+      }
+      /**
+       * Converts an IPv4 address object to an IPv6 address group
+       * @returns {String}
+       */
+      toGroup6() {
+        const output = [];
+        let i;
+        for (i = 0; i < constants.GROUPS; i += 2) {
+          output.push(`${common.stringToPaddedHex(this.parsedAddress[i])}${common.stringToPaddedHex(this.parsedAddress[i + 1])}`);
+        }
+        return output.join(":");
+      }
+      /**
+       * Returns the address as a `bigint`
+       * @returns {bigint}
+       */
+      bigInt() {
+        return BigInt(`0x${this.parsedAddress.map((n) => common.stringToPaddedHex(n)).join("")}`);
+      }
+      /**
+       * Helper function getting start address.
+       * @returns {bigint}
+       */
+      _startAddress() {
+        return BigInt(`0b${this.mask() + "0".repeat(constants.BITS - this.subnetMask)}`);
+      }
+      /**
+       * The first address in the range given by this address' subnet.
+       * Often referred to as the Network Address.
+       * @returns {Address4}
+       */
+      startAddress() {
+        return _Address4.fromBigInt(this._startAddress());
+      }
+      /**
+       * The first host address in the range given by this address's subnet ie
+       * the first address after the Network Address
+       * @returns {Address4}
+       */
+      startAddressExclusive() {
+        const adjust = BigInt("1");
+        return _Address4.fromBigInt(this._startAddress() + adjust);
+      }
+      /**
+       * Returns the address `n` addresses after this one (or before, when `n` is
+       * negative), keeping this address's subnet mask. Throws `AddressError` when
+       * the result would fall outside the IPv4 address space or `n` is not an
+       * integer.
+       * @param {number | bigint} n
+       * @returns {Address4}
+       * @example
+       * new Address4('10.0.0.0/24').offset(1).correctForm(); // '10.0.0.1'
+       */
+      offset(n) {
+        return _Address4.fromBigInt(common.offsetBigInt(this.bigInt(), n, constants.BITS, "IPv4")).withSubnetMask(this.subnetMask);
+      }
+      /**
+       * Returns the network that follows this address's network: the address after
+       * {@link endAddress}, with the same subnet mask. Throws `AddressError` when
+       * this network is the last one in the address space.
+       * @returns {Address4}
+       * @example
+       * new Address4('10.0.0.0/24').nextNetwork().networkForm(); // '10.0.1.0/24'
+       */
+      nextNetwork() {
+        return _Address4.fromBigInt(common.offsetBigInt(this._endAddress(), 1, constants.BITS, "IPv4")).withSubnetMask(this.subnetMask);
+      }
+      withSubnetMask(subnetMask) {
+        return new _Address4(`${this.correctForm()}/${subnetMask}`);
+      }
+      /**
+       * Helper function getting end address.
+       * @returns {bigint}
+       */
+      _endAddress() {
+        return BigInt(`0b${this.mask() + "1".repeat(constants.BITS - this.subnetMask)}`);
+      }
+      /**
+       * The last address in the range given by this address' subnet
+       * Often referred to as the Broadcast
+       * @returns {Address4}
+       */
+      endAddress() {
+        return _Address4.fromBigInt(this._endAddress());
+      }
+      /**
+       * The last host address in the range given by this address's subnet ie
+       * the last address prior to the Broadcast Address
+       * @returns {Address4}
+       */
+      endAddressExclusive() {
+        const adjust = BigInt("1");
+        return _Address4.fromBigInt(this._endAddress() - adjust);
+      }
+      /**
+       * The dotted-decimal form of the subnet mask, e.g. `255.255.240.0` for
+       * a `/20`. Returns an `Address4`; call `.correctForm()` for the string.
+       * @returns {Address4}
+       */
+      subnetMaskAddress() {
+        return _Address4.fromBigInt(BigInt(`0b${"1".repeat(this.subnetMask)}${"0".repeat(constants.BITS - this.subnetMask)}`));
+      }
+      /**
+       * The Cisco-style wildcard mask, e.g. `0.0.0.255` for a `/24`. This is
+       * the bitwise inverse of `subnetMaskAddress()`. Returns an `Address4`;
+       * call `.correctForm()` for the string.
+       * @returns {Address4}
+       */
+      wildcardMask() {
+        return _Address4.fromBigInt(BigInt(`0b${"0".repeat(this.subnetMask)}${"1".repeat(constants.BITS - this.subnetMask)}`));
+      }
+      /**
+       * The network address in CIDR string form, e.g. `192.168.1.0/24` for
+       * `192.168.1.5/24`. For an address with no explicit subnet the prefix is
+       * `/32`, e.g. `networkForm()` on `192.168.1.5` returns `192.168.1.5/32`.
+       * @returns {string}
+       */
+      networkForm() {
+        return `${this.startAddress().correctForm()}/${this.subnetMask}`;
+      }
+      /**
+       * Converts a BigInt to a v4 address object. The value must be in the
+       * range `[0, 2**32 - 1]`; otherwise `AddressError` is thrown.
+       * @param {bigint} bigInt - a BigInt to convert
+       * @returns {Address4}
+       */
+      static fromBigInt(bigInt) {
+        if (bigInt < BigInt(0) || bigInt > BigInt(4294967295)) {
+          throw new address_error_1.AddressError("IPv4 BigInt must be in the range 0 to 2**32 - 1");
+        }
+        return _Address4.fromHex(bigInt.toString(16).padStart(8, "0"));
+      }
+      /**
+       * Convert a byte array to an Address4 object. Throws `AddressError` unless
+       * given exactly 4 integers from 0 to 255. Signed bytes are rejected, so
+       * this differs from `Address6.fromByteArray`, which folds them; the two
+       * contracts converge on this stricter form in the next major version.
+       *
+       * To convert from a Node.js `Buffer`, spread it: `Address4.fromByteArray([...buf])`.
+       * @param {Array<number>} bytes - an array of 4 bytes (0-255)
+       * @returns {Address4}
+       */
+      static fromByteArray(bytes) {
+        common.assertByteArray(bytes, 4, "IPv4", 0);
+        return this.fromUnsignedByteArray(bytes);
+      }
+      /**
+       * Convert an unsigned byte array to an Address4 object. Throws
+       * `AddressError` unless given exactly 4 bytes, and rejects values outside
+       * 0 to 255 when parsing the resulting address.
+       *
+       * To convert from a Node.js `Buffer`, spread it:
+       * `Address4.fromUnsignedByteArray([...buf])`.
+       * @param {Array<number>} bytes - an array of 4 unsigned bytes (0-255)
+       * @returns {Address4}
+       */
+      static fromUnsignedByteArray(bytes) {
+        if (bytes.length !== 4) {
+          throw new address_error_1.AddressError("IPv4 addresses require exactly 4 bytes");
+        }
+        const address = bytes.join(".");
+        return new _Address4(address);
+      }
+      /**
+       * Returns the first n bits of the address, defaulting to the
+       * subnet mask
+       * @returns {String}
+       */
+      mask(mask) {
+        if (mask === void 0) {
+          mask = this.subnetMask;
+        }
+        return this.getBitsBase2(0, mask);
+      }
+      /**
+       * Returns the bits in the given range as a base-2 string
+       * @returns {string}
+       */
+      getBitsBase2(start, end) {
+        return this.binaryZeroPad().slice(start, end);
+      }
+      /**
+       * Return the reversed in-addr.arpa form of the address, e.g.
+       * `42.2.0.192.in-addr.arpa.` for `192.0.2.42`.
+       * @param {Object} options
+       * @param {boolean} options.omitSuffix - omit the "in-addr.arpa" suffix
+       * @returns {String}
+       */
+      reverseForm(options) {
+        if (!options) {
+          options = {};
+        }
+        const reversed = this.correctForm().split(".").reverse().join(".");
+        if (options.omitSuffix) {
+          return reversed;
+        }
+        return `${reversed}.in-addr.arpa.`;
+      }
+      /**
+       * Returns true if the given address is a multicast address
+       * @returns {boolean}
+       */
+      isMulticast() {
+        return this.isHostInSubnet(MULTICAST_V4);
+      }
+      /**
+       * Returns true if the address is in one of the [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918) private address ranges (`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`).
+       * @returns {boolean}
+       */
+      isPrivate() {
+        return PRIVATE_V4.some((subnet) => this.isHostInSubnet(subnet));
+      }
+      /**
+       * Returns true if the address is in the loopback range `127.0.0.0/8` ([RFC 1122](https://datatracker.ietf.org/doc/html/rfc1122)).
+       * @returns {boolean}
+       */
+      isLoopback() {
+        return this.isHostInSubnet(LOOPBACK_V4);
+      }
+      /**
+       * Returns true if the address is in the link-local range `169.254.0.0/16` ([RFC 3927](https://datatracker.ietf.org/doc/html/rfc3927)).
+       * @returns {boolean}
+       */
+      isLinkLocal() {
+        return this.isHostInSubnet(LINK_LOCAL_V4);
+      }
+      /**
+       * Returns true if the address is the unspecified address `0.0.0.0`.
+       * @returns {boolean}
+       */
+      isUnspecified() {
+        return this.isHostInSubnet(UNSPECIFIED_V4);
+      }
+      /**
+       * Returns true if the address is the limited broadcast address `255.255.255.255` ([RFC 919](https://datatracker.ietf.org/doc/html/rfc919)).
+       * @returns {boolean}
+       */
+      isBroadcast() {
+        return this.isHostInSubnet(BROADCAST_V4);
+      }
+      /**
+       * Returns true if the address is in the carrier-grade NAT range `100.64.0.0/10` ([RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598)).
+       * @returns {boolean}
+       */
+      isCGNAT() {
+        return this.isHostInSubnet(CGNAT_V4);
+      }
+      /**
+       * Returns true if the address is in one of the documentation ranges
+       * `192.0.2.0/24`, `198.51.100.0/24`, or `203.0.113.0/24` ([RFC 5737](https://datatracker.ietf.org/doc/html/rfc5737)).
+       * @returns {boolean}
+       */
+      isDocumentation() {
+        return DOCUMENTATION_V4.some((subnet) => this.isHostInSubnet(subnet));
+      }
+      /**
+       * Returns true if the address is in the benchmarking range `198.18.0.0/15` ([RFC 2544](https://datatracker.ietf.org/doc/html/rfc2544)).
+       * @returns {boolean}
+       */
+      isBenchmarking() {
+        return this.isHostInSubnet(BENCHMARKING_V4);
+      }
+      /**
+       * Returns true if the address is in the reserved range `240.0.0.0/4` ([RFC 1112](https://datatracker.ietf.org/doc/html/rfc1112)),
+       * which includes the limited broadcast address.
+       * @returns {boolean}
+       */
+      isReserved() {
+        return this.isHostInSubnet(RESERVED_V4);
+      }
+      /**
+       * Returns true if the address is globally reachable: not multicast, and not
+       * in any block the [IANA IPv4 Special-Purpose Address Registry](https://www.iana.org/assignments/iana-ipv4-special-registry/)
+       * marks as not globally reachable. That covers everything the individual
+       * classifiers name (private, loopback, link-local, CGNAT, unspecified,
+       * broadcast, documentation, benchmarking, reserved) and the blocks they do
+       * not, such as `0.0.0.0/8` and the IETF protocol assignments in
+       * `192.0.0.0/24`. This is the single predicate to use where a request must
+       * not reach an internal or special-purpose destination; see SECURITY.md.
+       * @returns {boolean}
+       */
+      isGlobal() {
+        return !this.isMulticast() && common.isGloballyReachable.call(this, SPECIAL_PURPOSE_V4);
+      }
+      /**
+       * Returns a zero-padded base-2 string representation of the address
+       * @returns {string}
+       */
+      binaryZeroPad() {
+        if (this._binaryZeroPad === void 0) {
+          this._binaryZeroPad = this.bigInt().toString(2).padStart(constants.BITS, "0");
+        }
+        return this._binaryZeroPad;
+      }
+      /**
+       * Groups an IPv4 address for inclusion at the end of an IPv6 address.
+       *
+       * Returns an HTML fragment: each half of the address is wrapped in a
+       * `<span>` carrying the group classes an address-inspector UI hovers on.
+       * The address content is HTML-escaped; anything you concatenate around it
+       * is your responsibility.
+       * @returns {String}
+       */
+      groupForV6() {
+        const segments = this.parsedAddress;
+        return this.correctForm().replace(constants.RE_ADDRESS, `<span class="hover-group group-v4 group-6">${segments.slice(0, 2).join(".")}</span>.<span class="hover-group group-v4 group-7">${segments.slice(2, 4).join(".")}</span>`);
+      }
+    };
+    exports2.Address4 = Address4;
+    var MULTICAST_V4 = new Address4("224.0.0.0/4");
+    var PRIVATE_V4 = [
+      new Address4("10.0.0.0/8"),
+      new Address4("172.16.0.0/12"),
+      new Address4("192.168.0.0/16")
+    ];
+    var LOOPBACK_V4 = new Address4("127.0.0.0/8");
+    var LINK_LOCAL_V4 = new Address4("169.254.0.0/16");
+    var UNSPECIFIED_V4 = new Address4("0.0.0.0/32");
+    var BROADCAST_V4 = new Address4("255.255.255.255/32");
+    var CGNAT_V4 = new Address4("100.64.0.0/10");
+    var DOCUMENTATION_V4 = [
+      new Address4("192.0.2.0/24"),
+      new Address4("198.51.100.0/24"),
+      new Address4("203.0.113.0/24")
+    ];
+    var BENCHMARKING_V4 = new Address4("198.18.0.0/15");
+    var RESERVED_V4 = new Address4("240.0.0.0/4");
+    var SPECIAL_PURPOSE_V4 = constants.SPECIAL_PURPOSE.map(([cidr, , reachable]) => ({
+      subnet: new Address4(cidr),
+      reachable
+    }));
+  }
+});
+
+// node_modules/ip-address/dist/v6/constants.js
+var require_constants2 = __commonJS({
+  "node_modules/ip-address/dist/v6/constants.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.SPECIAL_PURPOSE = exports2.RE_URL_WITH_PORT = exports2.RE_URL = exports2.RE_ZONE_STRING = exports2.RE_SUBNET_STRING = exports2.RE_BAD_ADDRESS = exports2.RE_BAD_CHARACTERS = exports2.TYPES = exports2.SCOPES = exports2.GROUPS = exports2.BITS = void 0;
+    exports2.BITS = 128;
+    exports2.GROUPS = 8;
+    exports2.SCOPES = {
+      0: "Reserved",
+      1: "Interface local",
+      2: "Link local",
+      4: "Admin local",
+      5: "Site local",
+      8: "Organization local",
+      14: "Global",
+      15: "Reserved"
+    };
+    exports2.TYPES = {
+      "ff01::1/128": "Multicast (All nodes on this interface)",
+      "ff01::2/128": "Multicast (All routers on this interface)",
+      "ff02::1/128": "Multicast (All nodes on this link)",
+      "ff02::2/128": "Multicast (All routers on this link)",
+      "ff05::2/128": "Multicast (All routers in this site)",
+      "ff02::5/128": "Multicast (OSPFv3 AllSPF routers)",
+      "ff02::6/128": "Multicast (OSPFv3 AllDR routers)",
+      "ff02::9/128": "Multicast (RIP routers)",
+      "ff02::a/128": "Multicast (EIGRP routers)",
+      "ff02::d/128": "Multicast (PIM routers)",
+      "ff02::16/128": "Multicast (MLDv2 reports)",
+      "ff01::fb/128": "Multicast (mDNSv6)",
+      "ff02::fb/128": "Multicast (mDNSv6)",
+      "ff05::fb/128": "Multicast (mDNSv6)",
+      "ff02::1:2/128": "Multicast (All DHCP servers and relay agents on this link)",
+      "ff05::1:2/128": "Multicast (All DHCP servers and relay agents in this site)",
+      "ff02::1:3/128": "Multicast (All DHCP servers on this link)",
+      "ff05::1:3/128": "Multicast (All DHCP servers in this site)",
+      "::/128": "Unspecified",
+      "::1/128": "Loopback",
+      "::ffff:0:0/96": "IPv4-mapped",
+      "ff00::/8": "Multicast",
+      "fe80::/10": "Link-local unicast",
+      "fc00::/7": "Unique local",
+      "2001::/32": "Teredo",
+      "2001:2::/48": "Benchmarking",
+      "2002::/16": "6to4",
+      "2001:db8::/32": "Documentation",
+      "3fff::/20": "Documentation",
+      "100::/64": "Discard-only",
+      "fec0::/10": "Site-local unicast (deprecated)",
+      "::/96": "IPv4-compatible (deprecated)",
+      "64:ff9b::/96": "NAT64 (well-known)",
+      "64:ff9b:1::/48": "NAT64 (local-use)"
+    };
+    exports2.RE_BAD_CHARACTERS = /([^0-9a-f:/%])/gi;
+    exports2.RE_BAD_ADDRESS = /([0-9a-f]{5,}|:{3,}|[^:]:$|^:[^:]|\/$)/gi;
+    exports2.RE_SUBNET_STRING = /\/\d{1,3}(?=%|$)/;
+    exports2.RE_ZONE_STRING = /%.*$/;
+    exports2.RE_URL = /^(?:\[([0-9a-f:.]+)\]|([0-9a-f:.]+))(?:[/?#].*)?$/i;
+    exports2.RE_URL_WITH_PORT = /^\[([0-9a-f:.]+)\]:([0-9]{1,5})(?:[/?#].*)?$/i;
+    exports2.SPECIAL_PURPOSE = [
+      ["::1/128", "Loopback Address", false],
+      ["::/128", "Unspecified Address", false],
+      ["::ffff:0:0/96", "IPv4-mapped Address", false],
+      ["64:ff9b::/96", "IPv4-IPv6 Translat.", true],
+      ["64:ff9b:1::/48", "IPv4-IPv6 Translat.", false],
+      ["100::/64", "Discard-Only Address Block", false],
+      ["100:0:0:1::/64", "Dummy IPv6 Prefix", false],
+      ["2001::/23", "IETF Protocol Assignments", false],
+      ["2001::/32", "TEREDO", false],
+      ["2001:1::1/128", "Port Control Protocol Anycast", true],
+      ["2001:1::2/128", "Traversal Using Relays around NAT Anycast", true],
+      ["2001:1::3/128", "DNS-SD Service Registration Protocol Anycast", true],
+      ["2001:2::/48", "Benchmarking", false],
+      ["2001:3::/32", "AMT", true],
+      ["2001:4:112::/48", "AS112-v6", true],
+      ["2001:10::/28", "Deprecated (previously ORCHID)", null],
+      ["2001:20::/28", "ORCHIDv2", true],
+      ["2001:30::/28", "Drone Remote ID Protocol Entity Tags (DETs) Prefix", true],
+      ["2001:db8::/32", "Documentation", false],
+      ["2002::/16", "6to4", false],
+      ["2620:4f:8000::/48", "Direct Delegation AS112 Service", true],
+      ["3fff::/20", "Documentation", false],
+      ["5f00::/16", "Segment Routing (SRv6) SIDs", false],
+      ["fc00::/7", "Unique-Local", false],
+      ["fe80::/10", "Link-Local Unicast", false]
+    ];
+  }
+});
+
+// node_modules/ip-address/dist/v6/helpers.js
+var require_helpers = __commonJS({
+  "node_modules/ip-address/dist/v6/helpers.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.escapeHtml = escapeHtml;
+    exports2.spanAllZeroes = spanAllZeroes;
+    exports2.spanAll = spanAll;
+    exports2.spanLeadingZeroes = spanLeadingZeroes;
+    exports2.simpleGroup = simpleGroup;
+    function escapeHtml(s) {
+      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    }
+    function spanAllZeroes(s) {
+      return escapeHtml(s).replace(/(0+)/g, '<span class="zero">$1</span>');
+    }
+    function spanAll(s, offset = 0) {
+      const letters = s.split("");
+      return letters.map((n, i) => `<span class="digit value-${escapeHtml(n)} position-${i + offset}">${spanAllZeroes(n)}</span>`).join("");
+    }
+    function spanLeadingZeroesSimple(group) {
+      return escapeHtml(group).replace(/^(0+)/, '<span class="zero">$1</span>');
+    }
+    function spanLeadingZeroes(address) {
+      const groups = address.split(":");
+      return groups.map((g2) => spanLeadingZeroesSimple(g2)).join(":");
+    }
+    function simpleGroup(addressString, offset = 0) {
+      const groups = addressString.split(":");
+      return groups.map((g2, i) => {
+        if (/group-v4/.test(g2)) {
+          return g2;
+        }
+        return `<span class="hover-group group-${i + offset}">${spanLeadingZeroesSimple(g2)}</span>`;
+      });
+    }
+  }
+});
+
+// node_modules/ip-address/dist/v6/regular-expressions.js
+var require_regular_expressions = __commonJS({
+  "node_modules/ip-address/dist/v6/regular-expressions.js"(exports2) {
+    "use strict";
+    var __createBinding = exports2 && exports2.__createBinding || (Object.create ? (function(o, m2, k2, k22) {
+      if (k22 === void 0) k22 = k2;
+      var desc = Object.getOwnPropertyDescriptor(m2, k2);
+      if (!desc || ("get" in desc ? !m2.__esModule : desc.writable || desc.configurable)) {
+        desc = { enumerable: true, get: function() {
+          return m2[k2];
+        } };
+      }
+      Object.defineProperty(o, k22, desc);
+    }) : (function(o, m2, k2, k22) {
+      if (k22 === void 0) k22 = k2;
+      o[k22] = m2[k2];
+    }));
+    var __setModuleDefault = exports2 && exports2.__setModuleDefault || (Object.create ? (function(o, v2) {
+      Object.defineProperty(o, "default", { enumerable: true, value: v2 });
+    }) : function(o, v2) {
+      o["default"] = v2;
+    });
+    var __importStar = exports2 && exports2.__importStar || function(mod) {
+      if (mod && mod.__esModule) return mod;
+      var result = {};
+      if (mod != null) {
+        for (var k2 in mod) if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)) __createBinding(result, mod, k2);
+      }
+      __setModuleDefault(result, mod);
+      return result;
+    };
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.ADDRESS_BOUNDARY = void 0;
+    exports2.groupPossibilities = groupPossibilities;
+    exports2.padGroup = padGroup;
+    exports2.simpleRegularExpression = simpleRegularExpression;
+    exports2.possibleElisions = possibleElisions;
+    var v6 = __importStar(require_constants2());
+    function groupPossibilities(possibilities) {
+      return `(${possibilities.join("|")})`;
+    }
+    function padGroup(group) {
+      if (group.length < 4) {
+        return `0{0,${4 - group.length}}${group}`;
+      }
+      return group;
+    }
+    exports2.ADDRESS_BOUNDARY = "[^A-Fa-f0-9:]";
+    function simpleRegularExpression(groups) {
+      const zeroIndexes = [];
+      groups.forEach((group, i) => {
+        const groupInteger = parseInt(group, 16);
+        if (groupInteger === 0) {
+          zeroIndexes.push(i);
+        }
+      });
+      const possibilities = zeroIndexes.map((zeroIndex) => groups.map((group, i) => {
+        if (i === zeroIndex) {
+          const elision = i === 0 || i === v6.GROUPS - 1 ? ":" : "";
+          return groupPossibilities([padGroup(group), elision]);
+        }
+        return padGroup(group);
+      }).join(":"));
+      possibilities.push(groups.map(padGroup).join(":"));
+      return groupPossibilities(possibilities);
+    }
+    function possibleElisions(elidedGroups, moreLeft, moreRight) {
+      const left = moreLeft ? "" : ":";
+      const right = moreRight ? "" : ":";
+      const possibilities = [];
+      if (!moreLeft && !moreRight) {
+        possibilities.push("::");
+      }
+      if (moreLeft && moreRight) {
+        possibilities.push("");
+      }
+      if (moreRight && !moreLeft || !moreRight && moreLeft) {
+        possibilities.push(":");
+      }
+      possibilities.push(`${left}(:0{1,4}){1,${elidedGroups - 1}}`);
+      possibilities.push(`(0{1,4}:){1,${elidedGroups - 1}}${right}`);
+      possibilities.push(`(0{1,4}:){${elidedGroups - 1}}0{1,4}`);
+      for (let groups = 1; groups < elidedGroups - 1; groups++) {
+        for (let position = 1; position < elidedGroups - groups; position++) {
+          possibilities.push(`(0{1,4}:){${position}}:(0{1,4}:){${elidedGroups - position - groups - 1}}0{1,4}`);
+        }
+      }
+      return groupPossibilities(possibilities);
+    }
+  }
+});
+
+// node_modules/ip-address/dist/ipv6.js
+var require_ipv6 = __commonJS({
+  "node_modules/ip-address/dist/ipv6.js"(exports2) {
+    "use strict";
+    var __createBinding = exports2 && exports2.__createBinding || (Object.create ? (function(o, m2, k2, k22) {
+      if (k22 === void 0) k22 = k2;
+      var desc = Object.getOwnPropertyDescriptor(m2, k2);
+      if (!desc || ("get" in desc ? !m2.__esModule : desc.writable || desc.configurable)) {
+        desc = { enumerable: true, get: function() {
+          return m2[k2];
+        } };
+      }
+      Object.defineProperty(o, k22, desc);
+    }) : (function(o, m2, k2, k22) {
+      if (k22 === void 0) k22 = k2;
+      o[k22] = m2[k2];
+    }));
+    var __setModuleDefault = exports2 && exports2.__setModuleDefault || (Object.create ? (function(o, v2) {
+      Object.defineProperty(o, "default", { enumerable: true, value: v2 });
+    }) : function(o, v2) {
+      o["default"] = v2;
+    });
+    var __importStar = exports2 && exports2.__importStar || function(mod) {
+      if (mod && mod.__esModule) return mod;
+      var result = {};
+      if (mod != null) {
+        for (var k2 in mod) if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)) __createBinding(result, mod, k2);
+      }
+      __setModuleDefault(result, mod);
+      return result;
+    };
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.Address6 = void 0;
+    var common = __importStar(require_common());
+    var constants4 = __importStar(require_constants());
+    var constants6 = __importStar(require_constants2());
+    var helpers = __importStar(require_helpers());
+    var ipv4_1 = require_ipv4();
+    var regular_expressions_1 = require_regular_expressions();
+    var address_error_1 = require_address_error();
+    var common_1 = require_common();
+    var isCorrect6 = common.isCorrect(constants6.BITS);
+    function assert3(condition) {
+      if (!condition) {
+        throw new Error("Assertion failed.");
+      }
+    }
+    function addCommas(number6) {
+      const r = /(\d+)(\d{3})/;
+      while (r.test(number6)) {
+        number6 = number6.replace(r, "$1,$2");
+      }
+      return number6;
+    }
+    function spanLeadingZeroes4(n) {
+      n = n.replace(/^(0{1,})([1-9]+)$/, '<span class="parse-error">$1</span>$2');
+      n = n.replace(/^(0{1,})(0)$/, '<span class="parse-error">$1</span>$2');
+      return n;
+    }
+    function compact(address, slice) {
+      const s1 = [];
+      const s2 = [];
+      let i;
+      for (i = 0; i < address.length; i++) {
+        if (i < slice[0]) {
+          s1.push(address[i]);
+        } else if (i > slice[1]) {
+          s2.push(address[i]);
+        }
+      }
+      return s1.concat(["compact"]).concat(s2);
+    }
+    function paddedHex(octet) {
+      return parseInt(octet, 16).toString(16).padStart(4, "0");
+    }
+    function unsignByte(b2) {
+      return b2 & 255;
+    }
+    var Address62 = class _Address6 {
+      constructor(address, optionalGroups) {
+        this.addressMinusSuffix = "";
+        this.parsedSubnet = "";
+        this.subnet = "/128";
+        this.subnetMask = 128;
+        this.v4 = false;
+        this.zone = "";
+        this.isInSubnet = common.isInSubnet;
+        this.isHostInSubnet = common.isHostInSubnet;
+        this.isCorrect = isCorrect6;
+        if (optionalGroups === void 0) {
+          this.groups = constants6.GROUPS;
+        } else {
+          this.groups = optionalGroups;
+        }
+        this.address = address;
+        const subnet = constants6.RE_SUBNET_STRING.exec(address);
+        if (subnet) {
+          this.parsedSubnet = subnet[0].replace("/", "");
+          this.subnetMask = parseInt(this.parsedSubnet, 10);
+          this.subnet = `/${this.subnetMask}`;
+          if (Number.isNaN(this.subnetMask) || this.subnetMask < 0 || this.subnetMask > constants6.BITS) {
+            throw new address_error_1.AddressError("Invalid subnet mask.");
+          }
+          address = address.replace(constants6.RE_SUBNET_STRING, "");
+        }
+        if (/\//.test(address)) {
+          throw new address_error_1.AddressError("Invalid subnet mask.");
+        }
+        const zone = constants6.RE_ZONE_STRING.exec(address);
+        if (zone) {
+          this.zone = zone[0];
+          address = address.replace(constants6.RE_ZONE_STRING, "");
+        }
+        const longest = this.groups * 5 + 5;
+        if (address.length > longest) {
+          throw new address_error_1.AddressError(`IPv6 addresses are at most ${longest} characters.`);
+        }
+        this.addressMinusSuffix = address;
+        this.parsedAddress = this.parse(this.addressMinusSuffix);
+      }
+      /**
+       * Returns true if the given string is a valid IPv6 address (with optional
+       * CIDR subnet and zone identifier), false otherwise. Host bits in the
+       * subnet portion are allowed (e.g. `2001:db8::1/32` is valid); for strict
+       * network-address validation compare `correctForm()` to
+       * `startAddress().correctForm()`, or use `networkForm()`.
+       */
+      static isValid(address) {
+        try {
+          new _Address6(address);
+          return true;
+        } catch {
+          return false;
+        }
+      }
+      /**
+       * Convert a BigInt to a v6 address object. The value must be in the
+       * range `[0, 2**128 - 1]`; otherwise `AddressError` is thrown.
+       * @param {bigint} bigInt - a BigInt to convert
+       * @returns {Address6}
+       * @example
+       * var bigInt = BigInt('1000000000000');
+       * var address = Address6.fromBigInt(bigInt);
+       * address.correctForm(); // '::e8:d4a5:1000'
+       */
+      static fromBigInt(bigInt) {
+        if (bigInt < BigInt(0) || bigInt > (BigInt(1) << BigInt(constants6.BITS)) - BigInt(1)) {
+          throw new address_error_1.AddressError("IPv6 BigInt must be in the range 0 to 2**128 - 1");
+        }
+        const hex = bigInt.toString(16).padStart(32, "0");
+        const groups = [];
+        for (let i = 0; i < constants6.GROUPS; i++) {
+          groups.push(hex.slice(i * 4, (i + 1) * 4));
+        }
+        return new _Address6(groups.join(":"));
+      }
+      /**
+       * Parse a URL (with optional bracketed host and port) into an address and
+       * port. Returns either `{ address, port }` on success or
+       * `{ error, address: null, port: null }` if the URL could not be parsed.
+       * Ports are returned as numbers (or `null` if absent or out of range).
+       * @example
+       * var addressAndPort = Address6.fromURL('http://[ffff::]:8080/foo/');
+       * addressAndPort.address.correctForm(); // 'ffff::'
+       * addressAndPort.port; // 8080
+       */
+      static fromURL(url3) {
+        var _a5;
+        let host;
+        let port = null;
+        let result;
+        let error3;
+        const stripped = url3.replace(/^[a-z][a-z0-9+.-]*:\/\//i, "");
+        if (stripped.indexOf("[") !== -1 && stripped.indexOf("]:") !== -1) {
+          error3 = "failed to parse address with port";
+          result = constants6.RE_URL_WITH_PORT.exec(stripped);
+          if (result === null) {
+            return { error: error3, address: null, port: null };
+          }
+          host = result[1];
+          port = result[2];
+        } else {
+          error3 = "failed to parse address from URL";
+          result = constants6.RE_URL.exec(stripped);
+          if (result === null) {
+            return { error: error3, address: null, port: null };
+          }
+          host = (_a5 = result[1]) !== null && _a5 !== void 0 ? _a5 : result[2];
+        }
+        if (port) {
+          port = parseInt(port, 10);
+          if (port < 0 || port > 65535) {
+            port = null;
+          }
+        } else {
+          port = null;
+        }
+        let address;
+        try {
+          address = new _Address6(host);
+        } catch {
+          return { error: error3, address: null, port: null };
+        }
+        return { address, port };
+      }
+      /**
+       * Construct an `Address6` from an address and a hex subnet mask given as
+       * separate strings (e.g. as returned by Node's `os.networkInterfaces()`).
+       * Throws `AddressError` if the mask is non-contiguous (e.g.
+       * `ffff::ffff`).
+       * @example
+       * var address = Address6.fromAddressAndMask('fe80::1', 'ffff:ffff:ffff:ffff::');
+       * address.subnetMask; // 64
+       */
+      static fromAddressAndMask(address, mask) {
+        const bits = common.prefixLengthFromMask(new _Address6(mask).bigInt(), constants6.BITS);
+        return new _Address6(`${address}/${bits}`);
+      }
+      /**
+       * Construct an `Address6` from an address and a Cisco-style wildcard mask
+       * given as separate strings (e.g. `::ffff:ffff:ffff:ffff` for a `/64`).
+       * The wildcard mask is the bitwise inverse of the subnet mask. Throws
+       * `AddressError` if the mask is non-contiguous.
+       * @example
+       * var address = Address6.fromAddressAndWildcardMask('fe80::1', '::ffff:ffff:ffff:ffff');
+       * address.subnetMask; // 64
+       */
+      static fromAddressAndWildcardMask(address, wildcardMask) {
+        const wildcard = new _Address6(wildcardMask).bigInt();
+        const allOnes = (BigInt(1) << BigInt(constants6.BITS)) - BigInt(1);
+        const mask = wildcard ^ allOnes;
+        const bits = common.prefixLengthFromMask(mask, constants6.BITS);
+        return new _Address6(`${address}/${bits}`);
+      }
+      /**
+       * Construct an `Address6` from a wildcard pattern with trailing `*`
+       * groups. The number of trailing wildcards determines the prefix
+       * length: each `*` represents 16 bits. `::` is expanded to zero groups
+       * (not wildcards) before evaluating trailing wildcards.
+       *
+       * Only trailing whole-group wildcards are supported. Partial-group
+       * wildcards (e.g. `2001:db8::0*`) and interior wildcards (e.g.
+       * `*::1`) throw `AddressError`.
+       * @example
+       * Address6.fromWildcard('2001:db8:*:*:*:*:*:*').subnet;  // '/32'
+       * Address6.fromWildcard('2001:db8::*').subnet;           // '/112'
+       * Address6.fromWildcard('*:*:*:*:*:*:*:*').subnet;       // '/0'
+       */
+      static fromWildcard(input) {
+        if (input.includes("%") || input.includes("/")) {
+          throw new address_error_1.AddressError("Wildcard pattern must not include a zone or CIDR suffix");
+        }
+        const halves = input.split("::");
+        if (halves.length > 2) {
+          throw new address_error_1.AddressError("Wildcard pattern cannot contain more than one '::'");
+        }
+        let groups;
+        if (halves.length === 2) {
+          const left = halves[0] === "" ? [] : halves[0].split(":");
+          const right = halves[1] === "" ? [] : halves[1].split(":");
+          const remaining = constants6.GROUPS - left.length - right.length;
+          if (remaining < 1) {
+            throw new address_error_1.AddressError("Wildcard pattern with '::' has too many groups");
+          }
+          groups = [...left, ...new Array(remaining).fill("0"), ...right];
+        } else {
+          groups = input.split(":");
+        }
+        if (groups.length !== constants6.GROUPS) {
+          throw new address_error_1.AddressError("Wildcard pattern must have 8 groups");
+        }
+        let firstWildcard = -1;
+        for (let i = 0; i < groups.length; i++) {
+          if (groups[i] === "*") {
+            if (firstWildcard === -1) {
+              firstWildcard = i;
+            }
+          } else if (firstWildcard !== -1) {
+            throw new address_error_1.AddressError("Wildcard `*` must only appear in trailing groups (e.g. `2001:db8:*:*:*:*:*:*`)");
+          }
+        }
+        const trailing = firstWildcard === -1 ? 0 : groups.length - firstWildcard;
+        const replaced = groups.map((g2) => g2 === "*" ? "0" : g2);
+        const subnetBits = constants6.BITS - trailing * 16;
+        return new _Address6(`${replaced.join(":")}/${subnetBits}`);
+      }
+      /**
+       * Create an IPv6-mapped address given an IPv4 address
+       * @param {string} address - An IPv4 address string
+       * @returns {Address6}
+       * @example
+       * var address = Address6.fromAddress4('192.168.0.1');
+       * address.correctForm(); // '::ffff:c0a8:1'
+       * address.to4in6(); // '::ffff:192.168.0.1'
+       */
+      static fromAddress4(address) {
+        const address4 = new ipv4_1.Address4(address);
+        const mask6 = constants6.BITS - (constants4.BITS - address4.subnetMask);
+        return new _Address6(`::ffff:${address4.correctForm()}/${mask6}`);
+      }
+      /**
+       * Return an address from ip6.arpa form. A full 32-nibble name gives a /128
+       * address; a shorter name, as used for a delegated reverse zone, gives the
+       * network it covers, with a subnet mask of four bits per nibble, so
+       * `fromArpa(x.reverseForm())` round-trips {@link reverseForm} for any prefix.
+       * @param {string} arpaFormAddress - an 'ip6.arpa' form address
+       * @returns {Adress6}
+       * @example
+       * var address = Address6.fromArpa(e.f.f.f.3.c.2.6.f.f.f.e.6.6.8.e.1.0.6.7.9.4.e.c.0.0.0.0.1.0.0.2.ip6.arpa.)
+       * address.correctForm(); // '2001:0:ce49:7601:e866:efff:62c3:fffe'
+       * Address6.fromArpa('8.b.d.0.1.0.0.2.ip6.arpa.').networkForm(); // '2001:db8::/32'
+       */
+      static fromArpa(arpaFormAddress) {
+        const nibbles = arpaFormAddress.replace(/(\.ip6\.arpa)?\.?$/i, "");
+        if (!/^[0-9a-f](\.[0-9a-f]){0,31}$/i.test(nibbles)) {
+          throw new address_error_1.AddressError("Invalid 'ip6.arpa' form.");
+        }
+        const reversed = nibbles.split(".").reverse();
+        const subnetMask = reversed.length * 4;
+        const hex = reversed.join("").padEnd(32, "0");
+        const groups = [];
+        for (let i = 0; i < constants6.GROUPS; i++) {
+          groups.push(hex.slice(i * 4, (i + 1) * 4));
+        }
+        return new _Address6(`${groups.join(":")}/${subnetMask}`);
+      }
+      /**
+       * Return the Microsoft UNC transcription of the address
+       * @returns {String} the Microsoft UNC transcription of the address
+       */
+      microsoftTranscription() {
+        return `${this.correctForm().replace(/:/g, "-")}.ipv6-literal.net`;
+      }
+      /**
+       * Return the first n bits of the address, defaulting to the subnet mask
+       * @param {number} [mask=subnet] - the number of bits to mask
+       * @returns {String} the first n bits of the address as a string
+       */
+      mask(mask = this.subnetMask) {
+        return this.getBitsBase2(0, mask);
+      }
+      /**
+       * Return the number of possible subnets of a given size in the address
+       * @param {number} [subnetSize=128] - the subnet size
+       * @returns {String}
+       */
+      // TODO: probably useful to have a numeric version of this too
+      possibleSubnets(subnetSize = 128) {
+        const availableBits = constants6.BITS - this.subnetMask;
+        const subnetBits = Math.abs(subnetSize - constants6.BITS);
+        const subnetPowers = availableBits - subnetBits;
+        if (subnetPowers < 0) {
+          return "0";
+        }
+        return addCommas((BigInt("2") ** BigInt(subnetPowers)).toString(10));
+      }
+      /**
+       * Helper function getting start address.
+       * @returns {bigint}
+       */
+      _startAddress() {
+        return BigInt(`0b${this.mask() + "0".repeat(constants6.BITS - this.subnetMask)}`);
+      }
+      /**
+       * The first address in the range given by this address' subnet
+       * Often referred to as the Network Address.
+       * @returns {Address6}
+       */
+      startAddress() {
+        return _Address6.fromBigInt(this._startAddress());
+      }
+      /**
+       * The first host address in the range given by this address's subnet ie
+       * the first address after the Network Address
+       * @returns {Address6}
+       */
+      startAddressExclusive() {
+        const adjust = BigInt("1");
+        return _Address6.fromBigInt(this._startAddress() + adjust);
+      }
+      /**
+       * Helper function getting end address.
+       * @returns {bigint}
+       */
+      _endAddress() {
+        return BigInt(`0b${this.mask() + "1".repeat(constants6.BITS - this.subnetMask)}`);
+      }
+      /**
+       * The last address in the range given by this address's subnet. IPv6 has
+       * no broadcast address, so this is an ordinary assignable address (in a
+       * 64-bit-interface-identifier subnet it falls inside the reserved
+       * subnet-anycast block of [RFC 2526](https://datatracker.ietf.org/doc/html/rfc2526)).
+       * @returns {Address6}
+       */
+      endAddress() {
+        return _Address6.fromBigInt(this._endAddress());
+      }
+      /**
+       * The address one before {@link endAddress}. This is the IPv6 counterpart
+       * of the IPv4 method that skips the broadcast address; IPv6 has no broadcast,
+       * so it drops exactly one address and does not model the 128 reserved
+       * subnet-anycast identifiers of [RFC 2526](https://datatracker.ietf.org/doc/html/rfc2526).
+       * @returns {Address6}
+       */
+      endAddressExclusive() {
+        const adjust = BigInt("1");
+        return _Address6.fromBigInt(this._endAddress() - adjust);
+      }
+      /**
+       * Returns the address `n` addresses after this one (or before, when `n` is
+       * negative), keeping this address's subnet mask. Throws `AddressError` when
+       * the result would fall outside the IPv6 address space or `n` is not an
+       * integer.
+       * @param {number | bigint} n
+       * @returns {Address6}
+       * @example
+       * new Address6('2001:db8::/64').offset(1).correctForm(); // '2001:db8::1'
+       */
+      offset(n) {
+        return _Address6.fromBigInt(common.offsetBigInt(this.bigInt(), n, constants6.BITS, "IPv6")).withSubnetMask(this.subnetMask);
+      }
+      /**
+       * Returns the network that follows this address's network: the address after
+       * {@link endAddress}, with the same subnet mask. Throws `AddressError` when
+       * this network is the last one in the address space.
+       * @returns {Address6}
+       * @example
+       * new Address6('2001:db8::/64').nextNetwork().networkForm(); // '2001:db8:0:1::/64'
+       */
+      nextNetwork() {
+        return _Address6.fromBigInt(common.offsetBigInt(this._endAddress(), 1, constants6.BITS, "IPv6")).withSubnetMask(this.subnetMask);
+      }
+      withSubnetMask(subnetMask) {
+        return new _Address6(`${this.correctForm()}/${subnetMask}`);
+      }
+      /**
+       * The hex form of the subnet mask, e.g. `ffff:ffff:ffff:ffff::` for a
+       * `/64`. Returns an `Address6`; call `.correctForm()` for the string.
+       * @returns {Address6}
+       */
+      subnetMaskAddress() {
+        return _Address6.fromBigInt(BigInt(`0b${"1".repeat(this.subnetMask)}${"0".repeat(constants6.BITS - this.subnetMask)}`));
+      }
+      /**
+       * The Cisco-style wildcard mask, e.g. `::ffff:ffff:ffff:ffff` for a
+       * `/64`. This is the bitwise inverse of `subnetMaskAddress()`. Returns
+       * an `Address6`; call `.correctForm()` for the string.
+       * @returns {Address6}
+       */
+      wildcardMask() {
+        return _Address6.fromBigInt(BigInt(`0b${"0".repeat(this.subnetMask)}${"1".repeat(constants6.BITS - this.subnetMask)}`));
+      }
+      /**
+       * The network address in CIDR string form, e.g. `2001:db8::/32` for
+       * `2001:db8::1/32`. For an address with no explicit subnet the prefix
+       * is `/128`, e.g. `networkForm()` on `2001:db8::1` returns
+       * `2001:db8::1/128`.
+       * @returns {string}
+       */
+      networkForm() {
+        return `${this.startAddress().correctForm()}/${this.subnetMask}`;
+      }
+      /**
+       * Return the scope of the address. The 4-bit scope field
+       * ([RFC 4291 §2.7](https://datatracker.ietf.org/doc/html/rfc4291#section-2.7))
+       * is only defined for multicast addresses; for unicast addresses the scope
+       * is derived from the address type per
+       * [RFC 4007 §6](https://datatracker.ietf.org/doc/html/rfc4007#section-6).
+       * @returns {String}
+       */
+      getScope() {
+        const type = this.getType();
+        if (type === "Multicast" || type.startsWith("Multicast ")) {
+          const scope = constants6.SCOPES[parseInt(this.getBits(12, 16).toString(10), 10)];
+          return scope || "Unknown";
+        }
+        if (type === "Link-local unicast" || type === "Loopback") {
+          return "Link local";
+        }
+        if (type === "Unspecified") {
+          return "Unknown";
+        }
+        return "Global";
+      }
+      /**
+       * Return the type of the address
+       * @returns {String}
+       */
+      getType() {
+        for (let i = 0; i < TYPE_SUBNETS.length; i++) {
+          const entry = TYPE_SUBNETS[i];
+          if (this.isHostInSubnet(entry[0])) {
+            return entry[1];
+          }
+        }
+        return "Global unicast";
+      }
+      /**
+       * Return the bits in the given range as a BigInt
+       * @returns {bigint}
+       */
+      getBits(start, end) {
+        return BigInt(`0b${this.getBitsBase2(start, end)}`);
+      }
+      /**
+       * Return the bits in the given range as a base-2 string
+       * @returns {String}
+       */
+      getBitsBase2(start, end) {
+        return this.binaryZeroPad().slice(start, end);
+      }
+      /**
+       * Return the bits in the given range as a base-16 string
+       * @returns {String}
+       */
+      getBitsBase16(start, end) {
+        const length = end - start;
+        if (length % 4 !== 0) {
+          throw new Error("Length of bits to retrieve must be divisible by four");
+        }
+        return this.getBits(start, end).toString(16).padStart(length / 4, "0");
+      }
+      /**
+       * Return the bits that are set past the subnet mask length
+       * @returns {String}
+       */
+      getBitsPastSubnet() {
+        return this.getBitsBase2(this.subnetMask, constants6.BITS);
+      }
+      /**
+       * Return the reversed ip6.arpa form of the address
+       * @param {Object} options
+       * @param {boolean} options.omitSuffix - omit the "ip6.arpa" suffix
+       * @returns {String}
+       */
+      reverseForm(options) {
+        if (!options) {
+          options = {};
+        }
+        const characters = Math.floor(this.subnetMask / 4);
+        const reversed = this.canonicalForm().replace(/:/g, "").split("").slice(0, characters).reverse().join(".");
+        if (characters > 0) {
+          if (options.omitSuffix) {
+            return reversed;
+          }
+          return `${reversed}.ip6.arpa.`;
+        }
+        if (options.omitSuffix) {
+          return "";
+        }
+        return "ip6.arpa.";
+      }
+      /**
+       * Returns the address in correct form, per
+       * [RFC 5952](https://datatracker.ietf.org/doc/html/rfc5952): leading zeros
+       * stripped, the longest run of zero groups collapsed to `::`, and hex digits
+       * lowercased (e.g. `2001:db8::1`). This is the recommended form for display.
+       */
+      correctForm() {
+        let i;
+        let groups = [];
+        let zeroCounter = 0;
+        const zeroes = [];
+        for (i = 0; i < this.parsedAddress.length; i++) {
+          const value = parseInt(this.parsedAddress[i], 16);
+          if (value === 0) {
+            zeroCounter++;
+          }
+          if (value !== 0 && zeroCounter > 0) {
+            if (zeroCounter > 1) {
+              zeroes.push([i - zeroCounter, i - 1]);
+            }
+            zeroCounter = 0;
+          }
+        }
+        if (zeroCounter > 1) {
+          zeroes.push([this.parsedAddress.length - zeroCounter, this.parsedAddress.length - 1]);
+        }
+        const zeroLengths = zeroes.map((n) => n[1] - n[0] + 1);
+        if (zeroes.length > 0) {
+          const index = zeroLengths.indexOf(Math.max(...zeroLengths));
+          groups = compact(this.parsedAddress, zeroes[index]);
+        } else {
+          groups = this.parsedAddress;
+        }
+        for (i = 0; i < groups.length; i++) {
+          if (groups[i] !== "compact") {
+            groups[i] = parseInt(groups[i], 16).toString(16);
+          }
+        }
+        let correct = groups.join(":");
+        correct = correct.replace(/^compact$/, "::");
+        correct = correct.replace(/(^compact)|(compact$)/, ":");
+        correct = correct.replace(/compact/, "");
+        return correct;
+      }
+      /**
+       * Return a zero-padded base-2 string representation of the address
+       * @returns {String}
+       * @example
+       * var address = new Address6('2001:4860:4001:803::1011');
+       * address.binaryZeroPad();
+       * // '0010000000000001010010000110000001000000000000010000100000000011
+       * //  0000000000000000000000000000000000000000000000000001000000010001'
+       */
+      binaryZeroPad() {
+        if (this._binaryZeroPad === void 0) {
+          this._binaryZeroPad = this.bigInt().toString(2).padStart(constants6.BITS, "0");
+        }
+        return this._binaryZeroPad;
+      }
+      /**
+       * Parses a v4-in-v6 string (e.g. `::ffff:192.168.0.1`) by extracting the
+       * trailing IPv4 address into `this.address4` / `this.parsedAddress4` and
+       * returning the address with the v4 portion converted to two v6 groups.
+       * Used internally by `parse()`.
+       */
+      // TODO: Improve the semantics of this helper function
+      parse4in6(address) {
+        if (address.indexOf(".") === -1) {
+          return address;
+        }
+        const groups = address.split(":");
+        const lastGroup = groups.slice(-1)[0];
+        const v4Octets = lastGroup.split(".");
+        if (v4Octets.length === constants4.GROUPS && v4Octets.every((octet) => /^\d{1,3}$/.test(octet))) {
+          if (v4Octets.some((octet) => /^0\d/.test(octet))) {
+            const highlighted = v4Octets.map(spanLeadingZeroes4).join(".");
+            const prefix = groups.slice(0, -1).map(helpers.escapeHtml).join(":");
+            const separator = groups.length > 1 ? ":" : "";
+            throw new address_error_1.AddressError("IPv4 addresses can't have leading zeroes.", `${prefix}${separator}${highlighted}`);
+          }
+        }
+        const address4 = lastGroup.match(constants4.RE_ADDRESS);
+        if (address4) {
+          this.parsedAddress4 = address4[0];
+          const v4Suffix = this.subnetMask >= 96 ? `/${this.subnetMask - 96}` : "";
+          this.address4 = new ipv4_1.Address4(`${this.parsedAddress4}${v4Suffix}`);
+          this.v4 = true;
+          groups[groups.length - 1] = this.address4.toGroup6();
+          address = groups.join(":");
+        }
+        return address;
+      }
+      /**
+       * Parses an IPv6 address string into its 8 hexadecimal groups (expanding
+       * any `::` elision and any trailing v4-in-v6 portion) and stores the result
+       * on `this.parsedAddress`. Called automatically by the constructor; you
+       * typically don't need to call it directly. Throws `AddressError` if the
+       * input is malformed.
+       */
+      // TODO: Make private?
+      parse(address) {
+        address = this.parse4in6(address);
+        const badCharacters = address.match(constants6.RE_BAD_CHARACTERS);
+        if (badCharacters) {
+          throw new address_error_1.AddressError(`Bad character${badCharacters.length > 1 ? "s" : ""} detected in address: ${badCharacters.join("")}`, address.replace(constants6.RE_BAD_CHARACTERS, '<span class="parse-error">$1</span>'));
+        }
+        const badAddress = address.match(constants6.RE_BAD_ADDRESS);
+        if (badAddress) {
+          throw new address_error_1.AddressError(`Address failed regex: ${badAddress.join("")}`, address.replace(constants6.RE_BAD_ADDRESS, '<span class="parse-error">$1</span>'));
+        }
+        let groups = [];
+        const halves = address.split("::");
+        if (halves.length === 2) {
+          let first = halves[0].split(":");
+          let last = halves[1].split(":");
+          if (first.length === 1 && first[0] === "") {
+            first = [];
+          }
+          if (last.length === 1 && last[0] === "") {
+            last = [];
+          }
+          const remaining = this.groups - (first.length + last.length);
+          if (!remaining) {
+            throw new address_error_1.AddressError("Error parsing groups");
+          }
+          this.elidedGroups = remaining;
+          this.elisionBegin = first.length;
+          this.elisionEnd = first.length + this.elidedGroups;
+          groups = groups.concat(first);
+          for (let i = 0; i < remaining; i++) {
+            groups.push("0");
+          }
+          groups = groups.concat(last);
+        } else if (halves.length === 1) {
+          groups = address.split(":");
+          this.elidedGroups = 0;
+        } else {
+          throw new address_error_1.AddressError("Too many :: groups found");
+        }
+        groups = groups.map((group) => parseInt(group, 16).toString(16));
+        if (groups.length !== this.groups) {
+          throw new address_error_1.AddressError("Incorrect number of groups found");
+        }
+        return groups;
+      }
+      /**
+       * Returns the canonical (fully expanded) form of the address: all 8 groups,
+       * each padded to 4 hex digits, with no `::` collapsing
+       * (e.g. `2001:0db8:0000:0000:0000:0000:0000:0001`). Useful for sorting and
+       * byte-exact comparison.
+       */
+      canonicalForm() {
+        return this.parsedAddress.map(paddedHex).join(":");
+      }
+      /**
+       * Return the decimal form of the address
+       * @returns {String}
+       */
+      decimal() {
+        return this.parsedAddress.map((n) => parseInt(n, 16).toString(10).padStart(5, "0")).join(":");
+      }
+      /**
+       * Return the address as a BigInt
+       * @returns {bigint}
+       */
+      bigInt() {
+        return BigInt(`0x${this.parsedAddress.map(paddedHex).join("")}`);
+      }
+      /**
+       * Return the last two groups of this address as an IPv4 address string.
+       * If this address carries a CIDR prefix that covers the trailing 32 bits
+       * (i.e. `subnetMask >= 96`), the resulting `Address4` inherits the
+       * corresponding v4 prefix (`subnetMask - 96`); otherwise it defaults to
+       * `/32`.
+       * @returns {Address4}
+       * @example
+       * var address = new Address6('2001:4860:4001::1825:bf11');
+       * address.to4().correctForm(); // '24.37.191.17'
+       */
+      to4() {
+        const binary = this.binaryZeroPad().split("");
+        const hex = BigInt(`0b${binary.slice(96, 128).join("")}`).toString(16).padStart(8, "0");
+        if (this.subnetMask >= 96) {
+          const v4Mask = this.subnetMask - 96;
+          const groups = [];
+          for (let i = 0; i < 8; i += 2) {
+            groups.push(parseInt(hex.slice(i, i + 2), 16));
+          }
+          return new ipv4_1.Address4(`${groups.join(".")}/${v4Mask}`);
+        }
+        return ipv4_1.Address4.fromHex(hex);
+      }
+      /**
+       * Return the v4-in-v6 form of the address
+       * @returns {String}
+       */
+      to4in6() {
+        const address4 = this.to4();
+        const address6 = new _Address6(this.parsedAddress.slice(0, 6).join(":"), 6);
+        const correct = address6.correctForm();
+        let infix = "";
+        if (!/:$/.test(correct)) {
+          infix = ":";
+        }
+        return correct + infix + address4.correctForm();
+      }
+      /**
+       * Decodes the Teredo tunneling fields embedded in this address. Returns the
+       * Teredo prefix, server IPv4, client IPv4, raw flag bits, cone-NAT flag,
+       * UDP port, and Microsoft-format flag breakdown (reserved, universal/local,
+       * group/individual, nonce). Only meaningful for addresses in `2001::/32`.
+       */
+      inspectTeredo() {
+        const prefix = this.getBitsBase16(0, 32);
+        const bitsForUdpPort = this.getBits(80, 96);
+        const udpPort = (bitsForUdpPort ^ BigInt("0xffff")).toString();
+        const server4 = ipv4_1.Address4.fromHex(this.getBitsBase16(32, 64));
+        const bitsForClient4 = this.getBits(96, 128);
+        const client4 = ipv4_1.Address4.fromHex((bitsForClient4 ^ BigInt("0xffffffff")).toString(16).padStart(8, "0"));
+        const flagsBase2 = this.getBitsBase2(64, 80);
+        const coneNat = (0, common_1.testBit)(flagsBase2, 15);
+        const reserved = (0, common_1.testBit)(flagsBase2, 14);
+        const groupIndividual = (0, common_1.testBit)(flagsBase2, 8);
+        const universalLocal = (0, common_1.testBit)(flagsBase2, 9);
+        const nonce = BigInt(`0b${flagsBase2.slice(2, 6) + flagsBase2.slice(8, 16)}`).toString(10);
+        return {
+          prefix: `${prefix.slice(0, 4)}:${prefix.slice(4, 8)}`,
+          server4: server4.address,
+          client4: client4.address,
+          flags: flagsBase2,
+          coneNat,
+          microsoft: {
+            reserved,
+            universalLocal,
+            groupIndividual,
+            nonce
+          },
+          udpPort
+        };
+      }
+      /**
+       * Decodes the 6to4 tunneling fields embedded in this address. Returns the
+       * 6to4 prefix and the embedded IPv4 gateway address. Only meaningful for
+       * addresses in `2002::/16`.
+       */
+      inspect6to4() {
+        const prefix = this.getBitsBase16(0, 16);
+        const gateway = ipv4_1.Address4.fromHex(this.getBitsBase16(16, 48));
+        return {
+          prefix: prefix.slice(0, 4),
+          gateway: gateway.address
+        };
+      }
+      /**
+       * Return a v6 6to4 address from a v6 v4inv6 address
+       * @returns {Address6}
+       */
+      to6to4() {
+        if (!this.is4()) {
+          return null;
+        }
+        const addr6to4 = [
+          "2002",
+          this.getBitsBase16(96, 112),
+          this.getBitsBase16(112, 128),
+          "",
+          "/16"
+        ].join(":");
+        return new _Address6(addr6to4);
+      }
+      /**
+       * Embed an IPv4 address into a NAT64 IPv6 address using the encoding
+       * defined by [RFC 6052](https://datatracker.ietf.org/doc/html/rfc6052).
+       * The default prefix is the well-known prefix `64:ff9b::/96`. The prefix
+       * length must be one of 32, 40, 48, 56, 64, or 96; for prefixes shorter
+       * than /64 the IPv4 octets are split around the reserved bits 64–71.
+       * @example
+       * Address6.fromAddress4Nat64('192.0.2.33').correctForm(); // '64:ff9b::c000:221'
+       * Address6.fromAddress4Nat64('192.0.2.33', '2001:db8::/32').correctForm(); // '2001:db8:c000:221::'
+       */
+      static fromAddress4Nat64(address, prefix = "64:ff9b::/96") {
+        const v4 = new ipv4_1.Address4(address);
+        const prefix6 = new _Address6(prefix);
+        const pl = prefix6.subnetMask;
+        if (pl !== 32 && pl !== 40 && pl !== 48 && pl !== 56 && pl !== 64 && pl !== 96) {
+          throw new address_error_1.AddressError("NAT64 prefix length must be 32, 40, 48, 56, 64, or 96");
+        }
+        const prefixBits = prefix6.binaryZeroPad();
+        const v4Bits = v4.binaryZeroPad();
+        let bits;
+        if (pl === 96) {
+          bits = prefixBits.slice(0, 96) + v4Bits;
+        } else {
+          const beforeU = 64 - pl;
+          bits = [
+            prefixBits.slice(0, pl),
+            v4Bits.slice(0, beforeU),
+            // Bits 64 to 71 are the reserved u octet and are always zero.
+            "00000000",
+            v4Bits.slice(beforeU),
+            "0".repeat(128 - 72 - (32 - beforeU))
+          ].join("");
+        }
+        const hex = BigInt(`0b${bits}`).toString(16).padStart(32, "0");
+        const groups = [];
+        for (let i = 0; i < 8; i++) {
+          groups.push(hex.slice(i * 4, (i + 1) * 4));
+        }
+        return new _Address6(groups.join(":"));
+      }
+      /**
+       * Extract the embedded IPv4 address from a NAT64 IPv6 address using the
+       * encoding defined by [RFC 6052](https://datatracker.ietf.org/doc/html/rfc6052).
+       * The default prefix is the well-known prefix `64:ff9b::/96`. Returns
+       * `null` if this address is not contained within the given prefix.
+       * @example
+       * new Address6('64:ff9b::c000:221').toAddress4Nat64()!.correctForm(); // '192.0.2.33'
+       */
+      toAddress4Nat64(prefix = "64:ff9b::/96") {
+        const prefix6 = new _Address6(prefix);
+        const pl = prefix6.subnetMask;
+        if (pl !== 32 && pl !== 40 && pl !== 48 && pl !== 56 && pl !== 64 && pl !== 96) {
+          throw new address_error_1.AddressError("NAT64 prefix length must be 32, 40, 48, 56, 64, or 96");
+        }
+        if (!this.isHostInSubnet(prefix6)) {
+          return null;
+        }
+        const bits = this.binaryZeroPad();
+        let v4Bits;
+        if (pl === 96) {
+          v4Bits = bits.slice(96, 128);
+        } else {
+          const beforeU = 64 - pl;
+          v4Bits = bits.slice(pl, pl + beforeU) + bits.slice(72, 72 + (32 - beforeU));
+        }
+        const octets = [];
+        for (let i = 0; i < 4; i++) {
+          octets.push(parseInt(v4Bits.slice(i * 8, (i + 1) * 8), 2).toString());
+        }
+        return new ipv4_1.Address4(octets.join("."));
+      }
+      /**
+       * Return a byte array.
+       *
+       * To get a Node.js `Buffer`, wrap the result: `Buffer.from(address.toByteArray())`.
+       * @returns {Array}
+       */
+      toByteArray() {
+        const value = this.bigInt().toString(16).padStart(constants6.BITS / 4, "0");
+        const bytes = [];
+        for (let i = 0, length = value.length; i < length; i += 2) {
+          bytes.push(parseInt(value.substring(i, i + 2), 16));
+        }
+        return bytes;
+      }
+      /**
+       * Return an unsigned byte array.
+       *
+       * To get a Node.js `Buffer`, wrap the result: `Buffer.from(address.toUnsignedByteArray())`.
+       * @returns {Array}
+       */
+      toUnsignedByteArray() {
+        return this.toByteArray().map(unsignByte);
+      }
+      /**
+       * Convert a byte array to an Address6 object.
+       *
+       * Accepts unsigned bytes (0 to 255) or signed bytes (-128 to 127, as an
+       * `Int8Array` or a Java `byte[]` holds them), folding signed values to their
+       * unsigned equivalent. Throws `AddressError` unless given exactly 16
+       * integers from -128 to 255.
+       *
+       * To convert from a Node.js `Buffer`, spread it: `Address6.fromByteArray([...buf])`.
+       * @returns {Address6}
+       */
+      static fromByteArray(bytes) {
+        common.assertByteArray(bytes, 16, "IPv6", -128);
+        return this.fromUnsignedByteArray(bytes.map(unsignByte));
+      }
+      /**
+       * Convert an unsigned byte array to an Address6 object.
+       *
+       * Throws `AddressError` unless given exactly 16 integers from 0 to 255.
+       *
+       * To convert from a Node.js `Buffer`, spread it: `Address6.fromUnsignedByteArray([...buf])`.
+       * @returns {Address6}
+       */
+      static fromUnsignedByteArray(bytes) {
+        common.assertByteArray(bytes, 16, "IPv6", 0);
+        const BYTE_MAX = BigInt("256");
+        let result = BigInt("0");
+        let multiplier = BigInt("1");
+        for (let i = bytes.length - 1; i >= 0; i--) {
+          result += multiplier * BigInt(bytes[i].toString(10));
+          multiplier *= BYTE_MAX;
+        }
+        return _Address6.fromBigInt(result);
+      }
+      /**
+       * Returns true if the address is in the canonical form, false otherwise
+       * @returns {boolean}
+       */
+      isCanonical() {
+        return this.addressMinusSuffix === this.canonicalForm();
+      }
+      /**
+       * Returns true if the address is a link-local unicast address in `fe80::/10`
+       * ([RFC 4291 §2.4](https://datatracker.ietf.org/doc/html/rfc4291#section-2.4))
+       * or an IPv4-mapped / NAT64 address whose embedded IPv4 address is link-local
+       * (`169.254.0.0/16`, e.g. `::ffff:169.254.169.254`), false otherwise.
+       * @returns {boolean}
+       */
+      isLinkLocal() {
+        const embedded = this.embeddedIPv4();
+        if (embedded) {
+          return embedded.isLinkLocal();
+        }
+        return this.isHostInSubnet(LINK_LOCAL_SUBNET);
+      }
+      /**
+       * Returns true if the address is a multicast address, false otherwise
+       * @returns {boolean}
+       */
+      isMulticast() {
+        const embedded = this.embeddedIPv4();
+        if (embedded) {
+          return embedded.isMulticast();
+        }
+        const type = this.getType();
+        return type === "Multicast" || type.startsWith("Multicast ");
+      }
+      /**
+       * Returns true if the address was written in v4-in-v6 dotted-quad notation
+       * (e.g. `::ffff:127.0.0.1`), false otherwise. This is a notation-level flag
+       * and does not reflect whether the address bits lie in the IPv4-mapped
+       * (`::ffff:0:0/96`) subnet — for that, see {@link isMapped4}.
+       * @returns {boolean}
+       */
+      is4() {
+        return this.v4;
+      }
+      /**
+       * Returns true if the address is an IPv4-mapped IPv6 address in
+       * `::ffff:0:0/96` ([RFC 4291 §2.5.5.2](https://datatracker.ietf.org/doc/html/rfc4291#section-2.5.5.2)),
+       * false otherwise. Unlike {@link is4}, this checks the underlying address
+       * bits rather than the textual notation, so `::ffff:127.0.0.1` and
+       * `::ffff:7f00:1` both return true.
+       * @returns {boolean}
+       */
+      isMapped4() {
+        return this.isHostInSubnet(IPV4_MAPPED_SUBNET);
+      }
+      /**
+       * If this address embeds a routable IPv4 address — i.e. it is IPv4-mapped
+       * (`::ffff:0:0/96`) or sits in the NAT64 well-known prefix (`64:ff9b::/96`,
+       * [RFC 6052](https://datatracker.ietf.org/doc/html/rfc6052)) — return that
+       * embedded address as an {@link Address4}; otherwise return null.
+       *
+       * The special-property checks (`isLoopback`, `isLinkLocal`, `isMulticast`,
+       * `isUnspecified`, `isPrivate`, `isCGNAT`, `isBroadcast`) call this first and
+       * delegate to the embedded {@link Address4} when present, so a literal such as
+       * `::ffff:127.0.0.1` is classified by what it actually reaches (loopback)
+       * rather than by its IPv6 wrapper (which `getType()` reports as IPv4-mapped).
+       * This matters wherever the checks back a trust-boundary decision (e.g. an
+       * SSRF allow/deny filter): without normalization, `::ffff:10.0.0.1`,
+       * `::ffff:169.254.169.254`, `64:ff9b::7f00:1`, etc. would all read as
+       * non-internal.
+       * @returns {Address4 | null}
+       */
+      embeddedIPv4() {
+        if (this.isMapped4() || this.isHostInSubnet(NAT64_WELL_KNOWN_SUBNET)) {
+          return this.to4();
+        }
+        return null;
+      }
+      /**
+       * Returns true if the address is a Teredo address, false otherwise
+       * @returns {boolean}
+       */
+      isTeredo() {
+        return this.isHostInSubnet(TEREDO_SUBNET);
+      }
+      /**
+       * Returns true if the address is a 6to4 address, false otherwise
+       * @returns {boolean}
+       */
+      is6to4() {
+        return this.isHostInSubnet(SIX_TO_FOUR_SUBNET);
+      }
+      /**
+       * Returns true if the address is a loopback address, false otherwise
+       * @returns {boolean}
+       */
+      isLoopback() {
+        const embedded = this.embeddedIPv4();
+        if (embedded) {
+          return embedded.isLoopback();
+        }
+        return this.getType() === "Loopback";
+      }
+      /**
+       * Returns true if the address is a Unique Local Address in `fc00::/7` ([RFC 4193](https://datatracker.ietf.org/doc/html/rfc4193)). ULAs are the IPv6 equivalent of IPv4 [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918) private addresses.
+       * @returns {boolean}
+       */
+      isULA() {
+        return this.isHostInSubnet(ULA_SUBNET);
+      }
+      /**
+       * Returns true if the address is private, i.e. a Unique Local Address in
+       * `fc00::/7` ([RFC 4193](https://datatracker.ietf.org/doc/html/rfc4193)), an
+       * address in the NAT64 local-use range `64:ff9b:1::/48`
+       * ([RFC 8215](https://datatracker.ietf.org/doc/html/rfc8215)), or an
+       * IPv4-mapped / NAT64 well-known address whose embedded IPv4 address is in
+       * one of the [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918)
+       * private ranges (e.g. `::ffff:10.0.0.1`). This is the IPv6 counterpart to
+       * {@link Address4.isPrivate}; use it instead of {@link isULA} when you need to
+       * catch mapped RFC 1918 addresses as well as native ULAs.
+       *
+       * The local-use NAT64 range is reported private as a whole rather than by
+       * its embedded IPv4 address: an operator may carve a prefix of any RFC 6052
+       * length out of `64:ff9b:1::/48`, so the same bits decode to different IPv4
+       * addresses under different deployments and no single decoding is correct.
+       * Use {@link toAddress4Nat64} with the deployment's prefix to decode one.
+       * @returns {boolean}
+       */
+      isPrivate() {
+        const embedded = this.embeddedIPv4();
+        if (embedded) {
+          return embedded.isPrivate();
+        }
+        return this.isULA() || this.isHostInSubnet(NAT64_LOCAL_USE_SUBNET);
+      }
+      /**
+       * Returns true if the address is an IPv4-mapped / NAT64 address whose embedded
+       * IPv4 address is in the carrier-grade NAT range `100.64.0.0/10`
+       * ([RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598)), false
+       * otherwise. There is no native IPv6 CGNAT range, so this only ever returns
+       * true for an embedded IPv4 address (e.g. `::ffff:100.64.0.1`).
+       * @returns {boolean}
+       */
+      isCGNAT() {
+        const embedded = this.embeddedIPv4();
+        if (embedded) {
+          return embedded.isCGNAT();
+        }
+        return false;
+      }
+      /**
+       * Returns true if the address is an IPv4-mapped / NAT64 address whose embedded
+       * IPv4 address is the limited broadcast address `255.255.255.255`
+       * ([RFC 919](https://datatracker.ietf.org/doc/html/rfc919)), false otherwise.
+       * There is no IPv6 broadcast, so this only ever returns true for an embedded
+       * IPv4 address (e.g. `::ffff:255.255.255.255`).
+       * @returns {boolean}
+       */
+      isBroadcast() {
+        const embedded = this.embeddedIPv4();
+        if (embedded) {
+          return embedded.isBroadcast();
+        }
+        return false;
+      }
+      /**
+       * Returns true if the address is the unspecified address `::`.
+       * @returns {boolean}
+       */
+      isUnspecified() {
+        const embedded = this.embeddedIPv4();
+        if (embedded) {
+          return embedded.isUnspecified();
+        }
+        return this.getType() === "Unspecified";
+      }
+      /**
+       * Returns true if the address is in the documentation prefix `2001:db8::/32` ([RFC 3849](https://datatracker.ietf.org/doc/html/rfc3849)).
+       * @returns {boolean}
+       */
+      isDocumentation() {
+        return DOCUMENTATION_SUBNETS.some((subnet) => this.isHostInSubnet(subnet));
+      }
+      /**
+       * Returns true if the address is in the benchmarking range `2001:2::/48`
+       * ([RFC 5180](https://datatracker.ietf.org/doc/html/rfc5180)) or is an
+       * IPv4-mapped / NAT64 address whose embedded IPv4 address is in
+       * `198.18.0.0/15`, false otherwise.
+       * @returns {boolean}
+       */
+      isBenchmarking() {
+        const embedded = this.embeddedIPv4();
+        if (embedded) {
+          return embedded.isBenchmarking();
+        }
+        return this.isHostInSubnet(BENCHMARKING_SUBNET);
+      }
+      /**
+       * Returns true if the address is globally reachable: inside the global
+       * unicast allocation `2000::/3` (the only range the [IANA IPv6 Address Space
+       * Registry](https://www.iana.org/assignments/ipv6-address-space/) assigns
+       * for global unicast; everything else is reserved, ULA, link-local, or
+       * multicast) and not in any block the [IANA IPv6 Special-Purpose Address Registry](https://www.iana.org/assignments/iana-ipv6-special-registry/)
+       * marks as not globally reachable. An IPv4-mapped or NAT64 well-known
+       * address answers for its embedded IPv4 address, so `::ffff:10.0.0.1` and
+       * `64:ff9b::7f00:1` are not global. Teredo (`2001::/32`) and 6to4
+       * (`2002::/16`) are not global either: the registry lists them as N/A and a
+       * packet to one needs a relay.
+       *
+       * This covers everything the individual classifiers name and the blocks they
+       * do not: the discard-only prefix `100::/64`, the IETF protocol assignments
+       * in `2001::/23`, the deprecated site-local `fec0::/10` and IPv4-compatible
+       * `::/96` ranges, and unallocated space such as `4000::/3`. It is the single
+       * predicate to use where a request must not reach an internal or
+       * special-purpose destination; see SECURITY.md.
+       * @returns {boolean}
+       */
+      isGlobal() {
+        const embedded = this.embeddedIPv4();
+        if (embedded) {
+          return embedded.isGlobal();
+        }
+        return this.isHostInSubnet(GLOBAL_UNICAST_SUBNET) && common.isGloballyReachable.call(this, SPECIAL_PURPOSE_V6);
+      }
+      // #endregion
+      // #region HTML
+      /**
+       * Returns the address as an HTTP URL with the host bracketed, e.g.
+       * `http://[2001:db8::1]/`. If `optionalPort` is provided it is appended,
+       * e.g. `http://[2001:db8::1]:8080/`.
+       */
+      href(optionalPort) {
+        if (optionalPort === void 0) {
+          optionalPort = "";
+        } else {
+          optionalPort = `:${optionalPort}`;
+        }
+        return `http://[${this.correctForm()}]${optionalPort}/`;
+      }
+      /**
+       * Returns an HTML `<a>` element whose `href` encodes the address in a URL
+       * hash fragment (default prefix `/#address=`). Useful for linking between
+       * pages of an address-inspector UI.
+       * @param options.className - CSS class for the rendered `<a>` element
+       * @param options.prefix - hash prefix prepended to the address (default `/#address=`)
+       * @param options.v4 - when true, render the address in v4-in-v6 form
+       */
+      link(options) {
+        if (!options) {
+          options = {};
+        }
+        if (options.className === void 0) {
+          options.className = "";
+        }
+        if (options.prefix === void 0) {
+          options.prefix = "/#address=";
+        }
+        if (options.v4 === void 0) {
+          options.v4 = false;
+        }
+        let formFunction = this.correctForm;
+        if (options.v4) {
+          formFunction = this.to4in6;
+        }
+        const form = formFunction.call(this);
+        const safeHref = helpers.escapeHtml(`${options.prefix}${form}`);
+        const safeForm = helpers.escapeHtml(form);
+        if (options.className) {
+          const safeClass = helpers.escapeHtml(options.className);
+          return `<a href="${safeHref}" class="${safeClass}">${safeForm}</a>`;
+        }
+        return `<a href="${safeHref}">${safeForm}</a>`;
+      }
+      /**
+       * Groups an address.
+       *
+       * Returns an HTML fragment: each group is wrapped in a `<span>` carrying
+       * the group classes an address-inspector UI hovers on. The address content
+       * is HTML-escaped; anything you concatenate around it is your
+       * responsibility.
+       * @returns {String}
+       */
+      group() {
+        if (this.elidedGroups === 0) {
+          return helpers.simpleGroup(this.addressMinusSuffix).join(":");
+        }
+        assert3(typeof this.elidedGroups === "number");
+        assert3(typeof this.elisionBegin === "number");
+        const output = [];
+        const [left, right] = this.addressMinusSuffix.split("::");
+        if (left.length) {
+          output.push(...helpers.simpleGroup(left));
+        } else {
+          output.push("");
+        }
+        const classes = ["hover-group"];
+        for (let i = this.elisionBegin; i < this.elisionBegin + this.elidedGroups; i++) {
+          classes.push(`group-${i}`);
+        }
+        output.push(`<span class="${classes.join(" ")}"></span>`);
+        if (right.length) {
+          output.push(...helpers.simpleGroup(right, this.elisionEnd));
+        } else {
+          output.push("");
+        }
+        if (this.is4()) {
+          assert3(this.address4 instanceof ipv4_1.Address4);
+          output.pop();
+          output.push(this.address4.groupForV6());
+        }
+        return output.join(":");
+      }
+      // #endregion
+      // #region Regular expressions
+      /**
+       * Generate a regular expression string that can be used to find or validate
+       * all variations of this address
+       * @param {boolean} substringSearch
+       * @returns {string}
+       */
+      regularExpressionString(substringSearch = false) {
+        let output = [];
+        const address6 = new _Address6(this.correctForm());
+        if (address6.elidedGroups === 0) {
+          output.push((0, regular_expressions_1.simpleRegularExpression)(address6.parsedAddress));
+        } else if (address6.elidedGroups === constants6.GROUPS) {
+          output.push((0, regular_expressions_1.possibleElisions)(constants6.GROUPS));
+        } else {
+          const halves = address6.address.split("::");
+          if (halves[0].length) {
+            output.push((0, regular_expressions_1.simpleRegularExpression)(halves[0].split(":")));
+          }
+          assert3(typeof address6.elidedGroups === "number");
+          output.push((0, regular_expressions_1.possibleElisions)(address6.elidedGroups, halves[0].length !== 0, halves[1].length !== 0));
+          if (halves[1].length) {
+            output.push((0, regular_expressions_1.simpleRegularExpression)(halves[1].split(":")));
+          }
+          output = [output.join(":")];
+        }
+        if (!substringSearch) {
+          output = [
+            "(?=^|",
+            regular_expressions_1.ADDRESS_BOUNDARY,
+            "|[^\\w\\:])(",
+            ...output,
+            ")(?=[^\\w\\:]|",
+            regular_expressions_1.ADDRESS_BOUNDARY,
+            "|$)"
+          ];
+        }
+        return output.join("");
+      }
+      /**
+       * Generate a regular expression that can be used to find or validate all
+       * variations of this address.
+       * @param {boolean} substringSearch
+       * @returns {RegExp}
+       */
+      regularExpression(substringSearch = false) {
+        return new RegExp(this.regularExpressionString(substringSearch), "i");
+      }
+    };
+    exports2.Address6 = Address62;
+    var TYPE_SUBNETS = Object.keys(constants6.TYPES).map((subnet) => [
+      new Address62(subnet),
+      constants6.TYPES[subnet]
+    ]);
+    var TEREDO_SUBNET = new Address62("2001::/32");
+    var SIX_TO_FOUR_SUBNET = new Address62("2002::/16");
+    var ULA_SUBNET = new Address62("fc00::/7");
+    var LINK_LOCAL_SUBNET = new Address62("fe80::/10");
+    var DOCUMENTATION_SUBNETS = [new Address62("2001:db8::/32"), new Address62("3fff::/20")];
+    var BENCHMARKING_SUBNET = new Address62("2001:2::/48");
+    var GLOBAL_UNICAST_SUBNET = new Address62("2000::/3");
+    var SPECIAL_PURPOSE_V6 = constants6.SPECIAL_PURPOSE.map(([cidr, , reachable]) => ({
+      subnet: new Address62(cidr),
+      reachable
+    }));
+    var IPV4_MAPPED_SUBNET = new Address62("::ffff:0:0/96");
+    var NAT64_WELL_KNOWN_SUBNET = new Address62("64:ff9b::/96");
+    var NAT64_LOCAL_USE_SUBNET = new Address62("64:ff9b:1::/48");
+  }
+});
+
+// node_modules/ip-address/dist/ip-address.js
+var require_ip_address = __commonJS({
+  "node_modules/ip-address/dist/ip-address.js"(exports2) {
+    "use strict";
+    var __createBinding = exports2 && exports2.__createBinding || (Object.create ? (function(o, m2, k2, k22) {
+      if (k22 === void 0) k22 = k2;
+      var desc = Object.getOwnPropertyDescriptor(m2, k2);
+      if (!desc || ("get" in desc ? !m2.__esModule : desc.writable || desc.configurable)) {
+        desc = { enumerable: true, get: function() {
+          return m2[k2];
+        } };
+      }
+      Object.defineProperty(o, k22, desc);
+    }) : (function(o, m2, k2, k22) {
+      if (k22 === void 0) k22 = k2;
+      o[k22] = m2[k2];
+    }));
+    var __setModuleDefault = exports2 && exports2.__setModuleDefault || (Object.create ? (function(o, v2) {
+      Object.defineProperty(o, "default", { enumerable: true, value: v2 });
+    }) : function(o, v2) {
+      o["default"] = v2;
+    });
+    var __importStar = exports2 && exports2.__importStar || function(mod) {
+      if (mod && mod.__esModule) return mod;
+      var result = {};
+      if (mod != null) {
+        for (var k2 in mod) if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2)) __createBinding(result, mod, k2);
+      }
+      __setModuleDefault(result, mod);
+      return result;
+    };
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.v6 = exports2.AddressError = exports2.Address6 = exports2.Address4 = void 0;
+    var ipv4_1 = require_ipv4();
+    Object.defineProperty(exports2, "Address4", { enumerable: true, get: function() {
+      return ipv4_1.Address4;
+    } });
+    var ipv6_1 = require_ipv6();
+    Object.defineProperty(exports2, "Address6", { enumerable: true, get: function() {
+      return ipv6_1.Address6;
+    } });
+    var address_error_1 = require_address_error();
+    Object.defineProperty(exports2, "AddressError", { enumerable: true, get: function() {
+      return address_error_1.AddressError;
+    } });
+    var helpers = __importStar(require_helpers());
+    exports2.v6 = { helpers };
+  }
+});
+
+// node_modules/debug/src/common.js
+var require_common2 = __commonJS({
+  "node_modules/debug/src/common.js"(exports2, module2) {
+    function setup(env) {
+      createDebug.debug = createDebug;
+      createDebug.default = createDebug;
+      createDebug.coerce = coerce2;
+      createDebug.disable = disable;
+      createDebug.enable = enable;
+      createDebug.enabled = enabled;
+      createDebug.humanize = require_ms5();
+      createDebug.destroy = destroy;
+      Object.keys(env).forEach((key) => {
+        createDebug[key] = env[key];
+      });
+      createDebug.names = [];
+      createDebug.skips = [];
+      createDebug.formatters = {};
+      function selectColor(namespace) {
+        let hash = 0;
+        for (let i = 0; i < namespace.length; i++) {
+          hash = (hash << 5) - hash + namespace.charCodeAt(i);
+          hash |= 0;
+        }
+        return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
+      }
+      createDebug.selectColor = selectColor;
+      function createDebug(namespace) {
+        let prevTime;
+        let enableOverride = null;
+        let namespacesCache;
+        let enabledCache;
+        function debug(...args) {
+          if (!debug.enabled) {
+            return;
+          }
+          const self2 = debug;
+          const curr = Number(/* @__PURE__ */ new Date());
+          const ms = curr - (prevTime || curr);
+          self2.diff = ms;
+          self2.prev = prevTime;
+          self2.curr = curr;
+          prevTime = curr;
+          args[0] = createDebug.coerce(args[0]);
+          if (typeof args[0] !== "string") {
+            args.unshift("%O");
+          }
+          let index = 0;
+          args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
+            if (match === "%%") {
+              return "%";
+            }
+            index++;
+            const formatter = createDebug.formatters[format];
+            if (typeof formatter === "function") {
+              const val = args[index];
+              match = formatter.call(self2, val);
+              args.splice(index, 1);
+              index--;
+            }
+            return match;
+          });
+          createDebug.formatArgs.call(self2, args);
+          const logFn = self2.log || createDebug.log;
+          logFn.apply(self2, args);
+        }
+        debug.namespace = namespace;
+        debug.useColors = createDebug.useColors();
+        debug.color = createDebug.selectColor(namespace);
+        debug.extend = extend3;
+        debug.destroy = createDebug.destroy;
+        Object.defineProperty(debug, "enabled", {
+          enumerable: true,
+          configurable: false,
+          get: () => {
+            if (enableOverride !== null) {
+              return enableOverride;
+            }
+            if (namespacesCache !== createDebug.namespaces) {
+              namespacesCache = createDebug.namespaces;
+              enabledCache = createDebug.enabled(namespace);
+            }
+            return enabledCache;
+          },
+          set: (v2) => {
+            enableOverride = v2;
+          }
+        });
+        if (typeof createDebug.init === "function") {
+          createDebug.init(debug);
+        }
+        return debug;
+      }
+      function extend3(namespace, delimiter) {
+        const newDebug = createDebug(this.namespace + (typeof delimiter === "undefined" ? ":" : delimiter) + namespace);
+        newDebug.log = this.log;
+        return newDebug;
+      }
+      function enable(namespaces) {
+        createDebug.save(namespaces);
+        createDebug.namespaces = namespaces;
+        createDebug.names = [];
+        createDebug.skips = [];
+        const split = (typeof namespaces === "string" ? namespaces : "").trim().replace(/\s+/g, ",").split(",").filter(Boolean);
+        for (const ns of split) {
+          if (ns[0] === "-") {
+            createDebug.skips.push(ns.slice(1));
+          } else {
+            createDebug.names.push(ns);
+          }
+        }
+      }
+      function matchesTemplate(search, template) {
+        let searchIndex = 0;
+        let templateIndex = 0;
+        let starIndex = -1;
+        let matchIndex = 0;
+        while (searchIndex < search.length) {
+          if (templateIndex < template.length && (template[templateIndex] === search[searchIndex] || template[templateIndex] === "*")) {
+            if (template[templateIndex] === "*") {
+              starIndex = templateIndex;
+              matchIndex = searchIndex;
+              templateIndex++;
+            } else {
+              searchIndex++;
+              templateIndex++;
+            }
+          } else if (starIndex !== -1) {
+            templateIndex = starIndex + 1;
+            matchIndex++;
+            searchIndex = matchIndex;
+          } else {
+            return false;
+          }
+        }
+        while (templateIndex < template.length && template[templateIndex] === "*") {
+          templateIndex++;
+        }
+        return templateIndex === template.length;
+      }
+      function disable() {
+        const namespaces = [
+          ...createDebug.names,
+          ...createDebug.skips.map((namespace) => "-" + namespace)
+        ].join(",");
+        createDebug.enable("");
+        return namespaces;
+      }
+      function enabled(name) {
+        for (const skip of createDebug.skips) {
+          if (matchesTemplate(name, skip)) {
+            return false;
+          }
+        }
+        for (const ns of createDebug.names) {
+          if (matchesTemplate(name, ns)) {
+            return true;
+          }
+        }
+        return false;
+      }
+      function coerce2(val) {
+        if (val instanceof Error) {
+          return val.stack || val.message;
+        }
+        return val;
+      }
+      function destroy() {
+        console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.");
+      }
+      createDebug.enable(createDebug.load());
+      return createDebug;
+    }
+    module2.exports = setup;
+  }
+});
+
+// node_modules/debug/src/browser.js
+var require_browser5 = __commonJS({
+  "node_modules/debug/src/browser.js"(exports2, module2) {
+    exports2.formatArgs = formatArgs;
+    exports2.save = save;
+    exports2.load = load;
+    exports2.useColors = useColors;
+    exports2.storage = localstorage();
+    exports2.destroy = /* @__PURE__ */ (() => {
+      let warned = false;
+      return () => {
+        if (!warned) {
+          warned = true;
+          console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.");
+        }
+      };
+    })();
+    exports2.colors = [
+      "#0000CC",
+      "#0000FF",
+      "#0033CC",
+      "#0033FF",
+      "#0066CC",
+      "#0066FF",
+      "#0099CC",
+      "#0099FF",
+      "#00CC00",
+      "#00CC33",
+      "#00CC66",
+      "#00CC99",
+      "#00CCCC",
+      "#00CCFF",
+      "#3300CC",
+      "#3300FF",
+      "#3333CC",
+      "#3333FF",
+      "#3366CC",
+      "#3366FF",
+      "#3399CC",
+      "#3399FF",
+      "#33CC00",
+      "#33CC33",
+      "#33CC66",
+      "#33CC99",
+      "#33CCCC",
+      "#33CCFF",
+      "#6600CC",
+      "#6600FF",
+      "#6633CC",
+      "#6633FF",
+      "#66CC00",
+      "#66CC33",
+      "#9900CC",
+      "#9900FF",
+      "#9933CC",
+      "#9933FF",
+      "#99CC00",
+      "#99CC33",
+      "#CC0000",
+      "#CC0033",
+      "#CC0066",
+      "#CC0099",
+      "#CC00CC",
+      "#CC00FF",
+      "#CC3300",
+      "#CC3333",
+      "#CC3366",
+      "#CC3399",
+      "#CC33CC",
+      "#CC33FF",
+      "#CC6600",
+      "#CC6633",
+      "#CC9900",
+      "#CC9933",
+      "#CCCC00",
+      "#CCCC33",
+      "#FF0000",
+      "#FF0033",
+      "#FF0066",
+      "#FF0099",
+      "#FF00CC",
+      "#FF00FF",
+      "#FF3300",
+      "#FF3333",
+      "#FF3366",
+      "#FF3399",
+      "#FF33CC",
+      "#FF33FF",
+      "#FF6600",
+      "#FF6633",
+      "#FF9900",
+      "#FF9933",
+      "#FFCC00",
+      "#FFCC33"
+    ];
+    function useColors() {
+      if (typeof window !== "undefined" && window.process && (window.process.type === "renderer" || window.process.__nwjs)) {
+        return true;
+      }
+      if (typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
+        return false;
+      }
+      let m2;
+      return typeof document !== "undefined" && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || // Is firebug? http://stackoverflow.com/a/398120/376773
+      typeof window !== "undefined" && window.console && (window.console.firebug || window.console.exception && window.console.table) || // Is firefox >= v31?
+      // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+      typeof navigator !== "undefined" && navigator.userAgent && (m2 = navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)) && parseInt(m2[1], 10) >= 31 || // Double check webkit in userAgent just in case we are in a worker
+      typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
+    }
+    function formatArgs(args) {
+      args[0] = (this.useColors ? "%c" : "") + this.namespace + (this.useColors ? " %c" : " ") + args[0] + (this.useColors ? "%c " : " ") + "+" + module2.exports.humanize(this.diff);
+      if (!this.useColors) {
+        return;
+      }
+      const c = "color: " + this.color;
+      args.splice(1, 0, c, "color: inherit");
+      let index = 0;
+      let lastC = 0;
+      args[0].replace(/%[a-zA-Z%]/g, (match) => {
+        if (match === "%%") {
+          return;
+        }
+        index++;
+        if (match === "%c") {
+          lastC = index;
+        }
+      });
+      args.splice(lastC, 0, c);
+    }
+    exports2.log = console.debug || console.log || (() => {
+    });
+    function save(namespaces) {
+      try {
+        if (namespaces) {
+          exports2.storage.setItem("debug", namespaces);
+        } else {
+          exports2.storage.removeItem("debug");
+        }
+      } catch (error3) {
+      }
+    }
+    function load() {
+      let r;
+      try {
+        r = exports2.storage.getItem("debug") || exports2.storage.getItem("DEBUG");
+      } catch (error3) {
+      }
+      if (!r && typeof process !== "undefined" && "env" in process) {
+        r = process.env.DEBUG;
+      }
+      return r;
+    }
+    function localstorage() {
+      try {
+        return localStorage;
+      } catch (error3) {
+      }
+    }
+    module2.exports = require_common2()(exports2);
+    var { formatters } = module2.exports;
+    formatters.j = function(v2) {
+      try {
+        return JSON.stringify(v2);
+      } catch (error3) {
+        return "[UnexpectedJSONParseError]: " + error3.message;
+      }
+    };
+  }
+});
+
+// node_modules/has-flag/index.js
+var require_has_flag = __commonJS({
+  "node_modules/has-flag/index.js"(exports2, module2) {
+    "use strict";
+    module2.exports = (flag, argv = process.argv) => {
+      const prefix = flag.startsWith("-") ? "" : flag.length === 1 ? "-" : "--";
+      const position = argv.indexOf(prefix + flag);
+      const terminatorPosition = argv.indexOf("--");
+      return position !== -1 && (terminatorPosition === -1 || position < terminatorPosition);
+    };
+  }
+});
+
+// node_modules/supports-color/index.js
+var require_supports_color = __commonJS({
+  "node_modules/supports-color/index.js"(exports2, module2) {
+    "use strict";
+    var os = require("os");
+    var tty = require("tty");
+    var hasFlag = require_has_flag();
+    var { env } = process;
+    var forceColor;
+    if (hasFlag("no-color") || hasFlag("no-colors") || hasFlag("color=false") || hasFlag("color=never")) {
+      forceColor = 0;
+    } else if (hasFlag("color") || hasFlag("colors") || hasFlag("color=true") || hasFlag("color=always")) {
+      forceColor = 1;
+    }
+    if ("FORCE_COLOR" in env) {
+      if (env.FORCE_COLOR === "true") {
+        forceColor = 1;
+      } else if (env.FORCE_COLOR === "false") {
+        forceColor = 0;
+      } else {
+        forceColor = env.FORCE_COLOR.length === 0 ? 1 : Math.min(parseInt(env.FORCE_COLOR, 10), 3);
+      }
+    }
+    function translateLevel(level) {
+      if (level === 0) {
+        return false;
+      }
+      return {
+        level,
+        hasBasic: true,
+        has256: level >= 2,
+        has16m: level >= 3
+      };
+    }
+    function supportsColor(haveStream, streamIsTTY) {
+      if (forceColor === 0) {
+        return 0;
+      }
+      if (hasFlag("color=16m") || hasFlag("color=full") || hasFlag("color=truecolor")) {
+        return 3;
+      }
+      if (hasFlag("color=256")) {
+        return 2;
+      }
+      if (haveStream && !streamIsTTY && forceColor === void 0) {
+        return 0;
+      }
+      const min = forceColor || 0;
+      if (env.TERM === "dumb") {
+        return min;
+      }
+      if (process.platform === "win32") {
+        const osRelease = os.release().split(".");
+        if (Number(osRelease[0]) >= 10 && Number(osRelease[2]) >= 10586) {
+          return Number(osRelease[2]) >= 14931 ? 3 : 2;
+        }
+        return 1;
+      }
+      if ("CI" in env) {
+        if (["TRAVIS", "CIRCLECI", "APPVEYOR", "GITLAB_CI", "GITHUB_ACTIONS", "BUILDKITE"].some((sign) => sign in env) || env.CI_NAME === "codeship") {
+          return 1;
+        }
+        return min;
+      }
+      if ("TEAMCITY_VERSION" in env) {
+        return /^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/.test(env.TEAMCITY_VERSION) ? 1 : 0;
+      }
+      if (env.COLORTERM === "truecolor") {
+        return 3;
+      }
+      if ("TERM_PROGRAM" in env) {
+        const version3 = parseInt((env.TERM_PROGRAM_VERSION || "").split(".")[0], 10);
+        switch (env.TERM_PROGRAM) {
+          case "iTerm.app":
+            return version3 >= 3 ? 3 : 2;
+          case "Apple_Terminal":
+            return 2;
+        }
+      }
+      if (/-256(color)?$/i.test(env.TERM)) {
+        return 2;
+      }
+      if (/^screen|^xterm|^vt100|^vt220|^rxvt|color|ansi|cygwin|linux/i.test(env.TERM)) {
+        return 1;
+      }
+      if ("COLORTERM" in env) {
+        return 1;
+      }
+      return min;
+    }
+    function getSupportLevel(stream) {
+      const level = supportsColor(stream, stream && stream.isTTY);
+      return translateLevel(level);
+    }
+    module2.exports = {
+      supportsColor: getSupportLevel,
+      stdout: translateLevel(supportsColor(true, tty.isatty(1))),
+      stderr: translateLevel(supportsColor(true, tty.isatty(2)))
+    };
+  }
+});
+
+// node_modules/debug/src/node.js
+var require_node5 = __commonJS({
+  "node_modules/debug/src/node.js"(exports2, module2) {
+    var tty = require("tty");
+    var util2 = require("util");
+    exports2.init = init;
+    exports2.log = log;
+    exports2.formatArgs = formatArgs;
+    exports2.save = save;
+    exports2.load = load;
+    exports2.useColors = useColors;
+    exports2.destroy = util2.deprecate(
+      () => {
+      },
+      "Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`."
+    );
+    exports2.colors = [6, 2, 3, 4, 5, 1];
+    try {
+      const supportsColor = require_supports_color();
+      if (supportsColor && (supportsColor.stderr || supportsColor).level >= 2) {
+        exports2.colors = [
+          20,
+          21,
+          26,
+          27,
+          32,
+          33,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          56,
+          57,
+          62,
+          63,
+          68,
+          69,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          92,
+          93,
+          98,
+          99,
+          112,
+          113,
+          128,
+          129,
+          134,
+          135,
+          148,
+          149,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173,
+          178,
+          179,
+          184,
+          185,
+          196,
+          197,
+          198,
+          199,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          214,
+          215,
+          220,
+          221
+        ];
+      }
+    } catch (error3) {
+    }
+    exports2.inspectOpts = Object.keys(process.env).filter((key) => {
+      return /^debug_/i.test(key);
+    }).reduce((obj, key) => {
+      const prop = key.substring(6).toLowerCase().replace(/_([a-z])/g, (_2, k2) => {
+        return k2.toUpperCase();
+      });
+      let val = process.env[key];
+      if (/^(yes|on|true|enabled)$/i.test(val)) {
+        val = true;
+      } else if (/^(no|off|false|disabled)$/i.test(val)) {
+        val = false;
+      } else if (val === "null") {
+        val = null;
+      } else {
+        val = Number(val);
+      }
+      obj[prop] = val;
+      return obj;
+    }, {});
+    function useColors() {
+      return "colors" in exports2.inspectOpts ? Boolean(exports2.inspectOpts.colors) : tty.isatty(process.stderr.fd);
+    }
+    function formatArgs(args) {
+      const { namespace: name, useColors: useColors2 } = this;
+      if (useColors2) {
+        const c = this.color;
+        const colorCode = "\x1B[3" + (c < 8 ? c : "8;5;" + c);
+        const prefix = `  ${colorCode};1m${name} \x1B[0m`;
+        args[0] = prefix + args[0].split("\n").join("\n" + prefix);
+        args.push(colorCode + "m+" + module2.exports.humanize(this.diff) + "\x1B[0m");
+      } else {
+        args[0] = getDate() + name + " " + args[0];
+      }
+    }
+    function getDate() {
+      if (exports2.inspectOpts.hideDate) {
+        return "";
+      }
+      return (/* @__PURE__ */ new Date()).toISOString() + " ";
+    }
+    function log(...args) {
+      return process.stderr.write(util2.formatWithOptions(exports2.inspectOpts, ...args) + "\n");
+    }
+    function save(namespaces) {
+      if (namespaces) {
+        process.env.DEBUG = namespaces;
+      } else {
+        delete process.env.DEBUG;
+      }
+    }
+    function load() {
+      return process.env.DEBUG;
+    }
+    function init(debug) {
+      debug.inspectOpts = {};
+      const keys = Object.keys(exports2.inspectOpts);
+      for (let i = 0; i < keys.length; i++) {
+        debug.inspectOpts[keys[i]] = exports2.inspectOpts[keys[i]];
+      }
+    }
+    module2.exports = require_common2()(exports2);
+    var { formatters } = module2.exports;
+    formatters.o = function(v2) {
+      this.inspectOpts.colors = this.useColors;
+      return util2.inspect(v2, this.inspectOpts).split("\n").map((str) => str.trim()).join(" ");
+    };
+    formatters.O = function(v2) {
+      this.inspectOpts.colors = this.useColors;
+      return util2.inspect(v2, this.inspectOpts);
+    };
+  }
+});
+
+// node_modules/debug/src/index.js
+var require_src5 = __commonJS({
+  "node_modules/debug/src/index.js"(exports2, module2) {
+    if (typeof process === "undefined" || process.type === "renderer" || process.browser === true || process.__nwjs) {
+      module2.exports = require_browser5();
+    } else {
+      module2.exports = require_node5();
+    }
   }
 });
 
@@ -44015,17 +46992,17 @@ var require_visit = __commonJS({
     visit.BREAK = BREAK;
     visit.SKIP = SKIP;
     visit.REMOVE = REMOVE;
-    function visit_(key, node3, visitor, path2) {
-      const ctrl = callVisitor(key, node3, visitor, path2);
+    function visit_(key, node3, visitor, path3) {
+      const ctrl = callVisitor(key, node3, visitor, path3);
       if (identity.isNode(ctrl) || identity.isPair(ctrl)) {
-        replaceNode(key, path2, ctrl);
-        return visit_(key, ctrl, visitor, path2);
+        replaceNode(key, path3, ctrl);
+        return visit_(key, ctrl, visitor, path3);
       }
       if (typeof ctrl !== "symbol") {
         if (identity.isCollection(node3)) {
-          path2 = Object.freeze(path2.concat(node3));
+          path3 = Object.freeze(path3.concat(node3));
           for (let i = 0; i < node3.items.length; ++i) {
-            const ci = visit_(i, node3.items[i], visitor, path2);
+            const ci = visit_(i, node3.items[i], visitor, path3);
             if (typeof ci === "number")
               i = ci - 1;
             else if (ci === BREAK)
@@ -44036,13 +47013,13 @@ var require_visit = __commonJS({
             }
           }
         } else if (identity.isPair(node3)) {
-          path2 = Object.freeze(path2.concat(node3));
-          const ck = visit_("key", node3.key, visitor, path2);
+          path3 = Object.freeze(path3.concat(node3));
+          const ck = visit_("key", node3.key, visitor, path3);
           if (ck === BREAK)
             return BREAK;
           else if (ck === REMOVE)
             node3.key = null;
-          const cv = visit_("value", node3.value, visitor, path2);
+          const cv = visit_("value", node3.value, visitor, path3);
           if (cv === BREAK)
             return BREAK;
           else if (cv === REMOVE)
@@ -44063,17 +47040,17 @@ var require_visit = __commonJS({
     visitAsync.BREAK = BREAK;
     visitAsync.SKIP = SKIP;
     visitAsync.REMOVE = REMOVE;
-    async function visitAsync_(key, node3, visitor, path2) {
-      const ctrl = await callVisitor(key, node3, visitor, path2);
+    async function visitAsync_(key, node3, visitor, path3) {
+      const ctrl = await callVisitor(key, node3, visitor, path3);
       if (identity.isNode(ctrl) || identity.isPair(ctrl)) {
-        replaceNode(key, path2, ctrl);
-        return visitAsync_(key, ctrl, visitor, path2);
+        replaceNode(key, path3, ctrl);
+        return visitAsync_(key, ctrl, visitor, path3);
       }
       if (typeof ctrl !== "symbol") {
         if (identity.isCollection(node3)) {
-          path2 = Object.freeze(path2.concat(node3));
+          path3 = Object.freeze(path3.concat(node3));
           for (let i = 0; i < node3.items.length; ++i) {
-            const ci = await visitAsync_(i, node3.items[i], visitor, path2);
+            const ci = await visitAsync_(i, node3.items[i], visitor, path3);
             if (typeof ci === "number")
               i = ci - 1;
             else if (ci === BREAK)
@@ -44084,13 +47061,13 @@ var require_visit = __commonJS({
             }
           }
         } else if (identity.isPair(node3)) {
-          path2 = Object.freeze(path2.concat(node3));
-          const ck = await visitAsync_("key", node3.key, visitor, path2);
+          path3 = Object.freeze(path3.concat(node3));
+          const ck = await visitAsync_("key", node3.key, visitor, path3);
           if (ck === BREAK)
             return BREAK;
           else if (ck === REMOVE)
             node3.key = null;
-          const cv = await visitAsync_("value", node3.value, visitor, path2);
+          const cv = await visitAsync_("value", node3.value, visitor, path3);
           if (cv === BREAK)
             return BREAK;
           else if (cv === REMOVE)
@@ -44117,23 +47094,23 @@ var require_visit = __commonJS({
       }
       return visitor;
     }
-    function callVisitor(key, node3, visitor, path2) {
+    function callVisitor(key, node3, visitor, path3) {
       if (typeof visitor === "function")
-        return visitor(key, node3, path2);
+        return visitor(key, node3, path3);
       if (identity.isMap(node3))
-        return visitor.Map?.(key, node3, path2);
+        return visitor.Map?.(key, node3, path3);
       if (identity.isSeq(node3))
-        return visitor.Seq?.(key, node3, path2);
+        return visitor.Seq?.(key, node3, path3);
       if (identity.isPair(node3))
-        return visitor.Pair?.(key, node3, path2);
+        return visitor.Pair?.(key, node3, path3);
       if (identity.isScalar(node3))
-        return visitor.Scalar?.(key, node3, path2);
+        return visitor.Scalar?.(key, node3, path3);
       if (identity.isAlias(node3))
-        return visitor.Alias?.(key, node3, path2);
+        return visitor.Alias?.(key, node3, path3);
       return void 0;
     }
-    function replaceNode(key, path2, node3) {
-      const parent = path2[path2.length - 1];
+    function replaceNode(key, path3, node3) {
+      const parent = path3[path3.length - 1];
       if (identity.isCollection(parent)) {
         parent.items[key] = node3;
       } else if (identity.isPair(parent)) {
@@ -44745,10 +47722,10 @@ var require_Collection = __commonJS({
     var createNode = require_createNode();
     var identity = require_identity();
     var Node = require_Node();
-    function collectionFromPath(schema, path2, value) {
+    function collectionFromPath(schema, path3, value) {
       let v2 = value;
-      for (let i = path2.length - 1; i >= 0; --i) {
-        const k2 = path2[i];
+      for (let i = path3.length - 1; i >= 0; --i) {
+        const k2 = path3[i];
         if (typeof k2 === "number" && Number.isInteger(k2) && k2 >= 0) {
           const a = [];
           a[k2] = v2;
@@ -44767,7 +47744,7 @@ var require_Collection = __commonJS({
         sourceObjects: /* @__PURE__ */ new Map()
       });
     }
-    var isEmptyPath = (path2) => path2 == null || typeof path2 === "object" && !!path2[Symbol.iterator]().next().done;
+    var isEmptyPath = (path3) => path3 == null || typeof path3 === "object" && !!path3[Symbol.iterator]().next().done;
     var Collection = class extends Node.NodeBase {
       constructor(type, schema) {
         super(type);
@@ -44797,11 +47774,11 @@ var require_Collection = __commonJS({
        * be a Pair instance or a `{ key, value }` object, which may not have a key
        * that already exists in the map.
        */
-      addIn(path2, value) {
-        if (isEmptyPath(path2))
+      addIn(path3, value) {
+        if (isEmptyPath(path3))
           this.add(value);
         else {
-          const [key, ...rest] = path2;
+          const [key, ...rest] = path3;
           const node3 = this.get(key, true);
           if (identity.isCollection(node3))
             node3.addIn(rest, value);
@@ -44815,8 +47792,8 @@ var require_Collection = __commonJS({
        * Removes a value from the collection.
        * @returns `true` if the item was found and removed.
        */
-      deleteIn(path2) {
-        const [key, ...rest] = path2;
+      deleteIn(path3) {
+        const [key, ...rest] = path3;
         if (rest.length === 0)
           return this.delete(key);
         const node3 = this.get(key, true);
@@ -44830,8 +47807,8 @@ var require_Collection = __commonJS({
        * scalar values from their surrounding node; to disable set `keepScalar` to
        * `true` (collections are always returned intact).
        */
-      getIn(path2, keepScalar) {
-        const [key, ...rest] = path2;
+      getIn(path3, keepScalar) {
+        const [key, ...rest] = path3;
         const node3 = this.get(key, true);
         if (rest.length === 0)
           return !keepScalar && identity.isScalar(node3) ? node3.value : node3;
@@ -44849,8 +47826,8 @@ var require_Collection = __commonJS({
       /**
        * Checks if the collection includes a value with the key `key`.
        */
-      hasIn(path2) {
-        const [key, ...rest] = path2;
+      hasIn(path3) {
+        const [key, ...rest] = path3;
         if (rest.length === 0)
           return this.has(key);
         const node3 = this.get(key, true);
@@ -44860,8 +47837,8 @@ var require_Collection = __commonJS({
        * Sets a value in this collection. For `!!set`, `value` needs to be a
        * boolean to add/remove the item from the set.
        */
-      setIn(path2, value) {
-        const [key, ...rest] = path2;
+      setIn(path3, value) {
+        const [key, ...rest] = path3;
         if (rest.length === 0) {
           this.set(key, value);
         } else {
@@ -47376,9 +50353,9 @@ var require_Document = __commonJS({
           this.contents.add(value);
       }
       /** Adds a value to the document. */
-      addIn(path2, value) {
+      addIn(path3, value) {
         if (assertCollection(this.contents))
-          this.contents.addIn(path2, value);
+          this.contents.addIn(path3, value);
       }
       /**
        * Create a new `Alias` node, ensuring that the target `node` has the required anchor.
@@ -47453,14 +50430,14 @@ var require_Document = __commonJS({
        * Removes a value from the document.
        * @returns `true` if the item was found and removed.
        */
-      deleteIn(path2) {
-        if (Collection.isEmptyPath(path2)) {
+      deleteIn(path3) {
+        if (Collection.isEmptyPath(path3)) {
           if (this.contents == null)
             return false;
           this.contents = null;
           return true;
         }
-        return assertCollection(this.contents) ? this.contents.deleteIn(path2) : false;
+        return assertCollection(this.contents) ? this.contents.deleteIn(path3) : false;
       }
       /**
        * Returns item at `key`, or `undefined` if not found. By default unwraps
@@ -47475,10 +50452,10 @@ var require_Document = __commonJS({
        * scalar values from their surrounding node; to disable set `keepScalar` to
        * `true` (collections are always returned intact).
        */
-      getIn(path2, keepScalar) {
-        if (Collection.isEmptyPath(path2))
+      getIn(path3, keepScalar) {
+        if (Collection.isEmptyPath(path3))
           return !keepScalar && identity.isScalar(this.contents) ? this.contents.value : this.contents;
-        return identity.isCollection(this.contents) ? this.contents.getIn(path2, keepScalar) : void 0;
+        return identity.isCollection(this.contents) ? this.contents.getIn(path3, keepScalar) : void 0;
       }
       /**
        * Checks if the document includes a value with the key `key`.
@@ -47489,10 +50466,10 @@ var require_Document = __commonJS({
       /**
        * Checks if the document includes a value at `path`.
        */
-      hasIn(path2) {
-        if (Collection.isEmptyPath(path2))
+      hasIn(path3) {
+        if (Collection.isEmptyPath(path3))
           return this.contents !== void 0;
-        return identity.isCollection(this.contents) ? this.contents.hasIn(path2) : false;
+        return identity.isCollection(this.contents) ? this.contents.hasIn(path3) : false;
       }
       /**
        * Sets a value in this document. For `!!set`, `value` needs to be a
@@ -47509,13 +50486,13 @@ var require_Document = __commonJS({
        * Sets a value in this document. For `!!set`, `value` needs to be a
        * boolean to add/remove the item from the set.
        */
-      setIn(path2, value) {
-        if (Collection.isEmptyPath(path2)) {
+      setIn(path3, value) {
+        if (Collection.isEmptyPath(path3)) {
           this.contents = value;
         } else if (this.contents == null) {
-          this.contents = Collection.collectionFromPath(this.schema, Array.from(path2), value);
+          this.contents = Collection.collectionFromPath(this.schema, Array.from(path3), value);
         } else if (assertCollection(this.contents)) {
-          this.contents.setIn(path2, value);
+          this.contents.setIn(path3, value);
         }
       }
       /**
@@ -49476,9 +52453,9 @@ var require_cst_visit = __commonJS({
     visit.BREAK = BREAK;
     visit.SKIP = SKIP;
     visit.REMOVE = REMOVE;
-    visit.itemAtPath = (cst, path2) => {
+    visit.itemAtPath = (cst, path3) => {
       let item = cst;
-      for (const [field, index] of path2) {
+      for (const [field, index] of path3) {
         const tok = item?.[field];
         if (tok && "items" in tok) {
           item = tok.items[index];
@@ -49487,23 +52464,23 @@ var require_cst_visit = __commonJS({
       }
       return item;
     };
-    visit.parentCollection = (cst, path2) => {
-      const parent = visit.itemAtPath(cst, path2.slice(0, -1));
-      const field = path2[path2.length - 1][0];
+    visit.parentCollection = (cst, path3) => {
+      const parent = visit.itemAtPath(cst, path3.slice(0, -1));
+      const field = path3[path3.length - 1][0];
       const coll = parent?.[field];
       if (coll && "items" in coll)
         return coll;
       throw new Error("Parent collection not found");
     };
-    function _visit(path2, item, visitor) {
-      let ctrl = visitor(item, path2);
+    function _visit(path3, item, visitor) {
+      let ctrl = visitor(item, path3);
       if (typeof ctrl === "symbol")
         return ctrl;
       for (const field of ["key", "value"]) {
         const token = item[field];
         if (token && "items" in token) {
           for (let i = 0; i < token.items.length; ++i) {
-            const ci = _visit(Object.freeze(path2.concat([[field, i]])), token.items[i], visitor);
+            const ci = _visit(Object.freeze(path3.concat([[field, i]])), token.items[i], visitor);
             if (typeof ci === "number")
               i = ci - 1;
             else if (ci === BREAK)
@@ -49514,10 +52491,10 @@ var require_cst_visit = __commonJS({
             }
           }
           if (typeof ctrl === "function" && field === "key")
-            ctrl = ctrl(item, path2);
+            ctrl = ctrl(item, path3);
         }
       }
-      return typeof ctrl === "function" ? ctrl(item, path2) : ctrl;
+      return typeof ctrl === "function" ? ctrl(item, path3) : ctrl;
     }
     exports2.visit = visit;
   }
@@ -50819,14 +53796,14 @@ var require_parser = __commonJS({
             case "scalar":
             case "single-quoted-scalar":
             case "double-quoted-scalar": {
-              const fs = this.flowScalar(this.type);
+              const fs2 = this.flowScalar(this.type);
               if (atNextItem || it.value) {
-                map.items.push({ start, key: fs, sep: [] });
+                map.items.push({ start, key: fs2, sep: [] });
                 this.onKeyLine = true;
               } else if (it.sep) {
-                this.stack.push(fs);
+                this.stack.push(fs2);
               } else {
-                Object.assign(it, { key: fs, sep: [] });
+                Object.assign(it, { key: fs2, sep: [] });
                 this.onKeyLine = true;
               }
               return;
@@ -50954,13 +53931,13 @@ var require_parser = __commonJS({
             case "scalar":
             case "single-quoted-scalar":
             case "double-quoted-scalar": {
-              const fs = this.flowScalar(this.type);
+              const fs2 = this.flowScalar(this.type);
               if (!it || it.value)
-                fc.items.push({ start: [], key: fs, sep: [] });
+                fc.items.push({ start: [], key: fs2, sep: [] });
               else if (it.sep)
-                this.stack.push(fs);
+                this.stack.push(fs2);
               else
-                Object.assign(it, { key: fs, sep: [] });
+                Object.assign(it, { key: fs2, sep: [] });
               return;
             }
             case "flow-map-end":
@@ -51130,13 +54107,13 @@ var require_public_api = __commonJS({
     var identity = require_identity();
     var lineCounter = require_line_counter();
     var parser = require_parser();
-    function parseOptions(options) {
+    function parseOptions2(options) {
       const prettyErrors = options.prettyErrors !== false;
       const lineCounter$1 = options.lineCounter || prettyErrors && new lineCounter.LineCounter() || null;
       return { lineCounter: lineCounter$1, prettyErrors };
     }
     function parseAllDocuments(source, options = {}) {
-      const { lineCounter: lineCounter2, prettyErrors } = parseOptions(options);
+      const { lineCounter: lineCounter2, prettyErrors } = parseOptions2(options);
       const parser$1 = new parser.Parser(lineCounter2?.addNewLine);
       const composer$1 = new composer.Composer(options);
       const docs = Array.from(composer$1.compose(parser$1.parse(source)));
@@ -51150,7 +54127,7 @@ var require_public_api = __commonJS({
       return Object.assign([], { empty: true }, composer$1.streamInfo());
     }
     function parseDocument(source, options = {}) {
-      const { lineCounter: lineCounter2, prettyErrors } = parseOptions(options);
+      const { lineCounter: lineCounter2, prettyErrors } = parseOptions2(options);
       const parser$1 = new parser.Parser(lineCounter2?.addNewLine);
       const composer$1 = new composer.Composer(options);
       let doc = null;
@@ -51269,7 +54246,7 @@ var require_dist = __commonJS({
 });
 
 // node_modules/markdown-patch/dist/constants.js
-var require_constants = __commonJS({
+var require_constants3 = __commonJS({
   "node_modules/markdown-patch/dist/constants.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -51323,7 +54300,7 @@ var require_map2 = __commonJS({
     exports2.getDocumentMap = exports2.FrontmatterParseError = void 0;
     var marked = __importStar((init_marked_esm(), __toCommonJS(marked_esm_exports)));
     var yaml_1 = require_dist();
-    var constants_js_1 = require_constants();
+    var constants_js_1 = require_constants3();
     var FrontmatterParseError2 = class extends Error {
       constructor(message) {
         super(message);
@@ -51588,7 +54565,7 @@ var require_patch = __commonJS({
     var yaml = __importStar(require_dist());
     var types_js_1 = require_types2();
     var typeGuards_js_1 = require_typeGuards();
-    var constants_js_1 = require_constants();
+    var constants_js_1 = require_constants3();
     var PatchFailureReason;
     (function(PatchFailureReason2) {
       PatchFailureReason2["InvalidTarget"] = "invalid-target";
@@ -51600,8 +54577,8 @@ var require_patch = __commonJS({
     })(PatchFailureReason || (exports2.PatchFailureReason = PatchFailureReason = {}));
     var describeInstructionTarget = (instruction) => {
       if (instruction.targetType === "heading") {
-        const path2 = instruction.target;
-        return path2 === null || path2.length === 0 ? "document root" : `heading "${path2.join(" > ")}"`;
+        const path3 = instruction.target;
+        return path3 === null || path3.length === 0 ? "document root" : `heading "${path3.join(" > ")}"`;
       }
       if (instruction.targetType === "block") {
         return `block "^${instruction.target}"`;
@@ -52049,7 +55026,7 @@ var require_dist2 = __commonJS({
 });
 
 // node_modules/markdown-patch-2/dist/constants.js
-var require_constants2 = __commonJS({
+var require_constants4 = __commonJS({
   "node_modules/markdown-patch-2/dist/constants.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
@@ -52129,9 +55106,9 @@ var require_instructions = __commonJS({
     var TargetNotFoundError2 = class extends EngineError {
     };
     exports2.TargetNotFoundError = TargetNotFoundError2;
-    var PreconditionFailedError2 = class extends EngineError {
+    var PreconditionFailedError3 = class extends EngineError {
     };
-    exports2.PreconditionFailedError = PreconditionFailedError2;
+    exports2.PreconditionFailedError = PreconditionFailedError3;
     var ContentPreexistsError2 = class extends EngineError {
     };
     exports2.ContentPreexistsError = ContentPreexistsError2;
@@ -52188,11 +55165,11 @@ var require_model = __commonJS({
       return result;
     };
     Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.serializeModel = exports2.eachSection = exports2.buildModel = void 0;
+    exports2.serializeModel = exports2.eachSection = exports2.buildModel = exports2.versionOf = void 0;
     var marked = __importStar((init_marked_esm(), __toCommonJS(marked_esm_exports)));
     var yaml_1 = require_dist();
     var crypto_1 = require("crypto");
-    var constants_js_1 = require_constants2();
+    var constants_js_1 = require_constants4();
     var instructions_js_1 = require_instructions();
     var FRONTMATTER_REGEX = /^---(?:\r\n|\r|\n)(?:---(?:\r\n|\r|\n|$)|([\s\S]*?)(?:\r\n|\r|\n)---(?:\r\n|\r|\n|$))/;
     var preProcess = (document2) => {
@@ -52207,7 +55184,8 @@ var require_model = __commonJS({
         frontmatterText: match[1] ?? ""
       };
     };
-    var versionOf = (document2) => (0, crypto_1.createHash)("sha256").update(document2, "utf8").digest("hex").slice(0, 6);
+    var versionOf4 = (document2) => (0, crypto_1.createHash)("sha256").update(document2).digest("hex").slice(0, 6);
+    exports2.versionOf = versionOf4;
     var normalizeLineEndings = (input) => {
       const toOriginal = [];
       let normalized = "";
@@ -52484,7 +55462,7 @@ var require_model = __commonJS({
       findBodyChildren(normalized, abs, tokens, root);
       assertNoReservedMarkerCollisions(headings);
       return {
-        version: versionOf(document2),
+        version: (0, exports2.versionOf)(document2),
         lineEnding: findLineEnding(document2),
         frontmatter: buildFrontmatter(document2, frontmatterText, contentOffset),
         root
@@ -52518,7 +55496,7 @@ var require_projection = __commonJS({
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.headingTreePaths = exports2.projectMap = exports2.headingPath = exports2.disambiguatedBlockId = exports2.allBlocksInOrder = exports2.disambiguatedHeadingText = void 0;
-    var constants_js_1 = require_constants2();
+    var constants_js_1 = require_constants4();
     var encodeOccurrenceSuffix = (occurrenceIndex) => occurrenceIndex.toString(16).split("").map((hexChar) => constants_js_1.DUPLICATE_DIGITS[parseInt(hexChar, 16)]).join("");
     var disambiguatedHeadingText = (node3) => {
       const heading = node3.heading;
@@ -52552,13 +55530,13 @@ var require_projection = __commonJS({
     };
     exports2.disambiguatedBlockId = disambiguatedBlockId;
     var headingPath = (node3) => {
-      const path2 = [];
+      const path3 = [];
       let current = node3;
       while (current && current.heading) {
-        path2.push((0, exports2.disambiguatedHeadingText)(current));
+        path3.push((0, exports2.disambiguatedHeadingText)(current));
         current = current.parent;
       }
-      return path2.reverse();
+      return path3.reverse();
     };
     exports2.headingPath = headingPath;
     var projectMap2 = (model) => {
@@ -52589,9 +55567,9 @@ var require_projection = __commonJS({
       const paths = [];
       const walk = (node3, prefix) => {
         for (const [text, children] of Object.entries(node3)) {
-          const path2 = [...prefix, text];
-          paths.push(path2);
-          walk(children, path2);
+          const path3 = [...prefix, text];
+          paths.push(path3);
+          walk(children, path3);
         }
       };
       walk(tree, []);
@@ -53202,21 +56180,21 @@ var require_create = __commonJS({
       if (instruction.scope !== "content") {
         throw new instructions_js_1.EngineError("createTargetIfMissing for headings supports content-scope writes only");
       }
-      const path2 = instruction.target ?? [];
-      if (path2.length === 0) {
+      const path3 = instruction.target ?? [];
+      if (path3.length === 0) {
         throw new instructions_js_1.EngineError("the document root cannot be created");
       }
       let ancestor = model.root;
       let matched = 0;
-      for (let length = path2.length - 1; length >= 1; length--) {
-        const resolved = (0, resolve_js_1.resolveHeading)(model, path2.slice(0, length));
+      for (let length = path3.length - 1; length >= 1; length--) {
+        const resolved = (0, resolve_js_1.resolveHeading)(model, path3.slice(0, length));
         if (resolved) {
           ancestor = resolved.section;
           matched = length;
           break;
         }
       }
-      const toCreate = path2.slice(matched);
+      const toCreate = path3.slice(matched);
       const warnings = [];
       const parts = [];
       let level = ancestor.heading?.level ?? 0;
@@ -53729,8 +56707,8 @@ var require_parseUtil = __commonJS({
     var errors_js_1 = require_errors2();
     var en_js_1 = __importDefault(require_en());
     var makeIssue2 = (params) => {
-      const { data, path: path2, errorMaps, issueData } = params;
-      const fullPath = [...path2, ...issueData.path || []];
+      const { data, path: path3, errorMaps, issueData } = params;
+      const fullPath = [...path3, ...issueData.path || []];
       const fullIssue = {
         ...issueData,
         path: fullPath
@@ -53884,11 +56862,11 @@ var require_types3 = __commonJS({
     var parseUtil_js_1 = require_parseUtil();
     var util_js_1 = require_util2();
     var ParseInputLazyPath2 = class {
-      constructor(parent, value, path2, key) {
+      constructor(parent, value, path3, key) {
         this._cachedPath = [];
         this.parent = parent;
         this.data = value;
-        this._path = path2;
+        this._path = path3;
         this._key = key;
       }
       get path() {
@@ -57492,7 +60470,7 @@ var require_schema4 = __commonJS({
     exports2.InstructionInputSchema = exports2.InstructionInputObjectSchema = void 0;
     var zod_1 = require_zod();
     var instructions_js_1 = require_instructions();
-    var constants_js_1 = require_constants2();
+    var constants_js_1 = require_constants4();
     var operationValues = [
       "replace",
       "prepend",
@@ -57547,6 +60525,17 @@ var require_schema4 = __commonJS({
       return ["content"];
     };
     var carriers = ["content", "value", "destination"];
+    var carrierReason = (targetType, scope, expected) => {
+      if (targetType !== "frontmatter")
+        return "";
+      if (expected[0] === "value") {
+        return " \u2014 a frontmatter field's value can be any JSON (string, number, boolean, array, object, null), so must be passed via the `value` field instead of `content`";
+      }
+      if (scope === "marker") {
+        return " \u2014 a frontmatter key name is a string; to set the key name, use the `content` field.";
+      }
+      return "";
+    };
     var BLOCK_ID_PATTERN = /^[A-Za-z0-9_-]+$/;
     var BLOCK_TARGET_PATTERN = new RegExp(`^[A-Za-z0-9_-]+(${constants_js_1.DUPLICATE_MARKER}[${constants_js_1.DUPLICATE_DIGITS.join("")}]+)?$`, "u");
     var isTableRowValue = (value) => Array.isArray(value) && value.every((row) => Array.isArray(row) && row.every((cell) => typeof cell === "string"));
@@ -57622,7 +60611,7 @@ var require_schema4 = __commonJS({
         ctx.addIssue({
           code: zod_1.z.ZodIssueCode.custom,
           path: [expected[0]],
-          message: `${operation} @ ${scope} on a ${targetType} target requires ${expected.length === 1 ? `\`${expected[0]}\`` : expected.map((c) => `\`${c}\``).join(" or ")}`
+          message: `${operation} @ ${scope} on a ${targetType} target requires ${expected.length === 1 ? `\`${expected[0]}\`` : expected.map((c) => `\`${c}\``).join(" or ")}${carrierReason(targetType, scope, expected)}`
         });
       } else if (present.length > 1) {
         for (const carrier of present) {
@@ -57636,7 +60625,7 @@ var require_schema4 = __commonJS({
         ctx.addIssue({
           code: zod_1.z.ZodIssueCode.custom,
           path: [present[0]],
-          message: `${operation} @ ${scope} on a ${targetType} target carries its payload in ${expected.length === 1 ? `\`${expected[0]}\`` : expected.map((c) => `\`${c}\``).join(" or ")}, not \`${present[0]}\``
+          message: `${operation} @ ${scope} on a ${targetType} target carries its payload in ${expected.length === 1 ? `\`${expected[0]}\`` : expected.map((c) => `\`${c}\``).join(" or ")}, not \`${present[0]}\`${carrierReason(targetType, scope, expected)}`
         });
       } else if (targetType === "block" && scope === "content" && present[0] === "value" && !isTableRowValue(input.value)) {
         ctx.addIssue({
@@ -57990,7 +60979,7 @@ var require_dist3 = __commonJS({
   "node_modules/markdown-patch-2/dist/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.InvalidCellContentError = exports2.TableColumnCountError = exports2.NotATableError = exports2.InstructionInputObjectSchema = exports2.InstructionInputSchema = exports2.isWithinInstruction = exports2.isBlockTableRowInstruction = exports2.assertValidCell = exports2.isValidCell = exports2.ReservedDuplicateMarkerError = exports2.FrontmatterKeyCollisionError = exports2.FrontmatterParseError = exports2.MergeError = exports2.ContentPreexistsError = exports2.PreconditionFailedError = exports2.TargetNotFoundError = exports2.InvalidInstructionError = exports2.InvalidCellError = exports2.EngineError = exports2.readTarget = exports2.headingTreePaths = exports2.projectMap = exports2.buildModel = exports2.patch = void 0;
+    exports2.InvalidCellContentError = exports2.TableColumnCountError = exports2.NotATableError = exports2.InstructionInputObjectSchema = exports2.InstructionInputSchema = exports2.isWithinInstruction = exports2.isBlockTableRowInstruction = exports2.assertValidCell = exports2.isValidCell = exports2.ReservedDuplicateMarkerError = exports2.FrontmatterKeyCollisionError = exports2.FrontmatterParseError = exports2.MergeError = exports2.ContentPreexistsError = exports2.PreconditionFailedError = exports2.TargetNotFoundError = exports2.InvalidInstructionError = exports2.InvalidCellError = exports2.EngineError = exports2.readTarget = exports2.headingTreePaths = exports2.projectMap = exports2.versionOf = exports2.buildModel = exports2.patch = void 0;
     var engine_js_1 = require_engine();
     Object.defineProperty(exports2, "patch", { enumerable: true, get: function() {
       return engine_js_1.patch;
@@ -57998,6 +60987,9 @@ var require_dist3 = __commonJS({
     var model_js_1 = require_model();
     Object.defineProperty(exports2, "buildModel", { enumerable: true, get: function() {
       return model_js_1.buildModel;
+    } });
+    Object.defineProperty(exports2, "versionOf", { enumerable: true, get: function() {
+      return model_js_1.versionOf;
     } });
     var projection_js_1 = require_projection();
     Object.defineProperty(exports2, "projectMap", { enumerable: true, get: function() {
@@ -58549,22 +61541,1029 @@ __export(main_exports, {
   getAPI: () => getAPI
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian5 = require("obsidian");
+var import_obsidian6 = require("obsidian");
 var https = __toESM(require("https"));
 var http2 = __toESM(require("http"));
 var import_node_forge3 = __toESM(require_lib());
 
 // src/requestHandler.ts
-var import_obsidian4 = require("obsidian");
+var import_obsidian5 = require("obsidian");
 var import_node_forge2 = __toESM(require_lib());
 var import_express2 = __toESM(require_express2());
 var import_http3 = __toESM(require("http"));
 var import_cors = __toESM(require_lib4());
+
+// node_modules/express-rate-limit/dist/index.mjs
+var import_node_net = require("node:net");
+var import_ip_address = __toESM(require_ip_address(), 1);
+var import_node_net2 = require("node:net");
+var import_debug = __toESM(require_src5(), 1);
+var import_node_buffer = require("node:buffer");
+var import_node_crypto = require("node:crypto");
+var import_node_net3 = require("node:net");
+var ipv4CompatibleSubnet = new import_ip_address.Address6("::/96");
+function ipKeyGenerator(ip, ipv6Subnet = 56) {
+  if ((0, import_node_net.isIPv6)(ip)) {
+    const address = new import_ip_address.Address6(ip);
+    if (address.isMapped4() || // The deprecated IPv4-compatible notation keeps its existing behavior.
+    // Its range is shared with addresses that embed no IPv4 address at all
+    // (`::`, `::1`), so here the notation is what tells them apart.
+    address.is4() && address.isInSubnet(ipv4CompatibleSubnet))
+      return address.to4().correctForm();
+    if (ipv6Subnet) {
+      const subnet = new import_ip_address.Address6(`${ip}/${ipv6Subnet}`);
+      return subnet.networkForm();
+    }
+  }
+  return ip;
+}
+var MemoryStore = class {
+  constructor(validations2) {
+    this.validations = validations2;
+    this.previous = /* @__PURE__ */ new Map();
+    this.current = /* @__PURE__ */ new Map();
+    this.localKeys = true;
+  }
+  /**
+   * Method that initializes the store.
+   *
+   * @param options {Options} - The options used to setup the middleware.
+   */
+  init(options) {
+    this.windowMs = options.windowMs;
+    this.validations?.windowMs(this.windowMs);
+    if (this.interval) clearInterval(this.interval);
+    this.interval = setInterval(() => {
+      this.clearExpired();
+    }, this.windowMs);
+    this.interval.unref?.();
+  }
+  /**
+   * Method to fetch a client's hit count and reset time.
+   *
+   * @param key {string} - The identifier for a client.
+   *
+   * @returns {ClientRateLimitInfo | undefined} - The number of hits and reset time for that client.
+   *
+   * @public
+   */
+  async get(key) {
+    return this.current.get(key) ?? this.previous.get(key);
+  }
+  /**
+   * Method to increment a client's hit counter.
+   *
+   * @param key {string} - The identifier for a client.
+   *
+   * @returns {ClientRateLimitInfo} - The number of hits and reset time for that client.
+   *
+   * @public
+   */
+  async increment(key) {
+    const client = this.getClient(key);
+    const now = Date.now();
+    if (client.resetTime.getTime() <= now) {
+      this.resetClient(client, now);
+    }
+    client.totalHits++;
+    return client;
+  }
+  /**
+   * Method to decrement a client's hit counter.
+   *
+   * @param key {string} - The identifier for a client.
+   *
+   * @public
+   */
+  async decrement(key) {
+    const client = this.getClient(key);
+    if (client.totalHits > 0) client.totalHits--;
+  }
+  /**
+   * Method to reset a client's hit counter.
+   *
+   * @param key {string} - The identifier for a client.
+   *
+   * @public
+   */
+  async resetKey(key) {
+    this.current.delete(key);
+    this.previous.delete(key);
+  }
+  /**
+   * Method to reset everyone's hit counter.
+   *
+   * @public
+   */
+  async resetAll() {
+    this.current.clear();
+    this.previous.clear();
+  }
+  /**
+   * Method to stop the timer (if currently running) and prevent any memory
+   * leaks.
+   *
+   * @public
+   */
+  shutdown() {
+    clearInterval(this.interval);
+    void this.resetAll();
+  }
+  /**
+   * Recycles a client by setting its hit count to zero, and reset time to
+   * `windowMs` milliseconds from now.
+   *
+   * NOT to be confused with `#resetKey()`, which removes a client from both the
+   * `current` and `previous` maps.
+   *
+   * @param client {Client} - The client to recycle.
+   * @param now {number} - The current time, to which the `windowMs` is added to get the `resetTime` for the client.
+   *
+   * @return {Client} - The modified client that was passed in, to allow for chaining.
+   */
+  resetClient(client, now = Date.now()) {
+    client.totalHits = 0;
+    client.resetTime.setTime(now + this.windowMs);
+    return client;
+  }
+  /**
+   * Retrieves or creates a client, given a key. Also ensures that the client being
+   * returned is in the `current` map.
+   *
+   * @param key {string} - The key under which the client is (or is to be) stored.
+   *
+   * @returns {Client} - The requested client.
+   */
+  getClient(key) {
+    if (this.current.has(key)) return this.current.get(key);
+    let client;
+    if (this.previous.has(key)) {
+      client = this.previous.get(key);
+      this.previous.delete(key);
+    } else {
+      client = { totalHits: 0, resetTime: /* @__PURE__ */ new Date() };
+      this.resetClient(client);
+    }
+    this.current.set(key, client);
+    return client;
+  }
+  /**
+   * Move current clients to previous, create a new map for current.
+   *
+   * This function is called every `windowMs`.
+   */
+  clearExpired() {
+    this.previous = this.current;
+    this.current = /* @__PURE__ */ new Map();
+  }
+};
+var ConsoleLogger = {
+  warn(...args) {
+    console.warn(...args.reverse());
+  },
+  error(...args) {
+    console.error(...args.reverse());
+  }
+};
+var SUPPORTED_DRAFT_VERSIONS = [
+  "draft-6",
+  "draft-7",
+  "draft-8"
+];
+var getResetSeconds = (windowMs, resetTime) => {
+  let resetSeconds;
+  if (resetTime) {
+    const deltaSeconds = Math.ceil((resetTime.getTime() - Date.now()) / 1e3);
+    resetSeconds = Math.max(0, deltaSeconds);
+  } else {
+    resetSeconds = Math.ceil(windowMs / 1e3);
+  }
+  return resetSeconds;
+};
+var getPartitionKey = (key) => {
+  const hash = (0, import_node_crypto.createHash)("sha256");
+  hash.update(key);
+  const partitionKey = hash.digest("hex").slice(0, 12);
+  return import_node_buffer.Buffer.from(partitionKey).toString("base64");
+};
+var setLegacyHeaders = (response, info) => {
+  if (response.headersSent) return;
+  response.setHeader("X-RateLimit-Limit", info.limit.toString());
+  response.setHeader("X-RateLimit-Remaining", info.remaining.toString());
+  if (info.resetTime instanceof Date) {
+    response.setHeader("Date", (/* @__PURE__ */ new Date()).toUTCString());
+    response.setHeader(
+      "X-RateLimit-Reset",
+      Math.ceil(info.resetTime.getTime() / 1e3).toString()
+    );
+  }
+};
+var setDraft6Headers = (response, info, windowMs) => {
+  if (response.headersSent) return;
+  const windowSeconds = Math.ceil(windowMs / 1e3);
+  const resetSeconds = getResetSeconds(windowMs, info.resetTime);
+  response.setHeader("RateLimit-Policy", `${info.limit};w=${windowSeconds}`);
+  response.setHeader("RateLimit-Limit", info.limit.toString());
+  response.setHeader("RateLimit-Remaining", info.remaining.toString());
+  if (typeof resetSeconds === "number")
+    response.setHeader("RateLimit-Reset", resetSeconds.toString());
+};
+var setDraft7Headers = (response, info, windowMs) => {
+  if (response.headersSent) return;
+  const windowSeconds = Math.ceil(windowMs / 1e3);
+  const resetSeconds = getResetSeconds(windowMs, info.resetTime);
+  response.setHeader("RateLimit-Policy", `${info.limit};w=${windowSeconds}`);
+  response.setHeader(
+    "RateLimit",
+    `limit=${info.limit}, remaining=${info.remaining}, reset=${resetSeconds}`
+  );
+};
+var setDraft8Headers = (response, info, windowMs, name, key) => {
+  if (response.headersSent) return;
+  const windowSeconds = Math.ceil(windowMs / 1e3);
+  const resetSeconds = getResetSeconds(windowMs, info.resetTime);
+  const partitionKey = getPartitionKey(key);
+  const header = `r=${info.remaining}; t=${resetSeconds}`;
+  const policy = `q=${info.limit}; w=${windowSeconds}; pk=:${partitionKey}:`;
+  response.append("RateLimit", `"${name}"; ${header}`);
+  response.append("RateLimit-Policy", `"${name}"; ${policy}`);
+};
+var setRetryAfterHeader = (response, info, windowMs, retryAfter) => {
+  if (response.headersSent) return;
+  const resetSeconds = retryAfter ?? getResetSeconds(windowMs, info.resetTime);
+  response.setHeader("Retry-After", resetSeconds.toString());
+};
+var omitUndefinedProperties = (passedOptions) => {
+  const omittedOptions = {};
+  for (const k2 of Object.keys(passedOptions)) {
+    const key = k2;
+    if (passedOptions[key] !== void 0) {
+      omittedOptions[key] = passedOptions[key];
+    }
+  }
+  return omittedOptions;
+};
+var ValidationError = class extends Error {
+  /**
+   * The code must be a string, in snake case and all capital, that starts with
+   * the substring `ERR_ERL_`.
+   *
+   * The message must be a string, starting with an uppercase character,
+   * describing the issue in detail.
+   */
+  constructor(code, message) {
+    const url3 = `https://express-rate-limit.github.io/${code}/`;
+    super(`${message} See ${url3} for more information.`);
+    this.name = this.constructor.name;
+    this.code = code;
+    this.help = url3;
+  }
+};
+var ChangeWarning = class extends ValidationError {
+};
+var usedStores = /* @__PURE__ */ new Set();
+var singleCountKeys = /* @__PURE__ */ new WeakMap();
+var validations = {
+  enabled: {
+    default: true
+  },
+  // Should be EnabledValidations type, but that's a circular reference
+  disable() {
+    for (const k2 of Object.keys(this.enabled)) this.enabled[k2] = false;
+  },
+  /**
+   * Checks whether the IP address is valid, and that it does not have a port
+   * number in it.
+   *
+   * See https://github.com/express-rate-limit/express-rate-limit/wiki/Error-Codes#err_erl_invalid_ip_address.
+   *
+   * @param ip {string | undefined} - The IP address provided by Express as request.ip.
+   *
+   * @returns {void}
+   */
+  ip(ip) {
+    if (ip === void 0) {
+      throw new ValidationError(
+        "ERR_ERL_UNDEFINED_IP_ADDRESS",
+        `An undefined 'request.ip' was detected. This might indicate a misconfiguration or the connection being destroyed prematurely.`
+      );
+    }
+    if (!(0, import_node_net3.isIP)(ip)) {
+      throw new ValidationError(
+        "ERR_ERL_INVALID_IP_ADDRESS",
+        `An invalid 'request.ip' (${ip}) was detected. Consider passing a custom 'keyGenerator' function to the rate limiter.`
+      );
+    }
+  },
+  /**
+   * Makes sure the trust proxy setting is not set to `true`.
+   *
+   * See https://github.com/express-rate-limit/express-rate-limit/wiki/Error-Codes#err_erl_permissive_trust_proxy.
+   *
+   * @param request {Request} - The Express request object.
+   *
+   * @returns {void}
+   */
+  trustProxy(request) {
+    if (request.app.get("trust proxy") === true) {
+      throw new ValidationError(
+        "ERR_ERL_PERMISSIVE_TRUST_PROXY",
+        `The Express 'trust proxy' setting is true, which allows anyone to trivially bypass IP-based rate limiting.`
+      );
+    }
+  },
+  /**
+   * Makes sure the trust proxy setting is set in case the `X-Forwarded-For`
+   * header is present.
+   *
+   * See https://github.com/express-rate-limit/express-rate-limit/wiki/Error-Codes#err_erl_unset_trust_proxy.
+   *
+   * @param request {Request} - The Express request object.
+   *
+   * @returns {void}
+   */
+  xForwardedForHeader(request) {
+    if (request.headers["x-forwarded-for"] && request.app.get("trust proxy") === false) {
+      throw new ValidationError(
+        "ERR_ERL_UNEXPECTED_X_FORWARDED_FOR",
+        `The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users.`
+      );
+    }
+  },
+  /**
+   * Alert the user if the Forwarded header is set (standardized version of X-Forwarded-For - not supported by express as of version 5.1.0)
+   *
+   * @param request {Request} - The Express request object.
+   *
+   * @returns {void}
+   */
+  forwardedHeader(request) {
+    if (request.headers.forwarded && request.ip === request.socket?.remoteAddress) {
+      throw new ValidationError(
+        "ERR_ERL_FORWARDED_HEADER",
+        `The 'Forwarded' header (standardized X-Forwarded-For) is set but currently being ignored. Add a custom keyGenerator to use a value from this header.`
+      );
+    }
+  },
+  /**
+   * Ensures totalHits value from store is a positive integer.
+   *
+   * @param hits {any} - The `totalHits` returned by the store.
+   */
+  positiveHits(hits) {
+    if (typeof hits !== "number" || hits < 1 || hits !== Math.round(hits)) {
+      throw new ValidationError(
+        "ERR_ERL_INVALID_HITS",
+        `The totalHits value returned from the store must be a positive integer, got ${hits}`
+      );
+    }
+  },
+  /**
+   * Ensures a single store instance is not used with multiple express-rate-limit instances
+   */
+  unsharedStore(store) {
+    if (usedStores.has(store)) {
+      const maybeUniquePrefix = store?.localKeys ? "" : " (with a unique prefix)";
+      throw new ValidationError(
+        "ERR_ERL_STORE_REUSE",
+        `A Store instance must not be shared across multiple rate limiters. Create a new instance of ${store.constructor.name}${maybeUniquePrefix} for each limiter instead.`
+      );
+    }
+    usedStores.add(store);
+  },
+  /**
+   * Ensures a given key is incremented only once per request.
+   *
+   * @param request {Request} - The Express request object.
+   * @param store {Store} - The store class.
+   * @param key {string} - The key used to store the client's hit count.
+   *
+   * @returns {void}
+   */
+  singleCount(request, store, key) {
+    let storeKeys = singleCountKeys.get(request);
+    if (!storeKeys) {
+      storeKeys = /* @__PURE__ */ new Map();
+      singleCountKeys.set(request, storeKeys);
+    }
+    const storeKey = store.localKeys ? store : store.constructor.name;
+    let keys = storeKeys.get(storeKey);
+    if (!keys) {
+      keys = [];
+      storeKeys.set(storeKey, keys);
+    }
+    const prefixedKey = `${store.prefix ?? ""}${key}`;
+    if (keys.includes(prefixedKey)) {
+      throw new ValidationError(
+        "ERR_ERL_DOUBLE_COUNT",
+        `The hit count for ${key} was incremented more than once for a single request.`
+      );
+    }
+    keys.push(prefixedKey);
+  },
+  /**
+   * Warns the user that the behaviour for `max: 0` / `limit: 0` is
+   * changing in the next major release.
+   *
+   * @param limit {number} - The maximum number of hits per client.
+   *
+   * @returns {void}
+   */
+  limit(limit) {
+    if (limit === 0) {
+      throw new ChangeWarning(
+        "WRN_ERL_MAX_ZERO",
+        "Setting limit or max to 0 disables rate limiting in express-rate-limit v6 and older, but will cause all requests to be blocked in v7"
+      );
+    }
+  },
+  /**
+   * Warns the user that the `draft_polli_ratelimit_headers` option is deprecated
+   * and will be removed in the next major release.
+   *
+   * @param draft_polli_ratelimit_headers {any | undefined} - The now-deprecated setting that was used to enable standard headers.
+   *
+   * @returns {void}
+   */
+  draftPolliHeaders(draft_polli_ratelimit_headers) {
+    if (draft_polli_ratelimit_headers) {
+      throw new ChangeWarning(
+        "WRN_ERL_DEPRECATED_DRAFT_POLLI_HEADERS",
+        `The draft_polli_ratelimit_headers configuration option is deprecated and has been removed in express-rate-limit v7, please set standardHeaders: 'draft-6' instead.`
+      );
+    }
+  },
+  /**
+   * Warns the user that the `onLimitReached` option is deprecated and
+   * will be removed in the next major release.
+   *
+   * @param onLimitReached {any | undefined} - The maximum number of hits per client.
+   *
+   * @returns {void}
+   */
+  onLimitReached(onLimitReached) {
+    if (onLimitReached) {
+      throw new ChangeWarning(
+        "WRN_ERL_DEPRECATED_ON_LIMIT_REACHED",
+        "The onLimitReached configuration option is deprecated and has been removed in express-rate-limit v7."
+      );
+    }
+  },
+  /**
+   * Warns the user when an invalid/unsupported version of the draft spec is passed.
+   *
+   * @param version {any | undefined} - The version passed by the user.
+   *
+   * @returns {void}
+   */
+  headersDraftVersion(version3) {
+    if (typeof version3 !== "string" || // @ts-expect-error This is fine. If version is not in the array, it will just return false.
+    !SUPPORTED_DRAFT_VERSIONS.includes(version3)) {
+      const versionString = SUPPORTED_DRAFT_VERSIONS.join(", ");
+      throw new ValidationError(
+        "ERR_ERL_HEADERS_UNSUPPORTED_DRAFT_VERSION",
+        `standardHeaders: only the following versions of the IETF draft specification are supported: ${versionString}.`
+      );
+    }
+  },
+  /**
+   * Warns the user when the selected headers option requires a reset time but
+   * the store does not provide one.
+   *
+   * @param resetTime {Date | undefined} - The timestamp when the client's hit count will be reset.
+   *
+   * @returns {void}
+   */
+  headersResetTime(resetTime) {
+    if (!resetTime) {
+      throw new ValidationError(
+        "ERR_ERL_HEADERS_NO_RESET",
+        `standardHeaders:  'draft-7' requires a 'resetTime', but the store did not provide one. The 'windowMs' value will be used instead, which may cause clients to wait longer than necessary.`
+      );
+    }
+  },
+  knownOptions(passedOptions) {
+    if (!passedOptions) return;
+    const optionsMap = {
+      windowMs: true,
+      limit: true,
+      message: true,
+      statusCode: true,
+      legacyHeaders: true,
+      standardHeaders: true,
+      identifier: true,
+      retryAfter: true,
+      requestPropertyName: true,
+      skipFailedRequests: true,
+      skipSuccessfulRequests: true,
+      keyGenerator: true,
+      ipv6Subnet: true,
+      handler: true,
+      skip: true,
+      requestWasSuccessful: true,
+      store: true,
+      validate: true,
+      headers: true,
+      max: true,
+      passOnStoreError: true,
+      logger: true
+    };
+    const validOptions = Object.keys(optionsMap).concat(
+      "draft_polli_ratelimit_headers",
+      // not a valid option anymore, but we have a more specific check for this one, so don't warn for it here
+      // from express-slow-down - https://github.com/express-rate-limit/express-slow-down/blob/main/source/types.ts#L65
+      "delayAfter",
+      "delayMs",
+      "maxDelayMs"
+    );
+    for (const key of Object.keys(passedOptions)) {
+      if (!validOptions.includes(key)) {
+        throw new ValidationError(
+          "ERR_ERL_UNKNOWN_OPTION",
+          `Unexpected configuration option: ${key}`
+          // todo: suggest a valid option with a short levenstein distance?
+        );
+      }
+    }
+  },
+  /**
+   * Checks the options.validate setting to ensure that only recognized
+   * validations are enabled or disabled.
+   *
+   * If any unrecognized values are found, an error is logged that
+   * includes the list of supported validations.
+   */
+  validationsConfig() {
+    const supportedValidations = Object.keys(this).filter(
+      (k2) => !["enabled", "disable"].includes(k2)
+    );
+    supportedValidations.push("default");
+    for (const key of Object.keys(this.enabled)) {
+      if (!supportedValidations.includes(key)) {
+        throw new ValidationError(
+          "ERR_ERL_UNKNOWN_VALIDATION",
+          `options.validate.${key} is not recognized. Supported validate options are: ${supportedValidations.join(
+            ", "
+          )}.`
+        );
+      }
+    }
+  },
+  /**
+   * Checks to see if the instance was created inside of a request handler,
+   * which would prevent it from working correctly, with the default memory
+   * store (or any other store with localKeys.)
+   */
+  creationStack(store) {
+    const { stack } = new Error(
+      "express-rate-limit validation check (set options.validate.creationStack=false to disable)"
+    );
+    if (stack?.includes("Layer.handle [as handle_request]") || // express v4
+    stack?.includes("Layer.handleRequest")) {
+      if (!store.localKeys) {
+        throw new ValidationError(
+          "ERR_ERL_CREATED_IN_REQUEST_HANDLER",
+          "express-rate-limit instance should *usually* be created at app initialization, not when responding to a request."
+        );
+      }
+      throw new ValidationError(
+        "ERR_ERL_CREATED_IN_REQUEST_HANDLER",
+        "express-rate-limit instance should be created at app initialization, not when responding to a request."
+      );
+    }
+  },
+  ipv6Subnet(ipv6Subnet) {
+    if (ipv6Subnet === false) {
+      return;
+    }
+    if (!Number.isInteger(ipv6Subnet) || ipv6Subnet < 32 || ipv6Subnet > 64) {
+      throw new ValidationError(
+        "ERR_ERL_IPV6_SUBNET",
+        `Unexpected ipv6Subnet value: ${ipv6Subnet}. Expected an integer between 32 and 64 (usually 48-64).`
+      );
+    }
+  },
+  ipv6SubnetOrKeyGenerator(options) {
+    if (options.ipv6Subnet !== void 0 && options.keyGenerator) {
+      throw new ValidationError(
+        "ERR_ERL_IPV6SUBNET_OR_KEYGENERATOR",
+        `Incompatible options: the 'ipv6Subnet' option is ignored when a custom 'keyGenerator' function is also set.`
+      );
+    }
+  },
+  keyGeneratorIpFallback(keyGenerator) {
+    if (!keyGenerator) {
+      return;
+    }
+    const src = keyGenerator.toString();
+    if ((src.includes("req.ip") || src.includes("request.ip")) && !src.includes("ipKeyGenerator")) {
+      throw new ValidationError(
+        "ERR_ERL_KEY_GEN_IPV6",
+        "Custom keyGenerator appears to use request IP without calling the ipKeyGenerator helper function for IPv6 addresses. This could allow IPv6 users to bypass limits."
+      );
+    }
+  },
+  /**
+   * Checks to see if the window duration is greater than 2^32 - 1. This is only
+   * called by the default MemoryStore, since it uses Node's setInterval method.
+   *
+   * See https://nodejs.org/api/timers.html#setintervalcallback-delay-args.
+   */
+  windowMs(windowMs) {
+    const SET_TIMEOUT_MAX = 2 ** 31 - 1;
+    if (typeof windowMs !== "number" || Number.isNaN(windowMs) || windowMs < 1 || windowMs > SET_TIMEOUT_MAX) {
+      throw new ValidationError(
+        "ERR_ERL_WINDOW_MS",
+        `Invalid windowMs value: ${windowMs}${typeof windowMs !== "number" ? ` (${typeof windowMs})` : ""}, must be a number between 1 and ${SET_TIMEOUT_MAX} when using the default MemoryStore`
+      );
+    }
+  }
+};
+function validateLogger(logger) {
+  if (typeof logger !== "object" || typeof logger.error !== "function" || typeof logger.warn !== "function") {
+    throw new TypeError(
+      "Provided logger does not implement the Logger interface"
+    );
+  }
+}
+var getValidations = (_enabled, logger) => {
+  validateLogger(logger);
+  let enabled;
+  if (typeof _enabled === "boolean") {
+    enabled = {
+      default: _enabled
+    };
+  } else {
+    enabled = {
+      default: true,
+      ..._enabled
+    };
+  }
+  const wrappedValidations = { enabled };
+  for (const [name, validation] of Object.entries(validations)) {
+    if (typeof validation === "function")
+      wrappedValidations[name] = (...args) => {
+        if (!(enabled[name] ?? enabled.default)) {
+          return;
+        }
+        enabled[name] = false;
+        try {
+          ;
+          validation.apply(
+            wrappedValidations,
+            args
+          );
+        } catch (error3) {
+          if (error3 instanceof ChangeWarning) logger.warn(error3);
+          else logger.error(error3);
+        }
+      };
+  }
+  const inspect = /* @__PURE__ */ Symbol.for("nodejs.util.inspect.custom");
+  if (inspect)
+    wrappedValidations[inspect] = () => wrappedValidations.enabled;
+  return wrappedValidations;
+};
+var isLegacyStore = (store) => (
+  // Check that `incr` exists but `increment` does not - store authors might want
+  // to keep both around for backwards compatibility.
+  typeof store.incr === "function" && typeof store.increment !== "function"
+);
+var promisifyStore = (passedStore) => {
+  if (!isLegacyStore(passedStore)) {
+    return passedStore;
+  }
+  const legacyStore = passedStore;
+  class PromisifiedStore {
+    async increment(key) {
+      return new Promise((resolve, reject) => {
+        legacyStore.incr(
+          key,
+          (error3, totalHits, resetTime) => {
+            if (error3) reject(error3);
+            resolve({ totalHits, resetTime });
+          }
+        );
+      });
+    }
+    async decrement(key) {
+      return legacyStore.decrement(key);
+    }
+    async resetKey(key) {
+      return legacyStore.resetKey(key);
+    }
+    /* istanbul ignore next */
+    async resetAll() {
+      if (typeof legacyStore.resetAll === "function")
+        return legacyStore.resetAll();
+    }
+  }
+  return new PromisifiedStore();
+};
+var getOptionsFromConfig = (config3) => {
+  const { validations: validations2, ...directlyPassableEntries } = config3;
+  return {
+    ...directlyPassableEntries,
+    validate: validations2.enabled
+  };
+};
+var parseOptions = (passedOptions) => {
+  const notUndefinedOptions = omitUndefinedProperties(passedOptions);
+  const logger = passedOptions.logger ?? ConsoleLogger;
+  const validations2 = getValidations(
+    notUndefinedOptions?.validate ?? true,
+    logger
+  );
+  validations2.validationsConfig();
+  validations2.knownOptions(passedOptions);
+  validations2.draftPolliHeaders(
+    // @ts-expect-error see the note above.
+    notUndefinedOptions.draft_polli_ratelimit_headers
+  );
+  validations2.onLimitReached(notUndefinedOptions.onLimitReached);
+  if (notUndefinedOptions.ipv6Subnet !== void 0 && typeof notUndefinedOptions.ipv6Subnet !== "function") {
+    validations2.ipv6Subnet(notUndefinedOptions.ipv6Subnet);
+  }
+  validations2.keyGeneratorIpFallback(notUndefinedOptions.keyGenerator);
+  validations2.ipv6SubnetOrKeyGenerator(notUndefinedOptions);
+  let standardHeaders = notUndefinedOptions.standardHeaders ?? false;
+  if (standardHeaders === true) standardHeaders = "draft-6";
+  const config3 = {
+    windowMs: 60 * 1e3,
+    limit: passedOptions.max ?? 5,
+    // `max` is deprecated, but support it anyways.
+    message: "Too many requests, please try again later.",
+    statusCode: 429,
+    legacyHeaders: passedOptions.headers ?? true,
+    identifier(request, _response) {
+      let duration5 = "";
+      const property = config3.requestPropertyName;
+      const { limit } = request[property];
+      const seconds = config3.windowMs / 1e3;
+      const minutes = config3.windowMs / (1e3 * 60);
+      const hours = config3.windowMs / (1e3 * 60 * 60);
+      const days = config3.windowMs / (1e3 * 60 * 60 * 24);
+      if (seconds < 60) duration5 = `${seconds}sec`;
+      else if (minutes < 60) duration5 = `${minutes}min`;
+      else if (hours < 24) duration5 = `${hours}hr${hours > 1 ? "s" : ""}`;
+      else duration5 = `${days}day${days > 1 ? "s" : ""}`;
+      return `${limit}-in-${duration5}`;
+    },
+    requestPropertyName: "rateLimit",
+    skipFailedRequests: false,
+    skipSuccessfulRequests: false,
+    requestWasSuccessful: (_request, response) => response.statusCode < 400,
+    skip: (_request, _response) => false,
+    async keyGenerator(request, response) {
+      validations2.ip(request.ip);
+      validations2.trustProxy(request);
+      validations2.xForwardedForHeader(request);
+      validations2.forwardedHeader(request);
+      const ip = request.ip;
+      let subnet = 56;
+      if ((0, import_node_net2.isIPv6)(ip)) {
+        subnet = typeof config3.ipv6Subnet === "function" ? await config3.ipv6Subnet(request, response) : config3.ipv6Subnet;
+        if (typeof config3.ipv6Subnet === "function")
+          validations2.ipv6Subnet(subnet);
+      }
+      return ipKeyGenerator(ip, subnet);
+    },
+    ipv6Subnet: 56,
+    async handler(request, response, _next, _optionsUsed) {
+      response.status(config3.statusCode);
+      const message = typeof config3.message === "function" ? await config3.message(
+        request,
+        response
+      ) : config3.message;
+      if (!response.writableEnded) response.send(message);
+    },
+    passOnStoreError: false,
+    // Allow the default options to be overridden by the passed options.
+    ...notUndefinedOptions,
+    // `standardHeaders` is resolved into a draft version above, use that.
+    standardHeaders,
+    // Note that this field is declared after the user's options are spread in,
+    // so that this field doesn't get overridden with an un-promisified store!
+    store: promisifyStore(
+      notUndefinedOptions.store ?? new MemoryStore(validations2)
+    ),
+    // Print an error to the console if a few known misconfigurations are detected.
+    validations: validations2,
+    logger
+  };
+  if (typeof config3.store.increment !== "function" || typeof config3.store.decrement !== "function" || typeof config3.store.resetKey !== "function" || config3.store.resetAll !== void 0 && typeof config3.store.resetAll !== "function" || config3.store.init !== void 0 && typeof config3.store.init !== "function") {
+    throw new TypeError(
+      "An invalid store was passed. Please ensure that the store is a class that implements the `Store` interface."
+    );
+  }
+  return config3;
+};
+var handleAsyncErrors = (fn) => async (request, response, next) => {
+  try {
+    await Promise.resolve(fn(request, response, next)).catch(next);
+  } catch (error3) {
+    next(error3);
+  }
+};
+var rateLimit = (passedOptions) => {
+  const config3 = parseOptions(passedOptions ?? {});
+  const options = getOptionsFromConfig(config3);
+  const debug = (0, import_debug.default)("express-rate-limit");
+  debug("creating new rate limiter with %o", config3.store.constructor.name);
+  for (const [key, val] of Object.entries(config3))
+    debug("set %s to %o", key, val);
+  config3.validations.creationStack(config3.store);
+  config3.validations.unsharedStore(config3.store);
+  if (typeof config3.store.init === "function") {
+    debug("executing init for store");
+    try {
+      const storeInit = config3.store.init(options);
+      if (storeInit instanceof Promise) {
+        storeInit.catch(
+          (error3) => config3.logger.error(
+            error3,
+            "express-rate-limit: async error during store initialization."
+          )
+        );
+      }
+    } catch (error3) {
+      config3.logger.error(
+        error3,
+        "express-rate-limit: error during store initialization."
+      );
+    }
+  }
+  const middleware = handleAsyncErrors(
+    async (request, response, next) => {
+      const closePromise = config3.skipFailedRequests && new Promise((resolve) => response.once("close", resolve));
+      const finishPromise = (config3.skipFailedRequests || config3.skipSuccessfulRequests) && new Promise((resolve) => response.once("finish", resolve));
+      const errorPromise = config3.skipFailedRequests && new Promise((resolve) => response.once("error", resolve));
+      debug("requested %o", request.originalUrl);
+      debug("request from ip %o", request.ip);
+      const skip = await config3.skip(request, response);
+      if (skip) {
+        debug("skipping request");
+        next();
+        return;
+      }
+      const augmentedRequest = request;
+      const key = await config3.keyGenerator(request, response);
+      debug("computed key %o", key);
+      debug("incrementing count");
+      let totalHits = 0;
+      let resetTime;
+      try {
+        const incrementResult = await config3.store.increment(key);
+        totalHits = incrementResult.totalHits;
+        resetTime = incrementResult.resetTime;
+      } catch (error3) {
+        if (config3.passOnStoreError) {
+          config3.logger.error(
+            error3,
+            "express-rate-limit: error from store, allowing request without rate-limiting."
+          );
+          next();
+          return;
+        }
+        throw error3;
+      }
+      config3.validations.positiveHits(totalHits);
+      config3.validations.singleCount(request, config3.store, key);
+      const retrieveLimit = typeof config3.limit === "function" ? config3.limit(request, response) : config3.limit;
+      const limit = await retrieveLimit;
+      config3.validations.limit(limit);
+      const info = {
+        limit,
+        used: totalHits,
+        remaining: Math.max(limit - totalHits, 0),
+        resetTime,
+        key
+      };
+      for (const [key2, val] of Object.entries(info))
+        debug(
+          "set request.%s.%s to be %o",
+          config3.requestPropertyName,
+          key2,
+          val
+        );
+      Object.defineProperty(info, "current", {
+        configurable: false,
+        enumerable: false,
+        value: totalHits
+      });
+      augmentedRequest[config3.requestPropertyName] = info;
+      if (config3.legacyHeaders && !response.headersSent) {
+        debug("set legacy headers");
+        setLegacyHeaders(response, info);
+      }
+      if (config3.standardHeaders && !response.headersSent) {
+        switch (config3.standardHeaders) {
+          case "draft-6": {
+            debug("set ietf draft 6 headers");
+            setDraft6Headers(response, info, config3.windowMs);
+            break;
+          }
+          case "draft-7": {
+            debug("set ietf draft 7 headers");
+            config3.validations.headersResetTime(info.resetTime);
+            setDraft7Headers(response, info, config3.windowMs);
+            break;
+          }
+          case "draft-8": {
+            const retrieveName = typeof config3.identifier === "function" ? config3.identifier(request, response) : config3.identifier;
+            const name = await retrieveName;
+            debug("set ietf draft 8 headers");
+            debug("set name to %o", name);
+            config3.validations.headersResetTime(info.resetTime);
+            setDraft8Headers(response, info, config3.windowMs, name, key);
+            break;
+          }
+          default: {
+            config3.validations.headersDraftVersion(config3.standardHeaders);
+            break;
+          }
+        }
+      }
+      if (config3.skipFailedRequests || config3.skipSuccessfulRequests) {
+        let decremented = false;
+        const decrementKey = async () => {
+          if (!decremented) {
+            if (resetTime && Date.now() >= resetTime.getTime()) {
+              return;
+            }
+            debug("decrementing count");
+            await config3.store.decrement(key);
+            decremented = true;
+          }
+        };
+        if (config3.skipFailedRequests) {
+          if (finishPromise) {
+            void finishPromise.then(async () => {
+              const success = await config3.requestWasSuccessful(
+                request,
+                response
+              );
+              debug("computed requestWasSuccessful as %o", success);
+              if (!success) await decrementKey();
+            });
+          }
+          if (closePromise) {
+            void closePromise.then(async () => {
+              if (!response.writableEnded) await decrementKey();
+            });
+          }
+          if (errorPromise) {
+            void errorPromise.then(async () => {
+              await decrementKey();
+            });
+          }
+        }
+        if (config3.skipSuccessfulRequests) {
+          if (finishPromise) {
+            void finishPromise.then(async () => {
+              const success = await config3.requestWasSuccessful(
+                request,
+                response
+              );
+              debug("computed requestWasSuccessful as %o", success);
+              if (success) await decrementKey();
+            });
+          }
+        }
+      }
+      if (totalHits > limit) {
+        debug("limit exceeded");
+        if (config3.legacyHeaders || config3.standardHeaders) {
+          debug("set retry-after header");
+          const retrieveRetryAfter = typeof config3.retryAfter === "function" ? config3.retryAfter(request, response) : config3.retryAfter;
+          const retryAfter = await retrieveRetryAfter;
+          setRetryAfterHeader(response, info, config3.windowMs, retryAfter);
+        }
+        config3.handler(request, response, next, options);
+        return;
+      }
+      next();
+    }
+  );
+  const getThrowFn = () => {
+    throw new Error("The current store does not support the get/getKey method");
+  };
+  middleware.resetKey = config3.store.resetKey.bind(config3.store);
+  middleware.getKey = typeof config3.store.get === "function" ? config3.store.get.bind(config3.store) : getThrowFn;
+  return middleware;
+};
+var rate_limit_default = rateLimit;
+var SECOND = 1e3;
+var MINUTE = 60 * SECOND;
+var HOUR = 60 * MINUTE;
+var DAY = 24 * HOUR;
+
+// src/requestHandler.ts
 var import_mime_types2 = __toESM(require_mime_types());
 var import_response_time = __toESM(require_response_time());
 var import_query_string = __toESM(require_query_string());
 var import_markdown_patch3 = __toESM(require_dist2());
-var import_markdown_patch_23 = __toESM(require_dist3());
+var import_markdown_patch_24 = __toESM(require_dist3());
 
 // node_modules/@modelcontextprotocol/server/dist/chunk-Br0eD_fh.mjs
 var __create2 = Object.create;
@@ -58859,10 +62858,10 @@ function mergeDefs(...defs) {
 function cloneDef(schema) {
   return mergeDefs(schema._zod.def);
 }
-function getElementAtPath(obj, path2) {
-  if (!path2)
+function getElementAtPath(obj, path3) {
+  if (!path3)
     return obj;
-  return path2.reduce((acc, key) => acc?.[key], obj);
+  return path3.reduce((acc, key) => acc?.[key], obj);
 }
 function promiseAllObject(promisesObj) {
   const keys = Object.keys(promisesObj);
@@ -59202,11 +63201,11 @@ function explicitlyAborted(x2, startIndex = 0) {
   }
   return false;
 }
-function prefixIssues(path2, issues) {
+function prefixIssues(path3, issues) {
   return issues.map((iss) => {
     var _a5;
     (_a5 = iss).path ?? (_a5.path = []);
-    iss.path.unshift(path2);
+    iss.path.unshift(path3);
     return iss;
   });
 }
@@ -59655,16 +63654,16 @@ function flattenError(error3, mapper = (issue3) => issue3.message) {
 }
 function formatError(error3, mapper = (issue3) => issue3.message) {
   const fieldErrors = { _errors: [] };
-  const processError = (error4, path2 = []) => {
+  const processError = (error4, path3 = []) => {
     for (const issue3 of error4.issues) {
       if (issue3.code === "invalid_union" && issue3.errors.length) {
-        issue3.errors.map((issues) => processError({ issues }, [...path2, ...issue3.path]));
+        issue3.errors.map((issues) => processError({ issues }, [...path3, ...issue3.path]));
       } else if (issue3.code === "invalid_key") {
-        processError({ issues: issue3.issues }, [...path2, ...issue3.path]);
+        processError({ issues: issue3.issues }, [...path3, ...issue3.path]);
       } else if (issue3.code === "invalid_element") {
-        processError({ issues: issue3.issues }, [...path2, ...issue3.path]);
+        processError({ issues: issue3.issues }, [...path3, ...issue3.path]);
       } else {
-        const fullpath = [...path2, ...issue3.path];
+        const fullpath = [...path3, ...issue3.path];
         if (fullpath.length === 0) {
           fieldErrors._errors.push(mapper(issue3));
         } else {
@@ -66401,10 +70400,10 @@ function mergeDefs2(...defs) {
 function cloneDef2(schema) {
   return mergeDefs2(schema._zod.def);
 }
-function getElementAtPath2(obj, path2) {
-  if (!path2)
+function getElementAtPath2(obj, path3) {
+  if (!path3)
     return obj;
-  return path2.reduce((acc, key) => acc?.[key], obj);
+  return path3.reduce((acc, key) => acc?.[key], obj);
 }
 function promiseAllObject2(promisesObj) {
   const keys = Object.keys(promisesObj);
@@ -66744,11 +70743,11 @@ function explicitlyAborted2(x2, startIndex = 0) {
   }
   return false;
 }
-function prefixIssues2(path2, issues) {
+function prefixIssues2(path3, issues) {
   return issues.map((iss) => {
     var _a5;
     (_a5 = iss).path ?? (_a5.path = []);
-    iss.path.unshift(path2);
+    iss.path.unshift(path3);
     return iss;
   });
 }
@@ -67194,16 +71193,16 @@ function flattenError2(error3, mapper = (issue3) => issue3.message) {
 }
 function formatError2(error3, mapper = (issue3) => issue3.message) {
   const fieldErrors = { _errors: [] };
-  const processError = (error4, path2 = []) => {
+  const processError = (error4, path3 = []) => {
     for (const issue3 of error4.issues) {
       if (issue3.code === "invalid_union" && issue3.errors.length) {
-        issue3.errors.map((issues) => processError({ issues }, [...path2, ...issue3.path]));
+        issue3.errors.map((issues) => processError({ issues }, [...path3, ...issue3.path]));
       } else if (issue3.code === "invalid_key") {
-        processError({ issues: issue3.issues }, [...path2, ...issue3.path]);
+        processError({ issues: issue3.issues }, [...path3, ...issue3.path]);
       } else if (issue3.code === "invalid_element") {
-        processError({ issues: issue3.issues }, [...path2, ...issue3.path]);
+        processError({ issues: issue3.issues }, [...path3, ...issue3.path]);
       } else {
-        const fullpath = [...path2, ...issue3.path];
+        const fullpath = [...path3, ...issue3.path];
         if (fullpath.length === 0) {
           fieldErrors._errors.push(mapper(issue3));
         } else {
@@ -75385,9 +79384,9 @@ var rev2026Codec = {
     });
     const parsed = buildSchemas2026().RequestMetaEnvelopeSchema.safeParse(meta3);
     if (!parsed.success) for (const issue3 of parsed.error.issues) {
-      const path2 = issue3.path.map(String);
-      const key = path2.length > 0 ? path2.join(".") : "_meta";
-      if (path2.length === 1 && issues.some((existing) => existing.key === key && existing.problem === "missing")) continue;
+      const path3 = issue3.path.map(String);
+      const key = path3.length > 0 ? path3.join(".") : "_meta";
+      if (path3.length === 1 && issues.some((existing) => existing.key === key && existing.problem === "missing")) continue;
       issues.push({
         key,
         problem: issue3.message
@@ -75710,29 +79709,29 @@ var PERMITTED_X_MCP_HEADER_TYPES = /* @__PURE__ */ new Set([
 function scanXMcpHeaderDeclarations(inputSchema) {
   const declarations = [];
   const seenLower = /* @__PURE__ */ new Map();
-  const visit = (node3, path2, reachable) => {
+  const visit = (node3, path3, reachable) => {
     if (node3 === null || typeof node3 !== "object") return void 0;
     const schema = node3;
     if (X_MCP_HEADER_KEY in schema) {
-      if (!reachable || path2.length === 0) return `${pathName(path2)}: x-mcp-header is only permitted on properties statically reachable via a chain of 'properties' keys (not under items, additionalProperties, oneOf/anyOf/allOf/not, if/then/else, or $ref)`;
+      if (!reachable || path3.length === 0) return `${pathName(path3)}: x-mcp-header is only permitted on properties statically reachable via a chain of 'properties' keys (not under items, additionalProperties, oneOf/anyOf/allOf/not, if/then/else, or $ref)`;
       const raw = schema[X_MCP_HEADER_KEY];
-      if (typeof raw !== "string" || raw.length === 0) return `${pathName(path2)}: x-mcp-header MUST be a non-empty string`;
-      if (!RFC9110_TOKEN.test(raw)) return `${pathName(path2)}: x-mcp-header '${raw}' is not a valid RFC 9110 token (no spaces, control characters or HTTP delimiters)`;
+      if (typeof raw !== "string" || raw.length === 0) return `${pathName(path3)}: x-mcp-header MUST be a non-empty string`;
+      if (!RFC9110_TOKEN.test(raw)) return `${pathName(path3)}: x-mcp-header '${raw}' is not a valid RFC 9110 token (no spaces, control characters or HTTP delimiters)`;
       const type = typeof schema.type === "string" ? schema.type : void 0;
-      if (type === void 0 || !PERMITTED_X_MCP_HEADER_TYPES.has(type)) return `${pathName(path2)}: x-mcp-header is only permitted on primitive-typed properties (string, integer, boolean); got ${type ?? "<none>"}`;
+      if (type === void 0 || !PERMITTED_X_MCP_HEADER_TYPES.has(type)) return `${pathName(path3)}: x-mcp-header is only permitted on primitive-typed properties (string, integer, boolean); got ${type ?? "<none>"}`;
       const lower = raw.toLowerCase();
       const prior = seenLower.get(lower);
       if (prior !== void 0) return `x-mcp-header '${raw}' is not case-insensitively unique (also declared as '${prior}')`;
       seenLower.set(lower, raw);
       declarations.push({
-        path: path2,
+        path: path3,
         headerName: raw,
         type
       });
     }
     const properties = schema.properties;
     if (properties !== null && typeof properties === "object") for (const [key, child] of Object.entries(properties)) {
-      const fault$1 = visit(child, [...path2, key], reachable);
+      const fault$1 = visit(child, [...path3, key], reachable);
       if (fault$1 !== void 0) return fault$1;
     }
     for (const k2 of NON_REACHABLE_SUBSCHEMA_KEYWORDS) {
@@ -75740,7 +79739,7 @@ function scanXMcpHeaderDeclarations(inputSchema) {
       if (sub === void 0) continue;
       const branches = Array.isArray(sub) ? sub : sub !== null && typeof sub === "object" && OBJECT_VALUED_SUBSCHEMA_KEYWORDS.has(k2) ? Object.values(sub) : [sub];
       for (const branch of branches) {
-        const fault$1 = visit(branch, [...path2, `<${k2}>`], false);
+        const fault$1 = visit(branch, [...path3, `<${k2}>`], false);
         if (fault$1 !== void 0) return fault$1;
       }
     }
@@ -75780,8 +79779,8 @@ var OBJECT_VALUED_SUBSCHEMA_KEYWORDS = /* @__PURE__ */ new Set([
   "$defs",
   "definitions"
 ]);
-function pathName(path2) {
-  return path2.length === 0 ? "<root>" : path2.join(".");
+function pathName(path3) {
+  return path3.length === 0 ? "<root>" : path3.join(".");
 }
 var BASE64_SENTINEL_PREFIX = "=?base64?";
 var BASE64_SENTINEL_SUFFIX = "?=";
@@ -75812,9 +79811,9 @@ function decodeMcpParamValue(value) {
     return;
   }
 }
-function valueAtPath(root, path2) {
+function valueAtPath(root, path3) {
   let node3 = root;
-  for (const key of path2) {
+  for (const key of path3) {
     if (node3 === null || typeof node3 !== "object") return void 0;
     node3 = node3[key];
   }
@@ -76308,7 +80307,7 @@ var PROPERTY_KEYS_BY_TYPE = {
   array: shapeKeys([UntitledMultiSelectEnumSchemaSchema, TitledMultiSelectEnumSchemaSchema])
 };
 var SUPPORTED_STRING_FORMATS = new Set(StringSchemaSchema.shape.format.unwrap().options);
-function walkProperty(node3, path2, vendor, unsupported) {
+function walkProperty(node3, path3, vendor, unsupported) {
   if (!isJsonObject(node3)) return node3;
   const allowedKeys = typeof node3.type === "string" && Object.hasOwn(PROPERTY_KEYS_BY_TYPE, node3.type) ? PROPERTY_KEYS_BY_TYPE[node3.type] : void 0;
   if (allowedKeys === void 0) return node3;
@@ -76316,8 +80315,8 @@ function walkProperty(node3, path2, vendor, unsupported) {
   for (const [key, value] of Object.entries(node3)) if (allowedKeys.has(key) || isAnnotationOnlyJsonSchemaKeyword(key)) pruned[key] = value;
   else if (key === "pattern" && node3.type === "string" && typeof node3.format === "string") {
     if (!SUPPORTED_STRING_FORMATS.has(node3.format)) pruned[key] = value;
-    else if (typeof value !== "string" || !isLibraryFormatPattern(node3.format, value, vendor)) unsupported.push(`${path2}.${key}`);
-  } else unsupported.push(`${path2}.${key}`);
+    else if (typeof value !== "string" || !isLibraryFormatPattern(node3.format, value, vendor)) unsupported.push(`${path3}.${key}`);
+  } else unsupported.push(`${path3}.${key}`);
   return pruned;
 }
 function walkRequestedSchema(converted, vendor) {
@@ -76334,11 +80333,11 @@ function describeUnsupportedProperties(pruned, fallback) {
   const offenders = Object.entries(pruned.properties).filter(([, node3]) => !parseSchema(PrimitiveSchemaDefinitionSchema, node3).success).map(([name]) => `properties.${name}`);
   return offenders.length > 0 ? offenders.join(", ") : fallback;
 }
-function findDroppedConstraintPaths(original, parsed, path2 = "") {
-  if (Array.isArray(original) && Array.isArray(parsed)) return original.flatMap((item, index) => findDroppedConstraintPaths(item, parsed[index], `${path2}[${index}]`));
+function findDroppedConstraintPaths(original, parsed, path3 = "") {
+  if (Array.isArray(original) && Array.isArray(parsed)) return original.flatMap((item, index) => findDroppedConstraintPaths(item, parsed[index], `${path3}[${index}]`));
   if (!isJsonObject(original) || !isJsonObject(parsed)) return [];
   return Object.entries(original).flatMap(([key, value]) => {
-    const childPath = path2 ? `${path2}.${key}` : key;
+    const childPath = path3 ? `${path3}.${key}` : key;
     if (!Object.prototype.hasOwnProperty.call(parsed, key)) return isAnnotationOnlyJsonSchemaKeyword(key) ? [] : [childPath];
     return findDroppedConstraintPaths(value, parsed[key], childPath);
   });
@@ -79960,8 +83959,8 @@ var require_validate = /* @__PURE__ */ __commonJSMin(((exports2) => {
     }
   }
   function returnResults(it) {
-    const { gen, schemaEnv, validateName, ValidationError, opts } = it;
-    if (schemaEnv.$async) gen.if((0, codegen_1._)`${names_1.default.errors} === 0`, () => gen.return(names_1.default.data), () => gen.throw((0, codegen_1._)`new ${ValidationError}(${names_1.default.vErrors})`));
+    const { gen, schemaEnv, validateName, ValidationError: ValidationError2, opts } = it;
+    if (schemaEnv.$async) gen.if((0, codegen_1._)`${names_1.default.errors} === 0`, () => gen.return(names_1.default.data), () => gen.throw((0, codegen_1._)`new ${ValidationError2}(${names_1.default.vErrors})`));
     else {
       gen.assign((0, codegen_1._)`${validateName}.errors`, names_1.default.vErrors);
       if (opts.unevaluated) assignEvaluated(it);
@@ -80243,14 +84242,14 @@ var require_validate = /* @__PURE__ */ __commonJSMin(((exports2) => {
 }));
 var require_validation_error = /* @__PURE__ */ __commonJSMin(((exports2) => {
   Object.defineProperty(exports2, "__esModule", { value: true });
-  var ValidationError = class extends Error {
+  var ValidationError2 = class extends Error {
     constructor(errors) {
       super("validation failed");
       this.errors = errors;
       this.ajv = this.validation = true;
     }
   };
-  exports2.default = ValidationError;
+  exports2.default = ValidationError2;
 }));
 var require_ref_error = /* @__PURE__ */ __commonJSMin(((exports2) => {
   Object.defineProperty(exports2, "__esModule", { value: true });
@@ -80594,8 +84593,8 @@ var require_utils3 = /* @__PURE__ */ __commonJSMin(((exports2, module2) => {
     for (let i = 0; i < str.length; i++) if (str[i] === token) ind++;
     return ind;
   }
-  function removeDotSegments(path2) {
-    let input = path2;
+  function removeDotSegments(path3) {
+    let input = path3;
     const output = [];
     let nextSlash = -1;
     let len = 0;
@@ -80748,8 +84747,8 @@ var require_schemes = /* @__PURE__ */ __commonJSMin(((exports2, module2) => {
       wsComponent.secure = void 0;
     }
     if (wsComponent.resourceName) {
-      const [path2, query] = wsComponent.resourceName.split("?");
-      wsComponent.path = path2 && path2 !== "/" ? path2 : void 0;
+      const [path3, query] = wsComponent.resourceName.split("?");
+      wsComponent.path = path3 && path3 !== "/" ? path3 : void 0;
       wsComponent.query = query;
       wsComponent.resourceName = void 0;
     }
@@ -80987,7 +84986,7 @@ var require_fast_uri = /* @__PURE__ */ __commonJSMin(((exports2, module2) => {
       query: void 0,
       fragment: void 0
     };
-    let isIP = false;
+    let isIP2 = false;
     if (options.reference === "suffix") if (options.scheme) uri = options.scheme + ":" + uri;
     else uri = "//" + uri;
     const matches = uri.match(URI_PARSE);
@@ -81003,8 +85002,8 @@ var require_fast_uri = /* @__PURE__ */ __commonJSMin(((exports2, module2) => {
       if (parsed.host) if (isIPv4(parsed.host) === false) {
         const ipv6result = normalizeIPv6(parsed.host);
         parsed.host = ipv6result.host.toLowerCase();
-        isIP = ipv6result.isIPV6;
-      } else isIP = true;
+        isIP2 = ipv6result.isIPV6;
+      } else isIP2 = true;
       if (parsed.scheme === void 0 && parsed.userinfo === void 0 && parsed.host === void 0 && parsed.port === void 0 && parsed.query === void 0 && !parsed.path) parsed.reference = "same-document";
       else if (parsed.scheme === void 0) parsed.reference = "relative";
       else if (parsed.fragment === void 0) parsed.reference = "absolute";
@@ -81012,7 +85011,7 @@ var require_fast_uri = /* @__PURE__ */ __commonJSMin(((exports2, module2) => {
       if (options.reference && options.reference !== "suffix" && options.reference !== parsed.reference) parsed.error = parsed.error || "URI is not a " + options.reference + " reference.";
       const schemeHandler = getSchemeHandler(options.scheme || parsed.scheme);
       if (!options.unicodeSupport && (!schemeHandler || !schemeHandler.unicodeSupport)) {
-        if (parsed.host && (options.domainHost || schemeHandler && schemeHandler.domainHost) && isIP === false && nonSimpleDomain(parsed.host)) try {
+        if (parsed.host && (options.domainHost || schemeHandler && schemeHandler.domainHost) && isIP2 === false && nonSimpleDomain(parsed.host)) try {
           parsed.host = URL.domainToASCII(parsed.host.toLowerCase());
         } catch (e) {
           parsed.error = parsed.error || "Host's domain name can not be converted to ASCII: " + e;
@@ -84737,11 +88736,11 @@ var require_dist4 = /* @__PURE__ */ __commonJSMin(((exports2, module2) => {
     if (!f) throw new Error(`Unknown format "${name}"`);
     return f;
   };
-  function addFormats2(ajv, list, fs, exportName) {
+  function addFormats2(ajv, list, fs2, exportName) {
     var _a5;
     var _b;
     (_a5 = (_b = ajv.opts.code).formats) !== null && _a5 !== void 0 || (_b.formats = (0, codegen_1._)`require("ajv-formats/dist/formats").${exportName}`);
-    for (const f of list) ajv.addFormat(f, fs[f]);
+    for (const f of list) ajv.addFormat(f, fs2[f]);
   }
   module2.exports = exports2 = formatsPlugin;
   Object.defineProperty(exports2, "__esModule", { value: true });
@@ -86512,8 +90511,8 @@ var PerRequestHTTPServerTransport = class {
     if (isResponse) {
       if (this._terminalDelivered) return;
       this._terminalDelivered = true;
-      const errorCode = isJSONRPCErrorResponse(message) ? message.error.code : void 0;
-      const ladderStatus = errorCode !== void 0 && (this._dispatchWindowOpen || errorCode === ProtocolErrorCode.MissingRequiredClientCapability) ? LADDER_ERROR_HTTP_STATUS[errorCode] : void 0;
+      const errorCode2 = isJSONRPCErrorResponse(message) ? message.error.code : void 0;
+      const ladderStatus = errorCode2 !== void 0 && (this._dispatchWindowOpen || errorCode2 === ProtocolErrorCode.MissingRequiredClientCapability) ? LADDER_ERROR_HTTP_STATUS[errorCode2] : void 0;
       if (ladderStatus !== void 0 && this._sse === void 0) {
         this.settleResponse(Response.json(message, {
           status: ladderStatus,
@@ -87585,6 +91584,85 @@ function createMcpHandler(factory, options = {}) {
   };
 }
 
+// src/conditionalRequests.ts
+var import_markdown_patch_2 = __toESM(require_dist3());
+function formatEntityTag(version3) {
+  return `"${version3}"`;
+}
+function isSeparator(char) {
+  return char === "," || char === " " || char === "	";
+}
+function parseEntityTagCondition(raw) {
+  const value = raw.trim();
+  if (value === "*") return "*";
+  const tags = [];
+  let i = 0;
+  while (i < value.length) {
+    if (isSeparator(value[i])) {
+      i++;
+      continue;
+    }
+    const weak = value.startsWith("W/", i);
+    if (weak) i += 2;
+    let opaque;
+    if (value[i] === '"') {
+      const close = value.indexOf('"', i + 1);
+      if (close === -1) return null;
+      opaque = value.slice(i + 1, close);
+      i = close + 1;
+    } else {
+      if (weak) return null;
+      const begin = i;
+      while (i < value.length && !isSeparator(value[i]) && value[i] !== '"') i++;
+      opaque = value.slice(begin, i);
+      if (opaque === "*" || value[i] === '"') return null;
+    }
+    while (value[i] === " " || value[i] === "	") i++;
+    if (i < value.length && value[i] !== ",") return null;
+    tags.push({ opaque, weak });
+  }
+  return tags.length > 0 ? tags : null;
+}
+function hasPreconditions(preconditions) {
+  return preconditions !== void 0 && (preconditions.ifMatch !== void 0 || preconditions.ifNoneMatch !== void 0);
+}
+function describeTags(tags) {
+  return tags.map((t) => t.weak ? `W/"${t.opaque}"` : `"${t.opaque}"`).join(", ");
+}
+function preconditionFailure(current, preconditions) {
+  const { ifMatch, ifNoneMatch } = preconditions;
+  if (ifMatch !== void 0) {
+    if (ifMatch === "*") {
+      if (!current.exists) {
+        return "If-Match: * requires the file to exist, and it does not.";
+      }
+    } else {
+      const matched = current.version !== null && ifMatch.some((tag) => !tag.weak && tag.opaque === current.version);
+      if (!matched) {
+        const named = describeTags(ifMatch);
+        if (current.version === null) {
+          return current.exists ? `If-Match named ${named}, but the path is not a file.` : `If-Match named ${named}, but the file does not exist.`;
+        }
+        const weakNote = ifMatch.some((tag) => tag.weak) ? " Weak entity tags never satisfy If-Match; use the strong ETag from a GET of the file, or the document map's version." : "";
+        return `If-Match named ${named}, but the file is now at version "${current.version}".${weakNote}`;
+      }
+    }
+  }
+  if (ifNoneMatch !== void 0) {
+    if (ifNoneMatch === "*") {
+      if (current.exists) {
+        return "If-None-Match: * requires that nothing exist at the path, and something does.";
+      }
+    } else if (
+      // Weak comparison: the W/ prefix is ignored.
+      current.version !== null && ifNoneMatch.some((tag) => tag.opaque === current.version)
+    ) {
+      return `If-None-Match named the file's current version "${current.version}".`;
+    }
+  }
+  return null;
+}
+
 // src/certificates.ts
 var import_node_forge = __toESM(require_lib());
 
@@ -87611,6 +91689,7 @@ var DEFAULT_SETTINGS = {
 var ERROR_CODE_MESSAGES = {
   [40005 /* InvalidFrontmatter */]: "Document frontmatter could not be parsed.",
   [40101 /* ApiKeyAuthorizationRequired */]: "Authorization required.  Find your API Key in the 'Local REST API with MCP' section of your Obsidian settings.",
+  [42901 /* TooManyAuthenticationFailures */]: "Too many failed authentication attempts.  Requests presenting an incorrect API key or signed URL are refused until the window ends; see the Retry-After header.  Requests with the correct API key are unaffected.",
   [40011 /* ContentTypeSpecificationRequired */]: "Content-Type header required; this API accepts data in multiple content-types and you must indicate the content-type of your request body via the Content-Type header.",
   [40012 /* InvalidContentType */]: "Unknown or invalid Content-Type specified in Content-Type header.",
   [40015 /* InvalidContentForContentType */]: "Your request body could not be processed as the content-type specified in your Content-Type header.",
@@ -87641,7 +91720,10 @@ var ERROR_CODE_MESSAGES = {
   [40020 /* MissingDestinationHeader */]: "Destination header is required for MOVE and COPY operations.",
   [40022 /* InvalidDestinationHeader */]: "The 'Destination' header you provided could not be parsed.",
   [40023 /* InvalidWithinHeader */]: "The 'Within' header must be a single integer, e.g. 0 or -1.",
-  [40021 /* PathTraversalNotAllowed */]: "Path traversal is not allowed. Paths must be relative and within the vault.",
+  [40024 /* InvalidPreconditionHeader */]: `An 'If-Match' or 'If-None-Match' header must be '*' or a comma-separated list of entity tags, e.g. "a1b2c3" or "a1b2c3", "d4e5f6".`,
+  [41200 /* PreconditionFailed */]: "A precondition on this write did not hold, so nothing was written: the file has changed since the version If-Match named, or If-None-Match ruled out what is there now. Read the file again for its current ETag, and retry against that.",
+  [40021 /* PathTraversalNotAllowed */]: "Path traversal is not allowed. Paths must be relative, within the vault, and free of ':' and control characters.",
+  [40321 /* ConfigDirAccessNotAllowed */]: "Access to the Obsidian configuration directory is not allowed. Enable 'Allow access to the configuration directory' under Settings \u2192 Local REST API \u2192 Advanced settings to permit it.",
   [40920 /* DestinationAlreadyExists */]: "Destination file already exists.",
   [50020 /* FileOperationFailed */]: "File operation failed. Check the error message for details.",
   [40095 /* EventNameRequired */]: "Name the emitter and the event to subscribe to: /events/<emitter>/<event>/. Obsidian has no way to listen for every event at once. `supportedEvents` lists what can be streamed.",
@@ -87651,6 +91733,8 @@ var ERROR_CODE_MESSAGES = {
 };
 var DefaultBearerTokenHeaderName = "Authorization";
 var DefaultBindingHost = "127.0.0.1";
+var AuthenticationFailureLimit = 10;
+var AuthenticationFailureWindowMs = 6e4;
 var LicenseUrl = "https://raw.githubusercontent.com/coddingtonbear/obsidian-local-rest-api/main/LICENSE";
 var MaximumRequestSize = "1024mb";
 var MaximumMcpBinaryBytes = 512 * 1024;
@@ -87668,7 +91752,7 @@ function addDays(date6, days) {
 }
 function randomSerialNumber() {
   const bytes = import_node_forge.default.random.getBytesSync(16);
-  const first = bytes.charCodeAt(0) & 127;
+  const first = bytes.charCodeAt(0) & 63 | 64;
   return import_node_forge.default.util.bytesToHex(String.fromCharCode(first) + bytes.slice(1));
 }
 function isIpAddress(host) {
@@ -87988,11 +92072,11 @@ function getAPI(app, manifest, version3) {
 }
 
 // src/api.ts
-function hasUngroupedAlternation(path2) {
+function hasUngroupedAlternation(path3) {
   let depth = 0;
   let inClass = false;
-  for (let i = 0; i < path2.length; i++) {
-    const c = path2[i];
+  for (let i = 0; i < path3.length; i++) {
+    const c = path3[i];
     if (c === "\\") {
       i++;
     } else if (inClass) {
@@ -88010,7 +92094,7 @@ function hasUngroupedAlternation(path2) {
   return false;
 }
 var LocalRestApiPublicApiImpl = class {
-  apiVersion = 3;
+  apiVersion = 4;
   router;
   publicRouter;
   mcpHandler;
@@ -88019,6 +92103,7 @@ var LocalRestApiPublicApiImpl = class {
   pluginId;
   onUnregister;
   addEvent;
+  addStateProvider;
   unregistered = false;
   registeredRoutes = [];
   // One per MCP tool, resource, resource template, and prompt, all undone by unregister().
@@ -88026,8 +92111,11 @@ var LocalRestApiPublicApiImpl = class {
   registeredMcpTools = [];
   registeredSubresources = [];
   openApiCleanups = [];
+  stateCleanups = [];
   constructor(router, publicRouter, mcpHandler, vaultSubresources, openApiSpec, pluginId, onUnregister, addEvent = () => {
     throw new Error("Streamable events are not available.");
+  }, addStateProvider = () => {
+    throw new Error("State is not available.");
   }) {
     this.router = router;
     this.publicRouter = publicRouter;
@@ -88037,6 +92125,7 @@ var LocalRestApiPublicApiImpl = class {
     this.pluginId = pluginId;
     this.onUnregister = onUnregister;
     this.addEvent = addEvent;
+    this.addStateProvider = addStateProvider;
     this.unregistered = false;
   }
   assertRegistered() {
@@ -88057,39 +92146,39 @@ var LocalRestApiPublicApiImpl = class {
     return [...this.registeredRoutes];
   }
   /** Adds an authenticated route to the request handler. */
-  addRoute(path2) {
+  addRoute(path3) {
     this.assertRegistered();
-    this.registeredRoutes.push({ path: path2, authenticated: true });
-    return this.router.route(path2);
+    this.registeredRoutes.push({ path: path3, authenticated: true });
+    return this.router.route(path3);
   }
   /** Adds an unauthenticated route to the request handler. */
-  addPublicRoute(path2) {
+  addPublicRoute(path3) {
     this.assertRegistered();
     const normalize = (p) => p.toLowerCase().replace(/\/+$/, "");
-    if (BUILT_IN_ROUTES.map(normalize).includes(normalize(path2))) {
+    if (BUILT_IN_ROUTES.map(normalize).includes(normalize(path3))) {
       throw new Error(
-        `Cannot register a public route at "${path2}" \u2014 this path is reserved by Obsidian Local REST API.`
+        `Cannot register a public route at "${path3}" \u2014 this path is reserved by Obsidian Local REST API.`
       );
     }
-    if (hasUngroupedAlternation(path2)) {
+    if (hasUngroupedAlternation(path3)) {
       throw new Error(
-        `Cannot register a public route at "${path2}" \u2014 a "|" outside a group lets it match paths reserved by Obsidian Local REST API. Wrap alternatives in a group, such as "(a|b)".`
+        `Cannot register a public route at "${path3}" \u2014 a "|" outside a group lets it match paths reserved by Obsidian Local REST API. Wrap alternatives in a group, such as "(a|b)".`
       );
     }
-    const firstSegment = path2.replace(/^\//, "").split("/")[0];
+    const firstSegment = path3.replace(/^\//, "").split("/")[0];
     if (/[:*?()+[\]{}|\\^$]/.test(firstSegment)) {
       throw new Error(
-        `Cannot register a public route at "${path2}" \u2014 its first segment "${firstSegment}" is a pattern that could match paths reserved by Obsidian Local REST API. Start public routes with a literal segment, such as your plugin's id.`
+        `Cannot register a public route at "${path3}" \u2014 its first segment "${firstSegment}" is a pattern that could match paths reserved by Obsidian Local REST API. Start public routes with a literal segment, such as your plugin's id.`
       );
     }
     const prefix = firstSegment.toLowerCase();
     if (BUILT_IN_ROUTE_PREFIXES.includes(prefix)) {
       throw new Error(
-        `Cannot register a public route at "${path2}" \u2014 paths under "/${prefix}/" are reserved by Obsidian Local REST API.`
+        `Cannot register a public route at "${path3}" \u2014 paths under "/${prefix}/" are reserved by Obsidian Local REST API.`
       );
     }
-    this.registeredRoutes.push({ path: path2, authenticated: false });
-    return this.publicRouter.route(path2);
+    this.registeredRoutes.push({ path: path3, authenticated: false });
+    return this.publicRouter.route(path3);
   }
   /** Adds a sub-resource under every note; see ./publicApi for the contract. */
   addVaultSubresource(name) {
@@ -88146,6 +92235,14 @@ var LocalRestApiPublicApiImpl = class {
     this.assertRegistered();
     this.openApiCleanups.push(this.openApiSpec.add(this.pluginId, description));
   }
+  /** Publishes this extension's state on `GET /`; see ./publicApi for the contract. */
+  addState(definition) {
+    this.assertRegistered();
+    this.stateCleanups.push(
+      this.addStateProvider(definition),
+      this.openApiSpec.addStateSchema(this.pluginId, definition)
+    );
+  }
   unregister() {
     for (const cleanup of this.mcpCleanups) {
       cleanup();
@@ -88157,6 +92254,10 @@ var LocalRestApiPublicApiImpl = class {
       cleanup();
     }
     this.openApiCleanups = [];
+    for (const cleanup of this.stateCleanups) {
+      cleanup();
+    }
+    this.stateCleanups = [];
     this.onUnregister();
     this.unregistered = true;
   }
@@ -88165,6 +92266,29 @@ var LocalRestApiPublicApiImpl = class {
 // src/openApiSpec.ts
 var import_yaml = __toESM(require_dist());
 var EXTENSION_PATH_MARKER = "x-obsidian-extension";
+var STATE_SCHEMA_PATH = [
+  "paths",
+  "/",
+  "get",
+  "responses",
+  "200",
+  "content",
+  "application/json",
+  "schema",
+  "properties",
+  "state"
+];
+function stateSchemaIn(document2) {
+  let current = document2;
+  for (const key of STATE_SCHEMA_PATH) {
+    if (!isPlainObject4(current)) break;
+    current = current[key];
+  }
+  if (!isPlainObject4(current) || !isPlainObject4(current.properties)) {
+    throw new Error("The host OpenAPI spec does not describe the `state` section of GET /.");
+  }
+  return current;
+}
 function isPlainObject4(value) {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
@@ -88175,12 +92299,12 @@ function assertValidDescription(description) {
   const { paths, components, tags } = description;
   if (paths !== void 0) {
     if (!isPlainObject4(paths)) throw new Error("`paths` must be an object.");
-    for (const [path2, item] of Object.entries(paths)) {
-      if (!path2.startsWith("/")) {
-        throw new Error(`OpenAPI path "${path2}" must start with "/".`);
+    for (const [path3, item] of Object.entries(paths)) {
+      if (!path3.startsWith("/")) {
+        throw new Error(`OpenAPI path "${path3}" must start with "/".`);
       }
       if (!isPlainObject4(item)) {
-        throw new Error(`The path item for "${path2}" must be an object.`);
+        throw new Error(`The path item for "${path3}" must be an object.`);
       }
     }
   }
@@ -88210,6 +92334,7 @@ var OpenApiSpec = class {
   hostYaml;
   hostDocument = null;
   contributions = [];
+  stateContributions = [];
   mergedDocument = null;
   mergedYaml = null;
   constructor(hostYaml) {
@@ -88249,12 +92374,52 @@ var OpenApiSpec = class {
       }
     };
   }
+  /**
+   * Documents `owner`'s namespace in the `state` section of the `GET /` response schema,
+   * returning a function that removes it again.
+   *
+   * The entry carries the extension's `description` and an `x-obsidian-extension`
+   * marker, the same stamp a contributed path carries, and admits two shapes: the
+   * extension's `schema` (a free-form object when it gave none), and `null`, which is
+   * what the host serves for the namespace when its read fails or overruns the budget.
+   * Throws, publishing nothing, for a namespace the host or this extension already
+   * documents.
+   */
+  addStateSchema(owner, definition) {
+    if (definition.schema !== void 0 && !isPlainObject4(definition.schema)) {
+      throw new Error("A state schema must be an object.");
+    }
+    if (stateSchemaIn(this.merged()).properties[owner] !== void 0) {
+      throw new Error(`The state namespace "${owner}" is already documented.`);
+    }
+    const schema = {
+      description: definition.description,
+      [EXTENSION_PATH_MARKER]: owner,
+      anyOf: [
+        structuredClone(definition.schema) ?? { type: "object", additionalProperties: true },
+        {
+          type: "null",
+          description: "The extension's state could not be read: its read failed or overran the budget."
+        }
+      ]
+    };
+    const contribution = { owner, schema };
+    this.stateContributions.push(contribution);
+    this.invalidate();
+    return () => {
+      const index = this.stateContributions.indexOf(contribution);
+      if (index !== -1) {
+        this.stateContributions.splice(index, 1);
+        this.invalidate();
+      }
+    };
+  }
   assertNoCollisions(description) {
     const current = this.merged();
-    for (const path2 of Object.keys(description.paths ?? {})) {
-      if (current.paths?.[path2] !== void 0) {
+    for (const path3 of Object.keys(description.paths ?? {})) {
+      if (current.paths?.[path3] !== void 0) {
         throw new Error(
-          `OpenAPI path "${path2}" is already described${this.describedBy(current.paths[path2])}.`
+          `OpenAPI path "${path3}" is already described${this.describedBy(current.paths[path3])}.`
         );
       }
     }
@@ -88280,17 +92445,20 @@ var OpenApiSpec = class {
     this.mergedDocument = null;
     this.mergedYaml = null;
   }
+  hasContributions() {
+    return this.contributions.length > 0 || this.stateContributions.length > 0;
+  }
   merged() {
     if (this.mergedDocument !== null) return this.mergedDocument;
-    if (this.contributions.length === 0) {
+    if (!this.hasContributions()) {
       this.mergedDocument = this.host();
       return this.mergedDocument;
     }
     const document2 = structuredClone(this.host());
     for (const { owner, description } of this.contributions) {
-      for (const [path2, item] of Object.entries(description.paths ?? {})) {
+      for (const [path3, item] of Object.entries(description.paths ?? {})) {
         document2.paths = document2.paths ?? {};
-        document2.paths[path2] = { ...item, [EXTENSION_PATH_MARKER]: owner };
+        document2.paths[path3] = { ...item, [EXTENSION_PATH_MARKER]: owner };
       }
       for (const [section, entries] of Object.entries(description.components ?? {})) {
         document2.components = document2.components ?? {};
@@ -88300,12 +92468,18 @@ var OpenApiSpec = class {
         document2.tags = [...document2.tags ?? [], ...description.tags];
       }
     }
+    if (this.stateContributions.length > 0) {
+      const state = stateSchemaIn(document2);
+      for (const { owner, schema } of this.stateContributions) {
+        state.properties[owner] = schema;
+      }
+    }
     this.mergedDocument = document2;
     return document2;
   }
   /** The published spec as YAML. */
   yaml() {
-    if (this.contributions.length === 0) return this.hostYaml;
+    if (!this.hasContributions()) return this.hostYaml;
     if (this.mergedYaml === null) {
       this.mergedYaml = (0, import_yaml.stringify)(this.merged(), { lineWidth: 0 });
     }
@@ -88318,10 +92492,10 @@ var OpenApiSpec = class {
 };
 
 // src/vaultOperations.ts
-var import_obsidian = require("obsidian");
+var import_obsidian2 = require("obsidian");
 var import_path2 = __toESM(require("path"));
 var import_markdown_patch2 = __toESM(require_dist2());
-var import_markdown_patch_2 = __toESM(require_dist3());
+var import_markdown_patch_22 = __toESM(require_dist3());
 var import_json_logic_js = __toESM(require_logic());
 var import_glob_to_regexp = __toESM(require_glob_to_regexp());
 
@@ -88347,21 +92521,240 @@ function toArrayBuffer(arr) {
 }
 
 // src/vaultPath.ts
-var import_path = require("path");
+var import_fs = __toESM(require("fs"));
+var import_path = __toESM(require("path"));
+var import_obsidian = require("obsidian");
 var PathTraversalError = class extends Error {
+};
+var ConfigDirAccessError = class extends Error {
 };
 var SYNTHETIC_ROOT = "/vault";
 var PATH_ESCAPES_VAULT_MESSAGE = "must be relative and must not escape the vault root";
+var CONFIG_DIR_ACCESS_MESSAGE = "is inside the Obsidian configuration directory, which this API is not permitted to access";
 function vaultPathIsContained(candidate) {
-  const normalized = candidate.replace(/\\/g, "/");
+  if (candidate.includes("\0") || candidate.includes(":")) return false;
+  const normalized = foldForResolution(candidate);
   if (normalized.startsWith("/")) return false;
-  if (/^[A-Za-z]:/.test(normalized)) return false;
   const resolved = import_path.posix.resolve(SYNTHETIC_ROOT, normalized);
-  return resolved === SYNTHETIC_ROOT || resolved.startsWith(SYNTHETIC_ROOT + "/");
+  if (resolved !== SYNTHETIC_ROOT && !resolved.startsWith(SYNTHETIC_ROOT + "/")) {
+    return false;
+  }
+  return resolved.split("/").length - 2 <= MAX_VAULT_PATH_SEGMENTS;
 }
+var MAX_VAULT_PATH_SEGMENTS = 256;
 function assertVaultPathIsContained(candidate, label = "Path") {
   if (!vaultPathIsContained(candidate)) {
     throw new PathTraversalError(`${label} ${PATH_ESCAPES_VAULT_MESSAGE}.`);
+  }
+}
+function foldForResolution(candidate) {
+  return candidate.replace(/\\/g, "/").split("/").map((segment) => {
+    const stripped = stripTrailingDotsAndSpaces(segment);
+    if (stripped !== "") return stripped;
+    let dots = 0;
+    for (const char of segment) if (char === ".") dots++;
+    return dots === 0 ? "" : dots === 1 ? "." : "..";
+  }).join("/");
+}
+function stripTrailingDotsAndSpaces(segment) {
+  let end = segment.length;
+  while (end > 0 && (segment[end - 1] === "." || segment[end - 1] === " ")) end--;
+  return segment.slice(0, end);
+}
+function canonicalNameForm(resolvedPath) {
+  return resolvedPath.split("/").map(
+    (segment) => stripTrailingDotsAndSpaces(segment.normalize("NFC").toUpperCase().toLowerCase())
+  ).join("/");
+}
+function vaultPathIsInConfigDir(candidate, configDir, onDisk) {
+  if (!configDirIsUsable(configDir)) return true;
+  if (isInConfigDirBySpelling(candidate, configDir)) return true;
+  if (onDisk === void 0) return false;
+  try {
+    const configOnDisk = onDiskLocation(vaultRelativeSegments(configDir), onDisk);
+    const candidateOnDisk = onDiskLocation(vaultRelativeSegments(candidate), onDisk);
+    return sameOrBeneath(candidateOnDisk, configOnDisk);
+  } catch (error3) {
+    if (error3 instanceof UnfinishedWalkError) return true;
+    throw error3;
+  }
+}
+function configDirMatcher(configDir, onDisk, linkMemo) {
+  if (!configDirIsUsable(configDir)) return () => true;
+  if (onDisk === void 0) {
+    return (candidate) => isInConfigDirBySpelling(candidate, configDir);
+  }
+  const memoised = memoisingOnDisk(onDisk);
+  const located = (segments) => {
+    try {
+      return onDiskLocation(segments, memoised);
+    } catch (error3) {
+      if (error3 instanceof UnfinishedWalkError) return error3;
+      throw error3;
+    }
+  };
+  const readlinkOf = (literal3, fingerprint) => {
+    const remembered = fingerprint === void 0 ? void 0 : linkMemo?.get(literal3);
+    if (remembered !== void 0 && remembered.fingerprint === fingerprint) {
+      return remembered.target;
+    }
+    let target;
+    try {
+      target = memoised.readlink(literal3);
+    } catch (error3) {
+      if (error3 instanceof UnfinishedWalkError) throw error3;
+      throw new UnfinishedWalkError(`readlink failed at ${literal3}: ${errorCode(error3)}`);
+    }
+    if (fingerprint !== void 0) linkMemo?.set(literal3, { fingerprint, target });
+    return target;
+  };
+  const configOnDisk = located(vaultRelativeSegments(configDir));
+  return (candidate, fingerprint) => {
+    if (isInConfigDirBySpelling(candidate, configDir)) return true;
+    if (configOnDisk instanceof UnfinishedWalkError) return true;
+    if (configOnDisk === void 0) return false;
+    const segments = vaultRelativeSegments(candidate);
+    const name = segments.pop();
+    const parentOnDisk = located(segments);
+    if (parentOnDisk instanceof UnfinishedWalkError) return true;
+    if (parentOnDisk === void 0) return false;
+    if (name === void 0) return sameOrBeneath(parentOnDisk, configOnDisk);
+    try {
+      const literal3 = import_path.default.join(memoised.basePath, ...segments, name);
+      const target = readlinkOf(literal3, fingerprint);
+      const candidateOnDisk = target === void 0 ? import_path.default.join(parentOnDisk, name) : locateAbsolute(import_path.default.resolve(import_path.default.dirname(literal3), target), memoised);
+      return sameOrBeneath(candidateOnDisk, configOnDisk);
+    } catch (error3) {
+      if (error3 instanceof UnfinishedWalkError) return true;
+      throw error3;
+    }
+  };
+}
+function configDirIsUsable(configDir) {
+  return vaultPathIsContained(configDir) && vaultRelativeSegments(configDir).length > 0;
+}
+function isInConfigDirBySpelling(candidate, configDir) {
+  const root = canonicalNameForm(
+    import_path.posix.resolve(SYNTHETIC_ROOT, foldForResolution(configDir))
+  );
+  const resolved = canonicalNameForm(
+    import_path.posix.resolve(SYNTHETIC_ROOT, foldForResolution(candidate))
+  );
+  return resolved === root || resolved.startsWith(root + "/");
+}
+function sameOrBeneath(candidateOnDisk, rootOnDisk) {
+  if (candidateOnDisk === void 0 || rootOnDisk === void 0) return false;
+  const resolved = canonicalNameForm(candidateOnDisk.replace(/\\/g, "/"));
+  const root = canonicalNameForm(rootOnDisk.replace(/\\/g, "/"));
+  return resolved === root || resolved.startsWith(root + "/");
+}
+function memoisingOnDisk(onDisk) {
+  const answers = /* @__PURE__ */ new Map();
+  return {
+    basePath: onDisk.basePath,
+    readlink: onDisk.readlink,
+    realpath: (absolutePath) => {
+      const remembered = answers.get(absolutePath);
+      if (remembered !== void 0) {
+        if (remembered instanceof Error) throw remembered;
+        return remembered;
+      }
+      try {
+        const answer = onDisk.realpath(absolutePath);
+        answers.set(absolutePath, answer);
+        return answer;
+      } catch (error3) {
+        const failure3 = error3 instanceof Error ? error3 : new Error(String(error3));
+        answers.set(absolutePath, failure3);
+        throw failure3;
+      }
+    }
+  };
+}
+function onDiskAccessFor(adapter) {
+  if (!(adapter instanceof import_obsidian.FileSystemAdapter)) return void 0;
+  return {
+    basePath: adapter.getBasePath(),
+    realpath: (absolutePath) => import_fs.default.realpathSync.native(absolutePath),
+    readlink: (absolutePath) => {
+      try {
+        return import_fs.default.readlinkSync(absolutePath);
+      } catch (error3) {
+        if (isNothingToFollow(error3)) return void 0;
+        throw new UnfinishedWalkError(`readlink failed at ${absolutePath}: ${errorCode(error3)}`);
+      }
+    }
+  };
+}
+function errorCode(error3) {
+  if (typeof error3 !== "object" || error3 === null || !("code" in error3)) return void 0;
+  const { code } = error3;
+  return typeof code === "string" ? code : void 0;
+}
+function isNothingToFollow(error3) {
+  const code = errorCode(error3);
+  return code === "ENOENT" || code === "ENOTDIR" || code === "EINVAL";
+}
+function vaultRelativeSegments(candidate) {
+  const resolved = import_path.posix.resolve(SYNTHETIC_ROOT, foldForResolution(candidate));
+  const relative = resolved.slice(SYNTHETIC_ROOT.length + 1);
+  return relative === "" ? [] : relative.split("/");
+}
+function onDiskLocation(segments, onDisk) {
+  return locate(onDisk.basePath, segments, onDisk, 0);
+}
+function locateAbsolute(absolute, onDisk, hops = 0) {
+  const root = import_path.default.parse(absolute).root;
+  const segments = absolute.slice(root.length).split(/[\\/]+/).filter((segment) => segment !== "");
+  return locate(root, segments, onDisk, hops);
+}
+var MAX_LINK_HOPS = 40;
+var UnfinishedWalkError = class extends Error {
+};
+function locate(root, segments, onDisk, hops) {
+  const attempt = (prefix) => {
+    const where = import_path.default.join(root, ...prefix);
+    try {
+      return onDisk.realpath(where);
+    } catch (error3) {
+      if (isNothingToFollow(error3)) return void 0;
+      throw new UnfinishedWalkError(`realpath failed at ${where}: ${errorCode(error3)}`);
+    }
+  };
+  const whole = attempt(segments);
+  if (whole !== void 0) return whole;
+  let resolved = attempt([]);
+  if (resolved === void 0) return void 0;
+  for (let depth = 1; depth <= segments.length; depth++) {
+    const next = attempt(segments.slice(0, depth));
+    if (next !== void 0) {
+      resolved = next;
+      continue;
+    }
+    const here = import_path.default.join(root, ...segments.slice(0, depth));
+    const remainder = segments.slice(depth);
+    let linkTarget;
+    try {
+      linkTarget = onDisk.readlink(here);
+    } catch (error3) {
+      if (error3 instanceof UnfinishedWalkError) throw error3;
+      throw new UnfinishedWalkError(`readlink failed at ${here}: ${errorCode(error3)}`);
+    }
+    if (linkTarget === void 0) {
+      return import_path.default.join(resolved, segments[depth - 1], ...remainder);
+    }
+    if (hops >= MAX_LINK_HOPS) {
+      throw new UnfinishedWalkError(`More than ${MAX_LINK_HOPS} links at ${here}`);
+    }
+    const target = import_path.default.resolve(import_path.default.dirname(here), linkTarget);
+    const landed = locateAbsolute(target, onDisk, hops + 1);
+    return landed === void 0 ? void 0 : import_path.default.join(landed, ...remainder);
+  }
+  return resolved;
+}
+function assertConfigDirAccessAllowed(candidate, configDir, allowed, label = "Path", onDisk) {
+  if (!allowed && vaultPathIsInConfigDir(candidate, configDir, onDisk)) {
+    throw new ConfigDirAccessError(`${label} ${CONFIG_DIR_ACCESS_MESSAGE}.`);
   }
 }
 
@@ -88417,6 +92810,12 @@ var VaultOperations = class {
   cachedBacklinksIndex = null;
   cachedBacklinksIndexBuiltAt = 0;
   /**
+   * The tail of each path's queue of in-flight writes: a promise that settles
+   * when the most recently queued write on that path finishes. See
+   * {@link withPathLocks}.
+   */
+  pathLocks = /* @__PURE__ */ new Map();
+  /**
    * Called whenever Obsidian says anything at all has happened.
    *
    * Deliberately one handler for every announcement rather than a targeted
@@ -88442,16 +92841,98 @@ var VaultOperations = class {
       this.app.vault.off(event, this.invalidateBacklinksIndex);
     }
   }
-  /** Refuse a client-supplied path that resolves outside the vault.
+  /** Refuse a client-supplied path this API is not allowed to touch.
    *
    *  Every caller -- the REST handler, the MCP tools, a plugin holding the
-   *  extension API -- funnels through this class, so the containment check lives
-   *  here as well as at each boundary. The boundaries exist to give a caller a
-   *  well-shaped error (a 400 with errorCode 40021, a legible MCP tool error);
-   *  this exists so that a boundary someone forgets to guard cannot reach the
-   *  filesystem. See ./vaultPath for why Obsidian's own API does not stop it. */
+   *  extension API -- funnels through this class, so the authorization decision
+   *  lives here as well as at each boundary. The boundaries exist to give a
+   *  caller a well-shaped error (a 400/403 with an errorCode, a legible MCP tool
+   *  error); this exists so that a boundary someone forgets to guard cannot reach
+   *  the filesystem. Two rules apply:
+   *
+   *  - The path must stay inside the vault root (see ./vaultPath for why
+   *    Obsidian's own API does not enforce this).
+   *  - The path must not be inside Obsidian's configuration directory unless the
+   *    operator has turned that on. Writing there is code execution (Obsidian
+   *    evals an enabled plugin's main.js) and reading there leaks secrets such as
+   *    this plugin's own API key; see GHSA-66m9-r757-qvq7. */
   assertContained(filePath, label = "Path") {
     assertVaultPathIsContained(filePath, label);
+    assertConfigDirAccessAllowed(
+      filePath,
+      this.app.vault.configDir,
+      this.settings.enableConfigDirAccess ?? false,
+      label,
+      onDiskAccessFor(this.app.vault.adapter)
+    );
+  }
+  /** The indexed markdown files a bulk read -- a search, the tag census -- may
+   *  touch: everything Obsidian indexes, minus whatever lives in the
+   *  configuration directory. Obsidian never indexes a dot-directory itself, so
+   *  a config-dir file only gets here through a symlink the owner planted in the
+   *  vault; a direct read of that path is refused, and a search handing its
+   *  contents out instead would be the same disclosure by another route. The
+   *  matcher is built once per call so the whole index costs one on-disk lookup
+   *  per directory, not per file. */
+  readableMarkdownFiles() {
+    const files = this.app.vault.getMarkdownFiles();
+    if (this.settings.enableConfigDirAccess) return files;
+    const inConfigDir = configDirMatcher(
+      this.app.vault.configDir,
+      onDiskAccessFor(this.app.vault.adapter),
+      this.linkMemo
+    );
+    const readable = files.filter(
+      (file) => !inConfigDir(file.path, `${file.stat.ctime}:${file.stat.mtime}:${file.stat.size}`)
+    );
+    if (this.linkMemo.size > files.length * 2) {
+      const current = new Set(files.map((file) => file.path));
+      for (const key of this.linkMemo.keys()) {
+        if (!current.has(key)) this.linkMemo.delete(key);
+      }
+    }
+    return readable;
+  }
+  /** What {@link readableMarkdownFiles} remembers between searches: whether each
+   *  indexed file is a symlink, keyed by the file's literal path and valid while
+   *  its indexed ctime/mtime/size are unchanged. See {@link configDirMatcher}. */
+  linkMemo = /* @__PURE__ */ new Map();
+  /** The gate for an operation that creates or removes an *entry* -- a move,
+   *  a copy, a delete -- rather than reading or writing a file's contents.
+   *
+   *  {@link assertContained} follows a symlink to its target, which is right
+   *  for a read or a content write: those act on the target. But an entry is
+   *  created or removed in its *parent*, and a symlink the owner planted inside
+   *  the config dir that points back into the vault passes the target check
+   *  while living somewhere this API may not touch: removing it removes a
+   *  config-dir entry, and an overwrite would then create a real file at that
+   *  spelling inside the config dir. So the parent is checked too, before
+   *  anything is removed. */
+  assertEntryContained(filePath, label = "Path") {
+    this.assertContained(filePath, label);
+    const parent = import_path2.default.posix.dirname(filePath);
+    this.assertContained(parent === "." ? "" : parent, label);
+  }
+  /** Stat a path straight from the adapter, through the authorization gate.
+   *
+   *  The REST whole-file GET handler needs a raw stat to tell a file from a
+   *  directory from a miss, and historically called `adapter.stat` directly --
+   *  the one filesystem access that bypassed this class. Routing it here keeps
+   *  this class the single place a path is authorized before it reaches disk. */
+  async statPath(filePath) {
+    this.assertContained(filePath);
+    return this.app.vault.adapter.stat(filePath);
+  }
+  /** Read a path's raw bytes straight from the adapter, through the gate.
+   *
+   *  Unlike {@link readBinaryFileContent}, this does not require the path to be an
+   *  indexed vault file: the REST GET handler has already confirmed it exists via
+   *  {@link statPath} and may be serving a target-addressed path. It exists so that
+   *  read, too, funnels through this class rather than touching the adapter
+   *  directly. */
+  async readBinaryPath(filePath) {
+    this.assertContained(filePath);
+    return this.app.vault.adapter.readBinary(filePath);
   }
   waitForFileCache(file, timeoutMs = 5e3) {
     const existingCache = this.app.metadataCache.getFileCache(file);
@@ -88462,7 +92943,7 @@ var VaultOperations = class {
       let resolved = false;
       const onCacheChange = (...data) => {
         const changedFile = data[0];
-        if (!(changedFile instanceof import_obsidian.TFile)) return;
+        if (!(changedFile instanceof import_obsidian2.TFile)) return;
         if (changedFile.path === file.path && !resolved) {
           resolved = true;
           this.app.metadataCache.off("changed", onCacheChange);
@@ -88509,7 +92990,7 @@ var VaultOperations = class {
    */
   async getDocumentMapV2Object(file) {
     const content = await this.app.vault.adapter.read(file.path);
-    return (0, import_markdown_patch_2.projectMap)((0, import_markdown_patch_2.buildModel)(content));
+    return (0, import_markdown_patch_22.projectMap)((0, import_markdown_patch_22.buildModel)(content));
   }
   /**
    * The markdown-patch 2.0 targeted read: resolve a `(targetType, target)`
@@ -88524,7 +93005,7 @@ var VaultOperations = class {
    */
   async readFileSectionMdp2(file, target, content) {
     const text = content ?? await this.app.vault.adapter.read(file.path);
-    return (0, import_markdown_patch_2.readTarget)(text, target);
+    return (0, import_markdown_patch_22.readTarget)(text, target);
   }
   async readFileSection(file, targetType, target, targetDelimiter = "::") {
     const content = await this.app.vault.adapter.read(file.path);
@@ -88578,6 +93059,13 @@ var VaultOperations = class {
    * `includeContent` is false, since then nothing is read at all.
    */
   async getFileMetadataObject(file, backlinksIndex, includeContent = true, content) {
+    this.assertContained(file.path);
+    const metadata = await this.metadataObjectFor(file, backlinksIndex, includeContent, content);
+    return includeContent ? { ...metadata, version: (0, import_markdown_patch_22.versionOf)(metadata.content) } : metadata;
+  }
+  /** {@link getFileMetadataObject} without the gate, for {@link searchJsonLogic},
+   *  which has already authorized every file it iterates in one pass. */
+  async metadataObjectFor(file, backlinksIndex, includeContent = true, content) {
     const cache = await this.waitForFileCache(file);
     const frontmatter = { ...cache?.frontmatter ?? {} };
     delete frontmatter.position;
@@ -88604,12 +93092,13 @@ var VaultOperations = class {
     };
   }
   async renderFileToHtml(file, content) {
+    this.assertContained(file.path);
     const markdown = content ?? await this.app.vault.cachedRead(file);
     const el = activeDocument.createElement("div");
-    const component = new import_obsidian.Component();
+    const component = new import_obsidian2.Component();
     component.load();
     try {
-      await import_obsidian.MarkdownRenderer.render(this.app, markdown, el, file.path, component);
+      await import_obsidian2.MarkdownRenderer.render(this.app, markdown, el, file.path, component);
       return el.innerHTML;
     } finally {
       component.unload();
@@ -88618,11 +93107,19 @@ var VaultOperations = class {
   async resolvePathAndTarget(rawSegments) {
     const segments = rawSegments.length > 0 && rawSegments[rawSegments.length - 1] === "" ? rawSegments.slice(0, -1) : rawSegments;
     if (segments.length === 0) return null;
+    try {
+      this.assertContained(segments.join("/"));
+    } catch (error3) {
+      if (error3 instanceof PathTraversalError || error3 instanceof ConfigDirAccessError) {
+        return null;
+      }
+      throw error3;
+    }
     const isFilePath = (parts) => parts.every((part) => !part.includes("/"));
     if (isFilePath(segments)) {
       let exactStat = null;
       try {
-        exactStat = await this.app.vault.adapter.stat(segments.join("/"));
+        exactStat = await this.statPath(segments.join("/"));
       } catch {
       }
       if (exactStat?.type === "file") {
@@ -88635,7 +93132,7 @@ var VaultOperations = class {
       const candidate = prefix.join("/");
       let s = null;
       try {
-        s = await this.app.vault.adapter.stat(candidate);
+        s = await this.statPath(candidate);
       } catch {
         continue;
       }
@@ -88670,7 +93167,7 @@ var VaultOperations = class {
   async readFileContent(filePath) {
     this.assertContained(filePath);
     const file = this.app.vault.getAbstractFileByPath(filePath);
-    if (!(file instanceof import_obsidian.TFile)) {
+    if (!(file instanceof import_obsidian2.TFile)) {
       throw new Error(`File not found: ${filePath}`);
     }
     return this.app.vault.read(file);
@@ -88682,52 +93179,136 @@ var VaultOperations = class {
   async readBinaryFileContent(filePath) {
     this.assertContained(filePath);
     const file = this.app.vault.getAbstractFileByPath(filePath);
-    if (!(file instanceof import_obsidian.TFile)) {
+    if (!(file instanceof import_obsidian2.TFile)) {
       throw new Error(`File not found: ${filePath}`);
     }
     return this.app.vault.adapter.readBinary(filePath);
   }
-  async writeFileContent(filePath, content) {
-    this.assertContained(filePath);
+  /**
+   * Run `write` once every write already queued on any of `paths` has finished,
+   * holding those paths until it does.
+   *
+   * Without this, a conditional write is a check and a write separated by an
+   * `await`, and another request's write can land in between: two clients that
+   * both read version A and both send `If-Match: A` could each pass the check
+   * before either writes, and the second would silently discard the first --
+   * the exact lost update the precondition exists to prevent. Every mutating
+   * operation in this class queues here, conditional or not, because an
+   * unconditional write slipping between a check and its write breaks the
+   * guarantee just as surely.
+   *
+   * This orders writes made through this API only. Obsidian's own editor, sync
+   * plugins and other programs touching the files are outside it, as they are
+   * outside any lock a plugin could take.
+   *
+   * Every path's tail is replaced synchronously, before any waiting starts, so
+   * the queue order is the call order and two writes over overlapping path sets
+   * cannot wait on each other in a cycle.
+   */
+  async withPathLocks(paths, write) {
+    const keys = [...new Set(paths)];
+    const predecessors = keys.map((key) => this.pathLocks.get(key));
+    let release;
+    const tail = new Promise((resolve) => {
+      release = resolve;
+    });
+    for (const key of keys) this.pathLocks.set(key, tail);
     try {
-      await this.app.vault.createFolder(import_path2.default.dirname(filePath));
-    } catch {
-    }
-    if (typeof content === "string") {
-      const existing = this.app.vault.getAbstractFileByPath(filePath);
-      if (existing instanceof import_obsidian.TFile) {
-        await this.app.vault.modify(existing, content);
-      } else {
-        await this.app.vault.create(filePath, content);
+      await Promise.all(predecessors);
+      return await write();
+    } finally {
+      release();
+      for (const key of keys) {
+        if (this.pathLocks.get(key) === tail) this.pathLocks.delete(key);
       }
-    } else {
+    }
+  }
+  /**
+   * Whether anything exists at `filePath`, and if it is a file, its version
+   * token: markdown-patch's `versionOf` over the file's bytes. That is the value
+   * served as the file's `ETag`, the document map's `version`, and what a PATCH
+   * instruction's `ifMatch` is checked against.
+   */
+  async getFileState(filePath) {
+    this.assertEntryContained(filePath);
+    const stat = await this.app.vault.adapter.stat(filePath);
+    if (!stat) return { exists: false, version: null };
+    if (stat.type !== "file") return { exists: true, version: null };
+    const bytes = await this.app.vault.adapter.readBinary(filePath);
+    return { exists: true, version: (0, import_markdown_patch_22.versionOf)(new Uint8Array(bytes)) };
+  }
+  /** Throw {@link PreconditionFailedError} unless `preconditions` hold for the
+   *  file at `filePath` as it stands now. Callers hold the path's lock. */
+  async enforcePreconditions(filePath, preconditions) {
+    if (!preconditions || !hasPreconditions(preconditions)) return;
+    const failure3 = preconditionFailure(await this.getFileState(filePath), preconditions);
+    if (failure3 !== null) {
+      throw new import_markdown_patch_2.PreconditionFailedError(failure3);
+    }
+  }
+  /**
+   * Create or overwrite a file. Returns the version token of what was written,
+   * for the caller to hand back as the new `ETag`.
+   */
+  async writeFileContent(filePath, content, preconditions) {
+    this.assertContained(filePath);
+    return this.withPathLocks([filePath], async () => {
+      await this.enforcePreconditions(filePath, preconditions);
+      try {
+        await this.app.vault.createFolder(import_path2.default.dirname(filePath));
+      } catch {
+      }
+      if (typeof content === "string") {
+        const existing = this.app.vault.getAbstractFileByPath(filePath);
+        if (existing instanceof import_obsidian2.TFile) {
+          await this.app.vault.modify(existing, content);
+        } else {
+          await this.app.vault.create(filePath, content);
+        }
+        return (0, import_markdown_patch_22.versionOf)(content);
+      }
       await this.app.vault.adapter.writeBinary(
         filePath,
         toArrayBuffer(content)
       );
-    }
+      return (0, import_markdown_patch_22.versionOf)(content);
+    });
   }
-  async appendFileContent(filePath, content) {
+  /**
+   * Append to a file, creating it if it does not exist. Returns the version
+   * token of the file's resulting content.
+   */
+  async appendFileContent(filePath, content, preconditions) {
     this.assertContained(filePath);
-    try {
-      await this.app.vault.createFolder(import_path2.default.dirname(filePath));
-    } catch {
-    }
-    let fileContents = "";
-    const file = this.app.vault.getAbstractFileByPath(filePath);
-    if (file instanceof import_obsidian.TFile) {
-      fileContents = await this.app.vault.read(file);
-      if (!fileContents.endsWith("\n")) {
-        fileContents += "\n";
+    return this.withPathLocks([filePath], async () => {
+      await this.enforcePreconditions(filePath, preconditions);
+      try {
+        await this.app.vault.createFolder(import_path2.default.dirname(filePath));
+      } catch {
       }
-      fileContents += content;
-      await this.app.vault.modify(file, fileContents);
-      return;
-    }
-    await this.app.vault.create(filePath, content);
+      let fileContents = "";
+      const file = this.app.vault.getAbstractFileByPath(filePath);
+      if (file instanceof import_obsidian2.TFile) {
+        fileContents = await this.app.vault.read(file);
+        if (!fileContents.endsWith("\n")) {
+          fileContents += "\n";
+        }
+        fileContents += content;
+        await this.app.vault.modify(file, fileContents);
+        return (0, import_markdown_patch_22.versionOf)(fileContents);
+      }
+      await this.app.vault.create(filePath, content);
+      return (0, import_markdown_patch_22.versionOf)(content);
+    });
   }
-  async deleteVaultFile(filePath, permanent = false) {
-    this.assertContained(filePath);
+  async deleteVaultFile(filePath, permanent = false, preconditions) {
+    this.assertEntryContained(filePath);
+    return this.withPathLocks([filePath], async () => {
+      await this.enforcePreconditions(filePath, preconditions);
+      return this.deleteUnlocked(filePath, permanent);
+    });
+  }
+  async deleteUnlocked(filePath, permanent) {
     if (permanent) {
       const pathExists = await this.app.vault.adapter.exists(filePath);
       if (!pathExists) {
@@ -88742,17 +93323,28 @@ var VaultOperations = class {
     }
     await this.app.fileManager.trashFile(file);
   }
-  async moveVaultFile(sourcePath, destinationPath, allowOverwrite = false) {
-    this.assertContained(sourcePath, "Source path");
-    this.assertContained(destinationPath, "Destination path");
+  /**
+   * Move a file. `preconditions` apply to the source: the file being moved is
+   * the one the client read. Whether the destination may be replaced is
+   * `allowOverwrite`'s call.
+   */
+  async moveVaultFile(sourcePath, destinationPath, allowOverwrite = false, preconditions) {
+    this.assertEntryContained(sourcePath, "Source path");
+    this.assertEntryContained(destinationPath, "Destination path");
     if (!destinationPath) {
       throw new Error("Destination path must not be empty.");
     }
+    return this.withPathLocks([sourcePath, destinationPath], async () => {
+      await this.enforcePreconditions(sourcePath, preconditions);
+      return this.moveUnlocked(sourcePath, destinationPath, allowOverwrite);
+    });
+  }
+  async moveUnlocked(sourcePath, destinationPath, allowOverwrite) {
     if (sourcePath === destinationPath) {
       return sourcePath;
     }
     const sourceFile = this.app.vault.getAbstractFileByPath(sourcePath);
-    if (!(sourceFile instanceof import_obsidian.TFile)) {
+    if (!(sourceFile instanceof import_obsidian2.TFile)) {
       throw new FileNotFoundError(`File not found: ${sourcePath}`);
     }
     const destExists = await this.app.vault.adapter.exists(destinationPath);
@@ -88774,14 +93366,24 @@ var VaultOperations = class {
     await this.app.fileManager.renameFile(sourceFile, destinationPath);
     return sourceFile.path;
   }
-  async copyVaultFile(sourcePath, destinationPath, allowOverwrite = false) {
-    this.assertContained(sourcePath, "Source path");
-    this.assertContained(destinationPath, "Destination path");
+  /**
+   * Copy a file. As with {@link moveVaultFile}, `preconditions` apply to the
+   * source, so a client can copy exactly the version it read.
+   */
+  async copyVaultFile(sourcePath, destinationPath, allowOverwrite = false, preconditions) {
+    this.assertEntryContained(sourcePath, "Source path");
+    this.assertEntryContained(destinationPath, "Destination path");
     if (!destinationPath) {
       throw new Error("Destination path must not be empty.");
     }
+    return this.withPathLocks([sourcePath, destinationPath], async () => {
+      await this.enforcePreconditions(sourcePath, preconditions);
+      return this.copyUnlocked(sourcePath, destinationPath, allowOverwrite);
+    });
+  }
+  async copyUnlocked(sourcePath, destinationPath, allowOverwrite) {
     const sourceFile = this.app.vault.getAbstractFileByPath(sourcePath);
-    if (!(sourceFile instanceof import_obsidian.TFile)) {
+    if (!(sourceFile instanceof import_obsidian2.TFile)) {
       throw new FileNotFoundError(`File not found: ${sourcePath}`);
     }
     if (sourcePath === destinationPath) {
@@ -88810,10 +93412,24 @@ var VaultOperations = class {
   }
   // Throws PatchFailed on patch error; caller is responsible for mapping to
   // the appropriate HTTP error code or MCP error.
-  async patchFileSection(filePath, targetType, target, operation, content, contentType, options) {
+  async patchFileSection(filePath, targetType, target, operation, content, contentType, options, preconditions) {
     this.assertContained(filePath);
+    return this.withPathLocks([filePath], async () => {
+      await this.enforcePreconditions(filePath, preconditions);
+      return this.patchFileSectionUnlocked(
+        filePath,
+        targetType,
+        target,
+        operation,
+        content,
+        contentType,
+        options
+      );
+    });
+  }
+  async patchFileSectionUnlocked(filePath, targetType, target, operation, content, contentType, options) {
     const file = this.app.vault.getAbstractFileByPath(filePath);
-    if (!(file instanceof import_obsidian.TFile)) {
+    if (!(file instanceof import_obsidian2.TFile)) {
       throw new FileNotFoundError(`File not found: ${filePath}`);
     }
     const fileContents = await this.app.vault.read(file);
@@ -88840,29 +93456,46 @@ var VaultOperations = class {
   // typed errors (TargetNotFoundError, PreconditionFailedError, …) propagate for
   // the caller to map to HTTP responses. Returns the patched document alongside
   // any advisory warnings the engine surfaced (e.g. heading-depth overflow).
-  async patchFileSectionMdp2(filePath, instruction) {
+  //
+  // `preconditions` are the request's If-Match/If-None-Match headers, checked
+  // against the file's bytes; an instruction's own `ifMatch` is the engine's to
+  // check, against the text it patches. Both must hold.
+  async patchFileSectionMdp2(filePath, instruction, preconditions) {
     this.assertContained(filePath);
-    const file = this.app.vault.getAbstractFileByPath(filePath);
-    if (!(file instanceof import_obsidian.TFile)) {
-      throw new FileNotFoundError(`File not found: ${filePath}`);
-    }
-    const fileContents = await this.app.vault.read(file);
-    const result = (0, import_markdown_patch_2.patch)(fileContents, instruction);
-    await this.app.vault.modify(file, result.document);
-    return result;
+    return this.withPathLocks([filePath], async () => {
+      await this.enforcePreconditions(filePath, preconditions);
+      const file = this.app.vault.getAbstractFileByPath(filePath);
+      if (!(file instanceof import_obsidian2.TFile)) {
+        throw new FileNotFoundError(`File not found: ${filePath}`);
+      }
+      const fileContents = await this.app.vault.read(file);
+      const result = (0, import_markdown_patch_22.patch)(fileContents, instruction);
+      await this.app.vault.modify(file, result.document);
+      return result;
+    });
   }
-  async simpleSearch(query, contextLength = 100) {
+  async simpleSearch(query, {
+    contextLength = 100,
+    maxResults = Infinity,
+    maxMatchesPerFile = Infinity
+  } = {}) {
     const results = [];
-    const search = (0, import_obsidian.prepareSimpleSearch)(query);
-    for (const file of this.app.vault.getMarkdownFiles()) {
+    const search = (0, import_obsidian2.prepareSimpleSearch)(query);
+    for (const file of this.readableMarkdownFiles()) {
       const cachedContents = await this.app.vault.cachedRead(file);
       const filenamePrefix = file.basename + "\n\n";
       const result = search(filenamePrefix + cachedContents);
       const positionOffset = filenamePrefix.length;
       if (result) {
         const contextMatches = [];
+        let totalMatches = 0;
         for (const match of result.matches) {
-          if (match[0] < positionOffset && match[1] <= positionOffset) {
+          const inFilename = match[0] < positionOffset && match[1] <= positionOffset;
+          const inContent = match[0] >= positionOffset;
+          if (!inFilename && !inContent) continue;
+          totalMatches += 1;
+          if (contextMatches.length >= maxMatchesPerFile) continue;
+          if (inFilename) {
             contextMatches.push({
               match: {
                 start: match[0],
@@ -88871,7 +93504,7 @@ var VaultOperations = class {
               },
               context: file.basename
             });
-          } else if (match[0] >= positionOffset) {
+          } else {
             contextMatches.push({
               match: {
                 start: match[0] - positionOffset,
@@ -88891,19 +93524,20 @@ var VaultOperations = class {
         results.push({
           filename: file.path,
           score: result.score,
-          matches: contextMatches
+          matches: contextMatches,
+          totalMatches
         });
       }
     }
     results.sort((a, b2) => (b2.score ?? 0) - (a.score ?? 0));
-    return results;
+    return { results: results.slice(0, maxResults), totalResults: results.length };
   }
   async searchJsonLogic(query) {
     const results = [];
     const backlinksIndex = this.getBacklinksIndex();
     const includeContent = JSON.stringify(query).includes('"content"');
-    for (const file of this.app.vault.getMarkdownFiles()) {
-      const fileContext = await this.getFileMetadataObject(file, backlinksIndex, includeContent);
+    for (const file of this.readableMarkdownFiles()) {
+      const fileContext = await this.metadataObjectFor(file, backlinksIndex, includeContent);
       try {
         const fileResult = import_json_logic_js.default.apply(query, fileContext);
         if (this.isTruthy(fileResult)) {
@@ -88967,10 +93601,10 @@ var VaultOperations = class {
   }
   getAllTags() {
     const tagCounts = {};
-    for (const file of this.app.vault.getMarkdownFiles()) {
+    for (const file of this.readableMarkdownFiles()) {
       const cache = this.app.metadataCache.getFileCache(file);
       if (!cache) continue;
-      const fileTags = (0, import_obsidian.getAllTags)(cache);
+      const fileTags = (0, import_obsidian2.getAllTags)(cache);
       if (!fileTags) continue;
       for (const rawTag of fileTags) {
         const tag = rawTag.startsWith("#") ? rawTag.slice(1) : rawTag;
@@ -90336,8 +94970,8 @@ function getErrorMap() {
 
 // node_modules/zod/v3/helpers/parseUtil.js
 var makeIssue = (params) => {
-  const { data, path: path2, errorMaps, issueData } = params;
-  const fullPath = [...path2, ...issueData.path || []];
+  const { data, path: path3, errorMaps, issueData } = params;
+  const fullPath = [...path3, ...issueData.path || []];
   const fullIssue = {
     ...issueData,
     path: fullPath
@@ -90453,11 +95087,11 @@ var errorUtil;
 
 // node_modules/zod/v3/types.js
 var ParseInputLazyPath = class {
-  constructor(parent, value, path2, key) {
+  constructor(parent, value, path3, key) {
     this._cachedPath = [];
     this.parent = parent;
     this.data = value;
-    this._path = path2;
+    this._path = path3;
     this._key = key;
   }
   get path() {
@@ -93901,7 +98535,7 @@ var NEVER2 = INVALID2;
 
 // src/mcpHandler.ts
 var import_mime_types = __toESM(require_mime_types());
-var import_obsidian3 = require("obsidian");
+var import_obsidian4 = require("obsidian");
 
 // node_modules/ts-dedent/esm/index.js
 function dedent(templ) {
@@ -93944,10 +98578,10 @@ function dedent(templ) {
 }
 
 // src/mcpHandler.ts
-var import_markdown_patch_22 = __toESM(require_dist3());
+var import_markdown_patch_23 = __toESM(require_dist3());
 
 // docs/openapi.yaml
-var openapi_default = 'components:\n  schemas:\n    Error:\n      properties:\n        errorCode:\n          description: |\n            A 5-digit error code uniquely identifying this particular type of error.\n          example: 40149\n          type: "number"\n        message:\n          description: "Message describing the error."\n          example: "A brief description of the error."\n          type: "string"\n      type: "object"\n    HeadingAddress:\n      description: |\n        A heading address: the path of heading texts from the top level down\n        to the target. Use `null` or `[]` for the document root.\n      oneOf:\n        - items:\n            type: "string"\n          type: "array"\n        - type: "null"\n    HeadingTree:\n      additionalProperties:\n        "$ref": "#/components/schemas/HeadingTree"\n      description: |\n        The document\'s headings nested by containment: each heading\'s text\n        maps to a HeadingTree of its child headings, and a leaf heading maps\n        to `{}`. Nesting carries no heading level \u2014 a level skipped in the\n        source leaves no hole. To target a heading, use the path of keys from\n        the top level down to it as a HeadingAddress.\n        \n        A repeated sibling heading appears once, but its children are not\n        lost: they merge into that one key, because a heading is addressed by\n        its whole path rather than its name. Given `## Log / ### Monday`\n        followed by `## Log / ### Tuesday`, the tree is\n        `{"Log": {"Monday": {}, "Tuesday": {}}}` and both are separately\n        addressable. Only sections that share an entire path are one address,\n        and that address resolves to the first in document order. The tree\n        therefore lists exactly the headings you can target.\n      example:\n        Appendix: {}\n        Overview:\n          Details: {}\n      type: "object"\n    NoteJson:\n      properties:\n        backlinks:\n          description: "Vault-relative paths of files that link to this file."\n          items:\n            type: "string"\n          type: "array"\n        content:\n          type: "string"\n        frontmatter:\n          type: "object"\n        links:\n          description: "Vault-relative paths of files this file links to."\n          items:\n            type: "string"\n          type: "array"\n        path:\n          type: "string"\n        stat:\n          properties:\n            ctime:\n              type: "number"\n            mtime:\n              type: "number"\n            size:\n              type: "number"\n          required:\n            - "ctime"\n            - "mtime"\n            - "size"\n          type: "object"\n        tags:\n          items:\n            type: "string"\n          type: "array"\n        unresolvedLinks:\n          description: "Link text found in this file that does not resolve to an existing vault file."\n          items:\n            type: "string"\n          type: "array"\n      required:\n        - "tags"\n        - "frontmatter"\n        - "stat"\n        - "path"\n        - "content"\n        - "links"\n        - "backlinks"\n        - "unresolvedLinks"\n      type: "object"\n    PatchInstruction:\n      additionalProperties: false\n      description: "A single edit expressed as one operation applied to a scope of a target node. The payload rides in exactly one of `content`, `value`, or `destination`, chosen by what it is. Not every operation\xD7scope\xD7targetType combination is valid; invalid ones are rejected."\n      properties:\n        content:\n          description: "String payload: a heading/block body or label, a new block id for a block `marker` rename (letters, numbers, hyphens, and underscores only), or a new frontmatter key name for a frontmatter `marker` rename. Heading levels are relative to the edited span (a leading `#` becomes a direct child). For heading writes, whitespace is library-owned: leading/trailing blank lines here are ignored, and the engine supplies the blank line that keeps inserted content a separate block \u2014 never add newlines to control spacing. (Block-target `content` is the exception: it is spliced literally for inline edits.) A heading `marker` rename may not contain a line break. Provide exactly one of `content`, `value`, or `destination`."\n          type: "string"\n        createTargetIfMissing:\n          default: false\n          description: "Create the target (heading path, block id, or frontmatter key) if it does not already exist."\n          type: "boolean"\n        destination:\n          additionalProperties: false\n          description: "For a heading move (operation `replace`, scope `parent`): where the section is re-parented. Provide exactly one of `content`, `value`, or `destination`."\n          properties:\n            parent:\n              anyOf:\n                - items:\n                    type: "string"\n                  type: "array"\n              description: "The section\'s new parent heading address, or null/[] for the document root."\n              nullable: true\n            place:\n              anyOf:\n                - enum:\n                    - "first"\n                    - "last"\n                  type: "string"\n                - additionalProperties: false\n                  properties:\n                    before:\n                      anyOf:\n                        - items:\n                            type: "string"\n                          type: "array"\n                      description: "A heading\'s containment path: the ancestor heading texts from the top level down (e.g. [\\"Overview\\",\\"Details\\"]), or null/[] for the document root."\n                      nullable: true\n                  required:\n                    - "before"\n                  type: "object"\n                - additionalProperties: false\n                  properties:\n                    after:\n                      anyOf:\n                        - items:\n                            type: "string"\n                          type: "array"\n                      description: "A heading\'s containment path: the ancestor heading texts from the top level down (e.g. [\\"Overview\\",\\"Details\\"]), or null/[] for the document root."\n                      nullable: true\n                  required:\n                    - "after"\n                  type: "object"\n              description: "Position among the new parent\'s children: \\"first\\", \\"last\\", or { before } / { after } a sibling heading address."\n          required:\n            - "parent"\n            - "place"\n          type: "object"\n        ifMatch:\n          description: "Optimistic-concurrency token (the `version` from a prior document map). If set and the document has changed since, the patch fails with a precondition error without modifying the file."\n          type: "string"\n        operation:\n          description: "What happens to the scoped span: replace it, insert before (`prepend`) or after (`append`), or `delete` it."\n          enum:\n            - "replace"\n            - "prepend"\n            - "append"\n            - "delete"\n          type: "string"\n        rejectIfContentPreexists:\n          default: false\n          description: "Fail a `prepend`/`append` when the string content already appears in the target span (makes those operations idempotent on retry)."\n          type: "boolean"\n        scope:\n          default: "content"\n          description: "Which part of the target the operation acts on (default `content`). `content`: the node body \u2014 for a heading, its whole subtree below the heading line. `marker`: the label only \u2014 a heading line, a block `^id`, or a frontmatter key (`replace` renames it). `markerAndContent`: the whole node/subtree (`prepend`/`append` insert a sibling). `parent`: a heading\'s place in the tree \u2014 only with operation `replace`, carrying a `destination` (a move)."\n          enum:\n            - "content"\n            - "marker"\n            - "markerAndContent"\n            - "parent"\n          type: "string"\n        target:\n          anyOf:\n            - items:\n                type: "string"\n              type: "array"\n            - type: "string"\n          description: "The node to edit. For a heading: an array of heading texts from the top level down to the target (e.g. [\\"Overview\\",\\"Details\\"]), or null/[] for the document root. If a heading is a duplicate of an earlier sibling under the same parent, its address carries an extra non-printable marker suffix appended by the server \u2014 copy that address verbatim from wherever the document\'s heading structure was discovered, never retype or reconstruct it. For a block: the bare block id, without the leading `^` (letters, numbers, hyphens, and underscores only) \u2014 a duplicate block id\'s later occurrence carries the same kind of marker suffix, copied verbatim the same way. For a frontmatter field: the key."\n          nullable: true\n        targetType:\n          description: "The kind of node to edit."\n          enum:\n            - "heading"\n            - "block"\n            - "frontmatter"\n          type: "string"\n        value:\n          description: "Structured JSON payload: a frontmatter value (any JSON \u2014 string, number, boolean, array, object, null; for `prepend`/`append` this merges: list concat, dict merge, string concat), or table rows on a `block` target\'s `content` cell (a 2-D array of strings, one row per entry \u2014 `replace` swaps the body rows, `prepend`/`append` insert before/after the existing ones; each row\'s length must match the table\'s column count). Table cells are content, not table source: a `|` is escaped for you, and a cell containing a line break is rejected, since a row is a single line. Provide exactly one of `content`, `value`, or `destination`."\n        within:\n          description: "Refines a heading target to one of the section\'s direct-body top-level blocks (a paragraph, list, table, code fence, blockquote, \u2026): 0 is the first block in document order, and a negative index counts from the end (-1 = last). Isolated `^id` lines are not counted, so indices match the rendered blocks. With scope `content`, the edit is a literal splice into that block \u2014 you own the joint, so `append` *continues* the block (e.g. content `\\\\n- item` extends a list) \u2014 and `delete` removes the block. With scope `markerAndContent`, `prepend`/`append` insert a new block immediately before/after it, with library-owned blank-line separators. Heading targets only; cannot be combined with `createTargetIfMissing`."\n          type: "integer"\n      required:\n        - "targetType"\n        - "target"\n        - "operation"\n      type: "object"\n  securitySchemes:\n    apiKeyAuth:\n      description: |\n        Find your API Key in your Obsidian settings\n        in the "Local REST API" section under "Plugins".\n      scheme: "bearer"\n      type: "http"\ninfo:\n  description: |\n    The Obsidian Local REST API with MCP plugin gives you two ways to interact with your Obsidian vault programmatically:\n    \n    - **REST API** \u2014 standard HTTP endpoints for reading and writing notes, searching vault contents, and more. Useful from scripts, applications, or any HTTP client.\n    - **MCP server** \u2014 exposes the same capabilities as structured tools for AI assistants (Claude, Cursor, and other MCP-compatible clients). See the `POST /mcp/` endpoint for connection details.\n    \n    ## Testing with this interface\n    \n    Select any operation in the sidebar, then open the **Try It** tab to send a live request to your running Obsidian instance.\n    \n    **Authentication** \u2014 all requests require a Bearer token. In the **Try It** panel, expand the **Security** section and paste the API key shown in Obsidian under **Settings \u2192 Local REST API with MCP**.\n    \n    **Certificate warning** \u2014 the plugin generates its own certificate authority on first run and serves a TLS certificate signed by it. Most browsers will block requests to an untrusted certificate, so you may need to download the certificate authority from `/obsidian-local-rest-api.crt` and add it as a trusted authority in your OS or browser settings before requests will go through. The steps vary by environment \u2014 search for "trust self-signed certificate" plus your OS or browser name if you\'re unsure. If that proves too cumbersome, you can enable the insecure HTTP server in your plugin settings instead and select "HTTP (insecure mode)" from the **Try It** section.\n  title: "Local REST API for Obsidian"\n  version: "1.0"\nopenapi: "3.2.0"\npaths:\n  /:\n    get:\n      description: |\n        Returns basic details about the server as well as your authentication status.\n        \n        This is the only API request that does *not* require authentication.\n      responses:\n        "200":\n          content:\n            application/json:\n              schema:\n                properties:\n                  authenticated:\n                    description: "Is your current request authenticated?"\n                    type: "boolean"\n                  ok:\n                    description: "\'OK\'"\n                    type: "string"\n                  service:\n                    description: "\'Obsidian Local REST API\'"\n                    type: "string"\n                  versions:\n                    properties:\n                      obsidian:\n                        description: "Obsidian plugin API version"\n                        type: "string"\n                      self:\n                        description: "Plugin version."\n                        type: "string"\n                    type: "object"\n                type: "object"\n          description: "Success"\n      summary: |\n        Returns basic details about the server.\n      tags:\n        - "System"\n  /active/:\n    delete:\n      parameters:\n        - description: |\n            If "true", the file is permanently deleted instead of being moved to trash. Defaults to "false", which moves the file to trash following the user\'s Obsidian "Deleted files" preference (either the ".trash" folder or the system trash).\n          in: "query"\n          name: "permanent"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n      responses:\n        "204":\n          description: "Success"\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "File does not exist."\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n      summary: |\n        Deletes the currently-active file in Obsidian.\n      tags:\n        - "Active File"\n    get:\n      description: |\n        Returns the content of the currently active file in Obsidian.\n        \n        # Targeting a Sub-part of your Document\n        \n        You can operate on a specific section of a note instead of the whole file by embedding a target in the URL path, immediately after the note identifier. The first segment after the note is the target type, and the remaining segments address the target:\n        \n        - `.../heading/My%20Section` targets the section beneath the `My Section` heading \u2014 the body content below the heading line.\n        - For a nested heading, add one path segment per level: `.../heading/My%20Section/Subsection` targets `Subsection` under `My Section`. Because each level is its own segment, a heading whose text contains `::` (or any other delimiter) needs no escaping.\n        - `.../block/abc123` targets the block with reference ID `abc123`.\n        - `.../frontmatter/fieldName` targets the `fieldName` frontmatter field.\n        \n        Percent-encode any segment that contains non-ASCII characters or a literal `/` (e.g. `H%C3%A9llo` for `H\xE9llo`, or `TODO%2FDONE` for a heading named `TODO/DONE`). Each URL path segment is decoded on its own, so an encoded `%2F` stays a literal slash *inside* that one segment rather than acting as a separator \u2014 that is what lets a heading name contain a slash. The same rule applies to the note path itself: because a file or folder name can never contain a slash, the note must be addressed with real `/` separators between its path components (`/vault/folder/note.md`), not with the separators encoded (`/vault/folder%2Fnote.md`), which no longer resolves.\n        \n        If a document has a duplicate sibling heading (the same text repeated under the same parent) or a duplicate block reference ID, only the first occurrence is addressable by its plain text/id. Each later occurrence gets its own address with a non-printable marker suffix appended by the server \u2014 fetch the document map (`Accept: application/vnd.olrapi.document-map+json`) and copy that occurrence\'s key verbatim; don\'t try to type or reconstruct the marker yourself.\n        \n        `GET` returns just the addressed section. By default that is the target\'s `content` scope; add a `Target-Scope` header to read the `marker` (the label \u2014 a heading\'s raw text, a block\'s bare id, a frontmatter key) or `markerAndContent` (the whole node, in exactly the shape a PATCH `replace` at that scope consumes \u2014 a heading subtree comes back with its own line as `# Title`, levels relative to its parent, so a read-modify-write never counts `#`s). `PUT` replaces the section and `POST` appends to it, with heading levels normalized and separator whitespace managed for you. `PATCH` also accepts a URL target \u2014 its raw-content mode \u2014 with the operation and other instruction fields in headers (`Operation`, `Target-Scope`, \u2026) and the raw payload as the body. For the full instruction algebra (renames, moves, deletes, typed frontmatter values), see the PATCH documentation.\n        \n        On `PUT` and `POST`, the `Content-Type` of your request body selects how the payload is interpreted, and not every target accepts both:\n        \n        - A `text/markdown` body is literal markdown. Valid for `heading` and `block` targets. On a `frontmatter` target it is stored as the field\'s plain string value.\n        - An `application/json` body is structured data. On a `block` target that addresses a table, it is a 2-D array of row cells (`[["Chicago", "16"]]`). On a `frontmatter` target it is the field\'s typed value (a list, dictionary, number, or string). A `heading` target has no structured form \u2014 its body is markdown text \u2014 so a JSON body there is rejected with `400 InvalidPatchInstruction` rather than being stringified into your note.\n        \n        ## Which file did it act on?\n        \n        A URL that embeds a target is ambiguous on its face: `/vault/notes/log.md/heading/Today` could address the `Today` section of `notes/log.md`, or a file literally named `notes/log.md/heading/Today`. The server resolves it by walking backwards down the path until it finds a real file, and reports the answer in a `Content-Location` response header holding the vault-relative path it settled on. Each path component is percent-encoded on its own \u2014 non-ASCII characters, and reserved characters like `#`, `?` and `,` that a client would otherwise read as a fragment, a query or a header-list separator \u2014 so the value can be pasted straight back into a request URL. A request whose URL names the file outright gets no such header \u2014 there is nothing it could tell you that the URL does not.\n        \n        `/active/` responses carry `Content-Location` for the same reason, whether or not a target is embedded: the file the request acted on is whichever note happened to be open.\n        \n        ## Deprecated: header-based targeting\n        \n        Earlier releases addressed a sub-part with `Target-Type`, `Target`, and `Target-Delimiter` request headers (plus `Target-Scope` and `Trim-Target-Whitespace`) rather than URL path segments. **That form is deprecated and will be removed in 6.0.** It is only processed when you also send `Markdown-Patch-Version: 1`, and responses served that way carry a `Deprecation: true; sunset-version="6.0"` header. On GET/PUT/POST, supplying those targeting headers without that version is rejected with `400 HeaderTargetingRequiresVersion1` \u2014 reach the sub-part with URL path segments instead. (On PATCH, `Target-Type`/`Target` headers also have a *non-deprecated* meaning under an explicit `Markdown-Patch-Version: 2` \u2014 raw-content mode, with a different `Target` encoding; see the PATCH documentation.) Supplying both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n        \n        # Retrieving Document Metadata\n        \n        ## Metadata\n        \n        If you specify the header `Accept: application/vnd.olrapi.note+json`, will return a JSON representation of your note including parsed tag and frontmatter data as well as filesystem metadata.\n        \n        ## Document Map\n        \n        If you specify the header `Accept: application/vnd.olrapi.document-map+json`, will return a JSON object outlining what PATCH targets exist. See "responses" below for details.\n        \n        ## Rendered HTML\n        \n        If you specify the header `Accept: text/html`, will return the note rendered to HTML using Obsidian\'s own Markdown renderer \u2014 the same rendering used in Obsidian\'s preview mode, including embeds, callouts, and other Obsidian-flavored Markdown extensions. If `Target-Type`/`Target` are specified with `heading` or `block`, only that section is rendered. `Target-Type: frontmatter` is not supported for this Accept type and returns a 400 error, since frontmatter has no HTML rendering.\n      parameters:\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: |\n            For a URL-path-targeted read: which part of the target to return\n            (default `content`), mirroring PATCH\'s scopes with a round-trip\n            guarantee \u2014 what a scope returns is exactly what a `replace` at that\n            scope consumes.\n            \n            - `content` (default): the node\'s body \u2014 a heading\'s body with its\n              levels made relative to the target, a block\'s text, a frontmatter\n              value.\n            - `marker`: the label \u2014 a heading\'s raw text (no `#`s, and without the\n              duplicate-marker suffix its map key may carry), a block\'s bare id, a\n              frontmatter key.\n            - `markerAndContent`: the whole node \u2014 a heading\'s subtree with its own\n              line as `# Title` (levels relative to its parent), a block\'s full\n              span including its `^id`, or a frontmatter entry as a `{key: value}`\n              JSON object.\n            \n            `parent` places a section but carries no readable value, and returns\n            `400 InvalidTargetScopeHeader`. Only meaningful when the URL path\n            addresses a sub-part of the note.\n          in: "header"\n          name: "Target-Scope"\n          required: false\n          schema:\n            default: "content"\n            enum:\n              - "content"\n              - "marker"\n              - "markerAndContent"\n            type: "string"\n      responses:\n        "200":\n          content:\n            application/json:\n              description: "Returned when the URL path targets a frontmatter field (`.../frontmatter/fieldName`); the JSON value of that field."\n              schema: {}\n            "application/vnd.olrapi.document-map+json":\n              schema:\n                description: |\n                  The document map. To receive the deprecated 1.x shape \u2014 heading paths as\n                  `::`-joined strings, block ids prefixed with `^`, and no `version` \u2014\n                  send `Markdown-Patch-Version: 1`.\n                properties:\n                  blocks:\n                    description: "Block reference ids, bare (no leading `^`), in document order."\n                    example:\n                      - "blockref1"\n                      - "anotherBlockRef"\n                    items:\n                      type: "string"\n                    type: "array"\n                  frontmatterFields:\n                    example:\n                      - "title"\n                      - "tags"\n                      - "dateCreated"\n                    items:\n                      type: "string"\n                    type: "array"\n                  headings:\n                    "$ref": "#/components/schemas/HeadingTree"\n                  version:\n                    description: "Content-hash token for the file; pass it back as a PATCH `ifMatch` to make an edit conditional on the file being unchanged."\n                    example: "a1b2c3"\n                    type: "string"\n                type: "object"\n            "application/vnd.olrapi.note+json":\n              schema:\n                "$ref": "#/components/schemas/NoteJson"\n            text/html:\n              description: |\n                Returned when `Accept: text/html` is specified. The note (or, if `Target-Type`/`Target` are specified with `heading` or `block`, just that section) rendered to HTML via Obsidian\'s Markdown renderer (embeds, callouts, etc. included). `Target-Type: frontmatter` is not supported for this Accept type and returns a 400 error.\n              schema:\n                example: |\n                  <h1>This is my document</h1>\n                  <p>something else here</p>\n                type: "string"\n            text/markdown:\n              schema:\n                example: |\n                  # This is my document\n                  \n                  something else here\n                type: "string"\n          description: "Success"\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            The `Markdown-Patch-Version` header was invalid (not `1` or `2`), the deprecated `Target-Type`/`Target` headers were invalid, the `Target-Scope` header was not a readable scope (`content`, `marker`, `markerAndContent`), or a frontmatter target was combined with `Accept: text/html` (frontmatter has no HTML rendering).\n        "404":\n          description: "File or target section does not exist"\n      summary: |\n        Return the content of the active file open in Obsidian.\n      tags:\n        - "Active File"\n    patch:\n      description: |\n        Modifies the currently-open note with a single structured instruction: an operation applied to a scope of a target \u2014 a heading, block reference, or frontmatter field within that document.\n        \n        Edit a document with a single structured instruction \u2014 an **operation** applied to a **scope** of a **target** node (a heading, block reference, or frontmatter field). By default the whole instruction travels as a JSON request body; [raw-content mode](#raw-content-mode-templating-friendly) instead carries the instruction\'s fields in URL path elements/headers with the raw payload as the body.\n        \n        > **Migrating from the header-driven format?** See [Deprecated: the 1.x header-driven format](#deprecated-the-1x-header-driven-format) at the end.\n        \n        # The algebra\n        \n        - **operation** \u2014 `replace`, `prepend`, `append`, or `delete`.\n        - **scope** (optional, default `content`):\n          - `content` \u2014 the node\'s body. For a heading, that\'s its whole subtree *below* the heading line.\n          - `marker` \u2014 the label only: a heading line, a block `^id`, or a frontmatter key. `replace` renames it.\n          - `markerAndContent` \u2014 the marker *and* the body together: for a heading, its heading line plus everything beneath it. Unlike `content`, the heading line is inside the edited span, so a `replace` here rewrites the heading itself. `prepend`/`append` insert a *sibling* before/after it.\n          - `parent` \u2014 a heading\'s place in the tree. Valid only with `replace`, and carries a `destination` (a **move**).\n        - **target** \u2014 for a heading, an array of heading texts from the top level down (`["Overview","Details"]`), or `null`/`[]` for the document root; for a block, the bare id without `^`; for a frontmatter field, the key.\n        - **within** (optional, heading targets only) \u2014 a positional refinement: an index picking one of the section\'s direct-body top-level blocks (a paragraph, list, table, code fence, \u2026), 0-based in document order, negative counting from the end (`-1` = last; isolated `^id` lines are not counted). The instruction then edits *that block*: with `content` scope, `replace`/`prepend`/`append` splice literally into it \u2014 you own the joint, so `append` with `\\n- item` *continues* a list \u2014 and `delete` removes it; with `markerAndContent` scope, `prepend`/`append` insert a new block immediately before/after it. Not combinable with `createTargetIfMissing`.\n        - **payload** \u2014 carried in exactly one field, chosen by what it is:\n          - `content` \u2014 a markdown/text string (heading & block bodies/labels, or a frontmatter key rename).\n          - `value` \u2014 arbitrary JSON (frontmatter values).\n          - `destination` \u2014 where a moved heading lands.\n        \n        Not every combination is meaningful; invalid ones are rejected with a `400`.\n        \n        **Relative heading levels.** Heading `#`-counts inside a `content` string are *relative* to the edited span, so you never count `#`s: under `content` scope a leading `#` becomes a direct child of the target; under `markerAndContent` (or a sibling insert) it lands at the target\'s own level. Nesting inside your content is preserved as you wrote it \u2014 replacing a `##` section with `# New\\n\\n## Child` yields `## New` and `### Child`. A level rebased past `######` (h6) is still written, but the response carries a `heading-depth-overflow` entry in the `Markdown-Patch-Warnings` header \u2014 percent-encoded JSON, since a warning message embeds document text verbatim and header values must be ASCII; run it through `decodeURIComponent` before parsing.\n        \n        > **Note:** because the heading line is part of the `markerAndContent` span, a `replace` whose content has *no* heading removes it \u2014 the section is dissolved into a plain paragraph. Include a leading `#` (at any depth; it is rebased for you) to keep it a heading.\n        \n        # How to Use & Examples\n        \n        All of the below examples assume you have a document that looks like this:\n        \n        ```markdown\n        ---\n        alpha: 1\n        beta: test\n        delta:\n        zeta: 1\n        yotta: 1\n        gamma:\n        - one\n        - two\n        ---\n        \n        # Heading 1\n        \n        This is the content for heading one\n        \n        Also references some [[#^484ef2]]\n        \n        ## Subheading 1:1\n        Content for Subheading 1:1\n        \n        ### Subsubheading 1:1:1\n        \n        ### Subsubheading 1:1:2\n        \n        Testing how block references work for a table.[[#^2c7cfa]]\n        Some content for Subsubheading 1:1:2\n        \n        More random text.\n        \n        ^2d9b4a\n        \n        ## Subheading 1:2\n        \n        Content for Subheading 1:2.\n        \n        some content with a block reference ^484ef2\n        \n        ## Subheading 1:3\n        | City         | Population |\n        | ------------ | ---------- |\n        | Seattle, WA  | 8          |\n        | Portland, OR | 4          |\n        \n        ^2c7cfa\n        ```\n        \n        ## Append, prepend, or replace content below a heading\n        \n        To append the content "Hello" below "Subsubheading 1:1:1" under "Heading 1":\n        \n        ```json\n        {\n          "targetType": "heading",\n          "target": ["Heading 1", "Subheading 1:1", "Subsubheading 1:1:1"],\n          "operation": "append",\n          "content": "Hello"\n        }\n        ```\n        \n        `prepend` and `replace` work the same way, with different results. Because `target` is an array, a heading whose text contains `::` needs no escaping.\n        \n        > **Note:** the heading line itself is not part of the `content` scope. When you `replace` a heading\'s content, supply only the body \u2014 do not include the heading line, or it will be duplicated. To rename the heading, see below.\n        \n        ## Renaming a heading\n        \n        Give the new text. That\'s all \u2014 no `#` characters, and nothing to look up:\n        \n        ```json\n        {\n          "targetType": "heading",\n          "target": ["Heading 1", "Subheading 1:1"],\n          "operation": "replace",\n          "scope": "marker",\n          "content": "New Name"\n        }\n        ```\n        \n        `marker` scope addresses the label rather than the line, so the heading keeps whatever level it had and the body underneath is untouched. You never need to know the heading\'s depth to rename it.\n        \n        > **Do not include `#` characters here.** They are not stripped \u2014 they become part of the heading text, so `"## New Name"` renames the heading to `## New Name` and renders as `## ## New Name`. (This is the reverse of the deprecated 1.x format, where the `#`s were required. If you are migrating, drop them.)\n        \n        The same instruction shape renames a block id (`targetType: "block"`, new id without `^`) or a frontmatter key (`targetType: "frontmatter"`, new key name in `content`).\n        \n        ## Whitespace is library-owned\n        \n        Your `content` crosses the API in trimmed, canonical form: leading and trailing blank lines are stripped, and a non-empty write always ends with exactly one newline. `"X"`, `"X\\n"`, `"\\nX\\n"`, and `"X\\n\\n"` all produce the same document \u2014 newlines at the edges of your content are not a channel for controlling layout, so there is nothing to get wrong.\n        \n        Blank-line separators are the API\'s job. At any joint where your content faces body text, the engine supplies the blank line that keeps it a separate block. Given a document containing:\n        \n        ```markdown\n        # One\n        \n        body of one\n        ```\n        \n        - `append` becomes a new block after the body \u2192 `# One\\n\\nbody of one\\n\\nX\\n`\n        - `prepend` becomes a new block before the body \u2192 `# One\\n\\nX\\n\\nbody of one\\n`\n        - `replace` swaps the body \u2192 `# One\\n\\nX\\n`\n        \n        Where no separator is owed, none is added \u2014 a heading line is self-delimiting, and existing blank lines, gaps between sections, and document edges are preserved rather than rewritten:\n        \n        - The blank line between a heading and its body is kept in place: `replace` swaps the body beneath it and `prepend` inserts below it. A document written flush (`# One\\nbody of one\\n`) keeps its flush style \u2014 `replace` gives `# One\\nX\\n` \u2014 and replacing a body with its own text is byte-identity in either style.\n        - Writing into an empty section lands flush under its heading (`# E\\nX\\n`), with the section\'s existing trailing gap serving as the separator below.\n        \n        One consequence worth knowing: a `content`-scope `append`/`prepend` always begins a new block \u2014 it can never continue an existing paragraph or list. To edit inline within an existing block, address the block itself, which puts you on the literal-splice path where content lands exactly as given and you own the joint. Two ways to do that: target the block via its reference (`^id`) if it has one, or add `within: <index>` to a heading instruction to pick one of the section\'s body blocks by position \u2014 no `^id` required. For example, to extend the last list of a section:\n        \n        ```json\n        { "targetType": "heading", "target": ["Log"], "within": -1, "operation": "append", "content": "\\n- new item" }\n        ```\n        \n        Because a `within` edit is literal, the leading `\\n` is yours to write \u2014 without it the text continues the block\'s last line. Indices are positional, so read the document map or section first, and pair the edit with `ifMatch` from that read so a concurrent change fails the patch rather than landing on the wrong block.\n        \n        ## Append, prepend, or replace content of a block reference\n        \n        To append "Hello" below the block referenced by `2d9b4a`:\n        \n        ```json\n        { "targetType": "block", "target": "2d9b4a", "operation": "append", "content": "Hello" }\n        ```\n        \n        ## Append, prepend, or replace table rows via a block reference\n        \n        To add a new city/population pair to the table referenced by `2c7cfa`, pass the row(s) as a 2-D JSON array in `value`:\n        \n        ```json\n        { "targetType": "block", "target": "2c7cfa", "operation": "append", "value": [["Chicago, IL", "16"]] }\n        ```\n        \n        `prepend` puts the new row first (right below the heading row); `replace` swaps all body rows for the ones you supply. Each row must have exactly as many cells as the table has columns; a mismatched row, or targeting a block that isn\'t a table, is rejected.\n        \n        Cells are content, not table source, so you don\'t format them: a `|` in a cell is escaped for you and stays in the cell it belongs to. A cell containing a line break is rejected, since a table row is a single line \u2014 if you need a visual break inside a cell, send `<br>` yourself.\n        \n        ## Setting a frontmatter field\n        \n        Frontmatter values are JSON, so they ride in `value` (not `content`). To set `alpha` to `2`:\n        \n        ```json\n        { "targetType": "frontmatter", "target": "alpha", "operation": "replace", "value": 2 }\n        ```\n        \n        Add `"createTargetIfMissing": true` to create a field that might not exist yet. For `append`/`prepend`, `value` is merged into the existing value (list concat, dict merge, string concat).\n        \n        ## Adding and removing tags\n        \n        Obsidian stores frontmatter tags in the `tags` field. To add `project/active`, merging into the list and creating it if absent:\n        \n        ```json\n        { "targetType": "frontmatter", "target": "tags", "operation": "append", "value": ["project/active"], "createTargetIfMissing": true }\n        ```\n        \n        There is no direct "remove item" operation. To remove a tag, read the current list (GET, or `vault_read` in the MCP API), filter it client-side, and replace the whole field:\n        \n        ```json\n        { "targetType": "frontmatter", "target": "tags", "operation": "replace", "value": ["remaining-tag-1", "remaining-tag-2"] }\n        ```\n        \n        ## Moving a heading section\n        \n        `scope: "parent"` with `operation: "replace"` re-parents (and re-levels) a section. To move "Details" under "Appendix" as its last child:\n        \n        ```json\n        {\n          "targetType": "heading",\n          "target": ["Overview", "Details"],\n          "operation": "replace",\n          "scope": "parent",\n          "destination": { "parent": ["Appendix"], "place": "last" }\n        }\n        ```\n        \n        `place` may be `"first"`, `"last"`, `{ "before": <heading path> }`, or `{ "after": <heading path> }`. Use `"parent": null` to move to the document root.\n        \n        ## Deleting\n        \n        `operation: "delete"` empties the `content` scope, removes the whole subtree (`markerAndContent`), or dissolves just the heading line (`marker`):\n        \n        ```json\n        { "targetType": "heading", "target": ["Heading 1", "Subheading 1:2"], "operation": "delete", "scope": "markerAndContent" }\n        ```\n        \n        ## Optimistic concurrency\n        \n        Pass `ifMatch` with the `version` token from a document map (see below). If the file changed since, the patch fails with `412` and the file is untouched \u2014 refetch and retry.\n        \n        ## Identifying patch targets in a file\n        \n        Issue a GET request to `/vault/{path}` with an `Accept` header of `application/vnd.olrapi.document-map+json` to get the headings, block references, and frontmatter fields present in the file (and its `version` token). If a heading has a duplicate sibling (same text, same parent) or a block reference ID repeats, only the first occurrence keeps its plain-text/id key \u2014 each later occurrence\'s key carries a non-printable marker suffix; copy it verbatim from the map into `target` rather than typing it by hand. See "Targeting a Sub-part of your Document" for details.\n        \n        # Raw-content mode (templating-friendly)\n        \n        Putting the whole instruction in a JSON body has one sharp edge: the `content` string must be JSON-escaped, which tools that *template* markdown into an HTTP body (Shortcuts, Tasker, curl with `--data` from a template) often cannot do reliably. Raw-content mode removes that requirement: the instruction\'s fields travel **outside** the body, and the body is the raw payload \u2014 no JSON escaping required.\n        \n        The target can ride in either of two places (never both \u2014 that\'s a `422`):\n        \n        - **URL path elements**, exactly as GET/PUT/POST use them: `PATCH /vault/note.md/heading/A/B`. No version header needed.\n        - **`Target-Type` / `Target` headers**, together with an explicit `Markdown-Patch-Version: 2`. The `Target` encoding is type-dependent, mirroring the instruction\'s `target` field: a heading Target is **JSON, percent-encoded** \u2014 `["A","B"]` sent as `%5B%22A%22%2C%22B%22%5D`, or `null` for the document root \u2014 while block and frontmatter Targets are the plain id/key (percent-encoded if non-ASCII). Because `Target` headers on a PATCH are ambiguous with the deprecated 1.x format, omitting the version header fails loudly with `400 PatchHeaderTargetingRequiresExplicitVersion` rather than guessing.\n        \n        The remaining fields map to headers: `Operation` (required), `Target-Scope` (all four scopes, including `parent`), `Within` (the instruction\'s `within` index as a plain integer, e.g. `-1` \u2014 splice into one of the section\'s body blocks instead of adding a new one), `Create-Target-If-Missing`, `Reject-If-Content-Preexists`, `If-Match` (the document-map `version` token, bare or ETag-quoted), and `Destination` (a move\'s destination object as percent-encoded JSON). The 1.x-only `Target-Delimiter` and `Trim-Target-Whitespace` headers are rejected.\n        \n        The body is the payload carrier, chosen by its content type:\n        \n        | Body | Instruction field |\n        | --- | --- |\n        | `text/markdown` (any `text/*`) | `content` |\n        | `application/json` | `value` |\n        | *(no body)* | none \u2014 a `delete`, or a move via `Destination` |\n        \n        An empty body deliberately maps to *no* carrier: a `replace` with an accidentally-empty template fails as a missing carrier instead of clearing the section. To clear content on purpose, use an instruction body with `"content": ""`.\n        \n        ```sh\n        # Append a templated line under a heading \u2014 no JSON escaping anywhere\n        curl -k -X PATCH \\\n          -H "Authorization: Bearer $API_KEY" \\\n          -H "Operation: append" \\\n          -H "Content-Type: text/markdown" \\\n          --data "- $TEMPLATED_CONTENT" \\\n          "https://127.0.0.1:27124/vault/notes/daily.md/heading/Log"\n        \n        # Extend the section\'s last list *in place* (not a new block below it):\n        # Within picks the block, and the leading newline in the body makes the\n        # spliced text a new item of that list\n        curl -k -X PATCH \\\n          -H "Authorization: Bearer $API_KEY" \\\n          -H "Operation: append" \\\n          -H "Within: -1" \\\n          -H "Content-Type: text/markdown" \\\n          --data $\'\\n- \'"$TEMPLATED_CONTENT" \\\n          "https://127.0.0.1:27124/vault/notes/daily.md/heading/Log"\n        \n        # The same edit with header targeting (note the explicit version and JSON Target)\n        curl -k -X PATCH \\\n          -H "Authorization: Bearer $API_KEY" \\\n          -H "Markdown-Patch-Version: 2" \\\n          -H "Target-Type: heading" \\\n          -H "Target: %5B%22Log%22%5D" \\\n          -H "Operation: append" \\\n          -H "Content-Type: text/markdown" \\\n          --data "- $TEMPLATED_CONTENT" \\\n          "https://127.0.0.1:27124/vault/notes/daily.md"\n        ```\n        \n        Everything downstream is identical to instruction mode: the same validation, the same warnings header, the same error mapping. A raw-mode request may also send `application/vnd.olrapi.patch-instruction+json` \u2014 but only as a *whole-instruction body* with no targeting elsewhere; combining it with URL or header targeting is a `422 ConflictingTargetSpecification`.\n        \n        > **Note:** on `/active/` endpoints, a URL suffix (e.g. `/active/heading/Log`) previously had no effect on PATCH \u2014 it was ignored and the whole file was patched. It now targets the addressed section, matching PUT/POST.\n        \n        # Deprecated: the 1.x header-driven format\n        \n        The earlier PATCH format spread the instruction across `Operation`, `Target-Type`, `Target`, `Target-Delimiter`, `Target-Scope`, `Create-Target-If-Missing`, `Reject-If-Content-Preexists`, and `Trim-Target-Whitespace` headers, with the payload in a `text/markdown` (or JSON-string) body. **It is deprecated and will be removed in 6.0.** Requests that use it still work, but every response carries a `Deprecation: true; sunset-version="6.0"` header.\n        \n        The JSON-instruction format described above is the default. To use the deprecated format, send `Markdown-Patch-Version: 1`; the header also selects the 1.x document map (`::`-joined heading paths, no `version`) on GET. Without any version header, a non-object body with no targeting is rejected with `400 InvalidPatchInstruction`, and `Target-Type`/`Target` headers are rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 those same header names are also raw-content mode\'s (with different `Target` encoding), so the request must explicitly pick `1` or `2`. To upgrade, drop the version header and either move each 1.x header into the JSON body as below, or switch to [raw-content mode](#raw-content-mode-templating-friendly) and keep your body as-is:\n        \n        | 1.x header | Instruction field |\n        | --- | --- |\n        | `Operation: append` | `"operation": "append"` (now also `"delete"`) |\n        | `Target-Type: heading` | `"targetType": "heading"` |\n        | `Target: A::B` (+ `Target-Delimiter`) | `"target": ["A", "B"]` (a real array \u2014 no delimiter) |\n        | `Target-Scope: content` | `"scope": "content"` (adds `"parent"` for moves) |\n        | body (`text/markdown`) | `"content": "..."` |\n        | body (`application/json` value) | `"value": <json>` |\n        | `Create-Target-If-Missing: true` | `"createTargetIfMissing": true` |\n        | `Reject-If-Content-Preexists: true` | `"rejectIfContentPreexists": true` |\n        | `Trim-Target-Whitespace` | *(dropped; the engine owns boundary whitespace)* |\n      parameters:\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: |\n            Raw-content mode: the type of node the instruction targets (`heading`,\n            `block`, or `frontmatter`). Must be used together with the `Target`\n            header and an explicit `Markdown-Patch-Version: 2`; alternatively, put\n            the target in the URL path (`.../heading/A/B`) and omit both headers.\n            Supplying both is rejected with `422 ConflictingTargetSpecification`.\n          in: "header"\n          name: "Target-Type"\n          required: false\n          schema:\n            enum:\n              - "heading"\n              - "block"\n              - "frontmatter"\n            type: "string"\n        - description: |\n            Raw-content mode: the node the instruction targets. The encoding is\n            type-dependent, mirroring the instruction\'s `target` field. For a\n            `heading`, the value is JSON \u2014 an array of heading texts from the top\n            level down, or `null` for the document root \u2014 then percent-encoded:\n            `["A","B"]` is sent as `%5B%22A%22%2C%22B%22%5D`. For a `block` or\n            `frontmatter` target, the value is the plain id/key, percent-encoded if\n            it contains non-ASCII characters. A heading value that does not decode\n            to JSON (e.g. a bare 1.x-style `A::B` path) is rejected with\n            `400 InvalidTargetHeader`.\n          in: "header"\n          name: "Target"\n          required: false\n          schema:\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s `within` \u2014 a single integer (e.g.\n            `-1`) refining a heading target to one of the section\'s direct-body\n            top-level blocks (0-based document order, negative counting from the\n            end; isolated `^id` lines are not counted). With the default `content`\n            scope the body is spliced literally into that block \u2014 an `append`\n            *continues* it \u2014 and a bodiless `delete` removes it; with\n            `Target-Scope: markerAndContent`, `prepend`/`append` insert the body as\n            a new block beside it. Heading targets only; cannot be combined with\n            `Create-Target-If-Missing`.\n          in: "header"\n          name: "Within"\n          required: false\n          schema:\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s operation. Required whenever the\n            target rides in the URL path or the `Target-Type`/`Target` headers.\n          in: "header"\n          name: "Operation"\n          required: false\n          schema:\n            enum:\n              - "replace"\n              - "prepend"\n              - "append"\n              - "delete"\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s `scope` \u2014 `content` (default),\n            `marker`, `markerAndContent`, or `parent` (a move; carries its\n            destination in the `Destination` header). See the instruction-body\n            documentation for what each scope addresses.\n          in: "header"\n          name: "Target-Scope"\n          required: false\n          schema:\n            default: "content"\n            enum:\n              - "content"\n              - "marker"\n              - "markerAndContent"\n              - "parent"\n            type: "string"\n        - description: |\n            Raw-content mode: where a moved heading lands (`Target-Scope: parent`).\n            The instruction\'s `destination` object as JSON, then percent-encoded:\n            `{"parent":["Appendix"],"place":"last"}` is sent as\n            `%7B%22parent%22%3A%5B%22Appendix%22%5D%2C%22place%22%3A%22last%22%7D`.\n            A move carries no body.\n          in: "header"\n          name: "Destination"\n          required: false\n          schema:\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s `ifMatch` optimistic-concurrency\n            token \u2014 the `version` from a document map, bare or wrapped in one pair\n            of double quotes (RFC 9110 ETag style). A mismatch fails with `412` and\n            leaves the file untouched.\n          in: "header"\n          name: "If-Match"\n          required: false\n          schema:\n            type: "string"\n        - description: "If the specified Target does not exist, create it?"\n          in: "header"\n          name: "Create-Target-If-Missing"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: "If patch data already exists in Target, reject the patch?"\n          in: "header"\n          name: "Reject-If-Content-Preexists"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n      requestBody:\n        content:\n          application/json:\n            examples:\n              addTag:\n                summary: "Add a tag (merge into the tags list, creating it if absent)"\n                value:\n                  createTargetIfMissing: true\n                  operation: "append"\n                  target: "tags"\n                  targetType: "frontmatter"\n                  value:\n                    - "project/active"\n              appendToBlock:\n                summary: "Append text to a block addressed by its reference id"\n                value:\n                  content: "More detail for this block."\n                  operation: "append"\n                  target: "2c7cfa"\n                  targetType: "block"\n              appendUnderHeading:\n                summary: "Append text below a heading"\n                value:\n                  content: "Hello"\n                  operation: "append"\n                  target:\n                    - "Heading 1"\n                    - "Subheading 1:1:1"\n                  targetType: "heading"\n              continueList:\n                summary: "Continue an existing list in place (within: positional block edit)"\n                value:\n                  content: "\\n- new item"\n                  operation: "append"\n                  target:\n                    - "Log"\n                  targetType: "heading"\n                  within: -1\n              moveSection:\n                summary: "Move a heading section under a new parent"\n                value:\n                  destination:\n                    parent:\n                      - "Appendix"\n                    place: "last"\n                  operation: "replace"\n                  scope: "parent"\n                  target:\n                    - "Overview"\n                    - "Details"\n                  targetType: "heading"\n              setFrontmatter:\n                summary: "Set a frontmatter field to a JSON value"\n                value:\n                  operation: "replace"\n                  target: "alpha"\n                  targetType: "frontmatter"\n                  value: 2\n            schema:\n              "$ref": "#/components/schemas/PatchInstruction"\n          "application/vnd.olrapi.patch-instruction+json":\n            schema:\n              "$ref": "#/components/schemas/PatchInstruction"\n          text/markdown:\n            schema:\n              example: |\n                - A raw markdown line: no JSON escaping needed.\n              type: "string"\n        description: |\n          Instruction mode: a single patch instruction as JSON (`application/json`, or\n          `application/vnd.olrapi.patch-instruction+json` to declare it explicitly).\n          Raw-content mode: the raw payload \u2014 a `text/markdown` body is the instruction\'s\n          `content` carrier, an `application/json` body its `value` carrier, and no body at\n          all carries nothing (a delete, or a move via the `Destination` header). An empty\n          raw-mode body never clears content: a `replace` without a payload is rejected as a\n          missing carrier, so an accidentally-empty template cannot wipe a section (use an\n          instruction body with `"content": ""` to clear deliberately).\n        required: false\n      responses:\n        "200":\n          description: "Success. The body is the patched document. Any advisory warnings (e.g. a heading rebased past level 6) are JSON-encoded, then percent-encoded, in the `Markdown-Patch-Warnings` response header."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            Markdown-Patch-Warnings:\n              description: "Present only when the patch produced warnings: a percent-encoded JSON array of `{ code, message }` objects (percent-encoded because a warning message embeds document text verbatim, which may contain non-ASCII characters that are not valid in a raw header value). Decode with `decodeURIComponent` before parsing as JSON."\n              schema:\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Bad Request; the instruction was malformed, the operation\xD7scope\xD7targetType combination is not part of the algebra, the `Markdown-Patch-Version` header was invalid, an instruction-mode request had a non-object body, or a raw-content-mode header could not be decoded (a heading `Target` that is not percent-encoded JSON, a malformed `Destination`, an unsupported body content type). Header-based targeting without an explicit `Markdown-Patch-Version` returns `PatchHeaderTargetingRequiresExplicitVersion` here. See response message for details."\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "The file, or the addressed target within it, does not exist (and `createTargetIfMissing` was not set)."\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "409":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "`rejectIfContentPreexists` was set and the content already appears in the target span."\n        "412":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Precondition Failed: the `ifMatch` token did not match the current document version; the file was not modified."\n        "422":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Conflicting target specifications: more than one of URL path elements, `Target-Type`/`Target` headers, and an `application/vnd.olrapi.patch-instruction+json` instruction body was supplied."\n      summary: |\n        Partially update content in the currently open note.\n      tags:\n        - "Active File"\n    post:\n      description: |\n        Appends content to the end of the currently-open note.\n        \n        # Targeting a Sub-part of your Document\n        \n        You can operate on a specific section of a note instead of the whole file by embedding a target in the URL path, immediately after the note identifier. The first segment after the note is the target type, and the remaining segments address the target:\n        \n        - `.../heading/My%20Section` targets the section beneath the `My Section` heading \u2014 the body content below the heading line.\n        - For a nested heading, add one path segment per level: `.../heading/My%20Section/Subsection` targets `Subsection` under `My Section`. Because each level is its own segment, a heading whose text contains `::` (or any other delimiter) needs no escaping.\n        - `.../block/abc123` targets the block with reference ID `abc123`.\n        - `.../frontmatter/fieldName` targets the `fieldName` frontmatter field.\n        \n        Percent-encode any segment that contains non-ASCII characters or a literal `/` (e.g. `H%C3%A9llo` for `H\xE9llo`, or `TODO%2FDONE` for a heading named `TODO/DONE`). Each URL path segment is decoded on its own, so an encoded `%2F` stays a literal slash *inside* that one segment rather than acting as a separator \u2014 that is what lets a heading name contain a slash. The same rule applies to the note path itself: because a file or folder name can never contain a slash, the note must be addressed with real `/` separators between its path components (`/vault/folder/note.md`), not with the separators encoded (`/vault/folder%2Fnote.md`), which no longer resolves.\n        \n        If a document has a duplicate sibling heading (the same text repeated under the same parent) or a duplicate block reference ID, only the first occurrence is addressable by its plain text/id. Each later occurrence gets its own address with a non-printable marker suffix appended by the server \u2014 fetch the document map (`Accept: application/vnd.olrapi.document-map+json`) and copy that occurrence\'s key verbatim; don\'t try to type or reconstruct the marker yourself.\n        \n        `GET` returns just the addressed section. By default that is the target\'s `content` scope; add a `Target-Scope` header to read the `marker` (the label \u2014 a heading\'s raw text, a block\'s bare id, a frontmatter key) or `markerAndContent` (the whole node, in exactly the shape a PATCH `replace` at that scope consumes \u2014 a heading subtree comes back with its own line as `# Title`, levels relative to its parent, so a read-modify-write never counts `#`s). `PUT` replaces the section and `POST` appends to it, with heading levels normalized and separator whitespace managed for you. `PATCH` also accepts a URL target \u2014 its raw-content mode \u2014 with the operation and other instruction fields in headers (`Operation`, `Target-Scope`, \u2026) and the raw payload as the body. For the full instruction algebra (renames, moves, deletes, typed frontmatter values), see the PATCH documentation.\n        \n        On `PUT` and `POST`, the `Content-Type` of your request body selects how the payload is interpreted, and not every target accepts both:\n        \n        - A `text/markdown` body is literal markdown. Valid for `heading` and `block` targets. On a `frontmatter` target it is stored as the field\'s plain string value.\n        - An `application/json` body is structured data. On a `block` target that addresses a table, it is a 2-D array of row cells (`[["Chicago", "16"]]`). On a `frontmatter` target it is the field\'s typed value (a list, dictionary, number, or string). A `heading` target has no structured form \u2014 its body is markdown text \u2014 so a JSON body there is rejected with `400 InvalidPatchInstruction` rather than being stringified into your note.\n        \n        ## Which file did it act on?\n        \n        A URL that embeds a target is ambiguous on its face: `/vault/notes/log.md/heading/Today` could address the `Today` section of `notes/log.md`, or a file literally named `notes/log.md/heading/Today`. The server resolves it by walking backwards down the path until it finds a real file, and reports the answer in a `Content-Location` response header holding the vault-relative path it settled on. Each path component is percent-encoded on its own \u2014 non-ASCII characters, and reserved characters like `#`, `?` and `,` that a client would otherwise read as a fragment, a query or a header-list separator \u2014 so the value can be pasted straight back into a request URL. A request whose URL names the file outright gets no such header \u2014 there is nothing it could tell you that the URL does not.\n        \n        `/active/` responses carry `Content-Location` for the same reason, whether or not a target is embedded: the file the request acted on is whichever note happened to be open.\n        \n        ## Deprecated: header-based targeting\n        \n        Earlier releases addressed a sub-part with `Target-Type`, `Target`, and `Target-Delimiter` request headers (plus `Target-Scope` and `Trim-Target-Whitespace`) rather than URL path segments. **That form is deprecated and will be removed in 6.0.** It is only processed when you also send `Markdown-Patch-Version: 1`, and responses served that way carry a `Deprecation: true; sunset-version="6.0"` header. On GET/PUT/POST, supplying those targeting headers without that version is rejected with `400 HeaderTargetingRequiresVersion1` \u2014 reach the sub-part with URL path segments instead. (On PATCH, `Target-Type`/`Target` headers also have a *non-deprecated* meaning under an explicit `Markdown-Patch-Version: 2` \u2014 raw-content mode, with a different `Target` encoding; see the PATCH documentation.) Supplying both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n        \n        When a target is specified the content is appended within that section and the full updated file content is returned with a `200` status. Without a target, the content is appended to the end of the file and a `204` status is returned.\n        \n        If you need `prepend` or `replace` operations, use `PATCH` instead.\n      parameters:\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: "If the specified Target does not exist, create it?"\n          in: "header"\n          name: "Create-Target-If-Missing"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: "If patch data already exists in Target, reject the patch?"\n          in: "header"\n          name: "Reject-If-Content-Preexists"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n      requestBody:\n        content:\n          text/markdown:\n            schema:\n              example: |\n                # This is my document\n                \n                something else here\n              type: "string"\n        description: "Content you would like to append."\n        required: true\n      responses:\n        "200":\n          content:\n            text/markdown:\n              schema:\n                type: "string"\n          description: "Success; content appended to the targeted section (via URL path elements). The full updated file content is returned. Any advisory warnings (e.g. a heading rebased past level 6) are JSON-encoded, then percent-encoded, in the `Markdown-Patch-Warnings` response header."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            Markdown-Patch-Warnings:\n              description: "Present only when the write produced warnings: a percent-encoded JSON array of `{ code, message }` objects. Decode with `decodeURIComponent` before parsing as JSON."\n              schema:\n                type: "string"\n        "204":\n          description: "Success; content appended to end of file."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Bad Request"\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "409":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "`Reject-If-Content-Preexists` was set and the content already appears in the targeted section."\n      summary: |\n        Append content to the active file open in Obsidian.\n      tags:\n        - "Active File"\n    put:\n      description: |\n        # Targeting a Sub-part of your Document\n        \n        You can operate on a specific section of a note instead of the whole file by embedding a target in the URL path, immediately after the note identifier. The first segment after the note is the target type, and the remaining segments address the target:\n        \n        - `.../heading/My%20Section` targets the section beneath the `My Section` heading \u2014 the body content below the heading line.\n        - For a nested heading, add one path segment per level: `.../heading/My%20Section/Subsection` targets `Subsection` under `My Section`. Because each level is its own segment, a heading whose text contains `::` (or any other delimiter) needs no escaping.\n        - `.../block/abc123` targets the block with reference ID `abc123`.\n        - `.../frontmatter/fieldName` targets the `fieldName` frontmatter field.\n        \n        Percent-encode any segment that contains non-ASCII characters or a literal `/` (e.g. `H%C3%A9llo` for `H\xE9llo`, or `TODO%2FDONE` for a heading named `TODO/DONE`). Each URL path segment is decoded on its own, so an encoded `%2F` stays a literal slash *inside* that one segment rather than acting as a separator \u2014 that is what lets a heading name contain a slash. The same rule applies to the note path itself: because a file or folder name can never contain a slash, the note must be addressed with real `/` separators between its path components (`/vault/folder/note.md`), not with the separators encoded (`/vault/folder%2Fnote.md`), which no longer resolves.\n        \n        If a document has a duplicate sibling heading (the same text repeated under the same parent) or a duplicate block reference ID, only the first occurrence is addressable by its plain text/id. Each later occurrence gets its own address with a non-printable marker suffix appended by the server \u2014 fetch the document map (`Accept: application/vnd.olrapi.document-map+json`) and copy that occurrence\'s key verbatim; don\'t try to type or reconstruct the marker yourself.\n        \n        `GET` returns just the addressed section. By default that is the target\'s `content` scope; add a `Target-Scope` header to read the `marker` (the label \u2014 a heading\'s raw text, a block\'s bare id, a frontmatter key) or `markerAndContent` (the whole node, in exactly the shape a PATCH `replace` at that scope consumes \u2014 a heading subtree comes back with its own line as `# Title`, levels relative to its parent, so a read-modify-write never counts `#`s). `PUT` replaces the section and `POST` appends to it, with heading levels normalized and separator whitespace managed for you. `PATCH` also accepts a URL target \u2014 its raw-content mode \u2014 with the operation and other instruction fields in headers (`Operation`, `Target-Scope`, \u2026) and the raw payload as the body. For the full instruction algebra (renames, moves, deletes, typed frontmatter values), see the PATCH documentation.\n        \n        On `PUT` and `POST`, the `Content-Type` of your request body selects how the payload is interpreted, and not every target accepts both:\n        \n        - A `text/markdown` body is literal markdown. Valid for `heading` and `block` targets. On a `frontmatter` target it is stored as the field\'s plain string value.\n        - An `application/json` body is structured data. On a `block` target that addresses a table, it is a 2-D array of row cells (`[["Chicago", "16"]]`). On a `frontmatter` target it is the field\'s typed value (a list, dictionary, number, or string). A `heading` target has no structured form \u2014 its body is markdown text \u2014 so a JSON body there is rejected with `400 InvalidPatchInstruction` rather than being stringified into your note.\n        \n        ## Which file did it act on?\n        \n        A URL that embeds a target is ambiguous on its face: `/vault/notes/log.md/heading/Today` could address the `Today` section of `notes/log.md`, or a file literally named `notes/log.md/heading/Today`. The server resolves it by walking backwards down the path until it finds a real file, and reports the answer in a `Content-Location` response header holding the vault-relative path it settled on. Each path component is percent-encoded on its own \u2014 non-ASCII characters, and reserved characters like `#`, `?` and `,` that a client would otherwise read as a fragment, a query or a header-list separator \u2014 so the value can be pasted straight back into a request URL. A request whose URL names the file outright gets no such header \u2014 there is nothing it could tell you that the URL does not.\n        \n        `/active/` responses carry `Content-Location` for the same reason, whether or not a target is embedded: the file the request acted on is whichever note happened to be open.\n        \n        ## Deprecated: header-based targeting\n        \n        Earlier releases addressed a sub-part with `Target-Type`, `Target`, and `Target-Delimiter` request headers (plus `Target-Scope` and `Trim-Target-Whitespace`) rather than URL path segments. **That form is deprecated and will be removed in 6.0.** It is only processed when you also send `Markdown-Patch-Version: 1`, and responses served that way carry a `Deprecation: true; sunset-version="6.0"` header. On GET/PUT/POST, supplying those targeting headers without that version is rejected with `400 HeaderTargetingRequiresVersion1` \u2014 reach the sub-part with URL path segments instead. (On PATCH, `Target-Type`/`Target` headers also have a *non-deprecated* meaning under an explicit `Markdown-Patch-Version: 2` \u2014 raw-content mode, with a different `Target` encoding; see the PATCH documentation.) Supplying both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n        \n        When a target is specified the target section is replaced with the request body and the full updated file content is returned with a `200` status. If the target does not exist it will be created. Without a target, the entire file is replaced and a `204` status is returned.\n      parameters:\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: "If patch data already exists in Target, reject the patch?"\n          in: "header"\n          name: "Reject-If-Content-Preexists"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n      requestBody:\n        content:\n          "*/*":\n            schema:\n              type: "string"\n          text/markdown:\n            schema:\n              example: |\n                # This is my document\n                \n                something else here\n              type: "string"\n        description: "Content of the file you would like to upload."\n        required: true\n      responses:\n        "200":\n          content:\n            text/markdown:\n              schema:\n                type: "string"\n          description: "Success; targeted section replaced (via URL path elements). The full updated file content is returned. Any advisory warnings (e.g. a heading rebased past level 6) are JSON-encoded, then percent-encoded, in the `Markdown-Patch-Warnings` response header."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            Markdown-Patch-Warnings:\n              description: "Present only when the write produced warnings: a percent-encoded JSON array of `{ code, message }` objects. Decode with `decodeURIComponent` before parsing as JSON."\n              schema:\n                type: "string"\n        "204":\n          description: "Success; entire file replaced."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Incoming file could not be processed.  Make sure you have specified a reasonable file name, and make sure you have set a reasonable \'Content-Type\' header; if you are uploading a note, \'text/markdown\' is likely the right choice.\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "409":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "`Reject-If-Content-Preexists` was set and the content already appears in the targeted section."\n      summary: |\n        Update the content of the active file open in Obsidian.\n      tags:\n        - "Active File"\n  /commands/:\n    get:\n      responses:\n        "200":\n          content:\n            application/json:\n              example:\n                commands:\n                  - id: "global-search:open"\n                    name: "Search: Search in all files"\n                  - id: "graph:open"\n                    name: "Graph view: Open graph view"\n              schema:\n                properties:\n                  commands:\n                    items:\n                      properties:\n                        id:\n                          type: "string"\n                        name:\n                          type: "string"\n                      type: "object"\n                    type: "array"\n                type: "object"\n          description: "A list of available commands."\n      summary: |\n        Get a list of available commands.\n      tags:\n        - "Commands"\n  "/commands/{commandId}/":\n    post:\n      parameters:\n        - description: "The id of the command to execute"\n          in: "path"\n          name: "commandId"\n          required: true\n          schema:\n            type: "string"\n      responses:\n        "204":\n          description: "Success"\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "The command you specified does not exist."\n      summary: |\n        Execute a command.\n      tags:\n        - "Commands"\n  "/events/{emitter}/{event}/":\n    parameters:\n      - description: "The Obsidian object whose event to follow (`vault`, `metadataCache`, `workspace`), or the plugin id of an extension that registered events."\n        in: "path"\n        name: "emitter"\n        required: true\n        schema:\n          type: "string"\n      - description: "The event\'s name, one of those listed for the emitter: Obsidian\'s own name for a built-in emitter, or the name the extension registered it under."\n        in: "path"\n        name: "event"\n        required: true\n        schema:\n          type: "string"\n    post:\n      description: |\n        Registers a subscription to one Obsidian event and returns the URL of a [Server-Sent Events](https://html.spec.whatwg.org/multipage/server-sent-events.html) stream that delivers each matching occurrence as it happens.\n        \n        Streaming is two steps because a browser\'s `EventSource` can only make `GET` requests, and a `GET` has no body to carry a filter. So the filter is registered here, and the stream is opened with `GET /events/{emitter}/{event}/{subscriptionId}/`, using the returned `url`.\n        \n        #### Events\n        \n        `{emitter}` and `{event}` are Obsidian\'s own names. Only these can be streamed:\n        \n        | Emitter | Events |\n        |---|---|\n        | `vault` | `create`, `modify`, `delete`, `rename` |\n        | `metadataCache` | `changed`, `deleted`, `resolve`, `resolved` |\n        | `workspace` | `file-open`, `active-leaf-change`, `layout-change` |\n        \n        Plugins extending this server can add their own events, with their plugin id as `{emitter}`. The payload of an extension\'s event is whatever that extension\'s serializer returns, plus `emitter` and `event`. Anything else gets a `404` whose `supportedEvents` field lists everything currently available. Some events are left out on purpose. `quick-preview` and `editor-change` fire on every keystroke and carry the note\'s text, `editor-paste` and `editor-drop` carry clipboard and drag data, and the menu and window events carry UI objects. `/events/` and `/events/{emitter}/` return `400`, because Obsidian has no way to listen for every event at once.\n        \n        To react to a note\'s frontmatter changing, use `metadataCache` `changed` rather than `vault` `modify`. `modify` fires before Obsidian has re-read the file\'s metadata, so its frontmatter can be stale.\n        \n        #### What each event carries\n        \n        Every message\'s `event:` field is the event name. Its `data:` is a JSON object:\n        \n        - `emitter`, `event`: what fired.\n        - `path`: the file or folder the event is about, or `null`.\n        - `file`: that file\'s NoteJson (the same shape `/search/` evaluates), or `null` for a folder, a deleted file, or an event with no file. `content` is included only when the filter reads `file.content`: a `var`, `missing`, or `missing_some` path naming it. A string that merely says "content", such as a path compared against it, doesn\'t count.\n        - `isFolder` (`vault` events): whether `path` names a folder.\n        - `oldPath` (`vault` `rename`): the path before the rename.\n        - `previous` (`metadataCache` `deleted`): the `frontmatter` and `tags` the file had.\n        - `viewType` (`workspace` `active-leaf-change`): the type of the newly active view.\n        \n        Obsidian passes some events more than this, such as `changed`\'s full note text or `active-leaf-change`\'s live view. None of it is sent.\n        \n        The `id:` of each message is `<epoch>-<counter>`. The epoch changes whenever the plugin reloads. A client that reconnects and sees a new epoch, or a gap in the counter, has missed events. Nothing is replayed, so search to catch up.\n        \n        #### The filter\n        \n        The request body is an optional JsonLogic expression, evaluated against the `data` object above. It supports the same extra `glob` and `regexp` operators as `/search/`. Only events for which it is truthy are sent. With no body, or `{}`, every occurrence is sent. A filter JsonLogic can\'t evaluate, or one whose `regexp` pattern won\'t compile, is refused with `400`.\n        \n        #### The stream URL\n        \n        When signed URLs are enabled, `url` is signed and opens the stream without an `Authorization` header, so it can be handed to an `EventSource`, `curl -N`, or another process. Otherwise it needs the API key like any other request. The URL expires after `ttl` seconds (default: the signed-URL lifetime in settings). A stream opened before then stays open. A reconnect after that is refused, and the client needs a new subscription. Subscriptions are held in memory, so a plugin reload ends them all.\n        \n        Anyone holding a signed stream URL sees the path and metadata of every event its filter matches, and note content if the filter reads `file.content`, for as long as the stream stays open. The filter is part of the subscription, so the URL can\'t be used to widen it.\n        \n        At most 16 streams may be open at once, and at most 256 subscriptions may exist. Beyond that, requests get `503`.\n      parameters:\n        - description: "How long the stream URL stays valid, in seconds; clamped to 10-86400. Defaults to the plugin\'s signed-URL lifetime."\n          in: "query"\n          name: "ttl"\n          required: false\n          schema:\n            type: "integer"\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: "object"\n          "application/vnd.olrapi.jsonlogic+json":\n            examples:\n              frontmatter_value:\n                summary: "Only notes whose status is done (use with metadataCache/changed)."\n                value: |\n                  {"==": [{"var": "file.frontmatter.status"}, "done"]}\n              notes_in_folder:\n                summary: "Only files under journal/."\n                value: |\n                  {"glob": ["journal/*", {"var": "path"}]}\n            schema:\n              externalDocs:\n                url: "https://jsonlogic.com/operations.html"\n              type: "object"\n        required: false\n      responses:\n        "201":\n          content:\n            application/json:\n              schema:\n                properties:\n                  emitter:\n                    type: "string"\n                  event:\n                    type: "string"\n                  expiresAt:\n                    description: "After this, the stream can no longer be opened; one already open stays open."\n                    format: "date-time"\n                    type: "string"\n                  id:\n                    description: "The subscription id."\n                    type: "string"\n                  signed:\n                    description: "Whether `url` carries a signature, or needs the API key."\n                    type: "boolean"\n                  url:\n                    description: "The stream to open with GET. Signed when signed URLs are enabled."\n                    type: "string"\n                required:\n                  - "id"\n                  - "emitter"\n                  - "event"\n                  - "url"\n                  - "signed"\n                  - "expiresAt"\n                type: "object"\n          description: "Subscription registered."\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "No event named (`/events/` or `/events/{emitter}/`), a filter JsonLogic cannot evaluate, or a body that is not JSON."\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "The emitter or event cannot be streamed. The body lists what can, as `supportedEvents`."\n        "503":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Too many subscriptions exist."\n      summary: |\n        Subscribe to an Obsidian event as a Server-Sent Events stream\n      tags:\n        - "Events"\n  "/events/{emitter}/{event}/{subscriptionId}/":\n    get:\n      description: |\n        Streams the subscription\'s events as `text/event-stream`, with a keep-alive comment every 15 seconds, until the client disconnects or the plugin reloads. See `POST /events/{emitter}/{event}/` for what each message carries.\n        \n        Authenticates with the API key, or with the `sig`, `exp` and `n` parameters of the URL that registering the subscription returned. A stream opened before the subscription expires stays open after it.\n      parameters:\n        - in: "path"\n          name: "emitter"\n          required: true\n          schema:\n            type: "string"\n        - in: "path"\n          name: "event"\n          required: true\n          schema:\n            type: "string"\n        - description: "The `id` returned when the subscription was registered."\n          in: "path"\n          name: "subscriptionId"\n          required: true\n          schema:\n            type: "string"\n        - description: "Signature of a signed URL, minted by the MCP `vault_get_download_url` / `vault_get_upload_url` / `events_get_listener_url` tools or by `POST /events/{emitter}/{event}/`. Together with `exp` and `n`, authenticates this one request without an `Authorization` header. Only honoured while signed URLs are enabled in the plugin settings."\n          in: "query"\n          name: "sig"\n          required: false\n          schema:\n            type: "string"\n        - description: "Expiry of a signed URL as Unix seconds; part of what `sig` signs."\n          in: "query"\n          name: "exp"\n          required: false\n          schema:\n            type: "integer"\n        - description: "Random per-link nonce, minted with the URL and part of what `sig` signs. Required whenever `sig` and `exp` are given: a signed request without it cannot verify. It exists so that two links minted for the same path within the same second are distinct -- `exp` has one-second granularity, so without it they would be byte-identical, and spending one would spend the other."\n          in: "query"\n          name: "n"\n          required: false\n          schema:\n            type: "string"\n      responses:\n        "200":\n          content:\n            text/event-stream:\n              example: |\n                event: modify\n                id: 3f9a1c2e-7\n                data: {"emitter":"vault","event":"modify","path":"journal/today.md","isFolder":false,"file":{"path":"journal/today.md","tags":[],"frontmatter":{},"stat":{"ctime":1705276800000,"mtime":1705363200000,"size":1024},"links":[],"backlinks":[],"unresolvedLinks":[]}}\n                \n              schema:\n                type: "string"\n          description: "The event stream."\n        "401":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "No API key, and no valid signature for this subscription."\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "No such subscription for this emitter and event, or it has expired."\n        "503":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Too many streams are open."\n      summary: |\n        Open the Server-Sent Events stream of a subscription\n      tags:\n        - "Events"\n  /mcp/:\n    get:\n      description: |\n        Opens a long-lived SSE stream so the server can push messages to the client for an existing session. Requires the session ID returned by the `initialize` response. This is a session operation of the sessionful protocol revisions (`2024-10-07` through `2025-11-25`); the `2026-07-28` revision removed it, and clients on that revision open a `subscriptions/listen` stream over POST instead.\n      parameters:\n        - description: "Session ID returned by the server on initialization."\n          in: "header"\n          name: "Mcp-Session-Id"\n          required: true\n          schema:\n            type: "string"\n        - description: "MCP protocol version negotiated during initialization (e.g. `2025-06-18`). Unrecognised values are rejected with 400."\n          in: "header"\n          name: "MCP-Protocol-Version"\n          required: false\n          schema:\n            type: "string"\n      responses:\n        "200":\n          content:\n            text/event-stream:\n              schema:\n                type: "string"\n          description: "SSE stream opened. The server pushes JSON-RPC messages as server-sent events."\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Unsupported MCP-Protocol-Version."\n        "401":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "API key required."\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Session not found."\n      summary: |\n        Open a server-sent events stream for an existing sessionful MCP session.\n      tags:\n        - "MCP"\n    post:\n      description: |\n        Interact with this plugin\'s MCP server using the [Streamable HTTP transport](https://modelcontextprotocol.io/docs/concepts/transports#streamable-http).\n        \n        Point any MCP-compatible client (Claude Code, Cursor, or any MCP SDK client that supports the Streamable HTTP transport) at this endpoint and pass your API key as a bearer token.\n        \n        ## Protocol revisions\n        \n        The endpoint serves the `2026-07-28` revision and, alongside it, the sessionful revisions from `2024-10-07` through `2025-11-25`. Which one a request gets is decided per request, from the request itself \u2014 there are no sessions and the `Mcp-Session-Id` header is neither issued nor read.\n        \n        **`2026-07-28` (recommended).** Every request stands alone: there is no `initialize` handshake, and each request carries its own protocol version and client identity in `params._meta`:\n        \n        ```json\n        {\n          "io.modelcontextprotocol/protocolVersion": "2026-07-28",\n          "io.modelcontextprotocol/clientInfo": { "name": "my-client", "version": "1.0.0" },\n          "io.modelcontextprotocol/clientCapabilities": {}\n        }\n        ```\n        \n        Requests must also carry the standard headers \u2014 `MCP-Protocol-Version`, `Mcp-Method`, and (where the body names one) `Mcp-Name` \u2014 and each must agree with the body; a disagreement is answered with `400 Bad Request` and JSON-RPC error `-32020`. A protocol version the server does not serve is answered with `-32022`, and a malformed `_meta` envelope with `-32602`.\n        \n        Call `server/discover` to learn the supported revisions, capabilities, and server identity in one request. Results carry `resultType`, and the cacheable ones (`server/discover`, `tools/list`, `resources/list`, `resources/templates/list`, `resources/read`) also carry the `ttlMs` and `cacheScope` freshness hints.\n        \n        **Sessionful revisions (`2024-10-07` through `2025-11-25`).** Clients that open with an `initialize` request are served the revision they negotiate, including sessions. The server returns a session ID in the `Mcp-Session-Id` response header; include it on every later request, use `GET /mcp/` with it to open the server-to-client notification stream, and `DELETE /mcp/` with it to end the session. A request naming a session that no longer exists is answered `404 Not Found`, which means the client should hand-shake again.\n        \n        Sessions exist only on this path. They are what makes the `tools.listChanged` / `resources.listChanged` capabilities the handshake advertises true: when another plugin registers or removes an MCP tool, every live session is told over its notification stream. `2026-07-28` clients get the same news from a `subscriptions/listen` stream instead.\n        \n        Requests with an unrecognized `MCP-Protocol-Version` value are rejected with `400 Bad Request`.\n        \n        ## Available tools\n        \n        | Tool | Description |\n        |---|---|\n        | `vault_list` | List files and subdirectories inside a vault directory |\n        | `vault_read` | Read a text file\'s full content, frontmatter, tags, and stat; refuses anything that is not valid UTF-8 |\n        | `vault_read_binary` | Read an attachment: images as an image block, anything else as a signed download link or embedded bytes |\n        | `vault_get_download_url` | Mint a signed, expiring link to a file that works without the API key (only when signed URLs are enabled) |\n        | `vault_get_upload_url` | Mint a signed, single-use link for uploading a file over `PUT` (only when signed URLs are enabled) |\n        | `events_get_listener_url` | Subscribe to an Obsidian event and mint a signed link to its Server-Sent Events stream, as `POST /events/{emitter}/{event}/` does (only when signed URLs are enabled) |\n        | `vault_write` | Create or overwrite a text file; refuses paths whose extension names a binary type |\n        | `vault_append` | Append content to the end of a vault file |\n        | `vault_patch` | Patch a specific heading, block reference, or frontmatter field |\n        | `vault_delete` | Delete a vault file (moves to trash by default) |\n        | `vault_move` | Move (rename) a vault file to a new path |\n        | `vault_copy` | Copy a vault file to a new path |\n        | `vault_get_document_map` | List the headings, block references, and frontmatter fields in a file |\n        | `active_file_get_path` | Return the vault path of the file currently open in Obsidian |\n        | `search_query` | Search using a JsonLogic query evaluated against each note\'s metadata |\n        | `search_simple` | Full-text search using Obsidian\'s built-in search |\n        | `tag_list` | List all tags across the vault with usage counts |\n        | `command_list` | List all registered Obsidian commands |\n        | `command_execute` | Execute an Obsidian command by ID |\n        | `open_file` | Open a file in the Obsidian UI |\n        \n        ### Binary files\n        \n        `vault_read` and `vault_write` are text tools: they decode and encode UTF-8, which is lossy for anything that is not text. `vault_read` refuses a file whose bytes are not valid UTF-8, and `vault_write` and `vault_append` refuse a path whose extension names a binary type (image other than SVG, audio, video, font, PDF, archive), so the read-as-text-then-write-back mistake that destroys attachments is refused at both ends.\n        \n        `vault_read_binary` reads attachments. A raster image is returned as an MCP `image` content block, downscaled to fit 1568px on its long side, with a text block giving its path, MIME type, size, and dimensions. An SVG is returned unchanged, as its source text in a `resource` block. An image still larger than 512 KiB once downscaled is returned as a `resource_link` instead, the same as any other oversized file -- or refused, with a pointer at the REST endpoint, when signed URLs are off and there is no link to give. Any other file is returned as a `resource_link` to a signed download URL when signed URLs are enabled, or embedded as base64 in a `resource` block when they are not and the file is under 512 KiB. `as: "bytes"` forces embedding; `as: "link"` forces a link.\n        \n        The 512 KiB ceiling guards the renderer as well as the model\'s context: a tool result carrying roughly a megabyte or more of base64 crashes Obsidian\'s Electron renderer, taking this plugin\'s HTTP server down with it.\n        \n        Clients vary in how much of a tool result they show. Some do not surface a `resource_link` to the person at all, and some render a text block\'s markdown as raw characters, so the tool descriptions tell the agent not to leave the person with nothing when the file is for them rather than for the agent.\n        \n        The preferred route is for the agent to fetch the signed URL to scratch space and hand that local file to whatever its host uses to show a file. The picture then travels from the vault to the person\'s screen without its bytes passing through the agent\'s context -- no base64, no token cost for the pixels -- and it goes over `GET /vault/<path>`, which streams a large file happily, rather than through a tool result. Agents are told explicitly not to read the download back in, since that would pay exactly the cost the link exists to avoid. Where a host cannot do that, the fallback is to repeat the markdown link in the reply, which yields something clickable rather than a visible picture.\n        \n        There is no upload tool that carries bytes through the model. Upload a file with `PUT /vault/{filename}` \u2014 with the API key, or with a signed upload URL from `vault_get_upload_url`.\n        \n        ### Signed URLs\n        \n        On by default; can be turned off under Advanced settings, where the lifetime is also set (default 300 seconds). While enabled, `vault_get_download_url`, `vault_get_upload_url` and `events_get_listener_url` are registered, and `vault_read_binary` links to non-image files instead of embedding them.\n        \n        A signed URL authorizes a **whole-file** write to exactly the path it names. The signature covers the method, the normalized path, the expiry and a random per-link nonce (`n`), and nothing else \u2014 so a request that also carries `Target-Type`/`Target` headers, or whose path continues into `/heading`, `/block` or `/frontmatter`, is refused with `40102` rather than quietly becoming a targeted edit of a document the link never named. Targeted writes need the API key.\n        \n        A signed `PUT` stores exactly the bytes it is sent, whatever `Content-Type` it declares: it bypasses the JSON and text parsers, which would otherwise reparse and re-serialize the body and silently reformat a pretty-printed `.json`.\n        \n        A `PUT` link\'s single use is claimed when the request is authorized, not when it finishes, so concurrent redemptions cannot all pass the check; a request that does not end in a 2xx gives the claim back, so a rejected or aborted attempt never spends the link.\n        \n        A signed request whose path carries a backslash is refused. Verification treats `\\` as a separator and dispatch does not, so the two layers would disagree about which file `a%5Cb` names; no legitimate link needs one, since the separator is normalized away before signing. With verbose logging on, `sig` and `n` are redacted from the logged URL: they are a bearer capability, and console output gets pasted into bug reports.\n        \n        A signed URL is `GET` or `PUT /vault/{filename}?sig=\u2026&exp=\u2026&n=\u2026`. The signature is an HMAC-SHA256 over the method, the normalized vault path, the expiry, and the random per-link nonce `n`, under a secret generated at plugin load and held only in memory; it stands in for the `Authorization` header on that one request. Download links can be used repeatedly until they expire and are served with `Content-Disposition: inline` (`download=1` asks for an attachment). Upload links are consumed by the first request that succeeds. Links do not survive an Obsidian restart.\n        \n        ## Available resources\n        \n        | URI | Description |\n        |---|---|\n        | `obsidian://local-rest-api/openapi.yaml` | Full OpenAPI specification for this REST API, including routes that extensions describe |\n      parameters:\n        - description: "Session ID returned by the server on initialization. A session operation of the sessionful protocol revisions (`2024-10-07` through `2025-11-25`): omit it for the initial `initialize` request, send it on every later request of that session, and expect 404 if the session has ended. The `2026-07-28` revision has no sessions \u2014 the header is neither issued nor read there."\n          in: "header"\n          name: "Mcp-Session-Id"\n          required: false\n          schema:\n            type: "string"\n        - description: "Protocol revision this request speaks. Required on every request on the `2026-07-28` revision, where it must match `params._meta[\\"io.modelcontextprotocol/protocolVersion\\"]`; on the sessionful revisions it carries the version negotiated during `initialize` (e.g. `2025-06-18`). Unrecognised values are rejected with 400."\n          in: "header"\n          name: "MCP-Protocol-Version"\n          required: false\n          schema:\n            type: "string"\n        - description: "The JSON-RPC method named in the request body. Required on `2026-07-28` requests; a value that disagrees with the body is rejected with 400 and JSON-RPC error `-32020`."\n          in: "header"\n          name: "Mcp-Method"\n          required: false\n          schema:\n            type: "string"\n        - description: "The primary subject named in the request body \u2014 `params.name` for `tools/call` and `prompts/get`, `params.uri` for `resources/read`. Required on `2026-07-28` requests that carry one; a value that disagrees with the body is rejected with 400 and JSON-RPC error `-32020`."\n          in: "header"\n          name: "Mcp-Name"\n          required: false\n          schema:\n            type: "string"\n      requestBody:\n        content:\n          application/json:\n            examples:\n              call_vault_patch:\n                summary: "Patch a heading in a vault file (tools/call)"\n                value:\n                  id: 3\n                  jsonrpc: "2.0"\n                  method: "tools/call"\n                  params:\n                    arguments:\n                      content: |\n                        New line of content\n                      operation: "append"\n                      path: "path/to/note.md"\n                      target:\n                        - "My Section"\n                      targetType: "heading"\n                    name: "vault_patch"\n              call_vault_read:\n                summary: "Read a vault file (tools/call)"\n                value:\n                  id: 2\n                  jsonrpc: "2.0"\n                  method: "tools/call"\n                  params:\n                    arguments:\n                      path: "path/to/note.md"\n                    name: "vault_read"\n              discover:\n                summary: "Discover the supported protocol revisions and capabilities (2026-07-28)"\n                value:\n                  id: 1\n                  jsonrpc: "2.0"\n                  method: "server/discover"\n                  params:\n                    _meta:\n                      io.modelcontextprotocol/clientCapabilities: {}\n                      io.modelcontextprotocol/clientInfo:\n                        name: "my-client"\n                        version: "1.0.0"\n                      io.modelcontextprotocol/protocolVersion: "2026-07-28"\n              list_tools:\n                summary: "List all available MCP tools (2026-07-28)"\n                value:\n                  id: 2\n                  jsonrpc: "2.0"\n                  method: "tools/list"\n                  params:\n                    _meta:\n                      io.modelcontextprotocol/clientCapabilities: {}\n                      io.modelcontextprotocol/clientInfo:\n                        name: "my-client"\n                        version: "1.0.0"\n                      io.modelcontextprotocol/protocolVersion: "2026-07-28"\n              read_openapi_resource:\n                summary: "Read the OpenAPI spec resource (resources/read)"\n                value:\n                  id: 4\n                  jsonrpc: "2.0"\n                  method: "resources/read"\n                  params:\n                    uri: "obsidian://local-rest-api/openapi.yaml"\n            schema:\n              description: "A JSON-RPC 2.0 request message."\n              properties:\n                id:\n                  description: "Request identifier. Include for calls that expect a response; omit for notifications."\n                  oneOf:\n                    - type: "string"\n                    - type: "number"\n                jsonrpc:\n                  description: "JSON-RPC version. Must be \\"2.0\\"."\n                  enum:\n                    - "2.0"\n                  type: "string"\n                method:\n                  description: "MCP method to invoke."\n                  enum:\n                    - "server/discover"\n                    - "initialize"\n                    - "tools/list"\n                    - "tools/call"\n                    - "resources/list"\n                    - "resources/read"\n                    - "prompts/list"\n                    - "prompts/get"\n                    - "ping"\n                  type: "string"\n                params:\n                  description: "Method-specific parameters."\n                  type: "object"\n              required:\n                - "jsonrpc"\n                - "method"\n              type: "object"\n        required: true\n      responses:\n        "200":\n          description: "Message handled. The body is either a single JSON-RPC response (`application/json`) or a server-sent event stream carrying request-scoped notifications followed by the response (`text/event-stream`); notifications are answered with `202 Accepted` and no body. On a sessionful-revision `initialize` the `Mcp-Session-Id` response header carries the new session ID; `2026-07-28` requests are served without one."\n          headers:\n            Mcp-Session-Id:\n              description: "Session ID assigned by the server. Present only on a sessionful-revision `initialize` response."\n              schema:\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Unsupported `MCP-Protocol-Version`, or \u2014 on the `2026-07-28` revision \u2014 a JSON-RPC error response carrying `-32020` (headers disagree with the body), `-32022` (unsupported protocol version), or `-32602` (malformed `_meta` envelope)."\n        "401":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "API key required."\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Session not found. The `Mcp-Session-Id` header names a session that has ended; hand-shake again with `initialize`."\n      summary: |\n        Send a JSON-RPC 2.0 message to the MCP server.\n      tags:\n        - "MCP"\n  /obsidian-local-rest-api.crt:\n    get:\n      description: |\n        Returns, in PEM format, the certificate authority that signed the certificate the HTTPS server presents; import this as a trusted authority in your OS, browser, or HTTP client to connect without certificate warnings.\n        \n        The authority carries a critical `nameConstraints` extension permitting only `127.0.0.1`, `localhost`, the configured binding host, and the configured subject alternative names, so trusting it grants it no authority over other hostnames.\n        \n        Installations still running certificate material generated before the plugin began issuing a separate certificate authority return their single self-signed certificate instead. The authenticated `GET /` response\'s `certificateInfo.regenerateReason` reports `ca-used-as-leaf` in that case.\n      responses:\n        "200":\n          description: "Success"\n      summary: |\n        Returns the certificate to trust in order to connect to this API.\n      tags:\n        - "System"\n  "/open/{filename}":\n    post:\n      description: |\n        Note: Obsidian will create a new document at the path you have\n        specified if such a document did not already exist.\n      parameters:\n        - description: |\n            Path to the file to return (relative to your vault root).\n          in: "path"\n          name: "filename"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n        - description: "Open this as a new leaf?"\n          in: "query"\n          name: "newLeaf"\n          required: false\n          schema:\n            type: "boolean"\n      responses:\n        "200":\n          description: "Success"\n      summary: |\n        Open the specified document in the Obsidian user interface.\n      tags:\n        - "Open"\n  /openapi.json:\n    get:\n      description: |\n        The same document as `/openapi.yaml`, including the routes that extension plugins describe.\n      responses:\n        "200":\n          content:\n            application/json:\n              schema:\n                type: "object"\n          description: "Success"\n      summary: |\n        Returns the OpenAPI document describing the capabilities of this API, as JSON.\n      tags:\n        - "System"\n  /openapi.yaml:\n    get:\n      description: |\n        Includes the routes of any installed extension plugin that describes them. Each path an extension contributes carries an `x-obsidian-extension` field naming that extension\'s plugin ID.\n      responses:\n        "200":\n          description: "Success"\n      summary: |\n        Returns OpenAPI YAML document describing the capabilities of this API.\n      tags:\n        - "System"\n  /search/:\n    post:\n      description: |\n        Evaluates a provided query against each file in your vault.\n        \n        This endpoint supports multiple query formats.  Your query should be specified in your request\'s body, and will be interpreted according to the `Content-type` header you specify from the below options. Additional query formats may be added in the future.\n        \n        # JsonLogic (`application/vnd.olrapi.jsonlogic+json`)\n        \n        Accepts a JsonLogic query specified as JSON.  See [JsonLogic](https://jsonlogic.com/operations.html)\'s documentation for information about the base set of operators available, but in addition to those operators the following operators are available:\n        \n        - `glob: [PATTERN, VALUE]`: Returns `true` if a string matches a glob pattern.  E.g.: `{"glob": ["*.foo", "bar.foo"]}` is `true` and `{"glob": ["*.bar", "bar.foo"]}` is `false`.\n        - `regexp: [PATTERN, VALUE]`: Returns `true` if a string matches a regular expression.  E.g.: `{"regexp": [".*\\.foo", "bar.foo"]` is `true` and `{"regexp": [".*\\.bar", "bar.foo"]}` is `false`.\n        \n        Returns only non-falsy results.  "Non-falsy" here treats the following values as "falsy":\n        \n        - `false`\n        - `null` or `undefined`\n        - `0`\n        - `[]`\n        - `{}`\n        \n        Files are represented as an object having the schema described\n        in the Schema named \'NoteJson\' at the bottom of this page.\n        Understanding the shape of a JSON object from a schema can be\n        tricky; so you may find it helpful to examine the generated metadata\n        for individual files in your vault to understand exactly what values\n        are returned.  To see that, access the `GET` `/vault/{filePath}`\n        route setting the header:\n        `Accept: application/vnd.olrapi.note+json`.  See examples below\n        for working examples of queries performing common search operations.\n      requestBody:\n        content:\n          "application/vnd.olrapi.jsonlogic+json":\n            examples:\n              find_by_frontmatter_url_glob:\n                summary: "Find notes having URL or a matching URL glob frontmatter field."\n                value: |\n                  {\n                    "or": [\n                      {"===": [{"var": "frontmatter.url"}, "https://myurl.com/some/path/"]},\n                      {"glob": [{"var": "frontmatter.url-glob"}, "https://myurl.com/some/path/"]}\n                    ]\n                  }\n              find_by_frontmatter_value:\n                summary: "Find notes having a certain frontmatter field value."\n                value: |\n                  {\n                    "==": [\n                      {"var": "frontmatter.myField"},\n                      "myValue"\n                    ]\n                  }\n              find_by_tag:\n                summary: "Find notes having a certain tag"\n                value: |\n                  {\n                    "in": [\n                      "myTag",\n                      {"var": "tags"}\n                    ]\n                  }\n            schema:\n              externalDocs:\n                url: "https://jsonlogic.com/operations.html"\n              type: "object"\n        required: true\n      responses:\n        "200":\n          content:\n            application/json:\n              schema:\n                items:\n                  properties:\n                    filename:\n                      description: "Path to the matching file"\n                      type: "string"\n                    result:\n                      oneOf:\n                        - type: "string"\n                        - type: "number"\n                        - items: {}\n                          type: "array"\n                        - type: "object"\n                        - type: "boolean"\n                  required:\n                    - "filename"\n                    - "result"\n                  type: "object"\n                type: "array"\n          description: "Success"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Bad request.  Make sure you have specified an acceptable\n            Content-Type for your search query.\n      summary: |\n        Search for documents matching a specified search query\n      tags:\n        - "Search"\n  /search/simple/:\n    post:\n      parameters:\n        - description: "Your search query"\n          in: "query"\n          name: "query"\n          required: true\n          schema:\n            type: "string"\n        - description: "How much context to return around the matching string"\n          in: "query"\n          name: "contextLength"\n          required: false\n          schema:\n            default: 100\n            type: "number"\n      responses:\n        "200":\n          content:\n            application/json:\n              schema:\n                items:\n                  properties:\n                    filename:\n                      description: "Path to the matching file"\n                      type: "string"\n                    matches:\n                      items:\n                        properties:\n                          context:\n                            type: "string"\n                          match:\n                            properties:\n                              end:\n                                type: "number"\n                              start:\n                                type: "number"\n                            required:\n                              - "start"\n                              - "end"\n                            type: "object"\n                        required:\n                          - "match"\n                          - "context"\n                        type: "object"\n                      type: "array"\n                    score:\n                      type: "number"\n                  type: "object"\n                type: "array"\n          description: "Success"\n      summary: |\n        Search for documents matching a specified text query\n      tags:\n        - "Search"\n  /tags/:\n    get:\n      description: |\n        Returns all tags found across all files in the vault, drawn from both inline (`#tag`) and frontmatter tag syntax. Each tag is returned without the `#` prefix. Hierarchical tags (e.g. `work/tasks`) also contribute a count to every parent prefix (e.g. `work`), mirroring how Obsidian displays tag counts in its sidebar.\n      responses:\n        "200":\n          content:\n            application/json:\n              example:\n                tags:\n                  - count: 3\n                    name: "project"\n                  - count: 1\n                    name: "important"\n                  - count: 2\n                    name: "work"\n                  - count: 2\n                    name: "work/tasks"\n              schema:\n                properties:\n                  tags:\n                    items:\n                      properties:\n                        count:\n                          description: "Number of times this tag is used across the vault."\n                          type: "number"\n                        name:\n                          description: "Tag name without the leading `#`."\n                          type: "string"\n                      type: "object"\n                    type: "array"\n                type: "object"\n          description: "A list of tags with their usage counts."\n      summary: |\n        Get a list of all tags with metadata.\n      tags:\n        - "Tags"\n  /vault/:\n    get:\n      description: |\n        Lists files in the root directory of your vault.\n        \n        Note: that this is exactly the same API endpoint as the below "List files that exist in the specified directory." and exists here only due to a quirk of this particular interactive tool.\n      responses:\n        "200":\n          content:\n            application/json:\n              example:\n                files:\n                  - "mydocument.md"\n                  - "somedirectory/"\n              schema:\n                properties:\n                  files:\n                    items:\n                      type: "string"\n                    type: "array"\n                type: "object"\n          description: "Success"\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Directory does not exist"\n      summary: |\n        List files that exist in the root of your vault.\n      tags:\n        - "Vault Directories"\n  "/vault/{filename}":\n    additionalOperations:\n      copy:\n        description: |\n          Copies a file from its current location to a new location specified in the Destination header, leaving the source file in place.\n        parameters:\n          - description: |\n              The new path for the copy, relative to your vault root. The path must not escape the vault root (relative segments like `..` are permitted as long as the resolved path remains inside the vault). Absolute paths (starting with `/`) are rejected. If the path ends with a trailing slash, the source filename is preserved and the copy is placed in that directory (e.g. "archive/" copies "notes/todo.md" to "archive/todo.md"). If the path contains non-ASCII characters (e.g. accented letters), percent-encode the value (e.g. `r%C3%A9sum%C3%A9.md` for `r\xE9sum\xE9.md`).\n            in: "header"\n            name: "Destination"\n            required: true\n            schema:\n              format: "path"\n              type: "string"\n          - description: |\n              If "true", the copy proceeds even when a file already exists at the destination. Defaults to "false", which returns a 409 if the destination exists.\n            in: "header"\n            name: "Allow-Overwrite"\n            required: false\n            schema:\n              default: "false"\n              enum:\n                - "true"\n                - "false"\n              type: "string"\n          - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n            in: "path"\n            name: "filename"\n            required: true\n            schema:\n              format: "path"\n              type: "string"\n        responses:\n          "204":\n            description: "File successfully copied."\n            headers:\n              Content-Location:\n                description: "The vault-relative path of the newly-created copy (e.g. `archive/file.md`). Non-ASCII characters are percent-encoded."\n                schema:\n                  type: "string"\n          "400":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: |\n              Bad request - Missing Destination header, malformed percent-encoding, or path escapes the vault root (e.g. starts with "/").\n          "404":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: "Source file does not exist."\n          "405":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: |\n              Your path references a directory instead of a file; this request method is valid only for files.\n          "409":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: "Destination file already exists."\n        summary: |\n          Copy a file to a new location in your vault.\n        tags:\n          - "Vault Files"\n      move:\n        description: |\n          Moves a file from its current location to a new location specified in the Destination header. This operation preserves file history and updates internal links.\n        parameters:\n          - description: |\n              The new path for the file, relative to your vault root. The path must not escape the vault root (relative segments like `..` are permitted as long as the resolved path remains inside the vault). Absolute paths (starting with `/`) are rejected. If the path ends with a trailing slash, the source filename is preserved and the file is placed in that directory (e.g. "archive/" moves "notes/todo.md" to "archive/todo.md"). If the path contains non-ASCII characters (e.g. accented letters), percent-encode the value (e.g. `r%C3%A9sum%C3%A9.md` for `r\xE9sum\xE9.md`).\n            in: "header"\n            name: "Destination"\n            required: true\n            schema:\n              format: "path"\n              type: "string"\n          - description: |\n              If "true", the move proceeds even when a file already exists at the destination. Defaults to "false", which returns a 409 if the destination exists.\n            in: "header"\n            name: "Allow-Overwrite"\n            required: false\n            schema:\n              default: "false"\n              enum:\n                - "true"\n                - "false"\n              type: "string"\n          - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n            in: "path"\n            name: "filename"\n            required: true\n            schema:\n              format: "path"\n              type: "string"\n        responses:\n          "204":\n            description: "File successfully moved."\n            headers:\n              Content-Location:\n                description: "The vault-relative path of the file at its new location (e.g. `archive/file.md`). Non-ASCII characters are percent-encoded."\n                schema:\n                  type: "string"\n          "400":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: |\n              Bad request - Missing Destination header, malformed percent-encoding, or path escapes the vault root (e.g. starts with "/").\n          "404":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: "Source file does not exist."\n          "405":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: |\n              Your path references a directory instead of a file; this request method is valid only for files.\n          "409":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: "Destination file already exists."\n        summary: |\n          Move a file to a new location in your vault.\n        tags:\n          - "Vault Files"\n    delete:\n      parameters:\n        - description: |\n            If "true", the file is permanently deleted instead of being moved to trash. Defaults to "false", which moves the file to trash following the user\'s Obsidian "Deleted files" preference (either the ".trash" folder or the system trash).\n          in: "query"\n          name: "permanent"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n          in: "path"\n          name: "filename"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n      responses:\n        "204":\n          description: "Success"\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "File does not exist."\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n      summary: |\n        Delete a particular file in your vault.\n      tags:\n        - "Vault Files"\n    get:\n      description: |\n        Returns the content of the file at the specified path in your vault should the file exist.\n        \n        Binary files are served as raw bytes, with a `Content-Type` derived from the file extension, so this endpoint reads attachments \u2014 images, PDFs, audio \u2014 as well as notes. There is no size limit on the response.\n        \n        A signed download URL (`?sig=\u2026&exp=\u2026&n=\u2026`, from the MCP `vault_get_download_url` tool) authenticates the request in place of the `Authorization` header while signed URLs are enabled in the plugin settings. Such a request is served `inline` rather than as an attachment unless `download=1` is also given.\n        \n        # Targeting a Sub-part of your Document\n        \n        You can operate on a specific section of a note instead of the whole file by embedding a target in the URL path, immediately after the note identifier. The first segment after the note is the target type, and the remaining segments address the target:\n        \n        - `.../heading/My%20Section` targets the section beneath the `My Section` heading \u2014 the body content below the heading line.\n        - For a nested heading, add one path segment per level: `.../heading/My%20Section/Subsection` targets `Subsection` under `My Section`. Because each level is its own segment, a heading whose text contains `::` (or any other delimiter) needs no escaping.\n        - `.../block/abc123` targets the block with reference ID `abc123`.\n        - `.../frontmatter/fieldName` targets the `fieldName` frontmatter field.\n        \n        Percent-encode any segment that contains non-ASCII characters or a literal `/` (e.g. `H%C3%A9llo` for `H\xE9llo`, or `TODO%2FDONE` for a heading named `TODO/DONE`). Each URL path segment is decoded on its own, so an encoded `%2F` stays a literal slash *inside* that one segment rather than acting as a separator \u2014 that is what lets a heading name contain a slash. The same rule applies to the note path itself: because a file or folder name can never contain a slash, the note must be addressed with real `/` separators between its path components (`/vault/folder/note.md`), not with the separators encoded (`/vault/folder%2Fnote.md`), which no longer resolves.\n        \n        If a document has a duplicate sibling heading (the same text repeated under the same parent) or a duplicate block reference ID, only the first occurrence is addressable by its plain text/id. Each later occurrence gets its own address with a non-printable marker suffix appended by the server \u2014 fetch the document map (`Accept: application/vnd.olrapi.document-map+json`) and copy that occurrence\'s key verbatim; don\'t try to type or reconstruct the marker yourself.\n        \n        `GET` returns just the addressed section. By default that is the target\'s `content` scope; add a `Target-Scope` header to read the `marker` (the label \u2014 a heading\'s raw text, a block\'s bare id, a frontmatter key) or `markerAndContent` (the whole node, in exactly the shape a PATCH `replace` at that scope consumes \u2014 a heading subtree comes back with its own line as `# Title`, levels relative to its parent, so a read-modify-write never counts `#`s). `PUT` replaces the section and `POST` appends to it, with heading levels normalized and separator whitespace managed for you. `PATCH` also accepts a URL target \u2014 its raw-content mode \u2014 with the operation and other instruction fields in headers (`Operation`, `Target-Scope`, \u2026) and the raw payload as the body. For the full instruction algebra (renames, moves, deletes, typed frontmatter values), see the PATCH documentation.\n        \n        On `PUT` and `POST`, the `Content-Type` of your request body selects how the payload is interpreted, and not every target accepts both:\n        \n        - A `text/markdown` body is literal markdown. Valid for `heading` and `block` targets. On a `frontmatter` target it is stored as the field\'s plain string value.\n        - An `application/json` body is structured data. On a `block` target that addresses a table, it is a 2-D array of row cells (`[["Chicago", "16"]]`). On a `frontmatter` target it is the field\'s typed value (a list, dictionary, number, or string). A `heading` target has no structured form \u2014 its body is markdown text \u2014 so a JSON body there is rejected with `400 InvalidPatchInstruction` rather than being stringified into your note.\n        \n        ## Which file did it act on?\n        \n        A URL that embeds a target is ambiguous on its face: `/vault/notes/log.md/heading/Today` could address the `Today` section of `notes/log.md`, or a file literally named `notes/log.md/heading/Today`. The server resolves it by walking backwards down the path until it finds a real file, and reports the answer in a `Content-Location` response header holding the vault-relative path it settled on. Each path component is percent-encoded on its own \u2014 non-ASCII characters, and reserved characters like `#`, `?` and `,` that a client would otherwise read as a fragment, a query or a header-list separator \u2014 so the value can be pasted straight back into a request URL. A request whose URL names the file outright gets no such header \u2014 there is nothing it could tell you that the URL does not.\n        \n        `/active/` responses carry `Content-Location` for the same reason, whether or not a target is embedded: the file the request acted on is whichever note happened to be open.\n        \n        ## Deprecated: header-based targeting\n        \n        Earlier releases addressed a sub-part with `Target-Type`, `Target`, and `Target-Delimiter` request headers (plus `Target-Scope` and `Trim-Target-Whitespace`) rather than URL path segments. **That form is deprecated and will be removed in 6.0.** It is only processed when you also send `Markdown-Patch-Version: 1`, and responses served that way carry a `Deprecation: true; sunset-version="6.0"` header. On GET/PUT/POST, supplying those targeting headers without that version is rejected with `400 HeaderTargetingRequiresVersion1` \u2014 reach the sub-part with URL path segments instead. (On PATCH, `Target-Type`/`Target` headers also have a *non-deprecated* meaning under an explicit `Markdown-Patch-Version: 2` \u2014 raw-content mode, with a different `Target` encoding; see the PATCH documentation.) Supplying both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n        \n        # Retrieving Document Metadata\n        \n        ## Metadata\n        \n        If you specify the header `Accept: application/vnd.olrapi.note+json`, will return a JSON representation of your note including parsed tag and frontmatter data as well as filesystem metadata.\n        \n        ## Document Map\n        \n        If you specify the header `Accept: application/vnd.olrapi.document-map+json`, will return a JSON object outlining what PATCH targets exist. See "responses" below for details.\n        \n        ## Rendered HTML\n        \n        If you specify the header `Accept: text/html`, will return the note rendered to HTML using Obsidian\'s own Markdown renderer \u2014 the same rendering used in Obsidian\'s preview mode, including embeds, callouts, and other Obsidian-flavored Markdown extensions. If `Target-Type`/`Target` are specified with `heading` or `block`, only that section is rendered. `Target-Type: frontmatter` is not supported for this Accept type and returns a 400 error, since frontmatter has no HTML rendering.\n      parameters:\n        - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n          in: "path"\n          name: "filename"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: |\n            For a URL-path-targeted read: which part of the target to return\n            (default `content`), mirroring PATCH\'s scopes with a round-trip\n            guarantee \u2014 what a scope returns is exactly what a `replace` at that\n            scope consumes.\n            \n            - `content` (default): the node\'s body \u2014 a heading\'s body with its\n              levels made relative to the target, a block\'s text, a frontmatter\n              value.\n            - `marker`: the label \u2014 a heading\'s raw text (no `#`s, and without the\n              duplicate-marker suffix its map key may carry), a block\'s bare id, a\n              frontmatter key.\n            - `markerAndContent`: the whole node \u2014 a heading\'s subtree with its own\n              line as `# Title` (levels relative to its parent), a block\'s full\n              span including its `^id`, or a frontmatter entry as a `{key: value}`\n              JSON object.\n            \n            `parent` places a section but carries no readable value, and returns\n            `400 InvalidTargetScopeHeader`. Only meaningful when the URL path\n            addresses a sub-part of the note.\n          in: "header"\n          name: "Target-Scope"\n          required: false\n          schema:\n            default: "content"\n            enum:\n              - "content"\n              - "marker"\n              - "markerAndContent"\n            type: "string"\n        - description: "Signature of a signed URL, minted by the MCP `vault_get_download_url` / `vault_get_upload_url` / `events_get_listener_url` tools or by `POST /events/{emitter}/{event}/`. Together with `exp` and `n`, authenticates this one request without an `Authorization` header. Only honoured while signed URLs are enabled in the plugin settings."\n          in: "query"\n          name: "sig"\n          required: false\n          schema:\n            type: "string"\n        - description: "Expiry of a signed URL as Unix seconds; part of what `sig` signs."\n          in: "query"\n          name: "exp"\n          required: false\n          schema:\n            type: "integer"\n        - description: "Random per-link nonce, minted with the URL and part of what `sig` signs. Required whenever `sig` and `exp` are given: a signed request without it cannot verify. It exists so that two links minted for the same path within the same second are distinct -- `exp` has one-second granularity, so without it they would be byte-identical, and spending one would spend the other."\n          in: "query"\n          name: "n"\n          required: false\n          schema:\n            type: "string"\n        - description: "On a signed-URL request, `1` asks for `Content-Disposition: attachment` (a download) instead of the `inline` disposition signed links are otherwise served with. Ignored on API-key requests, which are always served as attachments."\n          in: "query"\n          name: "download"\n          required: false\n          schema:\n            enum:\n              - "1"\n            type: "string"\n      responses:\n        "200":\n          content:\n            application/json:\n              description: "Returned when the URL path targets a frontmatter field (`.../frontmatter/fieldName`); the JSON value of that field."\n              schema: {}\n            "application/vnd.olrapi.document-map+json":\n              schema:\n                description: |\n                  The document map. To receive the deprecated 1.x shape \u2014 heading paths as\n                  `::`-joined strings, block ids prefixed with `^`, and no `version` \u2014\n                  send `Markdown-Patch-Version: 1`.\n                properties:\n                  blocks:\n                    description: "Block reference ids, bare (no leading `^`), in document order."\n                    example:\n                      - "blockref1"\n                      - "anotherBlockRef"\n                    items:\n                      type: "string"\n                    type: "array"\n                  frontmatterFields:\n                    example:\n                      - "title"\n                      - "tags"\n                      - "dateCreated"\n                    items:\n                      type: "string"\n                    type: "array"\n                  headings:\n                    "$ref": "#/components/schemas/HeadingTree"\n                  version:\n                    description: "Content-hash token for the file; pass it back as a PATCH `ifMatch` to make an edit conditional on the file being unchanged."\n                    example: "a1b2c3"\n                    type: "string"\n                type: "object"\n            "application/vnd.olrapi.note+json":\n              schema:\n                "$ref": "#/components/schemas/NoteJson"\n            text/html:\n              description: |\n                Returned when `Accept: text/html` is specified. The note (or, if `Target-Type`/`Target` are specified with `heading` or `block`, just that section) rendered to HTML via Obsidian\'s Markdown renderer (embeds, callouts, etc. included). `Target-Type: frontmatter` is not supported for this Accept type and returns a 400 error.\n              schema:\n                example: |\n                  <h1>This is my document</h1>\n                  <p>something else here</p>\n                type: "string"\n            text/markdown:\n              schema:\n                example: |\n                  # This is my document\n                  \n                  something else here\n                type: "string"\n          description: "Success"\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file the URL resolved to, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL. Sent only when the URL embedded a target (`/heading/...`, `/block/...`, `/frontmatter/...`), since that is the case where the file the request acted on is not evident from the URL alone; absent on a whole-file request."\n              required: false\n              schema:\n                example: "notes/file.md"\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            The `Markdown-Patch-Version` header was invalid (not `1` or `2`), the deprecated `Target-Type`/`Target` headers were invalid, the `Target-Scope` header was not a readable scope (`content`, `marker`, `markerAndContent`), or a frontmatter target was combined with `Accept: text/html` (frontmatter has no HTML rendering).\n        "404":\n          description: "File or target section does not exist"\n      summary: |\n        Return the content of a single file in your vault.\n      tags:\n        - "Vault Files"\n    patch:\n      description: |\n        Modifies an existing note with a single structured instruction: an operation applied to a scope of a target \u2014 a heading, block reference, or frontmatter field within that document.\n        \n        Edit a document with a single structured instruction \u2014 an **operation** applied to a **scope** of a **target** node (a heading, block reference, or frontmatter field). By default the whole instruction travels as a JSON request body; [raw-content mode](#raw-content-mode-templating-friendly) instead carries the instruction\'s fields in URL path elements/headers with the raw payload as the body.\n        \n        > **Migrating from the header-driven format?** See [Deprecated: the 1.x header-driven format](#deprecated-the-1x-header-driven-format) at the end.\n        \n        # The algebra\n        \n        - **operation** \u2014 `replace`, `prepend`, `append`, or `delete`.\n        - **scope** (optional, default `content`):\n          - `content` \u2014 the node\'s body. For a heading, that\'s its whole subtree *below* the heading line.\n          - `marker` \u2014 the label only: a heading line, a block `^id`, or a frontmatter key. `replace` renames it.\n          - `markerAndContent` \u2014 the marker *and* the body together: for a heading, its heading line plus everything beneath it. Unlike `content`, the heading line is inside the edited span, so a `replace` here rewrites the heading itself. `prepend`/`append` insert a *sibling* before/after it.\n          - `parent` \u2014 a heading\'s place in the tree. Valid only with `replace`, and carries a `destination` (a **move**).\n        - **target** \u2014 for a heading, an array of heading texts from the top level down (`["Overview","Details"]`), or `null`/`[]` for the document root; for a block, the bare id without `^`; for a frontmatter field, the key.\n        - **within** (optional, heading targets only) \u2014 a positional refinement: an index picking one of the section\'s direct-body top-level blocks (a paragraph, list, table, code fence, \u2026), 0-based in document order, negative counting from the end (`-1` = last; isolated `^id` lines are not counted). The instruction then edits *that block*: with `content` scope, `replace`/`prepend`/`append` splice literally into it \u2014 you own the joint, so `append` with `\\n- item` *continues* a list \u2014 and `delete` removes it; with `markerAndContent` scope, `prepend`/`append` insert a new block immediately before/after it. Not combinable with `createTargetIfMissing`.\n        - **payload** \u2014 carried in exactly one field, chosen by what it is:\n          - `content` \u2014 a markdown/text string (heading & block bodies/labels, or a frontmatter key rename).\n          - `value` \u2014 arbitrary JSON (frontmatter values).\n          - `destination` \u2014 where a moved heading lands.\n        \n        Not every combination is meaningful; invalid ones are rejected with a `400`.\n        \n        **Relative heading levels.** Heading `#`-counts inside a `content` string are *relative* to the edited span, so you never count `#`s: under `content` scope a leading `#` becomes a direct child of the target; under `markerAndContent` (or a sibling insert) it lands at the target\'s own level. Nesting inside your content is preserved as you wrote it \u2014 replacing a `##` section with `# New\\n\\n## Child` yields `## New` and `### Child`. A level rebased past `######` (h6) is still written, but the response carries a `heading-depth-overflow` entry in the `Markdown-Patch-Warnings` header \u2014 percent-encoded JSON, since a warning message embeds document text verbatim and header values must be ASCII; run it through `decodeURIComponent` before parsing.\n        \n        > **Note:** because the heading line is part of the `markerAndContent` span, a `replace` whose content has *no* heading removes it \u2014 the section is dissolved into a plain paragraph. Include a leading `#` (at any depth; it is rebased for you) to keep it a heading.\n        \n        # How to Use & Examples\n        \n        All of the below examples assume you have a document that looks like this:\n        \n        ```markdown\n        ---\n        alpha: 1\n        beta: test\n        delta:\n        zeta: 1\n        yotta: 1\n        gamma:\n        - one\n        - two\n        ---\n        \n        # Heading 1\n        \n        This is the content for heading one\n        \n        Also references some [[#^484ef2]]\n        \n        ## Subheading 1:1\n        Content for Subheading 1:1\n        \n        ### Subsubheading 1:1:1\n        \n        ### Subsubheading 1:1:2\n        \n        Testing how block references work for a table.[[#^2c7cfa]]\n        Some content for Subsubheading 1:1:2\n        \n        More random text.\n        \n        ^2d9b4a\n        \n        ## Subheading 1:2\n        \n        Content for Subheading 1:2.\n        \n        some content with a block reference ^484ef2\n        \n        ## Subheading 1:3\n        | City         | Population |\n        | ------------ | ---------- |\n        | Seattle, WA  | 8          |\n        | Portland, OR | 4          |\n        \n        ^2c7cfa\n        ```\n        \n        ## Append, prepend, or replace content below a heading\n        \n        To append the content "Hello" below "Subsubheading 1:1:1" under "Heading 1":\n        \n        ```json\n        {\n          "targetType": "heading",\n          "target": ["Heading 1", "Subheading 1:1", "Subsubheading 1:1:1"],\n          "operation": "append",\n          "content": "Hello"\n        }\n        ```\n        \n        `prepend` and `replace` work the same way, with different results. Because `target` is an array, a heading whose text contains `::` needs no escaping.\n        \n        > **Note:** the heading line itself is not part of the `content` scope. When you `replace` a heading\'s content, supply only the body \u2014 do not include the heading line, or it will be duplicated. To rename the heading, see below.\n        \n        ## Renaming a heading\n        \n        Give the new text. That\'s all \u2014 no `#` characters, and nothing to look up:\n        \n        ```json\n        {\n          "targetType": "heading",\n          "target": ["Heading 1", "Subheading 1:1"],\n          "operation": "replace",\n          "scope": "marker",\n          "content": "New Name"\n        }\n        ```\n        \n        `marker` scope addresses the label rather than the line, so the heading keeps whatever level it had and the body underneath is untouched. You never need to know the heading\'s depth to rename it.\n        \n        > **Do not include `#` characters here.** They are not stripped \u2014 they become part of the heading text, so `"## New Name"` renames the heading to `## New Name` and renders as `## ## New Name`. (This is the reverse of the deprecated 1.x format, where the `#`s were required. If you are migrating, drop them.)\n        \n        The same instruction shape renames a block id (`targetType: "block"`, new id without `^`) or a frontmatter key (`targetType: "frontmatter"`, new key name in `content`).\n        \n        ## Whitespace is library-owned\n        \n        Your `content` crosses the API in trimmed, canonical form: leading and trailing blank lines are stripped, and a non-empty write always ends with exactly one newline. `"X"`, `"X\\n"`, `"\\nX\\n"`, and `"X\\n\\n"` all produce the same document \u2014 newlines at the edges of your content are not a channel for controlling layout, so there is nothing to get wrong.\n        \n        Blank-line separators are the API\'s job. At any joint where your content faces body text, the engine supplies the blank line that keeps it a separate block. Given a document containing:\n        \n        ```markdown\n        # One\n        \n        body of one\n        ```\n        \n        - `append` becomes a new block after the body \u2192 `# One\\n\\nbody of one\\n\\nX\\n`\n        - `prepend` becomes a new block before the body \u2192 `# One\\n\\nX\\n\\nbody of one\\n`\n        - `replace` swaps the body \u2192 `# One\\n\\nX\\n`\n        \n        Where no separator is owed, none is added \u2014 a heading line is self-delimiting, and existing blank lines, gaps between sections, and document edges are preserved rather than rewritten:\n        \n        - The blank line between a heading and its body is kept in place: `replace` swaps the body beneath it and `prepend` inserts below it. A document written flush (`# One\\nbody of one\\n`) keeps its flush style \u2014 `replace` gives `# One\\nX\\n` \u2014 and replacing a body with its own text is byte-identity in either style.\n        - Writing into an empty section lands flush under its heading (`# E\\nX\\n`), with the section\'s existing trailing gap serving as the separator below.\n        \n        One consequence worth knowing: a `content`-scope `append`/`prepend` always begins a new block \u2014 it can never continue an existing paragraph or list. To edit inline within an existing block, address the block itself, which puts you on the literal-splice path where content lands exactly as given and you own the joint. Two ways to do that: target the block via its reference (`^id`) if it has one, or add `within: <index>` to a heading instruction to pick one of the section\'s body blocks by position \u2014 no `^id` required. For example, to extend the last list of a section:\n        \n        ```json\n        { "targetType": "heading", "target": ["Log"], "within": -1, "operation": "append", "content": "\\n- new item" }\n        ```\n        \n        Because a `within` edit is literal, the leading `\\n` is yours to write \u2014 without it the text continues the block\'s last line. Indices are positional, so read the document map or section first, and pair the edit with `ifMatch` from that read so a concurrent change fails the patch rather than landing on the wrong block.\n        \n        ## Append, prepend, or replace content of a block reference\n        \n        To append "Hello" below the block referenced by `2d9b4a`:\n        \n        ```json\n        { "targetType": "block", "target": "2d9b4a", "operation": "append", "content": "Hello" }\n        ```\n        \n        ## Append, prepend, or replace table rows via a block reference\n        \n        To add a new city/population pair to the table referenced by `2c7cfa`, pass the row(s) as a 2-D JSON array in `value`:\n        \n        ```json\n        { "targetType": "block", "target": "2c7cfa", "operation": "append", "value": [["Chicago, IL", "16"]] }\n        ```\n        \n        `prepend` puts the new row first (right below the heading row); `replace` swaps all body rows for the ones you supply. Each row must have exactly as many cells as the table has columns; a mismatched row, or targeting a block that isn\'t a table, is rejected.\n        \n        Cells are content, not table source, so you don\'t format them: a `|` in a cell is escaped for you and stays in the cell it belongs to. A cell containing a line break is rejected, since a table row is a single line \u2014 if you need a visual break inside a cell, send `<br>` yourself.\n        \n        ## Setting a frontmatter field\n        \n        Frontmatter values are JSON, so they ride in `value` (not `content`). To set `alpha` to `2`:\n        \n        ```json\n        { "targetType": "frontmatter", "target": "alpha", "operation": "replace", "value": 2 }\n        ```\n        \n        Add `"createTargetIfMissing": true` to create a field that might not exist yet. For `append`/`prepend`, `value` is merged into the existing value (list concat, dict merge, string concat).\n        \n        ## Adding and removing tags\n        \n        Obsidian stores frontmatter tags in the `tags` field. To add `project/active`, merging into the list and creating it if absent:\n        \n        ```json\n        { "targetType": "frontmatter", "target": "tags", "operation": "append", "value": ["project/active"], "createTargetIfMissing": true }\n        ```\n        \n        There is no direct "remove item" operation. To remove a tag, read the current list (GET, or `vault_read` in the MCP API), filter it client-side, and replace the whole field:\n        \n        ```json\n        { "targetType": "frontmatter", "target": "tags", "operation": "replace", "value": ["remaining-tag-1", "remaining-tag-2"] }\n        ```\n        \n        ## Moving a heading section\n        \n        `scope: "parent"` with `operation: "replace"` re-parents (and re-levels) a section. To move "Details" under "Appendix" as its last child:\n        \n        ```json\n        {\n          "targetType": "heading",\n          "target": ["Overview", "Details"],\n          "operation": "replace",\n          "scope": "parent",\n          "destination": { "parent": ["Appendix"], "place": "last" }\n        }\n        ```\n        \n        `place` may be `"first"`, `"last"`, `{ "before": <heading path> }`, or `{ "after": <heading path> }`. Use `"parent": null` to move to the document root.\n        \n        ## Deleting\n        \n        `operation: "delete"` empties the `content` scope, removes the whole subtree (`markerAndContent`), or dissolves just the heading line (`marker`):\n        \n        ```json\n        { "targetType": "heading", "target": ["Heading 1", "Subheading 1:2"], "operation": "delete", "scope": "markerAndContent" }\n        ```\n        \n        ## Optimistic concurrency\n        \n        Pass `ifMatch` with the `version` token from a document map (see below). If the file changed since, the patch fails with `412` and the file is untouched \u2014 refetch and retry.\n        \n        ## Identifying patch targets in a file\n        \n        Issue a GET request to `/vault/{path}` with an `Accept` header of `application/vnd.olrapi.document-map+json` to get the headings, block references, and frontmatter fields present in the file (and its `version` token). If a heading has a duplicate sibling (same text, same parent) or a block reference ID repeats, only the first occurrence keeps its plain-text/id key \u2014 each later occurrence\'s key carries a non-printable marker suffix; copy it verbatim from the map into `target` rather than typing it by hand. See "Targeting a Sub-part of your Document" for details.\n        \n        # Raw-content mode (templating-friendly)\n        \n        Putting the whole instruction in a JSON body has one sharp edge: the `content` string must be JSON-escaped, which tools that *template* markdown into an HTTP body (Shortcuts, Tasker, curl with `--data` from a template) often cannot do reliably. Raw-content mode removes that requirement: the instruction\'s fields travel **outside** the body, and the body is the raw payload \u2014 no JSON escaping required.\n        \n        The target can ride in either of two places (never both \u2014 that\'s a `422`):\n        \n        - **URL path elements**, exactly as GET/PUT/POST use them: `PATCH /vault/note.md/heading/A/B`. No version header needed.\n        - **`Target-Type` / `Target` headers**, together with an explicit `Markdown-Patch-Version: 2`. The `Target` encoding is type-dependent, mirroring the instruction\'s `target` field: a heading Target is **JSON, percent-encoded** \u2014 `["A","B"]` sent as `%5B%22A%22%2C%22B%22%5D`, or `null` for the document root \u2014 while block and frontmatter Targets are the plain id/key (percent-encoded if non-ASCII). Because `Target` headers on a PATCH are ambiguous with the deprecated 1.x format, omitting the version header fails loudly with `400 PatchHeaderTargetingRequiresExplicitVersion` rather than guessing.\n        \n        The remaining fields map to headers: `Operation` (required), `Target-Scope` (all four scopes, including `parent`), `Within` (the instruction\'s `within` index as a plain integer, e.g. `-1` \u2014 splice into one of the section\'s body blocks instead of adding a new one), `Create-Target-If-Missing`, `Reject-If-Content-Preexists`, `If-Match` (the document-map `version` token, bare or ETag-quoted), and `Destination` (a move\'s destination object as percent-encoded JSON). The 1.x-only `Target-Delimiter` and `Trim-Target-Whitespace` headers are rejected.\n        \n        The body is the payload carrier, chosen by its content type:\n        \n        | Body | Instruction field |\n        | --- | --- |\n        | `text/markdown` (any `text/*`) | `content` |\n        | `application/json` | `value` |\n        | *(no body)* | none \u2014 a `delete`, or a move via `Destination` |\n        \n        An empty body deliberately maps to *no* carrier: a `replace` with an accidentally-empty template fails as a missing carrier instead of clearing the section. To clear content on purpose, use an instruction body with `"content": ""`.\n        \n        ```sh\n        # Append a templated line under a heading \u2014 no JSON escaping anywhere\n        curl -k -X PATCH \\\n          -H "Authorization: Bearer $API_KEY" \\\n          -H "Operation: append" \\\n          -H "Content-Type: text/markdown" \\\n          --data "- $TEMPLATED_CONTENT" \\\n          "https://127.0.0.1:27124/vault/notes/daily.md/heading/Log"\n        \n        # Extend the section\'s last list *in place* (not a new block below it):\n        # Within picks the block, and the leading newline in the body makes the\n        # spliced text a new item of that list\n        curl -k -X PATCH \\\n          -H "Authorization: Bearer $API_KEY" \\\n          -H "Operation: append" \\\n          -H "Within: -1" \\\n          -H "Content-Type: text/markdown" \\\n          --data $\'\\n- \'"$TEMPLATED_CONTENT" \\\n          "https://127.0.0.1:27124/vault/notes/daily.md/heading/Log"\n        \n        # The same edit with header targeting (note the explicit version and JSON Target)\n        curl -k -X PATCH \\\n          -H "Authorization: Bearer $API_KEY" \\\n          -H "Markdown-Patch-Version: 2" \\\n          -H "Target-Type: heading" \\\n          -H "Target: %5B%22Log%22%5D" \\\n          -H "Operation: append" \\\n          -H "Content-Type: text/markdown" \\\n          --data "- $TEMPLATED_CONTENT" \\\n          "https://127.0.0.1:27124/vault/notes/daily.md"\n        ```\n        \n        Everything downstream is identical to instruction mode: the same validation, the same warnings header, the same error mapping. A raw-mode request may also send `application/vnd.olrapi.patch-instruction+json` \u2014 but only as a *whole-instruction body* with no targeting elsewhere; combining it with URL or header targeting is a `422 ConflictingTargetSpecification`.\n        \n        > **Note:** on `/active/` endpoints, a URL suffix (e.g. `/active/heading/Log`) previously had no effect on PATCH \u2014 it was ignored and the whole file was patched. It now targets the addressed section, matching PUT/POST.\n        \n        # Deprecated: the 1.x header-driven format\n        \n        The earlier PATCH format spread the instruction across `Operation`, `Target-Type`, `Target`, `Target-Delimiter`, `Target-Scope`, `Create-Target-If-Missing`, `Reject-If-Content-Preexists`, and `Trim-Target-Whitespace` headers, with the payload in a `text/markdown` (or JSON-string) body. **It is deprecated and will be removed in 6.0.** Requests that use it still work, but every response carries a `Deprecation: true; sunset-version="6.0"` header.\n        \n        The JSON-instruction format described above is the default. To use the deprecated format, send `Markdown-Patch-Version: 1`; the header also selects the 1.x document map (`::`-joined heading paths, no `version`) on GET. Without any version header, a non-object body with no targeting is rejected with `400 InvalidPatchInstruction`, and `Target-Type`/`Target` headers are rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 those same header names are also raw-content mode\'s (with different `Target` encoding), so the request must explicitly pick `1` or `2`. To upgrade, drop the version header and either move each 1.x header into the JSON body as below, or switch to [raw-content mode](#raw-content-mode-templating-friendly) and keep your body as-is:\n        \n        | 1.x header | Instruction field |\n        | --- | --- |\n        | `Operation: append` | `"operation": "append"` (now also `"delete"`) |\n        | `Target-Type: heading` | `"targetType": "heading"` |\n        | `Target: A::B` (+ `Target-Delimiter`) | `"target": ["A", "B"]` (a real array \u2014 no delimiter) |\n        | `Target-Scope: content` | `"scope": "content"` (adds `"parent"` for moves) |\n        | body (`text/markdown`) | `"content": "..."` |\n        | body (`application/json` value) | `"value": <json>` |\n        | `Create-Target-If-Missing: true` | `"createTargetIfMissing": true` |\n        | `Reject-If-Content-Preexists: true` | `"rejectIfContentPreexists": true` |\n        | `Trim-Target-Whitespace` | *(dropped; the engine owns boundary whitespace)* |\n      parameters:\n        - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n          in: "path"\n          name: "filename"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: |\n            Raw-content mode: the type of node the instruction targets (`heading`,\n            `block`, or `frontmatter`). Must be used together with the `Target`\n            header and an explicit `Markdown-Patch-Version: 2`; alternatively, put\n            the target in the URL path (`.../heading/A/B`) and omit both headers.\n            Supplying both is rejected with `422 ConflictingTargetSpecification`.\n          in: "header"\n          name: "Target-Type"\n          required: false\n          schema:\n            enum:\n              - "heading"\n              - "block"\n              - "frontmatter"\n            type: "string"\n        - description: |\n            Raw-content mode: the node the instruction targets. The encoding is\n            type-dependent, mirroring the instruction\'s `target` field. For a\n            `heading`, the value is JSON \u2014 an array of heading texts from the top\n            level down, or `null` for the document root \u2014 then percent-encoded:\n            `["A","B"]` is sent as `%5B%22A%22%2C%22B%22%5D`. For a `block` or\n            `frontmatter` target, the value is the plain id/key, percent-encoded if\n            it contains non-ASCII characters. A heading value that does not decode\n            to JSON (e.g. a bare 1.x-style `A::B` path) is rejected with\n            `400 InvalidTargetHeader`.\n          in: "header"\n          name: "Target"\n          required: false\n          schema:\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s `within` \u2014 a single integer (e.g.\n            `-1`) refining a heading target to one of the section\'s direct-body\n            top-level blocks (0-based document order, negative counting from the\n            end; isolated `^id` lines are not counted). With the default `content`\n            scope the body is spliced literally into that block \u2014 an `append`\n            *continues* it \u2014 and a bodiless `delete` removes it; with\n            `Target-Scope: markerAndContent`, `prepend`/`append` insert the body as\n            a new block beside it. Heading targets only; cannot be combined with\n            `Create-Target-If-Missing`.\n          in: "header"\n          name: "Within"\n          required: false\n          schema:\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s operation. Required whenever the\n            target rides in the URL path or the `Target-Type`/`Target` headers.\n          in: "header"\n          name: "Operation"\n          required: false\n          schema:\n            enum:\n              - "replace"\n              - "prepend"\n              - "append"\n              - "delete"\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s `scope` \u2014 `content` (default),\n            `marker`, `markerAndContent`, or `parent` (a move; carries its\n            destination in the `Destination` header). See the instruction-body\n            documentation for what each scope addresses.\n          in: "header"\n          name: "Target-Scope"\n          required: false\n          schema:\n            default: "content"\n            enum:\n              - "content"\n              - "marker"\n              - "markerAndContent"\n              - "parent"\n            type: "string"\n        - description: |\n            Raw-content mode: where a moved heading lands (`Target-Scope: parent`).\n            The instruction\'s `destination` object as JSON, then percent-encoded:\n            `{"parent":["Appendix"],"place":"last"}` is sent as\n            `%7B%22parent%22%3A%5B%22Appendix%22%5D%2C%22place%22%3A%22last%22%7D`.\n            A move carries no body.\n          in: "header"\n          name: "Destination"\n          required: false\n          schema:\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s `ifMatch` optimistic-concurrency\n            token \u2014 the `version` from a document map, bare or wrapped in one pair\n            of double quotes (RFC 9110 ETag style). A mismatch fails with `412` and\n            leaves the file untouched.\n          in: "header"\n          name: "If-Match"\n          required: false\n          schema:\n            type: "string"\n        - description: "If the specified Target does not exist, create it?"\n          in: "header"\n          name: "Create-Target-If-Missing"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: "If patch data already exists in Target, reject the patch?"\n          in: "header"\n          name: "Reject-If-Content-Preexists"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n      requestBody:\n        content:\n          application/json:\n            examples:\n              addTag:\n                summary: "Add a tag (merge into the tags list, creating it if absent)"\n                value:\n                  createTargetIfMissing: true\n                  operation: "append"\n                  target: "tags"\n                  targetType: "frontmatter"\n                  value:\n                    - "project/active"\n              appendToBlock:\n                summary: "Append text to a block addressed by its reference id"\n                value:\n                  content: "More detail for this block."\n                  operation: "append"\n                  target: "2c7cfa"\n                  targetType: "block"\n              appendUnderHeading:\n                summary: "Append text below a heading"\n                value:\n                  content: "Hello"\n                  operation: "append"\n                  target:\n                    - "Heading 1"\n                    - "Subheading 1:1:1"\n                  targetType: "heading"\n              continueList:\n                summary: "Continue an existing list in place (within: positional block edit)"\n                value:\n                  content: "\\n- new item"\n                  operation: "append"\n                  target:\n                    - "Log"\n                  targetType: "heading"\n                  within: -1\n              moveSection:\n                summary: "Move a heading section under a new parent"\n                value:\n                  destination:\n                    parent:\n                      - "Appendix"\n                    place: "last"\n                  operation: "replace"\n                  scope: "parent"\n                  target:\n                    - "Overview"\n                    - "Details"\n                  targetType: "heading"\n              setFrontmatter:\n                summary: "Set a frontmatter field to a JSON value"\n                value:\n                  operation: "replace"\n                  target: "alpha"\n                  targetType: "frontmatter"\n                  value: 2\n            schema:\n              "$ref": "#/components/schemas/PatchInstruction"\n          "application/vnd.olrapi.patch-instruction+json":\n            schema:\n              "$ref": "#/components/schemas/PatchInstruction"\n          text/markdown:\n            schema:\n              example: |\n                - A raw markdown line: no JSON escaping needed.\n              type: "string"\n        description: |\n          Instruction mode: a single patch instruction as JSON (`application/json`, or\n          `application/vnd.olrapi.patch-instruction+json` to declare it explicitly).\n          Raw-content mode: the raw payload \u2014 a `text/markdown` body is the instruction\'s\n          `content` carrier, an `application/json` body its `value` carrier, and no body at\n          all carries nothing (a delete, or a move via the `Destination` header). An empty\n          raw-mode body never clears content: a `replace` without a payload is rejected as a\n          missing carrier, so an accidentally-empty template cannot wipe a section (use an\n          instruction body with `"content": ""` to clear deliberately).\n        required: false\n      responses:\n        "200":\n          description: "Success. The body is the patched document. Any advisory warnings (e.g. a heading rebased past level 6) are JSON-encoded, then percent-encoded, in the `Markdown-Patch-Warnings` response header."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file the URL resolved to, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL. Sent only when the URL embedded a target (`/heading/...`, `/block/...`, `/frontmatter/...`), since that is the case where the file the request acted on is not evident from the URL alone; absent on a whole-file request."\n              required: false\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            Markdown-Patch-Warnings:\n              description: "Present only when the patch produced warnings: a percent-encoded JSON array of `{ code, message }` objects (percent-encoded because a warning message embeds document text verbatim, which may contain non-ASCII characters that are not valid in a raw header value). Decode with `decodeURIComponent` before parsing as JSON."\n              schema:\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Bad Request; the instruction was malformed, the operation\xD7scope\xD7targetType combination is not part of the algebra, the `Markdown-Patch-Version` header was invalid, an instruction-mode request had a non-object body, or a raw-content-mode header could not be decoded (a heading `Target` that is not percent-encoded JSON, a malformed `Destination`, an unsupported body content type). Header-based targeting without an explicit `Markdown-Patch-Version` returns `PatchHeaderTargetingRequiresExplicitVersion` here. See response message for details."\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "The file, or the addressed target within it, does not exist (and `createTargetIfMissing` was not set)."\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "409":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "`rejectIfContentPreexists` was set and the content already appears in the target span."\n        "412":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Precondition Failed: the `ifMatch` token did not match the current document version; the file was not modified."\n        "422":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Conflicting target specifications: more than one of URL path elements, `Target-Type`/`Target` headers, and an `application/vnd.olrapi.patch-instruction+json` instruction body was supplied."\n      summary: |\n        Partially update content in an existing note.\n      tags:\n        - "Vault Files"\n    post:\n      description: |\n        Appends content to the end of an existing note. If the specified file does not yet exist, it will be created as an empty file.\n        \n        # Targeting a Sub-part of your Document\n        \n        You can operate on a specific section of a note instead of the whole file by embedding a target in the URL path, immediately after the note identifier. The first segment after the note is the target type, and the remaining segments address the target:\n        \n        - `.../heading/My%20Section` targets the section beneath the `My Section` heading \u2014 the body content below the heading line.\n        - For a nested heading, add one path segment per level: `.../heading/My%20Section/Subsection` targets `Subsection` under `My Section`. Because each level is its own segment, a heading whose text contains `::` (or any other delimiter) needs no escaping.\n        - `.../block/abc123` targets the block with reference ID `abc123`.\n        - `.../frontmatter/fieldName` targets the `fieldName` frontmatter field.\n        \n        Percent-encode any segment that contains non-ASCII characters or a literal `/` (e.g. `H%C3%A9llo` for `H\xE9llo`, or `TODO%2FDONE` for a heading named `TODO/DONE`). Each URL path segment is decoded on its own, so an encoded `%2F` stays a literal slash *inside* that one segment rather than acting as a separator \u2014 that is what lets a heading name contain a slash. The same rule applies to the note path itself: because a file or folder name can never contain a slash, the note must be addressed with real `/` separators between its path components (`/vault/folder/note.md`), not with the separators encoded (`/vault/folder%2Fnote.md`), which no longer resolves.\n        \n        If a document has a duplicate sibling heading (the same text repeated under the same parent) or a duplicate block reference ID, only the first occurrence is addressable by its plain text/id. Each later occurrence gets its own address with a non-printable marker suffix appended by the server \u2014 fetch the document map (`Accept: application/vnd.olrapi.document-map+json`) and copy that occurrence\'s key verbatim; don\'t try to type or reconstruct the marker yourself.\n        \n        `GET` returns just the addressed section. By default that is the target\'s `content` scope; add a `Target-Scope` header to read the `marker` (the label \u2014 a heading\'s raw text, a block\'s bare id, a frontmatter key) or `markerAndContent` (the whole node, in exactly the shape a PATCH `replace` at that scope consumes \u2014 a heading subtree comes back with its own line as `# Title`, levels relative to its parent, so a read-modify-write never counts `#`s). `PUT` replaces the section and `POST` appends to it, with heading levels normalized and separator whitespace managed for you. `PATCH` also accepts a URL target \u2014 its raw-content mode \u2014 with the operation and other instruction fields in headers (`Operation`, `Target-Scope`, \u2026) and the raw payload as the body. For the full instruction algebra (renames, moves, deletes, typed frontmatter values), see the PATCH documentation.\n        \n        On `PUT` and `POST`, the `Content-Type` of your request body selects how the payload is interpreted, and not every target accepts both:\n        \n        - A `text/markdown` body is literal markdown. Valid for `heading` and `block` targets. On a `frontmatter` target it is stored as the field\'s plain string value.\n        - An `application/json` body is structured data. On a `block` target that addresses a table, it is a 2-D array of row cells (`[["Chicago", "16"]]`). On a `frontmatter` target it is the field\'s typed value (a list, dictionary, number, or string). A `heading` target has no structured form \u2014 its body is markdown text \u2014 so a JSON body there is rejected with `400 InvalidPatchInstruction` rather than being stringified into your note.\n        \n        ## Which file did it act on?\n        \n        A URL that embeds a target is ambiguous on its face: `/vault/notes/log.md/heading/Today` could address the `Today` section of `notes/log.md`, or a file literally named `notes/log.md/heading/Today`. The server resolves it by walking backwards down the path until it finds a real file, and reports the answer in a `Content-Location` response header holding the vault-relative path it settled on. Each path component is percent-encoded on its own \u2014 non-ASCII characters, and reserved characters like `#`, `?` and `,` that a client would otherwise read as a fragment, a query or a header-list separator \u2014 so the value can be pasted straight back into a request URL. A request whose URL names the file outright gets no such header \u2014 there is nothing it could tell you that the URL does not.\n        \n        `/active/` responses carry `Content-Location` for the same reason, whether or not a target is embedded: the file the request acted on is whichever note happened to be open.\n        \n        ## Deprecated: header-based targeting\n        \n        Earlier releases addressed a sub-part with `Target-Type`, `Target`, and `Target-Delimiter` request headers (plus `Target-Scope` and `Trim-Target-Whitespace`) rather than URL path segments. **That form is deprecated and will be removed in 6.0.** It is only processed when you also send `Markdown-Patch-Version: 1`, and responses served that way carry a `Deprecation: true; sunset-version="6.0"` header. On GET/PUT/POST, supplying those targeting headers without that version is rejected with `400 HeaderTargetingRequiresVersion1` \u2014 reach the sub-part with URL path segments instead. (On PATCH, `Target-Type`/`Target` headers also have a *non-deprecated* meaning under an explicit `Markdown-Patch-Version: 2` \u2014 raw-content mode, with a different `Target` encoding; see the PATCH documentation.) Supplying both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n        \n        When a target is specified the content is appended within that section and the full updated file content is returned with a `200` status. Without a target, the content is appended to the end of the file and a `204` status is returned.\n        \n        If you need `prepend` or `replace` operations, use `PATCH` instead.\n      parameters:\n        - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n          in: "path"\n          name: "filename"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: "If the specified Target does not exist, create it?"\n          in: "header"\n          name: "Create-Target-If-Missing"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: "If patch data already exists in Target, reject the patch?"\n          in: "header"\n          name: "Reject-If-Content-Preexists"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n      requestBody:\n        content:\n          text/markdown:\n            schema:\n              example: |\n                # This is my document\n                \n                something else here\n              type: "string"\n        description: "Content you would like to append."\n        required: true\n      responses:\n        "200":\n          content:\n            text/markdown:\n              schema:\n                type: "string"\n          description: "Success; content appended to the targeted section (via URL path elements). The full updated file content is returned. Any advisory warnings (e.g. a heading rebased past level 6) are JSON-encoded, then percent-encoded, in the `Markdown-Patch-Warnings` response header."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file the URL resolved to, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL. Sent only when the URL embedded a target (`/heading/...`, `/block/...`, `/frontmatter/...`), since that is the case where the file the request acted on is not evident from the URL alone; absent on a whole-file request."\n              required: false\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            Markdown-Patch-Warnings:\n              description: "Present only when the write produced warnings: a percent-encoded JSON array of `{ code, message }` objects. Decode with `decodeURIComponent` before parsing as JSON."\n              schema:\n                type: "string"\n        "204":\n          description: "Success; content appended to end of file."\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Bad Request"\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "409":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "`Reject-If-Content-Preexists` was set and the content already appears in the targeted section."\n      summary: |\n        Append content to a new or existing file.\n      tags:\n        - "Vault Files"\n    put:\n      description: |\n        Creates a new file in your vault or updates the content of an existing one if the specified file already exists.\n        \n        Any content type is accepted: a request body that is not text or JSON is stored as raw bytes, so attachments -- images, PDFs, audio -- can be uploaded here as well as notes. A body sent with no `Content-Type` at all is treated as `application/octet-stream` and stored as raw bytes, which is what RFC 9110 allows. There is no size limit beyond the request-size cap.\n        \n        A signed upload URL (`?sig=\u2026&exp=\u2026&n=\u2026`, from the MCP `vault_get_upload_url` tool) authenticates a single whole-file `PUT` in place of the `Authorization` header; the link is consumed by the request that succeeds. A signed `PUT` stores exactly the bytes sent, whatever `Content-Type` it declares -- it is not routed through the JSON or text parsers, which would otherwise reparse and re-serialize the body. It authorizes a whole-file write only: a request that also targets part of the document, through `Target-Type`/`Target` headers or through `/heading`, `/block` or `/frontmatter` path elements, is refused.\n        \n        # Targeting a Sub-part of your Document\n        \n        You can operate on a specific section of a note instead of the whole file by embedding a target in the URL path, immediately after the note identifier. The first segment after the note is the target type, and the remaining segments address the target:\n        \n        - `.../heading/My%20Section` targets the section beneath the `My Section` heading \u2014 the body content below the heading line.\n        - For a nested heading, add one path segment per level: `.../heading/My%20Section/Subsection` targets `Subsection` under `My Section`. Because each level is its own segment, a heading whose text contains `::` (or any other delimiter) needs no escaping.\n        - `.../block/abc123` targets the block with reference ID `abc123`.\n        - `.../frontmatter/fieldName` targets the `fieldName` frontmatter field.\n        \n        Percent-encode any segment that contains non-ASCII characters or a literal `/` (e.g. `H%C3%A9llo` for `H\xE9llo`, or `TODO%2FDONE` for a heading named `TODO/DONE`). Each URL path segment is decoded on its own, so an encoded `%2F` stays a literal slash *inside* that one segment rather than acting as a separator \u2014 that is what lets a heading name contain a slash. The same rule applies to the note path itself: because a file or folder name can never contain a slash, the note must be addressed with real `/` separators between its path components (`/vault/folder/note.md`), not with the separators encoded (`/vault/folder%2Fnote.md`), which no longer resolves.\n        \n        If a document has a duplicate sibling heading (the same text repeated under the same parent) or a duplicate block reference ID, only the first occurrence is addressable by its plain text/id. Each later occurrence gets its own address with a non-printable marker suffix appended by the server \u2014 fetch the document map (`Accept: application/vnd.olrapi.document-map+json`) and copy that occurrence\'s key verbatim; don\'t try to type or reconstruct the marker yourself.\n        \n        `GET` returns just the addressed section. By default that is the target\'s `content` scope; add a `Target-Scope` header to read the `marker` (the label \u2014 a heading\'s raw text, a block\'s bare id, a frontmatter key) or `markerAndContent` (the whole node, in exactly the shape a PATCH `replace` at that scope consumes \u2014 a heading subtree comes back with its own line as `# Title`, levels relative to its parent, so a read-modify-write never counts `#`s). `PUT` replaces the section and `POST` appends to it, with heading levels normalized and separator whitespace managed for you. `PATCH` also accepts a URL target \u2014 its raw-content mode \u2014 with the operation and other instruction fields in headers (`Operation`, `Target-Scope`, \u2026) and the raw payload as the body. For the full instruction algebra (renames, moves, deletes, typed frontmatter values), see the PATCH documentation.\n        \n        On `PUT` and `POST`, the `Content-Type` of your request body selects how the payload is interpreted, and not every target accepts both:\n        \n        - A `text/markdown` body is literal markdown. Valid for `heading` and `block` targets. On a `frontmatter` target it is stored as the field\'s plain string value.\n        - An `application/json` body is structured data. On a `block` target that addresses a table, it is a 2-D array of row cells (`[["Chicago", "16"]]`). On a `frontmatter` target it is the field\'s typed value (a list, dictionary, number, or string). A `heading` target has no structured form \u2014 its body is markdown text \u2014 so a JSON body there is rejected with `400 InvalidPatchInstruction` rather than being stringified into your note.\n        \n        ## Which file did it act on?\n        \n        A URL that embeds a target is ambiguous on its face: `/vault/notes/log.md/heading/Today` could address the `Today` section of `notes/log.md`, or a file literally named `notes/log.md/heading/Today`. The server resolves it by walking backwards down the path until it finds a real file, and reports the answer in a `Content-Location` response header holding the vault-relative path it settled on. Each path component is percent-encoded on its own \u2014 non-ASCII characters, and reserved characters like `#`, `?` and `,` that a client would otherwise read as a fragment, a query or a header-list separator \u2014 so the value can be pasted straight back into a request URL. A request whose URL names the file outright gets no such header \u2014 there is nothing it could tell you that the URL does not.\n        \n        `/active/` responses carry `Content-Location` for the same reason, whether or not a target is embedded: the file the request acted on is whichever note happened to be open.\n        \n        ## Deprecated: header-based targeting\n        \n        Earlier releases addressed a sub-part with `Target-Type`, `Target`, and `Target-Delimiter` request headers (plus `Target-Scope` and `Trim-Target-Whitespace`) rather than URL path segments. **That form is deprecated and will be removed in 6.0.** It is only processed when you also send `Markdown-Patch-Version: 1`, and responses served that way carry a `Deprecation: true; sunset-version="6.0"` header. On GET/PUT/POST, supplying those targeting headers without that version is rejected with `400 HeaderTargetingRequiresVersion1` \u2014 reach the sub-part with URL path segments instead. (On PATCH, `Target-Type`/`Target` headers also have a *non-deprecated* meaning under an explicit `Markdown-Patch-Version: 2` \u2014 raw-content mode, with a different `Target` encoding; see the PATCH documentation.) Supplying both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n        \n        When a target is specified the target section is replaced with the request body and the full updated file content is returned with a `200` status. If the target does not exist it will be created. Without a target, the entire file is replaced and a `204` status is returned.\n      parameters:\n        - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n          in: "path"\n          name: "filename"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: "If patch data already exists in Target, reject the patch?"\n          in: "header"\n          name: "Reject-If-Content-Preexists"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: "Signature of a signed URL, minted by the MCP `vault_get_download_url` / `vault_get_upload_url` / `events_get_listener_url` tools or by `POST /events/{emitter}/{event}/`. Together with `exp` and `n`, authenticates this one request without an `Authorization` header. Only honoured while signed URLs are enabled in the plugin settings."\n          in: "query"\n          name: "sig"\n          required: false\n          schema:\n            type: "string"\n        - description: "Expiry of a signed URL as Unix seconds; part of what `sig` signs."\n          in: "query"\n          name: "exp"\n          required: false\n          schema:\n            type: "integer"\n        - description: "Random per-link nonce, minted with the URL and part of what `sig` signs. Required whenever `sig` and `exp` are given: a signed request without it cannot verify. It exists so that two links minted for the same path within the same second are distinct -- `exp` has one-second granularity, so without it they would be byte-identical, and spending one would spend the other."\n          in: "query"\n          name: "n"\n          required: false\n          schema:\n            type: "string"\n      requestBody:\n        content:\n          "*/*":\n            schema:\n              type: "string"\n          text/markdown:\n            schema:\n              example: |\n                # This is my document\n                \n                something else here\n              type: "string"\n        description: "Content of the file you would like to upload."\n        required: true\n      responses:\n        "200":\n          content:\n            text/markdown:\n              schema:\n                type: "string"\n          description: "Success; targeted section replaced (via URL path elements). The full updated file content is returned. Any advisory warnings (e.g. a heading rebased past level 6) are JSON-encoded, then percent-encoded, in the `Markdown-Patch-Warnings` response header."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file the URL resolved to, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL. Sent only when the URL embedded a target (`/heading/...`, `/block/...`, `/frontmatter/...`), since that is the case where the file the request acted on is not evident from the URL alone; absent on a whole-file request."\n              required: false\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            Markdown-Patch-Warnings:\n              description: "Present only when the write produced warnings: a percent-encoded JSON array of `{ code, message }` objects. Decode with `decodeURIComponent` before parsing as JSON."\n              schema:\n                type: "string"\n        "204":\n          description: "Success; entire file replaced."\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Incoming file could not be processed.  Make sure you have specified a reasonable file name, and make sure you have set a reasonable \'Content-Type\' header; if you are uploading a note, \'text/markdown\' is likely the right choice.\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "409":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "`Reject-If-Content-Preexists` was set and the content already appears in the targeted section."\n      summary: |\n        Create a new file in your vault or update the content of an existing one.\n      tags:\n        - "Vault Files"\n  "/vault/{pathToDirectory}/":\n    get:\n      parameters:\n        - description: |\n            Path to list files from (relative to your vault root).  Note that empty directories will not be returned.\n            \n            Note: this particular interactive tool requires that you provide an argument for this field, but the API itself will allow you to list the root folder of your vault. If you would like to try listing content in the root of your vault using this interactive tool, use the above "List files that exist in the root of your vault" form above.\n          in: "path"\n          name: "pathToDirectory"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n      responses:\n        "200":\n          content:\n            application/json:\n              example:\n                files:\n                  - "mydocument.md"\n                  - "somedirectory/"\n              schema:\n                properties:\n                  files:\n                    items:\n                      type: "string"\n                    type: "array"\n                type: "object"\n          description: "Success"\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Directory does not exist"\n      summary: |\n        List files that exist in the specified directory.\n      tags:\n        - "Vault Directories"\nsecurity:\n  - apiKeyAuth: []\nservers:\n  - description: "HTTPS (Secure Mode)"\n    url: "https://{host}:{port}"\n    variables:\n      host:\n        default: "127.0.0.1"\n        description: "Binding host"\n      port:\n        default: "27124"\n        description: "HTTPS port"\n  - description: "HTTP (Insecure Mode)"\n    url: "http://{host}:{port}"\n    variables:\n      host:\n        default: "127.0.0.1"\n        description: "Binding host"\n      port:\n        default: "27123"\n        description: "HTTP port"\ntags:\n  - name: "Vault Files"\n  - name: "Active File"\n  - name: "Vault Directories"\n  - name: "Tags"\n  - name: "Search"\n  - name: "Commands"\n  - name: "Events"\n  - name: "Open"\n  - name: "System"\n  - name: "MCP"\nx-topics:\n  - content: |\n      # Migrating from 1.x to 2.x\n      \n      Version 5.0 of this plugin upgraded its markdown-editing engine ([markdown-patch](https://github.com/coddingtonbear/markdown-patch)) from 1.x to 2.x, and the 2.x conventions are now the **default** for PATCH requests, sub-document targeting, and the document map.\n      \n      > **Version numbers, disambiguated:** "1.x" and "2.x" in this guide refer to the *markdown-patch format*, selected per-request with the `Markdown-Patch-Version` header. The *plugin* switched defaults in its 5.0 release and will remove the 1.x format entirely in 6.0.\n      \n      The 1.x format still works \u2014 send `Markdown-Patch-Version: 1` \u2014 but it is **deprecated and will be removed in plugin 6.0**. Every response served the 1.x way carries a `Deprecation: true; sunset-version="6.0"` header so you can spot lingering legacy traffic in your client logs.\n      \n      # Am I affected?\n      \n      You are affected if you:\n      \n      - send **PATCH** requests that spread the instruction across `Operation`, `Target-Type`, `Target`, `Target-Delimiter`, `Target-Scope`, `Create-Target-If-Missing`, `Reject-If-Content-Preexists`, or `Trim-Target-Whitespace` headers;\n      - target a heading, block, or frontmatter field on **GET, PUT, or POST** using `Target-Type` / `Target` / `Target-Delimiter` headers;\n      - consume the **document map** (`Accept: application/vnd.olrapi.document-map+json`);\n      - parse the **`MD-Patch-Warnings`** response header;\n      - use the **MCP tools** `vault_patch`, `vault_read` (with a heading target), or `vault_get_document_map`.\n      \n      You are **not** affected if you only read and write whole files, search, or use the active-file endpoints without section targeting.\n      \n      # Old request shapes fail loudly\n      \n      Old-style requests sent without a version header are rejected loudly rather than reinterpreted:\n      \n      | Legacy request shape (no version header) | Result |\n      | --- | --- |\n      | GET/PUT/POST with `Target-Type`/`Target` headers | `400 HeaderTargetingRequiresVersion1` |\n      | PATCH with `Target-Type`/`Target` headers | `400 PatchHeaderTargetingRequiresExplicitVersion` |\n      | PATCH with a non-object body and no targeting | `400 InvalidPatchInstruction` |\n      | Any `Markdown-Patch-Version` other than `1` or `2` | `400 InvalidPatchVersionHeader` |\n      \n      (The PATCH header case is ambiguous by design: `Target-Type`/`Target` on a PATCH mean the deprecated 1.x format under version `1`, but [raw-content mode](#raw-content-mode-the-low-effort-migration) under an explicit version `2` \u2014 so the server refuses to guess.)\n      \n      That covers the *shape* of a request, not its payload. A 2.x request carrying heading `content` written the 1.x way is accepted, and its headings are re-leveled \u2014 see [heading levels](#heading-levels-in-content-are-now-relative) below before migrating any client that writes headings.\n      \n      **The stopgap:** add `Markdown-Patch-Version: 1` to every affected request and everything behaves exactly as before \u2014 including the `::`-joined document map on GET. That buys you until plugin 6.0, no other changes required.\n      \n      # Migrating PATCH requests\n      \n      The 2.x PATCH carries the whole instruction as one JSON body instead of scattering it across headers.\n      \n      **Before (1.x):**\n      \n      ```sh\n      curl -k -X PATCH \\\n        -H "Authorization: Bearer $API_KEY" \\\n        -H "Operation: append" \\\n        -H "Target-Type: heading" \\\n        -H "Target: Heading 1::Subheading 1:1" \\\n        -H "Content-Type: text/markdown" \\\n        --data "Hello" \\\n        "https://127.0.0.1:27124/vault/note.md"\n      ```\n      \n      **After (2.x):**\n      \n      ```sh\n      curl -k -X PATCH \\\n        -H "Authorization: Bearer $API_KEY" \\\n        -H "Content-Type: application/json" \\\n        --data \'{"targetType": "heading", "target": ["Heading 1", "Subheading 1:1"], "operation": "append", "content": "Hello"}\' \\\n        "https://127.0.0.1:27124/vault/note.md"\n      ```\n      \n      Field-by-field:\n      \n      | 1.x header | 2.x instruction field |\n      | --- | --- |\n      | `Operation: append` | `"operation": "append"` (now also `"delete"`) |\n      | `Target-Type: heading` | `"targetType": "heading"` |\n      | `Target: A::B` (+ `Target-Delimiter`) | `"target": ["A", "B"]` \u2014 a real array, no delimiter |\n      | `Target-Scope: content` | `"scope": "content"` (adds `"parent"` for moves) |\n      | body (`text/markdown`) | `"content": "..."` |\n      | body (`application/json` value) | `"value": <json>` |\n      | `Create-Target-If-Missing: true` | `"createTargetIfMissing": true` |\n      | `Reject-If-Content-Preexists: true` | `"rejectIfContentPreexists": true` |\n      | `Trim-Target-Whitespace` | *(dropped \u2014 see below)* |\n      \n      Things that changed meaning along the way:\n      \n      - **Heading targets are arrays.** `"target": ["A", "B"]` replaces `A::B`. A heading whose text contains `::` (or any other would-be delimiter) needs no escaping, and `Target-Delimiter` is gone. For a block, `target` is the bare id without `^`; for frontmatter, the key name.\n      - **Renaming a heading no longer takes `#` characters.** Under 1.x you supplied the full heading line (`## New Name`); under 2.x, `scope: "marker"` with `"content": "New Name"` renames the heading while preserving its level. The `#`s are *not* stripped anymore \u2014 if you keep sending them, they become literal text in the heading. If you are migrating, drop them.\n      - **Frontmatter values are typed JSON.** Send them in `"value"` (a list, dict, number, or string), not as a serialized string body.\n      - **Heading levels in `content` are relative to the target.** 1.x wrote your `#`s literally; 2.x rebases them. This one doesn\'t fail \u2014 see the next section.\n      \n      ## Heading levels in `content` are now relative\n      \n      Under 1.x, a heading in your `content` was written exactly as you sent it. Under 2.x, heading levels are relative to where the content lands, and the engine adds the target\'s depth for you:\n      \n      - with `scope: "content"` (the default), `#` means a direct child of the target, so under a `##` target a `#` is written as `###`;\n      - with `scope: "markerAndContent"`, levels are relative to the target\'s *parent* heading instead, so the heading line you send for a `##` under a `#` is `# Title`.\n      \n      A 1.x client that keeps sending the same body gets a `200` and a different document. Replacing the content of `## A` with its current text, `### B` and all, writes `##### B`: the `###` is taken as relative and pushed down by the target\'s two levels. Under a deep enough target, a heading is pushed past h6 and stops being a heading at all; the write still succeeds, and the only sign is a `heading-depth-overflow` warning in the `Markdown-Patch-Warnings` response header.\n      \n      If your client sends headings in `content`, do one of these when you migrate:\n      \n      - **Read the section through the API** and send back what you read. A GET returns the same relative levels a PATCH expects, so read-modify-write round-trips unchanged.\n      - **Subtract the baseline** from every heading in content you took from the raw file, or wrote with absolute levels in mind: the target\'s level under `content` scope (`###` under a `##` target becomes `#`), its parent\'s level under `markerAndContent`.\n      - **Stay on `Markdown-Patch-Version: 1`** for those requests until you can do either of the above.\n      \n      Content with no headings in it is unaffected.\n      \n      See the PATCH operation documentation for the full instruction algebra \u2014 scopes, moves (`scope: "parent"` with a `destination`), deletes, and table-row writes.\n      \n      ## Raw-content mode: the low-effort migration\n      \n      If your client *templates* markdown into the request body (Shortcuts, Tasker, curl from a shell variable), JSON-escaping that content is fragile. Raw-content mode keeps the 1.x posture \u2014 instruction outside the body, raw payload in it \u2014 but moves the target into URL path elements:\n      \n      ```sh\n      curl -k -X PATCH \\\n        -H "Authorization: Bearer $API_KEY" \\\n        -H "Operation: append" \\\n        -H "Content-Type: text/markdown" \\\n        --data "- $TEMPLATED_CONTENT" \\\n        "https://127.0.0.1:27124/vault/note.md/heading/Heading%201/Subheading%201:1"\n      ```\n      \n      For many 1.x clients this migration is just "delete the `Target-Type`/`Target`/`Target-Delimiter` headers and append the target to the URL, one path segment per heading level." The exception is a body containing headings: raw-content mode is the 2.x format, so those are [re-leveled](#heading-levels-in-content-are-now-relative) too. `Operation`, `Target-Scope` (all four scopes), `Create-Target-If-Missing`, and `Reject-If-Content-Preexists` headers all still work here; `Target-Delimiter` and `Trim-Target-Whitespace` are rejected. A `text/*` body carries `content`, an `application/json` body carries `value`, and no body carries nothing (a `delete`, or a move via a `Destination` header).\n      \n      Header-based targeting (`Target-Type`/`Target` instead of URL elements) also exists in raw-content mode, but requires an explicit `Markdown-Patch-Version: 2` and encodes a heading `Target` as percent-encoded JSON \u2014 see the PATCH operation documentation.\n      \n      # Migrating targeted GET/PUT/POST requests\n      \n      Header-based targeting on reads and writes is deprecated wholesale; the URL is the target now.\n      \n      **Before (1.x):**\n      \n      ```sh\n      curl -k -H "Authorization: Bearer $API_KEY" \\\n        -H "Target-Type: heading" \\\n        -H "Target: Heading 1::Subheading 1:1" \\\n        "https://127.0.0.1:27124/vault/note.md"\n      ```\n      \n      **After (2.x):**\n      \n      ```sh\n      curl -k -H "Authorization: Bearer $API_KEY" \\\n        "https://127.0.0.1:27124/vault/note.md/heading/Heading%201/Subheading%201:1"\n      ```\n      \n      Each nested heading level is its own path segment. Percent-encode any segment containing non-ASCII characters or a literal `/` (`TODO%2FDONE` for a heading named `TODO/DONE` \u2014 each segment is decoded individually, so an encoded slash stays inside its segment). `block` and `frontmatter` targets work the same way: `.../block/abc123`, `.../frontmatter/fieldName`.\n      \n      Sending both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n      \n      # The document map changed shape\n      \n      `GET /vault/{path}` with `Accept: application/vnd.olrapi.document-map+json` now returns the 2.0 map.\n      \n      **Before (1.x):**\n      \n      ```json\n      {\n        "headings": ["Heading 1", "Heading 1::Subheading 1:1", "Heading 2"],\n        "blocks": ["484ef2"],\n        "frontmatterFields": ["alpha", "beta"]\n      }\n      ```\n      \n      **After (2.x):**\n      \n      ```json\n      {\n        "headings": {\n          "Heading 1": { "Subheading 1:1": {} },\n          "Heading 2": {}\n        },\n        "blocks": ["484ef2"],\n        "frontmatterFields": ["alpha", "beta"],\n        "version": "3f9a1c"\n      }\n      ```\n      \n      - **`headings` is a nested tree**, not a flat list of `::`-joined paths. Each key maps to its child headings; a path through the tree is exactly the array you send as a heading `target`.\n      - **`version` is new**: a content-hash token. Pass it back as `ifMatch` in a PATCH instruction (or an `If-Match` header in raw-content mode) for optimistic concurrency \u2014 if the file changed in between, the patch fails with `412` and the file is untouched.\n      - **Duplicates are now addressable.** If a heading has a duplicate sibling (same text, same parent) or a block id repeats, the first occurrence keeps its plain key and each later occurrence\'s key carries a non-printable marker suffix. Copy that key verbatim from the map into your `target` \u2014 don\'t try to type or reconstruct the marker.\n      \n      Sending `Markdown-Patch-Version: 1` still returns the old flat map (with the `Deprecation` header) until plugin 6.0.\n      \n      # Behavior changes to watch for\n      \n      - **Whitespace is library-owned.** The 2.x engine reduces your `content` to trimmed, canonical form (leading and trailing blank lines are meaningless) and itself supplies the blank line wherever inserted content faces body text, so a naive `append` or `prepend` always lands as its own block and can never merge into an existing paragraph; `Trim-Target-Whitespace` is gone because there is nothing left for it to fix. If your 1.x client added `\\n` padding to manage spacing, it is now ignored \u2014 and a `content`-scope `append` can no longer continue an existing list or paragraph (use a `^id` block target for inline edits).\n      - **Heading levels in `content` are relative.** A leading `#` becomes a direct child of the target regardless of the target\'s own depth \u2014 you never count `#`s. A 1.x body sent unchanged is re-leveled rather than rejected; see [heading levels](#heading-levels-in-content-are-now-relative).\n      - **The warnings header was renamed** from `MD-Patch-Warnings` to `Markdown-Patch-Warnings`, and its JSON value is now percent-encoded so warnings can embed non-ASCII document text. Run it through `decodeURIComponent` before parsing.\n      - **URL targets on `/active/` PATCH now work.** Previously a suffix like `/active/heading/Log` was silently ignored on PATCH and the whole file was patched; it now targets the addressed section, matching PUT/POST.\n      - **Cleaner error mapping.** Unparseable frontmatter YAML is a `400`, a frontmatter key collision is a `409`, a mismatched table row or a cell containing a line break is a `400`, and an `ifMatch`/`If-Match` mismatch is a `412` \u2014 cases that previously surfaced as generic errors or `500`s.\n      \n      # MCP tool changes\n      \n      The MCP tools moved to 2.x with no version escape hatch:\n      \n      - **`vault_patch`** accepts only the 2.0 JSON instruction shape described above.\n      - **`vault_read`** requires a heading target to be an array of heading texts; a bare `"A::B"` string is rejected rather than split on `::`.\n      - **`vault_get_document_map`** returns the nested-tree map with the `version` token.\n      \n      # What\'s new that you couldn\'t do before\n      \n      Migrating unlocks more than parity:\n      \n      - `operation: "delete"` \u2014 remove a section, its body, or just its heading line, without a read-modify-write.\n      - `scope: "parent"` \u2014 move a heading section elsewhere in the tree, with levels rebased for you.\n      - Optimistic concurrency via `version`/`ifMatch` (`412` on conflict).\n      - Table-row writes: pass a 2-D JSON array in `value` to a block target that addresses a table; cell content is escaped for you.\n      - Duplicate headings and repeated block ids are individually addressable via the document map.\n      - Headings containing `::` or `/` are targetable with no escaping gymnastics.\n      \n      # Timeline\n      \n      | Plugin version | markdown-patch 1.x format | markdown-patch 2.x format |\n      | --- | --- | --- |\n      | < 5.0 | default | \u2014 |\n      | 5.0 | deprecated; opt in with `Markdown-Patch-Version: 1` (responses carry `Deprecation: true; sunset-version="6.0"`) | **default** |\n      | 6.0 | **removed** | default |\n    title: "Migrating from 1.x to 2.x"\n';
+var openapi_default = 'components:\n  responses:\n    TooManyAuthenticationFailures:\n      content:\n        application/json:\n          schema:\n            "$ref": "#/components/schemas/Error"\n      description: "This source has presented too many wrong credentials -- incorrect API keys, or invalid, expired or spent signed URLs -- within the current window, and this request presented another. `Retry-After` says how many seconds remain. Any route the plugin authenticates can answer this way; a request carrying the correct API key or a valid signed URL never does."\n      headers:\n        Retry-After:\n          description: "Seconds until the window ends and wrong credentials are answered `401` again."\n          schema:\n            type: "integer"\n  schemas:\n    Error:\n      properties:\n        errorCode:\n          description: |\n            A 5-digit error code uniquely identifying this particular type of error.\n          example: 40149\n          type: "number"\n        message:\n          description: "Message describing the error."\n          example: "A brief description of the error."\n          type: "string"\n      type: "object"\n    HeadingAddress:\n      description: |\n        A heading address: the path of heading texts from the top level down\n        to the target. Use `null` or `[]` for the document root.\n      oneOf:\n        - items:\n            type: "string"\n          type: "array"\n        - type: "null"\n    HeadingTree:\n      additionalProperties:\n        "$ref": "#/components/schemas/HeadingTree"\n      description: |\n        The document\'s headings nested by containment: each heading\'s text\n        maps to a HeadingTree of its child headings, and a leaf heading maps\n        to `{}`. Nesting carries no heading level \u2014 a level skipped in the\n        source leaves no hole. To target a heading, use the path of keys from\n        the top level down to it as a HeadingAddress.\n        \n        A repeated sibling heading appears once, but its children are not\n        lost: they merge into that one key, because a heading is addressed by\n        its whole path rather than its name. Given `## Log / ### Monday`\n        followed by `## Log / ### Tuesday`, the tree is\n        `{"Log": {"Monday": {}, "Tuesday": {}}}` and both are separately\n        addressable. Only sections that share an entire path are one address,\n        and that address resolves to the first in document order. The tree\n        therefore lists exactly the headings you can target.\n      example:\n        Appendix: {}\n        Overview:\n          Details: {}\n      type: "object"\n    NoteJson:\n      description: "A note\'s content and metadata. `links`, `backlinks`, and `unresolvedLinks` reflect Obsidian\'s metadata cache as it stands when the note is read, and may be incomplete while Obsidian is still indexing the vault after startup. To tell indexing from idle, watch the `metadataCache` event stream (`resolve` fires per file, `resolved` on each drain of the resolver queue) or read `state.metadataCache` from `GET /`, which reports when the plugin last heard either."\n      properties:\n        backlinks:\n          description: "Vault-relative paths of files that link to this file, as Obsidian\'s cache currently has them; see the schema description."\n          items:\n            type: "string"\n          type: "array"\n        content:\n          type: "string"\n        frontmatter:\n          type: "object"\n        links:\n          description: "Vault-relative paths of files this file links to, as Obsidian\'s cache currently has them; see the schema description."\n          items:\n            type: "string"\n          type: "array"\n        path:\n          type: "string"\n        stat:\n          properties:\n            ctime:\n              type: "number"\n            mtime:\n              type: "number"\n            size:\n              type: "number"\n          required:\n            - "ctime"\n            - "mtime"\n            - "size"\n          type: "object"\n        tags:\n          items:\n            type: "string"\n          type: "array"\n        unresolvedLinks:\n          description: "Link text found in this file that does not resolve to an existing vault file, as Obsidian\'s cache currently has it; see the schema description."\n          items:\n            type: "string"\n          type: "array"\n        version:\n          description: "The file\'s version token, computed from the `content` returned beside it: the same value as its `ETag` and its document map\'s `version`. Send it as `If-Match` (quoted or bare) on a write to make the write fail, rather than overwrite a change made in between, if the file has changed."\n          example: "a1b2c3"\n          type: "string"\n      required:\n        - "tags"\n        - "frontmatter"\n        - "stat"\n        - "path"\n        - "content"\n        - "links"\n        - "backlinks"\n        - "unresolvedLinks"\n      type: "object"\n    PatchInstruction:\n      additionalProperties: false\n      description: "A single edit expressed as one operation applied to a scope of a target node. The payload rides in exactly one of `content`, `value`, or `destination`, chosen by what it is. Not every operation\xD7scope\xD7targetType combination is valid; invalid ones are rejected."\n      properties:\n        content:\n          description: "String payload: a heading/block body or label, a new block id for a block `marker` rename (letters, numbers, hyphens, and underscores only), or a new frontmatter key name for a frontmatter `marker` rename. Heading levels are relative to the edited span (a leading `#` becomes a direct child). For heading writes, whitespace is library-owned: leading/trailing blank lines here are ignored, and the engine supplies the blank line that keeps inserted content a separate block \u2014 never add newlines to control spacing. (Block-target `content` is the exception: it is spliced literally for inline edits.) A heading `marker` rename may not contain a line break. Provide exactly one of `content`, `value`, or `destination`."\n          type: "string"\n        createTargetIfMissing:\n          default: false\n          description: "Create the target (heading path, block id, or frontmatter key) if it does not already exist."\n          type: "boolean"\n        destination:\n          additionalProperties: false\n          description: "For a heading move (operation `replace`, scope `parent`): where the section is re-parented. Provide exactly one of `content`, `value`, or `destination`."\n          properties:\n            parent:\n              anyOf:\n                - items:\n                    type: "string"\n                  type: "array"\n              description: "The section\'s new parent heading address, or null/[] for the document root."\n              nullable: true\n            place:\n              anyOf:\n                - enum:\n                    - "first"\n                    - "last"\n                  type: "string"\n                - additionalProperties: false\n                  properties:\n                    before:\n                      anyOf:\n                        - items:\n                            type: "string"\n                          type: "array"\n                      description: "A heading\'s containment path: the ancestor heading texts from the top level down (e.g. [\\"Overview\\",\\"Details\\"]), or null/[] for the document root."\n                      nullable: true\n                  required:\n                    - "before"\n                  type: "object"\n                - additionalProperties: false\n                  properties:\n                    after:\n                      anyOf:\n                        - items:\n                            type: "string"\n                          type: "array"\n                      description: "A heading\'s containment path: the ancestor heading texts from the top level down (e.g. [\\"Overview\\",\\"Details\\"]), or null/[] for the document root."\n                      nullable: true\n                  required:\n                    - "after"\n                  type: "object"\n              description: "Position among the new parent\'s children: \\"first\\", \\"last\\", or { before } / { after } a sibling heading address."\n          required:\n            - "parent"\n            - "place"\n          type: "object"\n        ifMatch:\n          description: "Optimistic-concurrency token (the `version` from a prior document map). If set and the document has changed since, the patch fails with a precondition error without modifying the file."\n          type: "string"\n        operation:\n          description: "What happens to the scoped span: replace it, insert before (`prepend`) or after (`append`), or `delete` it."\n          enum:\n            - "replace"\n            - "prepend"\n            - "append"\n            - "delete"\n          type: "string"\n        rejectIfContentPreexists:\n          default: false\n          description: "Fail a `prepend`/`append` when the string content already appears in the target span (makes those operations idempotent on retry)."\n          type: "boolean"\n        scope:\n          default: "content"\n          description: "Which part of the target the operation acts on (default `content`). `content`: the node body \u2014 for a heading, its whole subtree below the heading line. `marker`: the label only \u2014 a heading line, a block `^id`, or a frontmatter key (`replace` renames it). `markerAndContent`: the whole node/subtree (`prepend`/`append` insert a sibling). `parent`: a heading\'s place in the tree \u2014 only with operation `replace`, carrying a `destination` (a move)."\n          enum:\n            - "content"\n            - "marker"\n            - "markerAndContent"\n            - "parent"\n          type: "string"\n        target:\n          anyOf:\n            - items:\n                type: "string"\n              type: "array"\n            - type: "string"\n          description: "The node to edit. For a heading: an array of heading texts from the top level down to the target (e.g. [\\"Overview\\",\\"Details\\"]), or null/[] for the document root. If a heading is a duplicate of an earlier sibling under the same parent, its address carries an extra non-printable marker suffix appended by the server \u2014 copy that address verbatim from wherever the document\'s heading structure was discovered, never retype or reconstruct it. For a block: the bare block id, without the leading `^` (letters, numbers, hyphens, and underscores only) \u2014 a duplicate block id\'s later occurrence carries the same kind of marker suffix, copied verbatim the same way. For a frontmatter field: the key."\n          nullable: true\n        targetType:\n          description: "The kind of node to edit."\n          enum:\n            - "heading"\n            - "block"\n            - "frontmatter"\n          type: "string"\n        value:\n          description: "Structured JSON payload: a frontmatter value (any JSON \u2014 string, number, boolean, array, object, null; for `prepend`/`append` this merges: list concat, dict merge, string concat), or table rows on a `block` target\'s `content` cell (a 2-D array of strings, one row per entry \u2014 `replace` swaps the body rows, `prepend`/`append` insert before/after the existing ones; each row\'s length must match the table\'s column count). Table cells are content, not table source: a `|` is escaped for you, and a cell containing a line break is rejected, since a row is a single line. Provide exactly one of `content`, `value`, or `destination`."\n        within:\n          description: "Refines a heading target to one of the section\'s direct-body top-level blocks (a paragraph, list, table, code fence, blockquote, \u2026): 0 is the first block in document order, and a negative index counts from the end (-1 = last). Isolated `^id` lines are not counted, so indices match the rendered blocks. With scope `content`, the edit is a literal splice into that block \u2014 you own the joint, so `append` *continues* the block (e.g. content `\\\\n- item` extends a list) \u2014 and `delete` removes the block. With scope `markerAndContent`, `prepend`/`append` insert a new block immediately before/after it, with library-owned blank-line separators. Heading targets only; cannot be combined with `createTargetIfMissing`."\n          type: "integer"\n      required:\n        - "targetType"\n        - "target"\n        - "operation"\n      type: "object"\n  securitySchemes:\n    apiKeyAuth:\n      description: |\n        Find your API Key in your Obsidian settings\n        in the "Local REST API" section under "Plugins".\n        \n        Failed authentication is throttled. A source that presents a wrong credential -- an incorrect API key, or an invalid, expired or spent signed URL -- ten times within a minute has its further wrong credentials refused with `429` (error code `42901`) and a `Retry-After` header until the minute is up. Requests that carry the correct key or a valid signed URL are never counted or delayed, and neither are requests that present no credential at all; they are answered `401` (or, on the routes that need no authentication, served) exactly as before. The count is kept in memory per source address and does not survive a plugin reload.\n      scheme: "bearer"\n      type: "http"\ninfo:\n  description: |\n    The Obsidian Local REST API with MCP plugin gives you two ways to interact with your Obsidian vault programmatically:\n    \n    - **REST API** \u2014 standard HTTP endpoints for reading and writing notes, searching vault contents, and more. Useful from scripts, applications, or any HTTP client.\n    - **MCP server** \u2014 exposes the same capabilities as structured tools for AI assistants (Claude, Cursor, and other MCP-compatible clients). See the `POST /mcp/` endpoint for connection details.\n    \n    ## Conditional writes\n    \n    Every write to a file accepts an `If-Match` header, so two clients editing the same note cannot silently overwrite each other. Read the file, keep the `ETag` it answers with, and send it back as `If-Match` on the write: if the file has changed in between, the write fails with `412` and nothing is written. `If-None-Match: *` makes a `PUT` create-only. The document map\'s `version` and note JSON\'s `version` are the same token as the `ETag`, and every write that changes a file answers with its new one.\n    \n    ## Testing with this interface\n    \n    Select any operation in the sidebar, then open the **Try It** tab to send a live request to your running Obsidian instance.\n    \n    **Authentication** \u2014 all requests require a Bearer token. In the **Try It** panel, expand the **Security** section and paste the API key shown in Obsidian under **Settings \u2192 Local REST API with MCP**. Failed authentication is throttled: ten wrong keys from one source within a minute and further wrong keys are refused with `429` until the minute is up, so if you paste the wrong key, correct it rather than retrying. Requests with the correct key are never delayed.\n    \n    **Certificate warning** \u2014 the plugin generates its own certificate authority on first run and serves a TLS certificate signed by it. Most browsers will block requests to an untrusted certificate, so you may need to download the certificate authority from `/obsidian-local-rest-api.crt` and add it as a trusted authority in your OS or browser settings before requests will go through. The steps vary by environment \u2014 search for "trust self-signed certificate" plus your OS or browser name if you\'re unsure. If that proves too cumbersome, you can enable the insecure HTTP server in your plugin settings instead and select "HTTP (insecure mode)" from the **Try It** section.\n  title: "Local REST API for Obsidian"\n  version: "1.0"\nopenapi: "3.2.0"\npaths:\n  /:\n    get:\n      description: |\n        Returns basic details about the server as well as your authentication status.\n        \n        This is the only API request that does *not* require authentication. An authenticated request additionally receives `certificateInfo`, `apiExtensions`, and `state`.\n        \n        A request that sends an API key still has that key checked: `authenticated` reports whether it was correct, and a wrong one counts towards the failed-authentication throttle like a wrong key anywhere else, so once a source is throttled this route answers `429` to wrong keys too. A request with no key at all is not counted and always answers `200` with `authenticated: false`.\n        \n        ## State\n        \n        `state` carries observations, by namespace, that a client reads to decide whether to proceed. The server attaches no verdict: it reports what it has heard and when, and the client applies its own tolerance.\n        \n        `state.metadataCache` is the plugin\'s own namespace. It answers the question issue #327 raised: a note\'s `links`, `backlinks`, and `unresolvedLinks` come from Obsidian\'s vault-wide link graph, and while Obsidian is still indexing after startup they can be incomplete with no sign in the note itself. Obsidian gives no documented signal for the end of that indexing, so instead of a `ready` flag the plugin reports when it started listening, when it last heard the cache\'s `resolved` event, and when it last heard any indexing activity. Indexing in progress looks like recent activity; done looks like silence. A client that would rather not poll can watch the `metadataCache` event stream, where `resolve` fires per file and `resolved` on each drain.\n        \n        Every other key of `state` is an extension plugin\'s id, holding whatever that extension publishes through the extension API\'s `addState`, or `null` when its state could not be read within the budget set in the plugin\'s advanced settings. An extension that documents its state has it listed under `state` in this specification, served from `/openapi.yaml`.\n        \n        The same document is available to MCP clients as the `obsidian://local-rest-api/status` resource.\n      responses:\n        "200":\n          content:\n            application/json:\n              schema:\n                properties:\n                  apiExtensions:\n                    description: "Authenticated requests only. Every plugin registered with the extension API: its manifest, plus the routes and MCP tools it has added."\n                    items:\n                      properties:\n                        id:\n                          type: "string"\n                        mcpTools:\n                          items:\n                            type: "string"\n                          type: "array"\n                        name:\n                          type: "string"\n                        routes:\n                          items:\n                            properties:\n                              authenticated:\n                                description: "Whether the route requires the API key."\n                                type: "boolean"\n                              path:\n                                type: "string"\n                            required:\n                              - "path"\n                              - "authenticated"\n                            type: "object"\n                          type: "array"\n                        version:\n                          type: "string"\n                      required:\n                        - "id"\n                        - "name"\n                        - "version"\n                        - "routes"\n                        - "mcpTools"\n                      type: "object"\n                    type: "array"\n                  authenticated:\n                    description: "Is your current request authenticated?"\n                    type: "boolean"\n                  certificateInfo:\n                    description: "Authenticated requests only. Facts about the certificate the HTTPS server presents."\n                    properties:\n                      regenerateReason:\n                        description: "Why regeneration is recommended, or null when it is not. `ca-used-as-leaf` means the installation still serves a single self-signed certificate generated before the plugin began issuing a separate certificate authority."\n                        type:\n                          - "string"\n                          - "null"\n                      regenerateRecommended:\n                        description: "Whether the certificate material predates a standard the plugin now follows and should be regenerated from the settings tab."\n                        type: "boolean"\n                      validityDays:\n                        description: "Days until the certificate expires."\n                        type: "number"\n                    required:\n                      - "validityDays"\n                      - "regenerateRecommended"\n                      - "regenerateReason"\n                    type: "object"\n                  service:\n                    description: "\'Obsidian Local REST API\'"\n                    type: "string"\n                  state:\n                    additionalProperties:\n                      description: "An extension plugin\'s state, under its plugin id, or null when it could not be read."\n                      type:\n                        - "object"\n                        - "null"\n                    description: "Authenticated requests only. Observations, by namespace, that a client reads to decide whether to proceed; the server attaches no verdict. `metadataCache` is the plugin\'s own. Every other key is an extension plugin\'s id and holds whatever that extension chose to publish, or null when its state could not be read in time (the budget is a plugin setting, 100 ms by default). An extension that documents its state appears here as a named property of this object."\n                    properties:\n                      metadataCache:\n                        description: "What the plugin has heard from Obsidian\'s metadata cache since it loaded. Obsidian gives no documented signal for the end of startup link resolution, so these are timestamps rather than a `ready` flag: indexing in progress looks like recent activity, and done looks like silence. A plugin enabled into an already-indexed vault hears nothing at all, which is why `listeningSince` is reported alongside. A client\'s rule might be: wait while `lastResolvedAt` is null and `listeningSince` is recent, or while `lastActivityAt` is recent."\n                        properties:\n                          lastActivityAt:\n                            description: "When the plugin last heard any indexing activity from the metadata cache (`changed`, `resolve`, or `resolved`), or null if none since `listeningSince`."\n                            format: "date-time"\n                            type:\n                              - "string"\n                              - "null"\n                          lastResolvedAt:\n                            description: "When the plugin last heard the metadata cache\'s `resolved` event, which Obsidian fires each time its link resolver queue drains, or null if it has not since `listeningSince`."\n                            format: "date-time"\n                            type:\n                              - "string"\n                              - "null"\n                          listeningSince:\n                            description: "When the plugin attached its listeners, which is when it loaded. The other two fields describe the window starting here."\n                            format: "date-time"\n                            type: "string"\n                        required:\n                          - "listeningSince"\n                          - "lastResolvedAt"\n                          - "lastActivityAt"\n                        type: "object"\n                    required:\n                      - "metadataCache"\n                    type: "object"\n                  status:\n                    description: "\'OK\'"\n                    type: "string"\n                  versions:\n                    properties:\n                      obsidian:\n                        description: "Obsidian plugin API version"\n                        type: "string"\n                      self:\n                        description: "Plugin version."\n                        type: "string"\n                    type: "object"\n                required:\n                  - "status"\n                  - "versions"\n                  - "service"\n                  - "authenticated"\n                type: "object"\n          description: "Success"\n        "429":\n          "$ref": "#/components/responses/TooManyAuthenticationFailures"\n      summary: |\n        Returns basic details about the server.\n      tags:\n        - "System"\n  /active/:\n    delete:\n      parameters:\n        - description: |\n            If "true", the file is permanently deleted instead of being moved to trash. Defaults to "false", which moves the file to trash following the user\'s Obsidian "Deleted files" preference (either the ".trash" folder or the system trash).\n          in: "query"\n          name: "permanent"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: |\n            Write only if the file is still the version you read. Send the `ETag` from\n            a `GET` of the file (or from a previous write), or the `version` from its\n            document map or note JSON -- they are the same token. A comma-separated\n            list matches if any entry does, and `*` matches any file that exists.\n            \n            If the file has changed since, or does not exist, the request fails with\n            `412` (error code `41200`) and nothing is written; read the file again and\n            redo the edit against what is there now. Tags are compared strongly: a\n            weak `W/"\u2026"` tag never matches. The tag may be sent quoted, as RFC 9110\n            writes it, or bare. A value that is neither `*` nor an entity-tag list is\n            refused with `400` (error code `40024`).\n            \n            Writes made through this API are queued per file, so two requests that\n            hold the same tag cannot both pass the check: the first to arrive writes,\n            and the second fails with `412`.\n          in: "header"\n          name: "If-Match"\n          required: false\n          schema:\n            example: "\\"a1b2c3\\""\n            type: "string"\n      responses:\n        "204":\n          description: "Success"\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "File does not exist."\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "412":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Precondition Failed: an `If-Match` or `If-None-Match` header did not hold against the file as it is now -- it has changed since the version `If-Match` named, no longer exists, or (under `If-None-Match: *`) already exists. Nothing was written. The message names the file\'s current version."\n      summary: |\n        Deletes the currently-active file in Obsidian.\n      tags:\n        - "Active File"\n    get:\n      description: |\n        Returns the content of the currently active file in Obsidian.\n        \n        # Targeting a Sub-part of your Document\n        \n        You can operate on a specific section of a note instead of the whole file by embedding a target in the URL path, immediately after the note identifier. The first segment after the note is the target type, and the remaining segments address the target:\n        \n        - `.../heading/My%20Section` targets the section beneath the `My Section` heading \u2014 the body content below the heading line.\n        - For a nested heading, add one path segment per level: `.../heading/My%20Section/Subsection` targets `Subsection` under `My Section`. Because each level is its own segment, a heading whose text contains `::` (or any other delimiter) needs no escaping.\n        - `.../block/abc123` targets the block with reference ID `abc123`.\n        - `.../frontmatter/fieldName` targets the `fieldName` frontmatter field.\n        \n        Percent-encode any segment that contains non-ASCII characters or a literal `/` (e.g. `H%C3%A9llo` for `H\xE9llo`, or `TODO%2FDONE` for a heading named `TODO/DONE`). Each URL path segment is decoded on its own, so an encoded `%2F` stays a literal slash *inside* that one segment rather than acting as a separator \u2014 that is what lets a heading name contain a slash. The same rule applies to the note path itself: because a file or folder name can never contain a slash, the note must be addressed with real `/` separators between its path components (`/vault/folder/note.md`), not with the separators encoded (`/vault/folder%2Fnote.md`), which no longer resolves.\n        \n        If a document has a duplicate sibling heading (the same text repeated under the same parent) or a duplicate block reference ID, only the first occurrence is addressable by its plain text/id. Each later occurrence gets its own address with a non-printable marker suffix appended by the server \u2014 fetch the document map (`Accept: application/vnd.olrapi.document-map+json`) and copy that occurrence\'s key verbatim; don\'t try to type or reconstruct the marker yourself.\n        \n        `GET` returns just the addressed section. By default that is the target\'s `content` scope; add a `Target-Scope` header to read the `marker` (the label \u2014 a heading\'s raw text, a block\'s bare id, a frontmatter key) or `markerAndContent` (the whole node, in exactly the shape a PATCH `replace` at that scope consumes \u2014 a heading subtree comes back with its own line as `# Title`, levels relative to its parent, so a read-modify-write never counts `#`s). `PUT` replaces the section and `POST` appends to it, with heading levels normalized and separator whitespace managed for you. `PATCH` also accepts a URL target \u2014 its raw-content mode \u2014 with the operation and other instruction fields in headers (`Operation`, `Target-Scope`, \u2026) and the raw payload as the body. For the full instruction algebra (renames, moves, deletes, typed frontmatter values), see the PATCH documentation.\n        \n        On `PUT` and `POST`, the `Content-Type` of your request body selects how the payload is interpreted, and not every target accepts both:\n        \n        - A `text/markdown` body is literal markdown. Valid for `heading` and `block` targets. On a `frontmatter` target it is stored as the field\'s plain string value.\n        - An `application/json` body is structured data. On a `block` target that addresses a table, it is a 2-D array of row cells (`[["Chicago", "16"]]`). On a `frontmatter` target it is the field\'s typed value (a list, dictionary, number, or string). A `heading` target has no structured form \u2014 its body is markdown text \u2014 so a JSON body there is rejected with `400 InvalidPatchInstruction` rather than being stringified into your note.\n        \n        ## Which file did it act on?\n        \n        A URL that embeds a target is ambiguous on its face: `/vault/notes/log.md/heading/Today` could address the `Today` section of `notes/log.md`, or a file literally named `notes/log.md/heading/Today`. The server resolves it by walking backwards down the path until it finds a real file, and reports the answer in a `Content-Location` response header holding the vault-relative path it settled on. Each path component is percent-encoded on its own \u2014 non-ASCII characters, and reserved characters like `#`, `?` and `,` that a client would otherwise read as a fragment, a query or a header-list separator \u2014 so the value can be pasted straight back into a request URL. A request whose URL names the file outright gets no such header \u2014 there is nothing it could tell you that the URL does not.\n        \n        `/active/` responses carry `Content-Location` for the same reason, whether or not a target is embedded: the file the request acted on is whichever note happened to be open.\n        \n        ## Deprecated: header-based targeting\n        \n        Earlier releases addressed a sub-part with `Target-Type`, `Target`, and `Target-Delimiter` request headers (plus `Target-Scope` and `Trim-Target-Whitespace`) rather than URL path segments. **That form is deprecated and will be removed in 6.0.** It is only processed when you also send `Markdown-Patch-Version: 1`, and responses served that way carry a `Deprecation: true; sunset-version="6.0"` header. On GET/PUT/POST, supplying those targeting headers without that version is rejected with `400 HeaderTargetingRequiresVersion1` \u2014 reach the sub-part with URL path segments instead. (On PATCH, `Target-Type`/`Target` headers also have a *non-deprecated* meaning under an explicit `Markdown-Patch-Version: 2` \u2014 raw-content mode, with a different `Target` encoding; see the PATCH documentation.) Supplying both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n        \n        # Retrieving Document Metadata\n        \n        ## Metadata\n        \n        If you specify the header `Accept: application/vnd.olrapi.note+json`, will return a JSON representation of your note including parsed tag and frontmatter data as well as filesystem metadata.\n        \n        ## Document Map\n        \n        If you specify the header `Accept: application/vnd.olrapi.document-map+json`, will return a JSON object outlining what PATCH targets exist. See "responses" below for details.\n        \n        ## Rendered HTML\n        \n        If you specify the header `Accept: text/html`, will return the note rendered to HTML using Obsidian\'s own Markdown renderer \u2014 the same rendering used in Obsidian\'s preview mode, including embeds, callouts, and other Obsidian-flavored Markdown extensions. If `Target-Type`/`Target` are specified with `heading` or `block`, only that section is rendered. `Target-Type: frontmatter` is not supported for this Accept type and returns a 400 error, since frontmatter has no HTML rendering.\n      parameters:\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: |\n            For a URL-path-targeted read: which part of the target to return\n            (default `content`), mirroring PATCH\'s scopes with a round-trip\n            guarantee \u2014 what a scope returns is exactly what a `replace` at that\n            scope consumes.\n            \n            - `content` (default): the node\'s body \u2014 a heading\'s body with its\n              levels made relative to the target, a block\'s text, a frontmatter\n              value.\n            - `marker`: the label \u2014 a heading\'s raw text (no `#`s, and without the\n              duplicate-marker suffix its map key may carry), a block\'s bare id, a\n              frontmatter key.\n            - `markerAndContent`: the whole node \u2014 a heading\'s subtree with its own\n              line as `# Title` (levels relative to its parent), a block\'s full\n              span including its `^id`, or a frontmatter entry as a `{key: value}`\n              JSON object.\n            \n            `parent` places a section but carries no readable value, and returns\n            `400 InvalidTargetScopeHeader`. Only meaningful when the URL path\n            addresses a sub-part of the note.\n          in: "header"\n          name: "Target-Scope"\n          required: false\n          schema:\n            default: "content"\n            enum:\n              - "content"\n              - "marker"\n              - "markerAndContent"\n            type: "string"\n      responses:\n        "200":\n          content:\n            application/json:\n              description: "Returned when the URL path targets a frontmatter field (`.../frontmatter/fieldName`); the JSON value of that field."\n              schema: {}\n            "application/vnd.olrapi.document-map+json":\n              schema:\n                description: |\n                  The document map. To receive the deprecated 1.x shape \u2014 heading paths as\n                  `::`-joined strings, block ids prefixed with `^`, and no `version` \u2014\n                  send `Markdown-Patch-Version: 1`.\n                properties:\n                  blocks:\n                    description: "Block reference ids, bare (no leading `^`), in document order."\n                    example:\n                      - "blockref1"\n                      - "anotherBlockRef"\n                    items:\n                      type: "string"\n                    type: "array"\n                  frontmatterFields:\n                    example:\n                      - "title"\n                      - "tags"\n                      - "dateCreated"\n                    items:\n                      type: "string"\n                    type: "array"\n                  headings:\n                    "$ref": "#/components/schemas/HeadingTree"\n                  version:\n                    description: "Content-hash token for the file, the same value as its `ETag`; pass it back as a PATCH `ifMatch`, or as `If-Match` on any write, to make the write conditional on the file being unchanged."\n                    example: "a1b2c3"\n                    type: "string"\n                type: "object"\n            "application/vnd.olrapi.note+json":\n              schema:\n                "$ref": "#/components/schemas/NoteJson"\n            text/html:\n              description: |\n                Returned when `Accept: text/html` is specified. The note (or, if `Target-Type`/`Target` are specified with `heading` or `block`, just that section) rendered to HTML via Obsidian\'s Markdown renderer (embeds, callouts, etc. included). `Target-Type: frontmatter` is not supported for this Accept type and returns a 400 error.\n              schema:\n                example: |\n                  <h1>This is my document</h1>\n                  <p>something else here</p>\n                type: "string"\n            text/markdown:\n              schema:\n                example: |\n                  # This is my document\n                  \n                  something else here\n                type: "string"\n          description: "Success"\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            ETag:\n              description: "The file\'s version, as a strong entity tag -- the same token as the document map\'s `version` and note JSON\'s `version`. Send it as `If-Match` on a write to make that write fail, rather than overwrite a change made in between, if the file has changed. Sent with the file itself, a section of it, and the document map, all of which depend only on the file\'s bytes; a matching `If-None-Match` on those reads is answered `304 Not Modified`. Not sent as this token with `Accept: text/html` or note JSON, which also depend on other files (embeds, backlinks) -- read note JSON\'s `version` field instead."\n              schema:\n                example: "\\"a1b2c3\\""\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            The `Markdown-Patch-Version` header was invalid (not `1` or `2`), the deprecated `Target-Type`/`Target` headers were invalid, the `Target-Scope` header was not a readable scope (`content`, `marker`, `markerAndContent`), or a frontmatter target was combined with `Accept: text/html` (frontmatter has no HTML rendering).\n        "404":\n          description: "File or target section does not exist"\n      summary: |\n        Return the content of the active file open in Obsidian.\n      tags:\n        - "Active File"\n    patch:\n      description: |\n        Modifies the currently-open note with a single structured instruction: an operation applied to a scope of a target \u2014 a heading, block reference, or frontmatter field within that document.\n        \n        Edit a document with a single structured instruction \u2014 an **operation** applied to a **scope** of a **target** node (a heading, block reference, or frontmatter field). By default the whole instruction travels as a JSON request body; [raw-content mode](#raw-content-mode-templating-friendly) instead carries the instruction\'s fields in URL path elements/headers with the raw payload as the body.\n        \n        > **Migrating from the header-driven format?** See [Deprecated: the 1.x header-driven format](#deprecated-the-1x-header-driven-format) at the end.\n        \n        # The algebra\n        \n        - **operation** \u2014 `replace`, `prepend`, `append`, or `delete`.\n        - **scope** (optional, default `content`):\n          - `content` \u2014 the node\'s body. For a heading, that\'s its whole subtree *below* the heading line.\n          - `marker` \u2014 the label only: a heading line, a block `^id`, or a frontmatter key. `replace` renames it.\n          - `markerAndContent` \u2014 the marker *and* the body together: for a heading, its heading line plus everything beneath it. Unlike `content`, the heading line is inside the edited span, so a `replace` here rewrites the heading itself. `prepend`/`append` insert a *sibling* before/after it.\n          - `parent` \u2014 a heading\'s place in the tree. Valid only with `replace`, and carries a `destination` (a **move**).\n        - **target** \u2014 for a heading, an array of heading texts from the top level down (`["Overview","Details"]`), or `null`/`[]` for the document root; for a block, the bare id without `^`; for a frontmatter field, the key.\n        - **within** (optional, heading targets only) \u2014 a positional refinement: an index picking one of the section\'s direct-body top-level blocks (a paragraph, list, table, code fence, \u2026), 0-based in document order, negative counting from the end (`-1` = last; isolated `^id` lines are not counted). The instruction then edits *that block*: with `content` scope, `replace`/`prepend`/`append` splice literally into it \u2014 you own the joint, so `append` with `\\n- item` *continues* a list \u2014 and `delete` removes it; with `markerAndContent` scope, `prepend`/`append` insert a new block immediately before/after it. Not combinable with `createTargetIfMissing`.\n        - **payload** \u2014 carried in exactly one field, chosen by what it is:\n          - `content` \u2014 a markdown/text string (heading & block bodies/labels, or a frontmatter key rename).\n          - `value` \u2014 arbitrary JSON (frontmatter values).\n          - `destination` \u2014 where a moved heading lands.\n        \n        Not every combination is meaningful; invalid ones are rejected with a `400`.\n        \n        **Relative heading levels.** Heading `#`-counts inside a `content` string are *relative* to the edited span, so you never count `#`s: under `content` scope a leading `#` becomes a direct child of the target; under `markerAndContent` (or a sibling insert) it lands at the target\'s own level. Nesting inside your content is preserved as you wrote it \u2014 replacing a `##` section with `# New\\n\\n## Child` yields `## New` and `### Child`. A level rebased past `######` (h6) is still written, but the response carries a `heading-depth-overflow` entry in the `Markdown-Patch-Warnings` header \u2014 percent-encoded JSON, since a warning message embeds document text verbatim and header values must be ASCII; run it through `decodeURIComponent` before parsing.\n        \n        > **Note:** because the heading line is part of the `markerAndContent` span, a `replace` whose content has *no* heading removes it \u2014 the section is dissolved into a plain paragraph. Include a leading `#` (at any depth; it is rebased for you) to keep it a heading.\n        \n        # How to Use & Examples\n        \n        All of the below examples assume you have a document that looks like this:\n        \n        ```markdown\n        ---\n        alpha: 1\n        beta: test\n        delta:\n        zeta: 1\n        yotta: 1\n        gamma:\n        - one\n        - two\n        ---\n        \n        # Heading 1\n        \n        This is the content for heading one\n        \n        Also references some [[#^484ef2]]\n        \n        ## Subheading 1:1\n        Content for Subheading 1:1\n        \n        ### Subsubheading 1:1:1\n        \n        ### Subsubheading 1:1:2\n        \n        Testing how block references work for a table.[[#^2c7cfa]]\n        Some content for Subsubheading 1:1:2\n        \n        More random text.\n        \n        ^2d9b4a\n        \n        ## Subheading 1:2\n        \n        Content for Subheading 1:2.\n        \n        some content with a block reference ^484ef2\n        \n        ## Subheading 1:3\n        | City         | Population |\n        | ------------ | ---------- |\n        | Seattle, WA  | 8          |\n        | Portland, OR | 4          |\n        \n        ^2c7cfa\n        ```\n        \n        ## Append, prepend, or replace content below a heading\n        \n        To append the content "Hello" below "Subsubheading 1:1:1" under "Heading 1":\n        \n        ```json\n        {\n          "targetType": "heading",\n          "target": ["Heading 1", "Subheading 1:1", "Subsubheading 1:1:1"],\n          "operation": "append",\n          "content": "Hello"\n        }\n        ```\n        \n        `prepend` and `replace` work the same way, with different results. Because `target` is an array, a heading whose text contains `::` needs no escaping.\n        \n        > **Note:** the heading line itself is not part of the `content` scope. When you `replace` a heading\'s content, supply only the body \u2014 do not include the heading line, or it will be duplicated. To rename the heading, see below.\n        \n        ## Renaming a heading\n        \n        Give the new text. That\'s all \u2014 no `#` characters, and nothing to look up:\n        \n        ```json\n        {\n          "targetType": "heading",\n          "target": ["Heading 1", "Subheading 1:1"],\n          "operation": "replace",\n          "scope": "marker",\n          "content": "New Name"\n        }\n        ```\n        \n        `marker` scope addresses the label rather than the line, so the heading keeps whatever level it had and the body underneath is untouched. You never need to know the heading\'s depth to rename it.\n        \n        > **Do not include `#` characters here.** They are not stripped \u2014 they become part of the heading text, so `"## New Name"` renames the heading to `## New Name` and renders as `## ## New Name`. (This is the reverse of the deprecated 1.x format, where the `#`s were required. If you are migrating, drop them.)\n        \n        The same instruction shape renames a block id (`targetType: "block"`, new id without `^`) or a frontmatter key (`targetType: "frontmatter"`, new key name in `content`).\n        \n        ## Whitespace is library-owned\n        \n        Your `content` crosses the API in trimmed, canonical form: leading and trailing blank lines are stripped, and a non-empty write always ends with exactly one newline. `"X"`, `"X\\n"`, `"\\nX\\n"`, and `"X\\n\\n"` all produce the same document \u2014 newlines at the edges of your content are not a channel for controlling layout, so there is nothing to get wrong.\n        \n        Blank-line separators are the API\'s job. At any joint where your content faces body text, the engine supplies the blank line that keeps it a separate block. Given a document containing:\n        \n        ```markdown\n        # One\n        \n        body of one\n        ```\n        \n        - `append` becomes a new block after the body \u2192 `# One\\n\\nbody of one\\n\\nX\\n`\n        - `prepend` becomes a new block before the body \u2192 `# One\\n\\nX\\n\\nbody of one\\n`\n        - `replace` swaps the body \u2192 `# One\\n\\nX\\n`\n        \n        Where no separator is owed, none is added \u2014 a heading line is self-delimiting, and existing blank lines, gaps between sections, and document edges are preserved rather than rewritten:\n        \n        - The blank line between a heading and its body is kept in place: `replace` swaps the body beneath it and `prepend` inserts below it. A document written flush (`# One\\nbody of one\\n`) keeps its flush style \u2014 `replace` gives `# One\\nX\\n` \u2014 and replacing a body with its own text is byte-identity in either style.\n        - Writing into an empty section lands flush under its heading (`# E\\nX\\n`), with the section\'s existing trailing gap serving as the separator below.\n        \n        One consequence worth knowing: a `content`-scope `append`/`prepend` always begins a new block \u2014 it can never continue an existing paragraph or list. To edit inline within an existing block, address the block itself, which puts you on the literal-splice path where content lands exactly as given and you own the joint. Two ways to do that: target the block via its reference (`^id`) if it has one, or add `within: <index>` to a heading instruction to pick one of the section\'s body blocks by position \u2014 no `^id` required. For example, to extend the last list of a section:\n        \n        ```json\n        { "targetType": "heading", "target": ["Log"], "within": -1, "operation": "append", "content": "\\n- new item" }\n        ```\n        \n        Because a `within` edit is literal, the leading `\\n` is yours to write \u2014 without it the text continues the block\'s last line. Indices are positional, so read the document map or section first, and pair the edit with `ifMatch` from that read so a concurrent change fails the patch rather than landing on the wrong block.\n        \n        ## Append, prepend, or replace content of a block reference\n        \n        To append "Hello" below the block referenced by `2d9b4a`:\n        \n        ```json\n        { "targetType": "block", "target": "2d9b4a", "operation": "append", "content": "Hello" }\n        ```\n        \n        ## Append, prepend, or replace table rows via a block reference\n        \n        To add a new city/population pair to the table referenced by `2c7cfa`, pass the row(s) as a 2-D JSON array in `value`:\n        \n        ```json\n        { "targetType": "block", "target": "2c7cfa", "operation": "append", "value": [["Chicago, IL", "16"]] }\n        ```\n        \n        `prepend` puts the new row first (right below the heading row); `replace` swaps all body rows for the ones you supply. Each row must have exactly as many cells as the table has columns; a mismatched row, or targeting a block that isn\'t a table, is rejected.\n        \n        Cells are content, not table source, so you don\'t format them: a `|` in a cell is escaped for you and stays in the cell it belongs to. A cell containing a line break is rejected, since a table row is a single line \u2014 if you need a visual break inside a cell, send `<br>` yourself.\n        \n        ## Setting a frontmatter field\n        \n        Frontmatter values are JSON, so they ride in `value` (not `content`). To set `alpha` to `2`:\n        \n        ```json\n        { "targetType": "frontmatter", "target": "alpha", "operation": "replace", "value": 2 }\n        ```\n        \n        Add `"createTargetIfMissing": true` to create a field that might not exist yet. For `append`/`prepend`, `value` is merged into the existing value (list concat, dict merge, string concat).\n        \n        ## Adding and removing tags\n        \n        Obsidian stores frontmatter tags in the `tags` field. To add `project/active`, merging into the list and creating it if absent:\n        \n        ```json\n        { "targetType": "frontmatter", "target": "tags", "operation": "append", "value": ["project/active"], "createTargetIfMissing": true }\n        ```\n        \n        There is no direct "remove item" operation. To remove a tag, read the current list (GET, or `vault_read` in the MCP API), filter it client-side, and replace the whole field:\n        \n        ```json\n        { "targetType": "frontmatter", "target": "tags", "operation": "replace", "value": ["remaining-tag-1", "remaining-tag-2"] }\n        ```\n        \n        ## Moving a heading section\n        \n        `scope: "parent"` with `operation: "replace"` re-parents (and re-levels) a section. To move "Details" under "Appendix" as its last child:\n        \n        ```json\n        {\n          "targetType": "heading",\n          "target": ["Overview", "Details"],\n          "operation": "replace",\n          "scope": "parent",\n          "destination": { "parent": ["Appendix"], "place": "last" }\n        }\n        ```\n        \n        `place` may be `"first"`, `"last"`, `{ "before": <heading path> }`, or `{ "after": <heading path> }`. Use `"parent": null` to move to the document root.\n        \n        ## Deleting\n        \n        `operation: "delete"` empties the `content` scope, removes the whole subtree (`markerAndContent`), or dissolves just the heading line (`marker`):\n        \n        ```json\n        { "targetType": "heading", "target": ["Heading 1", "Subheading 1:2"], "operation": "delete", "scope": "markerAndContent" }\n        ```\n        \n        ## Optimistic concurrency\n        \n        Pass `ifMatch` with the `version` token from a document map (see below). If the file changed since, the patch fails with `412` and the file is untouched \u2014 refetch and retry.\n        \n        The `If-Match` and `If-None-Match` headers work here too, in every mode, exactly as on the other writes: `If-Match` takes the same token (the `ETag` from a `GET` of the file, quoted or bare), a list of them, or `*`. When a JSON instruction carries `ifMatch` and the request also sends `If-Match`, both must hold. A successful patch answers with the patched file\'s version in `ETag`, ready for the next conditional edit.\n        \n        ## Identifying patch targets in a file\n        \n        Issue a GET request to `/vault/{path}` with an `Accept` header of `application/vnd.olrapi.document-map+json` to get the headings, block references, and frontmatter fields present in the file (and its `version` token). If a heading has a duplicate sibling (same text, same parent) or a block reference ID repeats, only the first occurrence keeps its plain-text/id key \u2014 each later occurrence\'s key carries a non-printable marker suffix; copy it verbatim from the map into `target` rather than typing it by hand. See "Targeting a Sub-part of your Document" for details.\n        \n        # Raw-content mode (templating-friendly)\n        \n        Putting the whole instruction in a JSON body has one sharp edge: the `content` string must be JSON-escaped, which tools that *template* markdown into an HTTP body (Shortcuts, Tasker, curl with `--data` from a template) often cannot do reliably. Raw-content mode removes that requirement: the instruction\'s fields travel **outside** the body, and the body is the raw payload \u2014 no JSON escaping required.\n        \n        The target can ride in either of two places (never both \u2014 that\'s a `422`):\n        \n        - **URL path elements**, exactly as GET/PUT/POST use them: `PATCH /vault/note.md/heading/A/B`. No version header needed.\n        - **`Target-Type` / `Target` headers**, together with an explicit `Markdown-Patch-Version: 2`. The `Target` encoding is type-dependent, mirroring the instruction\'s `target` field: a heading Target is **JSON, percent-encoded** \u2014 `["A","B"]` sent as `%5B%22A%22%2C%22B%22%5D`, or `null` for the document root \u2014 while block and frontmatter Targets are the plain id/key (percent-encoded if non-ASCII). Because `Target` headers on a PATCH are ambiguous with the deprecated 1.x format, omitting the version header fails loudly with `400 PatchHeaderTargetingRequiresExplicitVersion` rather than guessing.\n        \n        The remaining fields map to headers: `Operation` (required), `Target-Scope` (all four scopes, including `parent`), `Within` (the instruction\'s `within` index as a plain integer, e.g. `-1` \u2014 splice into one of the section\'s body blocks instead of adding a new one), `Create-Target-If-Missing`, `Reject-If-Content-Preexists`, `If-Match` (a precondition on the file, as on every write: the document-map `version` token, bare or ETag-quoted), and `Destination` (a move\'s destination object as percent-encoded JSON). The 1.x-only `Target-Delimiter` and `Trim-Target-Whitespace` headers are rejected.\n        \n        The body is the payload carrier, chosen by its content type:\n        \n        | Body | Instruction field |\n        | --- | --- |\n        | `text/markdown` (any `text/*`) | `content` |\n        | `application/json` | `value` |\n        | *(no body)* | none \u2014 a `delete`, or a move via `Destination` |\n        \n        An empty body deliberately maps to *no* carrier: a `replace` with an accidentally-empty template fails as a missing carrier instead of clearing the section. To clear content on purpose, use an instruction body with `"content": ""`.\n        \n        ```sh\n        # Append a templated line under a heading \u2014 no JSON escaping anywhere\n        curl -k -X PATCH \\\n          -H "Authorization: Bearer $API_KEY" \\\n          -H "Operation: append" \\\n          -H "Content-Type: text/markdown" \\\n          --data "- $TEMPLATED_CONTENT" \\\n          "https://127.0.0.1:27124/vault/notes/daily.md/heading/Log"\n        \n        # Extend the section\'s last list *in place* (not a new block below it):\n        # Within picks the block, and the leading newline in the body makes the\n        # spliced text a new item of that list\n        curl -k -X PATCH \\\n          -H "Authorization: Bearer $API_KEY" \\\n          -H "Operation: append" \\\n          -H "Within: -1" \\\n          -H "Content-Type: text/markdown" \\\n          --data $\'\\n- \'"$TEMPLATED_CONTENT" \\\n          "https://127.0.0.1:27124/vault/notes/daily.md/heading/Log"\n        \n        # The same edit with header targeting (note the explicit version and JSON Target)\n        curl -k -X PATCH \\\n          -H "Authorization: Bearer $API_KEY" \\\n          -H "Markdown-Patch-Version: 2" \\\n          -H "Target-Type: heading" \\\n          -H "Target: %5B%22Log%22%5D" \\\n          -H "Operation: append" \\\n          -H "Content-Type: text/markdown" \\\n          --data "- $TEMPLATED_CONTENT" \\\n          "https://127.0.0.1:27124/vault/notes/daily.md"\n        ```\n        \n        Everything downstream is identical to instruction mode: the same validation, the same warnings header, the same error mapping. A raw-mode request may also send `application/vnd.olrapi.patch-instruction+json` \u2014 but only as a *whole-instruction body* with no targeting elsewhere; combining it with URL or header targeting is a `422 ConflictingTargetSpecification`.\n        \n        > **Note:** on `/active/` endpoints, a URL suffix (e.g. `/active/heading/Log`) previously had no effect on PATCH \u2014 it was ignored and the whole file was patched. It now targets the addressed section, matching PUT/POST.\n        \n        # Deprecated: the 1.x header-driven format\n        \n        The earlier PATCH format spread the instruction across `Operation`, `Target-Type`, `Target`, `Target-Delimiter`, `Target-Scope`, `Create-Target-If-Missing`, `Reject-If-Content-Preexists`, and `Trim-Target-Whitespace` headers, with the payload in a `text/markdown` (or JSON-string) body. **It is deprecated and will be removed in 6.0.** Requests that use it still work, but every response carries a `Deprecation: true; sunset-version="6.0"` header.\n        \n        The JSON-instruction format described above is the default. To use the deprecated format, send `Markdown-Patch-Version: 1`; the header also selects the 1.x document map (`::`-joined heading paths, no `version`) on GET. Without any version header, a non-object body with no targeting is rejected with `400 InvalidPatchInstruction`, and `Target-Type`/`Target` headers are rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 those same header names are also raw-content mode\'s (with different `Target` encoding), so the request must explicitly pick `1` or `2`. To upgrade, drop the version header and either move each 1.x header into the JSON body as below, or switch to [raw-content mode](#raw-content-mode-templating-friendly) and keep your body as-is:\n        \n        | 1.x header | Instruction field |\n        | --- | --- |\n        | `Operation: append` | `"operation": "append"` (now also `"delete"`) |\n        | `Target-Type: heading` | `"targetType": "heading"` |\n        | `Target: A::B` (+ `Target-Delimiter`) | `"target": ["A", "B"]` (a real array \u2014 no delimiter) |\n        | `Target-Scope: content` | `"scope": "content"` (adds `"parent"` for moves) |\n        | body (`text/markdown`) | `"content": "..."` |\n        | body (`application/json` value) | `"value": <json>` |\n        | `Create-Target-If-Missing: true` | `"createTargetIfMissing": true` |\n        | `Reject-If-Content-Preexists: true` | `"rejectIfContentPreexists": true` |\n        | `Trim-Target-Whitespace` | *(dropped; the engine owns boundary whitespace)* |\n      parameters:\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: |\n            Raw-content mode: the type of node the instruction targets (`heading`,\n            `block`, or `frontmatter`). Must be used together with the `Target`\n            header and an explicit `Markdown-Patch-Version: 2`; alternatively, put\n            the target in the URL path (`.../heading/A/B`) and omit both headers.\n            Supplying both is rejected with `422 ConflictingTargetSpecification`.\n          in: "header"\n          name: "Target-Type"\n          required: false\n          schema:\n            enum:\n              - "heading"\n              - "block"\n              - "frontmatter"\n            type: "string"\n        - description: |\n            Raw-content mode: the node the instruction targets. The encoding is\n            type-dependent, mirroring the instruction\'s `target` field. For a\n            `heading`, the value is JSON \u2014 an array of heading texts from the top\n            level down, or `null` for the document root \u2014 then percent-encoded:\n            `["A","B"]` is sent as `%5B%22A%22%2C%22B%22%5D`. For a `block` or\n            `frontmatter` target, the value is the plain id/key, percent-encoded if\n            it contains non-ASCII characters. A heading value that does not decode\n            to JSON (e.g. a bare 1.x-style `A::B` path) is rejected with\n            `400 InvalidTargetHeader`.\n          in: "header"\n          name: "Target"\n          required: false\n          schema:\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s `within` \u2014 a single integer (e.g.\n            `-1`) refining a heading target to one of the section\'s direct-body\n            top-level blocks (0-based document order, negative counting from the\n            end; isolated `^id` lines are not counted). With the default `content`\n            scope the body is spliced literally into that block \u2014 an `append`\n            *continues* it \u2014 and a bodiless `delete` removes it; with\n            `Target-Scope: markerAndContent`, `prepend`/`append` insert the body as\n            a new block beside it. Heading targets only; cannot be combined with\n            `Create-Target-If-Missing`.\n          in: "header"\n          name: "Within"\n          required: false\n          schema:\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s operation. Required whenever the\n            target rides in the URL path or the `Target-Type`/`Target` headers.\n          in: "header"\n          name: "Operation"\n          required: false\n          schema:\n            enum:\n              - "replace"\n              - "prepend"\n              - "append"\n              - "delete"\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s `scope` \u2014 `content` (default),\n            `marker`, `markerAndContent`, or `parent` (a move; carries its\n            destination in the `Destination` header). See the instruction-body\n            documentation for what each scope addresses.\n          in: "header"\n          name: "Target-Scope"\n          required: false\n          schema:\n            default: "content"\n            enum:\n              - "content"\n              - "marker"\n              - "markerAndContent"\n              - "parent"\n            type: "string"\n        - description: |\n            Raw-content mode: where a moved heading lands (`Target-Scope: parent`).\n            The instruction\'s `destination` object as JSON, then percent-encoded:\n            `{"parent":["Appendix"],"place":"last"}` is sent as\n            `%7B%22parent%22%3A%5B%22Appendix%22%5D%2C%22place%22%3A%22last%22%7D`.\n            A move carries no body.\n          in: "header"\n          name: "Destination"\n          required: false\n          schema:\n            type: "string"\n        - description: "If the specified Target does not exist, create it?"\n          in: "header"\n          name: "Create-Target-If-Missing"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: "If patch data already exists in Target, reject the patch?"\n          in: "header"\n          name: "Reject-If-Content-Preexists"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: |\n            Write only if the file is still the version you read. Send the `ETag` from\n            a `GET` of the file (or from a previous write), or the `version` from its\n            document map or note JSON -- they are the same token. A comma-separated\n            list matches if any entry does, and `*` matches any file that exists.\n            \n            If the file has changed since, or does not exist, the request fails with\n            `412` (error code `41200`) and nothing is written; read the file again and\n            redo the edit against what is there now. Tags are compared strongly: a\n            weak `W/"\u2026"` tag never matches. The tag may be sent quoted, as RFC 9110\n            writes it, or bare. A value that is neither `*` nor an entity-tag list is\n            refused with `400` (error code `40024`).\n            \n            Writes made through this API are queued per file, so two requests that\n            hold the same tag cannot both pass the check: the first to arrive writes,\n            and the second fails with `412`.\n          in: "header"\n          name: "If-Match"\n          required: false\n          schema:\n            example: "\\"a1b2c3\\""\n            type: "string"\n        - description: |\n            `*` writes only if nothing exists at the path yet -- a create that will\n            not overwrite. A list of entity tags instead fails the write if the file is\n            currently at any of those versions. A failed precondition is `412` (error\n            code `41200`) and nothing is written; a malformed value is `400` (error\n            code `40024`).\n          in: "header"\n          name: "If-None-Match"\n          required: false\n          schema:\n            example: "*"\n            type: "string"\n      requestBody:\n        content:\n          application/json:\n            examples:\n              addTag:\n                summary: "Add a tag (merge into the tags list, creating it if absent)"\n                value:\n                  createTargetIfMissing: true\n                  operation: "append"\n                  target: "tags"\n                  targetType: "frontmatter"\n                  value:\n                    - "project/active"\n              appendToBlock:\n                summary: "Append text to a block addressed by its reference id"\n                value:\n                  content: "More detail for this block."\n                  operation: "append"\n                  target: "2c7cfa"\n                  targetType: "block"\n              appendUnderHeading:\n                summary: "Append text below a heading"\n                value:\n                  content: "Hello"\n                  operation: "append"\n                  target:\n                    - "Heading 1"\n                    - "Subheading 1:1:1"\n                  targetType: "heading"\n              continueList:\n                summary: "Continue an existing list in place (within: positional block edit)"\n                value:\n                  content: "\\n- new item"\n                  operation: "append"\n                  target:\n                    - "Log"\n                  targetType: "heading"\n                  within: -1\n              moveSection:\n                summary: "Move a heading section under a new parent"\n                value:\n                  destination:\n                    parent:\n                      - "Appendix"\n                    place: "last"\n                  operation: "replace"\n                  scope: "parent"\n                  target:\n                    - "Overview"\n                    - "Details"\n                  targetType: "heading"\n              setFrontmatter:\n                summary: "Set a frontmatter field to a JSON value"\n                value:\n                  operation: "replace"\n                  target: "alpha"\n                  targetType: "frontmatter"\n                  value: 2\n            schema:\n              "$ref": "#/components/schemas/PatchInstruction"\n          "application/vnd.olrapi.patch-instruction+json":\n            schema:\n              "$ref": "#/components/schemas/PatchInstruction"\n          text/markdown:\n            schema:\n              example: |\n                - A raw markdown line: no JSON escaping needed.\n              type: "string"\n        description: |\n          Instruction mode: a single patch instruction as JSON (`application/json`, or\n          `application/vnd.olrapi.patch-instruction+json` to declare it explicitly).\n          Raw-content mode: the raw payload \u2014 a `text/markdown` body is the instruction\'s\n          `content` carrier, an `application/json` body its `value` carrier, and no body at\n          all carries nothing (a delete, or a move via the `Destination` header). An empty\n          raw-mode body never clears content: a `replace` without a payload is rejected as a\n          missing carrier, so an accidentally-empty template cannot wipe a section (use an\n          instruction body with `"content": ""` to clear deliberately).\n        required: false\n      responses:\n        "200":\n          description: "Success. The body is the patched document. Any advisory warnings (e.g. a heading rebased past level 6) are JSON-encoded, then percent-encoded, in the `Markdown-Patch-Warnings` response header."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            ETag:\n              description: "The file\'s version after this write, as a strong entity tag: send it as `If-Match` on your next write to make that one conditional too, without reading the file again."\n              schema:\n                example: "\\"a1b2c3\\""\n                type: "string"\n            Markdown-Patch-Warnings:\n              description: "Present only when the patch produced warnings: a percent-encoded JSON array of `{ code, message }` objects (percent-encoded because a warning message embeds document text verbatim, which may contain non-ASCII characters that are not valid in a raw header value). Decode with `decodeURIComponent` before parsing as JSON."\n              schema:\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Bad Request; the instruction was malformed, the operation\xD7scope\xD7targetType combination is not part of the algebra, the `Markdown-Patch-Version` header was invalid, an instruction-mode request had a non-object body, or a raw-content-mode header could not be decoded (a heading `Target` that is not percent-encoded JSON, a malformed `Destination`, an unsupported body content type). Header-based targeting without an explicit `Markdown-Patch-Version` returns `PatchHeaderTargetingRequiresExplicitVersion` here. See response message for details."\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "The file, or the addressed target within it, does not exist (and `createTargetIfMissing` was not set)."\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "409":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "`rejectIfContentPreexists` was set and the content already appears in the target span."\n        "412":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Precondition Failed: an `If-Match` or `If-None-Match` header, or the JSON instruction\'s own `ifMatch` field, did not hold against the file as it is now. The file was not modified; the message names its current version."\n        "422":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Conflicting target specifications: more than one of URL path elements, `Target-Type`/`Target` headers, and an `application/vnd.olrapi.patch-instruction+json` instruction body was supplied."\n      summary: |\n        Partially update content in the currently open note.\n      tags:\n        - "Active File"\n    post:\n      description: |\n        Appends content to the end of the currently-open note.\n        \n        # Targeting a Sub-part of your Document\n        \n        You can operate on a specific section of a note instead of the whole file by embedding a target in the URL path, immediately after the note identifier. The first segment after the note is the target type, and the remaining segments address the target:\n        \n        - `.../heading/My%20Section` targets the section beneath the `My Section` heading \u2014 the body content below the heading line.\n        - For a nested heading, add one path segment per level: `.../heading/My%20Section/Subsection` targets `Subsection` under `My Section`. Because each level is its own segment, a heading whose text contains `::` (or any other delimiter) needs no escaping.\n        - `.../block/abc123` targets the block with reference ID `abc123`.\n        - `.../frontmatter/fieldName` targets the `fieldName` frontmatter field.\n        \n        Percent-encode any segment that contains non-ASCII characters or a literal `/` (e.g. `H%C3%A9llo` for `H\xE9llo`, or `TODO%2FDONE` for a heading named `TODO/DONE`). Each URL path segment is decoded on its own, so an encoded `%2F` stays a literal slash *inside* that one segment rather than acting as a separator \u2014 that is what lets a heading name contain a slash. The same rule applies to the note path itself: because a file or folder name can never contain a slash, the note must be addressed with real `/` separators between its path components (`/vault/folder/note.md`), not with the separators encoded (`/vault/folder%2Fnote.md`), which no longer resolves.\n        \n        If a document has a duplicate sibling heading (the same text repeated under the same parent) or a duplicate block reference ID, only the first occurrence is addressable by its plain text/id. Each later occurrence gets its own address with a non-printable marker suffix appended by the server \u2014 fetch the document map (`Accept: application/vnd.olrapi.document-map+json`) and copy that occurrence\'s key verbatim; don\'t try to type or reconstruct the marker yourself.\n        \n        `GET` returns just the addressed section. By default that is the target\'s `content` scope; add a `Target-Scope` header to read the `marker` (the label \u2014 a heading\'s raw text, a block\'s bare id, a frontmatter key) or `markerAndContent` (the whole node, in exactly the shape a PATCH `replace` at that scope consumes \u2014 a heading subtree comes back with its own line as `# Title`, levels relative to its parent, so a read-modify-write never counts `#`s). `PUT` replaces the section and `POST` appends to it, with heading levels normalized and separator whitespace managed for you. `PATCH` also accepts a URL target \u2014 its raw-content mode \u2014 with the operation and other instruction fields in headers (`Operation`, `Target-Scope`, \u2026) and the raw payload as the body. For the full instruction algebra (renames, moves, deletes, typed frontmatter values), see the PATCH documentation.\n        \n        On `PUT` and `POST`, the `Content-Type` of your request body selects how the payload is interpreted, and not every target accepts both:\n        \n        - A `text/markdown` body is literal markdown. Valid for `heading` and `block` targets. On a `frontmatter` target it is stored as the field\'s plain string value.\n        - An `application/json` body is structured data. On a `block` target that addresses a table, it is a 2-D array of row cells (`[["Chicago", "16"]]`). On a `frontmatter` target it is the field\'s typed value (a list, dictionary, number, or string). A `heading` target has no structured form \u2014 its body is markdown text \u2014 so a JSON body there is rejected with `400 InvalidPatchInstruction` rather than being stringified into your note.\n        \n        ## Which file did it act on?\n        \n        A URL that embeds a target is ambiguous on its face: `/vault/notes/log.md/heading/Today` could address the `Today` section of `notes/log.md`, or a file literally named `notes/log.md/heading/Today`. The server resolves it by walking backwards down the path until it finds a real file, and reports the answer in a `Content-Location` response header holding the vault-relative path it settled on. Each path component is percent-encoded on its own \u2014 non-ASCII characters, and reserved characters like `#`, `?` and `,` that a client would otherwise read as a fragment, a query or a header-list separator \u2014 so the value can be pasted straight back into a request URL. A request whose URL names the file outright gets no such header \u2014 there is nothing it could tell you that the URL does not.\n        \n        `/active/` responses carry `Content-Location` for the same reason, whether or not a target is embedded: the file the request acted on is whichever note happened to be open.\n        \n        ## Deprecated: header-based targeting\n        \n        Earlier releases addressed a sub-part with `Target-Type`, `Target`, and `Target-Delimiter` request headers (plus `Target-Scope` and `Trim-Target-Whitespace`) rather than URL path segments. **That form is deprecated and will be removed in 6.0.** It is only processed when you also send `Markdown-Patch-Version: 1`, and responses served that way carry a `Deprecation: true; sunset-version="6.0"` header. On GET/PUT/POST, supplying those targeting headers without that version is rejected with `400 HeaderTargetingRequiresVersion1` \u2014 reach the sub-part with URL path segments instead. (On PATCH, `Target-Type`/`Target` headers also have a *non-deprecated* meaning under an explicit `Markdown-Patch-Version: 2` \u2014 raw-content mode, with a different `Target` encoding; see the PATCH documentation.) Supplying both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n        \n        When a target is specified the content is appended within that section and the full updated file content is returned with a `200` status. Without a target, the content is appended to the end of the file and a `204` status is returned.\n        \n        If you need `prepend` or `replace` operations, use `PATCH` instead.\n      parameters:\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: "If the specified Target does not exist, create it?"\n          in: "header"\n          name: "Create-Target-If-Missing"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: "If patch data already exists in Target, reject the patch?"\n          in: "header"\n          name: "Reject-If-Content-Preexists"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: |\n            Write only if the file is still the version you read. Send the `ETag` from\n            a `GET` of the file (or from a previous write), or the `version` from its\n            document map or note JSON -- they are the same token. A comma-separated\n            list matches if any entry does, and `*` matches any file that exists.\n            \n            If the file has changed since, or does not exist, the request fails with\n            `412` (error code `41200`) and nothing is written; read the file again and\n            redo the edit against what is there now. Tags are compared strongly: a\n            weak `W/"\u2026"` tag never matches. The tag may be sent quoted, as RFC 9110\n            writes it, or bare. A value that is neither `*` nor an entity-tag list is\n            refused with `400` (error code `40024`).\n            \n            Writes made through this API are queued per file, so two requests that\n            hold the same tag cannot both pass the check: the first to arrive writes,\n            and the second fails with `412`.\n          in: "header"\n          name: "If-Match"\n          required: false\n          schema:\n            example: "\\"a1b2c3\\""\n            type: "string"\n        - description: |\n            `*` writes only if nothing exists at the path yet -- a create that will\n            not overwrite. A list of entity tags instead fails the write if the file is\n            currently at any of those versions. A failed precondition is `412` (error\n            code `41200`) and nothing is written; a malformed value is `400` (error\n            code `40024`).\n          in: "header"\n          name: "If-None-Match"\n          required: false\n          schema:\n            example: "*"\n            type: "string"\n      requestBody:\n        content:\n          text/markdown:\n            schema:\n              example: |\n                # This is my document\n                \n                something else here\n              type: "string"\n        description: "Content you would like to append."\n        required: true\n      responses:\n        "200":\n          content:\n            text/markdown:\n              schema:\n                type: "string"\n          description: "Success; content appended to the targeted section (via URL path elements). The full updated file content is returned. Any advisory warnings (e.g. a heading rebased past level 6) are JSON-encoded, then percent-encoded, in the `Markdown-Patch-Warnings` response header."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            ETag:\n              description: "The file\'s version after this write, as a strong entity tag: send it as `If-Match` on your next write to make that one conditional too, without reading the file again."\n              schema:\n                example: "\\"a1b2c3\\""\n                type: "string"\n            Markdown-Patch-Warnings:\n              description: "Present only when the write produced warnings: a percent-encoded JSON array of `{ code, message }` objects. Decode with `decodeURIComponent` before parsing as JSON."\n              schema:\n                type: "string"\n        "204":\n          description: "Success; content appended to end of file."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            ETag:\n              description: "The file\'s version after this write, as a strong entity tag: send it as `If-Match` on your next write to make that one conditional too, without reading the file again."\n              schema:\n                example: "\\"a1b2c3\\""\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Bad Request"\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "409":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "`Reject-If-Content-Preexists` was set and the content already appears in the targeted section."\n        "412":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Precondition Failed: an `If-Match` or `If-None-Match` header did not hold against the file as it is now -- it has changed since the version `If-Match` named, no longer exists, or (under `If-None-Match: *`) already exists. Nothing was written. The message names the file\'s current version."\n      summary: |\n        Append content to the active file open in Obsidian.\n      tags:\n        - "Active File"\n    put:\n      description: |\n        # Targeting a Sub-part of your Document\n        \n        You can operate on a specific section of a note instead of the whole file by embedding a target in the URL path, immediately after the note identifier. The first segment after the note is the target type, and the remaining segments address the target:\n        \n        - `.../heading/My%20Section` targets the section beneath the `My Section` heading \u2014 the body content below the heading line.\n        - For a nested heading, add one path segment per level: `.../heading/My%20Section/Subsection` targets `Subsection` under `My Section`. Because each level is its own segment, a heading whose text contains `::` (or any other delimiter) needs no escaping.\n        - `.../block/abc123` targets the block with reference ID `abc123`.\n        - `.../frontmatter/fieldName` targets the `fieldName` frontmatter field.\n        \n        Percent-encode any segment that contains non-ASCII characters or a literal `/` (e.g. `H%C3%A9llo` for `H\xE9llo`, or `TODO%2FDONE` for a heading named `TODO/DONE`). Each URL path segment is decoded on its own, so an encoded `%2F` stays a literal slash *inside* that one segment rather than acting as a separator \u2014 that is what lets a heading name contain a slash. The same rule applies to the note path itself: because a file or folder name can never contain a slash, the note must be addressed with real `/` separators between its path components (`/vault/folder/note.md`), not with the separators encoded (`/vault/folder%2Fnote.md`), which no longer resolves.\n        \n        If a document has a duplicate sibling heading (the same text repeated under the same parent) or a duplicate block reference ID, only the first occurrence is addressable by its plain text/id. Each later occurrence gets its own address with a non-printable marker suffix appended by the server \u2014 fetch the document map (`Accept: application/vnd.olrapi.document-map+json`) and copy that occurrence\'s key verbatim; don\'t try to type or reconstruct the marker yourself.\n        \n        `GET` returns just the addressed section. By default that is the target\'s `content` scope; add a `Target-Scope` header to read the `marker` (the label \u2014 a heading\'s raw text, a block\'s bare id, a frontmatter key) or `markerAndContent` (the whole node, in exactly the shape a PATCH `replace` at that scope consumes \u2014 a heading subtree comes back with its own line as `# Title`, levels relative to its parent, so a read-modify-write never counts `#`s). `PUT` replaces the section and `POST` appends to it, with heading levels normalized and separator whitespace managed for you. `PATCH` also accepts a URL target \u2014 its raw-content mode \u2014 with the operation and other instruction fields in headers (`Operation`, `Target-Scope`, \u2026) and the raw payload as the body. For the full instruction algebra (renames, moves, deletes, typed frontmatter values), see the PATCH documentation.\n        \n        On `PUT` and `POST`, the `Content-Type` of your request body selects how the payload is interpreted, and not every target accepts both:\n        \n        - A `text/markdown` body is literal markdown. Valid for `heading` and `block` targets. On a `frontmatter` target it is stored as the field\'s plain string value.\n        - An `application/json` body is structured data. On a `block` target that addresses a table, it is a 2-D array of row cells (`[["Chicago", "16"]]`). On a `frontmatter` target it is the field\'s typed value (a list, dictionary, number, or string). A `heading` target has no structured form \u2014 its body is markdown text \u2014 so a JSON body there is rejected with `400 InvalidPatchInstruction` rather than being stringified into your note.\n        \n        ## Which file did it act on?\n        \n        A URL that embeds a target is ambiguous on its face: `/vault/notes/log.md/heading/Today` could address the `Today` section of `notes/log.md`, or a file literally named `notes/log.md/heading/Today`. The server resolves it by walking backwards down the path until it finds a real file, and reports the answer in a `Content-Location` response header holding the vault-relative path it settled on. Each path component is percent-encoded on its own \u2014 non-ASCII characters, and reserved characters like `#`, `?` and `,` that a client would otherwise read as a fragment, a query or a header-list separator \u2014 so the value can be pasted straight back into a request URL. A request whose URL names the file outright gets no such header \u2014 there is nothing it could tell you that the URL does not.\n        \n        `/active/` responses carry `Content-Location` for the same reason, whether or not a target is embedded: the file the request acted on is whichever note happened to be open.\n        \n        ## Deprecated: header-based targeting\n        \n        Earlier releases addressed a sub-part with `Target-Type`, `Target`, and `Target-Delimiter` request headers (plus `Target-Scope` and `Trim-Target-Whitespace`) rather than URL path segments. **That form is deprecated and will be removed in 6.0.** It is only processed when you also send `Markdown-Patch-Version: 1`, and responses served that way carry a `Deprecation: true; sunset-version="6.0"` header. On GET/PUT/POST, supplying those targeting headers without that version is rejected with `400 HeaderTargetingRequiresVersion1` \u2014 reach the sub-part with URL path segments instead. (On PATCH, `Target-Type`/`Target` headers also have a *non-deprecated* meaning under an explicit `Markdown-Patch-Version: 2` \u2014 raw-content mode, with a different `Target` encoding; see the PATCH documentation.) Supplying both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n        \n        When a target is specified the target section is replaced with the request body and the full updated file content is returned with a `200` status. If the target does not exist it will be created. Without a target, the entire file is replaced and a `204` status is returned.\n      parameters:\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: "If patch data already exists in Target, reject the patch?"\n          in: "header"\n          name: "Reject-If-Content-Preexists"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: |\n            Write only if the file is still the version you read. Send the `ETag` from\n            a `GET` of the file (or from a previous write), or the `version` from its\n            document map or note JSON -- they are the same token. A comma-separated\n            list matches if any entry does, and `*` matches any file that exists.\n            \n            If the file has changed since, or does not exist, the request fails with\n            `412` (error code `41200`) and nothing is written; read the file again and\n            redo the edit against what is there now. Tags are compared strongly: a\n            weak `W/"\u2026"` tag never matches. The tag may be sent quoted, as RFC 9110\n            writes it, or bare. A value that is neither `*` nor an entity-tag list is\n            refused with `400` (error code `40024`).\n            \n            Writes made through this API are queued per file, so two requests that\n            hold the same tag cannot both pass the check: the first to arrive writes,\n            and the second fails with `412`.\n          in: "header"\n          name: "If-Match"\n          required: false\n          schema:\n            example: "\\"a1b2c3\\""\n            type: "string"\n        - description: |\n            `*` writes only if nothing exists at the path yet -- a create that will\n            not overwrite. A list of entity tags instead fails the write if the file is\n            currently at any of those versions. A failed precondition is `412` (error\n            code `41200`) and nothing is written; a malformed value is `400` (error\n            code `40024`).\n          in: "header"\n          name: "If-None-Match"\n          required: false\n          schema:\n            example: "*"\n            type: "string"\n      requestBody:\n        content:\n          "*/*":\n            schema:\n              type: "string"\n          text/markdown:\n            schema:\n              example: |\n                # This is my document\n                \n                something else here\n              type: "string"\n        description: "Content of the file you would like to upload."\n        required: true\n      responses:\n        "200":\n          content:\n            text/markdown:\n              schema:\n                type: "string"\n          description: "Success; targeted section replaced (via URL path elements). The full updated file content is returned. Any advisory warnings (e.g. a heading rebased past level 6) are JSON-encoded, then percent-encoded, in the `Markdown-Patch-Warnings` response header."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            ETag:\n              description: "The file\'s version after this write, as a strong entity tag: send it as `If-Match` on your next write to make that one conditional too, without reading the file again."\n              schema:\n                example: "\\"a1b2c3\\""\n                type: "string"\n            Markdown-Patch-Warnings:\n              description: "Present only when the write produced warnings: a percent-encoded JSON array of `{ code, message }` objects. Decode with `decodeURIComponent` before parsing as JSON."\n              schema:\n                type: "string"\n        "204":\n          description: "Success; entire file replaced."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file that was acted on, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL."\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            ETag:\n              description: "The file\'s version after this write, as a strong entity tag: send it as `If-Match` on your next write to make that one conditional too, without reading the file again."\n              schema:\n                example: "\\"a1b2c3\\""\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Incoming file could not be processed.  Make sure you have specified a reasonable file name, and make sure you have set a reasonable \'Content-Type\' header; if you are uploading a note, \'text/markdown\' is likely the right choice.\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "409":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "`Reject-If-Content-Preexists` was set and the content already appears in the targeted section."\n        "412":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Precondition Failed: an `If-Match` or `If-None-Match` header did not hold against the file as it is now -- it has changed since the version `If-Match` named, no longer exists, or (under `If-None-Match: *`) already exists. Nothing was written. The message names the file\'s current version."\n      summary: |\n        Update the content of the active file open in Obsidian.\n      tags:\n        - "Active File"\n  /commands/:\n    get:\n      responses:\n        "200":\n          content:\n            application/json:\n              example:\n                commands:\n                  - id: "global-search:open"\n                    name: "Search: Search in all files"\n                  - id: "graph:open"\n                    name: "Graph view: Open graph view"\n              schema:\n                properties:\n                  commands:\n                    items:\n                      properties:\n                        id:\n                          type: "string"\n                        name:\n                          type: "string"\n                      type: "object"\n                    type: "array"\n                type: "object"\n          description: "A list of available commands."\n      summary: |\n        Get a list of available commands.\n      tags:\n        - "Commands"\n  "/commands/{commandId}/":\n    post:\n      parameters:\n        - description: "The id of the command to execute"\n          in: "path"\n          name: "commandId"\n          required: true\n          schema:\n            type: "string"\n      responses:\n        "204":\n          description: "Success"\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "The command you specified does not exist."\n      summary: |\n        Execute a command.\n      tags:\n        - "Commands"\n  "/events/{emitter}/{event}/":\n    parameters:\n      - description: "The Obsidian object whose event to follow (`vault`, `metadataCache`, `workspace`), or the plugin id of an extension that registered events."\n        in: "path"\n        name: "emitter"\n        required: true\n        schema:\n          type: "string"\n      - description: "The event\'s name, one of those listed for the emitter: Obsidian\'s own name for a built-in emitter, or the name the extension registered it under."\n        in: "path"\n        name: "event"\n        required: true\n        schema:\n          type: "string"\n    post:\n      description: |\n        Registers a subscription to one Obsidian event and returns the URL of a [Server-Sent Events](https://html.spec.whatwg.org/multipage/server-sent-events.html) stream that delivers each matching occurrence as it happens.\n        \n        Streaming is two steps because a browser\'s `EventSource` can only make `GET` requests, and a `GET` has no body to carry a filter. So the filter is registered here, and the stream is opened with `GET /events/{emitter}/{event}/{subscriptionId}/`, using the returned `url`.\n        \n        #### Events\n        \n        `{emitter}` and `{event}` are Obsidian\'s own names. Only these can be streamed:\n        \n        | Emitter | Events |\n        |---|---|\n        | `vault` | `create`, `modify`, `delete`, `rename` |\n        | `metadataCache` | `changed`, `deleted`, `resolve`, `resolved` |\n        | `workspace` | `file-open`, `active-leaf-change`, `layout-change` |\n        \n        Plugins extending this server can add their own events, with their plugin id as `{emitter}`. The payload of an extension\'s event is whatever that extension\'s serializer returns, plus `emitter` and `event`. Anything else gets a `404` whose `supportedEvents` field lists everything currently available. Some events are left out on purpose. `quick-preview` and `editor-change` fire on every keystroke and carry the note\'s text, `editor-paste` and `editor-drop` carry clipboard and drag data, and the menu and window events carry UI objects. `/events/` and `/events/{emitter}/` return `400`, because Obsidian has no way to listen for every event at once.\n        \n        To react to a note\'s frontmatter changing, use `metadataCache` `changed` rather than `vault` `modify`. `modify` fires before Obsidian has re-read the file\'s metadata, so its frontmatter can be stale.\n        \n        #### What each event carries\n        \n        Every message\'s `event:` field is the event name. Its `data:` is a JSON object:\n        \n        - `emitter`, `event`: what fired.\n        - `path`: the file or folder the event is about, or `null`.\n        - `file`: that file\'s NoteJson (the same shape `/search/` evaluates), or `null` for a folder, a deleted file, or an event with no file. `content` is included only when the filter reads `file.content`: a `var`, `missing`, or `missing_some` path naming it. A string that merely says "content", such as a path compared against it, doesn\'t count.\n        - `isFolder` (`vault` events): whether `path` names a folder.\n        - `oldPath` (`vault` `rename`): the path before the rename.\n        - `previous` (`metadataCache` `deleted`): the `frontmatter` and `tags` the file had.\n        - `viewType` (`workspace` `active-leaf-change`): the type of the newly active view.\n        \n        Obsidian passes some events more than this, such as `changed`\'s full note text or `active-leaf-change`\'s live view. None of it is sent.\n        \n        The `id:` of each message is `<epoch>-<counter>`. The epoch changes whenever the plugin reloads. A client that reconnects and sees a new epoch, or a gap in the counter, has missed events. Nothing is replayed, so search to catch up.\n        \n        #### The filter\n        \n        The request body is an optional JsonLogic expression, evaluated against the `data` object above. It supports the same extra `glob` and `regexp` operators as `/search/`. Only events for which it is truthy are sent. With no body, or `{}`, every occurrence is sent. A filter JsonLogic can\'t evaluate, or one whose `regexp` pattern won\'t compile, is refused with `400`.\n        \n        #### The stream URL\n        \n        When signed URLs are enabled, `url` is signed and opens the stream without an `Authorization` header, so it can be handed to an `EventSource`, `curl -N`, or another process. Otherwise it needs the API key like any other request. The URL expires after `ttl` seconds (default: the signed-URL lifetime in settings). A stream opened before then stays open. A reconnect after that is refused, and the client needs a new subscription. Subscriptions are held in memory, so a plugin reload ends them all.\n        \n        Anyone holding a signed stream URL sees the path and metadata of every event its filter matches, and note content if the filter reads `file.content`, for as long as the stream stays open. The filter is part of the subscription, so the URL can\'t be used to widen it.\n        \n        At most 16 streams may be open at once, and at most 256 subscriptions may exist. Beyond that, requests get `503`.\n      parameters:\n        - description: "How long the stream URL stays valid, in seconds; clamped to 10-86400. Defaults to the plugin\'s signed-URL lifetime."\n          in: "query"\n          name: "ttl"\n          required: false\n          schema:\n            type: "integer"\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: "object"\n          "application/vnd.olrapi.jsonlogic+json":\n            examples:\n              frontmatter_value:\n                summary: "Only notes whose status is done (use with metadataCache/changed)."\n                value: |\n                  {"==": [{"var": "file.frontmatter.status"}, "done"]}\n              notes_in_folder:\n                summary: "Only files under journal/."\n                value: |\n                  {"glob": ["journal/*", {"var": "path"}]}\n            schema:\n              externalDocs:\n                url: "https://jsonlogic.com/operations.html"\n              type: "object"\n        required: false\n      responses:\n        "201":\n          content:\n            application/json:\n              schema:\n                properties:\n                  emitter:\n                    type: "string"\n                  event:\n                    type: "string"\n                  expiresAt:\n                    description: "After this, the stream can no longer be opened; one already open stays open."\n                    format: "date-time"\n                    type: "string"\n                  id:\n                    description: "The subscription id."\n                    type: "string"\n                  signed:\n                    description: "Whether `url` carries a signature, or needs the API key."\n                    type: "boolean"\n                  url:\n                    description: "The stream to open with GET. Signed when signed URLs are enabled."\n                    type: "string"\n                required:\n                  - "id"\n                  - "emitter"\n                  - "event"\n                  - "url"\n                  - "signed"\n                  - "expiresAt"\n                type: "object"\n          description: "Subscription registered."\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "No event named (`/events/` or `/events/{emitter}/`), a filter JsonLogic cannot evaluate, or a body that is not JSON."\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "The emitter or event cannot be streamed. The body lists what can, as `supportedEvents`."\n        "503":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Too many subscriptions exist."\n      summary: |\n        Subscribe to an Obsidian event as a Server-Sent Events stream\n      tags:\n        - "Events"\n  "/events/{emitter}/{event}/{subscriptionId}/":\n    get:\n      description: |\n        Streams the subscription\'s events as `text/event-stream`, with a keep-alive comment every 15 seconds, until the client disconnects or the plugin reloads. See `POST /events/{emitter}/{event}/` for what each message carries.\n        \n        Authenticates with the API key, or with the `sig`, `exp` and `n` parameters of the URL that registering the subscription returned. A stream opened before the subscription expires stays open after it.\n      parameters:\n        - in: "path"\n          name: "emitter"\n          required: true\n          schema:\n            type: "string"\n        - in: "path"\n          name: "event"\n          required: true\n          schema:\n            type: "string"\n        - description: "The `id` returned when the subscription was registered."\n          in: "path"\n          name: "subscriptionId"\n          required: true\n          schema:\n            type: "string"\n        - description: "Signature of a signed URL, minted by the MCP `vault_get_download_url` / `vault_get_upload_url` / `events_get_listener_url` tools or by `POST /events/{emitter}/{event}/`. Together with `exp` and `n`, authenticates this one request without an `Authorization` header. Only honoured while signed URLs are enabled in the plugin settings."\n          in: "query"\n          name: "sig"\n          required: false\n          schema:\n            type: "string"\n        - description: "Expiry of a signed URL as Unix seconds; part of what `sig` signs."\n          in: "query"\n          name: "exp"\n          required: false\n          schema:\n            type: "integer"\n        - description: "Random per-link nonce, minted with the URL and part of what `sig` signs. Required whenever `sig` and `exp` are given: a signed request without it cannot verify. It exists so that two links minted for the same path within the same second are distinct -- `exp` has one-second granularity, so without it they would be byte-identical, and spending one would spend the other."\n          in: "query"\n          name: "n"\n          required: false\n          schema:\n            type: "string"\n      responses:\n        "200":\n          content:\n            text/event-stream:\n              example: |\n                event: modify\n                id: 3f9a1c2e-7\n                data: {"emitter":"vault","event":"modify","path":"journal/today.md","isFolder":false,"file":{"path":"journal/today.md","tags":[],"frontmatter":{},"stat":{"ctime":1705276800000,"mtime":1705363200000,"size":1024},"links":[],"backlinks":[],"unresolvedLinks":[]}}\n                \n              schema:\n                type: "string"\n          description: "The event stream."\n        "401":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "No API key, and no valid signature for this subscription."\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "No such subscription for this emitter and event, or it has expired."\n        "429":\n          "$ref": "#/components/responses/TooManyAuthenticationFailures"\n        "503":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Too many streams are open."\n      summary: |\n        Open the Server-Sent Events stream of a subscription\n      tags:\n        - "Events"\n  /mcp/:\n    get:\n      description: |\n        Opens a long-lived SSE stream so the server can push messages to the client for an existing session. Requires the session ID returned by the `initialize` response. This is a session operation of the sessionful protocol revisions (`2024-10-07` through `2025-11-25`); the `2026-07-28` revision removed it, and clients on that revision open a `subscriptions/listen` stream over POST instead.\n      parameters:\n        - description: "Session ID returned by the server on initialization."\n          in: "header"\n          name: "Mcp-Session-Id"\n          required: true\n          schema:\n            type: "string"\n        - description: "MCP protocol version negotiated during initialization (e.g. `2025-06-18`). Unrecognised values are rejected with 400."\n          in: "header"\n          name: "MCP-Protocol-Version"\n          required: false\n          schema:\n            type: "string"\n      responses:\n        "200":\n          content:\n            text/event-stream:\n              schema:\n                type: "string"\n          description: "SSE stream opened. The server pushes JSON-RPC messages as server-sent events."\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Unsupported MCP-Protocol-Version."\n        "401":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "API key required."\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Session not found."\n        "429":\n          "$ref": "#/components/responses/TooManyAuthenticationFailures"\n      summary: |\n        Open a server-sent events stream for an existing sessionful MCP session.\n      tags:\n        - "MCP"\n    post:\n      description: |\n        Interact with this plugin\'s MCP server using the [Streamable HTTP transport](https://modelcontextprotocol.io/docs/concepts/transports#streamable-http).\n        \n        Point any MCP-compatible client (Claude Code, Cursor, or any MCP SDK client that supports the Streamable HTTP transport) at this endpoint and pass your API key as a bearer token.\n        \n        ## Protocol revisions\n        \n        The endpoint serves the `2026-07-28` revision and, alongside it, the sessionful revisions from `2024-10-07` through `2025-11-25`. Which one a request gets is decided per request, from the request itself \u2014 there are no sessions and the `Mcp-Session-Id` header is neither issued nor read.\n        \n        **`2026-07-28` (recommended).** Every request stands alone: there is no `initialize` handshake, and each request carries its own protocol version and client identity in `params._meta`:\n        \n        ```json\n        {\n          "io.modelcontextprotocol/protocolVersion": "2026-07-28",\n          "io.modelcontextprotocol/clientInfo": { "name": "my-client", "version": "1.0.0" },\n          "io.modelcontextprotocol/clientCapabilities": {}\n        }\n        ```\n        \n        Requests must also carry the standard headers \u2014 `MCP-Protocol-Version`, `Mcp-Method`, and (where the body names one) `Mcp-Name` \u2014 and each must agree with the body; a disagreement is answered with `400 Bad Request` and JSON-RPC error `-32020`. A protocol version the server does not serve is answered with `-32022`, and a malformed `_meta` envelope with `-32602`.\n        \n        Call `server/discover` to learn the supported revisions, capabilities, and server identity in one request. Results carry `resultType`, and the cacheable ones (`server/discover`, `tools/list`, `resources/list`, `resources/templates/list`, `resources/read`) also carry the `ttlMs` and `cacheScope` freshness hints.\n        \n        **Sessionful revisions (`2024-10-07` through `2025-11-25`).** Clients that open with an `initialize` request are served the revision they negotiate, including sessions. The server returns a session ID in the `Mcp-Session-Id` response header; include it on every later request, use `GET /mcp/` with it to open the server-to-client notification stream, and `DELETE /mcp/` with it to end the session. A request naming a session that no longer exists is answered `404 Not Found`, which means the client should hand-shake again.\n        \n        Sessions exist only on this path. They are what makes the `tools.listChanged` / `resources.listChanged` capabilities the handshake advertises true: when another plugin registers or removes an MCP tool, every live session is told over its notification stream. `2026-07-28` clients get the same news from a `subscriptions/listen` stream instead.\n        \n        Requests with an unrecognized `MCP-Protocol-Version` value are rejected with `400 Bad Request`.\n        \n        ## Available tools\n        \n        | Tool | Description |\n        |---|---|\n        | `vault_list` | List files and subdirectories inside a vault directory |\n        | `vault_read` | Read a text file\'s full content, frontmatter, tags, and stat; refuses anything that is not valid UTF-8 |\n        | `vault_read_binary` | Read an attachment: images as an image block, anything else as a signed download link or embedded bytes |\n        | `vault_get_download_url` | Mint a signed, expiring link to a file that works without the API key (only when signed URLs are enabled) |\n        | `vault_get_upload_url` | Mint a signed, single-use link for uploading a file over `PUT` (only when signed URLs are enabled) |\n        | `events_get_listener_url` | Subscribe to an Obsidian event and mint a signed link to its Server-Sent Events stream, as `POST /events/{emitter}/{event}/` does (only when signed URLs are enabled) |\n        | `vault_write` | Create or overwrite a text file; refuses paths whose extension names a binary type |\n        | `vault_append` | Append content to the end of a vault file |\n        | `vault_patch` | Patch a specific heading, block reference, or frontmatter field |\n        | `vault_delete` | Delete a vault file (moves to trash by default) |\n        | `vault_move` | Move (rename) a vault file to a new path |\n        | `vault_copy` | Copy a vault file to a new path |\n        | `vault_get_document_map` | List the headings, block references, and frontmatter fields in a file |\n        | `active_file_get_path` | Return the vault path of the file currently open in Obsidian |\n        | `search_query` | Search using a JsonLogic query evaluated against each note\'s metadata |\n        | `search_simple` | Full-text search using Obsidian\'s built-in search |\n        | `tag_list` | List all tags across the vault with usage counts |\n        | `command_list` | List all registered Obsidian commands |\n        | `command_execute` | Execute an Obsidian command by ID |\n        | `open_file` | Open a file in the Obsidian UI |\n        \n        `search_simple` returns at most the 20 highest-scoring files and the first 10 matches in each unless the call sets `maxResults` or `maxMatchesPerFile`. Obsidian\'s simple search matches each word of a query separately, so an unbounded search containing a common word can return megabytes, and an MCP result usually goes straight into the model\'s context. When anything was left out, a second text block beginning `[Search results limited:` says how much and how to see more. Its `contextLength` is at most 500 characters. `POST /search/simple/` takes the same two parameters but has no limit by default, and does not bound `contextLength`.\n        \n        ### Binary files\n        \n        `vault_read` and `vault_write` are text tools: they decode and encode UTF-8, which is lossy for anything that is not text. `vault_read` refuses a file whose bytes are not valid UTF-8, and `vault_write` and `vault_append` refuse a path whose extension names a binary type (image other than SVG, audio, video, font, PDF, archive), so the read-as-text-then-write-back mistake that destroys attachments is refused at both ends.\n        \n        `vault_read_binary` reads attachments. A raster image is returned as an MCP `image` content block, downscaled to fit 1568px on its long side, with a text block giving its path, MIME type, size, and dimensions. An SVG is returned unchanged, as its source text in a `resource` block. An image still larger than 512 KiB once downscaled is returned as a `resource_link` instead, the same as any other oversized file -- or refused, with a pointer at the REST endpoint, when signed URLs are off and there is no link to give. Any other file is returned as a `resource_link` to a signed download URL when signed URLs are enabled, or embedded as base64 in a `resource` block when they are not and the file is under 512 KiB. `as: "bytes"` forces embedding; `as: "link"` forces a link.\n        \n        The 512 KiB ceiling guards the renderer as well as the model\'s context: a tool result carrying roughly a megabyte or more of base64 crashes Obsidian\'s Electron renderer, taking this plugin\'s HTTP server down with it.\n        \n        Clients vary in how much of a tool result they show. Some do not surface a `resource_link` to the person at all, and some render a text block\'s markdown as raw characters, so the tool descriptions tell the agent not to leave the person with nothing when the file is for them rather than for the agent.\n        \n        The preferred route is for the agent to fetch the signed URL to scratch space and hand that local file to whatever its host uses to show a file. The picture then travels from the vault to the person\'s screen without its bytes passing through the agent\'s context -- no base64, no token cost for the pixels -- and it goes over `GET /vault/<path>`, which streams a large file happily, rather than through a tool result. Agents are told explicitly not to read the download back in, since that would pay exactly the cost the link exists to avoid. Where a host cannot do that, the fallback is to repeat the markdown link in the reply, which yields something clickable rather than a visible picture.\n        \n        There is no upload tool that carries bytes through the model. Upload a file with `PUT /vault/{filename}` \u2014 with the API key, or with a signed upload URL from `vault_get_upload_url`.\n        \n        ### Signed URLs\n        \n        On by default; can be turned off under Advanced settings, where the lifetime is also set (default 300 seconds). While enabled, `vault_get_download_url`, `vault_get_upload_url` and `events_get_listener_url` are registered, and `vault_read_binary` links to non-image files instead of embedding them.\n        \n        A signed URL authorizes a **whole-file** write to exactly the path it names. The signature covers the method, the normalized path, the expiry and a random per-link nonce (`n`), and nothing else \u2014 so a request that also carries `Target-Type`/`Target` headers, or whose path continues into `/heading`, `/block` or `/frontmatter`, is refused with `40102` rather than quietly becoming a targeted edit of a document the link never named. Targeted writes need the API key.\n        \n        A signed `PUT` stores exactly the bytes it is sent, whatever `Content-Type` it declares: it bypasses the JSON and text parsers, which would otherwise reparse and re-serialize the body and silently reformat a pretty-printed `.json`.\n        \n        A `PUT` link\'s single use is claimed when the request is authorized, not when it finishes, so concurrent redemptions cannot all pass the check; a request that does not end in a 2xx gives the claim back, so a rejected or aborted attempt never spends the link.\n        \n        A signed request whose path carries a backslash is refused. Verification treats `\\` as a separator and dispatch does not, so the two layers would disagree about which file `a%5Cb` names; no legitimate link needs one, since the separator is normalized away before signing. With verbose logging on, `sig` and `n` are redacted from the logged URL: they are a bearer capability, and console output gets pasted into bug reports.\n        \n        A signed URL is `GET` or `PUT /vault/{filename}?sig=\u2026&exp=\u2026&n=\u2026`. The signature is an HMAC-SHA256 over the method, the normalized vault path, the expiry, and the random per-link nonce `n`, under a secret generated at plugin load and held only in memory; it stands in for the `Authorization` header on that one request. Download links can be used repeatedly until they expire and are served with `Content-Disposition: inline` (`download=1` asks for an attachment). Upload links are consumed by the first request that succeeds. Links do not survive an Obsidian restart.\n        \n        ## Available resources\n        \n        | URI | Description |\n        |---|---|\n        | `obsidian://local-rest-api/openapi.yaml` | Full OpenAPI specification for this REST API, including routes that extensions describe |\n      parameters:\n        - description: "Session ID returned by the server on initialization. A session operation of the sessionful protocol revisions (`2024-10-07` through `2025-11-25`): omit it for the initial `initialize` request, send it on every later request of that session, and expect 404 if the session has ended. The `2026-07-28` revision has no sessions \u2014 the header is neither issued nor read there."\n          in: "header"\n          name: "Mcp-Session-Id"\n          required: false\n          schema:\n            type: "string"\n        - description: "Protocol revision this request speaks. Required on every request on the `2026-07-28` revision, where it must match `params._meta[\\"io.modelcontextprotocol/protocolVersion\\"]`; on the sessionful revisions it carries the version negotiated during `initialize` (e.g. `2025-06-18`). Unrecognised values are rejected with 400."\n          in: "header"\n          name: "MCP-Protocol-Version"\n          required: false\n          schema:\n            type: "string"\n        - description: "The JSON-RPC method named in the request body. Required on `2026-07-28` requests; a value that disagrees with the body is rejected with 400 and JSON-RPC error `-32020`."\n          in: "header"\n          name: "Mcp-Method"\n          required: false\n          schema:\n            type: "string"\n        - description: "The primary subject named in the request body \u2014 `params.name` for `tools/call` and `prompts/get`, `params.uri` for `resources/read`. Required on `2026-07-28` requests that carry one; a value that disagrees with the body is rejected with 400 and JSON-RPC error `-32020`."\n          in: "header"\n          name: "Mcp-Name"\n          required: false\n          schema:\n            type: "string"\n      requestBody:\n        content:\n          application/json:\n            examples:\n              call_vault_patch:\n                summary: "Patch a heading in a vault file (tools/call)"\n                value:\n                  id: 3\n                  jsonrpc: "2.0"\n                  method: "tools/call"\n                  params:\n                    arguments:\n                      content: |\n                        New line of content\n                      operation: "append"\n                      path: "path/to/note.md"\n                      target:\n                        - "My Section"\n                      targetType: "heading"\n                    name: "vault_patch"\n              call_vault_read:\n                summary: "Read a vault file (tools/call)"\n                value:\n                  id: 2\n                  jsonrpc: "2.0"\n                  method: "tools/call"\n                  params:\n                    arguments:\n                      path: "path/to/note.md"\n                    name: "vault_read"\n              discover:\n                summary: "Discover the supported protocol revisions and capabilities (2026-07-28)"\n                value:\n                  id: 1\n                  jsonrpc: "2.0"\n                  method: "server/discover"\n                  params:\n                    _meta:\n                      io.modelcontextprotocol/clientCapabilities: {}\n                      io.modelcontextprotocol/clientInfo:\n                        name: "my-client"\n                        version: "1.0.0"\n                      io.modelcontextprotocol/protocolVersion: "2026-07-28"\n              list_tools:\n                summary: "List all available MCP tools (2026-07-28)"\n                value:\n                  id: 2\n                  jsonrpc: "2.0"\n                  method: "tools/list"\n                  params:\n                    _meta:\n                      io.modelcontextprotocol/clientCapabilities: {}\n                      io.modelcontextprotocol/clientInfo:\n                        name: "my-client"\n                        version: "1.0.0"\n                      io.modelcontextprotocol/protocolVersion: "2026-07-28"\n              read_openapi_resource:\n                summary: "Read the OpenAPI spec resource (resources/read)"\n                value:\n                  id: 4\n                  jsonrpc: "2.0"\n                  method: "resources/read"\n                  params:\n                    uri: "obsidian://local-rest-api/openapi.yaml"\n            schema:\n              description: "A JSON-RPC 2.0 request message."\n              properties:\n                id:\n                  description: "Request identifier. Include for calls that expect a response; omit for notifications."\n                  oneOf:\n                    - type: "string"\n                    - type: "number"\n                jsonrpc:\n                  description: "JSON-RPC version. Must be \\"2.0\\"."\n                  enum:\n                    - "2.0"\n                  type: "string"\n                method:\n                  description: "MCP method to invoke."\n                  enum:\n                    - "server/discover"\n                    - "initialize"\n                    - "tools/list"\n                    - "tools/call"\n                    - "resources/list"\n                    - "resources/read"\n                    - "prompts/list"\n                    - "prompts/get"\n                    - "ping"\n                  type: "string"\n                params:\n                  description: "Method-specific parameters."\n                  type: "object"\n              required:\n                - "jsonrpc"\n                - "method"\n              type: "object"\n        required: true\n      responses:\n        "200":\n          description: "Message handled. The body is either a single JSON-RPC response (`application/json`) or a server-sent event stream carrying request-scoped notifications followed by the response (`text/event-stream`); notifications are answered with `202 Accepted` and no body. On a sessionful-revision `initialize` the `Mcp-Session-Id` response header carries the new session ID; `2026-07-28` requests are served without one."\n          headers:\n            Mcp-Session-Id:\n              description: "Session ID assigned by the server. Present only on a sessionful-revision `initialize` response."\n              schema:\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Unsupported `MCP-Protocol-Version`, or \u2014 on the `2026-07-28` revision \u2014 a JSON-RPC error response carrying `-32020` (headers disagree with the body), `-32022` (unsupported protocol version), or `-32602` (malformed `_meta` envelope)."\n        "401":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "API key required."\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Session not found. The `Mcp-Session-Id` header names a session that has ended; hand-shake again with `initialize`."\n        "429":\n          "$ref": "#/components/responses/TooManyAuthenticationFailures"\n      summary: |\n        Send a JSON-RPC 2.0 message to the MCP server.\n      tags:\n        - "MCP"\n  /obsidian-local-rest-api.crt:\n    get:\n      description: |\n        Returns, in PEM format, the certificate authority that signed the certificate the HTTPS server presents; import this as a trusted authority in your OS, browser, or HTTP client to connect without certificate warnings.\n        \n        The authority carries a critical `nameConstraints` extension permitting only `127.0.0.1`, `localhost`, the configured binding host, and the configured subject alternative names, so trusting it grants it no authority over other hostnames.\n        \n        Installations still running certificate material generated before the plugin began issuing a separate certificate authority return their single self-signed certificate instead. The authenticated `GET /` response\'s `certificateInfo.regenerateReason` reports `ca-used-as-leaf` in that case.\n      responses:\n        "200":\n          description: "Success"\n      summary: |\n        Returns the certificate to trust in order to connect to this API.\n      tags:\n        - "System"\n  "/open/{filename}":\n    post:\n      description: |\n        Note: Obsidian will create a new document at the path you have\n        specified if such a document did not already exist.\n      parameters:\n        - description: |\n            Path to the file to return (relative to your vault root).\n          in: "path"\n          name: "filename"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n        - description: "Open this as a new leaf?"\n          in: "query"\n          name: "newLeaf"\n          required: false\n          schema:\n            type: "boolean"\n      responses:\n        "200":\n          description: "Success"\n      summary: |\n        Open the specified document in the Obsidian user interface.\n      tags:\n        - "Open"\n  /openapi.json:\n    get:\n      description: |\n        The same document as `/openapi.yaml`, including the routes that extension plugins describe.\n      responses:\n        "200":\n          content:\n            application/json:\n              schema:\n                type: "object"\n          description: "Success"\n      summary: |\n        Returns the OpenAPI document describing the capabilities of this API, as JSON.\n      tags:\n        - "System"\n  /openapi.yaml:\n    get:\n      description: |\n        Includes the routes of any installed extension plugin that describes them. Each path an extension contributes carries an `x-obsidian-extension` field naming that extension\'s plugin ID.\n      responses:\n        "200":\n          description: "Success"\n      summary: |\n        Returns OpenAPI YAML document describing the capabilities of this API.\n      tags:\n        - "System"\n  /search/:\n    post:\n      description: |\n        Evaluates a provided query against each file in your vault.\n        \n        This endpoint supports multiple query formats.  Your query should be specified in your request\'s body, and will be interpreted according to the `Content-type` header you specify from the below options. Additional query formats may be added in the future.\n        \n        # JsonLogic (`application/vnd.olrapi.jsonlogic+json`)\n        \n        Accepts a JsonLogic query specified as JSON.  See [JsonLogic](https://jsonlogic.com/operations.html)\'s documentation for information about the base set of operators available, but in addition to those operators the following operators are available:\n        \n        - `glob: [PATTERN, VALUE]`: Returns `true` if a string matches a glob pattern.  E.g.: `{"glob": ["*.foo", "bar.foo"]}` is `true` and `{"glob": ["*.bar", "bar.foo"]}` is `false`.\n        - `regexp: [PATTERN, VALUE]`: Returns `true` if a string matches a regular expression.  E.g.: `{"regexp": [".*\\.foo", "bar.foo"]` is `true` and `{"regexp": [".*\\.bar", "bar.foo"]}` is `false`.\n        \n        Returns only non-falsy results.  "Non-falsy" here treats the following values as "falsy":\n        \n        - `false`\n        - `null` or `undefined`\n        - `0` (and `NaN`)\n        - `""`\n        - `[]`\n        - `{}`\n        \n        This matters most for a query that selects a value rather than testing a condition. `{"var": "frontmatter.aliases"}` returns the notes whose `aliases` field has something in it; a note with `aliases: []` is left out exactly as a note with no `aliases` field at all is, so a file\'s absence from the results does not mean it lacks the field. To test whether a field is present, use JsonLogic\'s `missing` operator: `{"!": {"missing": ["frontmatter.aliases"]}}` matches every note that has the field, including those where it is `[]`, `false`, or `0`. Note that `missing` treats a field whose value is `""` or `null` (as from a frontmatter key left blank, like `aliases:`) as missing too.\n        \n        Files are represented as an object having the schema described\n        in the Schema named \'NoteJson\' at the bottom of this page.\n        Understanding the shape of a JSON object from a schema can be\n        tricky; so you may find it helpful to examine the generated metadata\n        for individual files in your vault to understand exactly what values\n        are returned.  To see that, access the `GET` `/vault/{filePath}`\n        route setting the header:\n        `Accept: application/vnd.olrapi.note+json`.  See examples below\n        for working examples of queries performing common search operations.\n      requestBody:\n        content:\n          "application/vnd.olrapi.jsonlogic+json":\n            examples:\n              find_by_frontmatter_url_glob:\n                summary: "Find notes having URL or a matching URL glob frontmatter field."\n                value: |\n                  {\n                    "or": [\n                      {"===": [{"var": "frontmatter.url"}, "https://myurl.com/some/path/"]},\n                      {"glob": [{"var": "frontmatter.url-glob"}, "https://myurl.com/some/path/"]}\n                    ]\n                  }\n              find_by_frontmatter_value:\n                summary: "Find notes having a certain frontmatter field value."\n                value: |\n                  {\n                    "==": [\n                      {"var": "frontmatter.myField"},\n                      "myValue"\n                    ]\n                  }\n              find_by_tag:\n                summary: "Find notes having a certain tag"\n                value: |\n                  {\n                    "in": [\n                      "myTag",\n                      {"var": "tags"}\n                    ]\n                  }\n              find_missing_frontmatter_field:\n                summary: "Find notes that do not have a certain frontmatter field (a field that is blank or an empty string counts as not present)"\n                value: |\n                  {\n                    "missing": ["frontmatter.myField"]\n                  }\n            schema:\n              externalDocs:\n                url: "https://jsonlogic.com/operations.html"\n              type: "object"\n        required: true\n      responses:\n        "200":\n          content:\n            application/json:\n              schema:\n                items:\n                  properties:\n                    filename:\n                      description: "Path to the matching file"\n                      type: "string"\n                    result:\n                      oneOf:\n                        - type: "string"\n                        - type: "number"\n                        - items: {}\n                          type: "array"\n                        - type: "object"\n                        - type: "boolean"\n                  required:\n                    - "filename"\n                    - "result"\n                  type: "object"\n                type: "array"\n          description: "Success"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Bad request.  Make sure you have specified an acceptable\n            Content-Type for your search query.\n      summary: |\n        Search for documents matching a specified search query\n      tags:\n        - "Search"\n  /search/simple/:\n    post:\n      parameters:\n        - description: "Your search query"\n          in: "query"\n          name: "query"\n          required: true\n          schema:\n            type: "string"\n        - description: "How much context to return around the matching string"\n          in: "query"\n          name: "contextLength"\n          required: false\n          schema:\n            default: 100\n            type: "number"\n        - description: "The most files to return. The highest-scoring files are kept, and the `Total-Results` header gives how many matched in all. Unlimited when absent."\n          in: "query"\n          name: "maxResults"\n          required: false\n          schema:\n            minimum: 1\n            type: "integer"\n        - description: "The most matches to return for each file, in document order. Each file\'s `totalMatches` gives how many it had in all. Unlimited when absent. Obsidian\'s simple search matches each word of the query separately, so a query containing a common word can match thousands of times in a single file; this is what keeps such a result a manageable size."\n          in: "query"\n          name: "maxMatchesPerFile"\n          required: false\n          schema:\n            minimum: 1\n            type: "integer"\n      responses:\n        "200":\n          content:\n            application/json:\n              schema:\n                items:\n                  properties:\n                    filename:\n                      description: "Path to the matching file"\n                      type: "string"\n                    matches:\n                      items:\n                        properties:\n                          context:\n                            type: "string"\n                          match:\n                            properties:\n                              end:\n                                type: "number"\n                              start:\n                                type: "number"\n                            required:\n                              - "start"\n                              - "end"\n                            type: "object"\n                        required:\n                          - "match"\n                          - "context"\n                        type: "object"\n                      type: "array"\n                    score:\n                      type: "number"\n                    totalMatches:\n                      description: "How many matches the file had in all. Larger than the length of `matches` when `maxMatchesPerFile` left some out."\n                      type: "number"\n                  type: "object"\n                type: "array"\n          description: "Success"\n          headers:\n            Total-Results:\n              description: "How many files matched in all. Larger than the number of items returned when `maxResults` left some out."\n              schema:\n                type: "integer"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "No `query` parameter, or a `maxResults` or `maxMatchesPerFile` that is not a single positive integer."\n      summary: |\n        Search for documents matching a specified text query\n      tags:\n        - "Search"\n  /tags/:\n    get:\n      description: |\n        Returns all tags found across all files in the vault, drawn from both inline (`#tag`) and frontmatter tag syntax. Each tag is returned without the `#` prefix. Hierarchical tags (e.g. `work/tasks`) also contribute a count to every parent prefix (e.g. `work`), mirroring how Obsidian displays tag counts in its sidebar.\n      responses:\n        "200":\n          content:\n            application/json:\n              example:\n                tags:\n                  - count: 3\n                    name: "project"\n                  - count: 1\n                    name: "important"\n                  - count: 2\n                    name: "work"\n                  - count: 2\n                    name: "work/tasks"\n              schema:\n                properties:\n                  tags:\n                    items:\n                      properties:\n                        count:\n                          description: "Number of times this tag is used across the vault."\n                          type: "number"\n                        name:\n                          description: "Tag name without the leading `#`."\n                          type: "string"\n                      type: "object"\n                    type: "array"\n                type: "object"\n          description: "A list of tags with their usage counts."\n      summary: |\n        Get a list of all tags with metadata.\n      tags:\n        - "Tags"\n  /vault/:\n    get:\n      description: |\n        Lists files in the root directory of your vault.\n        \n        Note: that this is exactly the same API endpoint as the below "List files that exist in the specified directory." and exists here only due to a quirk of this particular interactive tool.\n      responses:\n        "200":\n          content:\n            application/json:\n              example:\n                files:\n                  - "mydocument.md"\n                  - "somedirectory/"\n              schema:\n                properties:\n                  files:\n                    items:\n                      type: "string"\n                    type: "array"\n                type: "object"\n          description: "Success"\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Directory does not exist"\n      summary: |\n        List files that exist in the root of your vault.\n      tags:\n        - "Vault Directories"\n  "/vault/{filename}":\n    additionalOperations:\n      copy:\n        description: |\n          Copies a file from its current location to a new location specified in the Destination header, leaving the source file in place.\n        parameters:\n          - description: |\n              The new path for the copy, relative to your vault root. The path must not escape the vault root (relative segments like `..` are permitted as long as the resolved path remains inside the vault). Absolute paths (starting with `/`) are rejected. If the path ends with a trailing slash, the source filename is preserved and the copy is placed in that directory (e.g. "archive/" copies "notes/todo.md" to "archive/todo.md"). If the path contains non-ASCII characters (e.g. accented letters), percent-encode the value (e.g. `r%C3%A9sum%C3%A9.md` for `r\xE9sum\xE9.md`).\n            in: "header"\n            name: "Destination"\n            required: true\n            schema:\n              format: "path"\n              type: "string"\n          - description: |\n              If "true", the copy proceeds even when a file already exists at the destination. Defaults to "false", which returns a 409 if the destination exists.\n            in: "header"\n            name: "Allow-Overwrite"\n            required: false\n            schema:\n              default: "false"\n              enum:\n                - "true"\n                - "false"\n              type: "string"\n          - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n            in: "path"\n            name: "filename"\n            required: true\n            schema:\n              format: "path"\n              type: "string"\n          - description: |\n              Write only if the file is still the version you read. Send the `ETag` from\n              a `GET` of the file (or from a previous write), or the `version` from its\n              document map or note JSON -- they are the same token. A comma-separated\n              list matches if any entry does, and `*` matches any file that exists.\n              \n              If the file has changed since, or does not exist, the request fails with\n              `412` (error code `41200`) and nothing is written; read the file again and\n              redo the edit against what is there now. Tags are compared strongly: a\n              weak `W/"\u2026"` tag never matches. The tag may be sent quoted, as RFC 9110\n              writes it, or bare. A value that is neither `*` nor an entity-tag list is\n              refused with `400` (error code `40024`).\n              \n              Writes made through this API are queued per file, so two requests that\n              hold the same tag cannot both pass the check: the first to arrive writes,\n              and the second fails with `412`.\n            in: "header"\n            name: "If-Match"\n            required: false\n            schema:\n              example: "\\"a1b2c3\\""\n              type: "string"\n        responses:\n          "204":\n            description: "File successfully copied."\n            headers:\n              Content-Location:\n                description: "The vault-relative path of the newly-created copy (e.g. `archive/file.md`). Non-ASCII characters are percent-encoded."\n                schema:\n                  type: "string"\n          "400":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: |\n              Bad request - Missing Destination header, malformed percent-encoding, or path escapes the vault root (e.g. starts with "/").\n          "403":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: "The path is inside Obsidian\'s configuration directory (`app.vault.configDir`, normally `.obsidian`), which this API refuses to read or write. That directory holds plugin code and each plugin\'s `data.json` -- including this plugin\'s own, where the API key lives -- so writing there is effectively remote code execution and reading there leaks secrets (GHSA-66m9-r757-qvq7). The check is against where the path lands on disk, so a Windows 8.3 short name, a differently cased spelling, or a symlink into that directory is refused the same way. Enable \'Allow access to the configuration directory\' in the plugin\'s Advanced settings to permit it."\n          "404":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: "Source file does not exist."\n          "405":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: |\n              Your path references a directory instead of a file; this request method is valid only for files.\n          "409":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: "Destination file already exists."\n          "412":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: "Precondition Failed: an `If-Match` or `If-None-Match` header did not hold against the file as it is now -- it has changed since the version `If-Match` named, no longer exists, or (under `If-None-Match: *`) already exists. Nothing was written. The message names the file\'s current version."\n        summary: |\n          Copy a file to a new location in your vault.\n        tags:\n          - "Vault Files"\n      move:\n        description: |\n          Moves a file from its current location to a new location specified in the Destination header. This operation preserves file history and updates internal links.\n        parameters:\n          - description: |\n              The new path for the file, relative to your vault root. The path must not escape the vault root (relative segments like `..` are permitted as long as the resolved path remains inside the vault). Absolute paths (starting with `/`) are rejected. If the path ends with a trailing slash, the source filename is preserved and the file is placed in that directory (e.g. "archive/" moves "notes/todo.md" to "archive/todo.md"). If the path contains non-ASCII characters (e.g. accented letters), percent-encode the value (e.g. `r%C3%A9sum%C3%A9.md` for `r\xE9sum\xE9.md`).\n            in: "header"\n            name: "Destination"\n            required: true\n            schema:\n              format: "path"\n              type: "string"\n          - description: |\n              If "true", the move proceeds even when a file already exists at the destination. Defaults to "false", which returns a 409 if the destination exists.\n            in: "header"\n            name: "Allow-Overwrite"\n            required: false\n            schema:\n              default: "false"\n              enum:\n                - "true"\n                - "false"\n              type: "string"\n          - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n            in: "path"\n            name: "filename"\n            required: true\n            schema:\n              format: "path"\n              type: "string"\n          - description: |\n              Write only if the file is still the version you read. Send the `ETag` from\n              a `GET` of the file (or from a previous write), or the `version` from its\n              document map or note JSON -- they are the same token. A comma-separated\n              list matches if any entry does, and `*` matches any file that exists.\n              \n              If the file has changed since, or does not exist, the request fails with\n              `412` (error code `41200`) and nothing is written; read the file again and\n              redo the edit against what is there now. Tags are compared strongly: a\n              weak `W/"\u2026"` tag never matches. The tag may be sent quoted, as RFC 9110\n              writes it, or bare. A value that is neither `*` nor an entity-tag list is\n              refused with `400` (error code `40024`).\n              \n              Writes made through this API are queued per file, so two requests that\n              hold the same tag cannot both pass the check: the first to arrive writes,\n              and the second fails with `412`.\n            in: "header"\n            name: "If-Match"\n            required: false\n            schema:\n              example: "\\"a1b2c3\\""\n              type: "string"\n        responses:\n          "204":\n            description: "File successfully moved."\n            headers:\n              Content-Location:\n                description: "The vault-relative path of the file at its new location (e.g. `archive/file.md`). Non-ASCII characters are percent-encoded."\n                schema:\n                  type: "string"\n          "400":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: |\n              Bad request - Missing Destination header, malformed percent-encoding, or path escapes the vault root (e.g. starts with "/").\n          "403":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: "The path is inside Obsidian\'s configuration directory (`app.vault.configDir`, normally `.obsidian`), which this API refuses to read or write. That directory holds plugin code and each plugin\'s `data.json` -- including this plugin\'s own, where the API key lives -- so writing there is effectively remote code execution and reading there leaks secrets (GHSA-66m9-r757-qvq7). The check is against where the path lands on disk, so a Windows 8.3 short name, a differently cased spelling, or a symlink into that directory is refused the same way. Enable \'Allow access to the configuration directory\' in the plugin\'s Advanced settings to permit it."\n          "404":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: "Source file does not exist."\n          "405":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: |\n              Your path references a directory instead of a file; this request method is valid only for files.\n          "409":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: "Destination file already exists."\n          "412":\n            content:\n              application/json:\n                schema:\n                  "$ref": "#/components/schemas/Error"\n            description: "Precondition Failed: an `If-Match` or `If-None-Match` header did not hold against the file as it is now -- it has changed since the version `If-Match` named, no longer exists, or (under `If-None-Match: *`) already exists. Nothing was written. The message names the file\'s current version."\n        summary: |\n          Move a file to a new location in your vault.\n        tags:\n          - "Vault Files"\n    delete:\n      parameters:\n        - description: |\n            If "true", the file is permanently deleted instead of being moved to trash. Defaults to "false", which moves the file to trash following the user\'s Obsidian "Deleted files" preference (either the ".trash" folder or the system trash).\n          in: "query"\n          name: "permanent"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n          in: "path"\n          name: "filename"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n        - description: |\n            Write only if the file is still the version you read. Send the `ETag` from\n            a `GET` of the file (or from a previous write), or the `version` from its\n            document map or note JSON -- they are the same token. A comma-separated\n            list matches if any entry does, and `*` matches any file that exists.\n            \n            If the file has changed since, or does not exist, the request fails with\n            `412` (error code `41200`) and nothing is written; read the file again and\n            redo the edit against what is there now. Tags are compared strongly: a\n            weak `W/"\u2026"` tag never matches. The tag may be sent quoted, as RFC 9110\n            writes it, or bare. A value that is neither `*` nor an entity-tag list is\n            refused with `400` (error code `40024`).\n            \n            Writes made through this API are queued per file, so two requests that\n            hold the same tag cannot both pass the check: the first to arrive writes,\n            and the second fails with `412`.\n          in: "header"\n          name: "If-Match"\n          required: false\n          schema:\n            example: "\\"a1b2c3\\""\n            type: "string"\n      responses:\n        "204":\n          description: "Success"\n        "403":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "The path is inside Obsidian\'s configuration directory (`app.vault.configDir`, normally `.obsidian`), which this API refuses to read or write. That directory holds plugin code and each plugin\'s `data.json` -- including this plugin\'s own, where the API key lives -- so writing there is effectively remote code execution and reading there leaks secrets (GHSA-66m9-r757-qvq7). The check is against where the path lands on disk, so a Windows 8.3 short name, a differently cased spelling, or a symlink into that directory is refused the same way. Enable \'Allow access to the configuration directory\' in the plugin\'s Advanced settings to permit it."\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "File does not exist."\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "412":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Precondition Failed: an `If-Match` or `If-None-Match` header did not hold against the file as it is now -- it has changed since the version `If-Match` named, no longer exists, or (under `If-None-Match: *`) already exists. Nothing was written. The message names the file\'s current version."\n      summary: |\n        Delete a particular file in your vault.\n      tags:\n        - "Vault Files"\n    get:\n      description: |\n        Returns the content of the file at the specified path in your vault should the file exist.\n        \n        Binary files are served as raw bytes, with a `Content-Type` derived from the file extension, so this endpoint reads attachments \u2014 images, PDFs, audio \u2014 as well as notes. There is no size limit on the response.\n        \n        A signed download URL (`?sig=\u2026&exp=\u2026&n=\u2026`, from the MCP `vault_get_download_url` tool) authenticates the request in place of the `Authorization` header while signed URLs are enabled in the plugin settings. Such a request is served `inline` rather than as an attachment unless `download=1` is also given.\n        \n        # Targeting a Sub-part of your Document\n        \n        You can operate on a specific section of a note instead of the whole file by embedding a target in the URL path, immediately after the note identifier. The first segment after the note is the target type, and the remaining segments address the target:\n        \n        - `.../heading/My%20Section` targets the section beneath the `My Section` heading \u2014 the body content below the heading line.\n        - For a nested heading, add one path segment per level: `.../heading/My%20Section/Subsection` targets `Subsection` under `My Section`. Because each level is its own segment, a heading whose text contains `::` (or any other delimiter) needs no escaping.\n        - `.../block/abc123` targets the block with reference ID `abc123`.\n        - `.../frontmatter/fieldName` targets the `fieldName` frontmatter field.\n        \n        Percent-encode any segment that contains non-ASCII characters or a literal `/` (e.g. `H%C3%A9llo` for `H\xE9llo`, or `TODO%2FDONE` for a heading named `TODO/DONE`). Each URL path segment is decoded on its own, so an encoded `%2F` stays a literal slash *inside* that one segment rather than acting as a separator \u2014 that is what lets a heading name contain a slash. The same rule applies to the note path itself: because a file or folder name can never contain a slash, the note must be addressed with real `/` separators between its path components (`/vault/folder/note.md`), not with the separators encoded (`/vault/folder%2Fnote.md`), which no longer resolves.\n        \n        If a document has a duplicate sibling heading (the same text repeated under the same parent) or a duplicate block reference ID, only the first occurrence is addressable by its plain text/id. Each later occurrence gets its own address with a non-printable marker suffix appended by the server \u2014 fetch the document map (`Accept: application/vnd.olrapi.document-map+json`) and copy that occurrence\'s key verbatim; don\'t try to type or reconstruct the marker yourself.\n        \n        `GET` returns just the addressed section. By default that is the target\'s `content` scope; add a `Target-Scope` header to read the `marker` (the label \u2014 a heading\'s raw text, a block\'s bare id, a frontmatter key) or `markerAndContent` (the whole node, in exactly the shape a PATCH `replace` at that scope consumes \u2014 a heading subtree comes back with its own line as `# Title`, levels relative to its parent, so a read-modify-write never counts `#`s). `PUT` replaces the section and `POST` appends to it, with heading levels normalized and separator whitespace managed for you. `PATCH` also accepts a URL target \u2014 its raw-content mode \u2014 with the operation and other instruction fields in headers (`Operation`, `Target-Scope`, \u2026) and the raw payload as the body. For the full instruction algebra (renames, moves, deletes, typed frontmatter values), see the PATCH documentation.\n        \n        On `PUT` and `POST`, the `Content-Type` of your request body selects how the payload is interpreted, and not every target accepts both:\n        \n        - A `text/markdown` body is literal markdown. Valid for `heading` and `block` targets. On a `frontmatter` target it is stored as the field\'s plain string value.\n        - An `application/json` body is structured data. On a `block` target that addresses a table, it is a 2-D array of row cells (`[["Chicago", "16"]]`). On a `frontmatter` target it is the field\'s typed value (a list, dictionary, number, or string). A `heading` target has no structured form \u2014 its body is markdown text \u2014 so a JSON body there is rejected with `400 InvalidPatchInstruction` rather than being stringified into your note.\n        \n        ## Which file did it act on?\n        \n        A URL that embeds a target is ambiguous on its face: `/vault/notes/log.md/heading/Today` could address the `Today` section of `notes/log.md`, or a file literally named `notes/log.md/heading/Today`. The server resolves it by walking backwards down the path until it finds a real file, and reports the answer in a `Content-Location` response header holding the vault-relative path it settled on. Each path component is percent-encoded on its own \u2014 non-ASCII characters, and reserved characters like `#`, `?` and `,` that a client would otherwise read as a fragment, a query or a header-list separator \u2014 so the value can be pasted straight back into a request URL. A request whose URL names the file outright gets no such header \u2014 there is nothing it could tell you that the URL does not.\n        \n        `/active/` responses carry `Content-Location` for the same reason, whether or not a target is embedded: the file the request acted on is whichever note happened to be open.\n        \n        ## Deprecated: header-based targeting\n        \n        Earlier releases addressed a sub-part with `Target-Type`, `Target`, and `Target-Delimiter` request headers (plus `Target-Scope` and `Trim-Target-Whitespace`) rather than URL path segments. **That form is deprecated and will be removed in 6.0.** It is only processed when you also send `Markdown-Patch-Version: 1`, and responses served that way carry a `Deprecation: true; sunset-version="6.0"` header. On GET/PUT/POST, supplying those targeting headers without that version is rejected with `400 HeaderTargetingRequiresVersion1` \u2014 reach the sub-part with URL path segments instead. (On PATCH, `Target-Type`/`Target` headers also have a *non-deprecated* meaning under an explicit `Markdown-Patch-Version: 2` \u2014 raw-content mode, with a different `Target` encoding; see the PATCH documentation.) Supplying both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n        \n        # Retrieving Document Metadata\n        \n        ## Metadata\n        \n        If you specify the header `Accept: application/vnd.olrapi.note+json`, will return a JSON representation of your note including parsed tag and frontmatter data as well as filesystem metadata.\n        \n        ## Document Map\n        \n        If you specify the header `Accept: application/vnd.olrapi.document-map+json`, will return a JSON object outlining what PATCH targets exist. See "responses" below for details.\n        \n        ## Rendered HTML\n        \n        If you specify the header `Accept: text/html`, will return the note rendered to HTML using Obsidian\'s own Markdown renderer \u2014 the same rendering used in Obsidian\'s preview mode, including embeds, callouts, and other Obsidian-flavored Markdown extensions. If `Target-Type`/`Target` are specified with `heading` or `block`, only that section is rendered. `Target-Type: frontmatter` is not supported for this Accept type and returns a 400 error, since frontmatter has no HTML rendering.\n      parameters:\n        - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n          in: "path"\n          name: "filename"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: |\n            For a URL-path-targeted read: which part of the target to return\n            (default `content`), mirroring PATCH\'s scopes with a round-trip\n            guarantee \u2014 what a scope returns is exactly what a `replace` at that\n            scope consumes.\n            \n            - `content` (default): the node\'s body \u2014 a heading\'s body with its\n              levels made relative to the target, a block\'s text, a frontmatter\n              value.\n            - `marker`: the label \u2014 a heading\'s raw text (no `#`s, and without the\n              duplicate-marker suffix its map key may carry), a block\'s bare id, a\n              frontmatter key.\n            - `markerAndContent`: the whole node \u2014 a heading\'s subtree with its own\n              line as `# Title` (levels relative to its parent), a block\'s full\n              span including its `^id`, or a frontmatter entry as a `{key: value}`\n              JSON object.\n            \n            `parent` places a section but carries no readable value, and returns\n            `400 InvalidTargetScopeHeader`. Only meaningful when the URL path\n            addresses a sub-part of the note.\n          in: "header"\n          name: "Target-Scope"\n          required: false\n          schema:\n            default: "content"\n            enum:\n              - "content"\n              - "marker"\n              - "markerAndContent"\n            type: "string"\n        - description: "Signature of a signed URL, minted by the MCP `vault_get_download_url` / `vault_get_upload_url` / `events_get_listener_url` tools or by `POST /events/{emitter}/{event}/`. Together with `exp` and `n`, authenticates this one request without an `Authorization` header. Only honoured while signed URLs are enabled in the plugin settings."\n          in: "query"\n          name: "sig"\n          required: false\n          schema:\n            type: "string"\n        - description: "Expiry of a signed URL as Unix seconds; part of what `sig` signs."\n          in: "query"\n          name: "exp"\n          required: false\n          schema:\n            type: "integer"\n        - description: "Random per-link nonce, minted with the URL and part of what `sig` signs. Required whenever `sig` and `exp` are given: a signed request without it cannot verify. It exists so that two links minted for the same path within the same second are distinct -- `exp` has one-second granularity, so without it they would be byte-identical, and spending one would spend the other."\n          in: "query"\n          name: "n"\n          required: false\n          schema:\n            type: "string"\n        - description: "On a signed-URL request, `1` asks for `Content-Disposition: attachment` (a download) instead of the `inline` disposition signed links are otherwise served with. Ignored on API-key requests, which are always served as attachments."\n          in: "query"\n          name: "download"\n          required: false\n          schema:\n            enum:\n              - "1"\n            type: "string"\n      responses:\n        "200":\n          content:\n            application/json:\n              description: "Returned when the URL path targets a frontmatter field (`.../frontmatter/fieldName`); the JSON value of that field."\n              schema: {}\n            "application/vnd.olrapi.document-map+json":\n              schema:\n                description: |\n                  The document map. To receive the deprecated 1.x shape \u2014 heading paths as\n                  `::`-joined strings, block ids prefixed with `^`, and no `version` \u2014\n                  send `Markdown-Patch-Version: 1`.\n                properties:\n                  blocks:\n                    description: "Block reference ids, bare (no leading `^`), in document order."\n                    example:\n                      - "blockref1"\n                      - "anotherBlockRef"\n                    items:\n                      type: "string"\n                    type: "array"\n                  frontmatterFields:\n                    example:\n                      - "title"\n                      - "tags"\n                      - "dateCreated"\n                    items:\n                      type: "string"\n                    type: "array"\n                  headings:\n                    "$ref": "#/components/schemas/HeadingTree"\n                  version:\n                    description: "Content-hash token for the file, the same value as its `ETag`; pass it back as a PATCH `ifMatch`, or as `If-Match` on any write, to make the write conditional on the file being unchanged."\n                    example: "a1b2c3"\n                    type: "string"\n                type: "object"\n            "application/vnd.olrapi.note+json":\n              schema:\n                "$ref": "#/components/schemas/NoteJson"\n            text/html:\n              description: |\n                Returned when `Accept: text/html` is specified. The note (or, if `Target-Type`/`Target` are specified with `heading` or `block`, just that section) rendered to HTML via Obsidian\'s Markdown renderer (embeds, callouts, etc. included). `Target-Type: frontmatter` is not supported for this Accept type and returns a 400 error.\n              schema:\n                example: |\n                  <h1>This is my document</h1>\n                  <p>something else here</p>\n                type: "string"\n            text/markdown:\n              schema:\n                example: |\n                  # This is my document\n                  \n                  something else here\n                type: "string"\n          description: "Success"\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file the URL resolved to, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL. Sent only when the URL embedded a target (`/heading/...`, `/block/...`, `/frontmatter/...`), since that is the case where the file the request acted on is not evident from the URL alone; absent on a whole-file request."\n              required: false\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            ETag:\n              description: "The file\'s version, as a strong entity tag -- the same token as the document map\'s `version` and note JSON\'s `version`. Send it as `If-Match` on a write to make that write fail, rather than overwrite a change made in between, if the file has changed. Sent with the file itself, a section of it, and the document map, all of which depend only on the file\'s bytes; a matching `If-None-Match` on those reads is answered `304 Not Modified`. Not sent as this token with `Accept: text/html` or note JSON, which also depend on other files (embeds, backlinks) -- read note JSON\'s `version` field instead."\n              schema:\n                example: "\\"a1b2c3\\""\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            The `Markdown-Patch-Version` header was invalid (not `1` or `2`), the deprecated `Target-Type`/`Target` headers were invalid, the `Target-Scope` header was not a readable scope (`content`, `marker`, `markerAndContent`), or a frontmatter target was combined with `Accept: text/html` (frontmatter has no HTML rendering).\n        "403":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "The path is inside Obsidian\'s configuration directory (`app.vault.configDir`, normally `.obsidian`), which this API refuses to read or write. That directory holds plugin code and each plugin\'s `data.json` -- including this plugin\'s own, where the API key lives -- so writing there is effectively remote code execution and reading there leaks secrets (GHSA-66m9-r757-qvq7). The check is against where the path lands on disk, so a Windows 8.3 short name, a differently cased spelling, or a symlink into that directory is refused the same way. Enable \'Allow access to the configuration directory\' in the plugin\'s Advanced settings to permit it."\n        "404":\n          description: "File or target section does not exist"\n      summary: |\n        Return the content of a single file in your vault.\n      tags:\n        - "Vault Files"\n    patch:\n      description: |\n        Modifies an existing note with a single structured instruction: an operation applied to a scope of a target \u2014 a heading, block reference, or frontmatter field within that document.\n        \n        Edit a document with a single structured instruction \u2014 an **operation** applied to a **scope** of a **target** node (a heading, block reference, or frontmatter field). By default the whole instruction travels as a JSON request body; [raw-content mode](#raw-content-mode-templating-friendly) instead carries the instruction\'s fields in URL path elements/headers with the raw payload as the body.\n        \n        > **Migrating from the header-driven format?** See [Deprecated: the 1.x header-driven format](#deprecated-the-1x-header-driven-format) at the end.\n        \n        # The algebra\n        \n        - **operation** \u2014 `replace`, `prepend`, `append`, or `delete`.\n        - **scope** (optional, default `content`):\n          - `content` \u2014 the node\'s body. For a heading, that\'s its whole subtree *below* the heading line.\n          - `marker` \u2014 the label only: a heading line, a block `^id`, or a frontmatter key. `replace` renames it.\n          - `markerAndContent` \u2014 the marker *and* the body together: for a heading, its heading line plus everything beneath it. Unlike `content`, the heading line is inside the edited span, so a `replace` here rewrites the heading itself. `prepend`/`append` insert a *sibling* before/after it.\n          - `parent` \u2014 a heading\'s place in the tree. Valid only with `replace`, and carries a `destination` (a **move**).\n        - **target** \u2014 for a heading, an array of heading texts from the top level down (`["Overview","Details"]`), or `null`/`[]` for the document root; for a block, the bare id without `^`; for a frontmatter field, the key.\n        - **within** (optional, heading targets only) \u2014 a positional refinement: an index picking one of the section\'s direct-body top-level blocks (a paragraph, list, table, code fence, \u2026), 0-based in document order, negative counting from the end (`-1` = last; isolated `^id` lines are not counted). The instruction then edits *that block*: with `content` scope, `replace`/`prepend`/`append` splice literally into it \u2014 you own the joint, so `append` with `\\n- item` *continues* a list \u2014 and `delete` removes it; with `markerAndContent` scope, `prepend`/`append` insert a new block immediately before/after it. Not combinable with `createTargetIfMissing`.\n        - **payload** \u2014 carried in exactly one field, chosen by what it is:\n          - `content` \u2014 a markdown/text string (heading & block bodies/labels, or a frontmatter key rename).\n          - `value` \u2014 arbitrary JSON (frontmatter values).\n          - `destination` \u2014 where a moved heading lands.\n        \n        Not every combination is meaningful; invalid ones are rejected with a `400`.\n        \n        **Relative heading levels.** Heading `#`-counts inside a `content` string are *relative* to the edited span, so you never count `#`s: under `content` scope a leading `#` becomes a direct child of the target; under `markerAndContent` (or a sibling insert) it lands at the target\'s own level. Nesting inside your content is preserved as you wrote it \u2014 replacing a `##` section with `# New\\n\\n## Child` yields `## New` and `### Child`. A level rebased past `######` (h6) is still written, but the response carries a `heading-depth-overflow` entry in the `Markdown-Patch-Warnings` header \u2014 percent-encoded JSON, since a warning message embeds document text verbatim and header values must be ASCII; run it through `decodeURIComponent` before parsing.\n        \n        > **Note:** because the heading line is part of the `markerAndContent` span, a `replace` whose content has *no* heading removes it \u2014 the section is dissolved into a plain paragraph. Include a leading `#` (at any depth; it is rebased for you) to keep it a heading.\n        \n        # How to Use & Examples\n        \n        All of the below examples assume you have a document that looks like this:\n        \n        ```markdown\n        ---\n        alpha: 1\n        beta: test\n        delta:\n        zeta: 1\n        yotta: 1\n        gamma:\n        - one\n        - two\n        ---\n        \n        # Heading 1\n        \n        This is the content for heading one\n        \n        Also references some [[#^484ef2]]\n        \n        ## Subheading 1:1\n        Content for Subheading 1:1\n        \n        ### Subsubheading 1:1:1\n        \n        ### Subsubheading 1:1:2\n        \n        Testing how block references work for a table.[[#^2c7cfa]]\n        Some content for Subsubheading 1:1:2\n        \n        More random text.\n        \n        ^2d9b4a\n        \n        ## Subheading 1:2\n        \n        Content for Subheading 1:2.\n        \n        some content with a block reference ^484ef2\n        \n        ## Subheading 1:3\n        | City         | Population |\n        | ------------ | ---------- |\n        | Seattle, WA  | 8          |\n        | Portland, OR | 4          |\n        \n        ^2c7cfa\n        ```\n        \n        ## Append, prepend, or replace content below a heading\n        \n        To append the content "Hello" below "Subsubheading 1:1:1" under "Heading 1":\n        \n        ```json\n        {\n          "targetType": "heading",\n          "target": ["Heading 1", "Subheading 1:1", "Subsubheading 1:1:1"],\n          "operation": "append",\n          "content": "Hello"\n        }\n        ```\n        \n        `prepend` and `replace` work the same way, with different results. Because `target` is an array, a heading whose text contains `::` needs no escaping.\n        \n        > **Note:** the heading line itself is not part of the `content` scope. When you `replace` a heading\'s content, supply only the body \u2014 do not include the heading line, or it will be duplicated. To rename the heading, see below.\n        \n        ## Renaming a heading\n        \n        Give the new text. That\'s all \u2014 no `#` characters, and nothing to look up:\n        \n        ```json\n        {\n          "targetType": "heading",\n          "target": ["Heading 1", "Subheading 1:1"],\n          "operation": "replace",\n          "scope": "marker",\n          "content": "New Name"\n        }\n        ```\n        \n        `marker` scope addresses the label rather than the line, so the heading keeps whatever level it had and the body underneath is untouched. You never need to know the heading\'s depth to rename it.\n        \n        > **Do not include `#` characters here.** They are not stripped \u2014 they become part of the heading text, so `"## New Name"` renames the heading to `## New Name` and renders as `## ## New Name`. (This is the reverse of the deprecated 1.x format, where the `#`s were required. If you are migrating, drop them.)\n        \n        The same instruction shape renames a block id (`targetType: "block"`, new id without `^`) or a frontmatter key (`targetType: "frontmatter"`, new key name in `content`).\n        \n        ## Whitespace is library-owned\n        \n        Your `content` crosses the API in trimmed, canonical form: leading and trailing blank lines are stripped, and a non-empty write always ends with exactly one newline. `"X"`, `"X\\n"`, `"\\nX\\n"`, and `"X\\n\\n"` all produce the same document \u2014 newlines at the edges of your content are not a channel for controlling layout, so there is nothing to get wrong.\n        \n        Blank-line separators are the API\'s job. At any joint where your content faces body text, the engine supplies the blank line that keeps it a separate block. Given a document containing:\n        \n        ```markdown\n        # One\n        \n        body of one\n        ```\n        \n        - `append` becomes a new block after the body \u2192 `# One\\n\\nbody of one\\n\\nX\\n`\n        - `prepend` becomes a new block before the body \u2192 `# One\\n\\nX\\n\\nbody of one\\n`\n        - `replace` swaps the body \u2192 `# One\\n\\nX\\n`\n        \n        Where no separator is owed, none is added \u2014 a heading line is self-delimiting, and existing blank lines, gaps between sections, and document edges are preserved rather than rewritten:\n        \n        - The blank line between a heading and its body is kept in place: `replace` swaps the body beneath it and `prepend` inserts below it. A document written flush (`# One\\nbody of one\\n`) keeps its flush style \u2014 `replace` gives `# One\\nX\\n` \u2014 and replacing a body with its own text is byte-identity in either style.\n        - Writing into an empty section lands flush under its heading (`# E\\nX\\n`), with the section\'s existing trailing gap serving as the separator below.\n        \n        One consequence worth knowing: a `content`-scope `append`/`prepend` always begins a new block \u2014 it can never continue an existing paragraph or list. To edit inline within an existing block, address the block itself, which puts you on the literal-splice path where content lands exactly as given and you own the joint. Two ways to do that: target the block via its reference (`^id`) if it has one, or add `within: <index>` to a heading instruction to pick one of the section\'s body blocks by position \u2014 no `^id` required. For example, to extend the last list of a section:\n        \n        ```json\n        { "targetType": "heading", "target": ["Log"], "within": -1, "operation": "append", "content": "\\n- new item" }\n        ```\n        \n        Because a `within` edit is literal, the leading `\\n` is yours to write \u2014 without it the text continues the block\'s last line. Indices are positional, so read the document map or section first, and pair the edit with `ifMatch` from that read so a concurrent change fails the patch rather than landing on the wrong block.\n        \n        ## Append, prepend, or replace content of a block reference\n        \n        To append "Hello" below the block referenced by `2d9b4a`:\n        \n        ```json\n        { "targetType": "block", "target": "2d9b4a", "operation": "append", "content": "Hello" }\n        ```\n        \n        ## Append, prepend, or replace table rows via a block reference\n        \n        To add a new city/population pair to the table referenced by `2c7cfa`, pass the row(s) as a 2-D JSON array in `value`:\n        \n        ```json\n        { "targetType": "block", "target": "2c7cfa", "operation": "append", "value": [["Chicago, IL", "16"]] }\n        ```\n        \n        `prepend` puts the new row first (right below the heading row); `replace` swaps all body rows for the ones you supply. Each row must have exactly as many cells as the table has columns; a mismatched row, or targeting a block that isn\'t a table, is rejected.\n        \n        Cells are content, not table source, so you don\'t format them: a `|` in a cell is escaped for you and stays in the cell it belongs to. A cell containing a line break is rejected, since a table row is a single line \u2014 if you need a visual break inside a cell, send `<br>` yourself.\n        \n        ## Setting a frontmatter field\n        \n        Frontmatter values are JSON, so they ride in `value` (not `content`). To set `alpha` to `2`:\n        \n        ```json\n        { "targetType": "frontmatter", "target": "alpha", "operation": "replace", "value": 2 }\n        ```\n        \n        Add `"createTargetIfMissing": true` to create a field that might not exist yet. For `append`/`prepend`, `value` is merged into the existing value (list concat, dict merge, string concat).\n        \n        ## Adding and removing tags\n        \n        Obsidian stores frontmatter tags in the `tags` field. To add `project/active`, merging into the list and creating it if absent:\n        \n        ```json\n        { "targetType": "frontmatter", "target": "tags", "operation": "append", "value": ["project/active"], "createTargetIfMissing": true }\n        ```\n        \n        There is no direct "remove item" operation. To remove a tag, read the current list (GET, or `vault_read` in the MCP API), filter it client-side, and replace the whole field:\n        \n        ```json\n        { "targetType": "frontmatter", "target": "tags", "operation": "replace", "value": ["remaining-tag-1", "remaining-tag-2"] }\n        ```\n        \n        ## Moving a heading section\n        \n        `scope: "parent"` with `operation: "replace"` re-parents (and re-levels) a section. To move "Details" under "Appendix" as its last child:\n        \n        ```json\n        {\n          "targetType": "heading",\n          "target": ["Overview", "Details"],\n          "operation": "replace",\n          "scope": "parent",\n          "destination": { "parent": ["Appendix"], "place": "last" }\n        }\n        ```\n        \n        `place` may be `"first"`, `"last"`, `{ "before": <heading path> }`, or `{ "after": <heading path> }`. Use `"parent": null` to move to the document root.\n        \n        ## Deleting\n        \n        `operation: "delete"` empties the `content` scope, removes the whole subtree (`markerAndContent`), or dissolves just the heading line (`marker`):\n        \n        ```json\n        { "targetType": "heading", "target": ["Heading 1", "Subheading 1:2"], "operation": "delete", "scope": "markerAndContent" }\n        ```\n        \n        ## Optimistic concurrency\n        \n        Pass `ifMatch` with the `version` token from a document map (see below). If the file changed since, the patch fails with `412` and the file is untouched \u2014 refetch and retry.\n        \n        The `If-Match` and `If-None-Match` headers work here too, in every mode, exactly as on the other writes: `If-Match` takes the same token (the `ETag` from a `GET` of the file, quoted or bare), a list of them, or `*`. When a JSON instruction carries `ifMatch` and the request also sends `If-Match`, both must hold. A successful patch answers with the patched file\'s version in `ETag`, ready for the next conditional edit.\n        \n        ## Identifying patch targets in a file\n        \n        Issue a GET request to `/vault/{path}` with an `Accept` header of `application/vnd.olrapi.document-map+json` to get the headings, block references, and frontmatter fields present in the file (and its `version` token). If a heading has a duplicate sibling (same text, same parent) or a block reference ID repeats, only the first occurrence keeps its plain-text/id key \u2014 each later occurrence\'s key carries a non-printable marker suffix; copy it verbatim from the map into `target` rather than typing it by hand. See "Targeting a Sub-part of your Document" for details.\n        \n        # Raw-content mode (templating-friendly)\n        \n        Putting the whole instruction in a JSON body has one sharp edge: the `content` string must be JSON-escaped, which tools that *template* markdown into an HTTP body (Shortcuts, Tasker, curl with `--data` from a template) often cannot do reliably. Raw-content mode removes that requirement: the instruction\'s fields travel **outside** the body, and the body is the raw payload \u2014 no JSON escaping required.\n        \n        The target can ride in either of two places (never both \u2014 that\'s a `422`):\n        \n        - **URL path elements**, exactly as GET/PUT/POST use them: `PATCH /vault/note.md/heading/A/B`. No version header needed.\n        - **`Target-Type` / `Target` headers**, together with an explicit `Markdown-Patch-Version: 2`. The `Target` encoding is type-dependent, mirroring the instruction\'s `target` field: a heading Target is **JSON, percent-encoded** \u2014 `["A","B"]` sent as `%5B%22A%22%2C%22B%22%5D`, or `null` for the document root \u2014 while block and frontmatter Targets are the plain id/key (percent-encoded if non-ASCII). Because `Target` headers on a PATCH are ambiguous with the deprecated 1.x format, omitting the version header fails loudly with `400 PatchHeaderTargetingRequiresExplicitVersion` rather than guessing.\n        \n        The remaining fields map to headers: `Operation` (required), `Target-Scope` (all four scopes, including `parent`), `Within` (the instruction\'s `within` index as a plain integer, e.g. `-1` \u2014 splice into one of the section\'s body blocks instead of adding a new one), `Create-Target-If-Missing`, `Reject-If-Content-Preexists`, `If-Match` (a precondition on the file, as on every write: the document-map `version` token, bare or ETag-quoted), and `Destination` (a move\'s destination object as percent-encoded JSON). The 1.x-only `Target-Delimiter` and `Trim-Target-Whitespace` headers are rejected.\n        \n        The body is the payload carrier, chosen by its content type:\n        \n        | Body | Instruction field |\n        | --- | --- |\n        | `text/markdown` (any `text/*`) | `content` |\n        | `application/json` | `value` |\n        | *(no body)* | none \u2014 a `delete`, or a move via `Destination` |\n        \n        An empty body deliberately maps to *no* carrier: a `replace` with an accidentally-empty template fails as a missing carrier instead of clearing the section. To clear content on purpose, use an instruction body with `"content": ""`.\n        \n        ```sh\n        # Append a templated line under a heading \u2014 no JSON escaping anywhere\n        curl -k -X PATCH \\\n          -H "Authorization: Bearer $API_KEY" \\\n          -H "Operation: append" \\\n          -H "Content-Type: text/markdown" \\\n          --data "- $TEMPLATED_CONTENT" \\\n          "https://127.0.0.1:27124/vault/notes/daily.md/heading/Log"\n        \n        # Extend the section\'s last list *in place* (not a new block below it):\n        # Within picks the block, and the leading newline in the body makes the\n        # spliced text a new item of that list\n        curl -k -X PATCH \\\n          -H "Authorization: Bearer $API_KEY" \\\n          -H "Operation: append" \\\n          -H "Within: -1" \\\n          -H "Content-Type: text/markdown" \\\n          --data $\'\\n- \'"$TEMPLATED_CONTENT" \\\n          "https://127.0.0.1:27124/vault/notes/daily.md/heading/Log"\n        \n        # The same edit with header targeting (note the explicit version and JSON Target)\n        curl -k -X PATCH \\\n          -H "Authorization: Bearer $API_KEY" \\\n          -H "Markdown-Patch-Version: 2" \\\n          -H "Target-Type: heading" \\\n          -H "Target: %5B%22Log%22%5D" \\\n          -H "Operation: append" \\\n          -H "Content-Type: text/markdown" \\\n          --data "- $TEMPLATED_CONTENT" \\\n          "https://127.0.0.1:27124/vault/notes/daily.md"\n        ```\n        \n        Everything downstream is identical to instruction mode: the same validation, the same warnings header, the same error mapping. A raw-mode request may also send `application/vnd.olrapi.patch-instruction+json` \u2014 but only as a *whole-instruction body* with no targeting elsewhere; combining it with URL or header targeting is a `422 ConflictingTargetSpecification`.\n        \n        > **Note:** on `/active/` endpoints, a URL suffix (e.g. `/active/heading/Log`) previously had no effect on PATCH \u2014 it was ignored and the whole file was patched. It now targets the addressed section, matching PUT/POST.\n        \n        # Deprecated: the 1.x header-driven format\n        \n        The earlier PATCH format spread the instruction across `Operation`, `Target-Type`, `Target`, `Target-Delimiter`, `Target-Scope`, `Create-Target-If-Missing`, `Reject-If-Content-Preexists`, and `Trim-Target-Whitespace` headers, with the payload in a `text/markdown` (or JSON-string) body. **It is deprecated and will be removed in 6.0.** Requests that use it still work, but every response carries a `Deprecation: true; sunset-version="6.0"` header.\n        \n        The JSON-instruction format described above is the default. To use the deprecated format, send `Markdown-Patch-Version: 1`; the header also selects the 1.x document map (`::`-joined heading paths, no `version`) on GET. Without any version header, a non-object body with no targeting is rejected with `400 InvalidPatchInstruction`, and `Target-Type`/`Target` headers are rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 those same header names are also raw-content mode\'s (with different `Target` encoding), so the request must explicitly pick `1` or `2`. To upgrade, drop the version header and either move each 1.x header into the JSON body as below, or switch to [raw-content mode](#raw-content-mode-templating-friendly) and keep your body as-is:\n        \n        | 1.x header | Instruction field |\n        | --- | --- |\n        | `Operation: append` | `"operation": "append"` (now also `"delete"`) |\n        | `Target-Type: heading` | `"targetType": "heading"` |\n        | `Target: A::B` (+ `Target-Delimiter`) | `"target": ["A", "B"]` (a real array \u2014 no delimiter) |\n        | `Target-Scope: content` | `"scope": "content"` (adds `"parent"` for moves) |\n        | body (`text/markdown`) | `"content": "..."` |\n        | body (`application/json` value) | `"value": <json>` |\n        | `Create-Target-If-Missing: true` | `"createTargetIfMissing": true` |\n        | `Reject-If-Content-Preexists: true` | `"rejectIfContentPreexists": true` |\n        | `Trim-Target-Whitespace` | *(dropped; the engine owns boundary whitespace)* |\n      parameters:\n        - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n          in: "path"\n          name: "filename"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: |\n            Raw-content mode: the type of node the instruction targets (`heading`,\n            `block`, or `frontmatter`). Must be used together with the `Target`\n            header and an explicit `Markdown-Patch-Version: 2`; alternatively, put\n            the target in the URL path (`.../heading/A/B`) and omit both headers.\n            Supplying both is rejected with `422 ConflictingTargetSpecification`.\n          in: "header"\n          name: "Target-Type"\n          required: false\n          schema:\n            enum:\n              - "heading"\n              - "block"\n              - "frontmatter"\n            type: "string"\n        - description: |\n            Raw-content mode: the node the instruction targets. The encoding is\n            type-dependent, mirroring the instruction\'s `target` field. For a\n            `heading`, the value is JSON \u2014 an array of heading texts from the top\n            level down, or `null` for the document root \u2014 then percent-encoded:\n            `["A","B"]` is sent as `%5B%22A%22%2C%22B%22%5D`. For a `block` or\n            `frontmatter` target, the value is the plain id/key, percent-encoded if\n            it contains non-ASCII characters. A heading value that does not decode\n            to JSON (e.g. a bare 1.x-style `A::B` path) is rejected with\n            `400 InvalidTargetHeader`.\n          in: "header"\n          name: "Target"\n          required: false\n          schema:\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s `within` \u2014 a single integer (e.g.\n            `-1`) refining a heading target to one of the section\'s direct-body\n            top-level blocks (0-based document order, negative counting from the\n            end; isolated `^id` lines are not counted). With the default `content`\n            scope the body is spliced literally into that block \u2014 an `append`\n            *continues* it \u2014 and a bodiless `delete` removes it; with\n            `Target-Scope: markerAndContent`, `prepend`/`append` insert the body as\n            a new block beside it. Heading targets only; cannot be combined with\n            `Create-Target-If-Missing`.\n          in: "header"\n          name: "Within"\n          required: false\n          schema:\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s operation. Required whenever the\n            target rides in the URL path or the `Target-Type`/`Target` headers.\n          in: "header"\n          name: "Operation"\n          required: false\n          schema:\n            enum:\n              - "replace"\n              - "prepend"\n              - "append"\n              - "delete"\n            type: "string"\n        - description: |\n            Raw-content mode: the instruction\'s `scope` \u2014 `content` (default),\n            `marker`, `markerAndContent`, or `parent` (a move; carries its\n            destination in the `Destination` header). See the instruction-body\n            documentation for what each scope addresses.\n          in: "header"\n          name: "Target-Scope"\n          required: false\n          schema:\n            default: "content"\n            enum:\n              - "content"\n              - "marker"\n              - "markerAndContent"\n              - "parent"\n            type: "string"\n        - description: |\n            Raw-content mode: where a moved heading lands (`Target-Scope: parent`).\n            The instruction\'s `destination` object as JSON, then percent-encoded:\n            `{"parent":["Appendix"],"place":"last"}` is sent as\n            `%7B%22parent%22%3A%5B%22Appendix%22%5D%2C%22place%22%3A%22last%22%7D`.\n            A move carries no body.\n          in: "header"\n          name: "Destination"\n          required: false\n          schema:\n            type: "string"\n        - description: "If the specified Target does not exist, create it?"\n          in: "header"\n          name: "Create-Target-If-Missing"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: "If patch data already exists in Target, reject the patch?"\n          in: "header"\n          name: "Reject-If-Content-Preexists"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: |\n            Write only if the file is still the version you read. Send the `ETag` from\n            a `GET` of the file (or from a previous write), or the `version` from its\n            document map or note JSON -- they are the same token. A comma-separated\n            list matches if any entry does, and `*` matches any file that exists.\n            \n            If the file has changed since, or does not exist, the request fails with\n            `412` (error code `41200`) and nothing is written; read the file again and\n            redo the edit against what is there now. Tags are compared strongly: a\n            weak `W/"\u2026"` tag never matches. The tag may be sent quoted, as RFC 9110\n            writes it, or bare. A value that is neither `*` nor an entity-tag list is\n            refused with `400` (error code `40024`).\n            \n            Writes made through this API are queued per file, so two requests that\n            hold the same tag cannot both pass the check: the first to arrive writes,\n            and the second fails with `412`.\n          in: "header"\n          name: "If-Match"\n          required: false\n          schema:\n            example: "\\"a1b2c3\\""\n            type: "string"\n        - description: |\n            `*` writes only if nothing exists at the path yet -- a create that will\n            not overwrite. A list of entity tags instead fails the write if the file is\n            currently at any of those versions. A failed precondition is `412` (error\n            code `41200`) and nothing is written; a malformed value is `400` (error\n            code `40024`).\n          in: "header"\n          name: "If-None-Match"\n          required: false\n          schema:\n            example: "*"\n            type: "string"\n      requestBody:\n        content:\n          application/json:\n            examples:\n              addTag:\n                summary: "Add a tag (merge into the tags list, creating it if absent)"\n                value:\n                  createTargetIfMissing: true\n                  operation: "append"\n                  target: "tags"\n                  targetType: "frontmatter"\n                  value:\n                    - "project/active"\n              appendToBlock:\n                summary: "Append text to a block addressed by its reference id"\n                value:\n                  content: "More detail for this block."\n                  operation: "append"\n                  target: "2c7cfa"\n                  targetType: "block"\n              appendUnderHeading:\n                summary: "Append text below a heading"\n                value:\n                  content: "Hello"\n                  operation: "append"\n                  target:\n                    - "Heading 1"\n                    - "Subheading 1:1:1"\n                  targetType: "heading"\n              continueList:\n                summary: "Continue an existing list in place (within: positional block edit)"\n                value:\n                  content: "\\n- new item"\n                  operation: "append"\n                  target:\n                    - "Log"\n                  targetType: "heading"\n                  within: -1\n              moveSection:\n                summary: "Move a heading section under a new parent"\n                value:\n                  destination:\n                    parent:\n                      - "Appendix"\n                    place: "last"\n                  operation: "replace"\n                  scope: "parent"\n                  target:\n                    - "Overview"\n                    - "Details"\n                  targetType: "heading"\n              setFrontmatter:\n                summary: "Set a frontmatter field to a JSON value"\n                value:\n                  operation: "replace"\n                  target: "alpha"\n                  targetType: "frontmatter"\n                  value: 2\n            schema:\n              "$ref": "#/components/schemas/PatchInstruction"\n          "application/vnd.olrapi.patch-instruction+json":\n            schema:\n              "$ref": "#/components/schemas/PatchInstruction"\n          text/markdown:\n            schema:\n              example: |\n                - A raw markdown line: no JSON escaping needed.\n              type: "string"\n        description: |\n          Instruction mode: a single patch instruction as JSON (`application/json`, or\n          `application/vnd.olrapi.patch-instruction+json` to declare it explicitly).\n          Raw-content mode: the raw payload \u2014 a `text/markdown` body is the instruction\'s\n          `content` carrier, an `application/json` body its `value` carrier, and no body at\n          all carries nothing (a delete, or a move via the `Destination` header). An empty\n          raw-mode body never clears content: a `replace` without a payload is rejected as a\n          missing carrier, so an accidentally-empty template cannot wipe a section (use an\n          instruction body with `"content": ""` to clear deliberately).\n        required: false\n      responses:\n        "200":\n          description: "Success. The body is the patched document. Any advisory warnings (e.g. a heading rebased past level 6) are JSON-encoded, then percent-encoded, in the `Markdown-Patch-Warnings` response header."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file the URL resolved to, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL. Sent only when the URL embedded a target (`/heading/...`, `/block/...`, `/frontmatter/...`), since that is the case where the file the request acted on is not evident from the URL alone; absent on a whole-file request."\n              required: false\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            ETag:\n              description: "The file\'s version after this write, as a strong entity tag: send it as `If-Match` on your next write to make that one conditional too, without reading the file again."\n              schema:\n                example: "\\"a1b2c3\\""\n                type: "string"\n            Markdown-Patch-Warnings:\n              description: "Present only when the patch produced warnings: a percent-encoded JSON array of `{ code, message }` objects (percent-encoded because a warning message embeds document text verbatim, which may contain non-ASCII characters that are not valid in a raw header value). Decode with `decodeURIComponent` before parsing as JSON."\n              schema:\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Bad Request; the instruction was malformed, the operation\xD7scope\xD7targetType combination is not part of the algebra, the `Markdown-Patch-Version` header was invalid, an instruction-mode request had a non-object body, or a raw-content-mode header could not be decoded (a heading `Target` that is not percent-encoded JSON, a malformed `Destination`, an unsupported body content type). Header-based targeting without an explicit `Markdown-Patch-Version` returns `PatchHeaderTargetingRequiresExplicitVersion` here. See response message for details."\n        "403":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "The path is inside Obsidian\'s configuration directory (`app.vault.configDir`, normally `.obsidian`), which this API refuses to read or write. That directory holds plugin code and each plugin\'s `data.json` -- including this plugin\'s own, where the API key lives -- so writing there is effectively remote code execution and reading there leaks secrets (GHSA-66m9-r757-qvq7). The check is against where the path lands on disk, so a Windows 8.3 short name, a differently cased spelling, or a symlink into that directory is refused the same way. Enable \'Allow access to the configuration directory\' in the plugin\'s Advanced settings to permit it."\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "The file, or the addressed target within it, does not exist (and `createTargetIfMissing` was not set)."\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "409":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "`rejectIfContentPreexists` was set and the content already appears in the target span."\n        "412":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Precondition Failed: an `If-Match` or `If-None-Match` header, or the JSON instruction\'s own `ifMatch` field, did not hold against the file as it is now. The file was not modified; the message names its current version."\n        "422":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Conflicting target specifications: more than one of URL path elements, `Target-Type`/`Target` headers, and an `application/vnd.olrapi.patch-instruction+json` instruction body was supplied."\n      summary: |\n        Partially update content in an existing note.\n      tags:\n        - "Vault Files"\n    post:\n      description: |\n        Appends content to the end of an existing note. If the specified file does not yet exist, it will be created as an empty file.\n        \n        # Targeting a Sub-part of your Document\n        \n        You can operate on a specific section of a note instead of the whole file by embedding a target in the URL path, immediately after the note identifier. The first segment after the note is the target type, and the remaining segments address the target:\n        \n        - `.../heading/My%20Section` targets the section beneath the `My Section` heading \u2014 the body content below the heading line.\n        - For a nested heading, add one path segment per level: `.../heading/My%20Section/Subsection` targets `Subsection` under `My Section`. Because each level is its own segment, a heading whose text contains `::` (or any other delimiter) needs no escaping.\n        - `.../block/abc123` targets the block with reference ID `abc123`.\n        - `.../frontmatter/fieldName` targets the `fieldName` frontmatter field.\n        \n        Percent-encode any segment that contains non-ASCII characters or a literal `/` (e.g. `H%C3%A9llo` for `H\xE9llo`, or `TODO%2FDONE` for a heading named `TODO/DONE`). Each URL path segment is decoded on its own, so an encoded `%2F` stays a literal slash *inside* that one segment rather than acting as a separator \u2014 that is what lets a heading name contain a slash. The same rule applies to the note path itself: because a file or folder name can never contain a slash, the note must be addressed with real `/` separators between its path components (`/vault/folder/note.md`), not with the separators encoded (`/vault/folder%2Fnote.md`), which no longer resolves.\n        \n        If a document has a duplicate sibling heading (the same text repeated under the same parent) or a duplicate block reference ID, only the first occurrence is addressable by its plain text/id. Each later occurrence gets its own address with a non-printable marker suffix appended by the server \u2014 fetch the document map (`Accept: application/vnd.olrapi.document-map+json`) and copy that occurrence\'s key verbatim; don\'t try to type or reconstruct the marker yourself.\n        \n        `GET` returns just the addressed section. By default that is the target\'s `content` scope; add a `Target-Scope` header to read the `marker` (the label \u2014 a heading\'s raw text, a block\'s bare id, a frontmatter key) or `markerAndContent` (the whole node, in exactly the shape a PATCH `replace` at that scope consumes \u2014 a heading subtree comes back with its own line as `# Title`, levels relative to its parent, so a read-modify-write never counts `#`s). `PUT` replaces the section and `POST` appends to it, with heading levels normalized and separator whitespace managed for you. `PATCH` also accepts a URL target \u2014 its raw-content mode \u2014 with the operation and other instruction fields in headers (`Operation`, `Target-Scope`, \u2026) and the raw payload as the body. For the full instruction algebra (renames, moves, deletes, typed frontmatter values), see the PATCH documentation.\n        \n        On `PUT` and `POST`, the `Content-Type` of your request body selects how the payload is interpreted, and not every target accepts both:\n        \n        - A `text/markdown` body is literal markdown. Valid for `heading` and `block` targets. On a `frontmatter` target it is stored as the field\'s plain string value.\n        - An `application/json` body is structured data. On a `block` target that addresses a table, it is a 2-D array of row cells (`[["Chicago", "16"]]`). On a `frontmatter` target it is the field\'s typed value (a list, dictionary, number, or string). A `heading` target has no structured form \u2014 its body is markdown text \u2014 so a JSON body there is rejected with `400 InvalidPatchInstruction` rather than being stringified into your note.\n        \n        ## Which file did it act on?\n        \n        A URL that embeds a target is ambiguous on its face: `/vault/notes/log.md/heading/Today` could address the `Today` section of `notes/log.md`, or a file literally named `notes/log.md/heading/Today`. The server resolves it by walking backwards down the path until it finds a real file, and reports the answer in a `Content-Location` response header holding the vault-relative path it settled on. Each path component is percent-encoded on its own \u2014 non-ASCII characters, and reserved characters like `#`, `?` and `,` that a client would otherwise read as a fragment, a query or a header-list separator \u2014 so the value can be pasted straight back into a request URL. A request whose URL names the file outright gets no such header \u2014 there is nothing it could tell you that the URL does not.\n        \n        `/active/` responses carry `Content-Location` for the same reason, whether or not a target is embedded: the file the request acted on is whichever note happened to be open.\n        \n        ## Deprecated: header-based targeting\n        \n        Earlier releases addressed a sub-part with `Target-Type`, `Target`, and `Target-Delimiter` request headers (plus `Target-Scope` and `Trim-Target-Whitespace`) rather than URL path segments. **That form is deprecated and will be removed in 6.0.** It is only processed when you also send `Markdown-Patch-Version: 1`, and responses served that way carry a `Deprecation: true; sunset-version="6.0"` header. On GET/PUT/POST, supplying those targeting headers without that version is rejected with `400 HeaderTargetingRequiresVersion1` \u2014 reach the sub-part with URL path segments instead. (On PATCH, `Target-Type`/`Target` headers also have a *non-deprecated* meaning under an explicit `Markdown-Patch-Version: 2` \u2014 raw-content mode, with a different `Target` encoding; see the PATCH documentation.) Supplying both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n        \n        When a target is specified the content is appended within that section and the full updated file content is returned with a `200` status. Without a target, the content is appended to the end of the file and a `204` status is returned.\n        \n        If you need `prepend` or `replace` operations, use `PATCH` instead.\n      parameters:\n        - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n          in: "path"\n          name: "filename"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: "If the specified Target does not exist, create it?"\n          in: "header"\n          name: "Create-Target-If-Missing"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: "If patch data already exists in Target, reject the patch?"\n          in: "header"\n          name: "Reject-If-Content-Preexists"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: |\n            Write only if the file is still the version you read. Send the `ETag` from\n            a `GET` of the file (or from a previous write), or the `version` from its\n            document map or note JSON -- they are the same token. A comma-separated\n            list matches if any entry does, and `*` matches any file that exists.\n            \n            If the file has changed since, or does not exist, the request fails with\n            `412` (error code `41200`) and nothing is written; read the file again and\n            redo the edit against what is there now. Tags are compared strongly: a\n            weak `W/"\u2026"` tag never matches. The tag may be sent quoted, as RFC 9110\n            writes it, or bare. A value that is neither `*` nor an entity-tag list is\n            refused with `400` (error code `40024`).\n            \n            Writes made through this API are queued per file, so two requests that\n            hold the same tag cannot both pass the check: the first to arrive writes,\n            and the second fails with `412`.\n          in: "header"\n          name: "If-Match"\n          required: false\n          schema:\n            example: "\\"a1b2c3\\""\n            type: "string"\n        - description: |\n            `*` writes only if nothing exists at the path yet -- a create that will\n            not overwrite. A list of entity tags instead fails the write if the file is\n            currently at any of those versions. A failed precondition is `412` (error\n            code `41200`) and nothing is written; a malformed value is `400` (error\n            code `40024`).\n          in: "header"\n          name: "If-None-Match"\n          required: false\n          schema:\n            example: "*"\n            type: "string"\n      requestBody:\n        content:\n          text/markdown:\n            schema:\n              example: |\n                # This is my document\n                \n                something else here\n              type: "string"\n        description: "Content you would like to append."\n        required: true\n      responses:\n        "200":\n          content:\n            text/markdown:\n              schema:\n                type: "string"\n          description: "Success; content appended to the targeted section (via URL path elements). The full updated file content is returned. Any advisory warnings (e.g. a heading rebased past level 6) are JSON-encoded, then percent-encoded, in the `Markdown-Patch-Warnings` response header."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file the URL resolved to, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL. Sent only when the URL embedded a target (`/heading/...`, `/block/...`, `/frontmatter/...`), since that is the case where the file the request acted on is not evident from the URL alone; absent on a whole-file request."\n              required: false\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            ETag:\n              description: "The file\'s version after this write, as a strong entity tag: send it as `If-Match` on your next write to make that one conditional too, without reading the file again."\n              schema:\n                example: "\\"a1b2c3\\""\n                type: "string"\n            Markdown-Patch-Warnings:\n              description: "Present only when the write produced warnings: a percent-encoded JSON array of `{ code, message }` objects. Decode with `decodeURIComponent` before parsing as JSON."\n              schema:\n                type: "string"\n        "204":\n          description: "Success; content appended to end of file."\n          headers:\n            ETag:\n              description: "The file\'s version after this write, as a strong entity tag: send it as `If-Match` on your next write to make that one conditional too, without reading the file again."\n              schema:\n                example: "\\"a1b2c3\\""\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Bad Request"\n        "403":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "The path is inside Obsidian\'s configuration directory (`app.vault.configDir`, normally `.obsidian`), which this API refuses to read or write. That directory holds plugin code and each plugin\'s `data.json` -- including this plugin\'s own, where the API key lives -- so writing there is effectively remote code execution and reading there leaks secrets (GHSA-66m9-r757-qvq7). The check is against where the path lands on disk, so a Windows 8.3 short name, a differently cased spelling, or a symlink into that directory is refused the same way. Enable \'Allow access to the configuration directory\' in the plugin\'s Advanced settings to permit it."\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "409":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "`Reject-If-Content-Preexists` was set and the content already appears in the targeted section."\n        "412":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Precondition Failed: an `If-Match` or `If-None-Match` header did not hold against the file as it is now -- it has changed since the version `If-Match` named, no longer exists, or (under `If-None-Match: *`) already exists. Nothing was written. The message names the file\'s current version."\n      summary: |\n        Append content to a new or existing file.\n      tags:\n        - "Vault Files"\n    put:\n      description: |\n        Creates a new file in your vault or updates the content of an existing one if the specified file already exists.\n        \n        Any content type is accepted: a request body that is not text or JSON is stored as raw bytes, so attachments -- images, PDFs, audio -- can be uploaded here as well as notes. A body sent with no `Content-Type` at all is treated as `application/octet-stream` and stored as raw bytes, which is what RFC 9110 allows. There is no size limit beyond the request-size cap.\n        \n        A signed upload URL (`?sig=\u2026&exp=\u2026&n=\u2026`, from the MCP `vault_get_upload_url` tool) authenticates a single whole-file `PUT` in place of the `Authorization` header; the link is consumed by the request that succeeds. A signed `PUT` stores exactly the bytes sent, whatever `Content-Type` it declares -- it is not routed through the JSON or text parsers, which would otherwise reparse and re-serialize the body. It authorizes a whole-file write only: a request that also targets part of the document, through `Target-Type`/`Target` headers or through `/heading`, `/block` or `/frontmatter` path elements, is refused.\n        \n        # Targeting a Sub-part of your Document\n        \n        You can operate on a specific section of a note instead of the whole file by embedding a target in the URL path, immediately after the note identifier. The first segment after the note is the target type, and the remaining segments address the target:\n        \n        - `.../heading/My%20Section` targets the section beneath the `My Section` heading \u2014 the body content below the heading line.\n        - For a nested heading, add one path segment per level: `.../heading/My%20Section/Subsection` targets `Subsection` under `My Section`. Because each level is its own segment, a heading whose text contains `::` (or any other delimiter) needs no escaping.\n        - `.../block/abc123` targets the block with reference ID `abc123`.\n        - `.../frontmatter/fieldName` targets the `fieldName` frontmatter field.\n        \n        Percent-encode any segment that contains non-ASCII characters or a literal `/` (e.g. `H%C3%A9llo` for `H\xE9llo`, or `TODO%2FDONE` for a heading named `TODO/DONE`). Each URL path segment is decoded on its own, so an encoded `%2F` stays a literal slash *inside* that one segment rather than acting as a separator \u2014 that is what lets a heading name contain a slash. The same rule applies to the note path itself: because a file or folder name can never contain a slash, the note must be addressed with real `/` separators between its path components (`/vault/folder/note.md`), not with the separators encoded (`/vault/folder%2Fnote.md`), which no longer resolves.\n        \n        If a document has a duplicate sibling heading (the same text repeated under the same parent) or a duplicate block reference ID, only the first occurrence is addressable by its plain text/id. Each later occurrence gets its own address with a non-printable marker suffix appended by the server \u2014 fetch the document map (`Accept: application/vnd.olrapi.document-map+json`) and copy that occurrence\'s key verbatim; don\'t try to type or reconstruct the marker yourself.\n        \n        `GET` returns just the addressed section. By default that is the target\'s `content` scope; add a `Target-Scope` header to read the `marker` (the label \u2014 a heading\'s raw text, a block\'s bare id, a frontmatter key) or `markerAndContent` (the whole node, in exactly the shape a PATCH `replace` at that scope consumes \u2014 a heading subtree comes back with its own line as `# Title`, levels relative to its parent, so a read-modify-write never counts `#`s). `PUT` replaces the section and `POST` appends to it, with heading levels normalized and separator whitespace managed for you. `PATCH` also accepts a URL target \u2014 its raw-content mode \u2014 with the operation and other instruction fields in headers (`Operation`, `Target-Scope`, \u2026) and the raw payload as the body. For the full instruction algebra (renames, moves, deletes, typed frontmatter values), see the PATCH documentation.\n        \n        On `PUT` and `POST`, the `Content-Type` of your request body selects how the payload is interpreted, and not every target accepts both:\n        \n        - A `text/markdown` body is literal markdown. Valid for `heading` and `block` targets. On a `frontmatter` target it is stored as the field\'s plain string value.\n        - An `application/json` body is structured data. On a `block` target that addresses a table, it is a 2-D array of row cells (`[["Chicago", "16"]]`). On a `frontmatter` target it is the field\'s typed value (a list, dictionary, number, or string). A `heading` target has no structured form \u2014 its body is markdown text \u2014 so a JSON body there is rejected with `400 InvalidPatchInstruction` rather than being stringified into your note.\n        \n        ## Which file did it act on?\n        \n        A URL that embeds a target is ambiguous on its face: `/vault/notes/log.md/heading/Today` could address the `Today` section of `notes/log.md`, or a file literally named `notes/log.md/heading/Today`. The server resolves it by walking backwards down the path until it finds a real file, and reports the answer in a `Content-Location` response header holding the vault-relative path it settled on. Each path component is percent-encoded on its own \u2014 non-ASCII characters, and reserved characters like `#`, `?` and `,` that a client would otherwise read as a fragment, a query or a header-list separator \u2014 so the value can be pasted straight back into a request URL. A request whose URL names the file outright gets no such header \u2014 there is nothing it could tell you that the URL does not.\n        \n        `/active/` responses carry `Content-Location` for the same reason, whether or not a target is embedded: the file the request acted on is whichever note happened to be open.\n        \n        ## Deprecated: header-based targeting\n        \n        Earlier releases addressed a sub-part with `Target-Type`, `Target`, and `Target-Delimiter` request headers (plus `Target-Scope` and `Trim-Target-Whitespace`) rather than URL path segments. **That form is deprecated and will be removed in 6.0.** It is only processed when you also send `Markdown-Patch-Version: 1`, and responses served that way carry a `Deprecation: true; sunset-version="6.0"` header. On GET/PUT/POST, supplying those targeting headers without that version is rejected with `400 HeaderTargetingRequiresVersion1` \u2014 reach the sub-part with URL path segments instead. (On PATCH, `Target-Type`/`Target` headers also have a *non-deprecated* meaning under an explicit `Markdown-Patch-Version: 2` \u2014 raw-content mode, with a different `Target` encoding; see the PATCH documentation.) Supplying both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n        \n        When a target is specified the target section is replaced with the request body and the full updated file content is returned with a `200` status. If the target does not exist it will be created. Without a target, the entire file is replaced and a `204` status is returned.\n      parameters:\n        - description: "Path to the relevant file (relative to your vault root).\\n Optionally, you may include a reference to target a sub-part of the document; see \\"Targeting a Sub-part of your Document\\" for details."\n          in: "path"\n          name: "filename"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n        - description: |\n            Selects which markdown-patch format governs this request. You do not normally\n            need to send this header. By default (2.0), a PATCH carries its whole instruction\n            in the JSON request body, the document map returns a nested heading tree plus a\n            `version` token, and a sub-part of a document is targeted with URL path elements\n            (e.g. `.../heading/My%20Section`). Set it to `1` to opt into the deprecated 1.x\n            behavior: the header-driven PATCH format, header-based targeting\n            (`Target-Type`/`Target`/`Target-Delimiter`/`Target-Scope`) on GET/PUT/POST, and\n            the `::`-joined document map. Responses served by 1.x carry a\n            `Deprecation: true; sunset-version="6.0"` header. Any value other than `1` or `2`\n            returns `400 InvalidPatchVersionHeader`.\n            \n            One place an *explicit* `2` matters: PATCH\'s raw-content mode with header-based\n            targeting. Because `Target-Type`/`Target` headers on a PATCH are ambiguous between\n            the 1.x format and raw-content mode, a PATCH carrying them without this header is\n            rejected with `400 PatchHeaderTargetingRequiresExplicitVersion` \u2014 send `1` for the\n            deprecated engine or `2` for raw-content mode. On GET/PUT/POST, supplying those\n            targeting headers without `1` is rejected with `400 HeaderTargetingRequiresVersion1`\n            (use URL path elements instead), and PATCH URL-element targeting likewise needs no\n            version header.\n          in: "header"\n          name: "Markdown-Patch-Version"\n          required: false\n          schema:\n            default: "2"\n            enum:\n              - "1"\n              - "2"\n            type: "string"\n        - description: "If patch data already exists in Target, reject the patch?"\n          in: "header"\n          name: "Reject-If-Content-Preexists"\n          required: false\n          schema:\n            default: "false"\n            enum:\n              - "true"\n              - "false"\n            type: "string"\n        - description: "Signature of a signed URL, minted by the MCP `vault_get_download_url` / `vault_get_upload_url` / `events_get_listener_url` tools or by `POST /events/{emitter}/{event}/`. Together with `exp` and `n`, authenticates this one request without an `Authorization` header. Only honoured while signed URLs are enabled in the plugin settings."\n          in: "query"\n          name: "sig"\n          required: false\n          schema:\n            type: "string"\n        - description: "Expiry of a signed URL as Unix seconds; part of what `sig` signs."\n          in: "query"\n          name: "exp"\n          required: false\n          schema:\n            type: "integer"\n        - description: "Random per-link nonce, minted with the URL and part of what `sig` signs. Required whenever `sig` and `exp` are given: a signed request without it cannot verify. It exists so that two links minted for the same path within the same second are distinct -- `exp` has one-second granularity, so without it they would be byte-identical, and spending one would spend the other."\n          in: "query"\n          name: "n"\n          required: false\n          schema:\n            type: "string"\n        - description: |\n            Write only if the file is still the version you read. Send the `ETag` from\n            a `GET` of the file (or from a previous write), or the `version` from its\n            document map or note JSON -- they are the same token. A comma-separated\n            list matches if any entry does, and `*` matches any file that exists.\n            \n            If the file has changed since, or does not exist, the request fails with\n            `412` (error code `41200`) and nothing is written; read the file again and\n            redo the edit against what is there now. Tags are compared strongly: a\n            weak `W/"\u2026"` tag never matches. The tag may be sent quoted, as RFC 9110\n            writes it, or bare. A value that is neither `*` nor an entity-tag list is\n            refused with `400` (error code `40024`).\n            \n            Writes made through this API are queued per file, so two requests that\n            hold the same tag cannot both pass the check: the first to arrive writes,\n            and the second fails with `412`.\n          in: "header"\n          name: "If-Match"\n          required: false\n          schema:\n            example: "\\"a1b2c3\\""\n            type: "string"\n        - description: |\n            `*` writes only if nothing exists at the path yet -- a create that will\n            not overwrite. A list of entity tags instead fails the write if the file is\n            currently at any of those versions. A failed precondition is `412` (error\n            code `41200`) and nothing is written; a malformed value is `400` (error\n            code `40024`).\n          in: "header"\n          name: "If-None-Match"\n          required: false\n          schema:\n            example: "*"\n            type: "string"\n      requestBody:\n        content:\n          "*/*":\n            schema:\n              type: "string"\n          text/markdown:\n            schema:\n              example: |\n                # This is my document\n                \n                something else here\n              type: "string"\n        description: "Content of the file you would like to upload."\n        required: true\n      responses:\n        "200":\n          content:\n            text/markdown:\n              schema:\n                type: "string"\n          description: "Success; targeted section replaced (via URL path elements). The full updated file content is returned. Any advisory warnings (e.g. a heading rebased past level 6) are JSON-encoded, then percent-encoded, in the `Markdown-Patch-Warnings` response header."\n          headers:\n            Content-Location:\n              description: "Vault-relative path of the file the URL resolved to, e.g. `notes/file.md`. Each path component is percent-encoded on its own -- non-ASCII characters, and reserved characters such as `#`, `?` and `,` that would otherwise be read as a fragment, a query or a header-list separator -- so the value can be pasted straight back into a request URL. Sent only when the URL embedded a target (`/heading/...`, `/block/...`, `/frontmatter/...`), since that is the case where the file the request acted on is not evident from the URL alone; absent on a whole-file request."\n              required: false\n              schema:\n                example: "notes/file.md"\n                type: "string"\n            ETag:\n              description: "The file\'s version after this write, as a strong entity tag: send it as `If-Match` on your next write to make that one conditional too, without reading the file again."\n              schema:\n                example: "\\"a1b2c3\\""\n                type: "string"\n            Markdown-Patch-Warnings:\n              description: "Present only when the write produced warnings: a percent-encoded JSON array of `{ code, message }` objects. Decode with `decodeURIComponent` before parsing as JSON."\n              schema:\n                type: "string"\n        "204":\n          description: "Success; entire file replaced."\n          headers:\n            ETag:\n              description: "The file\'s version after this write, as a strong entity tag: send it as `If-Match` on your next write to make that one conditional too, without reading the file again."\n              schema:\n                example: "\\"a1b2c3\\""\n                type: "string"\n        "400":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Incoming file could not be processed.  Make sure you have specified a reasonable file name, and make sure you have set a reasonable \'Content-Type\' header; if you are uploading a note, \'text/markdown\' is likely the right choice.\n        "403":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "The path is inside Obsidian\'s configuration directory (`app.vault.configDir`, normally `.obsidian`), which this API refuses to read or write. That directory holds plugin code and each plugin\'s `data.json` -- including this plugin\'s own, where the API key lives -- so writing there is effectively remote code execution and reading there leaks secrets (GHSA-66m9-r757-qvq7). The check is against where the path lands on disk, so a Windows 8.3 short name, a differently cased spelling, or a symlink into that directory is refused the same way. Enable \'Allow access to the configuration directory\' in the plugin\'s Advanced settings to permit it."\n        "405":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: |\n            Your path references a directory instead of a file; this request method is valid only for updating files.\n        "409":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "`Reject-If-Content-Preexists` was set and the content already appears in the targeted section."\n        "412":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Precondition Failed: an `If-Match` or `If-None-Match` header did not hold against the file as it is now -- it has changed since the version `If-Match` named, no longer exists, or (under `If-None-Match: *`) already exists. Nothing was written. The message names the file\'s current version."\n      summary: |\n        Create a new file in your vault or update the content of an existing one.\n      tags:\n        - "Vault Files"\n  "/vault/{pathToDirectory}/":\n    get:\n      parameters:\n        - description: |\n            Path to list files from (relative to your vault root).  Note that empty directories will not be returned.\n            \n            Note: this particular interactive tool requires that you provide an argument for this field, but the API itself will allow you to list the root folder of your vault. If you would like to try listing content in the root of your vault using this interactive tool, use the above "List files that exist in the root of your vault" form above.\n          in: "path"\n          name: "pathToDirectory"\n          required: true\n          schema:\n            format: "path"\n            type: "string"\n      responses:\n        "200":\n          content:\n            application/json:\n              example:\n                files:\n                  - "mydocument.md"\n                  - "somedirectory/"\n              schema:\n                properties:\n                  files:\n                    items:\n                      type: "string"\n                    type: "array"\n                type: "object"\n          description: "Success"\n        "404":\n          content:\n            application/json:\n              schema:\n                "$ref": "#/components/schemas/Error"\n          description: "Directory does not exist"\n      summary: |\n        List files that exist in the specified directory.\n      tags:\n        - "Vault Directories"\nsecurity:\n  - apiKeyAuth: []\nservers:\n  - description: "HTTPS (Secure Mode)"\n    url: "https://{host}:{port}"\n    variables:\n      host:\n        default: "127.0.0.1"\n        description: "Binding host"\n      port:\n        default: "27124"\n        description: "HTTPS port"\n  - description: "HTTP (Insecure Mode)"\n    url: "http://{host}:{port}"\n    variables:\n      host:\n        default: "127.0.0.1"\n        description: "Binding host"\n      port:\n        default: "27123"\n        description: "HTTP port"\ntags:\n  - name: "Vault Files"\n  - name: "Active File"\n  - name: "Vault Directories"\n  - name: "Tags"\n  - name: "Search"\n  - name: "Commands"\n  - name: "Events"\n  - name: "Open"\n  - name: "System"\n  - name: "MCP"\nx-topics:\n  - content: |\n      # Migrating from 1.x to 2.x\n      \n      Version 5.0 of this plugin upgraded its markdown-editing engine ([markdown-patch](https://github.com/coddingtonbear/markdown-patch)) from 1.x to 2.x, and the 2.x conventions are now the **default** for PATCH requests, sub-document targeting, and the document map.\n      \n      > **Version numbers, disambiguated:** "1.x" and "2.x" in this guide refer to the *markdown-patch format*, selected per-request with the `Markdown-Patch-Version` header. The *plugin* switched defaults in its 5.0 release and will remove the 1.x format entirely in 6.0.\n      \n      The 1.x format still works \u2014 send `Markdown-Patch-Version: 1` \u2014 but it is **deprecated and will be removed in plugin 6.0**. Every response served the 1.x way carries a `Deprecation: true; sunset-version="6.0"` header so you can spot lingering legacy traffic in your client logs.\n      \n      # Am I affected?\n      \n      You are affected if you:\n      \n      - send **PATCH** requests that spread the instruction across `Operation`, `Target-Type`, `Target`, `Target-Delimiter`, `Target-Scope`, `Create-Target-If-Missing`, `Reject-If-Content-Preexists`, or `Trim-Target-Whitespace` headers;\n      - target a heading, block, or frontmatter field on **GET, PUT, or POST** using `Target-Type` / `Target` / `Target-Delimiter` headers;\n      - consume the **document map** (`Accept: application/vnd.olrapi.document-map+json`);\n      - parse the **`MD-Patch-Warnings`** response header;\n      - use the **MCP tools** `vault_patch`, `vault_read` (with a heading target), or `vault_get_document_map`.\n      \n      You are **not** affected if you only read and write whole files, search, or use the active-file endpoints without section targeting.\n      \n      # Old request shapes fail loudly\n      \n      Old-style requests sent without a version header are rejected loudly rather than reinterpreted:\n      \n      | Legacy request shape (no version header) | Result |\n      | --- | --- |\n      | GET/PUT/POST with `Target-Type`/`Target` headers | `400 HeaderTargetingRequiresVersion1` |\n      | PATCH with `Target-Type`/`Target` headers | `400 PatchHeaderTargetingRequiresExplicitVersion` |\n      | PATCH with a non-object body and no targeting | `400 InvalidPatchInstruction` |\n      | Any `Markdown-Patch-Version` other than `1` or `2` | `400 InvalidPatchVersionHeader` |\n      \n      (The PATCH header case is ambiguous by design: `Target-Type`/`Target` on a PATCH mean the deprecated 1.x format under version `1`, but [raw-content mode](#raw-content-mode-the-low-effort-migration) under an explicit version `2` \u2014 so the server refuses to guess.)\n      \n      That covers the *shape* of a request, not its payload. A 2.x request carrying heading `content` written the 1.x way is accepted, and its headings are re-leveled \u2014 see [heading levels](#heading-levels-in-content-are-now-relative) below before migrating any client that writes headings.\n      \n      **The stopgap:** add `Markdown-Patch-Version: 1` to every affected request and everything behaves exactly as before \u2014 including the `::`-joined document map on GET. That buys you until plugin 6.0, no other changes required.\n      \n      # Migrating PATCH requests\n      \n      The 2.x PATCH carries the whole instruction as one JSON body instead of scattering it across headers.\n      \n      **Before (1.x):**\n      \n      ```sh\n      curl -k -X PATCH \\\n        -H "Authorization: Bearer $API_KEY" \\\n        -H "Operation: append" \\\n        -H "Target-Type: heading" \\\n        -H "Target: Heading 1::Subheading 1:1" \\\n        -H "Content-Type: text/markdown" \\\n        --data "Hello" \\\n        "https://127.0.0.1:27124/vault/note.md"\n      ```\n      \n      **After (2.x):**\n      \n      ```sh\n      curl -k -X PATCH \\\n        -H "Authorization: Bearer $API_KEY" \\\n        -H "Content-Type: application/json" \\\n        --data \'{"targetType": "heading", "target": ["Heading 1", "Subheading 1:1"], "operation": "append", "content": "Hello"}\' \\\n        "https://127.0.0.1:27124/vault/note.md"\n      ```\n      \n      Field-by-field:\n      \n      | 1.x header | 2.x instruction field |\n      | --- | --- |\n      | `Operation: append` | `"operation": "append"` (now also `"delete"`) |\n      | `Target-Type: heading` | `"targetType": "heading"` |\n      | `Target: A::B` (+ `Target-Delimiter`) | `"target": ["A", "B"]` \u2014 a real array, no delimiter |\n      | `Target-Scope: content` | `"scope": "content"` (adds `"parent"` for moves) |\n      | body (`text/markdown`) | `"content": "..."` |\n      | body (`application/json` value) | `"value": <json>` |\n      | `Create-Target-If-Missing: true` | `"createTargetIfMissing": true` |\n      | `Reject-If-Content-Preexists: true` | `"rejectIfContentPreexists": true` |\n      | `Trim-Target-Whitespace` | *(dropped \u2014 see below)* |\n      \n      Things that changed meaning along the way:\n      \n      - **Heading targets are arrays.** `"target": ["A", "B"]` replaces `A::B`. A heading whose text contains `::` (or any other would-be delimiter) needs no escaping, and `Target-Delimiter` is gone. For a block, `target` is the bare id without `^`; for frontmatter, the key name.\n      - **Renaming a heading no longer takes `#` characters.** Under 1.x you supplied the full heading line (`## New Name`); under 2.x, `scope: "marker"` with `"content": "New Name"` renames the heading while preserving its level. The `#`s are *not* stripped anymore \u2014 if you keep sending them, they become literal text in the heading. If you are migrating, drop them.\n      - **Frontmatter values are typed JSON.** Send them in `"value"` (a list, dict, number, or string), not as a serialized string body.\n      - **Heading levels in `content` are relative to the target.** 1.x wrote your `#`s literally; 2.x rebases them. This one doesn\'t fail \u2014 see the next section.\n      \n      ## Heading levels in `content` are now relative\n      \n      Under 1.x, a heading in your `content` was written exactly as you sent it. Under 2.x, heading levels are relative to where the content lands, and the engine adds the target\'s depth for you:\n      \n      - with `scope: "content"` (the default), `#` means a direct child of the target, so under a `##` target a `#` is written as `###`;\n      - with `scope: "markerAndContent"`, levels are relative to the target\'s *parent* heading instead, so the heading line you send for a `##` under a `#` is `# Title`.\n      \n      A 1.x client that keeps sending the same body gets a `200` and a different document. Replacing the content of `## A` with its current text, `### B` and all, writes `##### B`: the `###` is taken as relative and pushed down by the target\'s two levels. Under a deep enough target, a heading is pushed past h6 and stops being a heading at all; the write still succeeds, and the only sign is a `heading-depth-overflow` warning in the `Markdown-Patch-Warnings` response header.\n      \n      If your client sends headings in `content`, do one of these when you migrate:\n      \n      - **Read the section through the API** and send back what you read. A GET returns the same relative levels a PATCH expects, so read-modify-write round-trips unchanged.\n      - **Subtract the baseline** from every heading in content you took from the raw file, or wrote with absolute levels in mind: the target\'s level under `content` scope (`###` under a `##` target becomes `#`), its parent\'s level under `markerAndContent`.\n      - **Stay on `Markdown-Patch-Version: 1`** for those requests until you can do either of the above.\n      \n      Content with no headings in it is unaffected.\n      \n      See the PATCH operation documentation for the full instruction algebra \u2014 scopes, moves (`scope: "parent"` with a `destination`), deletes, and table-row writes.\n      \n      ## Raw-content mode: the low-effort migration\n      \n      If your client *templates* markdown into the request body (Shortcuts, Tasker, curl from a shell variable), JSON-escaping that content is fragile. Raw-content mode keeps the 1.x posture \u2014 instruction outside the body, raw payload in it \u2014 but moves the target into URL path elements:\n      \n      ```sh\n      curl -k -X PATCH \\\n        -H "Authorization: Bearer $API_KEY" \\\n        -H "Operation: append" \\\n        -H "Content-Type: text/markdown" \\\n        --data "- $TEMPLATED_CONTENT" \\\n        "https://127.0.0.1:27124/vault/note.md/heading/Heading%201/Subheading%201:1"\n      ```\n      \n      For many 1.x clients this migration is just "delete the `Target-Type`/`Target`/`Target-Delimiter` headers and append the target to the URL, one path segment per heading level." The exception is a body containing headings: raw-content mode is the 2.x format, so those are [re-leveled](#heading-levels-in-content-are-now-relative) too. `Operation`, `Target-Scope` (all four scopes), `Create-Target-If-Missing`, and `Reject-If-Content-Preexists` headers all still work here; `Target-Delimiter` and `Trim-Target-Whitespace` are rejected. A `text/*` body carries `content`, an `application/json` body carries `value`, and no body carries nothing (a `delete`, or a move via a `Destination` header).\n      \n      Header-based targeting (`Target-Type`/`Target` instead of URL elements) also exists in raw-content mode, but requires an explicit `Markdown-Patch-Version: 2` and encodes a heading `Target` as percent-encoded JSON \u2014 see the PATCH operation documentation.\n      \n      # Migrating targeted GET/PUT/POST requests\n      \n      Header-based targeting on reads and writes is deprecated wholesale; the URL is the target now.\n      \n      **Before (1.x):**\n      \n      ```sh\n      curl -k -H "Authorization: Bearer $API_KEY" \\\n        -H "Target-Type: heading" \\\n        -H "Target: Heading 1::Subheading 1:1" \\\n        "https://127.0.0.1:27124/vault/note.md"\n      ```\n      \n      **After (2.x):**\n      \n      ```sh\n      curl -k -H "Authorization: Bearer $API_KEY" \\\n        "https://127.0.0.1:27124/vault/note.md/heading/Heading%201/Subheading%201:1"\n      ```\n      \n      Each nested heading level is its own path segment. Percent-encode any segment containing non-ASCII characters or a literal `/` (`TODO%2FDONE` for a heading named `TODO/DONE` \u2014 each segment is decoded individually, so an encoded slash stays inside its segment). `block` and `frontmatter` targets work the same way: `.../block/abc123`, `.../frontmatter/fieldName`.\n      \n      Sending both URL-path targeting and the header form in one request fails with `422 ConflictingTargetSpecification`.\n      \n      # The document map changed shape\n      \n      `GET /vault/{path}` with `Accept: application/vnd.olrapi.document-map+json` now returns the 2.0 map.\n      \n      **Before (1.x):**\n      \n      ```json\n      {\n        "headings": ["Heading 1", "Heading 1::Subheading 1:1", "Heading 2"],\n        "blocks": ["484ef2"],\n        "frontmatterFields": ["alpha", "beta"]\n      }\n      ```\n      \n      **After (2.x):**\n      \n      ```json\n      {\n        "headings": {\n          "Heading 1": { "Subheading 1:1": {} },\n          "Heading 2": {}\n        },\n        "blocks": ["484ef2"],\n        "frontmatterFields": ["alpha", "beta"],\n        "version": "3f9a1c"\n      }\n      ```\n      \n      - **`headings` is a nested tree**, not a flat list of `::`-joined paths. Each key maps to its child headings; a path through the tree is exactly the array you send as a heading `target`.\n      - **`version` is new**: a content-hash token. Pass it back as `ifMatch` in a PATCH instruction (or an `If-Match` header in raw-content mode) for optimistic concurrency \u2014 if the file changed in between, the patch fails with `412` and the file is untouched.\n      - **Duplicates are now addressable.** If a heading has a duplicate sibling (same text, same parent) or a block id repeats, the first occurrence keeps its plain key and each later occurrence\'s key carries a non-printable marker suffix. Copy that key verbatim from the map into your `target` \u2014 don\'t try to type or reconstruct the marker.\n      \n      Sending `Markdown-Patch-Version: 1` still returns the old flat map (with the `Deprecation` header) until plugin 6.0.\n      \n      # Behavior changes to watch for\n      \n      - **Whitespace is library-owned.** The 2.x engine reduces your `content` to trimmed, canonical form (leading and trailing blank lines are meaningless) and itself supplies the blank line wherever inserted content faces body text, so a naive `append` or `prepend` always lands as its own block and can never merge into an existing paragraph; `Trim-Target-Whitespace` is gone because there is nothing left for it to fix. If your 1.x client added `\\n` padding to manage spacing, it is now ignored \u2014 and a `content`-scope `append` can no longer continue an existing list or paragraph (use a `^id` block target for inline edits).\n      - **Heading levels in `content` are relative.** A leading `#` becomes a direct child of the target regardless of the target\'s own depth \u2014 you never count `#`s. A 1.x body sent unchanged is re-leveled rather than rejected; see [heading levels](#heading-levels-in-content-are-now-relative).\n      - **The warnings header was renamed** from `MD-Patch-Warnings` to `Markdown-Patch-Warnings`, and its JSON value is now percent-encoded so warnings can embed non-ASCII document text. Run it through `decodeURIComponent` before parsing.\n      - **URL targets on `/active/` PATCH now work.** Previously a suffix like `/active/heading/Log` was silently ignored on PATCH and the whole file was patched; it now targets the addressed section, matching PUT/POST.\n      - **Cleaner error mapping.** Unparseable frontmatter YAML is a `400`, a frontmatter key collision is a `409`, a mismatched table row or a cell containing a line break is a `400`, and an `ifMatch`/`If-Match` mismatch is a `412` \u2014 cases that previously surfaced as generic errors or `500`s.\n      \n      # MCP tool changes\n      \n      The MCP tools moved to 2.x with no version escape hatch:\n      \n      - **`vault_patch`** accepts only the 2.0 JSON instruction shape described above.\n      - **`vault_read`** requires a heading target to be an array of heading texts; a bare `"A::B"` string is rejected rather than split on `::`.\n      - **`vault_get_document_map`** returns the nested-tree map with the `version` token.\n      \n      # What\'s new that you couldn\'t do before\n      \n      Migrating unlocks more than parity:\n      \n      - `operation: "delete"` \u2014 remove a section, its body, or just its heading line, without a read-modify-write.\n      - `scope: "parent"` \u2014 move a heading section elsewhere in the tree, with levels rebased for you.\n      - Optimistic concurrency via `version`/`ifMatch` (`412` on conflict).\n      - Table-row writes: pass a 2-D JSON array in `value` to a block target that addresses a table; cell content is escaped for you.\n      - Duplicate headings and repeated block ids are individually addressable via the document map.\n      - Headings containing `::` or `/` are targetable with no escaping gymnastics.\n      \n      # Timeline\n      \n      | Plugin version | markdown-patch 1.x format | markdown-patch 2.x format |\n      | --- | --- | --- |\n      | < 5.0 | default | \u2014 |\n      | 5.0 | deprecated; opt in with `Markdown-Patch-Version: 1` (responses carry `Deprecation: true; sunset-version="6.0"`) | **default** |\n      | 6.0 | **removed** | default |\n    title: "Migrating from 1.x to 2.x"\n';
 
 // node_modules/zod-to-json-schema/dist/esm/Options.js
 var ignoreOverride = /* @__PURE__ */ Symbol("Let zodToJsonSchema decide on which parser to use");
@@ -95256,7 +99890,7 @@ function toStandardSchema(shape, direction = "input") {
 }
 
 // src/events.ts
-var import_obsidian2 = require("obsidian");
+var import_obsidian3 = require("obsidian");
 var import_crypto3 = require("crypto");
 
 // node_modules/better-sse/build/index.mjs
@@ -95831,8 +100465,8 @@ function clampSignedUrlTtl(seconds) {
     Math.max(MinimumSignedUrlTtlSeconds, Math.floor(seconds))
   );
 }
-function normalizeVaultFilePath(path2) {
-  const slashed = path2.replace(/\\/g, "/");
+function normalizeVaultFilePath(path3) {
+  const slashed = path3.replace(/\\/g, "/");
   if (slashed.endsWith("/")) return null;
   const relative = slashed.replace(/^\/+/, "");
   if (!vaultPathIsContained(relative)) return null;
@@ -95868,10 +100502,10 @@ ${nonce}`).digest("hex");
    * Sign a request for a file. `path` is normalized here; a path that cannot name a
    * file throws, since a signature for it could never verify.
    */
-  sign(method, path2, ttlSeconds) {
-    const normalized = normalizeVaultFilePath(path2);
+  sign(method, path3, ttlSeconds) {
+    const normalized = normalizeVaultFilePath(path3);
     if (normalized === null) {
-      throw new Error(`Cannot sign a URL for "${path2}": it does not name a file inside the vault.`);
+      throw new Error(`Cannot sign a URL for "${path3}": it does not name a file inside the vault.`);
     }
     const exp = this.nowSeconds() + clampSignedUrlTtl(ttlSeconds);
     const nonce = (0, import_crypto2.randomBytes)(9).toString("base64url");
@@ -95898,9 +100532,9 @@ ${nonce}`).digest("hex");
    * normalized here the same way `sign` normalized it. `exp` arrives as the raw query
    * string value.
    */
-  verify(method, path2, exp, sig, nonce) {
+  verify(method, path3, exp, sig, nonce) {
     if (!isSignableMethod(method)) return "invalid";
-    const normalized = normalizeVaultFilePath(path2);
+    const normalized = normalizeVaultFilePath(path3);
     if (normalized === null) return "invalid";
     return this.verifyResource(method, normalized, exp, sig, nonce);
   }
@@ -96002,18 +100636,18 @@ function isStreamableEvent(emitter, event) {
   return STREAMABLE_EVENTS[emitter].includes(event);
 }
 async function noteOrNull(context, file) {
-  return file instanceof import_obsidian2.TFile ? context.note(file) : null;
+  return file instanceof import_obsidian3.TFile ? context.note(file) : null;
 }
 function pathOf(file) {
   if (typeof file !== "object" || file === null || !("path" in file)) return null;
-  const { path: path2 } = file;
-  return typeof path2 === "string" ? path2 : null;
+  const { path: path3 } = file;
+  return typeof path3 === "string" ? path3 : null;
 }
 async function vaultFileEvent(context, args) {
   const [file] = args;
   return {
     path: pathOf(file),
-    isFolder: !(file instanceof import_obsidian2.TFile),
+    isFolder: !(file instanceof import_obsidian3.TFile),
     file: await noteOrNull(context, file)
   };
 }
@@ -96034,7 +100668,7 @@ var SERIALIZERS = {
     // The file is gone, so there is no NoteJson to build: the path is all there is.
     delete: async (_context, [file]) => ({
       path: pathOf(file),
-      isFolder: !(file instanceof import_obsidian2.TFile),
+      isFolder: !(file instanceof import_obsidian3.TFile),
       file: null
     }),
     rename: async (context, args) => ({
@@ -96113,8 +100747,8 @@ function* pathsReadBy(rule) {
   }
 }
 function readsContent(filter) {
-  for (const path2 of pathsReadBy(filter)) {
-    if (path2 === "file.content" || path2.startsWith("file.content.")) return true;
+  for (const path3 of pathsReadBy(filter)) {
+    if (path3 === "file.content" || path3.startsWith("file.content.")) return true;
   }
   return false;
 }
@@ -96612,33 +101246,33 @@ function isArchiveMimeType(type) {
   /-compressed$/.test(type) || // x-7z-compressed, x-lzh-compressed, ms-cab-compressed
   ARCHIVE_MIME_TYPES.has(type);
 }
-function binaryMimeTypeFor(path2) {
-  const type = import_mime_types.default.lookup(path2);
+function binaryMimeTypeFor(path3) {
+  const type = import_mime_types.default.lookup(path3);
   if (!type) return null;
-  if (type === SVG_MIME_TYPE && /\.svg$/i.test(path2)) return null;
+  if (type === SVG_MIME_TYPE && /\.svg$/i.test(path3)) return null;
   if (BINARY_MIME_PREFIXES.some((prefix) => type.startsWith(prefix))) return type;
   if (isArchiveMimeType(type)) return type;
   return BINARY_MIME_TYPES.has(type) ? type : null;
 }
-function assertTextWrite(path2, content) {
-  const binaryType = binaryMimeTypeFor(path2);
+function assertTextWrite(path3, content) {
+  const binaryType = binaryMimeTypeFor(path3);
   if (binaryType !== null) {
     throw new Error(
-      `Refusing to write ${path2} as text: its extension says it is ${binaryType}, and writing text there would corrupt it. Upload the bytes instead: vault_get_upload_url gives a URL to PUT the file to (when signed URLs are enabled), or PUT /vault/<path> over the REST API with the API key.`
+      `Refusing to write ${path3} as text: its extension says it is ${binaryType}, and writing text there would corrupt it. Upload the bytes instead: vault_get_upload_url gives a URL to PUT the file to (when signed URLs are enabled), or PUT /vault/<path> over the REST API with the API key.`
     );
   }
   if (content.includes("\0")) {
     throw new Error(
-      `Refusing to write ${path2}: the content contains a NUL byte, so it is not text. Upload the bytes with vault_get_upload_url or PUT /vault/<path> over the REST API.`
+      `Refusing to write ${path3}: the content contains a NUL byte, so it is not text. Upload the bytes with vault_get_upload_url or PUT /vault/<path> over the REST API.`
     );
   }
 }
-function decodeUtf8Strict(bytes, path2) {
+function decodeUtf8Strict(bytes, path3) {
   try {
     return new TextDecoder("utf-8", { fatal: true, ignoreBOM: true }).decode(bytes);
   } catch {
     throw new Error(
-      `Refusing to read ${path2} as text: its bytes are not valid UTF-8, so decoding them loses data and the content returned here could not be written back without destroying the file. Read it with vault_read_binary, or fetch the raw bytes over the REST API with GET /vault/<path>.`
+      `Refusing to read ${path3} as text: its bytes are not valid UTF-8, so decoding them loses data and the content returned here could not be written back without destroying the file. Read it with vault_read_binary, or fetch the raw bytes over the REST API with GET /vault/<path>.`
     );
   }
 }
@@ -96651,8 +101285,8 @@ function markdownLink(label, url3) {
   const safeUrl = url3.replace(/\(/g, "%28").replace(/\)/g, "%29");
   return `[${escapedLabel}](${safeUrl})`;
 }
-function filenameOf(path2) {
-  return path2.includes("/") ? path2.slice(path2.lastIndexOf("/") + 1) : path2;
+function filenameOf(path3) {
+  return path3.includes("/") ? path3.slice(path3.lastIndexOf("/") + 1) : path3;
 }
 function shellQuote(value) {
   return "'" + value.split("'").join("'\\''") + "'";
@@ -96661,14 +101295,24 @@ function resourceMeta(definition) {
   const { title, description, mimeType } = definition;
   return { title, description, mimeType };
 }
+var SEARCH_SIMPLE_DEFAULT_MAX_RESULTS = 20;
+var SEARCH_SIMPLE_DEFAULT_MAX_MATCHES_PER_FILE = 10;
+var SEARCH_SIMPLE_MAX_CONTEXT_LENGTH = 500;
 var VAULT_PATH_DESCRIPTION = "File path relative to vault root";
 var SOURCE_VAULT_PATH_DESCRIPTION = "Source file path relative to vault root";
+var IF_MATCH_FIELD = external_exports.string().optional().describe(
+  dedent`Make this call conditional on the file being unchanged: pass the version token from vault_read's or vault_get_document_map's 'version', or from the 'version' a previous write returned. If the file has changed since, or no longer exists, the call fails and nothing is written -- read the file again and redo your edit against what is there now. '*' instead means "only if the file exists".`
+);
+var IF_NONE_MATCH_FIELD = external_exports.literal("*").optional().describe(
+  "Pass '*' to make this call create-only: it fails, writing nothing, if the file already exists."
+);
 var McpHandler = class {
   constructor(ops, settings, options = {}) {
     this.ops = ops;
     this.settings = settings;
     this.signer = options.signer ?? new UrlSigner();
     this.events = options.events ?? null;
+    this.serverStatus = options.serverStatus ?? null;
     this.openApiSpec = options.openApiSpec ?? new OpenApiSpec(openapi_default);
     this.imageScaler = options.imageScaler !== void 0 ? options.imageScaler : isCanvasImageScalingAvailable() ? new CanvasImageScaler() : null;
     const onerror = (error3) => this.logHandlerError(error3);
@@ -96717,6 +101361,7 @@ var McpHandler = class {
   signer;
   events;
   imageScaler;
+  serverStatus;
   openApiSpec;
   // Handles for the tools that only exist while signed URLs are enabled, so the setting
   // can be toggled without rebuilding the handler.
@@ -96757,23 +101402,30 @@ var McpHandler = class {
       expiresAt: new Date(params.exp * 1e3).toISOString()
     };
   }
-  normalizedFilePath(path2) {
-    const normalized = normalizeVaultFilePath(path2);
+  normalizedFilePath(path3) {
+    const normalized = normalizeVaultFilePath(path3);
     if (normalized === null) {
-      throw new Error(`Not a file path inside the vault: ${path2}`);
+      throw new Error(`Not a file path inside the vault: ${path3}`);
     }
+    assertConfigDirAccessAllowed(
+      normalized,
+      this.ops.app.vault.configDir,
+      this.settings.enableConfigDirAccess ?? false,
+      "Path",
+      onDiskAccessFor(this.ops.app.vault.adapter)
+    );
     return normalized;
   }
-  existingFile(path2) {
-    const file = this.ops.app.vault.getAbstractFileByPath(path2);
-    if (!(file instanceof import_obsidian3.TFile)) throw new Error(`File not found: ${path2}`);
+  existingFile(path3) {
+    const file = this.ops.app.vault.getAbstractFileByPath(path3);
+    if (!(file instanceof import_obsidian4.TFile)) throw new Error(`File not found: ${path3}`);
     return file;
   }
   // A `resource_link` to a signed download URL, plus a markdown link in a text block for
   // clients that render only text. Addressed to the user: the model gains nothing from a
   // URL it cannot follow, and the link is for a person to click or a shell to fetch.
-  downloadLinkResult(path2) {
-    const normalized = this.normalizedFilePath(path2);
+  downloadLinkResult(path3) {
+    const normalized = this.normalizedFilePath(path3);
     const file = this.existingFile(normalized);
     const mimeType = import_mime_types.default.lookup(normalized) || "application/octet-stream";
     const { url: url3, expiresAt } = this.signedUrlFor("GET", normalized);
@@ -96969,6 +101621,25 @@ var McpHandler = class {
       announce: () => this.sessionlessHandler.notify.toolsChanged()
     };
   }
+  /**
+   * The write preconditions an MCP call asked for, parsed exactly as REST parses
+   * its If-Match/If-None-Match headers. Undefined when it asked for none.
+   */
+  preconditions(ifMatch, ifNoneMatch) {
+    if (ifMatch === void 0 && ifNoneMatch === void 0) return void 0;
+    const preconditions = {};
+    if (ifMatch !== void 0) {
+      const condition = parseEntityTagCondition(ifMatch);
+      if (condition === null) {
+        throw new Error(
+          `ifMatch must be a version token (as returned in 'version' by vault_read or vault_get_document_map), a comma-separated list of them, or '*'; got ${JSON.stringify(ifMatch)}.`
+        );
+      }
+      preconditions.ifMatch = condition;
+    }
+    if (ifNoneMatch !== void 0) preconditions.ifNoneMatch = ifNoneMatch;
+    return preconditions;
+  }
   /** A client-supplied vault path, refused if it resolves outside the vault root.
    *
    *  Returns the path so a call site reads as `this.ops.write(this.vaultPath(path))`
@@ -96978,6 +101649,13 @@ var McpHandler = class {
    *  a refusal that names what was wrong instead of a bare failure. */
   vaultPath(candidate, label = "Path") {
     assertVaultPathIsContained(candidate, label);
+    assertConfigDirAccessAllowed(
+      candidate,
+      this.ops.app.vault.configDir,
+      this.settings.enableConfigDirAccess ?? false,
+      label,
+      onDiskAccessFor(this.ops.app.vault.adapter)
+    );
     return candidate;
   }
   logHandlerError(error3) {
@@ -97223,8 +101901,8 @@ var McpHandler = class {
   }
   // The one read behind every `vault_read`: raw bytes, decoded strictly. See
   // `decodeUtf8Strict` above for why the read is a binary one.
-  async readTextStrict(path2) {
-    return decodeUtf8Strict(await this.ops.readBinaryFileContent(path2), path2);
+  async readTextStrict(path3) {
+    return decodeUtf8Strict(await this.ops.readBinaryFileContent(path3), path3);
   }
   registerResources() {
     this.addResource(
@@ -97244,6 +101922,31 @@ var McpHandler = class {
         ]
       })
     );
+    if (this.serverStatus !== null) {
+      const serverStatus = this.serverStatus;
+      this.addResource(
+        "server-status",
+        "obsidian://local-rest-api/status",
+        {
+          mimeType: "application/json",
+          description: dedent`The same document an authenticated GET / returns: the plugin's version, the installed extensions, and the state section, which carries per-namespace observations with no verdict attached. state.metadataCache reports when the plugin started listening to Obsidian's metadata cache, when it last heard the cache's resolved event, and when it last heard any indexing activity; a vault still indexing after startup shows recent activity and, until the first drain, a null lastResolvedAt. Read it before trusting links, backlinks, or unresolvedLinks from vault_read on a freshly started Obsidian. Extensions add their own namespaces under their plugin id.`
+        },
+        async (uri) => ({
+          contents: [
+            {
+              uri: uri.href,
+              mimeType: "application/json",
+              text: JSON.stringify(await serverStatus(), null, 2)
+            }
+          ],
+          // Read to be acted on now: a client that cached it for the method's default
+          // minute would poll a stale answer. The SDK takes a result's own fields over
+          // the per-operation hint.
+          ttlMs: 0,
+          cacheScope: "private"
+        })
+      );
+    }
   }
   // The tools that hand out signed URLs. Registered only while the setting is on, so a
   // client of a server where they are off never sees them.
@@ -97256,7 +101959,7 @@ var McpHandler = class {
         `,
         { path: external_exports.string().describe("File path relative to vault root") },
         READ_ONLY_ANNOTATIONS,
-        async ({ path: path2 }) => this.downloadLinkResult(path2)
+        async ({ path: path3 }) => this.downloadLinkResult(path3)
       ),
       this.tool(
         "vault_get_upload_url",
@@ -97265,8 +101968,8 @@ var McpHandler = class {
         `,
         { path: external_exports.string().describe("Destination file path relative to vault root") },
         { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: false },
-        async ({ path: path2 }) => {
-          const normalized = this.normalizedFilePath(path2);
+        async ({ path: path3 }) => {
+          const normalized = this.normalizedFilePath(path3);
           const mimeType = import_mime_types.default.lookup(normalized) || "application/octet-stream";
           const { url: url3, expiresAt } = this.signedUrlFor("PUT", normalized);
           return this.text({
@@ -97343,9 +102046,9 @@ var McpHandler = class {
       dedent`List files and subdirectories inside a vault directory. Returns an array of names; directory entries end with '/'. Omit path or pass an empty string to list the vault root.`,
       { path: external_exports.string().optional().describe("Directory path relative to vault root (default: root)") },
       READ_ONLY_ANNOTATIONS,
-      async ({ path: path2 }) => {
+      async ({ path: path3 }) => {
         const files = await this.ops.listVaultDirectory(
-          this.vaultPath(path2 ?? "", "Directory path")
+          this.vaultPath(path3 ?? "", "Directory path")
         );
         return this.text({ files });
       }
@@ -97353,7 +102056,7 @@ var McpHandler = class {
     this.tool(
       "vault_read",
       dedent`
-        Read a vault file's content and metadata. Returns a JSON object with: content (full markdown text), path, tags (array of tag strings), frontmatter (parsed YAML front-matter as an object), stat ({ctime, mtime, size}), links (array of vault-relative paths this file links to), backlinks (array of vault-relative paths of files that link here), and unresolvedLinks (array of link text in this file that does not resolve to an existing vault file). Throws if the file does not exist.
+        Read a vault file's content and metadata. Returns a JSON object with: content (full markdown text), path, tags (array of tag strings), frontmatter (parsed YAML front-matter as an object), stat ({ctime, mtime, size}), links (array of vault-relative paths this file links to), backlinks (array of vault-relative paths of files that link here), unresolvedLinks (array of link text in this file that does not resolve to an existing vault file), and version (the file's version token -- pass it back as ifMatch to vault_write, vault_append, vault_patch, vault_delete, vault_move or vault_copy so that write fails, rather than overwriting someone else's change, if the file has changed in between). Throws if the file does not exist. The three link fields reflect Obsidian's metadata cache as it stands and may be incomplete while Obsidian is still indexing the vault after startup; the server-status resource (obsidian://local-rest-api/status) reports, under state.metadataCache, when the plugin last heard the cache resolve and when it last heard any indexing activity.
 
         When targetType and target are both provided, returns only the matched section as a plain string (markdown) or JSON value (frontmatter) instead of the full object. To save context, call vault_get_document_map first to identify headings, block IDs, or frontmatter keys, and prefer targeted reads over full reads for anything but short files.
 
@@ -97371,14 +102074,14 @@ var McpHandler = class {
       },
       READ_ONLY_ANNOTATIONS,
       async ({
-        path: path2,
+        path: path3,
         targetType,
         target,
         scope
       }) => {
-        const filePath = this.vaultPath(path2);
+        const filePath = this.vaultPath(path3);
         const file = this.ops.app.vault.getAbstractFileByPath(filePath);
-        if (!(file instanceof import_obsidian3.TFile)) throw new Error(`File not found: ${path2}`);
+        if (!(file instanceof import_obsidian4.TFile)) throw new Error(`File not found: ${path3}`);
         if (targetType == null !== (target == null)) {
           throw new Error("targetType and target must be provided together");
         }
@@ -97414,16 +102117,27 @@ var McpHandler = class {
     );
     this.tool(
       "vault_write",
-      dedent`Create or overwrite a vault file with the given content. Text only: a path whose extension names an image, audio, video, font, PDF or archive type is refused, as is content containing a NUL byte, because writing text there would corrupt the file -- upload those bytes with vault_get_upload_url, or PUT /vault/<path> over the REST API. Creates any missing parent directories automatically. Overwrites without warning if the file already exists.`,
+      dedent`Create or overwrite a vault file with the given content. Text only: a path whose extension names an image, audio, video, font, PDF or archive type is refused, as is content containing a NUL byte, because writing text there would corrupt the file -- upload those bytes with vault_get_upload_url, or PUT /vault/<path> over the REST API. Creates any missing parent directories automatically. Overwrites without warning if the file already exists, unless you pass ifMatch (overwrite only the version you read) or ifNoneMatch '*' (create only). Returns the written file's new version token.`,
       {
         path: external_exports.string().describe(VAULT_PATH_DESCRIPTION),
-        content: external_exports.string().describe("Full file content (markdown text)")
+        content: external_exports.string().describe("Full file content (markdown text)"),
+        ifMatch: IF_MATCH_FIELD,
+        ifNoneMatch: IF_NONE_MATCH_FIELD
       },
       { readOnlyHint: false, destructiveHint: true, idempotentHint: true, openWorldHint: false },
-      async ({ path: path2, content }) => {
-        assertTextWrite(path2, content);
-        await this.ops.writeFileContent(this.vaultPath(path2), content);
-        return this.text({ message: "OK" });
+      async ({
+        path: path3,
+        content,
+        ifMatch,
+        ifNoneMatch
+      }) => {
+        assertTextWrite(path3, content);
+        const version3 = await this.ops.writeFileContent(
+          this.vaultPath(path3),
+          content,
+          this.preconditions(ifMatch, ifNoneMatch)
+        );
+        return this.text({ message: "OK", version: version3 });
       }
     );
     this.tool(
@@ -97438,9 +102152,9 @@ var McpHandler = class {
         as: external_exports.enum(["auto", "bytes", "link"]).optional().describe("How to return the file: 'auto' (default), 'bytes', or 'link'")
       },
       READ_ONLY_ANNOTATIONS,
-      async ({ path: path2, as }) => {
+      async ({ path: path3, as }) => {
         const mode = as ?? "auto";
-        const normalized = this.normalizedFilePath(path2);
+        const normalized = this.normalizedFilePath(path3);
         if (mode === "link") {
           if (!this.signedUrlsEnabled) {
             throw new Error(`Cannot return a link: ${SIGNED_URLS_DISABLED_HINT}`);
@@ -97479,16 +102193,27 @@ var McpHandler = class {
     );
     this.tool(
       "vault_append",
-      dedent`Append content to the end of a vault file. Creates the file if it does not already exist. Text only, on the same terms as vault_write: a path whose extension names a binary type is refused, as is content containing a NUL byte.`,
+      dedent`Append content to the end of a vault file. Creates the file if it does not already exist. Text only, on the same terms as vault_write: a path whose extension names a binary type is refused, as is content containing a NUL byte. ifMatch and ifNoneMatch make the append conditional, as for vault_write. Returns the file's new version token.`,
       {
         path: external_exports.string().describe(VAULT_PATH_DESCRIPTION),
-        content: external_exports.string().describe("Content to append")
+        content: external_exports.string().describe("Content to append"),
+        ifMatch: IF_MATCH_FIELD,
+        ifNoneMatch: IF_NONE_MATCH_FIELD
       },
       { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
-      async ({ path: path2, content }) => {
-        assertTextWrite(path2, content);
-        await this.ops.appendFileContent(this.vaultPath(path2), content);
-        return this.text({ message: "OK" });
+      async ({
+        path: path3,
+        content,
+        ifMatch,
+        ifNoneMatch
+      }) => {
+        assertTextWrite(path3, content);
+        const version3 = await this.ops.appendFileContent(
+          this.vaultPath(path3),
+          content,
+          this.preconditions(ifMatch, ifNoneMatch)
+        );
+        return this.text({ message: "OK", version: version3 });
       }
     );
     this.tool(
@@ -97511,11 +102236,11 @@ var McpHandler = class {
         // straight from markdown-patch-2's published schema, so the tool input,
         // the engine's validation, and the OpenAPI `PatchInstruction` component
         // are all one definition and cannot drift.
-        ...import_markdown_patch_22.InstructionInputObjectSchema.shape
+        ...import_markdown_patch_23.InstructionInputObjectSchema.shape
       },
       { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: false },
       async ({
-        path: path2,
+        path: path3,
         targetType,
         target,
         within,
@@ -97553,10 +102278,11 @@ var McpHandler = class {
         };
         try {
           const result = await this.ops.patchFileSectionMdp2(
-            this.vaultPath(path2),
+            this.vaultPath(path3),
             instruction
           );
-          return result.warnings.length > 0 ? this.text({ message: "OK", warnings: result.warnings }) : this.text({ message: "OK" });
+          const version3 = (0, import_markdown_patch_23.versionOf)(result.document);
+          return result.warnings.length > 0 ? this.text({ message: "OK", version: version3, warnings: result.warnings }) : this.text({ message: "OK", version: version3 });
         } catch (e) {
           throw e instanceof Error ? e : new Error(String(e));
         }
@@ -97564,16 +102290,25 @@ var McpHandler = class {
     );
     this.tool(
       "vault_delete",
-      dedent`Delete a file from the vault. Throws if the file does not exist. By default, moves the file to trash (following the user's Obsidian "Deleted files" preference — either the ".trash" folder or the system trash) rather than deleting it permanently.`,
+      dedent`Delete a file from the vault. Throws if the file does not exist. By default, moves the file to trash (following the user's Obsidian "Deleted files" preference — either the ".trash" folder or the system trash) rather than deleting it permanently. Pass ifMatch to delete only the version you read.`,
       {
         path: external_exports.string().describe(VAULT_PATH_DESCRIPTION),
         permanent: external_exports.boolean().optional().describe(
           "If true, permanently deletes the file instead of moving it to trash (default: false)."
-        )
+        ),
+        ifMatch: IF_MATCH_FIELD
       },
       { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: false },
-      async ({ path: path2, permanent }) => {
-        await this.ops.deleteVaultFile(this.vaultPath(path2), permanent ?? false);
+      async ({
+        path: path3,
+        permanent,
+        ifMatch
+      }) => {
+        await this.ops.deleteVaultFile(
+          this.vaultPath(path3),
+          permanent ?? false,
+          this.preconditions(ifMatch)
+        );
         return this.text({ message: "OK" });
       }
     );
@@ -97587,22 +102322,31 @@ var McpHandler = class {
         ),
         allowOverwrite: external_exports.boolean().optional().describe(
           dedent`If true, move proceeds even when a file already exists at the destination; otherwise the move throws (default: false).`
+        ),
+        ifMatch: IF_MATCH_FIELD.describe(
+          dedent`Make this move conditional on the source file being unchanged: pass the version token from vault_read's or vault_get_document_map's 'version'. If the source has changed since, the call fails and nothing is moved.`
         )
       },
       { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: false },
       async ({
-        path: path2,
+        path: path3,
         destination,
-        allowOverwrite
+        allowOverwrite,
+        ifMatch
       }) => {
-        const source = this.vaultPath(path2, "Source path");
+        const source = this.vaultPath(path3, "Source path");
         const normalized = this.vaultPath(
           destination.trim().replace(/\\/g, "/").replace(/\/+/g, "/"),
           "Destination path"
         );
         const sourceFilename = source.includes("/") ? source.slice(source.lastIndexOf("/") + 1) : source;
         const resolvedDestination = !normalized || normalized.endsWith("/") ? normalized + sourceFilename : normalized;
-        const actualPath = await this.ops.moveVaultFile(source, resolvedDestination, allowOverwrite ?? false);
+        const actualPath = await this.ops.moveVaultFile(
+          source,
+          resolvedDestination,
+          allowOverwrite ?? false,
+          this.preconditions(ifMatch)
+        );
         return this.text({ message: "OK", oldPath: source, newPath: actualPath });
       }
     );
@@ -97616,22 +102360,31 @@ var McpHandler = class {
         ),
         allowOverwrite: external_exports.boolean().optional().describe(
           dedent`If true, copy proceeds even when a file already exists at the destination; otherwise the copy throws (default: false).`
+        ),
+        ifMatch: IF_MATCH_FIELD.describe(
+          dedent`Make this copy conditional on the source file being unchanged: pass the version token from vault_read's or vault_get_document_map's 'version'. If the source has changed since, the call fails and nothing is copied.`
         )
       },
       { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: false },
       async ({
-        path: path2,
+        path: path3,
         destination,
-        allowOverwrite
+        allowOverwrite,
+        ifMatch
       }) => {
-        const source = this.vaultPath(path2, "Source path");
+        const source = this.vaultPath(path3, "Source path");
         const normalized = this.vaultPath(
           destination.trim().replace(/\\/g, "/").replace(/\/+/g, "/"),
           "Destination path"
         );
         const sourceFilename = source.includes("/") ? source.slice(source.lastIndexOf("/") + 1) : source;
         const resolvedDestination = !normalized || normalized.endsWith("/") ? normalized + sourceFilename : normalized;
-        const actualPath = await this.ops.copyVaultFile(source, resolvedDestination, allowOverwrite ?? false);
+        const actualPath = await this.ops.copyVaultFile(
+          source,
+          resolvedDestination,
+          allowOverwrite ?? false,
+          this.preconditions(ifMatch)
+        );
         return this.text({ message: "OK", sourcePath: source, newPath: actualPath });
       }
     );
@@ -97644,9 +102397,9 @@ var McpHandler = class {
       `,
       { path: external_exports.string().describe(VAULT_PATH_DESCRIPTION) },
       READ_ONLY_ANNOTATIONS,
-      async ({ path: path2 }) => {
-        const file = this.ops.app.vault.getAbstractFileByPath(this.vaultPath(path2));
-        if (!(file instanceof import_obsidian3.TFile)) throw new Error(`File not found: ${path2}`);
+      async ({ path: path3 }) => {
+        const file = this.ops.app.vault.getAbstractFileByPath(this.vaultPath(path3));
+        if (!(file instanceof import_obsidian4.TFile)) throw new Error(`File not found: ${path3}`);
         const map = await this.ops.getDocumentMapV2Object(file);
         return this.text(map);
       }
@@ -97666,7 +102419,7 @@ var McpHandler = class {
       dedent`
         Search vault files using a JsonLogic query evaluated against each note's metadata.
 
-        The query is a JSON object evaluated against a NoteJson object for each file; files where the result is truthy are returned.
+        The query is a JSON object evaluated against a NoteJson object for each file; files where the result is truthy are returned. Falsy results are false, null, undefined, 0, NaN, "", [], and {}. So a query that selects a value rather than testing a condition, like {"var": "frontmatter.aliases"}, leaves out notes where that field is empty ([], "", false, 0) exactly as it leaves out notes without the field: absence from the results does not mean the field is absent. To test for presence use {"!": {"missing": ["frontmatter.aliases"]}}; note that missing also counts a field whose value is "" or null as missing.
 
         Example NoteJson shape:
         {
@@ -97702,6 +102455,7 @@ var McpHandler = class {
         - Find by frontmatter field: {"==": [{"var": "frontmatter.status"}, "done"]}
         - Find by path glob: {"glob": ["journal/*", {"var": "path"}]}
         - Modified after a date: {">": [{"var": "stat.mtime"}, 1704067200000]}
+        - Notes without a frontmatter field: {"missing": ["frontmatter.aliases"]}
         - Multiple conditions: {"and": [{"in": ["work", {"var": "tags"}]}, {"==": [{"var": "frontmatter.status"}, "done"]}]}
       `,
       {
@@ -97715,15 +102469,45 @@ var McpHandler = class {
     );
     this.tool(
       "search_simple",
-      dedent`Search vault files using Obsidian's built-in simple search. Returns an array of {filename, score, matches} objects sorted by relevance score. Each match includes the matched text and surrounding context characters (controlled by contextLength).`,
+      dedent`Search vault files using Obsidian's built-in simple search. Returns an array of {filename, score, matches, totalMatches} objects sorted by relevance score. Each match includes the matched text and surrounding context characters (controlled by contextLength). Obsidian matches each word of the query separately, so common words match nearly everywhere; prefer distinctive terms. Results are limited to the ${SEARCH_SIMPLE_DEFAULT_MAX_RESULTS} highest-scoring files and the first ${SEARCH_SIMPLE_DEFAULT_MAX_MATCHES_PER_FILE} matches in each unless maxResults or maxMatchesPerFile say otherwise; each file's totalMatches gives how many matches it had in all, and a second text block says how much was left out whenever anything was.`,
       {
         query: external_exports.string().describe("Search query string"),
-        contextLength: external_exports.number().optional().describe("Number of characters of surrounding context to return per match (default: 100)")
+        contextLength: external_exports.number().int().nonnegative().max(SEARCH_SIMPLE_MAX_CONTEXT_LENGTH).optional().describe(`Number of characters of surrounding context to return per match, at most ${SEARCH_SIMPLE_MAX_CONTEXT_LENGTH} (default: 100)`),
+        maxResults: external_exports.number().int().positive().optional().describe(`The most files to return, keeping the highest-scoring ones (default: ${SEARCH_SIMPLE_DEFAULT_MAX_RESULTS})`),
+        maxMatchesPerFile: external_exports.number().int().positive().optional().describe(`The most matches to return for each file, in document order (default: ${SEARCH_SIMPLE_DEFAULT_MAX_MATCHES_PER_FILE})`)
       },
       READ_ONLY_ANNOTATIONS,
-      async ({ query, contextLength }) => {
-        const results = await this.ops.simpleSearch(query, contextLength);
-        return this.text(results);
+      async ({
+        query,
+        contextLength,
+        maxResults = SEARCH_SIMPLE_DEFAULT_MAX_RESULTS,
+        maxMatchesPerFile = SEARCH_SIMPLE_DEFAULT_MAX_MATCHES_PER_FILE
+      }) => {
+        const { results, totalResults } = await this.ops.simpleSearch(query, {
+          contextLength,
+          maxResults,
+          maxMatchesPerFile
+        });
+        const result = this.text(results);
+        const omittedFiles = totalResults - results.length;
+        const trimmedFiles = results.filter((r) => r.totalMatches > r.matches.length).length;
+        if (omittedFiles === 0 && trimmedFiles === 0) return result;
+        const parts = [];
+        if (omittedFiles > 0) {
+          parts.push(
+            `${omittedFiles} more matching file${omittedFiles === 1 ? "" : "s"} (${totalResults} in all) not shown because of maxResults=${maxResults}`
+          );
+        }
+        if (trimmedFiles > 0) {
+          parts.push(
+            `${trimmedFiles} of the files shown had more than maxMatchesPerFile=${maxMatchesPerFile} matches; compare each file's totalMatches with its matches`
+          );
+        }
+        result.content.push({
+          type: "text",
+          text: `[Search results limited: ${parts.join("; ")}. Raise maxResults or maxMatchesPerFile to see more, or narrow the search with more distinctive terms. search_query can filter by path, tag, or frontmatter.]`
+        });
+        return result;
       }
     );
     this.tool(
@@ -97764,13 +102548,146 @@ var McpHandler = class {
         newLeaf: external_exports.boolean().optional().describe("Open in a new leaf/pane (default: false)")
       },
       { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
-      async ({ path: path2, newLeaf }) => {
-        this.ops.openVaultFile(this.vaultPath(path2), newLeaf);
+      async ({ path: path3, newLeaf }) => {
+        this.ops.openVaultFile(this.vaultPath(path3), newLeaf);
         return this.text({ message: "OK" });
       }
     );
   }
 };
+
+// src/serverState.ts
+var DefaultStateReadTimeoutMs = 100;
+var MinimumStateReadTimeoutMs = 10;
+var MaximumStateReadTimeoutMs = 1e4;
+function clampStateReadTimeout(value) {
+  if (typeof value !== "number" || Number.isNaN(value)) return DefaultStateReadTimeoutMs;
+  return Math.min(MaximumStateReadTimeoutMs, Math.max(MinimumStateReadTimeoutMs, Math.round(value)));
+}
+var BUILT_IN_STATE_NAMESPACES = EVENT_EMITTERS;
+var ACTIVITY_EVENTS = ["changed", "resolve", "resolved"];
+var MetadataCacheObserver = class {
+  constructor(metadataCache, now = () => Date.now()) {
+    this.metadataCache = metadataCache;
+    this.now = now;
+    this.listeningSince = this.now();
+    this.listeners = {
+      changed: () => this.heardActivity(),
+      resolve: () => this.heardActivity(),
+      resolved: () => {
+        this.lastResolvedAt = this.heardActivity();
+      }
+    };
+    for (const event of ACTIVITY_EVENTS) {
+      this.metadataCache.on(event, this.listeners[event]);
+    }
+  }
+  metadataCache;
+  now;
+  listeningSince;
+  lastResolvedAt = null;
+  lastActivityAt = null;
+  listeners;
+  heardActivity() {
+    this.lastActivityAt = this.now();
+    return this.lastActivityAt;
+  }
+  snapshot() {
+    const iso = (value) => value === null ? null : new Date(value).toISOString();
+    return {
+      listeningSince: new Date(this.listeningSince).toISOString(),
+      lastResolvedAt: iso(this.lastResolvedAt),
+      lastActivityAt: iso(this.lastActivityAt)
+    };
+  }
+  dispose() {
+    for (const event of ACTIVITY_EVENTS) {
+      this.metadataCache.off(event, this.listeners[event]);
+    }
+  }
+};
+var StateRegistry = class {
+  providers = /* @__PURE__ */ new Map();
+  /** Owners whose most recent read failed and has been warned about. */
+  warned = /* @__PURE__ */ new Set();
+  /**
+   * Registers `definition` under `owner`, an extension's plugin id, returning a function
+   * that removes it. Throws for a namespace the host reserves or one already registered.
+   */
+  add(owner, definition) {
+    validateStateDefinition(definition);
+    if (BUILT_IN_STATE_NAMESPACES.includes(owner)) {
+      throw new Error(`The state namespace "${owner}" is reserved by Obsidian Local REST API.`);
+    }
+    if (this.providers.has(owner)) {
+      throw new Error(`State is already registered for "${owner}".`);
+    }
+    this.providers.set(owner, definition);
+    return () => {
+      if (this.providers.get(owner) === definition) {
+        this.providers.delete(owner);
+        this.warned.delete(owner);
+      }
+    };
+  }
+  /** Reads every registered provider at once, waiting at most `timeoutMs` in total. */
+  async collect(timeoutMs) {
+    const entries = await Promise.all(
+      [...this.providers].map(async ([owner, definition]) => [
+        owner,
+        await this.readOne(owner, definition, timeoutMs)
+      ])
+    );
+    return Object.fromEntries(entries);
+  }
+  async readOne(owner, definition, timeoutMs) {
+    let timer;
+    const budget = new Promise((_2, reject) => {
+      timer = window.setTimeout(
+        () => reject(new Error(`read() did not finish within ${timeoutMs}ms`)),
+        timeoutMs
+      );
+    });
+    try {
+      const value = await Promise.race([Promise.resolve().then(() => definition.read()), budget]);
+      const state = parseState(value);
+      this.warned.delete(owner);
+      return state;
+    } catch (error3) {
+      if (!this.warned.has(owner)) {
+        this.warned.add(owner);
+        console.warn(
+          `[REST API] State from extension "${owner}" could not be read (not logged again until a read succeeds):`,
+          error3
+        );
+      }
+      return null;
+    } finally {
+      window.clearTimeout(timer);
+    }
+  }
+};
+function validateStateDefinition(definition) {
+  if (typeof definition.description !== "string") {
+    throw new TypeError("A state definition's `description` must be a string.");
+  }
+  if (definition.schema !== void 0 && !isPlainObject5(definition.schema)) {
+    throw new TypeError("A state definition's `schema` must be an object.");
+  }
+  if (typeof definition.read !== "function") {
+    throw new TypeError("A state definition's `read` must be a function.");
+  }
+}
+function isPlainObject5(value) {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+function parseState(value) {
+  const parsed = JSON.parse(JSON.stringify(value));
+  if (!isPlainObject5(parsed)) {
+    throw new TypeError("read() must resolve to a JSON object.");
+  }
+  return parsed;
+}
 
 // src/vaultSubresources.ts
 var RESERVED_VAULT_SUBRESOURCE_NAMES = [
@@ -97915,8 +102832,8 @@ function res_locals(req) {
   return carrier.localRestApi;
 }
 var MARKDOWN_PATCH_V1_SUNSET = "6.0";
-function encodeVaultPath(path2) {
-  return path2.split("/").map(encodeURIComponent).join("/");
+function encodeVaultPath(path3) {
+  return path3.split("/").map(encodeURIComponent).join("/");
 }
 var corsOptions = {
   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "MOVE", "COPY"],
@@ -97935,6 +102852,12 @@ var RequestHandler = class {
   settings;
   apiExtensionRouter;
   publicApiExtensionRouter;
+  /**
+   * The failed-authentication throttle's counter. The library's store sweeps expired
+   * windows on an interval, which `dispose` stops so a plugin reload leaves nothing
+   * behind.
+   */
+  authenticationFailureStore = null;
   vaultSubresources = new VaultSubresourceRegistry();
   // Holds the implementation type rather than LocalRestApiPublicApi: the `GET /`
   // handler reads getRoutes()/getMcpTools(), which are host-only and therefore
@@ -97944,6 +102867,9 @@ var RequestHandler = class {
   operations;
   events;
   mcpHandler;
+  // The host's own contribution to the `state` section of `GET /`, and the extensions'.
+  metadataCacheObserver;
+  stateRegistry = new StateRegistry();
   // One signer per handler, so the MCP tools that mint links and the REST middleware
   // that redeems them share a secret — and that secret lives exactly as long as this
   // handler does.
@@ -97962,10 +102888,14 @@ var RequestHandler = class {
     this.publicApiExtensionRouter = import_express2.default.Router();
     this.operations = new VaultOperations(this.app, this.settings);
     this.events = new EventStreams(this.app, this.operations);
+    this.metadataCacheObserver = new MetadataCacheObserver(this.app.metadataCache);
     this.mcpHandler = new McpHandler(this.operations, this.settings, {
       signer: this.urlSigner,
       events: this.events,
-      openApiSpec: this.openApiSpec
+      openApiSpec: this.openApiSpec,
+      // Not called until a client reads the resource, by which time this handler is
+      // fully constructed.
+      serverStatus: () => this.serverStatus(true)
     });
     this.api.set("json spaces", 2);
   }
@@ -97998,19 +102928,18 @@ var RequestHandler = class {
         removeRouter(this.publicApiExtensionRouter, publicRouter);
         this.events.removeExtensionEvents(manifest.id);
       },
-      (event, definition) => this.events.addExtensionEvent(manifest.id, event, definition)
+      (event, definition) => this.events.addExtensionEvent(manifest.id, event, definition),
+      (definition) => this.stateRegistry.add(manifest.id, definition)
     );
     this.apiExtensions.set(manifest.id, { manifest, api });
     return api;
   }
+  /** The header this server reads its bearer token from, as the request sent it. */
+  authorizationHeader(req) {
+    return req.get(this.settings.authorizationHeaderName ?? "Authorization");
+  }
   requestIsAuthenticated(req) {
-    const authorizationHeader = req.get(
-      this.settings.authorizationHeaderName ?? "Authorization"
-    );
-    if (authorizationHeader === `Bearer ${this.settings.apiKey}`) {
-      return true;
-    }
-    return false;
+    return this.authorizationHeader(req) === `Bearer ${this.settings.apiKey}`;
   }
   /**
    * Whether a request carries a valid signed-URL signature for its own path.
@@ -98023,6 +102952,13 @@ var RequestHandler = class {
    * otherwise the signer's verdict.
    */
   signedUrlVerdict(req) {
+    const state = res_locals(req);
+    if (state.signedUrlVerdict === void 0) {
+      state.signedUrlVerdict = this.computeSignedUrlVerdict(req);
+    }
+    return state.signedUrlVerdict;
+  }
+  computeSignedUrlVerdict(req) {
     const { sig, exp, n } = req.query;
     if (typeof sig !== "string" || typeof exp !== "string") return null;
     const nonce = typeof n === "string" ? n : "";
@@ -98052,6 +102988,44 @@ var RequestHandler = class {
   /** True when the request was authenticated by a signed URL rather than the API key. */
   requestIsSigned(req) {
     return res_locals(req).signedUrl === true;
+  }
+  /**
+   * Whether the request presents a credential that does not check out.
+   *
+   * This is what the failed-authentication throttle counts and, past the limit,
+   * refuses. A request with the correct API key or a valid signed URL is not a failure;
+   * neither is one that presents nothing at all, because it has made no guess -- it is
+   * answered 401 (or, on the exempt routes, served) exactly as before, however many of
+   * them arrive. Only a request that offers a key or a signature, and offers a wrong one,
+   * counts. That includes a wrong key sent to `GET /`, which answers 200 either way and
+   * would otherwise be the cheapest oracle on the server.
+   *
+   * The answer only means anything on a route that would check the credential, which is
+   * why the limiter sits exactly where those checks sit (see `setupRouter`) and not in
+   * front of an extension's public routes, where a header or `sig`/`exp` pair belongs to
+   * the extension and is no guess against this key.
+   */
+  credentialIsRejected(req) {
+    if (this.requestIsAuthenticated(req)) return false;
+    const verdict = this.signedUrlVerdict(req);
+    if (verdict === "ok") return false;
+    if (verdict !== null) return true;
+    return this.authorizationHeader(req) !== void 0;
+  }
+  /**
+   * Release everything the handler keeps running in the background: open MCP
+   * transports, the vault listeners behind the backlinks cache, every event stream and
+   * its listeners, the metadata-cache observer behind `GET /`'s `state`, and the
+   * throttle store's sweep interval. The plugin calls this once on unload, so that a
+   * reload leaves nothing behind; the handler is not reusable after.
+   */
+  dispose() {
+    this.mcpHandler.close();
+    this.operations.dispose();
+    this.events.dispose();
+    this.metadataCacheObserver.dispose();
+    this.authenticationFailureStore?.shutdown();
+    this.authenticationFailureStore = null;
   }
   async authenticationMiddleware(req, res, next) {
     const authenticationExemptRoutes = [
@@ -98113,11 +103087,11 @@ var RequestHandler = class {
   getResponseMessage({
     statusCode = 400,
     message,
-    errorCode
+    errorCode: errorCode2
   }) {
     const errorMessages = [];
-    if (errorCode) {
-      errorMessages.push(ERROR_CODE_MESSAGES[errorCode]);
+    if (errorCode2) {
+      errorMessages.push(ERROR_CODE_MESSAGES[errorCode2]);
     } else {
       errorMessages.push(import_http3.default.STATUS_CODES[statusCode] ?? "Unknown Error");
     }
@@ -98126,25 +103100,36 @@ var RequestHandler = class {
     }
     return errorMessages.join("\n");
   }
-  getStatusCode({ statusCode, errorCode }) {
+  getStatusCode({ statusCode, errorCode: errorCode2 }) {
     if (statusCode) {
       return statusCode;
-    } else if (errorCode) {
-      return Math.floor(errorCode / 100);
+    } else if (errorCode2) {
+      return Math.floor(errorCode2 / 100);
     }
     throw new Error("Either statusCode or errorCode must be provided");
   }
-  returnCannedResponse(res, { statusCode, message, errorCode }) {
-    if (!statusCode && !errorCode) {
+  returnCannedResponse(res, { statusCode, message, errorCode: errorCode2 }) {
+    if (!statusCode && !errorCode2) {
       throw new Error("Either statusCode or errorCode must be provided");
     }
     const response = {
-      message: this.getResponseMessage({ statusCode, message, errorCode }),
-      errorCode: errorCode ?? (statusCode ?? -1) * 100
+      message: this.getResponseMessage({ statusCode, message, errorCode: errorCode2 }),
+      errorCode: errorCode2 ?? (statusCode ?? -1) * 100
     };
-    res.status(this.getStatusCode({ statusCode, errorCode })).json(response);
+    res.status(this.getStatusCode({ statusCode, errorCode: errorCode2 })).json(response);
   }
-  root(req, res) {
+  async root(req, res) {
+    res.status(200).json(await this.serverStatus(this.requestIsAuthenticated(req)));
+  }
+  /**
+   * The `GET /` document, which the MCP `server-status` resource also serves.
+   *
+   * `certificateInfo`, `apiExtensions`, and `state` are withheld from an
+   * unauthenticated caller: `GET /` is the one route that answers without the API key,
+   * and these three describe the installation, the plugins in it, and when its owner
+   * was last active. An extension that wants a public signal has `addPublicRoute`.
+   */
+  async serverStatus(authenticated) {
     let certificate;
     try {
       if (this.settings.crypto?.cert) {
@@ -98153,26 +103138,32 @@ var RequestHandler = class {
     } catch {
     }
     const standardsIssue = certificate ? getCertificateStandardsIssue(certificate) : null;
-    res.status(200).json({
+    return {
       status: "OK",
       manifest: this.manifest,
       versions: {
-        obsidian: import_obsidian4.apiVersion,
+        obsidian: import_obsidian5.apiVersion,
         self: this.manifest.version
       },
       service: "Obsidian Local REST API",
-      authenticated: this.requestIsAuthenticated(req),
-      certificateInfo: this.requestIsAuthenticated(req) && certificate ? {
+      authenticated,
+      certificateInfo: authenticated && certificate ? {
         validityDays: getCertificateValidityDays(certificate),
         regenerateRecommended: standardsIssue !== null,
         regenerateReason: standardsIssue
       } : void 0,
-      apiExtensions: this.requestIsAuthenticated(req) ? [...this.apiExtensions.values()].map(({ manifest, api }) => ({
+      apiExtensions: authenticated ? [...this.apiExtensions.values()].map(({ manifest, api }) => ({
         ...manifest,
         routes: api.getRoutes(),
         mcpTools: api.getMcpTools()
-      })) : void 0
-    });
+      })) : void 0,
+      state: authenticated ? {
+        metadataCache: this.metadataCacheObserver.snapshot(),
+        ...await this.stateRegistry.collect(
+          clampStateReadTimeout(this.settings.stateReadTimeoutMs)
+        )
+      } : void 0
+    };
   }
   /** The vault path from the request, split into decoded segments.
    *
@@ -98195,7 +103186,70 @@ var RequestHandler = class {
       this.returnCannedResponse(res, { errorCode: 40021 /* PathTraversalNotAllowed */ });
       return null;
     }
+    if (!this.settings.enableConfigDirAccess && this.pathIsInConfigDir(segments.join("/"))) {
+      this.returnCannedResponse(res, {
+        errorCode: 40321 /* ConfigDirAccessNotAllowed */
+      });
+      return null;
+    }
     return segments;
+  }
+  /** Let a refusal from the authorization gate out of an endpoint-local catch.
+   *
+   *  Those catches map the errors their operation is known to throw -- not
+   *  found, patch failed -- and answer anything else with a 500 or a coarse
+   *  client error. A PathTraversalError or ConfigDirAccessError is neither: it
+   *  is the gate in VaultOperations refusing a path the boundary never saw
+   *  (`/active/` takes its path from the workspace, not the client), and it has
+   *  to reach `errorHandler`, which answers it with the policy's own status and
+   *  error code. Called first in any catch that would otherwise swallow it. */
+  rethrowIfRefused(error3) {
+    if (error3 instanceof PathTraversalError || error3 instanceof ConfigDirAccessError) {
+      throw error3;
+    }
+  }
+  /**
+   * The request's `If-Match`/`If-None-Match` headers, for a write to check
+   * against the file's current version. Returns null -- having already sent a
+   * 400 -- when either header is malformed, since guessing at a precondition a
+   * client meant to protect itself with would defeat the point of sending one.
+   */
+  requestPreconditions(req, res) {
+    const preconditions = {};
+    for (const [header, key] of [
+      ["If-Match", "ifMatch"],
+      ["If-None-Match", "ifNoneMatch"]
+    ]) {
+      const raw = req.get(header);
+      if (raw === void 0) continue;
+      const condition = parseEntityTagCondition(raw);
+      if (condition === null) {
+        this.returnCannedResponse(res, {
+          errorCode: 40024 /* InvalidPreconditionHeader */,
+          message: `It was supplied in the '${header}' header.`
+        });
+        return null;
+      }
+      preconditions[key] = condition;
+    }
+    return preconditions;
+  }
+  /** Answer 412 for a write whose precondition did not hold. */
+  returnPreconditionFailed(res, error3) {
+    this.returnCannedResponse(res, {
+      errorCode: 41200 /* PreconditionFailed */,
+      message: error3.message
+    });
+  }
+  /** Whether a contained, vault-relative path is Obsidian's configuration
+   *  directory or inside it -- by spelling, and by where it lands on disk, so an
+   *  NTFS 8.3 short name or a symlink cannot reach it under another name. */
+  pathIsInConfigDir(candidate) {
+    return vaultPathIsInConfigDir(
+      candidate,
+      this.app.vault.configDir,
+      onDiskAccessFor(this.app.vault.adapter)
+    );
   }
   /** Join decoded segments into a whole-file path, or null when a segment holds
    *  a literal `/` (a decoded `%2F`). A file or folder name can never contain a
@@ -98236,8 +103290,11 @@ var RequestHandler = class {
     let exactStat = null;
     if (normalizedPath !== null) {
       try {
-        exactStat = normalizedPath ? await this.app.vault.adapter.stat(normalizedPath) : null;
-      } catch {
+        exactStat = normalizedPath ? await this.operations.statPath(normalizedPath) : null;
+      } catch (e) {
+        if (e instanceof PathTraversalError || e instanceof ConfigDirAccessError) {
+          throw e;
+        }
       }
     }
     if (!exactStat || exactStat.type !== "file") {
@@ -98265,8 +103322,9 @@ var RequestHandler = class {
       urlTargetSegments = resolved.targetSegments;
       res.set("Content-Location", encodeVaultPath(filePath));
     }
-    const content = await this.app.vault.adapter.readBinary(filePath);
+    const content = await this.operations.readBinaryPath(filePath);
     const mimeType = import_mime_types2.default.lookup(filePath);
+    const etag = formatEntityTag((0, import_markdown_patch_24.versionOf)(new Uint8Array(content)));
     const disposition = this.requestIsSigned(req) && req.query.download !== "1" ? "inline" : "attachment";
     res.set({
       // Every comma, not just the first: a comma is a header-list separator, so one left
@@ -98279,7 +103337,7 @@ var RequestHandler = class {
     });
     if (req.headers.accept === "application/vnd.olrapi.note+json" /* olrapiNoteJson */) {
       const file = this.app.vault.getAbstractFileByPath(filePath);
-      if (!(file instanceof import_obsidian4.TFile)) {
+      if (!(file instanceof import_obsidian5.TFile)) {
         this.returnCannedResponse(res, { statusCode: 404 });
         return;
       }
@@ -98290,7 +103348,7 @@ var RequestHandler = class {
       return;
     } else if (req.headers.accept === "application/vnd.olrapi.document-map+json" /* olrapiDocumentMap */) {
       const file = this.app.vault.getAbstractFileByPath(filePath);
-      if (!(file instanceof import_obsidian4.TFile)) {
+      if (!(file instanceof import_obsidian5.TFile)) {
         this.returnCannedResponse(res, { statusCode: 404 });
         return;
       }
@@ -98304,14 +103362,14 @@ var RequestHandler = class {
       try {
         mapJson = version3 === 1 ? JSON.stringify(await this.getDocumentMapObject(file), null, 2) : JSON.stringify(await this.getDocumentMapV2Object(file), null, 2);
       } catch (e) {
-        if (e instanceof import_markdown_patch3.FrontmatterParseError || e instanceof import_markdown_patch_23.FrontmatterParseError) {
+        if (e instanceof import_markdown_patch3.FrontmatterParseError || e instanceof import_markdown_patch_24.FrontmatterParseError) {
           this.returnCannedResponse(res, {
             errorCode: 40005 /* InvalidFrontmatter */,
             message: e.message
           });
           return;
         }
-        if (e instanceof import_markdown_patch_23.ReservedDuplicateMarkerError) {
+        if (e instanceof import_markdown_patch_24.ReservedDuplicateMarkerError) {
           this.returnCannedResponse(res, {
             errorCode: 40080 /* PatchFailed */,
             message: e.message
@@ -98323,6 +103381,7 @@ var RequestHandler = class {
       if (version3 === 1) {
         res.setHeader("Deprecation", `true; sunset-version="${MARKDOWN_PATCH_V1_SUNSET}"`);
       }
+      res.setHeader("ETag", etag);
       res.send(mapJson);
       return;
     }
@@ -98386,20 +103445,20 @@ var RequestHandler = class {
         }
         let result;
         try {
-          result = (0, import_markdown_patch_23.readTarget)(fileContent, address);
+          result = (0, import_markdown_patch_24.readTarget)(fileContent, address);
         } catch (e) {
-          if (e instanceof import_markdown_patch_23.TargetNotFoundError) {
+          if (e instanceof import_markdown_patch_24.TargetNotFoundError) {
             this.returnCannedResponse(res, { statusCode: 404 });
             return;
           }
-          if (e instanceof import_markdown_patch_23.FrontmatterParseError) {
+          if (e instanceof import_markdown_patch_24.FrontmatterParseError) {
             this.returnCannedResponse(res, {
               errorCode: 40005 /* InvalidFrontmatter */,
               message: e.message
             });
             return;
           }
-          if (e instanceof import_markdown_patch_23.ReservedDuplicateMarkerError) {
+          if (e instanceof import_markdown_patch_24.ReservedDuplicateMarkerError) {
             this.returnCannedResponse(res, {
               errorCode: 40080 /* PatchFailed */,
               message: e.message
@@ -98416,7 +103475,7 @@ var RequestHandler = class {
             return;
           }
           const file = this.app.vault.getAbstractFileByPath(filePath);
-          if (!(file instanceof import_obsidian4.TFile)) {
+          if (!(file instanceof import_obsidian5.TFile)) {
             this.returnCannedResponse(res, { statusCode: 404 });
             return;
           }
@@ -98424,6 +103483,7 @@ var RequestHandler = class {
           res.send(await this.renderFileToHtml(file, result.content));
           return;
         }
+        res.setHeader("ETag", etag);
         if (result.kind === "frontmatter") {
           res.setHeader("Content-Type", "application/json" /* json */);
           res.json(result.value);
@@ -98457,7 +103517,7 @@ var RequestHandler = class {
     }
     if (req.headers.accept === "text/html" /* html */) {
       const file = this.app.vault.getAbstractFileByPath(filePath);
-      if (!(file instanceof import_obsidian4.TFile)) {
+      if (!(file instanceof import_obsidian5.TFile)) {
         this.returnCannedResponse(res, { statusCode: 404 });
         return;
       }
@@ -98473,6 +103533,7 @@ var RequestHandler = class {
       );
       return;
     }
+    res.setHeader("ETag", etag);
     if (resolvedTarget) {
       if (resolvedTarget.targetType === "frontmatter") {
         res.setHeader("Content-Type", "application/json" /* json */);
@@ -98606,7 +103667,22 @@ var RequestHandler = class {
       });
       return;
     }
-    await this.operations.writeFileContent(filepath, req.body);
+    const preconditions = this.requestPreconditions(req, res);
+    if (preconditions === null) return;
+    try {
+      const version3 = await this.operations.writeFileContent(
+        filepath,
+        req.body,
+        preconditions
+      );
+      res.setHeader("ETag", formatEntityTag(version3));
+    } catch (e) {
+      if (e instanceof import_markdown_patch_24.PreconditionFailedError) {
+        this.returnPreconditionFailed(res, e);
+        return;
+      }
+      throw e;
+    }
     this.returnCannedResponse(res, { statusCode: 204 });
     return;
   }
@@ -98665,8 +103741,8 @@ var RequestHandler = class {
     }
     return this._vaultPut(filePath, req, res);
   }
-  async _vaultPatch(path2, req, res, urlTarget) {
-    if (!path2 || path2.endsWith("/")) {
+  async _vaultPatch(path3, req, res, urlTarget) {
+    if (!path3 || path3.endsWith("/")) {
       this.returnCannedResponse(res, { errorCode: 40510 /* RequestMethodValidOnlyForFiles */ });
       return;
     }
@@ -98675,6 +103751,8 @@ var RequestHandler = class {
       this.returnCannedResponse(res, { errorCode: 40082 /* InvalidPatchVersionHeader */ });
       return;
     }
+    const preconditions = this.requestPreconditions(req, res);
+    if (preconditions === null) return;
     const headerTargeting = !!(req.get("Target-Type") || req.get("Target"));
     const baseContentType = (req.get("Content-Type") ?? "").split(";")[0].trim().toLowerCase();
     const isInstructionBody = baseContentType === "application/vnd.olrapi.patch-instruction+json" /* olrapiPatchInstruction */;
@@ -98687,13 +103765,14 @@ var RequestHandler = class {
     if (version3 === 2) {
       if (urlTarget) {
         return this._vaultPatchRawContent(
-          path2,
+          path3,
           {
             targetType: urlTarget.targetType,
             target: urlTarget.targetType === "heading" ? urlTarget.targetSegments ?? [urlTarget.target ?? ""] : urlTarget.target ?? ""
           },
           req,
-          res
+          res,
+          preconditions
         );
       }
       if (headerTargeting) {
@@ -98705,7 +103784,7 @@ var RequestHandler = class {
         }
         const parsed = this._getPatchHeaderTarget(req, res);
         if (!parsed) return;
-        return this._vaultPatchRawContent(path2, parsed, req, res);
+        return this._vaultPatchRawContent(path3, parsed, req, res, preconditions);
       }
       const body = req.body;
       if (typeof body !== "object" || body === null || Array.isArray(body)) {
@@ -98715,7 +103794,12 @@ var RequestHandler = class {
         });
         return;
       }
-      return this._vaultPatchMdp2(path2, body, res);
+      return this._vaultPatchMdp2(
+        path3,
+        body,
+        res,
+        preconditions
+      );
     }
     if (urlTarget) {
       this.returnCannedResponse(res, {
@@ -98768,17 +103852,22 @@ var RequestHandler = class {
     }
     try {
       const patched = await this.operations.patchFileSection(
-        path2,
+        path3,
         targetType,
         rawTarget,
         operation,
         req.body,
         contentType,
-        { createTargetIfMissing, rejectIfContentPreexists, trimTargetWhitespace, targetDelimiter, targetScope }
+        { createTargetIfMissing, rejectIfContentPreexists, trimTargetWhitespace, targetDelimiter, targetScope },
+        preconditions
       );
+      res.setHeader("ETag", formatEntityTag((0, import_markdown_patch_24.versionOf)(patched)));
       res.status(200).send(patched);
     } catch (e) {
-      if (e instanceof FileNotFoundError) {
+      this.rethrowIfRefused(e);
+      if (e instanceof import_markdown_patch_24.PreconditionFailedError) {
+        this.returnPreconditionFailed(res, e);
+      } else if (e instanceof FileNotFoundError) {
         this.returnCannedResponse(res, { statusCode: 404 });
       } else if (e instanceof import_markdown_patch3.PatchFailed) {
         this.returnCannedResponse(res, { errorCode: 40080 /* PatchFailed */, message: e.reason });
@@ -98820,8 +103909,8 @@ var RequestHandler = class {
    *  supplies only the file. On success the patched document is returned as the
    *  body, with any advisory warnings JSON- then percent-encoded into the
    *  `Markdown-Patch-Warnings` response header. */
-  async _vaultPatchMdp2(path2, candidate, res) {
-    const parsed = import_markdown_patch_23.InstructionInputSchema.safeParse(candidate);
+  async _vaultPatchMdp2(path3, candidate, res, preconditions) {
+    const parsed = import_markdown_patch_24.InstructionInputSchema.safeParse(candidate);
     if (!parsed.success) {
       this.returnCannedResponse(res, {
         errorCode: 40081 /* InvalidPatchInstruction */,
@@ -98831,7 +103920,12 @@ var RequestHandler = class {
       });
       return;
     }
-    return this._respondMdp2(path2, candidate, res);
+    return this._respondMdp2(
+      path3,
+      candidate,
+      res,
+      preconditions
+    );
   }
   /** Assemble a 2.0 instruction for a raw-content-mode PATCH: the target comes
    *  from URL path elements or the Target-Type/Target headers (already parsed
@@ -98843,7 +103937,7 @@ var RequestHandler = class {
    *  into the body instead of JSON-escaping it into an instruction document.
    *  The assembled candidate funnels through `_vaultPatchMdp2`, so validation
    *  and error mapping are identical to the JSON-instruction mode. */
-  async _vaultPatchRawContent(path2, target, req, res) {
+  async _vaultPatchRawContent(path3, target, req, res, preconditions) {
     if (req.get("Target-Delimiter") || req.get("Trim-Target-Whitespace")) {
       this.returnCannedResponse(res, {
         errorCode: 40084 /* PatchHeaderTargetingRequiresExplicitVersion */
@@ -98891,8 +103985,6 @@ var RequestHandler = class {
       }
       within = Number(rawWithin.trim());
     }
-    const rawIfMatch = req.get("If-Match");
-    const ifMatch = rawIfMatch !== void 0 && rawIfMatch.length >= 2 && rawIfMatch.startsWith('"') && rawIfMatch.endsWith('"') ? rawIfMatch.slice(1, -1) : rawIfMatch;
     const candidate = {
       targetType: target.targetType,
       target: target.target,
@@ -98901,7 +103993,6 @@ var RequestHandler = class {
     if (within !== void 0) candidate.within = within;
     if (scope !== void 0) candidate.scope = scope;
     if (destination !== void 0) candidate.destination = destination;
-    if (ifMatch !== void 0) candidate.ifMatch = ifMatch;
     if (req.get("Create-Target-If-Missing") === "true") {
       candidate.createTargetIfMissing = true;
     }
@@ -98926,18 +104017,19 @@ var RequestHandler = class {
         return;
       }
     }
-    return this._vaultPatchMdp2(path2, candidate, res);
+    return this._vaultPatchMdp2(path3, candidate, res, preconditions);
   }
   /** Apply a single markdown-patch 2.0 instruction and write the standard 2.0
    *  response: the patched document as the body, any advisory warnings
    *  (percent-encoded JSON) in the `Markdown-Patch-Warnings` header, and the engine's
    *  typed failures mapped to HTTP status codes. Shared by the JSON-body PATCH
    *  endpoint and the path-element targeted GET/PUT/POST writes. */
-  async _respondMdp2(filePath, instruction, res) {
+  async _respondMdp2(filePath, instruction, res, preconditions) {
     try {
       const result = await this.operations.patchFileSectionMdp2(
         filePath,
-        instruction
+        instruction,
+        preconditions
       );
       if (result.warnings.length > 0) {
         res.setHeader(
@@ -98946,22 +104038,24 @@ var RequestHandler = class {
         );
       }
       res.setHeader("Content-Type", "text/markdown" /* markdown */ + "; charset=utf-8");
+      res.setHeader("ETag", formatEntityTag((0, import_markdown_patch_24.versionOf)(result.document)));
       res.status(200).send(result.document);
     } catch (e) {
+      this.rethrowIfRefused(e);
       if (e instanceof FileNotFoundError) {
         this.returnCannedResponse(res, { statusCode: 404 });
-      } else if (e instanceof import_markdown_patch_23.PreconditionFailedError) {
-        this.returnCannedResponse(res, { statusCode: 412, message: e.message });
-      } else if (e instanceof import_markdown_patch_23.TargetNotFoundError) {
+      } else if (e instanceof import_markdown_patch_24.PreconditionFailedError) {
+        this.returnPreconditionFailed(res, e);
+      } else if (e instanceof import_markdown_patch_24.TargetNotFoundError) {
         this.returnCannedResponse(res, { statusCode: 404, message: e.message });
-      } else if (e instanceof import_markdown_patch_23.ContentPreexistsError || e instanceof import_markdown_patch_23.FrontmatterKeyCollisionError) {
+      } else if (e instanceof import_markdown_patch_24.ContentPreexistsError || e instanceof import_markdown_patch_24.FrontmatterKeyCollisionError) {
         this.returnCannedResponse(res, { statusCode: 409, message: e.message });
-      } else if (e instanceof import_markdown_patch_23.InvalidCellError || e instanceof import_markdown_patch_23.InvalidInstructionError || e instanceof import_markdown_patch_23.InvalidCellContentError) {
+      } else if (e instanceof import_markdown_patch_24.InvalidCellError || e instanceof import_markdown_patch_24.InvalidInstructionError || e instanceof import_markdown_patch_24.InvalidCellContentError) {
         this.returnCannedResponse(res, {
           errorCode: 40081 /* InvalidPatchInstruction */,
           message: e.message
         });
-      } else if (e instanceof import_markdown_patch_23.FrontmatterParseError) {
+      } else if (e instanceof import_markdown_patch_24.FrontmatterParseError) {
         this.returnCannedResponse(res, {
           errorCode: 40005 /* InvalidFrontmatter */,
           message: e.message
@@ -99003,6 +104097,8 @@ var RequestHandler = class {
     }
     const createTargetIfMissing = extraOpts.createTargetIfMissing ?? req.get("Create-Target-If-Missing") == "true";
     const rejectIfContentPreexists = req.get("Reject-If-Content-Preexists") == "true";
+    const preconditions = this.requestPreconditions(req, res);
+    if (preconditions === null) return;
     if (version3 === 1) {
       res.setHeader("Deprecation", `true; sunset-version="${MARKDOWN_PATCH_V1_SUNSET}"`);
       const trimTargetWhitespace = req.get("Trim-Target-Whitespace") == "true";
@@ -99032,11 +104128,16 @@ var RequestHandler = class {
           operation,
           req.body,
           contentType,
-          { createTargetIfMissing, rejectIfContentPreexists, trimTargetWhitespace, targetDelimiter, targetScope }
+          { createTargetIfMissing, rejectIfContentPreexists, trimTargetWhitespace, targetDelimiter, targetScope },
+          preconditions
         );
+        res.setHeader("ETag", formatEntityTag((0, import_markdown_patch_24.versionOf)(patched)));
         res.status(200).send(patched);
       } catch (e) {
-        if (e instanceof FileNotFoundError) {
+        this.rethrowIfRefused(e);
+        if (e instanceof import_markdown_patch_24.PreconditionFailedError) {
+          this.returnPreconditionFailed(res, e);
+        } else if (e instanceof FileNotFoundError) {
           this.returnCannedResponse(res, { statusCode: 404 });
         } else if (e instanceof import_markdown_patch3.PatchFailed) {
           this.returnCannedResponse(res, { errorCode: 40080 /* PatchFailed */, message: e.reason });
@@ -99086,7 +104187,7 @@ var RequestHandler = class {
       createTargetIfMissing,
       rejectIfContentPreexists
     };
-    return this._respondMdp2(filePath, instruction, res);
+    return this._respondMdp2(filePath, instruction, res, preconditions);
   }
   async _vaultPost(filepath, req, res) {
     if (!filepath || filepath.endsWith("/")) {
@@ -99101,7 +104202,22 @@ var RequestHandler = class {
       });
       return;
     }
-    await this.operations.appendFileContent(filepath, req.body);
+    const preconditions = this.requestPreconditions(req, res);
+    if (preconditions === null) return;
+    try {
+      const version3 = await this.operations.appendFileContent(
+        filepath,
+        req.body,
+        preconditions
+      );
+      res.setHeader("ETag", formatEntityTag(version3));
+    } catch (e) {
+      if (e instanceof import_markdown_patch_24.PreconditionFailedError) {
+        this.returnPreconditionFailed(res, e);
+        return;
+      }
+      throw e;
+    }
     this.returnCannedResponse(res, { statusCode: 204 });
     return;
   }
@@ -99152,18 +104268,23 @@ var RequestHandler = class {
     }
     return this._vaultPost(filePath, req, res);
   }
-  async _vaultDelete(path2, req, res) {
-    if (!path2 || path2.endsWith("/")) {
+  async _vaultDelete(path3, req, res) {
+    if (!path3 || path3.endsWith("/")) {
       this.returnCannedResponse(res, {
         errorCode: 40510 /* RequestMethodValidOnlyForFiles */
       });
       return;
     }
     const permanent = req.query.permanent === "true";
+    const preconditions = this.requestPreconditions(req, res);
+    if (preconditions === null) return;
     try {
-      await this.operations.deleteVaultFile(path2, permanent);
+      await this.operations.deleteVaultFile(path3, permanent, preconditions);
     } catch (e) {
-      if (e instanceof FileNotFoundError) {
+      this.rethrowIfRefused(e);
+      if (e instanceof import_markdown_patch_24.PreconditionFailedError) {
+        this.returnPreconditionFailed(res, e);
+      } else if (e instanceof FileNotFoundError) {
         this.returnCannedResponse(res, { statusCode: 404 });
       } else {
         this.returnCannedResponse(res, { statusCode: 500 });
@@ -99191,8 +104312,8 @@ var RequestHandler = class {
     }
     return this._vaultDelete(filePath, req, res);
   }
-  async _vaultMove(path2, req, res) {
-    if (!path2 || path2.endsWith("/")) {
+  async _vaultMove(path3, req, res) {
+    if (!path3 || path3.endsWith("/")) {
       this.returnCannedResponse(res, {
         errorCode: 40510 /* RequestMethodValidOnlyForFiles */
       });
@@ -99206,7 +104327,7 @@ var RequestHandler = class {
       });
       return;
     }
-    const sourceFilename = path2.includes("/") ? path2.slice(path2.lastIndexOf("/") + 1) : path2;
+    const sourceFilename = path3.includes("/") ? path3.slice(path3.lastIndexOf("/") + 1) : path3;
     let normalized;
     try {
       normalized = decodeURIComponent(rawDestination.trim()).replace(/\\/g, "/").replace(/\/+/g, "/");
@@ -99222,17 +104343,36 @@ var RequestHandler = class {
       });
       return;
     }
+    if (!this.settings.enableConfigDirAccess && this.pathIsInConfigDir(normalized)) {
+      this.returnCannedResponse(res, {
+        errorCode: 40321 /* ConfigDirAccessNotAllowed */
+      });
+      return;
+    }
     const newPath = !normalized || normalized.endsWith("/") ? normalized + sourceFilename : normalized;
+    const preconditions = this.requestPreconditions(req, res);
+    if (preconditions === null) return;
     try {
-      const actualPath = await this.operations.moveVaultFile(path2, newPath, allowOverwrite);
+      const actualPath = await this.operations.moveVaultFile(
+        path3,
+        newPath,
+        allowOverwrite,
+        preconditions
+      );
       res.set("Content-Location", encodeVaultPath(actualPath));
       this.returnCannedResponse(res, { statusCode: 204 });
     } catch (error3) {
-      if (error3 instanceof FileNotFoundError) {
+      if (error3 instanceof import_markdown_patch_24.PreconditionFailedError) {
+        this.returnPreconditionFailed(res, error3);
+      } else if (error3 instanceof FileNotFoundError) {
         this.returnCannedResponse(res, { statusCode: 404 });
       } else if (error3 instanceof DestinationAlreadyExistsError) {
         this.returnCannedResponse(res, {
           errorCode: 40920 /* DestinationAlreadyExists */
+        });
+      } else if (error3 instanceof ConfigDirAccessError) {
+        this.returnCannedResponse(res, {
+          errorCode: 40321 /* ConfigDirAccessNotAllowed */
         });
       } else {
         const msg = error3 instanceof Error ? error3.message : String(error3);
@@ -99253,8 +104393,8 @@ var RequestHandler = class {
     }
     return this._vaultMove(filePath, req, res);
   }
-  async _vaultCopy(path2, req, res) {
-    if (!path2 || path2.endsWith("/")) {
+  async _vaultCopy(path3, req, res) {
+    if (!path3 || path3.endsWith("/")) {
       this.returnCannedResponse(res, {
         errorCode: 40510 /* RequestMethodValidOnlyForFiles */
       });
@@ -99268,7 +104408,7 @@ var RequestHandler = class {
       });
       return;
     }
-    const sourceFilename = path2.includes("/") ? path2.slice(path2.lastIndexOf("/") + 1) : path2;
+    const sourceFilename = path3.includes("/") ? path3.slice(path3.lastIndexOf("/") + 1) : path3;
     let normalized;
     try {
       normalized = decodeURIComponent(rawDestination.trim()).replace(/\\/g, "/").replace(/\/+/g, "/");
@@ -99284,17 +104424,36 @@ var RequestHandler = class {
       });
       return;
     }
+    if (!this.settings.enableConfigDirAccess && this.pathIsInConfigDir(normalized)) {
+      this.returnCannedResponse(res, {
+        errorCode: 40321 /* ConfigDirAccessNotAllowed */
+      });
+      return;
+    }
     const newPath = !normalized || normalized.endsWith("/") ? normalized + sourceFilename : normalized;
+    const preconditions = this.requestPreconditions(req, res);
+    if (preconditions === null) return;
     try {
-      const actualPath = await this.operations.copyVaultFile(path2, newPath, allowOverwrite);
+      const actualPath = await this.operations.copyVaultFile(
+        path3,
+        newPath,
+        allowOverwrite,
+        preconditions
+      );
       res.set("Content-Location", encodeVaultPath(actualPath));
       this.returnCannedResponse(res, { statusCode: 204 });
     } catch (error3) {
-      if (error3 instanceof FileNotFoundError) {
+      if (error3 instanceof import_markdown_patch_24.PreconditionFailedError) {
+        this.returnPreconditionFailed(res, error3);
+      } else if (error3 instanceof FileNotFoundError) {
         this.returnCannedResponse(res, { statusCode: 404 });
       } else if (error3 instanceof DestinationAlreadyExistsError) {
         this.returnCannedResponse(res, {
           errorCode: 40920 /* DestinationAlreadyExists */
+        });
+      } else if (error3 instanceof ConfigDirAccessError) {
+        this.returnCannedResponse(res, {
+          errorCode: 40321 /* ConfigDirAccessNotAllowed */
         });
       } else {
         const msg = error3 instanceof Error ? error3.message : String(error3);
@@ -99331,9 +104490,9 @@ var RequestHandler = class {
    * requests whenever the underlying write threw.
    */
   async redirectToVaultPath(file, req, res, handler) {
-    const path2 = file.path;
-    res.set("Content-Location", encodeVaultPath(path2));
-    return handler(path2, req, res);
+    const path3 = file.path;
+    res.set("Content-Location", encodeVaultPath(path3));
+    return handler(path3, req, res);
   }
   async activeFileGet(req, res) {
     const file = this.app.workspace.getActiveFile();
@@ -99529,8 +104688,24 @@ var RequestHandler = class {
     }
     const contextLengthRaw = parseInt(req.query.contextLength, 10);
     const contextLength = Number.isNaN(contextLengthRaw) ? 100 : contextLengthRaw;
+    const limits = {};
+    for (const name of ["maxResults", "maxMatchesPerFile"]) {
+      const raw = req.query[name];
+      if (raw === void 0) continue;
+      if (typeof raw !== "string" || !/^\d+$/.test(raw) || Number(raw) < 1) {
+        return this.returnCannedResponse(res, {
+          message: `'?${name}=' must be a single positive integer.`,
+          errorCode: 40090 /* InvalidSearch */
+        });
+      }
+      limits[name] = Number(raw);
+    }
     try {
-      const results = await this.operations.simpleSearch(query, contextLength);
+      const { results, totalResults } = await this.operations.simpleSearch(query, {
+        contextLength,
+        ...limits
+      });
+      res.set("Total-Results", String(totalResults));
       res.json(results);
     } catch (e) {
       console.error("Could not prepare simple search: ", e);
@@ -99633,6 +104808,16 @@ var RequestHandler = class {
       });
       return;
     }
+    if (err instanceof ConfigDirAccessError) {
+      this.returnCannedResponse(res, {
+        errorCode: 40321 /* ConfigDirAccessNotAllowed */
+      });
+      return;
+    }
+    if (err instanceof import_markdown_patch_24.PreconditionFailedError) {
+      this.returnPreconditionFailed(res, err);
+      return;
+    }
     this.returnCannedResponse(res, {
       statusCode: 500,
       message: err.message
@@ -99640,10 +104825,10 @@ var RequestHandler = class {
     return;
   }
   /** An error body that also lists what can be streamed. */
-  returnEventError(res, errorCode) {
-    res.status(Math.floor(errorCode / 100)).json({
-      message: ERROR_CODE_MESSAGES[errorCode],
-      errorCode,
+  returnEventError(res, errorCode2) {
+    res.status(Math.floor(errorCode2 / 100)).json({
+      message: ERROR_CODE_MESSAGES[errorCode2],
+      errorCode: errorCode2,
       supportedEvents: this.events.supportedEvents()
     });
   }
@@ -99747,8 +104932,35 @@ var RequestHandler = class {
     });
     this.api.use((0, import_response_time.default)());
     this.api.use((0, import_cors.default)(corsOptions));
+    this.authenticationFailureStore?.shutdown();
+    this.authenticationFailureStore = new MemoryStore();
+    const authenticationFailureLimiter = rate_limit_default({
+      windowMs: AuthenticationFailureWindowMs,
+      limit: AuthenticationFailureLimit,
+      store: this.authenticationFailureStore,
+      skip: (req) => !this.credentialIsRejected(req),
+      // Neither family of quota headers: they would ride along on every counted 401 and
+      // tell a guesser how many free attempts remain. `Retry-After` is the one header the
+      // contract promises, and the library only sets it alongside the quota headers, so
+      // the refusal sets it itself from the window the store reports.
+      standardHeaders: false,
+      legacyHeaders: false,
+      handler: (req, res) => {
+        const info = req.rateLimit;
+        const resetTime = info?.resetTime?.getTime() ?? Date.now() + AuthenticationFailureWindowMs;
+        res.setHeader("Retry-After", String(Math.max(1, Math.ceil((resetTime - Date.now()) / 1e3))));
+        this.returnCannedResponse(res, {
+          errorCode: 42901 /* TooManyAuthenticationFailures */
+        });
+      },
+      // The plugin never sits behind a proxy it trusts, so a forwarded-for header is
+      // just a header; the library's warning about ignoring it would only be noise in
+      // the developer console.
+      validate: { xForwardedForHeader: false }
+    });
     const mcpRouter = import_express2.default.Router();
     mcpRouter.use((0, import_cors.default)(corsOptions));
+    mcpRouter.use(authenticationFailureLimiter);
     mcpRouter.use((req, res, next) => {
       if (!this.requestIsAuthenticated(req)) {
         this.returnCannedResponse(res, {
@@ -99778,6 +104990,7 @@ var RequestHandler = class {
     });
     this.api.use("/mcp", mcpRouter);
     this.api.use(this.publicApiExtensionRouter);
+    this.api.use(authenticationFailureLimiter);
     this.api.use(this.authenticationMiddleware.bind(this));
     this.api.use((req, _res, next) => {
       const hasBody = req.headers["content-length"] !== void 0 || req.headers["transfer-encoding"] !== void 0;
@@ -99821,9 +105034,9 @@ var RequestHandler = class {
     this.api.use(
       this.vaultSubresources.middleware({
         resolvePathAndTarget: (segments) => this._resolvePathAndTarget(segments),
-        getFile: (path2) => {
-          const file = this.app.vault.getAbstractFileByPath(path2);
-          return file instanceof import_obsidian4.TFile ? file : null;
+        getFile: (path3) => {
+          const file = this.app.vault.getAbstractFileByPath(path3);
+          return file instanceof import_obsidian5.TFile ? file : null;
         },
         getActiveFile: () => this.app.workspace.getActiveFile(),
         isSigned: (req) => this.requestIsSigned(req)
@@ -99851,9 +105064,7 @@ var RequestHandler = class {
     this.api.get(`/${CERT_NAME}`, this.handle((rq, rs) => this.certificateGet(rq, rs)));
     this.api.get("/openapi.yaml", this.handle((rq, rs) => this.openapiYamlGet(rq, rs)));
     this.api.get("/openapi.json", this.handle((rq, rs) => this.openapiJsonGet(rq, rs)));
-    this.api.get("/", (rq, rs) => {
-      this.root(rq, rs);
-    });
+    this.api.get("/", this.handle((rq, rs) => this.root(rq, rs)));
     this.api.use(this.apiExtensionRouter);
     this.api.use((rq, rs, next) => {
       this.notFoundHandler(rq, rs, next).catch(next);
@@ -99873,7 +105084,7 @@ function configureHttpServerTimeouts(server) {
 }
 
 // src/main.ts
-var LocalRestApi = class extends import_obsidian5.Plugin {
+var LocalRestApi = class extends import_obsidian6.Plugin {
   secureServer = null;
   insecureServer = null;
   requestHandler;
@@ -99980,9 +105191,7 @@ var LocalRestApi = class extends import_obsidian5.Plugin {
     }
   }
   onunload() {
-    this.requestHandler?.mcpHandler.close();
-    this.requestHandler?.operations.dispose();
-    this.requestHandler?.events.dispose();
+    this.requestHandler?.dispose();
     if (this.secureServer) {
       this.secureServer.closeAllConnections();
       this.secureServer.close();
@@ -99999,7 +105208,7 @@ var LocalRestApi = class extends import_obsidian5.Plugin {
     await this.saveData(this.settings);
   }
 };
-var LocalRestApiSettingTab = class extends import_obsidian5.PluginSettingTab {
+var LocalRestApiSettingTab = class extends import_obsidian6.PluginSettingTab {
   plugin;
   constructor(app, plugin) {
     super(app, plugin);
@@ -100037,16 +105246,16 @@ var LocalRestApiSettingTab = class extends import_obsidian5.PluginSettingTab {
   renderCopyableValue(el, value, label, cls = "copyable-value") {
     const wrapper = el.createDiv({ cls });
     wrapper.createEl("pre", { text: value });
-    new import_obsidian5.ExtraButtonComponent(wrapper).setIcon("copy").setTooltip(`Copy ${label}`).onClick(() => {
+    new import_obsidian6.ExtraButtonComponent(wrapper).setIcon("copy").setTooltip(`Copy ${label}`).onClick(() => {
       void this.copyToClipboard(value, label);
     });
   }
   async copyToClipboard(value, label) {
     try {
       await navigator.clipboard.writeText(value);
-      new import_obsidian5.Notice(`Copied ${label} to clipboard.`);
+      new import_obsidian6.Notice(`Copied ${label} to clipboard.`);
     } catch {
-      new import_obsidian5.Notice(`Could not copy ${label} to the clipboard.`);
+      new import_obsidian6.Notice(`Could not copy ${label} to the clipboard.`);
     }
   }
   /**
@@ -100295,7 +105504,7 @@ var LocalRestApiSettingTab = class extends import_obsidian5.PluginSettingTab {
     return setting.settingEl;
   }
   confirmDestructiveAction(options) {
-    const modal = new import_obsidian5.ConfirmationModal(this.app);
+    const modal = new import_obsidian6.ConfirmationModal(this.app);
     modal.titleEl.setText(options.title);
     modal.contentEl.createEl("p", { text: options.message });
     modal.addButton((btn) => {
@@ -100524,6 +105733,21 @@ var LocalRestApiSettingTab = class extends import_obsidian5.PluginSettingTab {
           min: MinimumSignedUrlTtlSeconds,
           max: MaximumSignedUrlTtlSeconds
         }
+      },
+      {
+        name: "Extension state read budget (milliseconds)",
+        desc: `How long GET / waits for an extension plugin to report its state before serving null for that plugin. Extensions are read concurrently, so this bounds the whole wait. Between ${MinimumStateReadTimeoutMs} and ${MaximumStateReadTimeoutMs} milliseconds; the default is ${DefaultStateReadTimeoutMs}.`,
+        control: {
+          type: "number",
+          key: "stateReadTimeoutMs",
+          min: MinimumStateReadTimeoutMs,
+          max: MaximumStateReadTimeoutMs
+        }
+      },
+      {
+        name: "Allow access to the configuration directory",
+        desc: `When off (the default), the API refuses to read or write any file inside Obsidian's configuration directory (currently '${this.app.vault.configDir}'). That directory holds plugin code and each plugin's data.json \u2014 including this plugin's own, where your API key lives \u2014 so writing there is effectively arbitrary code execution and reading there leaks secrets. Leave this off unless you specifically need to manage your Obsidian configuration through the API, and understand that turning it on grants every holder of your API key that power.`,
+        control: { type: "toggle", key: "enableConfigDirAccess" }
       }
     ];
   }
@@ -100611,8 +105835,12 @@ var LocalRestApiSettingTab = class extends import_obsidian5.PluginSettingTab {
         return this.plugin.settings.enableVerboseLogging ?? false;
       case "enableSignedUrls":
         return this.plugin.settings.enableSignedUrls ?? true;
+      case "enableConfigDirAccess":
+        return this.plugin.settings.enableConfigDirAccess ?? false;
       case "signedUrlTtlSeconds":
         return clampSignedUrlTtl(this.plugin.settings.signedUrlTtlSeconds);
+      case "stateReadTimeoutMs":
+        return clampStateReadTimeout(this.plugin.settings.stateReadTimeoutMs);
       default:
         return void 0;
     }
@@ -100706,6 +105934,10 @@ var LocalRestApiSettingTab = class extends import_obsidian5.PluginSettingTab {
         this.plugin.settings.enableVerboseLogging = value || void 0;
         await this.plugin.saveSettings();
         break;
+      case "enableConfigDirAccess":
+        this.plugin.settings.enableConfigDirAccess = value || void 0;
+        await this.plugin.saveSettings();
+        break;
       case "enableSignedUrls":
         this.plugin.settings.enableSignedUrls = value;
         await this.plugin.saveSettings();
@@ -100714,6 +105946,12 @@ var LocalRestApiSettingTab = class extends import_obsidian5.PluginSettingTab {
       case "signedUrlTtlSeconds": {
         const clamped = clampSignedUrlTtl(value);
         this.plugin.settings.signedUrlTtlSeconds = clamped === DefaultSignedUrlTtlSeconds ? void 0 : clamped;
+        await this.plugin.saveSettings();
+        break;
+      }
+      case "stateReadTimeoutMs": {
+        const clamped = clampStateReadTimeout(value);
+        this.plugin.settings.stateReadTimeoutMs = clamped === DefaultStateReadTimeoutMs ? void 0 : clamped;
         await this.plugin.saveSettings();
         break;
       }

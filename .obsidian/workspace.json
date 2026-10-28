@@ -18,15 +18,14 @@
                   "version": 1,
                   "openTabs": [
                     {
-                      "tabId": "tab-1793033514819-i7p20mo",
-                      "conversationId": "conv-1793097462312-kil26cw20"
-                    },
-                    {
-                      "tabId": "tab-1793172421048-c1c3i2y",
-                      "conversationId": "conv-1793172437910-yqgswf1sv"
+                      "tabId": "tab-1793177737626-myh81jx",
+                      "conversationId": null,
+                      "draftModel": "sonnet",
+                      "providerId": "claude",
+                      "preview": true
                     }
                   ],
-                  "activeTabId": "tab-1793172421048-c1c3i2y"
+                  "activeTabId": "tab-1793177737626-myh81jx"
                 }
               },
               "pinned": true,
@@ -128,34 +127,6 @@
               },
               "icon": "lucide-file",
               "title": "question"
-            }
-          },
-          {
-            "id": "b853ec663415381e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CLAUDE.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "CLAUDE"
-            }
-          },
-          {
-            "id": "458d68af1d1337f1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "skills/update-study-notes/SKILL.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "SKILL"
             }
           }
         ]
@@ -349,6 +320,12 @@
   },
   "active": "c34294748e14f3a7",
   "lastOpenFiles": [
+    "agents/tutor.md",
+    "skills/update-study-notes/SKILL.md",
+    "CLAUDE.md",
+    "wiki/concepts/hoare-logic.md",
+    "agents/wiki-ingest.md",
+    "skills/notes-maker/SKILL.md",
     "study-notes/index.md",
     "study-notes/ICT3113 - Performance Testing and Optimisation Cheat Sheet.pdf",
     "wiki/log.md.tmp.35212.80404a91020e",
@@ -358,7 +335,6 @@
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.e17daa73fec7",
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.31b55fe5fcbb",
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.f7e35c932534",
-    "wiki/concepts/hoare-logic.md",
     "wiki/hot.md.tmp.31448.f32b7193b385",
     "wiki/log.md.tmp.31448.cb7af5d8796a",
     "wiki/concepts/cloud-native.md",
@@ -366,7 +342,6 @@
     "study-notes/ICT3113 - Formula Sheet.md",
     "study-notes/ICT3113 - Performance Testing and Optimisation Cheat Sheet.md",
     "wiki/areas/software-verification-validation.md",
-    "CLAUDE.md",
     "skills/daily-notes/SKILL.md",
     "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md",
     "_templates/question.md",
@@ -377,13 +352,10 @@
     "wiki/concepts/acsl-contract-strength-and-pointer-memory.md",
     "wiki/sources/ict3112-frama-c-lab1-lab2-pointers-slides.md",
     "_templates/skill.md",
-    "agents/tutor.md",
     "skills/writer/SKILL.md",
     "skills/editor/SKILL.md",
     "wiki/concepts/network-security-attacks.md",
     "wiki/sources/inf2005-csf-network-security-attacks.md",
-    "raw/INF2005 Cyber Security Fundamentals - Network Security Attacks.md",
-    "wiki/resources/hoare-logic-notation-cheatsheet.md",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",
