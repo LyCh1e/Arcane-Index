@@ -1,8 +1,8 @@
 ---
 name: update-study-notes
 description: >
-  Updates study notes in the `study notes/` folder based on newly ingested wiki content.
-  Reads the "Create Study Notes For" table in `study notes/index.md` to determine which
+  Updates study notes in the `study-notes/` folder based on newly ingested wiki content.
+  Reads the "Create Study Notes For" table in `study-notes/index.md` to determine which
   modules to track. For each tracked module, finds new wiki source and concept pages not
   yet reflected in the existing notes, then patches those notes with new sections and
   updates the coverage summary. Also creates study notes from scratch for any tracked
@@ -27,14 +27,14 @@ The wiki grows with every ingest. Study notes should grow with it. This skill br
 
 ## Step 1 — Read the Tracking Table
 
-Read `study notes/index.md`. Locate the **"Create Study Notes For"** table. Extract every row where **Auto-Update** = `yes`.
+Read `study-notes/index.md`. Locate the **"Create Study Notes For"** table. Extract every row where **Auto-Update** = `yes`.
 
 For each row, collect:
 - `module` — the module code (e.g. `ICT3113`)
 - `title` — the module title
 - `source_pattern` — the lowercase pattern to match against `wiki/sources/` filenames
-- `notes_file` — path to the exam notes file (e.g. `study notes/ICT3113 - Performance Optimisation Exam Notes.md`)
-- `formula_file` — path to the formula sheet (e.g. `study notes/ICT3113 - Formula Sheet.md`)
+- `notes_file` — path to the exam notes file (e.g. `study-notes/ICT3113 - Performance Optimisation Exam Notes.md`)
+- `formula_file` — path to the formula sheet (e.g. `study-notes/ICT3113 - Formula Sheet.md`)
 
 ---
 
@@ -116,7 +116,7 @@ If any of the new content introduces formulas, algorithms, or lookup tables:
 
 ### 5d. Updating the Coverage Summary
 
-After patching, update the **Coverage Summary** row for this module in `study notes/index.md`:
+After patching, update the **Coverage Summary** row for this module in `study-notes/index.md`:
 
 - Append new topic keywords to the existing cell (comma-separated, after ` · `).
 - Do not rewrite topics already listed.
@@ -163,8 +163,8 @@ flowchart TD
 ```
 
 4. Generate a companion formula sheet in the same style as existing formula sheets.
-5. Add both files to the tracking table in `study notes/index.md` (fill in the **Notes File** and **Formula Sheet** columns if they were blank).
-6. Add both files to the **Modules** and **Coverage Summary** tables in `study notes/index.md`.
+5. Add both files to the tracking table in `study-notes/index.md` (fill in the **Notes File** and **Formula Sheet** columns if they were blank).
+6. Add both files to the **Modules** and **Coverage Summary** tables in `study-notes/index.md`.
 
 ---
 
@@ -189,11 +189,11 @@ If running manually and no gaps were found for any module: "Study notes are alre
 - **Preserve the exact section structure** of the existing notes. Insert new sections; do not restructure old ones.
 - **Match the writing style** of the existing notes — same callout types, same table formats, same heading depth.
 - **British English** spelling and grammar throughout (per vault writing standards).
-- **Do not update** source files in `raw/` or wiki pages — this skill only writes to `study notes/`.
+- **Do not update** source files in `raw/` or wiki pages — this skill only writes to `study-notes/`.
 - If a concept page's content is already well-summarised in the notes, do not re-add it. Check carefully before adding.
 - After every write, confirm the file was updated correctly by checking its last-modified content.
-- **No wiki meta back-links in study note files.** Individual notes files (exam notes, formula sheets, daily notes) must **not** contain links to `wiki/index`, `wiki/hot`, `wiki/log`, or any other top-level wiki meta page. Only `study notes/index.md` is permitted to carry those links.
-- **Always read `study notes/index.md` first** to discover which modules to process — never hardcode module names.
+- **No wiki meta back-links in study note files.** Individual notes files (exam notes, formula sheets, daily notes) must **not** contain links to `wiki/index`, `wiki/hot`, `wiki/log`, or any other top-level wiki meta page. Only `study-notes/index.md` is permitted to carry those links.
+- **Always read `study-notes/index.md` first** to discover which modules to process — never hardcode module names.
 
 ---
 

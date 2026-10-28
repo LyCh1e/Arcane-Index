@@ -170,8 +170,8 @@ Add to the project's `.vscode/tasks.json`:
 | `/track-belief [topic]` | Snapshots current confidence and position into the Belief History table; tracks evolution over time |
 | `/affirm [topic\|note]` | Structured epistemic affirmation: identifies sound premises, valid reasoning, strong evidence; inverse of /critique |
 | `/workflow-loop [goal]` | Designs a complete workflow loop: interviews for goal/pattern/agent/tools/prompt/stopping condition; writes vault note + ready-to-run /loop invocation |
-| `update study notes` | Reads `study notes/index.md`, diffs wiki against existing notes, patches all tracked modules |
-| `/daily-notes` | Reads `study notes/index.md` for the module list, generates a dated session worksheet per module under `study notes/daily/` |
+| `update study notes` | Reads `study-notes/index.md`, diffs wiki against existing notes, patches all tracked modules |
+| `/daily-notes` | Reads `study-notes/index.md` for the module list, generates a dated session worksheet per module under `study-notes/daily-reads/` |
 | `/writer [mode]` | Structured writing agent — three modes: **academic** (essays, lit reviews, thesis), **report** (technical, findings, lab, incident), **proposal** (project, grant, research). Reads wiki for context first, outlines before drafting, enforces British English. |
 | `/editor` | Structured editing agent — three-phase review: **grammar & mechanics** (subject–verb, tense, punctuation, British English compliance), **vocabulary & register** (precision, nominalisation, colloquialism), **flow & continuity** (structural coherence, paragraph logic, gap detection, repetition). Produces an annotated edit report with priority action list and overall rating. |
 

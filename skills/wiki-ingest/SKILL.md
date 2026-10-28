@@ -152,13 +152,13 @@ Steps:
     INGESTED_SLUG="<slug of the file just ingested>"
     ```
 
-    a. Read `study notes/index.md`. Locate the **"Create Study Notes For"** table.
+    a. Read `study-notes/index.md`. Locate the **"Create Study Notes For"** table.
     b. For each row where **Auto-Update** = `yes`, check whether `INGESTED_SLUG` contains the row's **Source Pattern** (case-insensitive substring match).
     c. For every matching row, run the `update-study-notes` skill in **automatic mode** for that module:
        - Read the module's existing notes file and formula sheet.
        - Diff the newly ingested source's content against the existing notes (Steps 3–5 of the `update-study-notes` skill).
        - Patch any gaps. Update the formula sheet if new formulas were introduced.
-       - Update the **Coverage Summary** row in `study notes/index.md` with any new topic keywords.
+       - Update the **Coverage Summary** row in `study-notes/index.md` with any new topic keywords.
     d. If no row matches the ingested slug, skip silently — not every source belongs to a tracked module.
     e. Report the outcome alongside the ingest summary: e.g. `"📚 Study notes updated: ICT3113 — added §8 Lost Work / Erlang B."` or `"📚 No tracked module matched this source — study notes unchanged."`
 
@@ -176,7 +176,8 @@ Steps:
 2. Process each source following the single ingest flow. Defer cross-referencing between sources until step 3.
 3. After all sources: do a cross-reference pass. Look for connections between the newly ingested sources.
 4. Update all `_index.md` files, `wiki/index.md`, `wiki/hot.md`, and `wiki/log.md` once at the end (not per-source). Every `_index.md` that covers a folder touched by any source in the batch must be updated — see the mandatory `_index.md` table in step 6 of **Single Source Ingest**.
-5. Report: "Processed N sources. Created X pages, updated Y pages. Here are the key connections I found."
+5. If sources were processed by parallel `wiki-ingest` agents, collect the `coverage keywords` from each agent's **Study notes** line and append them once to the matching module's **Coverage Summary** cell in `study-notes/index.md` (comma-separated after ` · `, no duplicates). Agents never edit that file themselves, so this keeps it collision-free. Then confirm every wikilink added to study notes resolves, so `/daily-notes` can follow it.
+6. Report: "Processed N sources. Created X pages, updated Y pages. Here are the key connections I found." Include the study notes outcome per module.
 
 Batch ingest is less interactive. For 30+ sources, expect significant processing time. Check in with the user after every 10 sources.
 

@@ -1,18 +1,1 @@
-{
-  "id": "conv-1778471687427-k60bstltx",
-  "providerId": "claude",
-  "title": "Initialize wiki system",
-  "titleGenerationStatus": "success",
-  "createdAt": 1778471687428,
-  "lastActivityAt": 1778471921915,
-  "sessionId": "988e00de-a594-4ee4-b7b1-b2f42c0c476a",
-  "providerState": {
-    "providerSessionId": "988e00de-a594-4ee4-b7b1-b2f42c0c476a"
-  },
-  "modelRecoverySource": {
-    "sessionId": "988e00de-a594-4ee4-b7b1-b2f42c0c476a",
-    "providerState": {
-      "providerSessionId": "988e00de-a594-4ee4-b7b1-b2f42c0c476a"
-    }
-  }
-}
+{"id":"conv-1778471687427-k60bstltx","providerId":"claude","title":"Initialize wiki system","titleGenerationStatus":"success","createdAt":1778471687428,"lastActivityAt":1778471921915,"sessionId":"988e00de-a594-4ee4-b7b1-b2f42c0c476a","providerState":{"providerSessionId":"988e00de-a594-4ee4-b7b1-b2f42c0c476a"},"modelRecoverySource":{"sessionId":"988e00de-a594-4ee4-b7b1-b2f42c0c476a","providerState":{"providerSessionId":"988e00de-a594-4ee4-b7b1-b2f42c0c476a"}},"isPinned":false,"isArchived":true}

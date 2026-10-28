@@ -43,7 +43,7 @@ You will be given:
 
 Study notes must stay in step with the wiki so that daily readings (`/daily-notes`) always draw on current content and working links. After the wiki pages for your source are written, run the `update-study-notes` logic inline, scoped to your single source only:
 
-1. Read `study notes/index.md` and locate the **"Create Study Notes For"** table.
+1. Read `study-notes/index.md` and locate the **"Create Study Notes For"** table.
 2. For each row where **Auto-Update** = `yes`, check whether your source's slug (lowercased) contains the row's **Source Pattern** (case-insensitive substring match). If no row matches, skip silently and report `📚 No tracked module matched this source — study notes unchanged.`
 3. For each matching module:
    - Read your new source page in `wiki/sources/` and the concept pages it links to (`[[concepts/...]]`).
@@ -53,7 +53,7 @@ Study notes must stay in step with the wiki so that daily readings (`/daily-note
    - Add any new formulas, algorithms or lookup tables to the formula sheet, kept terse.
    - Ensure every wikilink you add resolves to a real page (check with Glob), so that daily readings can follow it. If the notes file lacks a link to the new source or concept pages, add one.
    - If the notes file does not yet exist, create it following Step 6 of the `update-study-notes` skill.
-4. Do **not** edit `study notes/index.md` (its Coverage Summary is shared, and parallel agents would collide). Instead, list the new topic keywords in your report so the orchestrator can append them once.
+4. Do **not** edit `study-notes/index.md` (its Coverage Summary is shared, and parallel agents would collide). Instead, list the new topic keywords in your report so the orchestrator can append them once.
 5. Do **not** put links to `wiki/index`, `wiki/hot`, `wiki/log` or other wiki meta pages in any study notes file.
 6. Write in British English.
 
@@ -70,7 +70,7 @@ If the vault has NOT adopted DragonScale, ignore this section and create pages w
 ## Do NOT
 
 - Modify anything in `raw/`
-- Update `study notes/index.md` (the orchestrator appends Coverage Summary keywords after all agents finish)
+- Update `study-notes/index.md` (the orchestrator appends Coverage Summary keywords after all agents finish)
 - Update `wiki/index.md` or `wiki/log.md` (the orchestrator does this after all agents finish)
 - Update `wiki/hot.md` (the orchestrator does this at the end)
 - Create duplicate pages

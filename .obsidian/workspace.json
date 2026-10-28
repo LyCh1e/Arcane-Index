@@ -24,12 +24,14 @@
                       "providerId": "claude"
                     },
                     {
-                      "tabId": "tab-1793177857098-emhtrav",
-                      "conversationId": "conv-1793177830976-ssrcv51bk",
+                      "tabId": "tab-1793178650197-1wnp6c5",
+                      "conversationId": null,
+                      "draftModel": "sonnet",
+                      "providerId": "claude",
                       "preview": true
                     }
                   ],
-                  "activeTabId": "tab-1793177857098-emhtrav"
+                  "activeTabId": "tab-1793178650197-1wnp6c5"
                 }
               },
               "pinned": true,
@@ -47,20 +49,6 @@
               "pinned": true,
               "icon": "lucide-git-fork",
               "title": "Graph view"
-            }
-          },
-          {
-            "id": "661e978deef7d8d9",
-            "type": "leaf",
-            "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": ".obsidian/plugins/obsidian-git/obsidian_askpass.sh",
-                "bFile": ".obsidian/plugins/obsidian-git/obsidian_askpass.sh",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: obsidian_askpass.sh  (Working Tree)"
             }
           }
         ]
@@ -254,6 +242,7 @@
   },
   "active": "632b2c1c466ec5b8",
   "lastOpenFiles": [
+    "sedwlJLuF",
     "agents/wiki-ingest.md.tmp.37964.719ca2b71777",
     "CLAUDE.md",
     "_templates/question.md",
@@ -275,7 +264,6 @@
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.31b55fe5fcbb",
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.f7e35c932534",
     "wiki/hot.md.tmp.31448.f32b7193b385",
-    "wiki/log.md.tmp.31448.cb7af5d8796a",
     "wiki/concepts/cloud-native.md",
     "wiki/sources/ict3113-pod-lec11-12-kubernetes-docker.md",
     "study-notes/ICT3113 - Performance Testing and Optimisation Cheat Sheet.md",
