@@ -6,6 +6,7 @@ created: 2026-06-26
 updated: 2026-06-26
 tags: [kubernetes, k8s, container-orchestration, devops, cloud-native, helm, kubectl, docker]
 related:
+  - "[[concepts/cloud-native]]"
   - "[[concepts/docker-compose]]"
   - "[[concepts/github-actions-cicd]]"
   - "[[concepts/nginx-reverse-proxy-and-tls]]"
@@ -293,9 +294,30 @@ All three supported Kubernetes 1.33 as of October 2025. All three handle: contro
 
 ---
 
+## 8 Fallacies of Distributed Systems
+
+Every Kubernetes operator must internalise these; all eight are false assumptions that cause real failures in distributed systems.
+
+1. The network is reliable.
+2. Latency is zero.
+3. Bandwidth is infinite.
+4. The network is secure.
+5. Topology doesn't change.
+6. There is one administrator.
+7. Transport cost is zero.
+8. The network is homogeneous.
+
+Design responses: use readiness/liveness probes and retries (fallacy 1), async communication (fallacy 2), pagination and compression (fallacy 3), mTLS and Zero Trust (fallacy 4), dynamic service discovery via Services (fallacy 5), RBAC and namespacing (fallacy 6), co-location to minimise cross-region transfer (fallacy 7), abstraction via Services and Ingress (fallacy 8).
+
+*Source: https://architecturenotes.co/fallacies-of-distributed-systems — cited in ICT3113 Lec 11–12 (Dell industry session)*
+
+---
+
 ## Related Pages
 
+- [[concepts/cloud-native]] — Cloud Native architecture, CNCF definition, traits, elements, microservices vs monolith
 - [[concepts/docker-compose]] — single-host alternative; complementary for local dev
 - [[concepts/github-actions-cicd]] — CI/CD pipelines that deploy to Kubernetes
 - [[concepts/nginx-reverse-proxy-and-tls]] — Ingress controllers commonly use NGINX
 - [[synthesis/research-kubernetes]]
+- [[sources/ict3113-pod-lec11-12-kubernetes-docker]] — ICT3113 Dell industry session source notes

@@ -10,6 +10,19 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## [2026-10-28] ingest | ICT3113 POD Lec 11–12: Learning Kubernetes and Docker Fundamentals (Dell industry session)
+- New: [[sources/ict3113-pod-lec11-12-kubernetes-docker]]
+- New concept: [[concepts/cloud-native]] — CNCF definition, five traits, five elements, monolith vs microservices, 8 fallacies, distributed app design considerations
+- Updated: [[concepts/kubernetes]] — added 8 Fallacies of Distributed Systems section, added cloud-native and ICT3113 source links
+
+## [2026-10-28] fix | Learnix sign-in window clipping + chat loading dots
+- Added learning/customtkinter-scaling-clipped-window (widget vs window scaling; fit window to card, scroll on overflow)
+- Chat: thinking dots restored on returning to the in-flight thread; replies no longer drawn into the wrong thread
+
+## 2026-10-27 | project | Learnix — chat input bar vs font-size scaling
+- Fixed squeezed/off-screen chat input at larger font sizes (hotfix/ui-click-box-alignment): provider menu + mode toggle moved to their own row under the textbox, auto-stacking when too narrow
+- Updated: [[concepts/customtkinter-widget-scaling]] (fixed-width controls crowd shared rows; geometry-probe test method)
+
 ## 2026-10-27 | ingest | ICT3112 Frama-C slide labs (Lab 1 + Lab 2 Pointers PDFs) and the lab3 run session
 
 - Source: `Labs/lab3/` — `ICT3112 - Lab1 - Frama-C.pdf`, `ICT3112 - Lab2 - Frama-C-pointers.pdf`, `ICT3112 - Lab2 - Frama-C-pointers_exercises.pdf` (no embedded instructions found) plus this chat (running all 19 `.c` files, GUI launch)

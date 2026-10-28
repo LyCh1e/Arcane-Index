@@ -2,7 +2,7 @@
 type: meta
 status: established
 title: "Wiki Index"
-updated: 2026-10-21
+updated: 2026-10-28
 tags: [meta, index]
 ---
 
@@ -134,6 +134,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/inf2005-csf-malware-introduction\|INF2005 CSF — Malware: Introduction]] | lecture-notes | secure-software-development | 2026-10-25 |
 | [[sources/inf2005-csf-system-security\|INF2005 CSF — (Operating) System Security]] | lecture-notes | secure-software-development | 2026-10-25 |
 | [[sources/inf2005-csf-network-security-attacks\|INF2005 CSF — Network Security: Vulnerabilities and Exploits]] | lecture-notes | cyber-security | 2026-10-26 |
+| [[sources/ict3113-pod-lec11-12-kubernetes-docker\|ICT3113 POD — Lec 11–12: Learning Kubernetes and Docker Fundamentals (Dell)]] | lecture-slides | performance-engineering | 2026-10-28 |
 
 ## Concepts
 
@@ -302,6 +303,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/acsl-contract-strength-and-pointer-memory\|ACSL Contracts: Strength, Vacuity, Runtime Errors and Pointer Memory]] | formal-verification | high |
 | [[concepts/malware\|Malware]] | secure-software-development | high |
 | [[concepts/system-security\|System Security — Attacks Across the Stack]] | secure-software-development | high |
+| [[concepts/cloud-native\|Cloud Native]] | devops | high |
 
 ## Examples
 
@@ -378,6 +380,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/scrum-master-exam-study-notes\|Scrum Master Exam Study Notes (80 Questions)]] | agile-project-management | active |
 | [[learning/psm1-cheatsheet-study-notes\|PSM I Cheatsheet Study Notes]] | agile-project-management | active |
 | [[learning/customtkinter-after-teardown\|CustomTkinter: `invalid command name` on Window Teardown]] | python-gui | resolved |
+| [[learning/customtkinter-scaling-clipped-window\|CustomTkinter: fixed window size clips content under scaling]] | python-gui | resolved |
 | [[learning/learnix-srl-keyword-detection-pitfalls\|Learnix: SRL Keyword Detection Pitfalls]] | llm-tutoring | open |
 | [[learning/n-plus-one-remote-queries-token-usage\|N+1 Serial Remote Queries (Learnix Token Usage)]] | databases | resolved |
 | [[learning/mixin-type-checking-pylance\|Type-Checking Mixin Classes (Pylance)]] | python | resolved |

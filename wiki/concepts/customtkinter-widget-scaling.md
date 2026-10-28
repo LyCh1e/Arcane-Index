@@ -76,6 +76,19 @@ function call at each entry point, not a colour-style rebuild.
   wrong spot (and clips at the right edge) at any size other than 100 % — divide
   by the widget factor instead. Learnix's view-menu bug; see
   [[examples/learnix-hci-caching-and-loading-session]].
+- **Fixed-width controls crowd shared rows.** Widget scaling multiplies every
+  hard-coded `width=`/`height=` too, but the window (and `minsize`) does not
+  grow with it. A row mixing an expanding `CTkTextbox` with fixed-width
+  pickers/buttons has the textbox absorb all the loss: Learnix's chat input went
+  518px -> 186px at 1300px wide / font 20, and 37px (send/attach pushed off the
+  window, unclickable) at the 960x640 minimum. Put the fixed-width controls on
+  their own row, and re-stack them from a deferred (`after_idle`) `<Configure>`
+  handler when `winfo_reqwidth()` sums exceed the bar width — measuring inside
+  the event reads pre-rescale widths.
+- Test method that worked: launch the real window headless-ish, loop over
+  window sizes x font sizes, and flag clickable widgets whose rect leaves the
+  toplevel/parent or whose input width collapses. Geometry only — `ImageGrab`
+  captures the user's whole desktop, not just the app.
 - Distinguish from `ctk.set_window_scaling()`, which scales window geometry
   (DPI), not font/widget size — the two are independent knobs.
 
