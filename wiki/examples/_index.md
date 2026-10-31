@@ -38,6 +38,7 @@ This folder contains two categories of grounded, applied content that sit alongs
 | [[ict3112-lab3-ci-and-dependencies\|ICT3112 SVV Lab 3 — CI + Testing with Dependencies]] | lab | ICT3112 | [[concepts/test-doubles-and-dependency-injection\|Test Doubles and Dependency Injection]] |
 | [[inf2005-lab-wk1-cryptography\|INF2005 Lab Wk 1 — Cryptography (Ciphers, Cryptanalysis & RSA Team Challenge)]] | lab | INF2005 | [[concepts/classical-ciphers-and-cryptanalysis\|Classical Ciphers]], [[concepts/public-key-cryptography-and-key-exchange\|Public-Key Cryptography]] |
 | [[inf2005-acw1-stego-verification\|INF2005 ACW1 — Steganographic Integrity Verification with Digital Signatures]] | project | INF2005 | [[concepts/steganography\|Steganography]], [[concepts/public-key-cryptography-and-key-exchange\|Public-Key Cryptography]] |
+| [[inf2005-acw3-mod-dav-fs-proppatch-dos\|INF2005 ACW3 — CVE-2026-93546 mod_dav_fs PROPPATCH Worker-Crash DoS (reproducible PoC)]] | project | INF2005 | [[learning/webdav-proppatch-namespace-overflow\|WebDAV PROPPATCH Namespace Overflow]] |
 | [[stock-prediction-neural-network\|Stock Prediction Neural Network — SOLID ML App with Tkinter GUI]] | project | machine-learning | [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] |
 | [[ict2216-project-vite-refactor\|ICT2216 Project — UMD Prototype to Vite + React SPA Refactor]] | project | ICT2216 / web-development | [[resources/vite\|Vite]], [[concepts/javascript-fundamentals\|JavaScript]] |
 

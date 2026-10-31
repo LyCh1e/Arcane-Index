@@ -356,6 +356,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict3112-frama-c-lab2-loops\|ICT3112 Frama-C Lab 2 — Loops]] | lab | ICT3112 / formal-verification | [[concepts/loop-invariants\|Loop Invariants]] |
 | [[examples/ict3112-frama-c-assignment1-leaderboard\|ICT3112 Assignment 1 — Bounded Leaderboard, ACSL Specification (94/94 proved)]] | assignment | ICT3112 / formal-verification | [[concepts/acsl-sorted-array-insert-pattern\|ACSL Sorted-Array Insert Pattern]] |
 | [[examples/ict3112-frama-c-lab3-pointers-run\|ICT3112 Frama-C Lab 3 Folder — Pointer Examples and Exercises, Run Results]] | lab | ICT3112 / formal-verification | [[concepts/acsl-contract-strength-and-pointer-memory\|ACSL Contracts: Strength and Pointer Memory]] |
+| [[examples/inf2005-acw3-mod-dav-fs-proppatch-dos\|INF2005 ACW3 — CVE-2026-93546 mod_dav_fs PROPPATCH Worker-Crash DoS]] | project | INF2005 / cyber-security | [[learning/webdav-proppatch-namespace-overflow\|WebDAV PROPPATCH Namespace Overflow]] |
 
 ## Entities
 
@@ -389,6 +390,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/ict3112-lab3-tooling-gotchas\|ICT3112 Lab 3 — PDF false password error, robocopy in Git Bash, MAX_PATH]] | windows | resolved |
 | [[learning/frama-c-wsl-install-gotchas\|Frama-C 33 on WSL Ubuntu — opam install gotchas]] | tooling | resolved |
 | [[learning/docker-compose-build-context\|Docker Compose: Build Context Controls What COPY Can See]] | devops | resolved |
+| [[learning/webdav-proppatch-namespace-overflow\|mod_dav_fs PROPPATCH Namespace Overflow — Wrong Payload Shape → No Crash]] | cyber-security | resolved |
 | [[learning/docker-named-volume-stale-content\|Docker Named Volumes: Rebuilding the Image Does NOT Update an Existing Volume]] | devops | resolved |
 | [[learning/docker-volume-host-dir-created-as-root\|Docker Bind Mount: Host Dir Created as Root if Missing]] | devops | resolved |
 | [[learning/docker-ro-mount-chmod-fails\|Docker: chmod Fails on :ro Mounted Files — Use sh script.sh Instead]] | devops | resolved |

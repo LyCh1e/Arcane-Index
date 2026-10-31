@@ -2025,3 +2025,8 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Created: Mode D+E templates (goal, learning, synthesis, gap)
 - Applied: vault-colors.css visual customization
 - Status: Ready for first ingest
+
+## 2026-10-29 — ACW3 CVE-2026-93546 mod_dav_fs exploit verified & guide fixed
+- Teammate's "website doesn't crash" root-caused: old guide used ONE giant namespace token; real trigger is MANY distinct namespace declarations (CWE-190 count overflow). Verified worker crash (~5s) + SIGSEGV log lines + propdb bloat against local vulnerable-env.
+- Added `mem_limit: 512m` to target so the PoC crashes fast & safely (uncapped hit >10 GB host RAM).
+- New: [[learning/webdav-proppatch-namespace-overflow]]; shipped working PoC `poc_dav_overflow.py` + rewrote the guide.

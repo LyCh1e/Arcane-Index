@@ -10,6 +10,10 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-10-29. **Session: ACW3 CVE-2026-93546 mod_dav_fs — verified the exploit and fixed the guide.** New: [[learning/webdav-proppatch-namespace-overflow]]. Teammate's "website doesn't crash" was root-caused: the old guide used ONE giant XML namespace token, but the real trigger is **many distinct namespace declarations** (CWE-190 count overflow) — verified a worker crash (~5 s), captured `AH00052 … Segmentation fault (11)`, and reproduced the persistent `.DAV` propdb bloat against the local `vulnerable-env`. Also: a worker crash ≠ container down (parent respawns in ~1 s, `RestartCount` stays 0 — evidence is at the worker level), and the O(n²) memory blow-up hit **>10 GB** uncapped, so the lab now ships `mem_limit: 512m` to make the PoC crash fast and safely. Shipped a working `poc_dav_overflow.py` + rewrote `guides/CVE-2026-93546-mod_dav_fs.md`.
+
+---
+
 2026-10-28. **Session: ingest — ICT3113 POD Lec 11–12: Learning Kubernetes and Docker Fundamentals (Dell Technologies industry session).** New: [[sources/ict3113-pod-lec11-12-kubernetes-docker]], [[concepts/cloud-native]]. Updated: [[concepts/kubernetes]] (8 fallacies + cloud-native link).
 
 **Cloud Native is the *how*, Cloud Computing is the *where*.** The CNCF definition yields five **traits** (Scalability, Loose Coupling, Resilience, Manageability, Observability) and five **elements** (Containers, Service Meshes, Microservices, Immutable Infrastructure, Declarative APIs). The progression is: monolith → decompose into microservices → container sprawl problem → Kubernetes orchestration. **The 8 Fallacies of Distributed Systems:** (1) network is reliable, (2) latency is zero, (3) bandwidth is infinite, (4) network is secure, (5) topology doesn't change, (6) one administrator, (7) transport cost is zero, (8) network is homogeneous. A **Pod** is the smallest K8s unit; a **Deployment** manages replicas; the **Reconcile Loop** (kube-controller-manager) continuously reconciles desired = actual state, enabling self-healing and horizontal scaling.

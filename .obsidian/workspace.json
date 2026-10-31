@@ -26,7 +26,7 @@
                     {
                       "tabId": "tab-1793178650197-1wnp6c5",
                       "conversationId": null,
-                      "draftModel": "sonnet",
+                      "draftModel": "opus",
                       "providerId": "claude",
                       "preview": true
                     }
@@ -51,7 +51,8 @@
               "title": "Graph view"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -240,11 +241,15 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "632b2c1c466ec5b8",
+  "active": "aa21592bb12da3f9",
   "lastOpenFiles": [
+    "README.md",
+    "WIKI.md",
+    "CLAUDE.md",
+    "ATTRIBUTION.md",
+    "AGENTS.md",
     "sedwlJLuF",
     "agents/wiki-ingest.md.tmp.37964.719ca2b71777",
-    "CLAUDE.md",
     "_templates/question.md",
     "_templates/skill.md",
     "skills/writer/SKILL.md",
@@ -263,7 +268,6 @@
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.e17daa73fec7",
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.31b55fe5fcbb",
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.f7e35c932534",
-    "wiki/hot.md.tmp.31448.f32b7193b385",
     "wiki/concepts/cloud-native.md",
     "wiki/sources/ict3113-pod-lec11-12-kubernetes-docker.md",
     "study-notes/ICT3113 - Performance Testing and Optimisation Cheat Sheet.md",
@@ -275,9 +279,6 @@
     "_templates/agent.md",
     "wiki/examples/ict3112-frama-c-lab3-pointers-run.md",
     "wiki/concepts/acsl-contract-strength-and-pointer-memory.md",
-    "wiki/sources/ict3112-frama-c-lab1-lab2-pointers-slides.md",
-    "skills/editor/SKILL.md",
-    "wiki/concepts/network-security-attacks.md",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",

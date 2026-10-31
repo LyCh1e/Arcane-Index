@@ -2,7 +2,7 @@
   "userName": "CY",
   "permissionMode": "acceptEdits",
   "model": "sonnet",
-  "effortLevel": "medium",
+  "effortLevel": "high",
   "serviceTier": "default",
   "enableAutoTitleGeneration": true,
   "titleGenerationLocale": "",
@@ -168,14 +168,14 @@
   "settingsProvider": "claude",
   "lastSelectedChatModel": {
     "providerId": "claude",
-    "model": "sonnet"
+    "model": "opus"
   },
   "inlineEditModel": null,
   "savedProviderModel": {
     "claude": "sonnet"
   },
   "savedProviderEffort": {
-    "claude": "medium"
+    "claude": "high"
   },
   "savedProviderServiceTier": {},
   "savedProviderPermissionMode": {
