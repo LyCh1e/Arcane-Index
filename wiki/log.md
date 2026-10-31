@@ -10,6 +10,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## [2026-10-31] autoresearch | Sorting Algorithms
+- Rounds: 2
+- Sources found: 4 (plus secondary web results)
+- Pages created: [[sources/cpython-listsort-timsort-powersort]], [[sources/pdqsort-peters-2021]], [[sources/vqsort-vectorized-quicksort-2022]], [[sources/sorting-lower-bound-decision-tree]], [[concepts/heapsort]], [[concepts/shellsort]], [[concepts/hybrid-sorting-algorithms]], [[concepts/non-comparison-sorting]], [[concepts/comparison-sort-lower-bound]], [[concepts/simd-and-parallel-sorting]]
+- Synthesis: [[synthesis/research-sorting-algorithms]]
+- Key finding: Real-world sorts are hybrids; CPython now merges by powersort, and the Ω(n log n) bound applies only to comparison sorts.
+
 ## [2026-10-28] update | Study notes — major content refresh across all three modules
 
 **ICT3112 — Software Verification and Validation Exam Notes:**

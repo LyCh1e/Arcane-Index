@@ -168,7 +168,7 @@
   "settingsProvider": "claude",
   "lastSelectedChatModel": {
     "providerId": "claude",
-    "model": "opus"
+    "model": "sonnet"
   },
   "inlineEditModel": null,
   "savedProviderModel": {

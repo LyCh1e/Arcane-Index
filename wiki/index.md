@@ -135,6 +135,10 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/inf2005-csf-system-security\|INF2005 CSF — (Operating) System Security]] | lecture-notes | secure-software-development | 2026-10-25 |
 | [[sources/inf2005-csf-network-security-attacks\|INF2005 CSF — Network Security: Vulnerabilities and Exploits]] | lecture-notes | cyber-security | 2026-10-26 |
 | [[sources/ict3113-pod-lec11-12-kubernetes-docker\|ICT3113 POD — Lec 11–12: Learning Kubernetes and Docker Fundamentals (Dell)]] | lecture-slides | performance-engineering | 2026-10-28 |
+| [[sources/cpython-listsort-timsort-powersort\|CPython listsort.txt: Timsort and Powersort]] | official-documentation | computer-science | 2026-10-31 |
+| [[sources/pdqsort-peters-2021\|Pattern-defeating Quicksort (Peters, 2021)]] | paper | computer-science | 2026-10-31 |
+| [[sources/vqsort-vectorized-quicksort-2022\|Vectorized and Performance-Portable Quicksort (vqsort)]] | paper | computer-science | 2026-10-31 |
+| [[sources/sorting-lower-bound-decision-tree\|Sorting Lower Bound Course Materials]] | lecture-notes | computer-science | 2026-10-31 |
 
 ## Concepts
 
@@ -304,6 +308,12 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/malware\|Malware]] | secure-software-development | high |
 | [[concepts/system-security\|System Security — Attacks Across the Stack]] | secure-software-development | high |
 | [[concepts/cloud-native\|Cloud Native]] | devops | high |
+| [[concepts/heapsort\|Heapsort]] | computer-science | medium |
+| [[concepts/shellsort\|Shellsort]] | computer-science | medium |
+| [[concepts/hybrid-sorting-algorithms\|Hybrid Sorting: Timsort, Powersort, Introsort, pdqsort]] | computer-science | high |
+| [[concepts/non-comparison-sorting\|Non-Comparison Sorting: Counting, Radix, Bucket]] | computer-science | medium |
+| [[concepts/comparison-sort-lower-bound\|Comparison Sort Lower Bound]] | computer-science | medium |
+| [[concepts/simd-and-parallel-sorting\|SIMD and Parallel Sorting: vqsort and ips4o]] | computer-science | high |
 
 ## Examples
 
@@ -435,6 +445,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[synthesis/research-bitcoin-history\|Research: History of Bitcoin]] | blockchain | established |
 | [[synthesis/research-distributed-ledger-technology\|Research: Distributed Ledger Technology]] | blockchain | established |
 | [[synthesis/research-hedera-network\|Research: Hedera Network]] | blockchain | established |
+| [[synthesis/research-sorting-algorithms\|Research: Sorting Algorithms]] | computer-science | developing |
 
 ## Gaps
 

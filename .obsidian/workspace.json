@@ -25,9 +25,7 @@
                     },
                     {
                       "tabId": "tab-1793178650197-1wnp6c5",
-                      "conversationId": null,
-                      "draftModel": "opus",
-                      "providerId": "claude",
+                      "conversationId": "conv-1793437046205-o2astxogw",
                       "preview": true
                     }
                   ],
@@ -51,8 +49,7 @@
               "title": "Graph view"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -241,8 +238,19 @@
       "switcher:Open quick switcher": false
     }
   },
-  "active": "aa21592bb12da3f9",
+  "active": "632b2c1c466ec5b8",
   "lastOpenFiles": [
+    "wiki/synthesis/research-sorting-algorithms.md",
+    "wiki/concepts/simd-and-parallel-sorting.md",
+    "wiki/concepts/comparison-sort-lower-bound.md",
+    "wiki/concepts/non-comparison-sorting.md",
+    "wiki/concepts/hybrid-sorting-algorithms.md",
+    "wiki/concepts/shellsort.md",
+    "wiki/concepts/heapsort.md",
+    "wiki/sources/sorting-lower-bound-decision-tree.md",
+    "wiki/sources/vqsort-vectorized-quicksort-2022.md",
+    "wiki/sources/pdqsort-peters-2021.md",
+    "wiki/sources/cpython-listsort-timsort-powersort.md",
     "README.md",
     "WIKI.md",
     "CLAUDE.md",
@@ -268,17 +276,6 @@
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.e17daa73fec7",
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.31b55fe5fcbb",
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.f7e35c932534",
-    "wiki/concepts/cloud-native.md",
-    "wiki/sources/ict3113-pod-lec11-12-kubernetes-docker.md",
-    "study-notes/ICT3113 - Performance Testing and Optimisation Cheat Sheet.md",
-    "wiki/areas/software-verification-validation.md",
-    "skills/daily-notes/SKILL.md",
-    "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md",
-    "_templates/goal.md",
-    "_templates/concept.md",
-    "_templates/agent.md",
-    "wiki/examples/ict3112-frama-c-lab3-pointers-run.md",
-    "wiki/concepts/acsl-contract-strength-and-pointer-memory.md",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",

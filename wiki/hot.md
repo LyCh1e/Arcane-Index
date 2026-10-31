@@ -10,6 +10,12 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-10-31. **Session: autoresearch — Sorting Algorithms.** New: [[synthesis/research-sorting-algorithms]], [[concepts/heapsort]], [[concepts/shellsort]], [[concepts/hybrid-sorting-algorithms]], [[concepts/non-comparison-sorting]], [[concepts/comparison-sort-lower-bound]], [[concepts/simd-and-parallel-sorting]], plus four source pages.
+
+**Comparison sorts cannot beat Ω(n log n)** (decision tree with n! leaves); counting and radix sort escape it by using key structure. **Production sorts are hybrids:** Python keeps Timsort's run detection and galloping but merges by powersort; pdqsort is O(nk) for k distinct keys; vqsort claims up to 20× via SIMD. Open: powersort version (3.11 unconfirmed), bucket sort citation, ips4o paper.
+
+---
+
 2026-10-29. **Session: ACW3 CVE-2026-93546 mod_dav_fs — verified the exploit and fixed the guide.** New: [[learning/webdav-proppatch-namespace-overflow]]. Teammate's "website doesn't crash" was root-caused: the old guide used ONE giant XML namespace token, but the real trigger is **many distinct namespace declarations** (CWE-190 count overflow) — verified a worker crash (~5 s), captured `AH00052 … Segmentation fault (11)`, and reproduced the persistent `.DAV` propdb bloat against the local `vulnerable-env`. Also: a worker crash ≠ container down (parent respawns in ~1 s, `RestartCount` stays 0 — evidence is at the worker level), and the O(n²) memory blow-up hit **>10 GB** uncapped, so the lab now ships `mem_limit: 512m` to make the PoC crash fast and safely. Shipped a working `poc_dav_overflow.py` + rewrote `guides/CVE-2026-93546-mod_dav_fs.md`.
 
 ---

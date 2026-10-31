@@ -185,6 +185,8 @@ Boyer-Moore is preferred for text editors and search tools on natural language (
 
 ## See Also
 
+- [[synthesis/research-sorting-algorithms]] — heap, Shell, hybrid, non-comparison and SIMD sorts
+- [[concepts/heapsort]], [[concepts/shellsort]], [[concepts/hybrid-sorting-algorithms]], [[concepts/non-comparison-sorting]], [[concepts/comparison-sort-lower-bound]]
 - [[algorithm-complexity]] — formal complexity analysis and Master Theorem
 - [[data-structures-fundamentals]] — heaps enable Heap Sort; hash tables enable O(1) lookup
 - [[graph-algorithms]] — DFS/BFS use stacks/queues
