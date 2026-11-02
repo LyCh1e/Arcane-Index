@@ -267,6 +267,7 @@ Both chains pass `isChainValid()`. There is no way to distinguish them from with
 - [[concepts/blockchain-technology]] — broader blockchain architecture including Merkle trees, consensus, and PoW/PoS
 - [[concepts/distributed-ledger-technology]] — DLT taxonomy; hash functions underpin all DLT variants
 - [[concepts/hedera-network]] — Hedera Hashgraph uses SHA-384 for its gossip-about-gossip protocol
+- [[concepts/digital-forensics]] — hashes prove evidence integrity (MD5 → SHA-256) in forensic acquisition
 - [[sources/hedera-lecture-2-blockchain-hashing]] — primary source for the Java implementation patterns and hash function taxonomy in this page
 
 ---

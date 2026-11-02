@@ -715,5 +715,47 @@
       "wiki/log.md",
       "wiki/hot.md"
     ]
+  },
+  "INF2005 Cyber Security Fundamentals - Network Security Defence.md": {
+    "hash": "dea4a197714397add793844ccff1fdf5",
+    "ingested_at": "2026-11-02",
+    "pages_created": [
+      "wiki/sources/inf2005-csf-network-security-defence.md",
+      "wiki/concepts/network-security-defence.md"
+    ],
+    "pages_updated": [
+      "wiki/concepts/network-security-attacks.md",
+      "wiki/concepts/cryptographic-hash-functions.md",
+      "wiki/concepts/access-control.md",
+      "wiki/areas/computer-networks.md",
+      "wiki/index.md",
+      "wiki/sources/_index.md",
+      "wiki/concepts/_index.md",
+      "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md",
+      "study-notes/index.md",
+      "wiki/log.md",
+      "wiki/hot.md"
+    ]
+  },
+  "INF2005 Cyber Security Fundamentals - Digital Forensics.md": {
+    "hash": "baae160233b7565f24ebcaac0c21a72f",
+    "ingested_at": "2026-11-02",
+    "pages_created": [
+      "wiki/sources/inf2005-csf-digital-forensics.md",
+      "wiki/concepts/digital-forensics.md"
+    ],
+    "pages_updated": [
+      "wiki/concepts/network-security-attacks.md",
+      "wiki/concepts/cryptographic-hash-functions.md",
+      "wiki/concepts/access-control.md",
+      "wiki/areas/computer-networks.md",
+      "wiki/index.md",
+      "wiki/sources/_index.md",
+      "wiki/concepts/_index.md",
+      "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md",
+      "study-notes/index.md",
+      "wiki/log.md",
+      "wiki/hot.md"
+    ]
   }
 }

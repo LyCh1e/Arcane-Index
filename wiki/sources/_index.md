@@ -69,6 +69,9 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/ICT2216-lecture-10-module-overview-secure-concepts\|ICT2216 Lecture 10 — Module Overview & Secure Software Concepts]] | lecture-notes | secure-software-development | 2026-07-22 |
 | [[sources/overleaf-learn-latex-30min\|Overleaf — Learn LaTeX in 30 Minutes]] | web-article | academic-writing | 2026-07-12 |
 | [[sources/emonts-latex-best-practices\|Patrick Emonts — LaTeX Best Practices]] | blog-post | academic-writing | 2026-07-12 |
+| [[sources/inf2005-csf-network-security-attacks\|INF2005 CSF — Network Security: Vulnerabilities and Exploits]] | lecture-notes | cyber-security | 2026-10-26 |
+| [[sources/inf2005-csf-network-security-defence\|INF2005 CSF — Network Security: Introduction to Network Defence]] | lecture-notes | cyber-security | 2026-11-02 |
+| [[sources/inf2005-csf-digital-forensics\|INF2005 CSF — System and Network Forensics]] | lecture-notes | cyber-security | 2026-11-02 |
 
 ## By Domain
 

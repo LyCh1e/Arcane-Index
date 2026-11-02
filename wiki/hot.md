@@ -10,6 +10,14 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-11-02. **Session: ingest — INF2005 CSF Network Security Defence and Digital Forensics.** New: [[sources/inf2005-csf-network-security-defence]], [[sources/inf2005-csf-digital-forensics]], [[concepts/network-security-defence]], [[concepts/digital-forensics]]. Updated: [[concepts/network-security-attacks]], [[concepts/access-control]], [[concepts/cryptographic-hash-functions]]; INF2005 study notes gained §11A and §11B.
+
+**Defence in depth delays rather than stops an attack:** policies, physical, perimeter, internal network, host, application, data. Firewalls reduce port scans and some floods but not **reflection DDoS** (UDP cannot prove the source address) or bypass paths. **Stateful** filters keep a connection state table; an **IPS** sits inline and blocks, an **IDS** only alerts. **MAC flooding** fills a switch's table so it floods like a hub; port security (maximum MACs, shutdown mode) counters it. **AAA** = authentication, authorisation, accounting (RADIUS via a NAS; TACACS separates the three).
+
+**Forensics:** hash evidence at collection (SHA-256, not MD5/SHA-1); Pollitt model = acquisition, identification, evaluation, admission. Windows evidence lives in the Registry and `Security.evtx`; Linux in `/etc` and `/var/log` (`wtmp` via `last`). Web logs show attack signatures (a successful `page=../../etc/passwd` is path traversal). **Vertical scan** = many ports on one host; **horizontal** = one port on many hosts.
+
+---
+
 2026-10-31. **Session: autoresearch — Sorting Algorithms.** New: [[synthesis/research-sorting-algorithms]], [[concepts/heapsort]], [[concepts/shellsort]], [[concepts/hybrid-sorting-algorithms]], [[concepts/non-comparison-sorting]], [[concepts/comparison-sort-lower-bound]], [[concepts/simd-and-parallel-sorting]], plus four source pages.
 
 **Comparison sorts cannot beat Ω(n log n)** (decision tree with n! leaves); counting and radix sort escape it by using key structure. **Production sorts are hybrids:** Python keeps Timsort's run detection and galloping but merges by powersort; pdqsort is O(nk) for k distinct keys; vqsort claims up to 20× via SIMD. Open: powersort version (3.11 unconfirmed), bucket sort citation, ips4o paper.

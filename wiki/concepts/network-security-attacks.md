@@ -191,3 +191,8 @@ Findings are cross-referenced with **cve.mitre.org** and **nvd.nist.gov** to che
 | DoS / DDoS | Rate limiting, SYN cookies, upstream scrubbing services |
 | Port spoofing | Deep Packet Inspection; application-layer firewalls |
 | Port scan reconnaissance | Host-based firewalls; intrusion detection logging |
+
+## See Also
+
+- [[concepts/network-security-defence]] — layered defences (firewalls, IDS/IPS, proxies, VPNs, port security, AAA) mapped to each attack above
+- [[concepts/digital-forensics]] — how scans, floods and injections are detected and evidenced in logs and packet traces

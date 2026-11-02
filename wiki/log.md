@@ -10,6 +10,14 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## [2026-11-02] ingest | INF2005 CSF — Network Security Defence and Digital Forensics
+
+- Sources: `raw/INF2005 Cyber Security Fundamentals - Network Security Defence.md`, `raw/INF2005 Cyber Security Fundamentals - Digital Forensics.md`
+- Summaries: [[sources/inf2005-csf-network-security-defence]], [[sources/inf2005-csf-digital-forensics]]
+- Pages created: [[concepts/network-security-defence]], [[concepts/digital-forensics]]
+- Pages updated: [[concepts/network-security-attacks]], [[concepts/cryptographic-hash-functions]], [[concepts/access-control]], [[areas/computer-networks]], `wiki/index.md`, `wiki/sources/_index.md`, `wiki/concepts/_index.md`, INF2005 study notes (new §11A and §11B, mistakes 18–23)
+- Key insight: The defence lecture pairs each attack from week 9 with a layered control, and the forensics lecture shows the same attacks leaving evidence in logs and packet traces (SYN-only bursts reveal vertical and horizontal scans).
+
 ## [2026-10-31] autoresearch | Sorting Algorithms
 - Rounds: 2
 - Sources found: 4 (plus secondary web results)

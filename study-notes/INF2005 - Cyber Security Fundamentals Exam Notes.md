@@ -2,9 +2,9 @@
 type: study-notes
 title: "INF2005 Cyber Security Fundamentals — Exam Notes"
 module: INF2005
-tags: [study-notes, inf2005, cyber-security, cryptography, steganography, access-control, ethical-hacking, exam-prep]
+tags: [study-notes, inf2005, cyber-security, cryptography, steganography, access-control, ethical-hacking, network-defence, digital-forensics, exam-prep]
 created: 2026-09-21
-updated: 2026-10-28
+updated: 2026-11-02
 ---
 
 # INF2005 Cyber Security Fundamentals
@@ -32,6 +32,8 @@ flowchart TD
     I["§9 Malware\nVirus / Worm / Trojan\nInfection Vectors\nPolymorphic / Metamorphic"]
     J["§10 System Security\nHardware / Software / OS\nPrivilege Escalation\nRansomware / WannaCry"]
     K["§11 Network Security\nDoS / DDoS / DRDoS\nARP Poisoning / Evil Twin\nPacket Sniffing / Port Scan"]
+    K --> L["§11A Network Defence\nDefence in depth / Firewalls\nIDS-IPS / Proxy / VPN\nPort security / AAA"]
+    K --> M["§11B Digital Forensics\nEvidence integrity / Pollitt model\nWindows + Linux artefacts\nPacket analysis / Scan detection"]
 ```
 
 ---
@@ -1009,6 +1011,65 @@ Cross-reference results with **cve.mitre.org** and **nvd.nist.gov** for known ex
 
 ---
 
+## §11A — Network Security Defence
+
+> Full detail: [[concepts/network-security-defence]]
+
+**Defence in depth** layers controls to *delay* an attack: policies → physical → perimeter → internal network → host → application → data.
+
+### Attack → weakness → defence
+
+| Attack | Exploits | Defence |
+|---|---|---|
+| DoS / DDoS | Open TCP/UDP services | Filter or limit ports |
+| MitM, ARP spoofing | Unsecured physical ports | Secure physical ports; AAA |
+| Packet sniffing | Unencrypted packets | Encrypt packets and data |
+| Port scanning | Unfiltered services | Filter or limit ports |
+
+### Controls compared
+
+| Control | Key point |
+|---|---|
+| **Firewall** | Packet filter, DMZ, zero-trust segmentation. Weak against **reflection DDoS** and bypass paths (e.g. a dial-up server behind it) |
+| **Stateless filter** | Packet by packet using ACLs |
+| **Stateful filter** | Connection **state table**; policy applies to the connection |
+| **NIDS / HIDS** | Detect and alert; SPAN port or promiscuous hub; signature or anomaly based |
+| **NIPS** | **Inline**; detects *and* blocks automatically; needs real-time capacity |
+| **Application proxy** | Layer 7 DPI, hides internal IPs, caches; poor for real-time or high-bandwidth traffic |
+| **VPN** | Authentication + tunnelling + encryption (IPsec or TLS); HTTPS protects only the browser-to-site leg |
+| **Port security** | Limits MACs per port; *shutdown* mode sets error-disabled; counters **MAC flooding** |
+| **AAA** | Authentication (who), authorisation (what), accounting (what and when); **RADIUS** via NAS, **TACACS** separates the three functions |
+
+> [!tip] Rule ordering
+> Firewall rules run top-down. Matching only *source port 80* misses HTTP requests from ephemeral ports 1024–65535; match **any source port** and the destination port instead.
+
+---
+
+## §11B — Digital Forensics
+
+> Full detail: [[concepts/digital-forensics]]
+
+- **Digital forensics** = recovery and investigation of digital evidence (computer, storage, network, mobile).
+- **Integrity:** hash the evidence at collection and re-check later (MD5 → SHA-1/2 → **SHA-256**). Collisions are why MD5 and SHA-1 are retired.
+- **Pollitt model:** Acquisition → Identification → Evaluation → Admission, with *preservation* throughout.
+
+### Where to look
+
+| Platform | Evidence |
+|---|---|
+| **Windows** | Registry (hives → keys → values); `Security.evtx` for logons; `SAM\Domains\Account\Users` for last login and password change; prefetch; link files; Recycle Bin; Office metadata |
+| **Linux** | `/etc/passwd`, `/etc/shadow`, `/etc/group`; `/var/log/auth.log`, `secure`, `wtmp` (read with `last`); no registry; no creation dates before ext4 |
+| **Network** | DHCP leases (IP to MAC), AAA logs, firewall sessions, proxy logs, switch tables, NIDS alerts |
+
+### Reading logs and traces
+
+- **Web log attack signatures:** SQL injection (`or 1=1`), XSS (`<script>`), remote file inclusion (`file=http://…`), command execution (`|ls`), buffer overflow (`\x90…`), path traversal (`../../etc/passwd`).
+- **Sniffer placement:** hub, **SPAN port**, or **network tap**.
+- **Packet analysis:** parse fields, filter, pattern match (Wireshark, tshark, ngrep).
+- **Port-scan detection** (SYN-only packets): **vertical** = one source, many ports, one host; **horizontal** = one source, one port, many hosts.
+
+---
+
 ## §12 — Quick-Reference Summary Tables
 
 ### Cryptography Decision Matrix
@@ -1063,3 +1124,9 @@ Cross-reference results with **cve.mitre.org** and **nvd.nist.gov** for known ex
 15. **Passive sniffing works on hubs; active (ARP-poisoning) is needed on switches** — do not state that sniffing "just works" on modern switched networks.
 16. **ARP has no authentication** — unsolicited ARP replies are accepted; this is the root cause of ARP poisoning.
 17. **Ransomware also targets backups** — stating "restore from backup" without noting attackers specifically target backups misses the double-extortion threat model.
+18. **A firewall does not stop reflection DDoS or bypass paths** — it reduces unwanted sources only; layer it with upstream filtering and IDS/IPS.
+19. **IDS detects, IPS blocks** — an IPS sits *inline*; an IDS sits out of band on a mirror port.
+20. **MAC flooding makes a switch behave like a hub** — a full MAC table forces flooding, so port security (maximum MACs, shutdown mode) is the control.
+21. **HTTPS ≠ VPN** — HTTPS protects the browser-to-site leg only; a VPN encrypts everything in the tunnel.
+22. **Hash the evidence before analysis** — integrity must be demonstrable, and MD5/SHA-1 are not acceptable choices.
+23. **Vertical and horizontal scans differ** — vertical is many ports on one host; horizontal is one port across many hosts.

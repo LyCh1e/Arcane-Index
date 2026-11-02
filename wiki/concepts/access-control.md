@@ -307,4 +307,5 @@ Divide critical tasks across **multiple people** so no single individual has end
 - [[concepts/fido-passkeys-passwordless]] — modern passwordless authentication standard built on asymmetric crypto
 - [[concepts/threat-modeling]] — access control failures modelled via STRIDE (Spoofing, Tampering, Elevation of Privilege)
 - [[concepts/cryptographic-hash-functions]] — salted password hashing implementation
+- [[concepts/network-security-defence]] — network AAA (RADIUS, TACACS) applies authentication, authorisation and accounting at the network edge
 - [[areas/secure-software-development]] — parent area
