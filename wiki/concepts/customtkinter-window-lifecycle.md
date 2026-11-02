@@ -11,6 +11,8 @@ metadata:
 
 # CustomTkinter Window Lifecycle
 
+> **Update 2026-11-03:** Learnix theme changes no longer relaunch the window. They rebuild the widgets inside it, and the relaunch loop now only handles re-login. See [[learning/customtkinter-fast-theme-rebuild]].
+
 ## The Problem with `destroy()`
 
 `CTk.__init__` registers Tcl `after` timers for DPI scaling (`check_dpi_scaling`) and widget repaints (`update`). These fire periodically for the lifetime of the window. Calling `destroy()` directly deletes the associated Tcl command objects **before** the pending timer events fire, producing `invalid command name` errors.

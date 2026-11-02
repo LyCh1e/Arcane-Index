@@ -10,7 +10,11 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
-2026-11-03 (later). **Session: Learnix theme switch, 16.5s to 1.6s.** New: [[learning/customtkinter-fast-theme-rebuild]]. Colouring was never the slow part: 14s was startup repeating behind the splash. The fix rebuilds widgets inside the open window and keeps the retriever, sessions and threads. Tk can destroy a subtree in one call (about 8x faster than tkinter's bottom-up destroy), but list the children first or Python cleanup is skipped and widgets leak.
+2026-11-03 (ingest). **Session: Learnix UAT fixes, merged in PR #231.** New: [[examples/learnix-usage-graph-and-fast-theme-session]]. Covers the admin usage graph, the theme switch (16.5s to 1.6s from Settings) and the "Del Account + Chat" label. Still open: Admin Dashboard re-theme takes about 12s, usage days are UTC, and `wj-documentation.md` §6 describes the old theme rebuild.
+
+## Previous Session
+
+2026-11-03 (later). **Session: Learnix theme switch, 16.5s to 1.6s.** New: [[learning/customtkinter-fast-theme-rebuild]]. Colouring was never the slow part: 14s was startup repeating behind the splash. The fix rebuilds widgets inside the open window and keeps the retriever, sessions and threads. Tk can destroy a subtree in one call (much faster than tkinter's bottom-up destroy), but list the children first or Python cleanup is skipped and widgets leak.
 
 ## Previous Session
 

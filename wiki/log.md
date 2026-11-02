@@ -2053,3 +2053,7 @@ Chronological record of all vault operations. Append-only — never edit past en
 ## 2026-11-03 — Learnix theme switch made ~90% faster
 - UAT finding: theme change took ~16.5s because it repeated startup. Now rebuilds widgets inside the open window: ~1.6s from Settings.
 - New: [[learning/customtkinter-fast-theme-rebuild]].
+
+## 2026-11-03 — Ingested Learnix UAT session (PR #231)
+- New: [[examples/learnix-usage-graph-and-fast-theme-session]] (usage graph, theme switch 16.5s to 1.6s, delete button label, process lessons).
+- Updated: [[concepts/customtkinter-widget-scaling]] (theme changes now rebuild widgets, not the window); [[concepts/customtkinter-window-lifecycle]] (same).

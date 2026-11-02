@@ -2,7 +2,7 @@
 type: concept
 status: established
 created: 2026-07-24
-updated: 2026-10-21
+updated: 2026-11-03
 name: customtkinter-widget-scaling
 description: CTk's built-in set_widget_scaling() live-rescales every constructed CTkFont and widget dimension without a rebuild — the cheap alternative to the colour-rebind-and-rebuild pattern, useful for user-facing font-size / accessibility-zoom settings.
 metadata:
@@ -51,8 +51,8 @@ non-default size).
 | | Colour theme | Font size |
 |---|---|---|
 | Storage | frozen module constants, bound by value at import | nothing to freeze — CTk tracks widgets itself |
-| Change mechanism | rebind every module's constants, **then rebuild the window** | call `set_widget_scaling()` |
-| Needs a window rebuild? | Yes — see [[customtkinter-window-lifecycle]] | No — live |
+| Change mechanism | rebind every module's constants, **then rebuild every widget in the open window** | call `set_widget_scaling()` |
+| Needs a rebuild? | Widgets only, since 2026-11-03 — see [[learning/customtkinter-fast-theme-rebuild]] | No — live |
 | Persistence pattern | still identical: save the raw preference, re-apply on next login/relaunch | same |
 
 Both still need re-applying on every fresh window (login, re-login as a
