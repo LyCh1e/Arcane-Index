@@ -2045,3 +2045,11 @@ Chronological record of all vault operations. Append-only — never edit past en
 - Teammate's "website doesn't crash" root-caused: old guide used ONE giant namespace token; real trigger is MANY distinct namespace declarations (CWE-190 count overflow). Verified worker crash (~5s) + SIGSEGV log lines + propdb bloat against local vulnerable-env.
 - Added `mem_limit: 512m` to target so the PoC crashes fast & safely (uncapped hit >10 GB host RAM).
 - New: [[learning/webdav-proppatch-namespace-overflow]]; shipped working PoC `poc_dav_overflow.py` + rewrote the guide.
+
+## 2026-11-03 — Learnix admin token usage graph
+- Added a daily usage graph (1 week / 2 weeks / 1 month) to the admin Token Usage page, drawn on a tk.Canvas hosted in a CTkFrame.
+- New: [[learning/customtkinter-subclass-method-collision]] (`_draw` override crashes CTkFrame's constructor; canvas scaling pattern).
+
+## 2026-11-03 — Learnix theme switch made ~90% faster
+- UAT finding: theme change took ~16.5s because it repeated startup. Now rebuilds widgets inside the open window: ~1.6s from Settings.
+- New: [[learning/customtkinter-fast-theme-rebuild]].

@@ -396,6 +396,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/psm1-cheatsheet-study-notes\|PSM I Cheatsheet Study Notes]] | agile-project-management | active |
 | [[learning/customtkinter-after-teardown\|CustomTkinter: `invalid command name` on Window Teardown]] | python-gui | resolved |
 | [[learning/customtkinter-scaling-clipped-window\|CustomTkinter: fixed window size clips content under scaling]] | python-gui | resolved |
+| [[learning/customtkinter-subclass-method-collision\|CustomTkinter: subclass method named _draw crashes the constructor]] | python-gui | resolved |
+| [[learning/customtkinter-fast-theme-rebuild\|CustomTkinter: rebuilding widgets in place for a fast theme switch]] | python-gui | resolved |
 | [[learning/learnix-srl-keyword-detection-pitfalls\|Learnix: SRL Keyword Detection Pitfalls]] | llm-tutoring | open |
 | [[learning/n-plus-one-remote-queries-token-usage\|N+1 Serial Remote Queries (Learnix Token Usage)]] | databases | resolved |
 | [[learning/mixin-type-checking-pylance\|Type-Checking Mixin Classes (Pylance)]] | python | resolved |

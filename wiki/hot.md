@@ -2,13 +2,23 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-10-21
+updated: 2026-11-03
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-11-03 (later). **Session: Learnix theme switch, 16.5s to 1.6s.** New: [[learning/customtkinter-fast-theme-rebuild]]. Colouring was never the slow part: 14s was startup repeating behind the splash. The fix rebuilds widgets inside the open window and keeps the retriever, sessions and threads. Tk can destroy a subtree in one call (about 8x faster than tkinter's bottom-up destroy), but list the children first or Python cleanup is skipped and widgets leak.
+
+## Previous Session
+
+2026-11-03. **Session: Learnix admin token usage graph.** New: [[learning/customtkinter-subclass-method-collision]]. The admin Token Usage page gained a daily usage graph with 1 week / 2 weeks / 1 month ranges (`src/ui/usage_chart.py`). Every user's `per_day` already holds full history, so switching range makes no database call.
+
+**Lesson:** a CTk subclass method named `_draw` replaces CTk's internal one and crashes `CTkFrame.__init__`; pure-logic tests and ruff both missed it, and only rendering the widget caught it. A `tk.Canvas` ignores CTk's font size scaling unless hosted in a `CTkFrame` subclass that overrides `_set_scaling`. Usage days are bucketed in UTC, so before 08:00 Singapore time today's usage appears under yesterday's date.
+
+## Previous Session
 
 2026-11-02. **Session: ingest — INF2005 CSF Network Security Defence and Digital Forensics.** New: [[sources/inf2005-csf-network-security-defence]], [[sources/inf2005-csf-digital-forensics]], [[concepts/network-security-defence]], [[concepts/digital-forensics]]. Updated: [[concepts/network-security-attacks]], [[concepts/access-control]], [[concepts/cryptographic-hash-functions]]; INF2005 study notes gained §11A and §11B.
 
