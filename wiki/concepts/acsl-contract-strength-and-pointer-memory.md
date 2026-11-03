@@ -4,8 +4,8 @@ title: "ACSL Contracts: Strength, Vacuity, Runtime Errors and Pointer Memory"
 domain: formal-verification
 status: established
 created: 2026-10-27
-updated: 2026-10-27
-sources: [ict3112-frama-c-lab1-lab2-pointers-slides]
+updated: 2026-11-03
+sources: [ict3112-frama-c-lab1-lab2-pointers-slides, ict3112-frama-c-lab3-loops]
 tags: [acsl, frama-c, wp, rte, contracts, valid, assigns, separated, labels, aliasing, ict3112]
 ---
 
@@ -62,3 +62,32 @@ Open the goal's *Let / Assume / Prove* text and ask whether it is **false** or *
 ## 7. Using an LLM safely here
 
 Write English first; give the LLM only prototypes and global names (not the body); use the literal-translation prompt; then read the ACSL back against your English. Round-trip (ACSL → English) and proof-obligation → English are the same tool in reverse. A proved contract can still be the wrong contract.
+
+## 8. Behaviours: a contract split into cases
+
+Source: [[sources/ict3112-frama-c-lab3-loops]]; runs: [[examples/ict3112-frama-c-lab3-loops-run]]. The keyword is spelled `behavior`.
+
+```c
+/*@ requires n >= 0 && \valid_read(a + (0 .. n-1));
+    assigns \nothing;
+    behavior found:
+      assumes \exists int k; 0 <= k < n && a[k] == v;
+      ensures 0 <= \result < n && a[\result] == v;
+    behavior not_found:
+      assumes \forall int k; 0 <= k < n ==> a[k] != v;
+      ensures \result == -1;
+    complete behaviors;
+    disjoint behaviors;
+*/
+```
+
+- Top-level `requires` and `assigns` apply to every call; a behaviour may add its own.
+- `assumes` selects the case and is evaluated in the pre-state, like `\old`. The behaviour's `ensures` only has to hold where its `assumes` held.
+- `complete behaviors` proves `P ==> A1 || A2`. Without it, some calls may have no case, and the contract says nothing about them.
+- `disjoint behaviors` proves `P ==> !(A1 && A2)`. Without it, cases may overlap, and then both `ensures` must hold.
+- **`complete` and `disjoint` check only the specification, never the code.** Writing the two `assumes` as exact negations gives both immediately.
+
+| Mistake | Goals that fail | Counterexample |
+|---|---|---|
+| `not_found` assumes `n == 0` (`find_incomplete.c`, 17/18) | Complete behaviors | `n > 0`, `v` absent: no case applies |
+| `found` assumes `n > 0` (`find_overlap.c`, 16/18) | Disjoint behaviors **and** post-condition of `found` | `n > 0`, `v` absent: both cases apply, and `find` returns `-1`, which `found` forbids |

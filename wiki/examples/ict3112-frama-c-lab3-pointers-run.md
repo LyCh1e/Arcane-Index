@@ -10,6 +10,8 @@ tags: [frama-c, acsl, wp, pointers, valid, assigns, separated, lab, ivette]
 
 # Lab 3 folder run (Frama-C 33.0, Alt-Ergo 2.6.4, Z3 4.8.12, WSL Ubuntu)
 
+**Moved (seen 2026-11-03):** the 13 lecture files are now in `Labs/lab2/`, the exercises in `Labs/lab3/exercises/`, and `Labs/lab3/` now holds the loops lab ([[examples/ict3112-frama-c-lab3-loops-run]]). Re-run from the new paths: `swap2` 7/7, `sumsq` 8/9 (Z3 9/9), `take` 7/8, ex1–ex6 all fully proved. Paths below are as first run.
+
 Files: `Labs/lab3/*.c` (19 files). Slides: [[sources/ict3112-frama-c-lab1-lab2-pointers-slides]]. Concepts: [[concepts/acsl-contract-strength-and-pointer-memory]]. Command per file: `frama-c -wp -wp-rte -wp-cache none file.c`, one session per file, run from a script because of the quoting issues in [[learning/frama-c-wsl-install-gotchas]].
 
 ## Lecture examples — all match the slides

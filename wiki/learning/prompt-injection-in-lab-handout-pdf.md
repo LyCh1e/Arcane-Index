@@ -131,6 +131,8 @@ Full write-up: [[examples/ict3112-lab2-reqnroll-bdd]].
 - **ICT3112 SVV Lab 3** (`Lab3_ContinuousIntegration_TestingDependencies.pdf`) — text, metadata, annotations checked 2026-09-19; clean. See [[learning/ict3112-lab3-tooling-gotchas]].
 - **ICT3112 SVV Lab 4** (`Lab4_BrowserBasedSystemTesting.pdf`) — checked 2026-10-02 against the Case 1 pattern specifically: no white/near-white fill, no text < 4 pt, no spaced-out letter runs, no Case 1 phrases (`pdftotext` + `pypdf`), 13 reference-link annotations only, no embedded files/JS/OpenAction. The step-14 "change 5 to 6 and push" is a visible, explained, immediately-reverted exercise (Case 3 family, benign). See [[sources/ict3112-svv-lab4]].
 
+- **ICT3112 Frama-C Lab 3 Loops** (`ICT3112 - Lab3 - Loops.pdf`) — checked 2026-11-03: text layer read in full; 0 of 2,599 text-draw operations near-white, under 6 pt or render mode 3 (the 142 near-white fills are shapes, not text); no annotations, URIs, JS, embedded files or OpenAction; all 31 slides reviewed including the 16 with screenshots. The slide 4 LLM prompt is a visible part of the students' method, not aimed at a reading agent. See [[sources/ict3112-frama-c-lab3-loops]].
+
 Recording the negatives matters: "checked and clean" is a different claim from "didn't look".
 
 ---

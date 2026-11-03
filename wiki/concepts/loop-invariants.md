@@ -4,8 +4,8 @@ title: "Loop Invariants"
 domain: formal-verification
 status: established
 created: 2026-10-15
-updated: 2026-10-26
-sources: [ict3112-loop-invariants, ict3112-hoare-logic-core, ict3112-hoare-exercises, hoare-logic-workbench]
+updated: 2026-11-03
+sources: [ict3112-loop-invariants, ict3112-hoare-logic-core, ict3112-hoare-exercises, hoare-logic-workbench, ict3112-frama-c-lab3-loops]
 tags: [loop-invariants, hoare-logic, formal-verification, weakest-precondition, termination, variant, invariant-discovery]
 ---
 
@@ -169,6 +169,32 @@ A **variant** *E* is an integer expression with two properties:
 
 ---
 
+## In Frama-C / WP
+
+The same obligations become named goals. Results: [[examples/ict3112-frama-c-lab3-loops-run]].
+
+| Annotation | Goals generated | Fails when |
+|---|---|---|
+| `loop invariant I;` | established, preserved | too weak or too strong; `0 <= k <= i` fails both in `fill` because `a[i]` is only written during iteration `i` |
+| `loop assigns L;` | loop assigns (body writes only `L`) | `L` omits something the body writes (`loop assigns i;` when it also writes `total`) |
+| `loop variant E;` | positive, decrease | `E` does not shrink (`n - k` when `k` falls). Positive is checked only when the guard holds, so `E` may go negative on exit |
+
+**After the loop WP knows only the invariant, the false guard and what `loop assigns` leaves unchanged.** With no `loop assigns` it assumes everything may change, and this can break the invariant itself: in `total = total + bonus`, `bonus` becomes unknown, so `total == 3 * i` is not preserved.
+
+**Termination.** Without a variant, Frama-C 33 leaves Termination-condition unproved for any function with such a loop. `while(1){}` then `assert \false` still proves the assert, because that point is unreachable, but the terminates goal stays open (3/4).
+
+### Array loops need three kinds of fact
+
+| Fact | Form | Example from `clip` |
+|---|---|---|
+| Index range | `0 <= i <= n` | |
+| Processed cells | `\forall k; 0 <= k < i && cond ==> property` | `\at(a[k], Pre) < 0 ==> a[k] == 0`, and the same for `>= 0` |
+| **Unprocessed cells** | `\forall k; i <= k < n ==> a[k] == \at(a[k], Pre)` | |
+
+The third is easy to forget, and without it the first `\forall` invariants are not preserved even though the code is correct (`sar2.c` 16/18, `sar3.c` 20/20). `loop assigns a[0 .. n-1]` allows any cell to change, so nothing else says a later cell still holds its original value when the guard reads it. It is needed when the body reads unprocessed cells or the spec relates them to `Pre`: `clip` needs it, while `fill` never reads the array and proves 14/14 without it.
+
+---
+
 ## Worked Example — Triangular Sum
 
 ```
@@ -221,3 +247,5 @@ Key insight for preservation: the hint `2 · (x div 2) = x − x mod 2` lets you
 - [[sources/ict3112-loop-invariants]] — source notes (Module 7)
 - [[sources/ict3112-hoare-exercises]] — solved exercise sheets
 - [[examples/ict3112-hoare-exercises-worked]] — condensed worked examples
+- [[sources/ict3112-frama-c-lab3-loops]] — Frama-C Lab 3 slides
+- [[examples/ict3112-frama-c-lab3-loops-run]] — measured goal counts in Frama-C 33

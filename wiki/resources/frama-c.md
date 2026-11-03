@@ -30,6 +30,9 @@ A debugger runs one input and shows what happened; Frama-C never runs the code a
 - Several files each defining `main` (or the same function) cannot be loaded into one session. Frama-C does not fail: it warns `def'n of func main ... conflicts ... keeping the one at ...` and **silently drops the later definition**, so a combined run reports on the wrong code. Use one session per file or per conflict-free group ([[examples/ict3112-frama-c-lab3-pointers-run]]).
 - `-wp-prover z3` alone proves `sumsq` (`ensures \result >= 2*x*y`) 9/9 where Alt-Ergo times out; Z3 answering *Unknown* at once (as on `take.c`) hints that the goal is false.
 - `-kernel-warn-key annot-error=active` turns a bad annotation (e.g. `\at(x, L)` with `x` declared after `L`) from a fatal abort into a warning. `\post(*a)` does not exist in Frama-C 33; use `\at(*a, Post)`.
+- `-wp-status` prints the Assume/Prove text of pending goals on the command line, without opening the GUI (0 goals printed without it, 1 with it on `find_incomplete.c`).
+- Frama-C 33 adds a Termination-condition goal (`typed_<fn>_terminates`) for any function with a loop lacking a `loop variant`. Budget one unproved goal per such function until the variant is written: [[examples/ict3112-frama-c-lab3-loops-run]].
+- A `loop invariant` not directly above its loop is a **syntax error** that aborts the run (`Frama-C aborted: invalid user input`), so no goals are produced.
 - Contract patterns for `\valid`, `assigns`, `\separated`, RTE and labels: [[concepts/acsl-contract-strength-and-pointer-memory]].
 - `-wp-prover alt-ergo,z3,cvc5 -wp-timeout 30` can turn timeouts into proofs: Assignment 1 went 92/94 (Alt-Ergo only) to 94/94, with CVC5 closing the two `non_increasing` asserts. Run with `-wp-cache none` to see a true uncached breakdown (Qed 45, Alt-Ergo 40, CVC5 4, Z3 3). See [[examples/ict3112-frama-c-assignment1-leaderboard]] and [[concepts/acsl-sorted-array-insert-pattern]].
 - Full list kept in `Labs/Frama-C-Commands.md` (CLAUDE.md requires updating it whenever a new command is verified).
@@ -40,4 +43,4 @@ A debugger runs one input and shows what happened; Frama-C never runs the code a
 
 Rules of thumb: postconditions must pin the result exactly (`max` needs `== a || == b`); after a loop WP knows only the invariant, so link it to the postcondition (`a == \at(a,Pre) + i`); the invariant plus `¬guard` must imply the post (bounds both sides); give `\valid(p + (0..n-1))` for arrays.
 
-Install on Windows: [[learning/frama-c-wsl-install-gotchas]]. Worked labs: [[examples/ict3112-frama-c-labs-0-2]].
+Install on Windows: [[learning/frama-c-wsl-install-gotchas]]. Worked labs: [[examples/ict3112-frama-c-labs-0-2]], [[examples/ict3112-frama-c-lab3-loops-run]].

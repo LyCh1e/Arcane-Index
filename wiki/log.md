@@ -10,6 +10,14 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## [2026-11-03] ingest | ICT3112 Frama-C Lab 3 — Loops
+
+- Source: `Labs/lab3/ICT3112 - Lab3 - Loops.pdf` (31 slides), plus code in `Labs/lab3/lab3-examples 2/`
+- Summary: [[sources/ict3112-frama-c-lab3-loops]]
+- Pages created: [[examples/ict3112-frama-c-lab3-loops-run]]
+- Pages updated: [[concepts/loop-invariants]], [[concepts/acsl-contract-strength-and-pointer-memory]] (§8 Behaviours), [[resources/frama-c]], [[examples/ict3112-frama-c-lab2-loops]] (termination note), [[examples/ict3112-frama-c-lab3-pointers-run]] and [[sources/ict3112-frama-c-lab1-lab2-pointers-slides]] (files moved), [[learning/prompt-injection-in-lab-handout-pdf]] (clear check), `wiki/index.md`, `wiki/examples/_index.md`, `wiki/sources/_index.md`, `Labs/Frama-C-Commands.md`
+- Key insight: All 21 files and the slides' five "what fails if" claims were run and match. Array loops need an invariant for cells not yet processed whenever the body reads them or the spec relates them to `Pre`.
+
 ## [2026-11-02] ingest | INF2005 CSF — Network Security Defence and Digital Forensics
 
 - Sources: `raw/INF2005 Cyber Security Fundamentals - Network Security Defence.md`, `raw/INF2005 Cyber Security Fundamentals - Digital Forensics.md`

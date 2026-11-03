@@ -24,12 +24,12 @@
                       "providerId": "claude"
                     },
                     {
-                      "tabId": "tab-1793178650197-1wnp6c5",
-                      "conversationId": "conv-1793437046205-o2astxogw",
+                      "tabId": "tab-1793691557999-ijz6t3g",
+                      "conversationId": "conv-1793691564616-niasxy71l",
                       "preview": true
                     }
                   ],
-                  "activeTabId": "tab-1793178650197-1wnp6c5"
+                  "activeTabId": "tab-1793691557999-ijz6t3g"
                 }
               },
               "pinned": true,
@@ -240,6 +240,9 @@
   },
   "active": "632b2c1c466ec5b8",
   "lastOpenFiles": [
+    "wiki/examples/ict3112-frama-c-lab3-loops-run.md",
+    "wiki/sources/ict3112-frama-c-lab3-loops.md",
+    "wiki/sources/ict3112-frama-c-lab3-loops.md.tmp.5432.080e0bbe411e",
     "wiki/examples/learnix-usage-graph-and-fast-theme-session.md",
     "wiki/concepts/digital-forensics.md",
     "wiki/concepts/network-security-defence.md",
@@ -266,8 +269,6 @@
     "_templates/question.md",
     "_templates/skill.md",
     "skills/writer/SKILL.md",
-    "study-notes/ICT3113 - Formula Sheet.md",
-    "wiki/concepts/hoare-logic.md",
     "study-notes/ICT3113 - Performance Testing and Optimisation Cheat Sheet.pdf",
     "wiki/log.md.tmp.35212.80404a91020e",
     "study-notes/index.md.tmp.35212.cfcde26949b9",
@@ -275,7 +276,6 @@
     "study-notes/ICT3113 - Performance Optimisation Exam Notes.md.tmp.35212.803792349379",
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.e17daa73fec7",
     "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.31b55fe5fcbb",
-    "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.f7e35c932534",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",

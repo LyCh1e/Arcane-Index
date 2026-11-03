@@ -12,7 +12,9 @@ tags: [ict3112, frama-c, acsl, wp, rte, labels, pointers, valid, assigns, separa
 
 # Source: ICT3112 Frama-C slide labs (Lab 1 and Lab 2 – Pointers)
 
-**Files** (all in `Labs/lab3/`, SIT Frama-C 33 / Ivette slides, Dr David Sanan's course):
+**Moved (seen 2026-11-03):** the Lab 1 deck is now in `Labs/lab1/`, the Lab 2 pointer decks in `Labs/lab2/`. `Labs/lab3/` now holds [[sources/ict3112-frama-c-lab3-loops]].
+
+**Files** (originally all in `Labs/lab3/`, SIT Frama-C 33 / Ivette slides, Dr David Sanan's course):
 
 | File | Slides | Content |
 |---|---|---|
