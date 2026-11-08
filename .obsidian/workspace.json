@@ -52,20 +52,6 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
-          },
-          {
-            "id": "d021d6e6e8502d50",
-            "type": "leaf",
-            "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": "_to_delete/tutor_update_log.py",
-                "bFile": "_to_delete/tutor_update_log.py",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: tutor_update_log.py  (Working Tree)"
-            }
           }
         ]
       }
