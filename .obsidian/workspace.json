@@ -24,16 +24,14 @@
                       "providerId": "claude"
                     },
                     {
-                      "tabId": "tab-1793691557999-ijz6t3g",
-                      "conversationId": "conv-1793691564616-niasxy71l"
-                    },
-                    {
-                      "tabId": "tab-1794112372389-1l8jp2t",
-                      "conversationId": "conv-1794112557640-nr8i4829q",
+                      "tabId": "tab-1794136363238-flz6wqk",
+                      "conversationId": null,
+                      "draftModel": "sonnet",
+                      "providerId": "claude",
                       "preview": true
                     }
                   ],
-                  "activeTabId": "tab-1794112372389-1l8jp2t"
+                  "activeTabId": "tab-1794136363238-flz6wqk"
                 }
               },
               "pinned": true,
