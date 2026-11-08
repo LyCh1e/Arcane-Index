@@ -2,13 +2,22 @@
 type: meta
 status: established
 title: "Operation Log"
-updated: 2026-10-21
+updated: 2026-11-08
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## 2026-11-08 | ingest | ICT3113 POD Lec07 re-recorded transcript (Performance Testing)
+
+- Raw file saved: `raw/ICT3113 Performance Optimisation and Design - Lec07_transcript.md` (verbatim, speech-to-text artefacts retained)
+- Pages updated:
+  - [[sources/ict3113-pod-l7]] - "Transcript Additions" section: AI-cannot-run-tests framing, Bondi field readings, requirements-splitting exercise, per-test commentary, test-plan properties, scale-in/scale-down worked example (12 to 4 cores, 33.3 req/s), load generators, user types, roadmap, and a table of spoken-versus-slide discrepancies
+  - [[concepts/performance-engineering]] - new subsection on human role, test-plan properties, scaling vocabulary
+  - [[areas/performance-optimisation-design]] - Lec07 row added
+  - `index.md`, `hot.md`
 
 ## [2026-11-03] ingest | ICT3112 Frama-C Lab 3 — Loops
 

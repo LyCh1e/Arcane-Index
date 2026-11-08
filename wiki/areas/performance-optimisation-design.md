@@ -4,7 +4,7 @@ title: "Performance Optimisation and Design"
 domain: performance-engineering
 status: established
 created: 2026-08-31
-updated: 2026-09-08
+updated: 2026-11-08
 tags: [performance-engineering, performance-optimisation, queueing-theory, profiling, ict3113]
 ---
 
@@ -40,6 +40,7 @@ This area covers the ICT3113 course content and related knowledge on software pe
 | [[sources/ict3113-pod-l1\|L1: Course Overview]] | Module philosophy (Measure/Model/Optimise/Deploy), 14-week schedule, assessment breakdown, teaching approach (demonstrations over facts) |
 | [[sources/ict3113-pod-l2\|L2: Performance Metrics and System Modelling]] | Mars Climate Orbiter case study, 6 metric properties, 3 metric classes, response time, percentiles, tail latency, demand/supply distinction, Utilisation Law, non-linear utilisation/response relationship, worked examples |
 | [[sources/ict3113-pod-l3\|L3: Workload Identification]] | Pont des Arts motivation; workload definition; business drivers; decomposition methodology; e-Filing worked example; peak vs average; Taylor Swift case study; workload mix; MRT architecture comparison; three exercises (manufacturing, polyclinic, flash sale) |
+| [[sources/ict3113-pod-l7\|L7: Performance Testing]] | Six test types with demos, open/closed loop, Bondi requirements, test environment and scaling, playbook; transcript adds the AI-cannot-run-tests framing, scale-in/scale-down example and load generators |
 
 ---
 

@@ -2,13 +2,17 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-11-03
+updated: 2026-11-08
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-11-08 (ingest). **Session: ICT3113 Lec07 re-recorded transcript (Performance Testing).** Raw transcript saved; [[sources/ict3113-pod-l7]] gained a "Transcript Additions" section and [[concepts/performance-engineering]] a subsection on human role, test-plan properties and scaling. Key points: AI cannot run your performance tests (sandbox differs); the stress test, not the load test, would have caught Pokémon Go; soak tests catch memory growth that load and stress tests miss; when scaling a test environment down, keep per-core load equal to production (4 cores needs about 33.3 req/s, not 100). Spoken figures differ from the slides, so the slides stay authoritative.
+
+## Previous Session
 
 2026-11-03 (ingest). **Session: Learnix UAT fixes, merged in PR #231.** New: [[examples/learnix-usage-graph-and-fast-theme-session]]. Covers the admin usage graph, the theme switch (16.5s to 1.6s from Settings) and the "Del Account + Chat" label. Still open: Admin Dashboard re-theme takes about 12s, usage days are UTC, and `wj-documentation.md` §6 describes the old theme rebuild.
 

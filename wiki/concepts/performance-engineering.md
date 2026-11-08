@@ -5,7 +5,7 @@ domain: performance-engineering
 complexity: high
 status: established
 created: 2026-08-31
-updated: 2026-08-31
+updated: 2026-11-08
 tags: [performance-engineering, performance-optimisation, bottleneck-analysis, profiling, measurement, queueing-theory, ict3113]
 ---
 
@@ -356,6 +356,17 @@ Minimum phases:
 **Minimum runs:** three per configuration. One run gives a number; three runs show whether the number means anything.
 
 ---
+
+### Human role, test-plan properties and scaling vocabulary (Lec07 live recording)
+
+- **Human role:** AI can help write tests and analyse results, but tests run in an AI sandbox do not reflect your environment. The tester provisions the environment, runs the tests and reviews the results after every run.
+- **A test plan is an experiment:** reproducible, unambiguous, controlled (dedicated machine), built on validated instruments (pipe-clean test) and traceable. Repeat each experiment 3–5 times.
+- **Scaling vocabulary:** scale up/down = vertical (change machine power); scale out/in = horizontal (change machine count). When shrinking the environment, keep the **per-resource load** equal to production: 3 × 12-core servers at 8.3 req/s per core, tested on one 4-core server, needs about 33.3 req/s offered, not 100 req/s (which would give 25 req/s per core).
+- **Load generators:** JMeter (module), Locust (simpler; preferred by the lecturer's engineering team), LoadRunner.
+- **Same-laptop caveat:** client and server on one machine (as in the JMeter lab) is a convenience, not good practice.
+- **Requirements exercise:** "fast and scalable, handles peak load without slowdown" splits into a response-time requirement and a throughput requirement; scalability fits neither template and needs separate treatment.
+
+Details and spoken-versus-slide figures: [[sources/ict3113-pod-l7]] §Transcript Additions.
 
 ### Load model elements
 

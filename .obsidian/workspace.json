@@ -25,11 +25,15 @@
                     },
                     {
                       "tabId": "tab-1793691557999-ijz6t3g",
-                      "conversationId": "conv-1793691564616-niasxy71l",
+                      "conversationId": "conv-1793691564616-niasxy71l"
+                    },
+                    {
+                      "tabId": "tab-1794112372389-1l8jp2t",
+                      "conversationId": "conv-1794112557640-nr8i4829q",
                       "preview": true
                     }
                   ],
-                  "activeTabId": "tab-1793691557999-ijz6t3g"
+                  "activeTabId": "tab-1794112372389-1l8jp2t"
                 }
               },
               "pinned": true,
@@ -47,6 +51,20 @@
               "pinned": true,
               "icon": "lucide-git-fork",
               "title": "Graph view"
+            }
+          },
+          {
+            "id": "d021d6e6e8502d50",
+            "type": "leaf",
+            "state": {
+              "type": "split-diff-view",
+              "state": {
+                "aFile": "_to_delete/tutor_update_log.py",
+                "bFile": "_to_delete/tutor_update_log.py",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: tutor_update_log.py  (Working Tree)"
             }
           }
         ]
@@ -240,6 +258,10 @@
   },
   "active": "632b2c1c466ec5b8",
   "lastOpenFiles": [
+    "wiki/sedxMk0DB",
+    "wiki/concepts/sedDw8Kpa",
+    "wiki/sources/sedcw7L4k",
+    "raw/ICT3113 Performance Optimisation and Design - Lec07_transcript.md",
     "wiki/examples/ict3112-frama-c-lab3-loops-run.md",
     "wiki/sources/ict3112-frama-c-lab3-loops.md",
     "wiki/sources/ict3112-frama-c-lab3-loops.md.tmp.5432.080e0bbe411e",
@@ -267,15 +289,11 @@
     "sedwlJLuF",
     "agents/wiki-ingest.md.tmp.37964.719ca2b71777",
     "_templates/question.md",
-    "_templates/skill.md",
-    "skills/writer/SKILL.md",
     "study-notes/ICT3113 - Performance Testing and Optimisation Cheat Sheet.pdf",
     "wiki/log.md.tmp.35212.80404a91020e",
     "study-notes/index.md.tmp.35212.cfcde26949b9",
     "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md.tmp.35212.d1058885a94a",
     "study-notes/ICT3113 - Performance Optimisation Exam Notes.md.tmp.35212.803792349379",
-    "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.e17daa73fec7",
-    "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md.tmp.35212.31b55fe5fcbb",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",
