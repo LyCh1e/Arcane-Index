@@ -35,8 +35,8 @@
                 }
               },
               "pinned": true,
-              "icon": "bot",
-              "title": "Claudian"
+              "icon": "lucide-ghost",
+              "title": "claudian-view"
             }
           },
           {
@@ -224,7 +224,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "realclaudian:Open Claudian": false,
       "omnisearch:Omnisearch": false,
       "graph:Open graph view": false,
       "command-palette:Open command palette": false,
