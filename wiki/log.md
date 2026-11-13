@@ -2074,3 +2074,13 @@ Chronological record of all vault operations. Append-only — never edit past en
 ## 2026-11-03 — Ingested Learnix UAT session (PR #231)
 - New: [[examples/learnix-usage-graph-and-fast-theme-session]] (usage graph, theme switch 16.5s to 1.6s, delete button label, process lessons).
 - Updated: [[concepts/customtkinter-widget-scaling]] (theme changes now rebuild widgets, not the window); [[concepts/customtkinter-window-lifecycle]] (same).
+
+## 2026-11-10 — Learnix UAT UI fixes (#246 follow-ups)
+- Admin badge, "Switch view:" button and "Admin Dashboard" title; welcome greeting explains Learnix and groups suggested questions (commit c26bcea).
+- Settings: theme and font size now apply only on "Apply changes", behind one "Applying changes…" loading screen.
+- Large font sizes no longer clip chat, FAQ, scenario text or the top bar.
+- New: [[learning/customtkinter-scaling-clips-fixed-widths]].
+
+## 2026-11-13 — ICT3113 A2 Step 3 prediction record
+- Wrote and committed `predictions_a2.md` (cascade A→C, two settings) before any A2 benchmark run, from an offline simulation on the tuning split.
+- New: [[concepts/model-cascade-break-even]] (mean latency = t_small + f × t_large; break-even f = 1 − t_small/t_large; tail and bimodal p50 caveats; accuracy ceiling).

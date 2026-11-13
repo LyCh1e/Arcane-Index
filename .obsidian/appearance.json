@@ -4,5 +4,6 @@
     "ITS-Dataview-Cards",
     "ITS-Image-Adjustments"
   ],
-  "cssTheme": "Minimal"
+  "cssTheme": "Minimal",
+  "showRibbon": true
 }

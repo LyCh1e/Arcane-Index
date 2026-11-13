@@ -35,8 +35,8 @@
                 }
               },
               "pinned": true,
-              "icon": "lucide-ghost",
-              "title": "claudian-view"
+              "icon": "bot",
+              "title": "Claudian"
             }
           },
           {
@@ -236,10 +236,11 @@
       "obsidian-memos:Thino": false,
       "obsidian-memos:Thino Super": false,
       "templater-obsidian:Templater": false,
-      "switcher:Open quick switcher": false
+      "switcher:Open quick switcher": false,
+      "realclaudian:Open Claudian": false
     }
   },
-  "active": "632b2c1c466ec5b8",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
     "wiki/sedxMk0DB",
     "wiki/concepts/sedDw8Kpa",

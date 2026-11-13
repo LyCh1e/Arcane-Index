@@ -340,7 +340,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict3112-lab4-selenium-browser-testing\|ICT3112 SVV Lab 4 — Selenium Browser-based System Testing]] | lab | ICT3112 / software-verification-validation | [[concepts/browser-based-system-testing\|Browser-based System Testing]] |
 | [[examples/ict3113-lab1-profiling\|ICT3113 Lab 1 — Introduction to Profiling]] | lab | ICT3113 / performance-engineering | [[concepts/python-profiling\|Python Profiling]] |
 | [[examples/ict3113-lab2-jmeter-testing\|ICT3113 Lab 2 — Introduction to Testing (Flask Profiling + JMeter)]] | lab | ICT3113 / performance-engineering | [[concepts/performance-metrics\|Performance Metrics]] |
-| [[examples/ict3113-a1-ticket-triage-service\|ICT3113 Assignment 1 — Ticket Triage Service (FastAPI + Ollama + Docker)]] | project | ICT3113 / performance-engineering | [[resources/ollama-local-inference\|Ollama]] |
+| [[examples/ict3113-a1-ticket-triage-service\|ICT3113 Assignment 1 — Ticket Triage Service (FastAPI + Ollama + Docker)]] | project | ICT3113 / performance-engineering | [[resources/ollama-local-inference\|Ollama]]; A2 cascade maths in [[concepts/model-cascade-break-even]] |
 | [[examples/ict3113-t04-worked-examples\|ICT3113 Tutorial Week 04 — Worked Examples (pipeline capacity, retries, replicas)]] | tutorial | ICT3113 / performance-engineering | [[concepts/queueing-theory\|Queueing Theory]] |
 | [[examples/ict3113-t05-worked-examples\|ICT3113 Tutorial Week 05 — Worked Examples (bounds, MapReduce, Erlang B)]] | tutorial | ICT3113 / performance-engineering | [[concepts/queueing-theory\|Queueing Theory]] |
 | [[examples/ict2216-project-phase4-auth\|ICT2216 Project — Phase 4: Authentication (Register/Login/MFA/Logout)]] | project | ICT2216 / secure-software-development | [[concepts/secure-software-requirements\|Secure Software Requirements]] |
@@ -399,6 +399,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/psm1-cheatsheet-study-notes\|PSM I Cheatsheet Study Notes]] | agile-project-management | active |
 | [[learning/customtkinter-after-teardown\|CustomTkinter: `invalid command name` on Window Teardown]] | python-gui | resolved |
 | [[learning/customtkinter-scaling-clipped-window\|CustomTkinter: fixed window size clips content under scaling]] | python-gui | resolved |
+| [[learning/customtkinter-scaling-clips-fixed-widths\|CustomTkinter: fixed widths and wraplengths clip under a large font size]] | python-gui | resolved |
 | [[learning/customtkinter-subclass-method-collision\|CustomTkinter: subclass method named _draw crashes the constructor]] | python-gui | resolved |
 | [[learning/customtkinter-fast-theme-rebuild\|CustomTkinter: rebuilding widgets in place for a fast theme switch]] | python-gui | resolved |
 | [[learning/learnix-srl-keyword-detection-pitfalls\|Learnix: SRL Keyword Detection Pitfalls]] | llm-tutoring | open |

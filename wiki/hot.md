@@ -2,13 +2,21 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-11-08
+updated: 2026-11-10
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-11-13. **Session: ICT3113 Assignment 2, Step 3 prediction record.** New: [[concepts/model-cascade-break-even]]. `predictions_a2.md` was committed on branch `Assignment_2` before any A2 benchmark run (memory check and Step 4 still to do). Cascade is A (`llama3.2:1b`) → C (`qwen2.5:7b`) with category-based escalation; S1 trusts only *Credit reporting* (~55% escalated), S2 also trusts *Bank account* (~3% escalated). Predicted: only C alone passes the accuracy limits (65.6% overall); S1 ≈ 52%, S2 ≈ 22%. **Lesson:** mean cascade latency is `t_small + f × t_large`, so the cascade is faster on average below f = 1 − t_small/t_large (≈ 77% here), even though every escalated ticket is slower and p95 does not improve. Latency is bimodal, so p50 is unstable when f is near 50%. Predictions were built by simulating the cascade offline on the tuning split from A1 prediction records; the test split was not simulated.
+
+## Previous Session
+
+2026-11-10. **Session: Learnix UAT UI fixes.** New: [[learning/customtkinter-scaling-clips-fixed-widths]]. Settings now applies theme and font size only on an "Apply changes" button, behind one "Applying changes…" loading screen (`theme.loading_cover`, shared with the theme rebuild). Admins get an "Admin" badge, a "Switch view:" button and an "Admin Dashboard" title; the welcome greeting explains Learnix and groups its suggested questions (`knowledge.hints.get_hint_groups`). **Lesson:** CTk widget scaling multiplies wraplengths and fixed widths too, so 680-unit text blocks clip at font size 20; cap them with `fit_width` / `wrap_to_width` / `flow_layout` in `ui/utils.py`, measuring a container that follows the window (a scrollable frame, not a card). Still open: admin Class Overview tiles clip at minimum window plus largest font; `token_usage_panel.py` binds `<TouchpadScroll>` unguarded (raises on Tk 8.6).
+
+## Previous Session
 
 2026-11-08 (ingest). **Session: ICT3113 Lec07 re-recorded transcript (Performance Testing).** Raw transcript saved; [[sources/ict3113-pod-l7]] gained a "Transcript Additions" section and [[concepts/performance-engineering]] a subsection on human role, test-plan properties and scaling. Key points: AI cannot run your performance tests (sandbox differs); the stress test, not the load test, would have caught Pokémon Go; soak tests catch memory growth that load and stress tests miss; when scaling a test environment down, keep per-core load equal to production (4 cores needs about 33.3 req/s, not 100). Spoken figures differ from the slides, so the slides stay authoritative.
 
