@@ -702,7 +702,9 @@
     "wiki/sources/ict3113-pod-t04.md": "c-000124",
     "wiki/sources/ict3113-pod-t05.md": "c-000125",
     "wiki/examples/ict3113-t04-worked-examples.md": "c-000126",
-    "wiki/examples/ict3113-t05-worked-examples.md": "c-000127"
+    "wiki/examples/ict3113-t05-worked-examples.md": "c-000127",
+    "wiki/sources/inf2005-csf-iot-security.md": "c-000134",
+    "wiki/concepts/iot-security.md": "c-000135"
   },
   "INF2005 Cyber Security Fundamentals - Social Engineering.md": {
     "ingested_at": "2026-10-16",
@@ -748,6 +750,26 @@
       "wiki/concepts/network-security-attacks.md",
       "wiki/concepts/cryptographic-hash-functions.md",
       "wiki/concepts/access-control.md",
+      "wiki/areas/computer-networks.md",
+      "wiki/index.md",
+      "wiki/sources/_index.md",
+      "wiki/concepts/_index.md",
+      "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md",
+      "study-notes/index.md",
+      "wiki/log.md",
+      "wiki/hot.md"
+    ]
+  },
+  "INF2005 Cyber Security Fundamentals - IoT Security.md": {
+    "hash": "1b44bedb8d0285a4b0645c0611676fe1",
+    "ingested_at": "2026-11-13",
+    "pages_created": [
+      "wiki/sources/inf2005-csf-iot-security.md",
+      "wiki/concepts/iot-security.md"
+    ],
+    "pages_updated": [
+      "wiki/concepts/network-security-attacks.md",
+      "wiki/concepts/wireless-and-iot.md",
       "wiki/areas/computer-networks.md",
       "wiki/index.md",
       "wiki/sources/_index.md",

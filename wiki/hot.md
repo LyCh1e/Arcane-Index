@@ -2,13 +2,19 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-11-10
+updated: 2026-11-13
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-11-13 (ingest). **Session: ingest — INF2005 CSF IoT Security.** New: [[sources/inf2005-csf-iot-security]], [[concepts/iot-security]]. Updated: [[concepts/network-security-attacks]], [[concepts/wireless-and-iot]]; INF2005 study notes gained §11C.
+
+**An IoT device is a physical device running an OS, so all system attacks apply to it.** Five challenges: weak authentication, no encryption, vulnerable firmware, insecure communications, hard to patch. Eight attacks: buffer overflow, code injection, XSS, password attack, MitM sniffing and spoofing, botnet enslaving, data leakage. Mirai (2016) was built on default credentials (Krebs 630 Gbps, OVH 1.1 Tbps, Dyn). The slides give no defences; the concept page's fixes are marked as additions. The Defence and Forensics raw files were re-saved today but are unchanged, so they were skipped.
+
+## Previous Session
 
 2026-11-13. **Session: ICT3113 Assignment 2, Step 3 prediction record.** New: [[concepts/model-cascade-break-even]]. `predictions_a2.md` was committed on branch `Assignment_2` before any A2 benchmark run (memory check and Step 4 still to do). Cascade is A (`llama3.2:1b`) → C (`qwen2.5:7b`) with category-based escalation; S1 trusts only *Credit reporting* (~55% escalated), S2 also trusts *Bank account* (~3% escalated). Predicted: only C alone passes the accuracy limits (65.6% overall); S1 ≈ 52%, S2 ≈ 22%. **Lesson:** mean cascade latency is `t_small + f × t_large`, so the cascade is faster on average below f = 1 − t_small/t_large (≈ 77% here), even though every escalated ticket is slower and p95 does not improve. Latency is bimodal, so p50 is unstable when f is near 50%. Predictions were built by simulating the cascade offline on the tuning split from A1 prediction records; the test split was not simulated.
 

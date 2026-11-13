@@ -42,5 +42,5 @@ The study of how data travels across interconnected systems — from the physica
 - **Operating Systems** — Sockets connect application processes to transport layer ports; see [[concepts/os-processes-and-threads]]
 - **Web Development** — HTTP, DNS, and TCP underpin every browser request; see [[concepts/web-fundamentals]]
 - **Algorithms** — OSPF uses Dijkstra's shortest-path algorithm on the link-state database; see [[concepts/graph-algorithms]]
-- **Security** — Network protocols are attack surfaces: ARP spoofing, DNS poisoning, TCP session hijacking; see [[concepts/owasp-top-10]], [[concepts/threat-modeling]], [[concepts/network-security-attacks]], [[concepts/network-security-defence]] and [[concepts/digital-forensics]]
+- **Security** — Network protocols are attack surfaces: ARP spoofing, DNS poisoning, TCP session hijacking; see [[concepts/owasp-top-10]], [[concepts/threat-modeling]], [[concepts/network-security-attacks]], [[concepts/network-security-defence]], [[concepts/digital-forensics]] and [[concepts/iot-security]]
 - **IoT / Mobile** — MQTT over TCP; DHCP address assignment for constrained devices; see [[concepts/wireless-and-iot]] and [[concepts/android-architecture]]

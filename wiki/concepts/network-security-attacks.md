@@ -75,7 +75,7 @@ An amplified variant exploiting stateless protocols:
 | **Bot** | Malware granting the attacker complete remote control |
 | **Zombie** | An Internet-connected computer infected by a bot |
 | **Botnet** | A collection of zombies operated together |
-| **IoT botnet** | IoT devices used as zombies; their stripped-down Linux makes malware easy to cross-compile |
+| **IoT botnet** | IoT devices used as zombies; their stripped-down Linux makes malware easy to cross-compile. See [[concepts/iot-security]] (Mirai) |
 
 ---
 
@@ -195,4 +195,5 @@ Findings are cross-referenced with **cve.mitre.org** and **nvd.nist.gov** to che
 ## See Also
 
 - [[concepts/network-security-defence]] — layered defences (firewalls, IDS/IPS, proxies, VPNs, port security, AAA) mapped to each attack above
+- [[concepts/iot-security]] — why IoT devices are easy targets: default passwords, weak firmware, Mirai and the eight IoT attacks
 - [[concepts/digital-forensics]] — how scans, floods and injections are detected and evidenced in logs and packet traces

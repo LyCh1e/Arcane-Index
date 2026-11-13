@@ -32,7 +32,7 @@ tags: [index, concepts]
 | Blockchain | 1 |
 | Data Engineering | 1 |
 | DevOps | 4 |
-| Cyber Security | 3 |
+| Cyber Security | 4 |
 
 ---
 
@@ -311,6 +311,7 @@ tags: [index, concepts]
 | [[concepts/network-security-attacks\|Network Security — Vulnerabilities and Exploits]] | INF2005 | high |
 | [[concepts/network-security-defence\|Network Security — Defence]] | INF2005 | high |
 | [[concepts/digital-forensics\|Digital Forensics — System and Network]] | INF2005 | high |
+| [[concepts/iot-security\|IoT Security — Attacks and Exploits]] | INF2005 | high |
 
 ---
 

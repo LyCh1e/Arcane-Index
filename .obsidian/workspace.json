@@ -51,7 +51,8 @@
               "title": "Graph view"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -240,7 +241,7 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "aa21592bb12da3f9",
   "lastOpenFiles": [
     "wiki/sedxMk0DB",
     "wiki/concepts/sedDw8Kpa",

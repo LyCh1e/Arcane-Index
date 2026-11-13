@@ -145,3 +145,4 @@ MQTT is the dominant IoT messaging protocol.
 - [[concepts/data-link-layer-ethernet]] — CSMA/CA (wireless) parallels CSMA/CD (wired); both are MAC sublayer protocols
 - [[concepts/transport-layer-tcp-udp]] — MQTT uses TCP for reliable delivery; MQTT-SN uses UDP for constrained environments
 - [[concepts/application-layer-dhcp-dns]] — IoT devices also use DHCP to obtain IP addresses on joining a network
+- [[concepts/iot-security]] — attacks on IoT devices (Mirai, default passwords, firmware and data leakage) and why they are hard to defend

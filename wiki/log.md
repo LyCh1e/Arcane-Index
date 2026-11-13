@@ -2,13 +2,22 @@
 type: meta
 status: established
 title: "Operation Log"
-updated: 2026-11-08
+updated: 2026-11-13
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## [2026-11-13] ingest | INF2005 CSF — IoT Security: Introduction to Attack and Exploits
+
+- Source: `raw/INF2005 Cyber Security Fundamentals - IoT Security.md`
+- Summary: [[sources/inf2005-csf-iot-security]]
+- Pages created: [[concepts/iot-security]]
+- Pages updated: [[concepts/network-security-attacks]], [[concepts/wireless-and-iot]], [[areas/computer-networks]], `wiki/index.md`, `wiki/sources/_index.md`, `wiki/concepts/_index.md`, INF2005 study notes (new §11C, mistakes 24–25)
+- Skipped: the Network Security Defence and Digital Forensics raw files were re-saved on 2026-11-13 but are unchanged (hashes match the manifest)
+- Key insight: IoT devices run an OS, so every system attack applies, and default passwords, small memory and poor patching make them easy targets (Mirai); the slides list problems but no fixes, so the defences in the concept page are marked as additions.
 
 ## 2026-11-08 | ingest | ICT3113 POD Lec07 re-recorded transcript (Performance Testing)
 

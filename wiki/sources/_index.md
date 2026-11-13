@@ -72,6 +72,7 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | [[sources/inf2005-csf-network-security-attacks\|INF2005 CSF — Network Security: Vulnerabilities and Exploits]] | lecture-notes | cyber-security | 2026-10-26 |
 | [[sources/inf2005-csf-network-security-defence\|INF2005 CSF — Network Security: Introduction to Network Defence]] | lecture-notes | cyber-security | 2026-11-02 |
 | [[sources/inf2005-csf-digital-forensics\|INF2005 CSF — System and Network Forensics]] | lecture-notes | cyber-security | 2026-11-02 |
+| [[sources/inf2005-csf-iot-security\|INF2005 CSF — IoT Security: Introduction to Attack and Exploits]] | lecture-notes | cyber-security | 2026-11-13 |
 
 ## By Domain
 

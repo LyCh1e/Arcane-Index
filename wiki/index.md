@@ -2,7 +2,7 @@
 type: meta
 status: established
 title: "Wiki Index"
-updated: 2026-11-08
+updated: 2026-11-13
 tags: [meta, index]
 ---
 
@@ -137,6 +137,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/inf2005-csf-network-security-attacks\|INF2005 CSF — Network Security: Vulnerabilities and Exploits]] | lecture-notes | cyber-security | 2026-10-26 |
 | [[sources/inf2005-csf-network-security-defence\|INF2005 CSF — Network Security: Introduction to Network Defence]] | lecture-notes | cyber-security | 2026-11-02 |
 | [[sources/inf2005-csf-digital-forensics\|INF2005 CSF — System and Network Forensics]] | lecture-notes | cyber-security | 2026-11-02 |
+| [[sources/inf2005-csf-iot-security\|INF2005 CSF — IoT Security: Introduction to Attack and Exploits]] | lecture-notes | cyber-security | 2026-11-13 |
 | [[sources/ict3113-pod-lec11-12-kubernetes-docker\|ICT3113 POD — Lec 11–12: Learning Kubernetes and Docker Fundamentals (Dell)]] | lecture-slides | performance-engineering | 2026-10-28 |
 | [[sources/cpython-listsort-timsort-powersort\|CPython listsort.txt: Timsort and Powersort]] | official-documentation | computer-science | 2026-10-31 |
 | [[sources/pdqsort-peters-2021\|Pattern-defeating Quicksort (Peters, 2021)]] | paper | computer-science | 2026-10-31 |
@@ -312,6 +313,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/system-security\|System Security — Attacks Across the Stack]] | secure-software-development | high |
 | [[concepts/network-security-defence\|Network Security — Defence]] | cyber-security | high |
 | [[concepts/digital-forensics\|Digital Forensics — System and Network]] | cyber-security | high |
+| [[concepts/iot-security\|IoT Security — Attacks and Exploits]] | cyber-security | high |
 | [[concepts/cloud-native\|Cloud Native]] | devops | high |
 | [[concepts/heapsort\|Heapsort]] | computer-science | medium |
 | [[concepts/shellsort\|Shellsort]] | computer-science | medium |

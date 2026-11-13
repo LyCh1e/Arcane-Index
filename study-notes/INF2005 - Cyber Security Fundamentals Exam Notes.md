@@ -2,9 +2,9 @@
 type: study-notes
 title: "INF2005 Cyber Security Fundamentals — Exam Notes"
 module: INF2005
-tags: [study-notes, inf2005, cyber-security, cryptography, steganography, access-control, ethical-hacking, network-defence, digital-forensics, exam-prep]
+tags: [study-notes, inf2005, cyber-security, cryptography, steganography, access-control, ethical-hacking, network-defence, digital-forensics, iot-security, exam-prep]
 created: 2026-09-21
-updated: 2026-11-02
+updated: 2026-11-13
 ---
 
 # INF2005 Cyber Security Fundamentals
@@ -34,6 +34,7 @@ flowchart TD
     K["§11 Network Security\nDoS / DDoS / DRDoS\nARP Poisoning / Evil Twin\nPacket Sniffing / Port Scan"]
     K --> L["§11A Network Defence\nDefence in depth / Firewalls\nIDS-IPS / Proxy / VPN\nPort security / AAA"]
     K --> M["§11B Digital Forensics\nEvidence integrity / Pollitt model\nWindows + Linux artefacts\nPacket analysis / Scan detection"]
+    K --> N["§11C IoT Security\nMirai / Jeep hack\n5 device challenges\n8 IoT attacks"]
 ```
 
 ---
@@ -1070,6 +1071,41 @@ Cross-reference results with **cve.mitre.org** and **nvd.nist.gov** for known ex
 
 ---
 
+## §11C — IoT Security
+
+> Full detail: [[concepts/iot-security]]
+
+An IoT device is a physical device running an OS, so **all system attacks apply to it**. It is a soft target because it is installed once, left unattended, rarely patched and often keeps its **default password**.
+
+- **Five application types:** consumer, commercial, industrial (IIoT), infrastructure, military (IoMT).
+- **Mirai (2016):** botnet built from default usernames and passwords on IP cameras and routers; hit Krebs (630 Gbps), OVH (1.1 Tbps) and Dyn (DNS), which took down Amazon, Netflix and Twitter for hours.
+- **2015 Jeep hack:** wireless entry through Chrysler's **Uconnect**; wipers, radio and accelerator controlled remotely.
+
+### Five device security challenges
+
+| Challenge | Detail |
+|---|---|
+| Weak authentication | Default passwords; rogue devices go undetected |
+| No encryption | Breach or theft (medical imaging, patient monitoring, cameras) |
+| Vulnerable firmware | Limited budget to build and test secure firmware |
+| Insecure communications | No segmentation; Bluetooth, HTTP, web APIs |
+| Hard to patch | Not designed for regular security or firmware updates |
+
+### Eight IoT attacks
+
+| Attack | Why IoT is vulnerable | Impact |
+|---|---|---|
+| Buffer overflow | Small memory; overflow overwrites neighbours | Malware rewrites device code |
+| Code injection | Runs commands without admin interaction | Malicious commands execute |
+| XSS | Web-based management interface | Legitimate page infected |
+| Password attack | Default, weak or reused passwords; failures not monitored | One device exposes all (about 60% reuse) |
+| MitM: sniffing | Open-area wireless; the router holds all traffic | Router interception, then control of every device |
+| MitM: spoofing | Attacker impersonates a device to the router | Malware injected, then spread |
+| Botnet enslaving | Easy to hack, hard to diagnose | DDoS, spam, click fraud, Bitcoin mining |
+| Data leakage | Personal data with limited encryption | Medical, location, usage, financial data exposed |
+
+---
+
 ## §12 — Quick-Reference Summary Tables
 
 ### Cryptography Decision Matrix
@@ -1130,3 +1166,5 @@ Cross-reference results with **cve.mitre.org** and **nvd.nist.gov** for known ex
 21. **HTTPS ≠ VPN** — HTTPS protects the browser-to-site leg only; a VPN encrypts everything in the tunnel.
 22. **Hash the evidence before analysis** — integrity must be demonstrable, and MD5/SHA-1 are not acceptable choices.
 23. **Vertical and horizontal scans differ** — vertical is many ports on one host; horizontal is one port across many hosts.
+24. **IoT devices are not exempt from system attacks** — they run an OS, so buffer overflow, code injection and XSS all apply; small memory makes overflow easier.
+25. **Mirai relied on default credentials, not a zero-day** — the fix is unique passwords and patching, not only a firewall.
