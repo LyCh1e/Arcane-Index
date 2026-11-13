@@ -5,7 +5,7 @@ module: ICT3113
 lecturer: "A/Prof Donny Soh"
 tags: [study-notes, ict3113, performance-engineering, queueing-theory, exam-prep]
 created: 2026-09-14
-updated: 2026-10-28
+updated: 2026-11-13
 ---
 
 # ICT3113 Performance Optimisation and Design
@@ -1108,6 +1108,79 @@ Equivalent to the closed-form. Use when ρ is not in the table.
 
 ---
 
+## 16. Labs, Weeks 11–12: Reading a Stress Table and Diagnosing a Slow Endpoint
+
+> [!note] Provenance
+> Both lab handouts have blank answer tables. The Week 11 figures below are method and arithmetic only (lab not yet run; the 8-core, S = 64 ms numbers are the lecture's, used as an illustration). The Week 12 answers are worked from the deck's data and are **not** an official solution. The Week 12 method has no source beyond the lab deck (the Lec08 file is the Dell Docker and Kubernetes Intro session, which does not cover pools). Wiki: [[wiki/examples/ict3113-lab-wk11-load-stress-build-c]], [[wiki/examples/ict3113-lab-wk12-slow-endpoint-worked]], [[wiki/concepts/connection-pool-diagnosis]].
+
+### 16.1 Reading a stress table by column (Week 11)
+
+| Column | Reading |
+|---|---|
+| p95 | **Knee**: first step where p95 stops being flat and climbs |
+| thr | **Ceiling**: throughput that stops rising however much more is offered |
+| err | **Failure mode**: when errors start; timeouts (waiting) or refusals (fast rejects) |
+| cpu_pct | Whole-machine. One fully busy core reads about 100/c % (one of 8 cores ≈ 12.5%) |
+
+- **Pass or fail** is decided against the written requirement (field 3, e.g. LAB-01: 95% of `POST /orders` within 200 ms at 5 req/s), not against a chart.
+- **A load test cannot say why** it failed; a stress test can expose a fault such as one that makes a multi-core service behave like one core.
+- **Count check:** generator (`.jtl`) count + requests sent outside the test (21 in the lab) = server log lines. A mismatch means requests timed out, hit a stale server or another sender was active (Lecture 07 Demo 6). `samples` is smaller than both because the first 20 s are dropped.
+- **Prove a fix twice:** r2 repeats the same steps (only the code differs); r3 uses higher steps, because a stress test that never reaches the knee has found only a lower bound.
+
+### 16.2 The serialisation signature
+
+| Measure | Value | Meaning |
+|---|---|---|
+| Ceiling if every core worked | c / S (S in seconds) | Upper bound |
+| Measured ceiling | near 1 / S | One request at a time |
+| cpu_pct at the ceiling | near 100/c % | Mostly idle |
+| Requests in service | ceiling × S (Little's Law) ≈ 1 | Requests are taking turns |
+
+Illustration (lecture laptop): c = 8, S = 64 ms gives c/S = 125 req/s, a one-at-a-time ceiling of 1/0.064 ≈ 15.6 req/s, CPU ≈ 12.5%, and about 1 request in service.
+
+**Candidates in a threaded Flask app:** a lock held around slow work, a single worker, one shared connection, or pure-Python CPU work under the interpreter lock. `hashlib` (PBKDF2) releases the interpreter lock, which leaves **a lock or a single worker**. **Fix:** lock only what must not run twice at once (the write to the store).
+
+### 16.3 A database connection pool is a c-server queue (Week 12)
+
+| Quantity | Formula |
+|---|---|
+| Ceiling | c / S (S = hold time) |
+| Utilisation | λ × S / c |
+| Requests waiting (Little) | λ × wait time |
+| Connections in use (average) | λ × S |
+| Hold time | Σ query times + other time while borrowed ≈ N × t̄ + other |
+
+| Cause | Instrument |
+|---|---|
+| 1. Too many queries per request | Query log |
+| 2. Too much time per query | Plan (`EXPLAIN ANALYZE`) |
+| 3. Other work while holding the connection | Pool metrics |
+
+**Four steps:** spot the pressure (pool or database?) → find the cause (one instrument per cause) → choose the fix (the cause decides it) → predict, then re-test and check the knee moved. **State units in every line.**
+
+### 16.4 Worked case: `GET /customers/{id}/summary`
+
+Data: knee 18 req/s, target 40, database CPU 22%, c = 10, hold 480 ms, wait 310 ms, N = 4 queries totalling 10 ms (2.5 ms each), biggest query 3 ms via index (expected 20 rows, actual 20).
+
+| Step | Working | Answer |
+|---|---|---|
+| Pool ceiling | 10 / 0.48 s | 20.8 req/s |
+| Utilisation at the knee | 18 × 0.48 / 10 | 86.4% |
+| Requests waiting | 18 × 0.31 s | 5.6 |
+| Ask-to-return time | 310 + 480 ms | 790 ms |
+| Limit | pool 10/10 in use; database 22% | **Pool**, not the database |
+| Other time while borrowed | 480 − 10 ms | **470 ms (98%)**: cause 3 |
+| Pool of 30: ceiling; utilisation at 40 req/s | 30/0.48; 40 × 0.48/30 | 62.5 req/s; 64% |
+| After moving the other work out: hold | 4 × 2.5 + 0 | 10 ms |
+| Ceiling; utilisation at 40 req/s | 10/0.010; 40 × 0.010/10 | 1,000 req/s; 4% (wait ≈ 0) |
+
+- **Why not a pool of 30?** The ceiling clears 40 req/s, but each request still holds a connection for about 480 ms (latency unchanged) and the connections stay tied up doing non-database work; the cause is untouched.
+- **Does one request now finish in about 10 ms?** No. 10 ms is only the connection's hold time; the 470 ms of other work still happens, so the response time stays about 480 ms.
+- **Where does the knee go?** To the next resource (inference): database CPU (22% at 18 req/s scales to about 49% at 40 req/s if linear), application worker threads (40 × 0.48 ≈ 19 requests in flight) or the downstream service. Re-run the stress test and compare the pool metrics with the prediction.
+- **Business-rule check before moving the work out:** does the other work need data read inside the transaction; does any write depend on its result (use a separate short transaction); does `last_seen` have to be atomic with it?
+
+---
+
 ## Exam Strategy Checklist
 
 > [!tip] For any performance question:
@@ -1124,6 +1197,11 @@ Equivalent to the closed-form. Use when ρ is not in the table.
 > 3. For JMeter sizing: derive N from Little's Law — N = X × (R + Z)
 > 4. For Erlang B: compute ρ = λ × S first; then use table or recursion to find minimum m for target loss probability
 > 5. Distinguish **open-loop** (fixed arrival rate) from **closed-loop** (fixed virtual users) — they behave differently at saturation
+6. Read a stress table **by column** (§16.1): knee from p95, ceiling from thr, failure mode from err, cpu_pct against 100/c %
+7. For a slow endpoint: pool or database at its limit? Then Hold time = N × t̄ + other time; one instrument per cause (§16.3)
+
+> [!tip] For connection-pool questions:
+> Ceiling = c / S; utilisation = λS / c; waiting = λ × wait. Convert ms to s first, and put units on every line.
 
 > [!warning] Common Exam Mistakes
 > - Using λ instead of X in Utilisation Law when the system is overloaded
@@ -1134,3 +1212,9 @@ Equivalent to the closed-form. Use when ρ is not in the table.
 > - Skipping the **pipe-clean step** — a test showing 100% success may be measuring error overhead, not service time
 > - Applying Erlang B when jobs **retry on drop** — retry increases the effective offered load (use a different model)
 > - Confusing **Erlang B** (finite capacity, jobs are lost) with **M/M/c** (infinite queue, jobs wait)
+> - Blaming the database when its CPU is low and the pool is full: the connection is being held for non-database work
+> - Answering "a bigger pool" without saying what it leaves unfixed (latency per request, the cause, idle connections held)
+> - Treating the 10 ms connection hold time as the request's response time after the fix
+> - Mixing ms and s in c / S
+> - Reading a low `cpu_pct` as spare capacity: it may mean the service is using only one core (one core of 8 ≈ 12.5%)
+> - Declaring a stress test finished when throughput followed offered load to the top step: that is a lower bound, so go higher

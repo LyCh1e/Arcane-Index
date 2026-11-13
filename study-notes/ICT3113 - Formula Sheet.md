@@ -3,6 +3,7 @@ type: study-notes
 title: "ICT3113 — Formula Quick Reference"
 tags: [study-notes, ict3113, formula-sheet, exam-prep]
 created: 2026-09-14
+updated: 2026-11-13
 ---
 
 # ICT3113 — Formula Quick Reference Sheet
@@ -189,6 +190,30 @@ $$\text{APDEX} = \frac{\text{Satisfied} + 0.5 \times \text{Tolerating}}{\text{To
 
 ---
 
+## Connection Pool and Slow-Endpoint Diagnosis (Labs Wk 11–12)
+
+| Quantity | Formula |
+|----------|---------|
+| Pool ceiling | $c / S$ ($S$ = hold time, in seconds) |
+| Pool utilisation | $\lambda S / c$ |
+| Requests waiting (Little) | $\lambda \times \text{wait}$ |
+| Connections in use (average) | $\lambda S$ |
+| Ask-to-return time | wait + hold |
+| Hold time | $\sum t_{query} + \text{other time while borrowed} \approx N\bar{t} + \text{other}$ |
+| Requests in service (any resource) | measured ceiling $\times S$ |
+
+| Cause | Instrument |
+|-------|-----------|
+| 1. Too many queries | Query log |
+| 2. Too much time per query | Plan (`EXPLAIN ANALYZE`) |
+| 3. Other work while holding the connection | Pool metrics |
+
+**Worked case (c = 10, hold 480 ms, wait 310 ms, 4 queries = 10 ms, knee 18 req/s):** ceiling 20.8 req/s · utilisation 86.4% · 5.6 waiting · 790 ms ask-to-return · other time 470 ms (cause 3). Pool of 30: 62.5 req/s, 64% at 40 req/s. After the fix: hold 10 ms, ceiling 1,000 req/s, 4% at 40 req/s; response time still about 480 ms.
+
+**Stress table by column:** p95 → knee · thr → ceiling · err → failure mode · cpu_pct → machine state (one core of $c$ ≈ $100/c$ %). Serialisation signature: ceiling ≈ $1/S$, CPU near idle, requests in service ≈ 1. Count check: `.jtl` count + 21 = server log lines.
+
+---
+
 ## Symbol Cheat Sheet
 
 | Symbol | Name |
@@ -205,6 +230,8 @@ $$\text{APDEX} = \frac{\text{Satisfied} + 0.5 \times \text{Tolerating}}{\text{To
 | Z | Think time (closed systems) |
 | V_k | Visit count to device k |
 | D_k | Service demand at device k |
-| c | Number of servers |
+| c | Number of servers (or pool size) |
+| S (pool) | Hold time: borrow to return |
+| N (pool) | Queries per request |
 | Cₐ | CV of inter-arrival times |
 | Cₛ | CV of service times |

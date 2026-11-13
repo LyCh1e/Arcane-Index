@@ -14,7 +14,7 @@ tags: [ict3113, connection-pool, hold-time, littles-law, utilisation, diagnosis,
 
 A database connection pool is a **queue with c servers**. A request borrows a connection, holds it for time S, and returns it. If every connection is held, new requests wait. The same arithmetic as for CPU cores applies, so a stress-test knee can be traced to a cause with three instruments.
 
-Source: Week 12 lab deck for Lecture 08 ([[sources/ict3113-pod-lab-wk12-slow-endpoint]]). Worked numbers: [[examples/ict3113-lab-wk12-slow-endpoint-worked]].
+Source: Week 12 lab deck, which says it accompanies Lecture 08 ([[sources/ict3113-pod-lab-wk12-slow-endpoint]]). The vault's `Lec08` file is the Dell Docker and Kubernetes Intro session and does not contain this method, so this page rests on the lab deck alone. Worked numbers: [[examples/ict3113-lab-wk12-slow-endpoint-worked]].
 
 ---
 

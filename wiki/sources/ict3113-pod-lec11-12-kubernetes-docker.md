@@ -5,6 +5,10 @@ title: "ICT3113 POD — Lec 11–12: Learning Kubernetes and Docker Fundamentals
 source_type: lecture-slides
 domain: performance-engineering
 date_ingested: 2026-10-28
+updated: 2026-11-13
+raw_files:
+  - "raw/ICT3113 Performance Optimisation and Design - Lec11-12 Learning Kubernetes and Docker Fundamentals.md"
+  - "raw/ICT3113 Performance Optimisation and Design - Lec08 Learning Kubernetes and Docker Fundamentals.md"
 tags: [ict3113, docker, kubernetes, cloud-native, microservices, containers, devops, performance-engineering]
 related:
   - "[[concepts/cloud-native]]"
@@ -15,8 +19,13 @@ related:
 # ICT3113 POD — Lec 11–12: Learning Kubernetes and Docker Fundamentals
 
 **Source type:** Lecture slides (industry session — Dell Technologies)  
-**Module:** ICT3113 Performance Optimisation and Design, Weeks 11–12  
+**Module:** ICT3113 Performance Optimisation and Design, Weeks 11–12 (first file) / "Lecture 08" (second file)  
 **Presenter:** Dell Technologies AI Innovation Hub team member (20+ years IT practitioner; background in DevOps, Cloud Native, Pre/Post-Sales)
+
+> [!note] Two raw files, one deck
+> The deck was saved twice. The first file (ingested 2026-10-28) is headed "Industry Session (Weeks 11–12)". The second, `…Lec08 Learning Kubernetes and Docker Fundamentals.md` (ingested 2026-11-13), labels itself "Lecture 08, ICT3113" and numbers all **63 slides**. A slide-by-slide comparison shows the same slides in the same order with the same text; only the image descriptions differ. The second file adds nothing new to the concepts below except the course-access material in the last section, which this page previously left out.
+>
+> **Lec08 is this deck**, titled "Learning Docker & Kubernetes Fundamentals – Intro" (confirmed by the course owner). It does not cover connection pools, hold time or diagnosing a slow endpoint, although the Week 12 lab says it accompanies "Lecture 08" and relies on those topics. The vault therefore has no source for that method beyond the lab deck itself. See [[sources/ict3113-pod-lab-wk12-slow-endpoint]].
 
 ---
 
@@ -145,6 +154,30 @@ Classic list; every distributed system designer must internalise these:
 - The end user should not be affected by a hardware or software failure
 - An app should remain accessible as workload increases
 - No downtime when rolling out new updates
+
+---
+
+## Deck Details Not Covered Above
+
+- **Opening slides:** a Venn diagram with CLOUD-NATIVE at the centre and four surrounding areas (DevOps, Continuous Delivery, Microservices, Containers); "There is no cloud, it's just someone else's computer".
+- **Monolith limitations (slide 16):** one unit of deployment; tightly coupled functions; a single service; harder to add features over time; technology lock-in; low fault tolerance; scaling limits.
+- **Container benefits (slide 27):** consistency, predictability, portability, isolation, resource efficiency, separation of responsibility, improved developer productivity.
+- **Container sprawl:** once each service runs in a container, hosting many containers across clusters creates a new set of challenges, which orchestration addresses.
+- **Worked pod example:** a Spring Boot app in a container, in a Pod, with four Pods (Payment, Product, Inventory, Shopping Cart) managed by Kubernetes; the Payment Deployment at `Replicas = 1` self-heals when its Pod fails, then scales to `Replicas = 3` for a sale.
+
+### Self-paced learning (slides 56–61)
+
+| Item | Detail |
+|---|---|
+| Courses | "Getting Up to Speed with Docker" and "Exploring Kubernetes", on the Dell learning portal |
+| Access | Register a Dell account (a university email is suggested), verify with an emailed six-digit OTP, choose "Personal/Individual" when asked for access rights, then enrol in the course in English; allow pop-ups because the course opens in a new window |
+| Learning path | Kickstart → Getting Up to Speed with Docker → Retrospective |
+| Docker assessment | 25 questions; **80%** pass mark; a certificate of completion shows a course duration of 05:00 |
+| Course IDs shown | ESDTFD04964 on the course page and ESDTFD04573 on the certificate; the slides give both and do not explain the difference |
+| Exploring Kubernetes modules (10) | 1 Introduction to Kubernetes · 2 Understanding the Kubernetes Architecture · 3 Deploying Applications in Kubernetes · 4 Imperative and Declarative Workflows · 5 Services and Networking · 6 Applying Deployment Strategies · 7 Externalizing Configuration with ConfigMaps and Secrets · 8 Persisting Data with Volumes · 9 Managing Namespaces and Resource Quotas · 10 Best Practices and Troubleshooting |
+| Short link | https://bit.ly/dell-cna-k8s (as printed on slide 60) |
+
+The slides end with "Dell Digital Proven" and a 2022 Dell copyright notice.
 
 ---
 

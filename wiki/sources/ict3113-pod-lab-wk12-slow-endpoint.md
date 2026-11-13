@@ -18,7 +18,7 @@ tags: [ict3113, lab, connection-pool, hold-time, little-law, diagnosis, query-lo
 **Worked answers:** [[examples/ict3113-lab-wk12-slow-endpoint-worked]]
 **Method page:** [[concepts/connection-pool-diagnosis]]
 
-> **Gap:** the lab says "answer using the Lecture 08 content", but Lecture 08 itself has not been ingested. Everything on this page comes from the lab deck and its reference slide.
+> **Gap:** the lab says "answer using the Lecture 08 content", but Lec08 in the vault is the Dell "Learning Docker & Kubernetes Fundamentals – Intro" session ([[sources/ict3113-pod-lec11-12-kubernetes-docker]]). It contains nothing on connection pools, hold time, query logs or `EXPLAIN ANALYZE`, so the pool, hold-time and three-causes method has no source in the vault except this lab deck. It may have been taught live or in material not yet added. Everything on this page comes from the lab deck and its reference slide.
 
 ---
 

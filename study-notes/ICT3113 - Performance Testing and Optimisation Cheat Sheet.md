@@ -4,7 +4,8 @@ title: "ICT3113 — Performance Testing and Optimisation Cheat Sheet"
 module: ICT3113
 tags: [study-notes, ict3113, cheat-sheet, performance-testing, performance-optimisation, formula-sheet, exam-prep]
 created: 2026-10-12
-sources: [Lec02, Lec03, Lec04, Lec05, Lec06, Lec07, Lab 1, Lab 2, Assignment 1, Tutorial Wk04, Tutorial Wk05]
+sources: [Lec02, Lec03, Lec04, Lec05, Lec06, Lec07, Lab 1, Lab 2, Lab Wk11, Lab Wk12, Assignment 1, Tutorial Wk04, Tutorial Wk05]
+updated: 2026-11-13
 ---
 
 # ICT3113 — Performance Testing and Optimisation Cheat Sheet
@@ -382,6 +383,8 @@ flowchart TD
 
 **Ceiling estimates:** $X_{max}=c/S$. Sequential S = 112 ms → 9/s; inferred 35 ms → 28/s; actual ≈ 70 ms → 14/s. Record how each S was obtained.
 
+**Stress table by column (Lab Wk 11):** p95 → **knee** (first step where it stops being flat) · thr → **ceiling** · err → **failure mode** (timeouts or refusals) · cpu_pct → machine state. **Serialisation signature:** ceiling ≈ $1/S$, CPU near idle (one core of $c$ ≈ $100/c$ %), requests in service = ceiling × S ≈ 1 ⇒ something (a lock held around slow work, a single worker) makes requests take turns. **Count check:** `.jtl` count + requests sent outside the test (21 in the lab) = server log lines. Prove a fix with a same-steps rerun, then higher steps (a run that never reaches the knee gives only a lower bound).
+
 ### 8.4 Writing a testable requirement (Bondi, 10 fields)
 
 | # | Field | # | Field |
@@ -504,6 +507,9 @@ Use it to decide whether a fix is worth it: p = 0.6, s = 4 → 1.82×; ceiling 2
 > - Comparing a **closed-loop** result with a queueing-model prediction.
 > - Reporting soak growth instead of **slope**, or one run instead of three.
 > - Forgetting the **cap** at total users N in JMeter concurrency.
+> - Blaming the database when its CPU is low and the **pool** is full (connection held for non-database work).
+> - Saying "bigger pool" without naming what it leaves unfixed (latency per request, the cause).
+> - Mixing ms and s in $c/S$; omitting units.
 
 ---
 
@@ -683,3 +689,26 @@ Practical tips: read the CSV with `csv.DictReader` (quoted narratives contain ne
 
 > [!tip] Pattern
 > Find the bottleneck → compute U at the planning horizon → compare each option against the U cap (70–80%).
+
+---
+
+## 16. Slow-Endpoint Diagnosis: Connection Pool (Lab Wk 12)
+
+> [!note] The lab deck has questions only; the answers below are worked from its data, not an official solution.
+
+| Quantity | Formula |
+|---|---|
+| Pool ceiling | $c/S$ (hold time $S$, in seconds) |
+| Utilisation | $\lambda S/c$ |
+| Requests waiting | $\lambda\times$ wait (Little) |
+| Hold time | $\sum t_{query}$ + other time while borrowed $\approx N\bar t$ + other |
+
+| Cause | Instrument | Check |
+|---|---|---|
+| 1. Too many queries | Query log | $N$ and total query time |
+| 2. Too much time per query | Plan | Rows read vs returned; slow plan |
+| 3. Other work while holding the connection | Pool metrics | Hold − query time |
+
+**Method:** spot the pressure (pool or database?) → find the cause → choose the fix (the cause decides it) → predict, re-test, check the knee moved.
+
+**Worked case** ($c=10$, hold 480 ms, wait 310 ms, $N=4$ queries = 10 ms, knee 18 req/s, DB CPU 22%): ceiling 10/0.48 = **20.8 req/s**; U at knee = 18 × 0.48/10 = **86.4%**; waiting = 18 × 0.31 = **5.6**; ask-to-return = **790 ms**; pool is the limit; other time = **470 ms (98%)** ⇒ cause 3. Pool of 30: ceiling **62.5 req/s**, U = **64%** at 40 req/s, but latency unchanged and cause untouched. After moving the other work out: hold **10 ms**, ceiling **1,000 req/s**, U = **4%**, wait ≈ 0, yet the request still takes ≈ **480 ms**. Next knee: DB CPU (≈ 49% at 40 req/s if linear), worker threads (≈ 19 in flight), or the downstream service.
