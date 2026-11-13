@@ -5,7 +5,7 @@ domain: performance-engineering
 complexity: high
 status: established
 created: 2026-08-31
-updated: 2026-11-08
+updated: 2026-11-13
 tags: [performance-engineering, performance-optimisation, bottleneck-analysis, profiling, measurement, queueing-theory, ict3113]
 ---
 
@@ -368,6 +368,24 @@ Minimum phases:
 
 Details and spoken-versus-slide figures: [[sources/ict3113-pod-l7]] §Transcript Additions.
 
+### Reading a stress table and diagnosing serialisation (Week 11 lab)
+
+Read the stress table **by column**, not by chart:
+
+| Column | Gives you |
+|---|---|
+| p95 | The **knee**: first step where p95 stops being flat and climbs |
+| thr | The **ceiling**: throughput that stops rising however much more is offered |
+| err | The **failure mode**: when errors start, and whether they are timeouts or refusals |
+| cpu_pct | What the machine is doing (whole-machine: one busy core reads about 100/c %) |
+
+- **Load test vs stress test:** a load test says whether the target is met at one load and, if it fails, not why. A stress test can expose a fault such as one that makes a multi-core service behave like one core.
+- **Serialisation signature:** ceiling near 1/S, `cpu_pct` near idle, and about one request in service (ceiling × S, by Little's Law) mean requests are taking turns. In a threaded Flask app the candidates are a lock held around slow work, a single worker, one shared connection, or pure-Python CPU work under the interpreter lock. Fix by narrowing what is held to the part that really needs it.
+- **Prove a fix twice:** repeat the same steps (same code except the fix) to compare, then run higher steps, because a stress test that never reaches the knee has found only a lower bound.
+- **Count reconciliation:** generator count + requests sent outside the test (here 21) must equal the server's log count, or the table may describe something other than the service.
+
+Method and illustrative figures: [[examples/ict3113-lab-wk11-load-stress-build-c]]. The same arithmetic for a database connection pool: [[concepts/connection-pool-diagnosis]].
+
 ### Load model elements
 
 | Element | Notes |
@@ -393,3 +411,6 @@ Scripts come from use cases, not from functional test cases. They represent what
 - [[sources/ict3113-pod-l5]] — Lec05: performance bounds, execution models, Erlang B (lost work)
 - [[sources/ict3113-pod-l6]] — Lec06: JMeter test plan sizing, Little's Law applied, timers, APDEX
 - [[sources/ict3113-pod-l7]] — Lec07: performance testing — six test types, open/closed loop, test environment, playbook
+- [[sources/ict3113-pod-lab-wk11-load-stress]] — Week 11 lab: load and stress test on Build C; reading the table by column
+- [[sources/ict3113-pod-lab-wk12-slow-endpoint]] — Week 12 lab: diagnosing a slow endpoint (Lecture 08 method)
+- [[concepts/connection-pool-diagnosis]] — pool ceiling, hold time and the three causes

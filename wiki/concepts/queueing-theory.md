@@ -545,4 +545,6 @@ Equivalent to the closed-form. Use this when ρ is not in the table.
 - [[concepts/workload-identification]] — deriving λ and Dₖ from business quantities; the inputs to every model on this page
 - [[sources/ict3113-pod-l4]] — source material for §1–§7
 - [[sources/ict3113-pod-l5]] — source material for §8 (bounds) and §9 (Erlang B)
+- [[concepts/connection-pool-diagnosis]] — a connection pool as a c-server queue: ceiling c / S, utilisation λS / c, Little's Law for waiting requests (Week 12 lab)
+- [[examples/ict3113-lab-wk11-load-stress-build-c]] — ceiling c / S versus the measured ceiling near 1 / S when a lock serialises the service
 - [[areas/performance-engineering]] — parent area

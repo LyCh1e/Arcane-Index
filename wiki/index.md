@@ -115,6 +115,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3113-pod-l5\|ICT3113 POD — L5: Estimating Performance and Lost Work]] | lecture-slides | performance-engineering | 2026-09-24 |
 | [[sources/ict3113-pod-l6\|ICT3113 POD — L6: JMeter Recap]] | lecture-slides | performance-engineering | 2026-09-24 |
 | [[sources/ict3113-pod-l7\|ICT3113 POD — L7: Performance Testing (slides + re-recorded transcript)]] | lecture-notes | performance-engineering | 2026-11-08 |
+| [[sources/ict3113-pod-lab-wk11-load-stress\|ICT3113 POD — Week 11 Lab (Lec07): Performance Testing, Load and Stress]] | lab-handout | performance-engineering | 2026-11-13 |
+| [[sources/ict3113-pod-lab-wk12-slow-endpoint\|ICT3113 POD — Week 12 Lab (Lec08): Diagnosing a Slow Endpoint]] | lab-handout | performance-engineering | 2026-11-13 |
 | [[sources/ict3113-pod-t04\|ICT3113 POD — Tutorial Week 04: Problem Sets 1 and 2]] | tutorial | performance-engineering | 2026-09-24 |
 | [[sources/ict3113-pod-t05\|ICT3113 POD — Tutorial Week 05: Performance Modelling]] | tutorial | performance-engineering | 2026-09-24 |
 | [[sources/opencv-docs\|OpenCV Official Documentation — docs.opencv.org]] | documentation | computer-vision | 2026-09-04 |
@@ -305,6 +307,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/pyinstaller-secret-protection\|Protecting Secrets in a PyInstaller Build]] | python-gui | medium |
 | [[concepts/ethical-hacking\|Ethical Hacking and Penetration Testing]] | secure-software-development | high |
 | [[concepts/queueing-theory\|Queueing Theory for Performance Engineering]] | performance-engineering | high |
+| [[concepts/connection-pool-diagnosis\|Connection Pool Diagnosis (Hold Time, Ceiling and Three Causes)]] | performance-engineering | high |
 | [[concepts/hoare-logic\|Hoare Logic]] | formal-verification | high |
 | [[concepts/loop-invariants\|Loop Invariants]] | formal-verification | high |
 | [[concepts/acsl-sorted-array-insert-pattern\|ACSL Pattern: Binary Search and Ordered Insertion]] | formal-verification | medium |
@@ -342,6 +345,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict3112-lab4-selenium-browser-testing\|ICT3112 SVV Lab 4 — Selenium Browser-based System Testing]] | lab | ICT3112 / software-verification-validation | [[concepts/browser-based-system-testing\|Browser-based System Testing]] |
 | [[examples/ict3113-lab1-profiling\|ICT3113 Lab 1 — Introduction to Profiling]] | lab | ICT3113 / performance-engineering | [[concepts/python-profiling\|Python Profiling]] |
 | [[examples/ict3113-lab2-jmeter-testing\|ICT3113 Lab 2 — Introduction to Testing (Flask Profiling + JMeter)]] | lab | ICT3113 / performance-engineering | [[concepts/performance-metrics\|Performance Metrics]] |
+| [[examples/ict3113-lab-wk11-load-stress-build-c\|ICT3113 Week 11 Lab — Load and Stress Test on Build C (method, not yet run)]] | lab | ICT3113 / performance-engineering | [[concepts/performance-engineering\|Performance Engineering]] |
+| [[examples/ict3113-lab-wk12-slow-endpoint-worked\|ICT3113 Week 12 Lab — Diagnosing a Slow Endpoint (worked answers)]] | lab | ICT3113 / performance-engineering | [[concepts/connection-pool-diagnosis\|Connection Pool Diagnosis]] |
 | [[examples/ict3113-a1-ticket-triage-service\|ICT3113 Assignment 1 — Ticket Triage Service (FastAPI + Ollama + Docker)]] | project | ICT3113 / performance-engineering | [[resources/ollama-local-inference\|Ollama]]; A2 cascade maths in [[concepts/model-cascade-break-even]] |
 | [[examples/ict3113-t04-worked-examples\|ICT3113 Tutorial Week 04 — Worked Examples (pipeline capacity, retries, replicas)]] | tutorial | ICT3113 / performance-engineering | [[concepts/queueing-theory\|Queueing Theory]] |
 | [[examples/ict3113-t05-worked-examples\|ICT3113 Tutorial Week 05 — Worked Examples (bounds, MapReduce, Erlang B)]] | tutorial | ICT3113 / performance-engineering | [[concepts/queueing-theory\|Queueing Theory]] |

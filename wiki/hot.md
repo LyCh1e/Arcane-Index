@@ -10,6 +10,12 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
+2026-11-13 (ingest, later). **Session: ingest — ICT3113 Week 11 Lab (Lec07) and Week 12 Lab (Lec08).** New: [[sources/ict3113-pod-lab-wk11-load-stress]], [[sources/ict3113-pod-lab-wk12-slow-endpoint]], [[examples/ict3113-lab-wk11-load-stress-build-c]], [[examples/ict3113-lab-wk12-slow-endpoint-worked]], [[concepts/connection-pool-diagnosis]]. Updated: [[concepts/performance-engineering]], [[concepts/queueing-theory]], [[areas/performance-optimisation-design]].
+
+**A stress test names a fault that a load test cannot.** Week 11: ceiling near 1/S, CPU near idle and about one request in service (ceiling × S) mean requests are taking turns; the candidate is a lock held around the slow PBKDF2 `verify()`, fixed by locking only the store write. Check the generator count + 21 against the server log. Week 12 (pen and paper): pool c = 10, hold S = 480 ms gives ceiling 20.8 req/s and 86% utilisation at the 18 req/s knee, 5.6 requests waiting; the database is at 22% CPU, so the pool is the limit. Of the 480 ms, 470 ms is non-database work (cause 3), so a pool of 30 (ceiling 62.5 req/s) would not shorten requests. After moving that work out: hold 10 ms, ceiling 1,000 req/s, utilisation 4% at 40 req/s, but a request still takes about 480 ms. Both handouts have blank tables; Week 11 is not yet run, Week 12 answers are my working, and Lecture 08 is not yet ingested.
+
+## Previous Session
+
 2026-11-13 (ingest). **Session: ingest — INF2005 CSF IoT Security.** New: [[sources/inf2005-csf-iot-security]], [[concepts/iot-security]]. Updated: [[concepts/network-security-attacks]], [[concepts/wireless-and-iot]]; INF2005 study notes gained §11C.
 
 **An IoT device is a physical device running an OS, so all system attacks apply to it.** Five challenges: weak authentication, no encryption, vulnerable firmware, insecure communications, hard to patch. Eight attacks: buffer overflow, code injection, XSS, password attack, MitM sniffing and spoofing, botnet enslaving, data leakage. Mirai (2016) was built on default credentials (Krebs 630 Gbps, OVH 1.1 Tbps, Dyn). The slides give no defences; the concept page's fixes are marked as additions. The Defence and Forensics raw files were re-saved today but are unchanged, so they were skipped.

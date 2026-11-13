@@ -10,6 +10,15 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## [2026-11-13] ingest | ICT3113 POD Week 11 Lab (Lec07) and Week 12 Lab (Lec08)
+
+- Sources: `raw/ICT3113 Performance Optimisation and Design - Lec07 Week 11 Lab Performance Testing Load and Stress.md`, `raw/ICT3113 Performance Optimisation and Design - Lec08 Week 12 Lab Diagnosing a Slow Endpoint.md`
+- Summaries: [[sources/ict3113-pod-lab-wk11-load-stress]], [[sources/ict3113-pod-lab-wk12-slow-endpoint]]
+- Pages created: [[examples/ict3113-lab-wk11-load-stress-build-c]], [[examples/ict3113-lab-wk12-slow-endpoint-worked]], [[concepts/connection-pool-diagnosis]]
+- Pages updated: [[concepts/performance-engineering]] (new subsection on reading a stress table and the serialisation signature), [[concepts/queueing-theory]] (key connections), [[areas/performance-optimisation-design]], `wiki/index.md`, `wiki/hot.md`
+- Caveats: both files are handouts with blank answer tables, so Week 11 records method and arithmetic only (not yet run; the lecture's 8-core, S = 64 ms figures are marked as illustration). The Week 12 answers were worked out from the deck's data and are not an official solution. Lecture 08 itself is not yet ingested.
+- Key insight: a full pool with a quiet database means the connection is held for work that is not database work (470 of 480 ms here). The same shape, a ceiling near 1/S with near-idle CPU, exposes a lock held around slow work in Week 11.
+
 ## [2026-11-13] ingest | INF2005 CSF — IoT Security: Introduction to Attack and Exploits
 
 - Source: `raw/INF2005 Cyber Security Fundamentals - IoT Security.md`
