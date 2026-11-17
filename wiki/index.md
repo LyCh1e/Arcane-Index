@@ -416,6 +416,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/dotnet-locked-exe-msb3021\|dotnet build MSB3021/MSB3027: Output exe Locked by Running Process]] | dotnet | resolved |
 | [[learning/ict3112-lab3-tooling-gotchas\|ICT3112 Lab 3 — PDF false password error, robocopy in Git Bash, MAX_PATH]] | windows | resolved |
 | [[learning/frama-c-wsl-install-gotchas\|Frama-C 33 on WSL Ubuntu — opam install gotchas]] | tooling | resolved |
+| [[learning/claude-cli-tool-use-and-frama-c-zero-goals\|claude -p tool_use exit 1 and Frama-C 0-goal false VERIFIED]] | tooling | resolved |
 | [[learning/docker-compose-build-context\|Docker Compose: Build Context Controls What COPY Can See]] | devops | resolved |
 | [[learning/webdav-proppatch-namespace-overflow\|mod_dav_fs PROPPATCH Namespace Overflow — Wrong Payload Shape → No Crash]] | cyber-security | resolved |
 | [[learning/docker-named-volume-stale-content\|Docker Named Volumes: Rebuilding the Image Does NOT Update an Existing Volume]] | devops | resolved |

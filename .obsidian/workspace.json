@@ -255,8 +255,9 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "0679759f6fd1b037",
+  "active": "477d24468535af82",
   "lastOpenFiles": [
+    "wiki/learning/claude-cli-tool-use-and-frama-c-zero-goals.md",
     "study-notes/index.md",
     "study-notes/log.md",
     "agents/tutor.md",
@@ -292,7 +293,6 @@
     "wiki/concepts/non-comparison-sorting.md",
     "wiki/concepts/hybrid-sorting-algorithms.md",
     "wiki/concepts/shellsort.md",
-    "wiki/concepts/heapsort.md",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",

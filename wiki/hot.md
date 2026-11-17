@@ -1760,3 +1760,7 @@ Area page: [[areas/computer-networks]] (c-000040). Address counter updated to 41
 - ✓ Resolved: [[synthesis/data-mapper-repository-room-retrofit]] — Data Mapper → Repository/Room/Retrofit mapping written
 - ✓ Resolved: [[synthesis/re-elicitation-cia-aaa-security-requirements]] — McCall Integrity ↔ CIA+AAA; RE lifecycle ↔ SSDLC requirements phases; BCIC applied to security requirements
 - ✓ Resolved: [[synthesis/re-elicitation-hci-needfinding]] — Needfinding methods ↔ RE elicitation; HTA/TDH → use cases → SRS; personas → stakeholder profiles; pain points → BCIC Interpret → hidden requirements
+
+
+## Session 2026-11-17 (ICT3112 Assignment 2 benchmarks)
+Ran all 18 benchmarks in `benchmarks/level1-3` and rewrote `docs/report.md` (old six-benchmark version kept as `report_old_6benchmarks.md`). Result: level 1 8/8 proved but 4 contracts encode the seeded bug (b3, b5, b7, b8); level 2 5/6 (m2 incomplete); level 3 0/4 (L1, L2, L3 budget exhausted; L4 Annotator hit the 600 s timeout). Fixed `config.yaml` (`--max-turns 3` plus `--disallowed-tools`) and `frama_c.py` (non-zero exit is always a parse error). m2, L3 and m3 are first-pass results from before the fix. Timeout now configurable (1800 s) and L2/L4 re-run: no level 3 program proved within 10 iterations (L1 8, L2 109, L3 18, L4 5 goals open). `docs/report.md` and the .docx were rebuilt from the final runs only (6 pages). See [[learning/claude-cli-tool-use-and-frama-c-zero-goals]].

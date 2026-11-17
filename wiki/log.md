@@ -2117,3 +2117,12 @@ Chronological record of all vault operations. Append-only — never edit past en
 ## 2026-11-13 — ICT3113 A2 Step 3 prediction record
 - Wrote and committed `predictions_a2.md` (cascade A→C, two settings) before any A2 benchmark run, from an offline simulation on the tuning split.
 - New: [[concepts/model-cascade-break-even]] (mean latency = t_small + f × t_large; break-even f = 1 − t_small/t_large; tail and bimodal p50 caveats; accuracy ceiling).
+
+## 2026-11-17 — ICT3112 A2 benchmark runs (levels 1-3)
+- Ran 18 benchmarks with `--auto-approve`; 13 proved, 5 not (m2, L1, L2, L3 budget/agent failures; L4 Annotator timeout). Rewrote `Assignment2/docs/report.md` Section 3 and added Section 5.
+- Found and fixed two tool bugs: `--max-turns 1` tool_use failures, and a failed Frama-C parse read as `VERIFIED` with 0 goals.
+- New: [[learning/claude-cli-tool-use-and-frama-c-zero-goals]].
+
+## 2026-11-18 — ICT3112 A2 final report build
+- Agent timeout made configurable (1800 s); L2 and L4 now reach verification. Report and docx rebuilt from the final runs only; 13 of 18 benchmarks proved.
+- Updated: [[learning/claude-cli-tool-use-and-frama-c-zero-goals]].
