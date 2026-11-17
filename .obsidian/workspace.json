@@ -50,9 +50,23 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
+          },
+          {
+            "id": "0679759f6fd1b037",
+            "type": "leaf",
+            "state": {
+              "type": "split-diff-view",
+              "state": {
+                "aFile": "study-notes/index.md",
+                "bFile": "study-notes/index.md",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: index  (Working Tree)"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -241,8 +255,11 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "0679759f6fd1b037",
   "lastOpenFiles": [
+    "study-notes/index.md",
+    "study-notes/log.md",
+    "agents/tutor.md",
     "study-notes/ICT3113 - Performance Optimisation Exam Notes.md.tmp.8852.a15a560a3aed",
     "wiki/concepts/connection-pool-diagnosis.md.tmp.8852.875573809278",
     "study-notes/ICT3113 - Performance Testing and Optimisation Cheat Sheet.md.tmp.8852.fd91485a8121",
@@ -254,7 +271,6 @@
     "study-notes/ICT3113 - Performance Testing and Optimisation Cheat Sheet.md.tmp.8852.8a7e9e94e85c",
     "study-notes/ICT3113 - Performance Optimisation Exam Notes.md.tmp.8852.105a1e161e17",
     "study-notes/ICT3113 - Performance Optimisation Exam Notes.md.tmp.8852.8bb5894ad41c",
-    "wiki/index.md.tmp.8852.ee6b914149a2",
     "wiki/examples/ict3113-lab-wk11-load-stress-build-c.md",
     "wiki/examples/ict3113-lab-wk12-slow-endpoint-worked.md",
     "wiki/concepts/connection-pool-diagnosis.md",
@@ -277,8 +293,6 @@
     "wiki/concepts/hybrid-sorting-algorithms.md",
     "wiki/concepts/shellsort.md",
     "wiki/concepts/heapsort.md",
-    "wiki/sources/sorting-lower-bound-decision-tree.md",
-    "wiki/sources/vqsort-vectorized-quicksort-2022.md",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",

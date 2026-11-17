@@ -119,6 +119,13 @@ Auto-Update). For every row in that table, extract:
 This full set of rows is your module list for this run — process every one
 of them.
 
+Also read the index's **"Daily Read Topic Scopes"** section, if it has
+one. A module with an entry there is restricted to the topic areas that
+entry lists: every lecture subtopic, the lab section and all 20 quiz
+questions for that module must stay inside them, following the entry's own
+weighting and lab-slot rules. A module with no entry covers its full
+syllabus. Never widen, narrow or drop a scope yourself.
+
 Do not edit `study-notes/index.md`. If you spot a module referenced in
 `study-notes/log.md` that no longer has a row in the index, it has been
 retired: skip generating for it this run and leave its existing entries in
@@ -160,11 +167,18 @@ topics — one per distinct lab/exercise (e.g. "Lab 2: Reqnroll BDD", "Frama-C
 Lab 1: First Steps"), titled clearly enough to stand alone as a page
 heading.
 
+If the module has a topic scope (Step 2), drop any lab file that falls
+outside it from the candidate list before going on.
+
 If a module has no matching lab files, skip the lab topic for that module
 this run — build that module's page with the three lecture subtopics only,
 rather than inventing lab content that doesn't exist.
 
 ### Step 6 — Select today's topics for this module
+
+If this module has a topic scope (Step 2), first remove every out-of-scope
+subtopic and lab from the candidate pools, then apply the rules below
+together with that scope's own weighting and lab-slot rules.
 
 Pick **3 lecture subtopics** (from Step 4) plus, if any lab material exists
 for this module (Step 5), **1 lab topic** — four selections total — each
@@ -183,7 +197,8 @@ proportioned to support a full, non-repetitive 20-question quiz (roughly 5
 questions per section) and the ~10-minute reading target. The selection
 should feel like a revision rotation — spreading coverage evenly across the
 full syllabus (and the full set of labs) over time, not clustering the same
-sections day after day.
+sections day after day. For a module with a topic scope, "the full
+syllabus" means the full in-scope set only.
 
 Record your selections in a `topics_today` list for this module, e.g.:
 ```

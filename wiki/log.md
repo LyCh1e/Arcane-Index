@@ -10,6 +10,12 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## [2026-11-14] writer+editor | ICT3112 Assignment 2 report checked against the deliverable
+
+- Compared `Assignment2/docs/report.md` with the deliverable (report of at most four pages: results, decisions, implementation approach). The assignment PDF is password-protected, so the check used the user's wording of the deliverable.
+- Found the Table 1 figures for `swap`, `array_max` and `copy_array` contradicted the saved logs, and the `sum_bug` explanation was wrong (see the lesson added to [[examples/ict3112-assignment2-verification-loop]]).
+- Output: `Assignment2/docs/report_revised.md` (about 1,500 words), original left unchanged.
+
 ## [2026-11-13] ingest | ICT3113 POD "Lec08" Learning Kubernetes & Docker Fundamentals (Dell)
 
 - Source: `raw/ICT3113 Performance Optimisation and Design - Lec08 Learning Kubernetes and Docker Fundamentals.md` (63 numbered slides)

@@ -65,6 +65,21 @@ existing link, refreshed in place as usual. Deleting a row just stops that
 module's daily generation; its existing Artifact page and log entry are
 left alone, not deleted.
 
+### Restricting a module to part of its syllabus
+
+A module's daily reads can be limited to a set of topic areas. These
+restrictions live in the **"Daily Read Topic Scopes"** section of
+`study-notes/index.md` — one entry per restricted module, listing what is
+in scope, what is out, and how the lab slot is handled. Currently:
+
+- **INF2005** (set 2026-11-16): Social Engineering (low weight), System
+  Security and Malware, Network Security and Defences, System and Network
+  Forensics, IoT Security or Attacks — nothing else.
+
+To change or lift a restriction, edit that section of the index; a module
+with no entry there covers its full syllabus. Nothing in `agents/tutor.md`
+or this skill needs to change.
+
 ---
 
 ## How It Works

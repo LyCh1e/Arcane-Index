@@ -1,7 +1,7 @@
 ---
 type: index
 title: "Study Notes — Index"
-updated: 2026-11-13
+updated: 2026-11-16
 tags: [index, study-notes]
 ---
 
@@ -25,6 +25,68 @@ All exam notes and formula sheets in this folder. Each module has a full notes f
 | INF2005 | Cyber Security Fundamentals | `inf2005` | [[INF2005 - Cyber Security Fundamentals Exam Notes]] | [[INF2005 - Formula Sheet]] | yes |
 
 **Source Pattern** is matched against filenames in `wiki/sources/` — any source page whose filename contains the pattern belongs to that module.
+
+---
+
+## Daily Read Topic Scopes
+
+> [!info] Read by the tutor agent on every daily-read run
+> A module with an entry below is restricted to part of its syllabus: **every** topic on its daily-read page — lecture subtopics, the lab section, and all 20 quiz questions — must come from inside that scope. A module with no entry covers its full syllabus as usual. Only the user sets or changes these; edit or delete an entry here to change or lift a restriction — nothing in `agents/tutor.md` needs to change. This affects the daily reads only, not the study notes or formula sheets.
+
+### INF2005 — restricted to five topic areas (set by the user on 2026-11-16, in force until the user changes it)
+
+| # | In-scope topic area | Where it lives in the INF2005 notes file |
+|---|---|---|
+| 1 | Social Engineering (self-study, Week 6) — **low weight: fewer than 3 exam questions** | §8 Social Engineering |
+| 2 | System Security and Malware (Week 8) | §9 Malware, §10 System Security |
+| 3 | Network Security and Defences (Week 9) | §11 Network Security Attacks, §11A Network Security Defence |
+| 4 | System and Network Forensics (Week 10) | §11B Digital Forensics |
+| 5 | IoT Security or Attacks (self-study, Week 11) | §11C IoT Security |
+
+**Out of scope — do not select, write about, or quiz on:** §1 Foundations,
+§2 Symmetric Cryptography, §3 Asymmetric Cryptography, §4 Hashing, Digital
+Signatures & Cryptanalysis, §5 Steganography, §6 Access Control and §7
+Ethical Hacking, and the two lab files that belong to them
+(`inf2005-lab-wk1-cryptography.md`, `inf2005-acw1-stego-verification.md`).
+From §12/§13 (summary tables, common exam mistakes) use only the rows that
+concern an in-scope area.
+
+How to work inside this scope:
+
+- **Weighting.** Spread the lecture subtopics evenly across areas 2–5.
+  Social Engineering (area 1) carries little exam weight, so give it at
+  most **one** subtopic on a page, never on two consecutive runs, and
+  roughly one run in three at most.
+- **More depth for the short sections.** §11A, §11B and §11C are brief in
+  the notes file. Also read their full concept pages —
+  `wiki/concepts/network-security-defence.md`,
+  `wiki/concepts/digital-forensics.md`, `wiki/concepts/iot-security.md` —
+  and, for Social Engineering, `wiki/sources/inf2005-csf-social-engineering.md`,
+  so each area splits into several distinct subtopics (e.g. forensics:
+  evidence integrity & the Pollitt model; Windows artefacts; Linux
+  artefacts; web-log attack signatures; packet analysis & scan detection)
+  rather than one catch-all subtopic repeated every few days.
+- **A smaller pool repeats sooner.** The "not in the last 5 runs" rule will
+  often be impossible to satisfy. Apply the tutor's usual fallback (pick the
+  in-scope subtopic covered longest ago) and take a genuinely different
+  angle, example and set of sub-facts from its last appearance — the
+  same way a revisited lab file gets a new angle. The rule that a subtopic
+  must not repeat from the immediately previous run still holds.
+- **Lab slot.** The only in-scope lab file today is
+  `inf2005-acw3-mod-dav-fs-proppatch-dos.md` (a web-server DoS — system and
+  network security). Use it for the lab section only when it was **not**
+  the lab on the previous run and a new angle on it is available;
+  otherwise fill the fourth slot with a **fourth in-scope lecture
+  subtopic** instead, so the page still has four sections and 20 questions
+  (about 5 each). Any INF2005 lab file added later joins the lab pool only
+  if its subject falls inside the five areas.
+- **Quiz.** Every question tests in-scope content. An out-of-scope idea
+  may appear only where an in-scope topic genuinely relies on it (e.g.
+  SHA-256 hashing for evidence integrity in forensics) and must never be
+  the thing being tested.
+- **Rotation history.** INF2005 entries dated before 2026-11-16 in
+  `study-notes/log.md` include out-of-scope topics; leave them as a
+  historical record and ignore them when choosing.
 
 ---
 

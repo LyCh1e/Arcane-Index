@@ -10,7 +10,11 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
-2026-11-13 (ingest, latest). **Session: ingest — ICT3113 "Lec08" Learning Kubernetes & Docker Fundamentals.** No new pages: the file is the same Dell deck already ingested as Lec 11–12 (63 numbered slides, identical text), so [[sources/ict3113-pod-lec11-12-kubernetes-docker]] was extended with the monolith and container details it lacked and the self-paced course material (Docker assessment 25 questions, 80% pass; ten-module Exploring Kubernetes course; learning path Kickstart, Docker course, Retrospective). Lec08 is the "Intro" session. **It does not contain the Week 12 lab's method** (pools, hold time, three causes), so that method has no source in the vault beyond the lab deck; the Week 12 pages now say so.
+2026-11-14 (writer + editor). **Session: ICT3112 Assignment 2 report check.** The `docs/report.md` draft was compared with the deliverable (at most four pages: results, decisions, implementation approach); the assignment PDF is password-protected, so the check used the user's wording. Revised draft saved as `Assignment2/docs/report_revised.md`. **Lesson:** the original Table 1 contradicted the saved logs for three benchmarks, and the `sum_bug` explanation was wrong: the repair fixed overflow goals, while the Annotator's first contract already matched the buggy `i <= n` loop. Nothing in the loop compares contract with English comment except the user review. Details in [[examples/ict3112-assignment2-verification-loop]].
+
+## Previous Session
+
+2026-11-13 (ingest). **Session: ingest — ICT3113 "Lec08" Learning Kubernetes & Docker Fundamentals.** No new pages: the file is the same Dell deck already ingested as Lec 11–12 (63 numbered slides, identical text), so [[sources/ict3113-pod-lec11-12-kubernetes-docker]] was extended with the monolith and container details it lacked and the self-paced course material (Docker assessment 25 questions, 80% pass; ten-module Exploring Kubernetes course; learning path Kickstart, Docker course, Retrospective). Lec08 is the "Intro" session. **It does not contain the Week 12 lab's method** (pools, hold time, three causes), so that method has no source in the vault beyond the lab deck; the Week 12 pages now say so.
 
 ## Previous Session
 

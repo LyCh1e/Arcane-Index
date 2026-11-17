@@ -72,6 +72,19 @@ proc = subprocess.run(cmd, input=message.encode(), capture_output=True)
 
 ## Verified Results
 
-- `swap.c` — 11/11 goals, 1 iteration, 12s
-- `array_max.c` — 22/22 goals (with loops), 1 iteration, 22s
-- `sum_bug.c` — repair loop exercises guard checks (agent tried axioms, correctly rejected)
+Figures from `logs/` and `workspace/state_*.json` (runs of 2026-11-10; time = state `start_time` to last log entry):
+
+| Benchmark | Goals | Verification runs | Agent calls | Time (s) |
+|---|---|---|---|---|
+| `swap.c` | 11/11 | 1 | 1 | 12 |
+| `max_value.c` | 8/8 | 1 | 1 | 13 |
+| `copy_array.c` | 19/19 | 1 | 1 | 17 |
+| `abs_value.c` | 11/11 | 1 | 2 (first annotation altered code, rejected) | 40 |
+| `array_max.c` | 22/22 | 1 | 1 | 48 |
+| `sum_bug.c` | 19/19 | 2 | 2 | 100 |
+
+## Lessons
+
+- **Verified does not mean correct.** In `sum_bug.c` (loop `i <= n`, comment "first n elements") the three unproved goals after annotation were signed-overflow goals, not the bug. The array-access goals were already proved, so the Annotator's first contract already required `\valid_read(a + (0 .. n))`, matching the loop instead of the comment. The Repair agent fixed overflow with `fix_contract` and the run ended at 19/19. Nothing in the loop compares contract with English comment except the user review, so a contract that matches the code produces no failing goal. The first report draft misattributed this to the repair agent adapting the contract to the bug.
+- **Check report numbers against the logs.** The first draft's table for `swap`, `array_max` and `copy_array` (iterations, agent calls, times) did not match the saved logs; only `max_value`, `abs_value` and `sum_bug` did.
+- **Coverage gap.** Every benchmark already had a `/*!` comment, so the Describer agent was never exercised.
