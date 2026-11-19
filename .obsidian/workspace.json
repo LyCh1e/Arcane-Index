@@ -51,7 +51,8 @@
               "title": "Graph view"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -240,8 +241,14 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "632b2c1c466ec5b8",
+  "active": "aa21592bb12da3f9",
   "lastOpenFiles": [
+    "wiki/sources/trading-autoresearch-2026-11-19.md",
+    "wiki/concepts/perpetual-dex-landscape.md",
+    "wiki/concepts/technical-indicators-and-risk-sizing.md",
+    "wiki/concepts/order-book-and-execution-costs.md",
+    "wiki/concepts/candlestick-charts-and-patterns.md",
+    "wiki/concepts/perpetual-futures.md",
     "study-notes/sedusTHSS",
     "wiki/examples/ict3113-lec09-worked-examples.md",
     "wiki/concepts/saga-pattern.md",
@@ -262,7 +269,6 @@
     "study-notes/ICT3113 - Performance Testing and Optimisation Cheat Sheet.md.tmp.8852.bfa2f3ce0216",
     "study-notes/ICT3113 - Performance Testing and Optimisation Cheat Sheet.md.tmp.8852.8a7e9e94e85c",
     "study-notes/ICT3113 - Performance Optimisation Exam Notes.md.tmp.8852.105a1e161e17",
-    "study-notes/ICT3113 - Performance Optimisation Exam Notes.md.tmp.8852.8bb5894ad41c",
     "wiki/examples/ict3113-lab-wk11-load-stress-build-c.md",
     "wiki/examples/ict3113-lab-wk12-slow-endpoint-worked.md",
     "wiki/concepts/connection-pool-diagnosis.md",
@@ -273,11 +279,6 @@
     "raw/ICT3113 Performance Optimisation and Design - Lec07_transcript.md",
     "wiki/examples/ict3112-frama-c-lab3-loops-run.md",
     "wiki/sources/ict3112-frama-c-lab3-loops.md",
-    "wiki/examples/learnix-usage-graph-and-fast-theme-session.md",
-    "wiki/concepts/digital-forensics.md",
-    "wiki/concepts/network-security-defence.md",
-    "wiki/sources/inf2005-csf-digital-forensics.md",
-    "wiki/sources/inf2005-csf-network-security-defence.md",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",

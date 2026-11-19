@@ -20,6 +20,7 @@ Master catalog of all pages. Updated on every ingest.
 
 | Page | Type | Domain | Date |
 |------|------|--------|------|
+| [[sources/trading-autoresearch-2026-11-19\|Trading Autoresearch — Perpetuals, Candles, Order Books]] | web-research | trading | 2026-11-19 |
 | [[sources/ICT2113-software-modelling\|ICT2113 Software Modelling & Analysis]] | course | software-engineering | 2026-05-11 |
 | [[sources/ICT2216-secure-software-development\|ICT2216 Secure Software Development]] | course | secure-software-development | 2026-05-11 |
 | [[sources/INF1008-data-structures-algorithms\|INF1008 Data Structures & Algorithms]] | course | computer-science | 2026-05-11 |
@@ -151,6 +152,11 @@ Master catalog of all pages. Updated on every ingest.
 
 | Page | Domain | Complexity |
 |------|--------|------------|
+| [[concepts/perpetual-futures\|Perpetual Futures (Perps)]] | trading | medium |
+| [[concepts/perpetual-dex-landscape\|Perpetual DEX Landscape (2026)]] | trading | medium |
+| [[concepts/candlestick-charts-and-patterns\|Candlestick Charts, OHLC and Common Patterns]] | trading | low |
+| [[concepts/order-book-and-execution-costs\|Order Books, Spread, Slippage and Maker–Taker Fees]] | trading | low |
+| [[concepts/technical-indicators-and-risk-sizing\|Technical Indicators and Volatility-Based Risk Sizing]] | trading | medium |
 | [[concepts/requirements-engineering\|Requirements Engineering]] | software-engineering | high |
 | [[concepts/lightweight-rcm\|Lightweight RCM (User Stories & UseCase 2.0)]] | software-engineering | medium |
 | [[concepts/algorithm-complexity\|Algorithm Complexity]] | computer-science | medium |

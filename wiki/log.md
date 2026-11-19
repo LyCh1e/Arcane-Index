@@ -10,6 +10,13 @@ tags: [meta, log]
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
 
+## [2026-11-19] autoresearch | Trading — perpetuals, candlesticks, order books, indicators
+
+- Trigger: wiki had no coverage; five web searches run and findings ingested.
+- Summary: [[sources/trading-autoresearch-2026-11-19]]
+- New: [[concepts/perpetual-futures]], [[concepts/perpetual-dex-landscape]], [[concepts/candlestick-charts-and-patterns]], [[concepts/order-book-and-execution-costs]], [[concepts/technical-indicators-and-risk-sizing]].
+- Updated: index.md, hot.md.
+
 ## [2026-11-19] ingest | ICT3113 POD Lec09 — Where a Database-Backed Request Spends Its Time
 
 - Source: `raw/ICT3113 Performance Optimisation and Design - Lec09 Where a Database-Backed Request Spends Its Time.md` (17 slides; footers read "x / 21", so printed pages 18 to 21 are absent)
