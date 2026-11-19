@@ -51,8 +51,7 @@
               "title": "Graph view"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -241,8 +240,14 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "aa21592bb12da3f9",
+  "active": "632b2c1c466ec5b8",
   "lastOpenFiles": [
+    "study-notes/sedusTHSS",
+    "wiki/examples/ict3113-lec09-worked-examples.md",
+    "wiki/concepts/saga-pattern.md",
+    "wiki/concepts/query-plans-and-slow-queries.md",
+    "wiki/concepts/n-plus-one-query-problem.md",
+    "wiki/sources/ict3113-pod-l9-database-request-time.md",
     "wiki/learning/claude-cli-tool-use-and-frama-c-zero-goals.md",
     "study-notes/index.md",
     "study-notes/log.md",
@@ -273,12 +278,6 @@
     "wiki/concepts/network-security-defence.md",
     "wiki/sources/inf2005-csf-digital-forensics.md",
     "wiki/sources/inf2005-csf-network-security-defence.md",
-    "wiki/synthesis/research-sorting-algorithms.md",
-    "wiki/concepts/simd-and-parallel-sorting.md",
-    "wiki/concepts/comparison-sort-lower-bound.md",
-    "wiki/concepts/non-comparison-sorting.md",
-    "wiki/concepts/hybrid-sorting-algorithms.md",
-    "wiki/concepts/shellsort.md",
     "canvases/password-hashing.canvas",
     "canvases/blockchain-hash-chain.canvas",
     "blockchain-hash-chain.canvas",

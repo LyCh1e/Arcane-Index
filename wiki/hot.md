@@ -2,13 +2,19 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-11-13
+updated: 2026-11-19
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-11-19 (ingest). **Session: ingest — ICT3113 Lec09 "Where a Database-Backed Request Spends Its Time".** New: [[sources/ict3113-pod-l9-database-request-time]], [[concepts/n-plus-one-query-problem]], [[concepts/query-plans-and-slow-queries]], [[concepts/saga-pattern]], [[examples/ict3113-lec09-worked-examples]]. Updated: [[concepts/connection-pool-diagnosis]], the Week 12 lab source page, ICT3113 study notes (§16.5), formula sheet and cheat sheet.
+
+**This is the lecture the Week 12 lab was missing.** One number, hold time: a pool of c connections serves at most c ÷ hold time requests per second, and hold time ≈ N × time per query + other time while borrowed. Three contributors, three instruments, three fixes: (1) too many queries, found in the **query log**, fixed by one join; (2) too much time per query, found in the **plan** (`EXPLAIN ANALYZE`), fixed by an index, a histogram for skewed data, or a rewrite that lets the index work; (3) other work while holding the connection, found in the **pool metrics**, fixed by splitting the transaction around the slow call (a **saga**: 305 ms to 8 ms, ceiling 33 to 1,250 req/s). A bigger pool is the last knob, not the first. The plan cannot see causes 1 and 3. **Gap:** printed slides 18 to 21, including the "huge data" slide, are not in the file.
+
+## Previous Session
 
 2026-11-14 (writer + editor). **Session: ICT3112 Assignment 2 report check.** The `docs/report.md` draft was compared with the deliverable (at most four pages: results, decisions, implementation approach); the assignment PDF is password-protected, so the check used the user's wording. Revised draft saved as `Assignment2/docs/report_revised.md`. **Lesson:** the original Table 1 contradicted the saved logs for three benchmarks, and the `sum_bug` explanation was wrong: the repair fixed overflow goals, while the Annotator's first contract already matched the buggy `i <= n` loop. Nothing in the loop compares contract with English comment except the user review. Details in [[examples/ict3112-assignment2-verification-loop]].
 

@@ -5,7 +5,7 @@ module: ICT3113
 lecturer: "A/Prof Donny Soh"
 tags: [study-notes, ict3113, performance-engineering, queueing-theory, exam-prep]
 created: 2026-09-14
-updated: 2026-11-13
+updated: 2026-11-19
 ---
 
 # ICT3113 Performance Optimisation and Design
@@ -1111,7 +1111,7 @@ Equivalent to the closed-form. Use when ρ is not in the table.
 ## 16. Labs, Weeks 11–12: Reading a Stress Table and Diagnosing a Slow Endpoint
 
 > [!note] Provenance
-> Both lab handouts have blank answer tables. The Week 11 figures below are method and arithmetic only (lab not yet run; the 8-core, S = 64 ms numbers are the lecture's, used as an illustration). The Week 12 answers are worked from the deck's data and are **not** an official solution. The Week 12 method has no source beyond the lab deck (the Lec08 file is the Dell Docker and Kubernetes Intro session, which does not cover pools). Wiki: [[wiki/examples/ict3113-lab-wk11-load-stress-build-c]], [[wiki/examples/ict3113-lab-wk12-slow-endpoint-worked]], [[wiki/concepts/connection-pool-diagnosis]].
+> Both lab handouts have blank answer tables. The Week 11 figures below are method and arithmetic only (lab not yet run; the 8-core, S = 64 ms numbers are the lecture's, used as an illustration). The Week 12 answers are worked from the deck's data and are **not** an official solution. The Week 12 method is taught in Lecture 09 (the lab calls it "Lecture 08"; the vault's Lec08 file is the Dell Docker and Kubernetes Intro session), see §16.5. Wiki: [[wiki/examples/ict3113-lab-wk11-load-stress-build-c]], [[wiki/examples/ict3113-lab-wk12-slow-endpoint-worked]], [[wiki/concepts/connection-pool-diagnosis]].
 
 ### 16.1 Reading a stress table by column (Week 11)
 
@@ -1179,6 +1179,24 @@ Data: knee 18 req/s, target 40, database CPU 22%, c = 10, hold 480 ms, wait 310 
 - **Where does the knee go?** To the next resource (inference): database CPU (22% at 18 req/s scales to about 49% at 40 req/s if linear), application worker threads (40 × 0.48 ≈ 19 requests in flight) or the downstream service. Re-run the stress test and compare the pool metrics with the prediction.
 - **Business-rule check before moving the work out:** does the other work need data read inside the transaction; does any write depend on its result (use a separate short transaction); does `last_seen` have to be atomic with it?
 
+### 16.5 Lecture 09: what each cause looks like and how it is fixed
+
+**One number: hold time.** Response time at the database tier = wait time + hold time. A pool of c connections serves at most c ÷ hold time requests per second. Shortening hold time raises the ceiling; a **bigger pool is the last knob, not the first** (it lets more queries run at once, and once the database is the limit it makes every query slower). Hold time ≈ N × average time per query + other time while borrowed: N and time per query **multiply**, other time **adds**.
+
+| Cause | Instrument | Tell-tale | Fix |
+|---|---|---|---|
+| 1. Too many queries (N+1) | Query log | 201 queries for one request; each looks perfect under `EXPLAIN` | One `LEFT JOIN` query (eager loading); `LEFT` so an order with no items still appears |
+| 2. Too much time per query | Plan (`EXPLAIN ANALYZE`) | Rows read far above rows kept; expected `rows=` far from actual | 2.1 add an index (most selective column first; composite for filter + range; each index slows writes). 2.2 histogram when values are skewed (`ANALYZE TABLE ... UPDATE HISTOGRAM ON col`). 2.3 rewrite: `DATE(col)` to a range on the bare column; match types (`'4242'` for VARCHAR); keyset paging instead of `OFFSET` |
+| 3. Other work while holding the connection | Pool metrics (hold vs query time) | Hold time far above query time, database idle, pool full | Split into short transactions around the slow call: reserve, call, finalise (a **saga**) |
+
+- **Which queries to tune:** rank by runs per second × elapsed time per run; the top three or four exceed half the database's time. 500 × 5 ms = 2.5 s beats 0.01 × 3 s = 0.03 s.
+- **Reading a plan:** read from the most indented line outward; own time ≈ finish time − child's finish time; compare expected and actual `rows=`. Test data must carry the real skew, or the plan right for test data is wrong in production.
+- **Saga:** T1…Tn each committed alone, each with compensation C1…Cn run in reverse on failure. Payment example: UNPAID → PROCESSING (reserve, keeps the double-charge guarantee `FOR UPDATE` gave) → charge with an **idempotency key** → PAID. Hold 305 ms → 8 ms, ceiling 33 → 1,250 req/s. A recovery job handles "charged but not recorded". Cost: intermediate states.
+- **Do not go straight to the plan:** it cannot see causes 1 and 3.
+- **After fixing, the knee moves** to the next resource (the 1,250 req/s is the pool's ceiling; the payment provider at 300 ms is next). Stress test again; if the knee did not move, the database was not the bottleneck or the wrong cause was fixed.
+
+Wiki: [[wiki/sources/ict3113-pod-l9-database-request-time]], [[wiki/concepts/query-plans-and-slow-queries]], [[wiki/concepts/n-plus-one-query-problem]], [[wiki/concepts/saga-pattern]], [[wiki/examples/ict3113-lec09-worked-examples]].
+
 ---
 
 ## Exam Strategy Checklist
@@ -1200,6 +1218,9 @@ Data: knee 18 req/s, target 40, database CPU 22%, c = 10, hold 480 ms, wait 310 
 6. Read a stress table **by column** (§16.1): knee from p95, ceiling from thr, failure mode from err, cpu_pct against 100/c %
 7. For a slow endpoint: pool or database at its limit? Then Hold time = N × t̄ + other time; one instrument per cause (§16.3)
 
+> [!tip] For database-request questions (Lecture 09):
+> Name the cause first (query log, plan or pool metrics), then its fix (§16.5). Never answer "a bigger pool" without saying what it leaves unfixed.
+
 > [!tip] For connection-pool questions:
 > Ceiling = c / S; utilisation = λS / c; waiting = λ × wait. Convert ms to s first, and put units on every line.
 
@@ -1215,6 +1236,8 @@ Data: knee 18 req/s, target 40, database CPU 22%, c = 10, hold 480 ms, wait 310 
 > - Blaming the database when its CPU is low and the pool is full: the connection is being held for non-database work
 > - Answering "a bigger pool" without saying what it leaves unfixed (latency per request, the cause, idle connections held)
 > - Treating the 10 ms connection hold time as the request's response time after the fix
+> - Reading the plan of one query to explain a slow request that sends 201 queries (the query log is the instrument for cause 1)
+> - Moving a slow call outside a transaction without keeping the guarantee the lock gave (reserve first, then call, then finalise)
 > - Mixing ms and s in c / S
 > - Reading a low `cpu_pct` as spare capacity: it may mean the service is using only one core (one core of 8 ≈ 12.5%)
 > - Declaring a stress test finished when throughput followed offered load to the top step: that is a lower bound, so go higher

@@ -33,6 +33,7 @@ tags: [index, concepts]
 | Data Engineering | 1 |
 | DevOps | 4 |
 | Cyber Security | 4 |
+| Performance Engineering (ICT3113 Lec09 additions) | 3 |
 
 ---
 
@@ -355,3 +356,15 @@ IT Ethics ───────────────────────�
   (ACM Code, professional duty to build       (security-by-design, responsible disclosure)
    secure systems)
 ```
+
+---
+
+## Performance Engineering (added with ICT3113 Lec09)
+
+| Page | Source | Complexity |
+|------|--------|------------|
+| [[concepts/n-plus-one-query-problem\|N+1 Query Problem]] | ict3113-pod-l9-database-request-time | medium |
+| [[concepts/query-plans-and-slow-queries\|Query Plans and Slow Queries]] | ict3113-pod-l9-database-request-time | high |
+| [[concepts/saga-pattern\|Saga Pattern]] | ict3113-pod-l9-database-request-time | medium |
+
+> Other ICT3113 concept pages (performance-engineering, performance-metrics, queueing-theory, connection-pool-diagnosis and others) are listed in [[index]].

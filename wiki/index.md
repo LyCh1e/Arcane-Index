@@ -2,7 +2,7 @@
 type: meta
 status: established
 title: "Wiki Index"
-updated: 2026-11-13
+updated: 2026-11-19
 tags: [meta, index]
 ---
 
@@ -116,6 +116,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3113-pod-l6\|ICT3113 POD — L6: JMeter Recap]] | lecture-slides | performance-engineering | 2026-09-24 |
 | [[sources/ict3113-pod-l7\|ICT3113 POD — L7: Performance Testing (slides + re-recorded transcript)]] | lecture-notes | performance-engineering | 2026-11-08 |
 | [[sources/ict3113-pod-lab-wk11-load-stress\|ICT3113 POD — Week 11 Lab (Lec07): Performance Testing, Load and Stress]] | lab-handout | performance-engineering | 2026-11-13 |
+| [[sources/ict3113-pod-l9-database-request-time\|ICT3113 POD — L9: Where a Database-Backed Request Spends Its Time]] | lecture-slides | performance-engineering | 2026-11-19 |
 | [[sources/ict3113-pod-lab-wk12-slow-endpoint\|ICT3113 POD — Week 12 Lab (Lec08): Diagnosing a Slow Endpoint]] | lab-handout | performance-engineering | 2026-11-13 |
 | [[sources/ict3113-pod-t04\|ICT3113 POD — Tutorial Week 04: Problem Sets 1 and 2]] | tutorial | performance-engineering | 2026-09-24 |
 | [[sources/ict3113-pod-t05\|ICT3113 POD — Tutorial Week 05: Performance Modelling]] | tutorial | performance-engineering | 2026-09-24 |
@@ -308,6 +309,9 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/ethical-hacking\|Ethical Hacking and Penetration Testing]] | secure-software-development | high |
 | [[concepts/queueing-theory\|Queueing Theory for Performance Engineering]] | performance-engineering | high |
 | [[concepts/connection-pool-diagnosis\|Connection Pool Diagnosis (Hold Time, Ceiling and Three Causes)]] | performance-engineering | high |
+| [[concepts/n-plus-one-query-problem\|N+1 Query Problem (Cause 1: Too Many Queries per Request)]] | performance-engineering | medium |
+| [[concepts/query-plans-and-slow-queries\|Query Plans and Slow Queries (Cause 2: Too Much Time per Query)]] | performance-engineering | high |
+| [[concepts/saga-pattern\|Saga Pattern (Short Transactions with Compensation)]] | performance-engineering | medium |
 | [[concepts/hoare-logic\|Hoare Logic]] | formal-verification | high |
 | [[concepts/loop-invariants\|Loop Invariants]] | formal-verification | high |
 | [[concepts/acsl-sorted-array-insert-pattern\|ACSL Pattern: Binary Search and Ordered Insertion]] | formal-verification | medium |
@@ -347,6 +351,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/ict3113-lab2-jmeter-testing\|ICT3113 Lab 2 — Introduction to Testing (Flask Profiling + JMeter)]] | lab | ICT3113 / performance-engineering | [[concepts/performance-metrics\|Performance Metrics]] |
 | [[examples/ict3113-lab-wk11-load-stress-build-c\|ICT3113 Week 11 Lab — Load and Stress Test on Build C (method, not yet run)]] | lab | ICT3113 / performance-engineering | [[concepts/performance-engineering\|Performance Engineering]] |
 | [[examples/ict3113-lab-wk12-slow-endpoint-worked\|ICT3113 Week 12 Lab — Diagnosing a Slow Endpoint (worked answers)]] | lab | ICT3113 / performance-engineering | [[concepts/connection-pool-diagnosis\|Connection Pool Diagnosis]] |
+| [[examples/ict3113-lec09-worked-examples\|ICT3113 Lecture 09 — Worked Numbers (pool ceilings, N+1, query ranking, plans, hold time)]] | tutorial | ICT3113 / performance-engineering | [[concepts/connection-pool-diagnosis\|Connection Pool Diagnosis]] |
 | [[examples/ict3113-a1-ticket-triage-service\|ICT3113 Assignment 1 — Ticket Triage Service (FastAPI + Ollama + Docker)]] | project | ICT3113 / performance-engineering | [[resources/ollama-local-inference\|Ollama]]; A2 cascade maths in [[concepts/model-cascade-break-even]] |
 | [[examples/ict3113-t04-worked-examples\|ICT3113 Tutorial Week 04 — Worked Examples (pipeline capacity, retries, replicas)]] | tutorial | ICT3113 / performance-engineering | [[concepts/queueing-theory\|Queueing Theory]] |
 | [[examples/ict3113-t05-worked-examples\|ICT3113 Tutorial Week 05 — Worked Examples (bounds, MapReduce, Erlang B)]] | tutorial | ICT3113 / performance-engineering | [[concepts/queueing-theory\|Queueing Theory]] |

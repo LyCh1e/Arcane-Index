@@ -4,8 +4,8 @@ title: "ICT3113 — Performance Testing and Optimisation Cheat Sheet"
 module: ICT3113
 tags: [study-notes, ict3113, cheat-sheet, performance-testing, performance-optimisation, formula-sheet, exam-prep]
 created: 2026-10-12
-sources: [Lec02, Lec03, Lec04, Lec05, Lec06, Lec07, Lab 1, Lab 2, Lab Wk11, Lab Wk12, Assignment 1, Tutorial Wk04, Tutorial Wk05]
-updated: 2026-11-13
+sources: [Lec02, Lec03, Lec04, Lec05, Lec06, Lec07, Lab 1, Lab 2, Lab Wk11, Lab Wk12, Lec09, Assignment 1, Tutorial Wk04, Tutorial Wk05]
+updated: 2026-11-19
 ---
 
 # ICT3113 — Performance Testing and Optimisation Cheat Sheet
@@ -708,6 +708,8 @@ Practical tips: read the CSV with `csv.DictReader` (quoted narratives contain ne
 | 1. Too many queries | Query log | $N$ and total query time |
 | 2. Too much time per query | Plan | Rows read vs returned; slow plan |
 | 3. Other work while holding the connection | Pool metrics | Hold − query time |
+
+**Lecture 09 fixes:** cause 1 → one joining query (eager loading), found in the query log · cause 2 → index (most selective column first), histogram for skew, or rewrite (no function on the column, matching types, no `OFFSET` paging), read from `EXPLAIN ANALYZE` expected vs actual `rows=` · cause 3 → split the transaction around the slow call (saga: reserve, call with idempotency key, finalise; 305 → 8 ms). A bigger pool is the last knob.
 
 **Method:** spot the pressure (pool or database?) → find the cause → choose the fix (the cause decides it) → predict, re-test, check the knee moved.
 

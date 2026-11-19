@@ -139,6 +139,14 @@ Course notes, papers, books, articles, and any material ingested into this vault
 |--------|---------|
 | [[sources/scrum-guide-2020\|2020 Scrum Guide]] | [[concepts/scrum-framework\|Scrum Framework]] |
 
+### Performance Engineering (ICT3113)
+| Page | Concepts |
+|------|----------|
+| [[sources/ict3113-pod-l9-database-request-time\|ICT3113 POD — L9: Where a Database-Backed Request Spends Its Time]] | [[concepts/connection-pool-diagnosis]], [[concepts/n-plus-one-query-problem]], [[concepts/query-plans-and-slow-queries]], [[concepts/saga-pattern]] |
+| [[sources/ict3113-pod-lab-wk12-slow-endpoint\|ICT3113 POD — Week 12 Lab: Diagnosing a Slow Endpoint]] | [[concepts/connection-pool-diagnosis]] |
+
+> Earlier ICT3113 sources (L1 to L7, labs, tutorials) are listed in [[index]]; this section starts with the Lec09 ingest.
+
 ## Papers & Articles
 
 ### AI Engineering

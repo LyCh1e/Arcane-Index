@@ -285,3 +285,10 @@ Transaction layer (S6):
 - [[concepts/nosql-and-data-warehousing]] — NoSQL trades ACID for availability/scale
 - [[concepts/data-structures-fundamentals]] — B-Trees covered from INF1008's algorithmic perspective
 - [[sources/INF2003-database-systems]] — Source course
+
+---
+
+## See Also (performance view)
+
+- [[concepts/query-plans-and-slow-queries]] — how indexes show up in `EXPLAIN ANALYZE` plans, composite indexes, and why each index slows writes (ICT3113 Lec09)
+- [[concepts/saga-pattern]] — keeping transactions short around slow external calls

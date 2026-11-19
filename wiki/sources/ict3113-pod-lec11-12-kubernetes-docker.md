@@ -25,7 +25,7 @@ related:
 > [!note] Two raw files, one deck
 > The deck was saved twice. The first file (ingested 2026-10-28) is headed "Industry Session (Weeks 11–12)". The second, `…Lec08 Learning Kubernetes and Docker Fundamentals.md` (ingested 2026-11-13), labels itself "Lecture 08, ICT3113" and numbers all **63 slides**. A slide-by-slide comparison shows the same slides in the same order with the same text; only the image descriptions differ. The second file adds nothing new to the concepts below except the course-access material in the last section, which this page previously left out.
 >
-> **Lec08 is this deck**, titled "Learning Docker & Kubernetes Fundamentals – Intro" (confirmed by the course owner). It does not cover connection pools, hold time or diagnosing a slow endpoint, although the Week 12 lab says it accompanies "Lecture 08" and relies on those topics. The vault therefore has no source for that method beyond the lab deck itself. See [[sources/ict3113-pod-lab-wk12-slow-endpoint]].
+> **Lec08 is this deck**, titled "Learning Docker & Kubernetes Fundamentals – Intro" (confirmed by the course owner). It does not cover connection pools, hold time or diagnosing a slow endpoint, although the Week 12 lab says it accompanies "Lecture 08" and relies on those topics. The method is taught in the `Lec09` file instead: see [[sources/ict3113-pod-l9-database-request-time]] (added 2026-11-19) and [[sources/ict3113-pod-lab-wk12-slow-endpoint]].
 
 ---
 

@@ -6,7 +6,7 @@ source-type: lab-handout
 course: ICT3113
 status: ingested
 created: 2026-11-13
-updated: 2026-11-13
+updated: 2026-11-19
 tags: [ict3113, lab, connection-pool, hold-time, little-law, diagnosis, query-log, explain-analyze, ai-generated-code]
 ---
 
@@ -18,7 +18,8 @@ tags: [ict3113, lab, connection-pool, hold-time, little-law, diagnosis, query-lo
 **Worked answers:** [[examples/ict3113-lab-wk12-slow-endpoint-worked]]
 **Method page:** [[concepts/connection-pool-diagnosis]]
 
-> **Gap:** the lab says "answer using the Lecture 08 content", but Lec08 in the vault is the Dell "Learning Docker & Kubernetes Fundamentals – Intro" session ([[sources/ict3113-pod-lec11-12-kubernetes-docker]]). It contains nothing on connection pools, hold time, query logs or `EXPLAIN ANALYZE`, so the pool, hold-time and three-causes method has no source in the vault except this lab deck. It may have been taught live or in material not yet added. Everything on this page comes from the lab deck and its reference slide.
+> [!note] Source found (2026-11-19)
+> The lab says "answer using the Lecture 08 content". The vault's `Lec08` file is the Dell Docker and Kubernetes session ([[sources/ict3113-pod-lec11-12-kubernetes-docker]]), but the method the lab uses (pools, hold time, three causes, four steps) is taught in [[sources/ict3113-pod-l9-database-request-time]] (the `Lec09` file). The lab's formulas and tables match that deck. The lab's "Lecture 08" label and the file name "Lec09" differ; treat them as one topic.
 
 ---
 
@@ -79,6 +80,8 @@ Notation: c pool size, S hold time (borrow to return), λ arrival rate, N querie
 ## Related pages
 
 - [[examples/ict3113-lab-wk12-slow-endpoint-worked]] — all answers worked through with units
+- [[sources/ict3113-pod-l9-database-request-time]] — the lecture that teaches this method
+- [[sources/ict3113-pod-l9-database-request-time]] — the lecture that teaches this method
 - [[concepts/connection-pool-diagnosis]] — the reusable method
 - [[sources/ict3113-pod-lab-wk11-load-stress]] — the previous lab, which finds a serialisation fault with the same c/S arithmetic
 - [[concepts/queueing-theory]] — M/M/c, ceilings and bottleneck analysis

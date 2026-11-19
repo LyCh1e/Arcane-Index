@@ -2,13 +2,24 @@
 type: meta
 status: established
 title: "Operation Log"
-updated: 2026-11-13
+updated: 2026-11-19
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## [2026-11-19] ingest | ICT3113 POD Lec09 — Where a Database-Backed Request Spends Its Time
+
+- Source: `raw/ICT3113 Performance Optimisation and Design - Lec09 Where a Database-Backed Request Spends Its Time.md` (17 slides; footers read "x / 21", so printed pages 18 to 21 are absent)
+- Summary: [[sources/ict3113-pod-l9-database-request-time]]
+- Pages created: [[sources/ict3113-pod-l9-database-request-time]], [[concepts/n-plus-one-query-problem]], [[concepts/query-plans-and-slow-queries]], [[concepts/saga-pattern]], [[examples/ict3113-lec09-worked-examples]]
+- Pages updated: [[concepts/connection-pool-diagnosis]] (now sourced to the lecture; fix column, wait + hold, symptoms), [[sources/ict3113-pod-lab-wk12-slow-endpoint]] (gap callout replaced), [[sources/ict3113-pod-lec11-12-kubernetes-docker]] (pointer to Lec09), [[concepts/database-indexing-transactions]], [[areas/performance-optimisation-design]], `wiki/index.md`, `wiki/sources/_index.md`, `wiki/concepts/_index.md`, `wiki/hot.md`; ICT3113 Exam Notes (§16.5), Formula Sheet, Cheat Sheet, `study-notes/index.md`
+- Key insight: this is the lecture that teaches the pool, hold-time and three-cause method the Week 12 lab relies on, which previously had no source beyond the lab deck. Hold time = N × time per query + other time while borrowed, and each cause has its own instrument (query log, plan, pool metrics) and fix (join, index/histogram/rewrite, saga).
+- Contradictions: none. The lab's formulas and tables match the deck; only the numbering differs (lab says "Lecture 08", file is Lec09).
+- Gap: the "huge data" slide referred to on slide 6 and printed pages 18 to 21 are not in the file.
+- Note: the PDF copy of the ICT3113 cheat sheet was not regenerated and still shows the pre-Lec09 text.
 
 ## [2026-11-14] writer+editor | ICT3112 Assignment 2 report checked against the deliverable
 

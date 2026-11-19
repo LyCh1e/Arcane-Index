@@ -574,6 +574,33 @@
       "pages_updated": [
         "wiki/sources/ict3112-hoare-exercises.md"
       ]
+    },
+    "raw/ICT3113 Performance Optimisation and Design - Lec09 Where a Database-Backed Request Spends Its Time.md": {
+      "hash": "be833b6a982a0e48e8c90690f89f35d9",
+      "ingested_at": "2026-11-19",
+      "pages_created": [
+        "wiki/sources/ict3113-pod-l9-database-request-time.md",
+        "wiki/concepts/n-plus-one-query-problem.md",
+        "wiki/concepts/query-plans-and-slow-queries.md",
+        "wiki/concepts/saga-pattern.md",
+        "wiki/examples/ict3113-lec09-worked-examples.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/connection-pool-diagnosis.md",
+        "wiki/sources/ict3113-pod-lab-wk12-slow-endpoint.md",
+        "wiki/sources/ict3113-pod-lec11-12-kubernetes-docker.md",
+        "wiki/concepts/database-indexing-transactions.md",
+        "wiki/areas/performance-optimisation-design.md",
+        "wiki/index.md",
+        "wiki/sources/_index.md",
+        "wiki/concepts/_index.md",
+        "study-notes/ICT3113 - Performance Optimisation Exam Notes.md",
+        "study-notes/ICT3113 - Formula Sheet.md",
+        "study-notes/ICT3113 - Performance Testing and Optimisation Cheat Sheet.md",
+        "study-notes/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
     }
   },
   "address_map": {
@@ -704,7 +731,12 @@
     "wiki/examples/ict3113-t04-worked-examples.md": "c-000126",
     "wiki/examples/ict3113-t05-worked-examples.md": "c-000127",
     "wiki/sources/inf2005-csf-iot-security.md": "c-000134",
-    "wiki/concepts/iot-security.md": "c-000135"
+    "wiki/concepts/iot-security.md": "c-000135",
+    "wiki/sources/ict3113-pod-l9-database-request-time.md": "c-000136",
+    "wiki/concepts/n-plus-one-query-problem.md": "c-000137",
+    "wiki/concepts/query-plans-and-slow-queries.md": "c-000138",
+    "wiki/concepts/saga-pattern.md": "c-000139",
+    "wiki/examples/ict3113-lec09-worked-examples.md": "c-000140"
   },
   "INF2005 Cyber Security Fundamentals - Social Engineering.md": {
     "ingested_at": "2026-10-16",

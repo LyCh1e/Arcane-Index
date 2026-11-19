@@ -3,7 +3,7 @@ type: study-notes
 title: "ICT3113 — Formula Quick Reference"
 tags: [study-notes, ict3113, formula-sheet, exam-prep]
 created: 2026-09-14
-updated: 2026-11-13
+updated: 2026-11-19
 ---
 
 # ICT3113 — Formula Quick Reference Sheet
@@ -209,6 +209,8 @@ $$\text{APDEX} = \frac{\text{Satisfied} + 0.5 \times \text{Tolerating}}{\text{To
 | 3. Other work while holding the connection | Pool metrics |
 
 **Worked case (c = 10, hold 480 ms, wait 310 ms, 4 queries = 10 ms, knee 18 req/s):** ceiling 20.8 req/s · utilisation 86.4% · 5.6 waiting · 790 ms ask-to-return · other time 470 ms (cause 3). Pool of 30: 62.5 req/s, 64% at 40 req/s. After the fix: hold 10 ms, ceiling 1,000 req/s, 4% at 40 req/s; response time still about 480 ms.
+
+**Lecture 09 (hold time):** response time at the DB tier = wait + hold · hold ≈ N × t̄ + other · ranking queries: runs/s × elapsed per run · pool of 10: hold 400 ms → 25 req/s; 100 ms → 100; 40 ms → 250 · wait example: 5 waiting at 20 req/s → 250 ms · payment saga: 305 ms → 8 ms, 33 → 1,250 req/s. Fixes: cause 1 join · cause 2 index / histogram / rewrite · cause 3 saga (short transactions).
 
 **Stress table by column:** p95 → knee · thr → ceiling · err → failure mode · cpu_pct → machine state (one core of $c$ ≈ $100/c$ %). Serialisation signature: ceiling ≈ $1/S$, CPU near idle, requests in service ≈ 1. Count check: `.jtl` count + 21 = server log lines.
 
