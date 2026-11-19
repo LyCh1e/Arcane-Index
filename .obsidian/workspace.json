@@ -50,23 +50,9 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
-          },
-          {
-            "id": "0679759f6fd1b037",
-            "type": "leaf",
-            "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": "study-notes/index.md",
-                "bFile": "study-notes/index.md",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: index  (Working Tree)"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -255,7 +241,7 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "477d24468535af82",
+  "active": "aa21592bb12da3f9",
   "lastOpenFiles": [
     "wiki/learning/claude-cli-tool-use-and-frama-c-zero-goals.md",
     "study-notes/index.md",

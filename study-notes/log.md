@@ -18,9 +18,9 @@ Each link is a persistent URL: republishing to the same URL updates the page's c
 
 | Module | Artefact URL | Last Published |
 |---|---|---|
-| ICT3112 | https://claude.ai/artifact/8CuL27NdrZqYRu1qBG9rJV | 2026-11-17 |
-| ICT3113 | https://claude.ai/artifact/VC19BXRWz158dszEdJ79G1 | 2026-11-17 |
-| INF2005 | https://claude.ai/artifact/Ar7Qj3yH2fua71nW2rXuUv | 2026-11-17 |
+| ICT3112 | https://claude.ai/artifact/8CuL27NdrZqYRu1qBG9rJV | 2026-11-19 |
+| ICT3113 | https://claude.ai/artifact/VC19BXRWz158dszEdJ79G1 | 2026-11-19 |
+| INF2005 | https://claude.ai/artifact/Ar7Qj3yH2fua71nW2rXuUv | 2026-11-19 |
 
 If a publish ever returns a different URL than the one listed here (for example, if an artefact was deleted), replace the affected row above with the new URL so future runs update the correct page. If a module is removed from `study-notes/index.md`, leave its row here untouched — never delete an Artefact page automatically.
 
@@ -235,31 +235,40 @@ If a publish ever returns a different URL than the one listed here (for example,
 > [!note] Run 68 on 2026-11-17 (second run today)
 > Before selecting topics, the live pages were read in full and matched this file's "run 67" entries (no unlogged gap). ICT3112 moved to Decision Table Testing, Hoare Logic (six rules & weakest preconditions) and Loop Invariants (four obligations & five-step recipe); its lab used `ict3112-lab1-nunit-tdd-calculator.md` (Divide contract, Factorial 20/21 boundary, red-green-refactor, MSB3021 locked-exe pitfall). ICT3113 moved to Percentiles, Tail Latency & SLI/SLO/SLA, the M/M/1 Single-Server Queue, and Performance Requirements, Test Environments & Reading Results; its lab revisited `ict3113-t04-worked-examples.md` (last used run 60) with a capacity-planning angle (yield, retries, Erlang sizing, read replicas). INF2005 (restricted scope) covered Social Engineering (Cialdini & attack types), OS Attacks/Privilege Escalation/Ransomware, Firewalls/IDS/IPS/VPNs, and IoT Security; no lab section because run 67 used the only in-scope lab, so a fourth lecture subtopic filled the slot, and the quiz split was 2/6/6/6 to keep Social Engineering low-weight. All 60 questions passed the programmatic checks (0 entity leaks, 0 length-tell failures, 5/5/5/5 positions). Pages were republished in place (ICT3112 v85, ICT3113 v86, INF2005 v86). Generators were rebuilt from the live pages' source because the project copy only returned inline text; the project generator is unchanged. Reading time stayed at the 10-minute floor.
 
+> [!note] Run 69 on 2026-11-18
+> Live pages were read and matched run 68 before republishing. INF2005 had no lab section (fourth lecture subtopic used instead).
+
+> [!note] Run 70 on 2026-11-19
+> Live pages were read and matched run 69 before republishing. One INF2005 attempt was halted before publishing while drafting an exploit-style lab section, so the module was rebuilt with four conceptual lecture subtopics and no lab. All 60 questions passed the programmatic checks (0 entity leaks, 0 length-tell failures, 5/5/5/5 positions). Pages were republished in place (ICT3112 v87, ICT3113 v88, INF2005 v88). Reading time stayed at the 10-minute floor.
+
 ## Topic Rotation History
 
 Tracks roughly the last 5 runs' subtopics per module, so the tutor agent can avoid repeating recent content without needing to scan local daily files (there are none). Each run appends its selections to the relevant module's list and prunes older entries down to about 5. A module new to the index simply starts with an empty list here.
 
 ### ICT3112
-- 2026-11-12 (unlogged run, found live): Static Analysis — Data Flow Defect Classes & When It Runs; Basis Path Testing & LCSAJ; State Transition Testing — 0-Switch & 1-Switch Coverage; [Lab] Selenium Browser Testing — Explicit Waits, Page Object & the Two-Hosting-Modes Fixture
 - 2026-11-13 (run 64): Root Causes of Poor Software Quality — the Six DORA Categories; Boundary Value Analysis (BVA); Logarithmic Musa Reliability Model; [Lab] Frama-C Pointer Contracts — \valid, \separated & the ex1–ex6 Exercises (ict3112-frama-c-lab3-pointers-run.md)
 - 2026-11-15 (run 65): The V-Model & Verification vs Validation Across the Lifecycle; The Four Testing Levels & the Testing Pyramid; Use Case Testing; [Lab] CI Pipeline Design, Trust & Regression Proofs (ict3112-lab3-ci-and-dependencies.md)
 - 2026-11-15 (run 66, second run today): Eight Good Testing Practices & Goodhart's Law in Testing; Basic Musa Reliability Model; Error → Defect → Failure Chain & the Formality Spectrum; [Lab] AI-Assisted Verification Loop — Guard Checks & "Verified ≠ Correct" (ict3112-assignment2-verification-loop.md)
 - 2026-11-17 (run 67): The Seven ISTQB Principles; Core Reliability Metrics — MTTF, MTTR, MTBF, Availability & Defect Density; Cyclomatic Complexity & the Coverage Criteria Hierarchy; [Lab] Frama-C Lab 1 Revisited — Specification Quality, Vacuous Proofs & Behaviour Completeness (ict3112-frama-c-lab1-first-steps.md)
 - 2026-11-17 (run 68, second run today): Decision Table Testing; Hoare Logic — Triples, the Six Rules & Weakest Preconditions; Loop Invariants — Four Obligations & the Five-Step Recipe; [Lab] NUnit & TDD Calculator — Test Structure, Boundaries & Red–Green–Refactor (ict3112-lab1-nunit-tdd-calculator.md)
+- 2026-11-18 (run 69): Equivalence Partitioning (EP); Famous Software Failures, the Cost of Poor Quality & Regression Testing; Frama-C & ACSL — Contracts, Runtime Errors & Vacuity; [Lab] Reqnroll BDD — Gherkin, Step Bindings & Context Injection (ict3112-lab2-reqnroll-bdd.md)
+- 2026-11-19 (run 70): Boundary Value Analysis (BVA); Static Analysis — Data Flow Defects & When It Runs; Logarithmic Musa Model & Defect Density; [Lab] Frama-C Loops — Reading a Run Table & the Five Wrong-Variant Claims (ict3112-frama-c-lab3-loops-run.md)
 
 ### ICT3113
-- 2026-11-10 (run 63): Workload Identification; Operational Laws; Lost Work & the Erlang B Formula; [Lab] JMeter Revisited — the Knee, the Observer Effect & the View Results Tree Pitfall (ict3113-lab2-jmeter-testing.md)
 - 2026-11-13 (run 64): The Three Classes of Metrics (Demand/Supply/Outcome); Little's Law & the Observation Boundary Effect; Multi-Server Queues (M/M/c); [Lab] Reading a Stress Table by Column — the Knee, Ceiling & the c/S Formula (ict3113-lab-wk11-load-stress-build-c.md)
 - 2026-11-15 (run 65): The Four Sources Framework; Kingman's Formula & G/G/1 Variability; Performance Testing — the Six Test Types; [Lab] Diagnosing a Slow Endpoint, Revisited (ict3113-lab-wk12-slow-endpoint-worked.md)
 - 2026-11-15 (run 66, second run today): Six Properties of a Good Metric — LRRECI; Utilisation Law (U = X × S) & the Utilisation–Response-Time Curve; Workload Estimation — the Decomposition Chain, Peak vs Average & Common Mistakes; [Lab] The MapReduce Execution Model — the Three-Phase Formula & Optimal Processor Count (ict3113-t05-worked-examples.md)
 - 2026-11-17 (run 67): The Core Loop & Classical Optimisation Techniques; Bottleneck Analysis — Capacity Bottleneck vs Congestion Hotspot, Throughput Ceilings & the Three Levers; Open vs Closed Systems & the Interactive Response Time Law; [Lab] Profiling in Practice — Deterministic vs Statistical Overhead (ict3113-lab1-profiling.md)
 - 2026-11-17 (run 68, second run today): Percentiles, Tail Latency & SLI/SLO/SLA; The M/M/1 Single-Server Queue; Performance Requirements, Test Environments & Reading Results; [Lab] Capacity Planning — Retries, Erlangs & Read Replicas (ict3113-t04-worked-examples.md)
+- 2026-11-18 (run 69): Response Time R = W + S & User Perception Thresholds; Variability — Coefficient of Variation, Sakasegawa & Mixed Workloads; Open vs Closed-Loop Load Generation & JMeter Plan Sizing; [Lab] Ticket Triage Baseline — Building a Deliberately Naive Service (ict3113-a1-ticket-triage-service.md)
+- 2026-11-19 (run 70): Operational Laws — Forced Flow, Service Demand & the Service Demand Law; Lost Work & the Erlang B Formula; Case Studies — the Online Service's Three Windows & the Wafer Fab; [Lab] JMeter, flask-profiler & the "Recursive Use of Cursors" Crash (ict3113-lab2-jmeter-testing.md)
 
 ### INF2005
 > Scope since 2026-11-16: Social Engineering (low weight) · System Security and Malware · Network Security and Defences · System and Network Forensics · IoT Security or Attacks only — see "Daily Read Topic Scopes" in `study-notes/index.md`. Earlier entries below include out-of-scope topics.
-- 2026-11-10 (run 63): RSA & One-Way Functions; Password Security — Secure Storage, Attacks & the Passphrase Technique; System Security — Hardware, Software, Hypervisor & OS Attacks; [Lab] Stego Verification Revisited — Carrier Design & the Two Independent Integrity Mechanisms (inf2005-acw1-stego-verification.md)
 - 2026-11-13 (run 64): IoT Security — Five Device Challenges & Eight IoT Attacks; Hash Functions, Digital Signatures & the Birthday Attack; Network Security Attacks — DoS/DDoS, ARP Spoofing & Packet Sniffing; [Lab] Cryptography Revisited — Peeling Encodings & the Self-Describing Puzzle, Part B (inf2005-lab-wk1-cryptography.md)
 - 2026-11-15 (run 65): Modern Symmetric Algorithms — DES, 3DES & AES; LSB & BPCS Steganography Algorithms; The CIA Triad & Kerckhoffs's Principle; [Lab] mod_dav_fs ProppatchDoS, Revisited — CWE-190 Root Cause & Trigger Conditions (inf2005-acw3-mod-dav-fs-proppatch-dos.md)
 - 2026-11-15 (run 66, second run today): The Key Distribution Problem & Diffie–Hellman Key Exchange; Authentication Beyond Passwords — Graphical, Token & Biometric Methods; Ethical Hacking's Legal Line — the Computer Misuse Act, Hacker Types & Pen Testing Approaches; [Lab] Stego Verification, Revisited — Engineering Complete Verdict Coverage (inf2005-acw1-stego-verification.md)
 - 2026-11-17 (run 67, first in-scope run): Malware — the Three Core Types (Virus, Worm, Trojan); ARP Spoofing & Packet Sniffing — MitM on a Switched Network; Digital Forensics — Evidence Integrity & the Pollitt Model; [Lab] mod_dav_fs DoS — the Evidence Trail & the Defence-in-Depth Stack (inf2005-acw3-mod-dav-fs-proppatch-dos.md)
 - 2026-11-17 (run 68, second run today, no lab — fourth lecture subtopic instead): Social Engineering — Cialdini's Principles & Attack Types; OS Attacks, Privilege Escalation & Ransomware; Firewalls, IDS/IPS & VPNs — Network Defence; IoT Security — Five Challenges & Eight Attacks
+- 2026-11-18 (run 69, no lab — fourth lecture subtopic instead): Malware — Infection Vectors, Triggers, Evasion & Signs of Infection; Denial of Service — DoS, DDoS, DRDoS & the Evil Twin; Digital Forensics — Evidence on Windows, Linux & the Network; Reading Traces — Web-Log Signatures, Packet Analysis & Port-Scan Detection
+- 2026-11-19 (run 70, no lab — fourth lecture subtopic instead): System Attacks Below the Application — Hardware, Software & Hypervisor; Firewall Rule Sets, DMZ Design & Stateless vs Stateful Filtering; Forensic Evidence Integrity — Hashing, Preservation & the Pollitt Model; IoT Security — Why Devices Are Easy Targets & How to Defend Them
