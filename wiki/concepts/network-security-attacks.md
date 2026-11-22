@@ -164,6 +164,8 @@ Port scanning probes a host's TCP/UDP ports to determine which are **open, close
 | Focused | `nmap -p <port> <ip>` | Single or range of ports |
 | Zenmap Quick | `nmap -T4 -F <ip>` | Top 100 ports; timing level 4 (faster) |
 
+The full option set (SYN, UDP, OS and version detection, NSE scripts) is in [[concepts/nmap-scan-types]]; reading the resulting traffic is in [[concepts/wireshark-packet-analysis]].
+
 Findings are cross-referenced with **cve.mitre.org** and **nvd.nist.gov** to check for known exploits against open services.
 
 ---

@@ -142,6 +142,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/inf2005-csf-network-security-defence\|INF2005 CSF — Network Security: Introduction to Network Defence]] | lecture-notes | cyber-security | 2026-11-02 |
 | [[sources/inf2005-csf-digital-forensics\|INF2005 CSF — System and Network Forensics]] | lecture-notes | cyber-security | 2026-11-02 |
 | [[sources/inf2005-csf-iot-security\|INF2005 CSF — IoT Security: Introduction to Attack and Exploits]] | lecture-notes | cyber-security | 2026-11-13 |
+| [[sources/inf2005-week10-tutorial-scanning-packet-analysis\|INF2005 Week 10 Tutorial — Network Scanning and Packet Analysis]] | tutorial | cyber-security | 2026-11-22 |
 | [[sources/ict3113-pod-lec11-12-kubernetes-docker\|ICT3113 POD — Lec 11–12 / "Lec08": Learning Kubernetes and Docker Fundamentals (Dell)]] | lecture-slides | performance-engineering | 2026-10-28 |
 | [[sources/cpython-listsort-timsort-powersort\|CPython listsort.txt: Timsort and Powersort]] | official-documentation | computer-science | 2026-10-31 |
 | [[sources/pdqsort-peters-2021\|Pattern-defeating Quicksort (Peters, 2021)]] | paper | computer-science | 2026-10-31 |
@@ -327,6 +328,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/network-security-defence\|Network Security — Defence]] | cyber-security | high |
 | [[concepts/digital-forensics\|Digital Forensics — System and Network]] | cyber-security | high |
 | [[concepts/iot-security\|IoT Security — Attacks and Exploits]] | cyber-security | high |
+| [[concepts/nmap-scan-types\|Nmap Scan Types and Options]] | cyber-security | medium |
+| [[concepts/wireshark-packet-analysis\|Wireshark Packet Analysis — Reading Captures]] | cyber-security | medium |
 | [[concepts/cloud-native\|Cloud Native]] | devops | high |
 | [[concepts/heapsort\|Heapsort]] | computer-science | medium |
 | [[concepts/shellsort\|Shellsort]] | computer-science | medium |
@@ -383,6 +386,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/hedera-hts-hcs-batch-js\|Hedera HTS, HCS, and Batch Transactions — JavaScript (TokenCreate, TopicCreate, HIP-551, HIP-904)]] | code-session | blockchain | [[concepts/hedera-network\|Hedera Network]] |
 | [[examples/inf2005-lab-wk1-cryptography\|INF2005 Lab Wk 1 — Cryptography (Ciphers, Cryptanalysis & RSA Team Challenge)]] | lab | INF2005 / cryptography | [[concepts/classical-ciphers-and-cryptanalysis\|Classical Ciphers and Cryptanalysis]] |
 | [[examples/inf2005-acw1-stego-verification\|INF2005 ACW1 — Steganographic Integrity Verification with Digital Signatures]] | project | INF2005 / secure-software-development | [[concepts/steganography\|Steganography]] |
+| [[examples/inf2005-week10-tutorial-worked-answers\|INF2005 Week 10 Tutorial — Worked Answers for the Packet Captures (Tasks 5–8)]] | tutorial | INF2005 / cyber-security | [[concepts/wireshark-packet-analysis\|Wireshark Packet Analysis]] |
 | [[examples/ict3112-hoare-exercises-worked\|ICT3112 Hoare Logic — Key Worked Proofs]] | practice | ICT3112 / formal-verification | [[concepts/hoare-logic\|Hoare Logic]] |
 | [[examples/ict3112-frama-c-labs-0-2\|ICT3112 Frama-C Labs 0–2 — Install, Contracts, Loops]] | lab | ICT3112 / formal-verification | [[concepts/loop-invariants\|Loop Invariants]] |
 | [[examples/ict3112-frama-c-lab0-installation\|ICT3112 Frama-C Lab 0 — Installation]] | lab | ICT3112 / formal-verification | [[resources/frama-c\|Frama-C]] |

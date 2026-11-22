@@ -39,13 +39,13 @@
         "haiku",
         "sonnet",
         "opus",
-        "claude-fable-5[1m]"
+        "claude-fable-5-2[1m]"
       ],
       "selectedModels": [
         {
           "value": "opus",
-          "label": "Opus 5.5",
-          "description": "For complex work and everyday tasks",
+          "label": "Opus",
+          "description": "Opus 5.5 · Best for everyday, complex tasks · ~2× usage vs Sonnet",
           "resolvedModel": "claude-opus-5-5",
           "reasoningMetadataResolved": true,
           "supportedEffortLevels": [
@@ -57,9 +57,23 @@
           ]
         },
         {
+          "value": "claude-fable-5-2[1m]",
+          "label": "Fable",
+          "description": "Fable 5.2 · Most capable for your hardest and longest-running tasks",
+          "resolvedModel": "claude-fable-5-2[1m]",
+          "reasoningMetadataResolved": true,
+          "supportedEffortLevels": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        {
           "value": "sonnet",
-          "label": "Sonnet 5.5",
-          "description": "Most efficient for simpler tasks",
+          "label": "Sonnet",
+          "description": "Sonnet 5.5 · Efficient for routine tasks",
           "resolvedModel": "claude-sonnet-5-5",
           "reasoningMetadataResolved": true,
           "supportedEffortLevels": [
@@ -72,8 +86,8 @@
         },
         {
           "value": "haiku",
-          "label": "Haiku 5.5",
-          "description": "Fastest for quick answers",
+          "label": "Haiku",
+          "description": "Haiku 5.5 · Fastest for quick answers",
           "resolvedModel": "claude-haiku-5-5",
           "reasoningMetadataResolved": true,
           "supportedEffortLevels": [

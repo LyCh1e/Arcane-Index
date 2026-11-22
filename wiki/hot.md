@@ -2,7 +2,7 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-11-19
+updated: 2026-11-22
 tags: [meta, hot-cache]
 ---
 
@@ -10,9 +10,15 @@ tags: [meta, hot-cache]
 
 ## Last Updated
 
-2026-11-19 (autoresearch). **Session: trading primer — perpetuals, candles, order books, indicators.** New: [[sources/trading-autoresearch-2026-11-19]], [[concepts/perpetual-futures]], [[concepts/perpetual-dex-landscape]], [[concepts/candlestick-charts-and-patterns]], [[concepts/order-book-and-execution-costs]], [[concepts/technical-indicators-and-risk-sizing]]. Key points: a perp has no expiry, so a funding rate (longs pay shorts when the perp trades above the index) anchors it to spot; liquidation uses the **mark price**, not the last price; round-trip cost is spread + slippage + maker/taker fees, which can swamp the 55–60% win rates reported for candlestick patterns; size positions from ATR and check the liquidation price sits beyond the stop. **Gaps:** options, open interest, backtesting methodology.
+2026-11-22 (ingest). **Session: ingest — INF2005 Week 10 Tutorial, Network Scanning and Packet Analysis.** New: [[sources/inf2005-week10-tutorial-scanning-packet-analysis]], [[examples/inf2005-week10-tutorial-worked-answers]], [[concepts/nmap-scan-types]], [[concepts/wireshark-packet-analysis]]. Updated: [[concepts/digital-forensics]], [[concepts/network-security-attacks]], INF2005 study notes (§11B) and formula sheet.
+
+**Cleartext protocols give everything away; the trace shape tells you the attack.** From the captures: Telnet login `fake` / `user` (OpenBSD host); FTP showed 1,406 password attempts (703 distinct words, each against `admin` and `administrator`) with only `530` failures, a dictionary brute force that did not succeed; MSN Messenger on port 1863 exposed both accounts and the chat; SIP set up a call and RTP carried the audio. A scan sends bare SYNs, whereas a guessing attack completes each handshake and fails at the login. Nmap: `-sS` half-open, `-sT` full handshake, `-sU` slow, and the comprehensive scan adds all 65,535 ports plus NSE vuln and exploit scripts. **Open:** Tasks 1–4 need the live lab network, Task 9 your own capture, and Task 8's language needs listening to the RTP stream.
 
 ## Earlier Today
+
+2026-11-19 (autoresearch). **Session: trading primer — perpetuals, candles, order books, indicators.** New: [[sources/trading-autoresearch-2026-11-19]], [[concepts/perpetual-futures]], [[concepts/perpetual-dex-landscape]], [[concepts/candlestick-charts-and-patterns]], [[concepts/order-book-and-execution-costs]], [[concepts/technical-indicators-and-risk-sizing]]. Key points: a perp has no expiry, so a funding rate (longs pay shorts when the perp trades above the index) anchors it to spot; liquidation uses the **mark price**, not the last price; round-trip cost is spread + slippage + maker/taker fees, which can swamp the 55–60% win rates reported for candlestick patterns; size positions from ATR and check the liquidation price sits beyond the stop. **Gaps:** options, open interest, backtesting methodology.
+
+## Previous Session
 
 2026-11-19 (ingest). **Session: ingest — ICT3113 Lec09 "Where a Database-Backed Request Spends Its Time".** New: [[sources/ict3113-pod-l9-database-request-time]], [[concepts/n-plus-one-query-problem]], [[concepts/query-plans-and-slow-queries]], [[concepts/saga-pattern]], [[examples/ict3113-lec09-worked-examples]]. Updated: [[concepts/connection-pool-diagnosis]], the Week 12 lab source page, ICT3113 study notes (§16.5), formula sheet and cheat sheet.
 

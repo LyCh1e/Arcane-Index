@@ -601,6 +601,36 @@
         "wiki/log.md",
         "wiki/hot.md"
       ]
+    },
+    "INF2005 Week10 Tutorial - Network Scanning and Packet Analysis.md": {
+      "hash": "223f54cf5b2db304b1a03fa1e81dbbe6",
+      "ingested_at": "2026-11-22",
+      "pages_created": [
+        "wiki/sources/inf2005-week10-tutorial-scanning-packet-analysis.md",
+        "wiki/examples/inf2005-week10-tutorial-worked-answers.md",
+        "wiki/concepts/nmap-scan-types.md",
+        "wiki/concepts/wireshark-packet-analysis.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/digital-forensics.md",
+        "wiki/concepts/network-security-attacks.md",
+        "wiki/areas/computer-networks.md",
+        "wiki/index.md",
+        "wiki/sources/_index.md",
+        "wiki/concepts/_index.md",
+        "wiki/examples/_index.md",
+        "study-notes/INF2005 - Cyber Security Fundamentals Exam Notes.md",
+        "study-notes/INF2005 - Formula Sheet.md",
+        "study-notes/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ],
+      "attachments": [
+        "_attachments/pcaps/telnet.pcap",
+        "_attachments/pcaps/ftp.pcap",
+        "_attachments/pcaps/chat.dmp",
+        "_attachments/pcaps/sip_chat.pcap"
+      ]
     }
   },
   "address_map": {
@@ -736,7 +766,11 @@
     "wiki/concepts/n-plus-one-query-problem.md": "c-000137",
     "wiki/concepts/query-plans-and-slow-queries.md": "c-000138",
     "wiki/concepts/saga-pattern.md": "c-000139",
-    "wiki/examples/ict3113-lec09-worked-examples.md": "c-000140"
+    "wiki/examples/ict3113-lec09-worked-examples.md": "c-000140",
+    "wiki/sources/inf2005-week10-tutorial-scanning-packet-analysis.md": "c-000141",
+    "wiki/examples/inf2005-week10-tutorial-worked-answers.md": "c-000142",
+    "wiki/concepts/nmap-scan-types.md": "c-000143",
+    "wiki/concepts/wireshark-packet-analysis.md": "c-000144"
   },
   "INF2005 Cyber Security Fundamentals - Social Engineering.md": {
     "ingested_at": "2026-10-16",

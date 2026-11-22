@@ -51,8 +51,7 @@
               "title": "Graph view"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -241,7 +240,7 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "aa21592bb12da3f9",
+  "active": "632b2c1c466ec5b8",
   "lastOpenFiles": [
     "wiki/sources/trading-autoresearch-2026-11-19.md",
     "wiki/concepts/perpetual-dex-landscape.md",

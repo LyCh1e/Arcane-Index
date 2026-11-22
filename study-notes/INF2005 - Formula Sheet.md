@@ -215,6 +215,21 @@ e.g. 1 of 9 images × 5 rounds = 9^5 = 59,049 combinations
 
 ---
 
+## Network Scanning and Packet Analysis (Week 10)
+
+| Need | Command or filter |
+|------|-------------------|
+| Hosts that are up | `nmap -sn 172.18.23.0/27` |
+| Half-open TCP scan | `nmap -sS <ip>` |
+| Full-handshake TCP scan | `nmap -sT <ip>` |
+| UDP port | `nmap -sU -p 69 <ip>` |
+| OS, services, versions | `nmap -O` · `nmap -sV` · `nmap -sV -A` |
+| Everything plus vuln scripts | `nmap -sS -sV -O --script=vuln,exploit -p- <ip>` |
+| SYN-only packets in Wireshark | `tcp.flags.syn == 1 && tcp.flags.ack == 0` |
+| FTP login attempts / failures | `ftp.request.command == "PASS"` · `ftp.response.code == 530` |
+
+---
+
 ## Common Exam Mistakes (10-point checklist)
 
 - [ ] Transposition ciphers ARE vulnerable to frequency analysis

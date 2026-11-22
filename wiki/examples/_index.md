@@ -42,6 +42,7 @@ This folder contains two categories of grounded, applied content that sit alongs
 | [[inf2005-acw3-mod-dav-fs-proppatch-dos\|INF2005 ACW3 — CVE-2026-93546 mod_dav_fs PROPPATCH Worker-Crash DoS (reproducible PoC)]] | project | INF2005 | [[learning/webdav-proppatch-namespace-overflow\|WebDAV PROPPATCH Namespace Overflow]] |
 | [[stock-prediction-neural-network\|Stock Prediction Neural Network — SOLID ML App with Tkinter GUI]] | project | machine-learning | [[concepts/neural-networks-linear-models\|Neural Networks & Linear Models]] |
 | [[ict2216-project-vite-refactor\|ICT2216 Project — UMD Prototype to Vite + React SPA Refactor]] | project | ICT2216 / web-development | [[resources/vite\|Vite]], [[concepts/javascript-fundamentals\|JavaScript]] |
+| [[inf2005-week10-tutorial-worked-answers\|INF2005 Week 10 Tutorial — Worked Answers for the Packet Captures (Tasks 5–8)]] | tutorial | INF2005 / cyber-security | [[concepts/wireshark-packet-analysis\|Wireshark Packet Analysis]], [[concepts/nmap-scan-types\|Nmap Scan Types]] |
 
 ---
 

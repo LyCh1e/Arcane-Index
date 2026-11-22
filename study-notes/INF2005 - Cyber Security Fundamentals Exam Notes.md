@@ -1069,6 +1069,24 @@ Cross-reference results with **cve.mitre.org** and **nvd.nist.gov** for known ex
 - **Packet analysis:** parse fields, filter, pattern match (Wireshark, tshark, ngrep).
 - **Port-scan detection** (SYN-only packets): **vertical** = one source, many ports, one host; **horizontal** = one source, one port, many hosts.
 
+### Hands-on: Nmap and Wireshark (Week 10 tutorial)
+
+> Full detail: [[concepts/nmap-scan-types]] · [[concepts/wireshark-packet-analysis]] · [[examples/inf2005-week10-tutorial-worked-answers]]
+
+| Scan | Command | Key point |
+|---|---|---|
+| Ping scan | `nmap -sn <range>` | Host discovery only |
+| TCP SYN | `nmap -sS` | Half-open: SYN, then RST; fast, needs raw sockets |
+| TCP Connect | `nmap -sT` | Full handshake; logged by the target |
+| UDP | `nmap -sU -p 69` | Slow; no reply gives open\|filtered |
+| OS / version | `-O` (`--osscan-guess`), `-sV`, `-A` | Stack fingerprint; banner matching |
+| Comprehensive | `-sS -sV -O --script=vuln,exploit -p-` | All 65,535 ports plus NSE scripts: slow and noisy |
+
+- **Port states:** open, closed (RST), filtered (firewall drops probes).
+- **Cleartext protocols:** Telnet (23), FTP (21), HTTP (80), MSN (1863) and SIP/RTP show credentials or content to a sniffer; replace with SSH, SFTP/FTPS, HTTPS, SRTP.
+- **Wireshark routine:** Conversations, then Follow TCP Stream, then a display filter. A **brute-force** trace shows many completed short connections to one login service, repeated failure replies (FTP `530`) and many passwords against few usernames; a **scan** shows bare SYN packets.
+- **Tutorial captures:** Telnet login `fake` / `user`; FTP dictionary attack on `admin` and `administrator` (703 distinct passwords, none succeeded); MSN chat on port 1863; SIP call with RTP audio (language not determined).
+
 ---
 
 ## §11C — IoT Security

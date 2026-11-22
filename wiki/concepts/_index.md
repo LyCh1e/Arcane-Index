@@ -32,7 +32,7 @@ tags: [index, concepts]
 | Blockchain | 1 |
 | Data Engineering | 1 |
 | DevOps | 4 |
-| Cyber Security | 4 |
+| Cyber Security | 6 |
 | Performance Engineering (ICT3113 Lec09 additions) | 3 |
 
 ---
@@ -313,6 +313,8 @@ tags: [index, concepts]
 | [[concepts/network-security-defence\|Network Security — Defence]] | INF2005 | high |
 | [[concepts/digital-forensics\|Digital Forensics — System and Network]] | INF2005 | high |
 | [[concepts/iot-security\|IoT Security — Attacks and Exploits]] | INF2005 | high |
+| [[concepts/nmap-scan-types\|Nmap Scan Types and Options]] | INF2005 | medium |
+| [[concepts/wireshark-packet-analysis\|Wireshark Packet Analysis — Reading Captures]] | INF2005 | medium |
 
 ---
 

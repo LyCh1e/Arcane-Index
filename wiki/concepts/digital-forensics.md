@@ -4,13 +4,15 @@ title: "Digital Forensics — System and Network"
 domain: cyber-security
 status: established
 created: 2026-11-02
-updated: 2026-11-02
+updated: 2026-11-22
 sources: [inf2005-csf-digital-forensics]
 tags: [digital-forensics, evidence-integrity, hashing, os-forensics, windows-registry, event-log, linux, network-forensics, packet-analysis, wireshark, port-scan-detection, web-server-logs, inf2005]
 related:
   - "[[concepts/cryptographic-hash-functions]]"
   - "[[concepts/network-security-attacks]]"
   - "[[concepts/network-security-defence]]"
+  - "[[concepts/wireshark-packet-analysis]]"
+  - "[[concepts/nmap-scan-types]]"
   - "[[sources/inf2005-csf-digital-forensics]]"
 ---
 
@@ -100,7 +102,7 @@ Sniffer placement: **(A)** on a hub, **(B)** on a switch **SPAN port**, or **(C)
 
 ### Packet analysis
 
-Tools: Wireshark, tshark, ngrep. Techniques: **parsing protocol fields**, **packet filtering** by field values, and **pattern matching** (keyword search). The worked example is a Wireshark frame of an HTTP `GET` sent through a proxy (destination port 3128), where the headers expose Host, User-Agent and language preferences.
+Tools: Wireshark, tshark, ngrep. Techniques: **parsing protocol fields**, **packet filtering** by field values, and **pattern matching** (keyword search). Hands-on practice (filters, Follow TCP Stream, cleartext Telnet and FTP, SIP/RTP) is in [[concepts/wireshark-packet-analysis]]. The worked example is a Wireshark frame of an HTTP `GET` sent through a proxy (destination port 3128), where the headers expose Host, User-Agent and language preferences.
 
 ### Port-scan detection
 
@@ -113,4 +115,4 @@ Look for TCP packets with only the **SYN** flag (`S`) set, sent in bulk:
 
 TCP flag values for reference: CWR 0x80, ECE 0x40, URG 0x20, ACK 0x10, PSH 0x08, RST 0x04, SYN 0x02, FIN 0x01.
 
-These traces are what a NIDS from [[concepts/network-security-defence]] uses to raise a scan alert, and what an attacker generates with nmap in [[concepts/network-security-attacks]].
+These traces are what a NIDS from [[concepts/network-security-defence]] uses to raise a scan alert, and what an attacker generates with nmap in [[concepts/network-security-attacks]]; the scan options are in [[concepts/nmap-scan-types]].

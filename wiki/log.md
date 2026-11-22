@@ -2,13 +2,21 @@
 type: meta
 status: established
 title: "Operation Log"
-updated: 2026-11-19
+updated: 2026-11-22
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## [2026-11-22] ingest | INF2005 Week 10 Tutorial — Network Scanning and Packet Analysis
+
+- Source: `raw/INF2005 Week10 Tutorial - Network Scanning and Packet Analysis.md` (PDF transcription; lab Wi-Fi password omitted) plus four captures in `_attachments/pcaps/` (`telnet.pcap`, `ftp.pcap`, `chat.dmp`, `sip_chat.pcap`)
+- Summary: [[sources/inf2005-week10-tutorial-scanning-packet-analysis]]
+- Pages created: [[sources/inf2005-week10-tutorial-scanning-packet-analysis]], [[examples/inf2005-week10-tutorial-worked-answers]], [[concepts/nmap-scan-types]], [[concepts/wireshark-packet-analysis]]
+- Pages updated: [[concepts/digital-forensics]], [[concepts/network-security-attacks]], [[areas/computer-networks]], `wiki/index.md`, `wiki/sources/_index.md`, `wiki/concepts/_index.md`, `wiki/examples/_index.md`, `wiki/hot.md`; INF2005 Exam Notes (§11B hands-on), Formula Sheet, `study-notes/index.md`
+- Key insight: the four captures decode to a cleartext Telnet login (`fake` / `user`), a dictionary brute force on FTP (`admin`, `administrator`; 703 words, no success), an MSN chat and a SIP/RTP call. Open: Tasks 1–4 and 9 need live scans or your own capture, and the audio language needs listening.
 
 ## [2026-11-19] autoresearch | Trading — perpetuals, candlesticks, order books, indicators
 
