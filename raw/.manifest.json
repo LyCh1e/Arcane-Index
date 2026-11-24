@@ -631,6 +631,26 @@
         "_attachments/pcaps/chat.dmp",
         "_attachments/pcaps/sip_chat.pcap"
       ]
+    },
+    "raw/ICT3113 Performance Optimisation and Design - Lec10 Introduction to AI Agents.md": {
+      "hash": "115f8b4bb8e84e6aadb7f9931d218e05",
+      "ingested_at": "2026-11-24",
+      "pages_created": [
+        "wiki/sources/ict3113-pod-l10-intro-ai-agents.md",
+        "wiki/concepts/agent-harness.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/ai-agent-architecture.md",
+        "wiki/areas/performance-optimisation-design.md",
+        "wiki/index.md",
+        "wiki/sources/_index.md",
+        "wiki/concepts/_index.md",
+        "study-notes/ICT3113 - Performance Optimisation Exam Notes.md",
+        "study-notes/ICT3113 - Formula Sheet.md",
+        "study-notes/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
     }
   },
   "address_map": {
@@ -770,7 +790,20 @@
     "wiki/sources/inf2005-week10-tutorial-scanning-packet-analysis.md": "c-000141",
     "wiki/examples/inf2005-week10-tutorial-worked-answers.md": "c-000142",
     "wiki/concepts/nmap-scan-types.md": "c-000143",
-    "wiki/concepts/wireshark-packet-analysis.md": "c-000144"
+    "wiki/concepts/wireshark-packet-analysis.md": "c-000144",
+    "wiki/sources/ict3113-pod-l10-intro-ai-agents.md": "c-000145",
+    "wiki/concepts/agent-harness.md": "c-000146",
+    "wiki/sources/cfa-moving-averages-sp500-2022.md": "c-000147",
+    "wiki/sources/faber-tactical-asset-allocation-10-month-sma.md": "c-000148",
+    "wiki/sources/rink-2023-technical-trading-rules.md": "c-000149",
+    "wiki/sources/mroziewicz-slepaczuk-2026-ema-crossover.md": "c-000150",
+    "wiki/sources/gray-2014-simulation-sma-rules.md": "c-000151",
+    "wiki/sources/factset-golden-death-crosses-2018.md": "c-000152",
+    "wiki/sources/ema-practitioner-references-2026-11-24.md": "c-000153",
+    "wiki/concepts/exponential-moving-average.md": "c-000154",
+    "wiki/concepts/ema-9-20-200-roles.md": "c-000155",
+    "wiki/concepts/moving-average-trading-evidence.md": "c-000156",
+    "wiki/synthesis/research-emas-in-trading.md": "c-000157"
   },
   "INF2005 Cyber Security Fundamentals - Social Engineering.md": {
     "ingested_at": "2026-10-16",

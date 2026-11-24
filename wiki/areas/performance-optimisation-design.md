@@ -4,7 +4,7 @@ title: "Performance Optimisation and Design"
 domain: performance-engineering
 status: established
 created: 2026-08-31
-updated: 2026-11-19
+updated: 2026-11-24
 tags: [performance-engineering, performance-optimisation, queueing-theory, profiling, ict3113]
 ---
 
@@ -49,6 +49,7 @@ This area covers the ICT3113 course content and related knowledge on software pe
 | [[sources/ict3113-pod-l3\|L3: Workload Identification]] | Pont des Arts motivation; workload definition; business drivers; decomposition methodology; e-Filing worked example; peak vs average; Taylor Swift case study; workload mix; MRT architecture comparison; three exercises (manufacturing, polyclinic, flash sale) |
 | [[sources/ict3113-pod-l7\|L7: Performance Testing]] | Six test types with demos, open/closed loop, Bondi requirements, test environment and scaling, playbook; transcript adds the AI-cannot-run-tests framing, scale-in/scale-down example and load generators |
 | [[sources/ict3113-pod-l9-database-request-time\|L9: Where a Database-Backed Request Spends Its Time]] | Hold time, pool as c-server queue, three contributors with three instruments, plans, indexes, saga; the lecture behind the Wk 12 lab |
+| [[sources/ict3113-pod-l10-intro-ai-agents\|L10: Introduction to AI Agents]] | Model alone vs chatbot vs workflow vs agent; think-act-observe loop; agent = model + harness; six harness components; llama3.2 p95 demo; why the harness matters for performance |
 | [[sources/ict3113-pod-lab-wk11-load-stress\|Wk 11 Lab (Lec07): Load and Stress]] | Lab handout: LAB-01 load test, seven-step stress test, count reconciliation, find the lock in Build C, prove the fix with r2 and r3 |
 | [[sources/ict3113-pod-lab-wk12-slow-endpoint\|Wk 12 Lab (Lec08): Diagnosing a Slow Endpoint]] | Four-question lab: spot the pressure, find the cause, choose the fix, check the knee moved (connection pool, hold time, three causes) |
 
@@ -63,7 +64,7 @@ This area covers the ICT3113 course content and related knowledge on software pe
 | Performance Modelling I | Wk 4 | Queues and Little's Law |
 | Performance Modelling II | Wk 5 | M/M/1, performance bounds, execution models |
 | LLM Inference Performance | Wk 8 | TTFT, tokens/s, batching, GPU utilisation |
-| Agentic AI Performance | Wks 9–10 | Agent loop as execution model; tool call fan-out |
+| Agentic AI Performance | Wks 9–10 | Agent loop as execution model; tool call fan-out. *Lec10 introduces the harness ([[concepts/agent-harness]]); agent loops under load are still to come* |
 | Docker for Performance | Wk 11 | Resource limits as capacity planning |
 | Kubernetes for Performance | Wk 12 | HPA as control loop over utilisation |
 

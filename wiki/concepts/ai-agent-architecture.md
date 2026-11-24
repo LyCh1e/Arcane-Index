@@ -225,3 +225,4 @@ Evaluation tools: **Langfuse** (open-source tracing), **LangSmith** (LangChain-n
 - [[resources/ai-agent-frameworks]] — LangGraph vs CrewAI vs Claude Agent SDK vs MAF 1.0 (2026 comparison)
 - [[concepts/mcp-model-context-protocol]] — MCP for tool interoperability across agents
 - [[synthesis/research-ai-agent-setup]] — research summary and open questions
+- [[concepts/agent-harness]] — agent = model + harness; the six-component split taught in ICT3113 Lec10, with a runnable demo

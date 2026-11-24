@@ -18,9 +18,9 @@ Each link is a persistent URL: republishing to the same URL updates the page's c
 
 | Module | Artefact URL | Last Published |
 |---|---|---|
-| ICT3112 | https://claude.ai/artifact/8CuL27NdrZqYRu1qBG9rJV | 2026-11-22 |
-| ICT3113 | https://claude.ai/artifact/VC19BXRWz158dszEdJ79G1 | 2026-11-22 |
-| INF2005 | https://claude.ai/artifact/Ar7Qj3yH2fua71nW2rXuUv | 2026-11-22 |
+| ICT3112 | https://claude.ai/artifact/8CuL27NdrZqYRu1qBG9rJV | 2026-11-24 |
+| ICT3113 | https://claude.ai/artifact/VC19BXRWz158dszEdJ79G1 | 2026-11-24 |
+| INF2005 | https://claude.ai/artifact/Ar7Qj3yH2fua71nW2rXuUv | 2026-11-23 |
 
 If a publish ever returns a different URL than the one listed here (for example, if an artefact was deleted), replace the affected row above with the new URL so future runs update the correct page. If a module is removed from `study-notes/index.md`, leave its row here untouched — never delete an Artefact page automatically.
 
@@ -256,31 +256,41 @@ If a publish ever returns a different URL than the one listed here (for example,
 > [!note] Run 76 on 2026-11-22
 > Live pages were read in full and matched run 75 before republishing. All three modules use fresh subtopics; labs: Reqnroll BDD (ICT3112), Tutorial 4 worked examples (ICT3113), mod_dav_fs PROPPATCH DoS (INF2005).
 
+> Run 77 (2026-11-23): live pages for ICT3112, ICT3113 and INF2005 were read in full and matched run 76 before republishing. Pages built with the project generator; all three modules use fresh subtopics. Labs: Selenium (ICT3112), JMeter/Flask profiling (ICT3113); INF2005 had no lab slot (mod_dav_fs was the previous run's lab). Each page's notes came to roughly 1,300–1,500 words (below the ~2,000-word target; reading-time label held at the 10-minute floor). Option-length self-check run programmatically: 0 failures; answer positions 5/5/5/5 on all three.
+
+> Run 78 (2026-11-23, second run today): live pages for ICT3112, ICT3113 and INF2005 were read and matched run 77 before republishing. Pages built with the project generator; all fresh subtopics. Labs: Lab 3 CI & Dependencies (ICT3112), Week 11 Load & Stress Test on Build C (ICT3113); INF2005 had no lab slot (fourth in-scope lecture subtopic instead). Notes came to roughly 1,200–1,400 words (below the ~2,000 target; reading-time label held at the 10-minute floor). Option-length self-check run programmatically: 0 failures; answer positions 5/5/5/5 on all three.
+
+> Run 79 (2026-11-23, third run today): live pages for ICT3112, ICT3113 and INF2005 were read and matched run 78 before republishing. Pages built with the project generator; all fresh subtopics. Labs: Frama-C Lab 1 First Steps (ICT3112), Week 12 Slow Endpoint & Connection Pool (ICT3113), mod_dav_fs PROPPATCH DoS with a remediation/evidence angle (INF2005; run 76 was its last lab appearance). Notes came to roughly 1,300–1,500 words (below the ~2,000 target; reading-time label held at the 10-minute floor). Option-length self-check run programmatically: 0 failures; answer positions rebalanced to 5/5/5/5 on all three.
+
+> Run 80 (2026-11-23, fourth run today): live pages for ICT3112, ICT3113 and INF2005 were read and matched run 79 before republishing. Pages built with the project generator's output shape (CSS/JS taken verbatim from the last published page); all fresh subtopics. Labs: Frama-C Lab 2 Loops (ICT3112), Lecture 09 worked numbers on database request time (ICT3113); INF2005 had no lab slot (mod_dav_fs was the previous run's lab, so a fourth in-scope lecture subtopic instead). Notes came to roughly 1,500-1,600 words (below the ~2,000 target; reading-time label held at the 10-minute floor). Option-length self-check run programmatically: 0 failures after one INF2005 fix; answer positions 5/5/5/5 on all three; 0 entity leaks. Published as ICT3112 v97, ICT3113 v98, INF2005 v98 (each needed one 'identical content' refusal first).
+
+> Run 81 (2026-11-24): live pages for ICT3112 and ICT3113 were read and matched run 80 before republishing. The "Create Study Notes For" table in `study-notes/index.md` now lists only ICT3112 and ICT3113, so INF2005 was treated as retired and skipped (its page, row and rotation history are left untouched). Pages built with the project generator's build_page logic (CSS/JS taken verbatim from the last published page); all fresh subtopics. Labs: Lab 1 NUnit + TDD Calculator (ICT3112), Lab 1 Introduction to Profiling (ICT3113). Notes came to roughly 1,450-1,500 words (below the ~2,000 target; reading-time label held at the 10-minute floor). Option-length self-check run programmatically after fixing 5 failures per module: 0 failures; answer positions 5/5/5/5 on both; 0 entity leaks. Published as ICT3112 v98 and ICT3113 v99 (each needed one 'identical content' refusal first).
+
 ## Topic Rotation History
 
 Tracks roughly the last 5 runs' subtopics per module, so the tutor agent can avoid repeating recent content without needing to scan local daily files (there are none). Each run appends its selections to the relevant module's list and prunes older entries down to about 5. A module new to the index simply starts with an empty list here.
 
 ### ICT3112
 
-- 2026-11-19 (run 72, third run today): Four Testing Levels & the Testing Pyramid; Basic Musa Reliability Model; Statement, Decision & Condition Coverage; [Lab] CI & Testing Dependencies (ict3112-lab3-ci-and-dependencies.md)
-- 2026-11-20 (run 73): The Seven ISTQB Principles; Reliability Metrics — MTTF, MTTR, MTBF & Availability; Control Flow Graphs & Cyclomatic Complexity; [Lab] Frama-C Lab 1 — First Steps with Contracts, Pointers & Behaviours (ict3112-frama-c-lab1-first-steps.md)
-- 2026-11-20 (run 74, second run today): The V-Model & Verification vs Validation; Use Case Testing & Whitebox vs Blackbox; Error–Defect–Failure, Good Testing Practices & Goodhart's Law; [Lab] Frama-C Lab 3 — Pointer Contracts, Aliasing & Exercises (ict3112-frama-c-lab3-pointers-run.md)
-- 2026-11-21 (run 75): Decision Table Testing; Hoare Logic — Inference Rules & Weakest Preconditions; Execution Time vs Calendar Time & Customer-Facing Metrics; [Lab] NUnit & TDD Calculator (ict3112-lab1-nunit-tdd-calculator.md)
-- 2026-11-22 (run 76): Equivalence Partitioning; Loop Invariants — Four Obligations & the Five-Step Recipe; Static Review Techniques, Retesting & Regression; [Lab] Reqnroll BDD Acceptance Tests (ict3112-lab2-reqnroll-bdd.md)
+- 2026-11-23 (run 77): Boundary Value Analysis (BVA); Static Analysis — Data-Flow Defect Classes; State Transition Testing; [Lab] Selenium Browser Testing (ict3112-lab4-selenium-browser-testing.md)
+- 2026-11-23 (run 78, second run today): Testing Levels & the Testing Pyramid; Coverage Criteria — Statement to Multiple Condition; Musa Reliability Models — Basic vs Logarithmic; [Lab] Lab 3 — Continuous Integration & Testing with Dependencies (ict3112-lab3-ci-and-dependencies.md)
+- 2026-11-23 (run 79, third run today): The Seven ISTQB Principles; Cyclomatic Complexity & Basis Path Testing; MTTF, MTBF, Availability & Defect Density; [Lab] Frama-C Lab 1 — First Steps: Contracts, Pointers & Behaviours (ict3112-frama-c-lab1-first-steps.md)
+- 2026-11-23 (run 80, fourth run today): Verification vs Validation, Static vs Dynamic & the V-Model; Use Case Testing & Whitebox vs Blackbox; LCSAJ — Linear Code Sequence and Jump; [Lab] Frama-C Lab 2 — Verifying Programs with Loops (ict3112-frama-c-lab2-loops.md)
+- 2026-11-24 (run 81): Decision Table Testing; Hoare Logic — Triples, the Six Rules & Weakest Precondition; Error → Defect → Failure, Eight Good Testing Practices & Goodhart's Law; [Lab] Lab 1 — NUnit Unit Testing & a TDD Calculator (ict3112-lab1-nunit-tdd-calculator.md)
 
 ### ICT3113
 
-- 2026-11-19 (run 72, third run today): Utilisation Law & Why Headroom Matters; Little's Law & the Observation Boundary Effect; Multi-Server Queues — M/M/c; [Lab] Reading a Stress Table & the Serialisation Signature (ict3113-lab-wk11-load-stress-build-c.md)
-- 2026-11-20 (run 73): The Six Performance Test Types; The Interactive Response Time Law & Closed Systems; The Four Sources Framework; [Lab] Week 12 — Diagnosing a Slow Endpoint (ict3113-lab-wk12-slow-endpoint-worked.md)
-- 2026-11-20 (run 74, second run today): Six Properties of a Good Metric & the Three Metric Classes; The Core Loop & Classical Optimisation Techniques; Bottleneck Analysis; [Lab] Tutorial 5 — Job Log, Bounds, MapReduce & Erlang B (ict3113-t05-worked-examples.md)
-- 2026-11-21 (run 75): Percentiles, Tail Latency & SLI/SLO/SLA; The M/M/1 Queue & Utilisation vs Response Time; Performance Test Requirements, Environment & Reading Results; [Lab] Introduction to Profiling, Week 2 (ict3113-lab1-profiling.md)
-- 2026-11-22 (run 76): Variability & the Kingman Formula; Open-Loop vs Closed-Loop Load & JMeter Sizing; Response Time R = W + S, Perception Thresholds & When to Optimise; [Lab] Tutorial 4 — Pipeline Yield, Retries & Instance Sizing (ict3113-t04-worked-examples.md)
+- 2026-11-23 (run 77): Workload Identification & Peak Sizing; Operational Laws — Forced Flow & Service Demand; Lost Work & the Erlang B Formula; [Lab] JMeter Load Testing of a Profiled Flask Server (ict3113-lab2-jmeter-testing.md)
+- 2026-11-23 (run 78, second run today): The Utilisation Law & Why Response Time Explodes; Little's Law & the Observation Boundary Effect; Multi-Server Queues — M/M/c; [Lab] Week 11 — Load and Stress Test on Build C (ict3113-lab-wk11-load-stress-build-c.md)
+- 2026-11-23 (run 79, third run today): Open vs Closed Systems & the Interactive Response Time Law; The Four Sources Framework; The Six Performance Test Types; [Lab] Week 12 — Diagnosing a Slow Endpoint & the Connection Pool (ict3113-lab-wk12-slow-endpoint-worked.md)
+- 2026-11-23 (run 80, fourth run today): The Core Loop, When to Optimise & Classical Techniques; Six Properties of a Good Metric (LRRECI) & the Three Classes of Metric; Bottleneck Analysis — Ceilings, Hotspots & the Three Levers; [Lab] Lecture 09 — Worked Numbers for Database Request Time (ict3113-lec09-worked-examples.md)
+- 2026-11-24 (run 81): Percentiles, Tail Latency, SLI/SLO/SLA & the Fan-Out Effect; The M/M/1 Single-Server Queue; Performance Test Documents, Requirements & Reading Results; [Lab] Lab 1 — An Introduction to Profiling in Python (ict3113-lab1-profiling.md)
 
 ### INF2005
 > Scope since 2026-11-16: Social Engineering (low weight) · System Security and Malware · Network Security and Defences · System and Network Forensics · IoT Security or Attacks only — see "Daily Read Topic Scopes" in `study-notes/index.md`. Earlier entries below include out-of-scope topics.
 
-- 2026-11-19 (run 72, third run today, no lab — fourth lecture subtopic instead): Port Scanning, Port Spoofing & Deep Packet Inspection; IDS vs IPS — Detection, Placement & Response; Defence in Depth — Layers, DMZ & Attack-to-Defence Mapping; Social Engineering — Red Flags & Defence Layers
-- 2026-11-20 (run 73, no lab — fourth lecture subtopic instead): Packet Sniffing & ARP Poisoning; Malware Core Types — Virus, Worm & Trojan; Forensic Artefacts — Windows Registry, Event Logs & Linux Files; System Security — Layer Stack & Defensive Principles
-- 2026-11-20 (run 74, second run today, no lab — fourth lecture subtopic instead): Malware — Infection Vectors, Evasion & Signs of Infection; Denial of Service — DoS, DDoS, DRDoS & the Evil Twin; Reading Logs & Network Evidence; IoT Security — Application Types, Mirai & Defences
-- 2026-11-21 (run 75, no lab — fourth lecture subtopic instead): Social Engineering — Cialdini's Principles & Attack Types; System Attacks Below the Application — Hardware, Software & Hypervisor; Firewall Rule Sets, DMZ Design & Stateless vs Stateful Filtering; Forensic Evidence Integrity — Hashing, Preservation & the Pollitt Model
 - 2026-11-22 (run 76): Privilege Escalation & Ransomware; Switch Security — MAC Flooding & Port Security; IoT — The Eight Attacks; [Lab] Apache mod_dav_fs PROPPATCH Denial of Service (inf2005-acw3-mod-dav-fs-proppatch-dos.md)
+- 2026-11-23 (run 77, no lab — mod_dav_fs lab was run 76, so a fourth lecture subtopic instead): Network Vulnerabilities & Matching Countermeasures; Malware — Impact Areas & Virus vs Worm vs Trojan; IoT — Five Device Security Challenges; Forensics — Nmap Scans & Wireshark Traces (Week 10 tutorial)
+- 2026-11-23 (run 78, second run today, no lab — fourth lecture subtopic instead): Social Engineering — Attack Types, Red Flags & Defences; Network Security Controls Compared — IDS, IPS, Proxy, VPN & AAA; Port Spoofing, Deep Packet Inspection & Port Scanning; OS Attacks — Kernel Modules, Rootkits & the Attack Chain
+- 2026-11-23 (run 79, third run today): Packet Sniffing, ARP Spoofing & Wireless Man-in-the-Middle; Digital Forensics — Where to Look on Windows & Linux; Malware — Virus Anatomy, Triggers & Famous Worms; [Lab] Apache mod_dav_fs PROPPATCH Denial of Service (inf2005-acw3-mod-dav-fs-proppatch-dos.md)
+- 2026-11-23 (run 80, fourth run today, no lab — mod_dav_fs was run 79's lab, so a fourth lecture subtopic instead): DoS, DDoS & DRDoS — Attacks on Availability; Malware — Infection Vectors, Signs of Infection & Defensive Principles; IoT Security — Case Studies, Application Types & Attack Mechanics; Reading Logs & Traces — Web-Log Signatures, Sniffer Placement & Scan Detection

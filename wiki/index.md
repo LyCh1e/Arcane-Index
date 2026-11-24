@@ -2,7 +2,7 @@
 type: meta
 status: established
 title: "Wiki Index"
-updated: 2026-11-19
+updated: 2026-11-24
 tags: [meta, index]
 ---
 
@@ -21,6 +21,13 @@ Master catalog of all pages. Updated on every ingest.
 | Page | Type | Domain | Date |
 |------|------|--------|------|
 | [[sources/trading-autoresearch-2026-11-19\|Trading Autoresearch — Perpetuals, Candles, Order Books]] | web-research | trading | 2026-11-19 |
+| [[sources/ema-practitioner-references-2026-11-24\|EMA Practitioner and Educational References]] | web-research | trading | 2026-11-24 |
+| [[sources/cfa-moving-averages-sp500-2022\|CFA Institute — Moving Averages = Above Average Returns?]] | article | trading | 2026-11-24 |
+| [[sources/faber-tactical-asset-allocation-10-month-sma\|Faber — Tactical Asset Allocation (10-month SMA)]] | paper | trading | 2026-11-24 |
+| [[sources/rink-2023-technical-trading-rules\|Rink (2023) — Predictive Ability of Technical Trading Rules]] | paper | trading | 2026-11-24 |
+| [[sources/mroziewicz-slepaczuk-2026-ema-crossover\|Mroziewicz and Slepaczuk (2026) — EMA Crossover Walk-Forward]] | paper | trading | 2026-11-24 |
+| [[sources/gray-2014-simulation-sma-rules\|Gray (2014) — Simulation Study on SMA Rules]] | article | trading | 2026-11-24 |
+| [[sources/factset-golden-death-crosses-2018\|FactSet (2018) — Golden and Death Crosses]] | article | trading | 2026-11-24 |
 | [[sources/ICT2113-software-modelling\|ICT2113 Software Modelling & Analysis]] | course | software-engineering | 2026-05-11 |
 | [[sources/ICT2216-secure-software-development\|ICT2216 Secure Software Development]] | course | secure-software-development | 2026-05-11 |
 | [[sources/INF1008-data-structures-algorithms\|INF1008 Data Structures & Algorithms]] | course | computer-science | 2026-05-11 |
@@ -119,6 +126,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3113-pod-lab-wk11-load-stress\|ICT3113 POD — Week 11 Lab (Lec07): Performance Testing, Load and Stress]] | lab-handout | performance-engineering | 2026-11-13 |
 | [[sources/ict3113-pod-l9-database-request-time\|ICT3113 POD — L9: Where a Database-Backed Request Spends Its Time]] | lecture-slides | performance-engineering | 2026-11-19 |
 | [[sources/ict3113-pod-lab-wk12-slow-endpoint\|ICT3113 POD — Week 12 Lab (Lec08): Diagnosing a Slow Endpoint]] | lab-handout | performance-engineering | 2026-11-13 |
+| [[sources/ict3113-pod-l10-intro-ai-agents\|ICT3113 POD — L10: Introduction to AI Agents]] | lecture-slides | performance-engineering | 2026-11-24 |
 | [[sources/ict3113-pod-t04\|ICT3113 POD — Tutorial Week 04: Problem Sets 1 and 2]] | tutorial | performance-engineering | 2026-09-24 |
 | [[sources/ict3113-pod-t05\|ICT3113 POD — Tutorial Week 05: Performance Modelling]] | tutorial | performance-engineering | 2026-09-24 |
 | [[sources/opencv-docs\|OpenCV Official Documentation — docs.opencv.org]] | documentation | computer-vision | 2026-09-04 |
@@ -158,6 +166,9 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/candlestick-charts-and-patterns\|Candlestick Charts, OHLC and Common Patterns]] | trading | low |
 | [[concepts/order-book-and-execution-costs\|Order Books, Spread, Slippage and Maker–Taker Fees]] | trading | low |
 | [[concepts/technical-indicators-and-risk-sizing\|Technical Indicators and Volatility-Based Risk Sizing]] | trading | medium |
+| [[concepts/exponential-moving-average\|Exponential Moving Average (EMA)]] | trading | medium |
+| [[concepts/ema-9-20-200-roles\|The 9, 20 and 200 EMAs — What Each Shows]] | trading | medium |
+| [[concepts/moving-average-trading-evidence\|Moving-Average Trading Rules: What the Evidence Says]] | trading | high |
 | [[concepts/requirements-engineering\|Requirements Engineering]] | software-engineering | high |
 | [[concepts/lightweight-rcm\|Lightweight RCM (User Stories & UseCase 2.0)]] | software-engineering | medium |
 | [[concepts/algorithm-complexity\|Algorithm Complexity]] | computer-science | medium |
@@ -290,6 +301,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/security-testing-and-verification\|Security Testing and Verification]] | secure-software-development | high |
 | [[concepts/security-terminology\|Security Terminology]] | secure-software-development | medium |
 | [[concepts/ai-agent-architecture\|AI Agent Architecture]] | ai-engineering | high |
+| [[concepts/agent-harness\|Agent Harness (Agent = Model + Harness)]] | ai-engineering | medium |
 | [[concepts/static-code-analysis\|Static Code Analysis]] | secure-software-development | high |
 | [[concepts/social-engineering\|Social Engineering]] | secure-software-development | high |
 | [[concepts/prompt-injection\|Prompt Injection]] | ai-engineering | high |
@@ -431,6 +443,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[learning/dotnet-locked-exe-msb3021\|dotnet build MSB3021/MSB3027: Output exe Locked by Running Process]] | dotnet | resolved |
 | [[learning/ict3112-lab3-tooling-gotchas\|ICT3112 Lab 3 — PDF false password error, robocopy in Git Bash, MAX_PATH]] | windows | resolved |
 | [[learning/frama-c-wsl-install-gotchas\|Frama-C 33 on WSL Ubuntu — opam install gotchas]] | tooling | resolved |
+| [[learning/frama-c-wp-sum-numof-lambda-unsupported\|Frama-C WP does not define \sum / \numof with lambdas]] | formal-verification | resolved |
 | [[learning/claude-cli-tool-use-and-frama-c-zero-goals\|claude -p tool_use exit 1 and Frama-C 0-goal false VERIFIED]] | tooling | resolved |
 | [[learning/docker-compose-build-context\|Docker Compose: Build Context Controls What COPY Can See]] | devops | resolved |
 | [[learning/webdav-proppatch-namespace-overflow\|mod_dav_fs PROPPATCH Namespace Overflow — Wrong Payload Shape → No Crash]] | cyber-security | resolved |
@@ -479,6 +492,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[synthesis/research-distributed-ledger-technology\|Research: Distributed Ledger Technology]] | blockchain | established |
 | [[synthesis/research-hedera-network\|Research: Hedera Network]] | blockchain | established |
 | [[synthesis/research-sorting-algorithms\|Research: Sorting Algorithms]] | computer-science | developing |
+| [[synthesis/research-emas-in-trading\|Research: EMAs in Trading (9, 20 and 200)]] | trading | developing |
 
 ## Gaps
 

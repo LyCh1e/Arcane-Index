@@ -5,7 +5,7 @@ domain: trading
 complexity: medium
 tags: [rsi, macd, moving-average, bollinger-bands, atr, position-sizing, stop-loss, risk-management]
 created: 2026-11-19
-updated: 2026-11-19
+updated: 2026-11-24
 status: developing
 related:
   - "[[concepts/candlestick-charts-and-patterns]]"
@@ -51,3 +51,10 @@ On a leveraged perp, confirm that your **liquidation price** is well beyond your
 ## Link to Machine Learning
 
 The [[examples/stock-prediction-neural-network]] already computes 12 indicators as model inputs. ATR and funding-rate features are natural additions for crypto perps.
+
+## See also
+
+- [[concepts/exponential-moving-average]] — EMA formula, weights and lag versus whipsaw
+- [[concepts/ema-9-20-200-roles]] — what the 9, 20 and 200 EMAs show
+- [[concepts/moving-average-trading-evidence]] — what backtests say about moving-average rules
+- [[synthesis/research-emas-in-trading]] — research summary

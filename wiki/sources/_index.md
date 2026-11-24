@@ -145,6 +145,7 @@ Course notes, papers, books, articles, and any material ingested into this vault
 |------|----------|
 | [[sources/ict3113-pod-l9-database-request-time\|ICT3113 POD — L9: Where a Database-Backed Request Spends Its Time]] | [[concepts/connection-pool-diagnosis]], [[concepts/n-plus-one-query-problem]], [[concepts/query-plans-and-slow-queries]], [[concepts/saga-pattern]] |
 | [[sources/ict3113-pod-lab-wk12-slow-endpoint\|ICT3113 POD — Week 12 Lab: Diagnosing a Slow Endpoint]] | [[concepts/connection-pool-diagnosis]] |
+| [[sources/ict3113-pod-l10-intro-ai-agents\|ICT3113 POD — L10: Introduction to AI Agents]] | [[concepts/agent-harness]] |
 
 > Earlier ICT3113 sources (L1 to L7, labs, tutorials) are listed in [[index]]; this section starts with the Lec09 ingest.
 
@@ -181,6 +182,19 @@ Course notes, papers, books, articles, and any material ingested into this vault
 | Source | Concepts |
 |---|---|
 | [[sources/istqb-ctfl-v4\|ISTQB CTFL v4.0]] | [[concepts/software-testing-fundamentals]], [[concepts/test-design-techniques]], [[concepts/test-driven-development]] |
+
+## Trading (web research)
+
+| Source | Concepts |
+|---|---|
+| [[sources/trading-autoresearch-2026-11-19\|Trading Autoresearch (19 Nov 2026)]] | [[concepts/perpetual-futures]], [[concepts/candlestick-charts-and-patterns]], [[concepts/technical-indicators-and-risk-sizing]] |
+| [[sources/ema-practitioner-references-2026-11-24\|EMA Practitioner and Educational References]] | [[concepts/exponential-moving-average]], [[concepts/ema-9-20-200-roles]] |
+| [[sources/cfa-moving-averages-sp500-2022\|CFA Institute — Moving Averages (2022)]] | [[concepts/moving-average-trading-evidence]] |
+| [[sources/faber-tactical-asset-allocation-10-month-sma\|Faber — 10-month SMA timing]] | [[concepts/moving-average-trading-evidence]] |
+| [[sources/rink-2023-technical-trading-rules\|Rink (2023)]] | [[concepts/moving-average-trading-evidence]] |
+| [[sources/mroziewicz-slepaczuk-2026-ema-crossover\|Mroziewicz and Slepaczuk (2026)]] | [[concepts/moving-average-trading-evidence]] |
+| [[sources/gray-2014-simulation-sma-rules\|Gray (2014)]] | [[concepts/moving-average-trading-evidence]] |
+| [[sources/factset-golden-death-crosses-2018\|FactSet (2018)]] | [[concepts/moving-average-trading-evidence]] |
 
 ## Books & Resources
 *(none yet)*

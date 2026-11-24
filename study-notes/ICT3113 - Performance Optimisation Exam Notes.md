@@ -5,7 +5,7 @@ module: ICT3113
 lecturer: "A/Prof Donny Soh"
 tags: [study-notes, ict3113, performance-engineering, queueing-theory, exam-prep]
 created: 2026-09-14
-updated: 2026-11-19
+updated: 2026-11-24
 ---
 
 # ICT3113 Performance Optimisation and Design
@@ -1199,6 +1199,58 @@ Wiki: [[wiki/sources/ict3113-pod-l9-database-request-time]], [[wiki/concepts/que
 
 ---
 
+## 17. Lecture 10: Introduction to AI Agents and the Harness
+
+> Full detail: [[wiki/concepts/agent-harness]], [[wiki/sources/ict3113-pod-l10-intro-ai-agents]]
+
+**The question:** how does a model that only takes text in and gives text out carry out tasks? **Agent = model + harness.** Only *think* calls the model; act, observe, check and stop are ordinary code.
+
+### 17.1 Model, chatbot, workflow, agent
+
+| | Chatbot | Workflow | Agent |
+|---|---|---|---|
+| Who chooses the next step | The user | Predetermined program logic | **The model** |
+| Who executes the action | The user | Software | Software |
+| Several actions independently | No | Yes | Yes |
+
+A model alone has four limits: **one call, no persistent memory, no actions, no feedback.** A run ends with a checked result, a failure report or a handover to a person.
+
+### 17.2 Think, act, observe
+
+| Stage | Run by |
+|---|---|
+| Task, Act, Observe, Finish | **Harness** |
+| Think | **Model** (replies with text naming the next action) |
+
+Worked trace: tests give \$810, fix line 14 gives \$81, fix the discount gives \$90 (pass). Seven steps; the model chose to open a second file after the first fix fell short.
+
+### 17.3 Six harness components and their performance effect
+
+| # | Component | Purpose | Performance effect |
+|---|---|---|---|
+| 1 | Agentic loop | Calls the model repeatedly; stops on completion or step limit | Model calls and run time |
+| 2 | Tools | Description the model reads plus code that runs; result returned | Execution time, feedback quality, retries |
+| 3 | Instructions | System prompt sent at **every** call | Behaviour; input tokens per call |
+| 4 | Context and memory | What is kept, shortened or looked up | Context size, time per call |
+| 5 | Environment | Where actions run and what they may reach | Safety and control |
+| 6 | Verification | Checks before accepting the answer | Reliability, at some extra cost |
+
+- **Tool results steer the next action:** an informative error (valid column names) beats `Error.`; raising the step limit does not fix a weak result.
+- **An enforced restriction beats an instruction:** a path check rejects `../private/notes.txt`; the model may ignore "only read the data folder".
+- **Verify against the harness's own record,** not by asking the model if it is sure.
+- **Same model, different harness, different behaviour.**
+
+### 17.4 Token arithmetic
+
+- Context is resent in full each call: demo prompts of 188, 248, 274, 340, 404 tokens total **1,454**.
+- Instruction cost = instruction tokens × steps: 1,500 × 12 = 18,000; halving saves 9,000.
+
+### 17.5 The demo (llama3.2, 5,000-row generated file)
+
+Model alone cannot open the file and guesses column names. In a harness: wrong column, list files, read file, correct percentile, verified answer **1,163.7 ms** (4,750th of 5,000 sorted, nearest rank) in five steps. The task does not need an agent; it is small so every part is visible.
+
+---
+
 ## Exam Strategy Checklist
 
 > [!tip] For any performance question:
@@ -1220,6 +1272,9 @@ Wiki: [[wiki/sources/ict3113-pod-l9-database-request-time]], [[wiki/concepts/que
 
 > [!tip] For database-request questions (Lecture 09):
 > Name the cause first (query log, plan or pool metrics), then its fix (§16.5). Never answer "a bigger pool" without saying what it leaves unfixed.
+
+> [!tip] For AI-agent questions (Lecture 10):
+> Say what the model does (think) and what the harness does (everything else), name the component involved (§17.3) and its performance effect. Never credit the model for a result the harness enforced.
 
 > [!tip] For connection-pool questions:
 > Ceiling = c / S; utilisation = λS / c; waiting = λ × wait. Convert ms to s first, and put units on every line.

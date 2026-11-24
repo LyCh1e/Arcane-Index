@@ -2,13 +2,30 @@
 type: meta
 status: established
 title: "Operation Log"
-updated: 2026-11-22
+updated: 2026-11-24
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## [2026-11-24] autoresearch | EMAs in trading and what the 9, 20 and 200 EMAs show
+
+- Rounds: 3
+- Sources found: 7 source pages (about 25 pages read or skimmed across 8 searches and 10 fetches)
+- Pages created: [[concepts/exponential-moving-average]], [[concepts/ema-9-20-200-roles]], [[concepts/moving-average-trading-evidence]], [[sources/cfa-moving-averages-sp500-2022]], [[sources/faber-tactical-asset-allocation-10-month-sma]], [[sources/rink-2023-technical-trading-rules]], [[sources/mroziewicz-slepaczuk-2026-ema-crossover]], [[sources/gray-2014-simulation-sma-rules]], [[sources/factset-golden-death-crosses-2018]], [[sources/ema-practitioner-references-2026-11-24]]
+- Pages updated: [[concepts/technical-indicators-and-risk-sizing]], `wiki/index.md`, `wiki/sources/_index.md`, `wiki/concepts/_index.md` (new Trading section)
+- Synthesis: [[synthesis/research-emas-in-trading]]
+- Key finding: The 9, 20 and 200 EMAs are three horizons (momentum, short-to-medium trend, long-term filter) by trader convention, and the research supports slow trend filters as risk reducers far more than fast crossovers, which costs and decay erode; the 200-day evidence is for the SMA, not the EMA.
+
+## [2026-11-24] ingest | ICT3113 POD — L10: Introduction to AI Agents
+
+- Source: `raw/ICT3113 Performance Optimisation and Design - Lec10 Introduction to AI Agents.md`
+- Summary: [[sources/ict3113-pod-l10-intro-ai-agents]]
+- Pages created: [[concepts/agent-harness]]
+- Pages updated: [[concepts/ai-agent-architecture]], [[areas/performance-optimisation-design]], `wiki/index.md`, `wiki/sources/_index.md`, `wiki/concepts/_index.md`, ICT3113 study notes (new §17) and formula sheet
+- Key insight: An agent is a model plus a harness; only the think step calls the model, and each of the six harness components (loop, tools, instructions, context and memory, environment, verification) has its own performance cost.
 
 ## [2026-11-22] ingest | INF2005 Week 10 Tutorial — Network Scanning and Packet Analysis
 
@@ -2152,3 +2169,7 @@ Chronological record of all vault operations. Append-only — never edit past en
 ## 2026-11-18 — ICT3112 A2 final report build
 - Agent timeout made configurable (1800 s); L2 and L4 now reach verification. Report and docx rebuilt from the final runs only; 13 of 18 benchmarks proved.
 - Updated: [[learning/claude-cli-tool-use-and-frama-c-zero-goals]].
+
+## 2026-11-23 — ICT3112 A2 report improvements
+- Report rewritten against the rubric: added code-defect table, contract-change disclosure, unproved-goal causes (WP lacks sum and numof lambdas), expanded AI-use section.
+- New: [[learning/frama-c-wp-sum-numof-lambda-unsupported]].

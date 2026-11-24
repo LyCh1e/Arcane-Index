@@ -12,7 +12,7 @@ tags: [index, concepts]
 
 | Domain | Pages |
 |--------|-------|
-| AI Engineering | 9 |
+| AI Engineering | 10 |
 | Software Engineering | 14 |
 | Computer Science | 4 |
 | Mathematics | 10 |
@@ -33,6 +33,7 @@ tags: [index, concepts]
 | Data Engineering | 1 |
 | DevOps | 4 |
 | Cyber Security | 6 |
+| Trading | 8 |
 | Performance Engineering (ICT3113 Lec09 additions) | 3 |
 
 ---
@@ -50,6 +51,7 @@ tags: [index, concepts]
 | [[concepts/context-compression-llm\|Context Compression for LLMs]] | autoresearch | high |
 | [[concepts/kv-cache-compression\|KV Cache Compression]] | autoresearch | medium |
 | [[concepts/prompt-compression\|Prompt Compression]] | autoresearch | medium |
+| [[concepts/agent-harness\|Agent Harness (Agent = Model + Harness)]] | ict3113-pod-l10-intro-ai-agents | medium |
 
 **Synthesis**: [[synthesis/research-mcp-servers\|Research: MCP Servers]] · [[synthesis/research-rag\|Research: RAG]] · [[synthesis/research-ai-workflows\|Research: AI Workflows]]
 
@@ -360,6 +362,19 @@ IT Ethics ───────────────────────�
 ```
 
 ---
+
+## Trading
+
+| Page | Source | Complexity |
+|------|--------|------------|
+| [[concepts/perpetual-futures\|Perpetual Futures (Perps)]] | trading-autoresearch-2026-11-19 | medium |
+| [[concepts/perpetual-dex-landscape\|Perpetual DEX Landscape (2026)]] | trading-autoresearch-2026-11-19 | medium |
+| [[concepts/candlestick-charts-and-patterns\|Candlestick Charts, OHLC and Common Patterns]] | trading-autoresearch-2026-11-19 | low |
+| [[concepts/order-book-and-execution-costs\|Order Books, Spread, Slippage and Maker–Taker Fees]] | trading-autoresearch-2026-11-19 | low |
+| [[concepts/technical-indicators-and-risk-sizing\|Technical Indicators and Volatility-Based Risk Sizing]] | trading-autoresearch-2026-11-19 | medium |
+| [[concepts/exponential-moving-average\|Exponential Moving Average (EMA)]] | ema-practitioner-references-2026-11-24 | medium |
+| [[concepts/ema-9-20-200-roles\|The 9, 20 and 200 EMAs — What Each Shows]] | ema-practitioner-references-2026-11-24 | medium |
+| [[concepts/moving-average-trading-evidence\|Moving-Average Trading Rules: What the Evidence Says]] | cfa-moving-averages-sp500-2022 | high |
 
 ## Performance Engineering (added with ICT3113 Lec09)
 

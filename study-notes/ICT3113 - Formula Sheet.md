@@ -3,7 +3,7 @@ type: study-notes
 title: "ICT3113 — Formula Quick Reference"
 tags: [study-notes, ict3113, formula-sheet, exam-prep]
 created: 2026-09-14
-updated: 2026-11-19
+updated: 2026-11-24
 ---
 
 # ICT3113 — Formula Quick Reference Sheet
@@ -215,6 +215,17 @@ $$\text{APDEX} = \frac{\text{Satisfied} + 0.5 \times \text{Tolerating}}{\text{To
 **Stress table by column:** p95 → knee · thr → ceiling · err → failure mode · cpu_pct → machine state (one core of $c$ ≈ $100/c$ %). Serialisation signature: ceiling ≈ $1/S$, CPU near idle, requests in service ≈ 1. Count check: `.jtl` count + 21 = server log lines.
 
 ---
+
+## AI Agent Harness (Lec10)
+
+| Item | Rule |
+|---|---|
+| Agent | model + harness; only **think** calls the model |
+| Loop | think → act → observe → think; one trip = one step |
+| Six components | loop, tools, instructions, context and memory, environment, verification |
+| Instruction cost | instruction tokens × steps (1,500 × 12 = 18,000) |
+| Context cost | whole context resent each call: 188 + 248 + 274 + 340 + 404 = 1,454 |
+| Nearest-rank p95 | sort n values, take the ⌈0.95 n⌉-th (n = 5,000 gives 4,750th) |
 
 ## Symbol Cheat Sheet
 
