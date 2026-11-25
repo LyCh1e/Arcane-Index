@@ -1,0 +1,65 @@
+﻿---
+type: area
+status: established
+title: "Machine Learning"
+domain: machine-learning
+source: [[sources/INF2008-machine-learning]]
+updated: 2026-08-19
+tags: [area, machine-learning]
+---
+
+# Machine Learning
+
+**Source**: INF2008 — Machine Learning, SIT.
+
+---
+
+## What I Know
+
+ML is the practice of building systems that learn patterns from data rather than being explicitly programmed. INF2008 covers the full CRISP-DM lifecycle, supervised/unsupervised learning, model evaluation, and the mathematical foundations of key algorithms.
+
+---
+
+## Concept Pages
+
+| Page | What It Covers |
+|------|---------------|
+|[[ml-foundations\|ML Foundations]]] | CRISP-DM lifecycle, learning types (supervised/unsupervised/reinforcement), business value framing |
+|[[ml-data-understanding\|ML Data Understanding]]] | EDA, feature types, missing values, outliers, feature engineering, data splitting |
+|[[ml-model-training-evaluation\|ML Training & Evaluation]]] | Train/validation/test split, cross-validation, bias-variance tradeoff, precision/recall/F1, ROC-AUC |
+|[[decision-trees-and-ensembles\|Decision Trees & Ensembles]]] | ID3/CART, information gain, Gini impurity, Random Forests, Bagging, Boosting (AdaBoost, XGBoost) |
+|[[neural-networks-linear-models\|Neural Networks & Linear Models]]] | Linear/logistic regression, perceptron, MLP, backpropagation, activation functions, CNNs |
+|[[clustering-and-dimensionality-reduction\|Clustering & Dimensionality Reduction]]] | K-Means, DBSCAN, Hierarchical clustering, PCA, t-SNE |
+|[[ai-in-medicine\|AI in Medicine]]] | Publication growth (1995–2023), data modalities, OOD detection, surgical AI, data annotation bottleneck |
+|[[medmnist-v2-datasets\|MedMNIST v2 Datasets]]] | 18 medical imaging benchmarks: modality, task type, split sizes, pitfalls, metric selection guide |
+|[[ml-classification-models\|ML Classification Models]]] | kNN (lazy learning, O(n) prediction, curse of dimensionality) and SVM (max-margin hyperplane, kernel trick, C parameter) |
+|[[ml-evaluation-metrics\|ML Evaluation Metrics]]] | 6 metric families, classification/segmentation/detection metrics, pitfall gallery (14 entries), Metrics Reloaded framework (Nature Methods 2024) |
+|[[digital-image-processing\|Digital Image Processing]]] | Grayscale/RGB/HSV image models, point operations (histogram/stretching/equalisation/LUTs), convolution, smoothing, edge detection (Sobel), CNN connection |
+|[[convolutional-neural-networks\|Convolutional Neural Networks]]] | Locality + weight sharing, kernel depth, output size formula, batch norm, receptive field, AlexNet→U-Net architecture history, residual connections |
+|[[transfer-learning-and-domain-adaptation\|Transfer Learning and Domain Adaptation]]] | Feature extraction vs partial vs full fine-tuning, layer-wise LR, silent failures, PEFT (LoRA/adapters/prompt tuning), domain shift types, 4 adaptation levels |
+
+---
+
+## Key Ideas
+
+- **CRISP-DM** is iterative, not linear: Business Understanding → Data Understanding → Data Preparation → Modelling → Evaluation → Deployment; revisit earlier phases when evaluation fails
+- **Bias-variance tradeoff**: high bias = underfitting (too simple); high variance = overfitting (too complex). Cross-validation finds the sweet spot
+- **Ensembles beat single models**: Random Forest (bagging = parallel, reduces variance); Boosting (sequential, reduces bias). XGBoost adds regularisation
+- **Backpropagation** = chain rule of calculus applied layer-by-layer to compute ∂Loss/∂weight; requires differentiable activation functions
+- **PCA** reduces dimensionality by projecting onto eigenvectors of the covariance matrix (= top singular vectors of the data matrix via SVD)
+
+---
+
+## Cross-Domain Connections
+
+-[[maths-to-ml-bridge|Mathematics → ML]]] — linear algebra, probability, and statistics that underpin every algorithm here
+-[[linear-algebra-matrices|Linear Algebra]]] — weight matrices in neural networks, dot products, matrix multiplication
+-[[eigenvalues-and-svd|Eigenvalues & SVD]]] — PCA's mathematical engine
+-[[probability-distributions|Probability Distributions]]] — Gaussian Naive Bayes, model evaluation statistics
+-[[algorithm-complexity|Algorithm Complexity]]] — training complexity varies: linear regression O(n·d²), k-means O(n·k·d·i)
+
+---
+
+## Study Notes
+
+*(none yet — INF2008 study-notes page not yet created)*

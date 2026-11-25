@@ -1,11 +1,11 @@
 {
 	"nodes":[
-		{"id":"title","type":"text","text":"# Blockchain — Hash Chain & Merkle Tree\n> Hedera Developer Course: Lectures 2 & 3 · See also [[wiki/concepts/blockchain-technology]] · [[wiki/concepts/cryptographic-hash-functions]]","x":0,"y":0,"width":800,"height":280},
+		{"id":"title","type":"text","text":"# Blockchain — Hash Chain & Merkle Tree\n> Hedera Developer Course: Lectures 2 & 3 · See also [[blockchain-technology]] · [[cryptographic-hash-functions]]","x":0,"y":0,"width":800,"height":280},
 		{"id":"anatomy-header","type":"text","text":"## 1 · Block Anatomy\nWhat fields go *into* the SHA-256 hash, and what comes out.","x":0,"y":360,"width":700,"height":220},
-		{"id":"link-blockchain","type":"file","file":"wiki/concepts/blockchain-technology.md","x":960,"y":360,"width":380,"height":60},
-		{"id":"link-hash","type":"file","file":"wiki/concepts/cryptographic-hash-functions.md","x":960,"y":500,"width":380,"height":60},
-		{"id":"link-lecture2","type":"file","file":"wiki/sources/hedera-lecture-2-blockchain-hashing.md","x":960,"y":640,"width":380,"height":60},
-		{"id":"link-example","type":"file","file":"wiki/examples/hedera-local-ledger-js.md","x":960,"y":780,"width":380,"height":60},
+		{"id":"link-blockchain","type":"file","file":"wiki-school/concepts/blockchain-technology.md","x":960,"y":360,"width":380,"height":60},
+		{"id":"link-hash","type":"file","file":"wiki-school/concepts/cryptographic-hash-functions.md","x":960,"y":500,"width":380,"height":60},
+		{"id":"link-lecture2","type":"file","file":"wiki-school/sources/hedera-lecture-2-blockchain-hashing.md","x":960,"y":640,"width":380,"height":60},
+		{"id":"link-example","type":"file","file":"wiki-school/examples/hedera-local-ledger-js.md","x":960,"y":780,"width":380,"height":60},
 		{"id":"anatomy-fields","type":"text","text":"### Fields hashed (SHA-256 input)\n\n| Field | Example value |\n|-------|---------------|\n| `index` | `1` |\n| `data` | `{ type: \"TRANSFER\", amount: 10 }` |\n| `timestamp` | `2024-01-15T12:00:00.000Z` |\n| `prevHash` | `a3f7c8d2e19b4501...` |\n\n> ⚠ The block's own `hash` field is **excluded** — it is the *output*, not part of the input.\n\n```js\n// JavaScript trick (Lecture 2)\nconst { hash, ...rest } = block;\nreturn crypto.createHash('sha256')\n  .update(JSON.stringify(rest))\n  .digest('hex');\n```\n\n```java\n// Java equivalent (Lecture 2)\nMessageDigest digest = MessageDigest.getInstance(\"SHA-256\");\nbyte[] encoded = digest.digest(\n  (data + previousHash).getBytes());\n```","x":0,"y":660,"width":480,"height":930},
 		{"id":"chain-header","type":"text","text":"## 2 · Hash Chain\nEach block stores the *hash* of the previous block as `prevHash`. Tampering with any block's data changes its hash, breaking the link to every block that follows.","x":0,"y":1670,"width":820,"height":260},
 		{"id":"block-2","type":"text","text":"### Block 2\n\n`index` → **2**\n`data` → `{ amount: 5 }`\n`timestamp` → `2024-01-01T00:02:00Z`\n`prevHash` → `b91ac4f7d2e8c1a9` ↑\n\n---\n\n**`hash` → `c42de9a1bf3807cd`**","x":720,"y":2010,"width":280,"height":480,"color":"5"},

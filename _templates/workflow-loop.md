@@ -33,7 +33,7 @@ related: []
 - [ ] **Orchestrator–Workers** — central LLM decomposes and delegates
 - [ ] **Evaluator–Optimiser** — generator + evaluator loop until quality threshold met
 
-See [[concepts/ai-workflows]] for pattern details.
+See [[ai-workflows]] for pattern details.
 
 ---
 
@@ -169,6 +169,6 @@ Step-by-step of what one iteration does:
 
 ## See Also
 
-- [[concepts/ai-workflows]] — the 5 core patterns (prompt chaining, routing, parallelisation, orchestrator–workers, evaluator–optimiser)
-- [[concepts/ai-workflow-orchestration]] — tool taxonomy (LangGraph, Temporal, Dagster)
+- [[ai-workflows]] — the 5 core patterns (prompt chaining, routing, parallelisation, orchestrator–workers, evaluator–optimiser)
+- [[ai-workflow-orchestration]] — tool taxonomy (LangGraph, Temporal, Dagster)
 - [[skills/workflow-loop/SKILL.md]] — use `/workflow-loop` to generate a filled-in version of this template

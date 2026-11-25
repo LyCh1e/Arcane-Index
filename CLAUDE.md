@@ -14,7 +14,8 @@ This vault demonstrates the LLM Wiki pattern — a persistent, compounding knowl
 
 ```
 raw/                source documents — immutable, Claude reads but never modifies
-wiki/               Claude-generated knowledge base
+wiki-school/        Claude-generated knowledge base — coursework, software, security, blockchain, ML
+wiki-finance/       Claude-generated knowledge base — trading, markets, indicators, personal finance
   concepts/         deep concept and theory pages
   sources/          source index pages (one per ingested file)
   examples/         real-world examples and ingested lab sessions
@@ -29,6 +30,15 @@ wiki/               Claude-generated knowledge base
 _templates/         Obsidian Templater templates
 _attachments/       images and PDFs referenced by wiki pages
 ```
+
+## Two Wikis: Routing Rule
+
+The vault holds two separate wikis with an identical folder layout (`concepts/`, `sources/`, `examples/`, `learning/`, `synthesis/`, `areas/`, `resources/`, `entities/`, `gaps/`, `arguments/`, plus `index.md`, `hot.md`, `log.md`). They cross-link through their `index.md` files.
+
+- **Finance, trading, markets, instruments, indicators, investing** → `wiki-finance/`
+- **Everything else (coursework, software, security, AI, blockchain as technology)** → `wiki-school/`
+
+Each wiki keeps its own `index.md`, `hot.md` and `log.md`. Read the matching wiki's `hot.md` first. In the Layer 1 snippet and the skills below, read `wiki/` as the wiki that matches the topic.
 
 ## How to Use
 
@@ -61,9 +71,9 @@ in the command prompt so that you can access it via a local host server.
 
 ### Reading from the wiki
 When you need context not in this project:
-1. Read `wiki/hot.md` first — recent context, ~500 words
-2. If not enough, read `wiki/index.md` for the full catalogue
-3. Drill into `wiki/concepts/<page>.md` for specifics
+1. Read `wiki-school/hot.md` (coursework and software) or `wiki-finance/hot.md` (finance) first — recent context, ~500 words
+2. If not enough, read that wiki's `index.md` for the full catalogue
+3. Drill into `<wiki>/concepts/<page>.md` for specifics
 4. With the information found try to solve what the user is asking for
 5. If the information is not substantial enough, then source from outside
 Do NOT read the wiki for general coding questions already answered here.

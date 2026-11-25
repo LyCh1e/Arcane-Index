@@ -204,7 +204,7 @@ Agent(
 
 ## See Also
 
-- [[concepts/ai-workflows]] — the 5 core workflow patterns (prompt chaining, routing, parallelisation, orchestrator–workers, evaluator–optimiser)
-- [[concepts/ai-workflow-orchestration]] — tool taxonomy and observability
+- [[ai-workflows]] — the 5 core workflow patterns (prompt chaining, routing, parallelisation, orchestrator–workers, evaluator–optimiser)
+- [[ai-workflow-orchestration]] — tool taxonomy and observability
 - [[_templates/workflow-loop]] — if this agent runs inside a loop
 - [[_templates/skill]] — if this agent is invoked by a skill

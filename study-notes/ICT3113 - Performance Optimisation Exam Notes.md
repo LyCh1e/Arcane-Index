@@ -1111,7 +1111,7 @@ Equivalent to the closed-form. Use when ρ is not in the table.
 ## 16. Labs, Weeks 11–12: Reading a Stress Table and Diagnosing a Slow Endpoint
 
 > [!note] Provenance
-> Both lab handouts have blank answer tables. The Week 11 figures below are method and arithmetic only (lab not yet run; the 8-core, S = 64 ms numbers are the lecture's, used as an illustration). The Week 12 answers are worked from the deck's data and are **not** an official solution. The Week 12 method is taught in Lecture 09 (the lab calls it "Lecture 08"; the vault's Lec08 file is the Dell Docker and Kubernetes Intro session), see §16.5. Wiki: [[wiki/examples/ict3113-lab-wk11-load-stress-build-c]], [[wiki/examples/ict3113-lab-wk12-slow-endpoint-worked]], [[wiki/concepts/connection-pool-diagnosis]].
+> Both lab handouts have blank answer tables. The Week 11 figures below are method and arithmetic only (lab not yet run; the 8-core, S = 64 ms numbers are the lecture's, used as an illustration). The Week 12 answers are worked from the deck's data and are **not** an official solution. The Week 12 method is taught in Lecture 09 (the lab calls it "Lecture 08"; the vault's Lec08 file is the Dell Docker and Kubernetes Intro session), see §16.5. Wiki: [[ict3113-lab-wk11-load-stress-build-c]], [[ict3113-lab-wk12-slow-endpoint-worked]], [[connection-pool-diagnosis]].
 
 ### 16.1 Reading a stress table by column (Week 11)
 
@@ -1195,13 +1195,13 @@ Data: knee 18 req/s, target 40, database CPU 22%, c = 10, hold 480 ms, wait 310 
 - **Do not go straight to the plan:** it cannot see causes 1 and 3.
 - **After fixing, the knee moves** to the next resource (the 1,250 req/s is the pool's ceiling; the payment provider at 300 ms is next). Stress test again; if the knee did not move, the database was not the bottleneck or the wrong cause was fixed.
 
-Wiki: [[wiki/sources/ict3113-pod-l9-database-request-time]], [[wiki/concepts/query-plans-and-slow-queries]], [[wiki/concepts/n-plus-one-query-problem]], [[wiki/concepts/saga-pattern]], [[wiki/examples/ict3113-lec09-worked-examples]].
+Wiki: [[ict3113-pod-l9-database-request-time]], [[query-plans-and-slow-queries]], [[n-plus-one-query-problem]], [[saga-pattern]], [[ict3113-lec09-worked-examples]].
 
 ---
 
 ## 17. Lecture 10: Introduction to AI Agents and the Harness
 
-> Full detail: [[wiki/concepts/agent-harness]], [[wiki/sources/ict3113-pod-l10-intro-ai-agents]]
+> Full detail: [[agent-harness]], [[ict3113-pod-l10-intro-ai-agents]]
 
 **The question:** how does a model that only takes text in and gives text out carry out tasks? **Agent = model + harness.** Only *think* calls the model; act, observe, check and stop are ordinary code.
 

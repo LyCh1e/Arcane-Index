@@ -1,0 +1,46 @@
+---
+type: resource
+title: "Frama-C (WP plugin) and ACSL"
+domain: formal-verification
+created: 2026-10-20
+tags: [frama-c, acsl, wp, smt, why3]
+---
+
+# Frama-C / WP / ACSL
+
+Deductive verification of C. Annotations are ACSL comments (`/*@ ... */`, `//@ ...`); the WP plugin turns them into verification conditions (weakest precondition calculus, see [[hoare-logic]]) and sends them to SMT solvers via Why3 (Alt-Ergo, Z3, cvc5).
+
+## Commands
+
+- `frama-c -wp -rte file.c` — prove contracts plus runtime-error guards (overflow, `\valid`, division). Statuses: Valid, Unknown/Timeout (not a disproof).
+- `frama-c-gui -wp -rte file.c` — Ivette GUI (`ivette` before 33.0).
+- `-wp-smoke-tests` — detects unsatisfiable preconditions.
+- `-wp-no-simpl` — show raw VCs; `-wp-prover alt-ergo,z3,cvc5`; `-wp-timeout N`.
+- `why3 config detect` — re-run after installing any prover.
+
+## Purpose: proof, not debugging
+
+A debugger runs one input and shows what happened; Frama-C never runs the code and reasons symbolically, so a proved goal holds for every input (it found the `INT_MIN` overflow in `abs` with no test). It needs a contract from you, and a proof is only as strong as that contract: a wrong or weak spec proves the wrong thing. `Timeout`/`Unknown` is not a disproof. Best spent on small, critical code; testing and proof complement each other.
+
+## Verified option notes (Frama-C 33.0)
+
+- `-wp-rte` (slide option) skips the unsupported alignment/function-pointer guards; plain `-rte` adds `rte_pointer_alignment` goals that time out on `size_t*` array code.
+- `-wp-no-simpl` (in the lab text) is a **deprecated alias of `-wp-no-subst`**; it still runs but warns. `-wp-no-qed` disables Qed simplification so raw VCs show in the GUI.
+- `-wp-fct f` proves one function; `-wp-cache none` avoids the `.frama-c/` proof-cache folder; `-wp-timeout` defaults to 2 s.
+- Several files each defining `main` (or the same function) cannot be loaded into one session. Frama-C does not fail: it warns `def'n of func main ... conflicts ... keeping the one at ...` and **silently drops the later definition**, so a combined run reports on the wrong code. Use one session per file or per conflict-free group ([[ict3112-frama-c-lab3-pointers-run]]).
+- `-wp-prover z3` alone proves `sumsq` (`ensures \result >= 2*x*y`) 9/9 where Alt-Ergo times out; Z3 answering *Unknown* at once (as on `take.c`) hints that the goal is false.
+- `-kernel-warn-key annot-error=active` turns a bad annotation (e.g. `\at(x, L)` with `x` declared after `L`) from a fatal abort into a warning. `\post(*a)` does not exist in Frama-C 33; use `\at(*a, Post)`.
+- `-wp-status` prints the Assume/Prove text of pending goals on the command line, without opening the GUI (0 goals printed without it, 1 with it on `find_incomplete.c`).
+- Frama-C 33 adds a Termination-condition goal (`typed_<fn>_terminates`) for any function with a loop lacking a `loop variant`. Budget one unproved goal per such function until the variant is written: [[ict3112-frama-c-lab3-loops-run]].
+- A `loop invariant` not directly above its loop is a **syntax error** that aborts the run (`Frama-C aborted: invalid user input`), so no goals are produced.
+- Contract patterns for `\valid`, `assigns`, `\separated`, RTE and labels: [[acsl-contract-strength-and-pointer-memory]].
+- `-wp-prover alt-ergo,z3,cvc5 -wp-timeout 30` can turn timeouts into proofs: Assignment 1 went 92/94 (Alt-Ergo only) to 94/94, with CVC5 closing the two `non_increasing` asserts. Run with `-wp-cache none` to see a true uncached breakdown (Qed 45, Alt-Ergo 40, CVC5 4, Z3 3). See [[ict3112-frama-c-assignment1-leaderboard]] and [[acsl-sorted-array-insert-pattern]].
+- Full list kept in `Labs/Frama-C-Commands.md` (CLAUDE.md requires updating it whenever a new command is verified).
+
+## ACSL cheat sheet
+
+`requires` / `ensures` / `assigns` / `\nothing` / `\old` / `\at(e,Pre|Here|LoopEntry|LoopCurrent|Label)` / `\valid` / `\valid_read` / `\separated` / `behavior` + `assumes` + `complete|disjoint behaviors` / `loop invariant` / `loop assigns` / `loop variant` / `\forall T x; range ==> P` / `\exists T x; range && P` (use `==>` with forall, `&&` with exists).
+
+Rules of thumb: postconditions must pin the result exactly (`max` needs `== a || == b`); after a loop WP knows only the invariant, so link it to the postcondition (`a == \at(a,Pre) + i`); the invariant plus `¬guard` must imply the post (bounds both sides); give `\valid(p + (0..n-1))` for arrays.
+
+Install on Windows: [[frama-c-wsl-install-gotchas]]. Worked labs: [[ict3112-frama-c-labs-0-2]], [[ict3112-frama-c-lab3-loops-run]].

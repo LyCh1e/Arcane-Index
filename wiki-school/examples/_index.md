@@ -1,0 +1,51 @@
+﻿---
+type: meta
+status: established
+title: "Examples Index"
+updated: 2026-09-09
+tags: [meta, index, examples]
+---
+
+# Examples Index
+
+This folder contains two categories of grounded, applied content that sit alongside the abstract concept pages in `wiki/concepts/`:
+
+| Category | Description |
+|----------|-------------|
+| **Real-world examples** | Concrete instances of concepts observed in industry, news, or practice (e.g. a software failure illustrating poor RE, a real app's MVVM implementation) |
+| **Lab sessions** | Ingested practical exercises, code walkthroughs, and worksheet solutions from university lab work |
+
+## How to Use This Folder
+
+- Each page links back to its parent concept page (e.g. an HCI lab links to[[needfinding-and-task-analysis]]]).
+- Pages are tagged with both `example` or `lab` and the relevant course code (e.g. `inf2002`, `inf1008`).
+- When ingesting a lab session, use the naming convention: `[COURSE]-lab-[week]-[topic].md` (e.g. `inf1008-lab-03-sorting.md`).
+- When adding a real-world example, use: `example-[topic]-[short-descriptor].md` (e.g. `example-hci-hawaii-missile-alert.md`).
+
+## Pages
+
+| Page | Type | Course / Domain | Concept |
+|------|------|-----------------|---------|
+| [[ict2216-lab1-docker-compose\|ICT2216 Lab 1 — Multi-Container Docker Compose Stack]] | lab | ICT2216 |[[docker-compose\|Docker Compose]]] |
+| [[ict2216-lab2-securityrat\|ICT2216 Lab 2 — SecurityRAT: Defining Secure Software Requirements]] | lab | ICT2216 |[[secure-software-requirements\|Secure Software Requirements]]] |
+| [[ict2216-lab3-threat-modeling-tool\|ICT2216 Lab 3 — Microsoft Threat Modeling Tool]] | lab | ICT2216 |[[threat-modeling\|Threat Modeling]]] |
+| [[ict2216-lab4-owasp-threat-dragon\|ICT2216 Lab 4 — OWASP Threat Dragon]] | lab | ICT2216 |[[threat-modeling\|Threat Modeling]]] |
+| [[ict2216-lab5-github-actions\|ICT2216 Lab 5 — Web Proxy and GitHub Actions with Docker]] | lab | ICT2216 |[[nginx-reverse-proxy-and-tls\|Nginx TLS]]],[[github-actions-cicd\|GitHub Actions]]] |
+| [[ict2216-project-phase4-auth\|ICT2216 Project — Phase 4 Authentication & Docker Stack]] | project | ICT2216 |[[secure-design-implementation\|Secure Design]]] |
+| [[ict2216-project-deployment-phases-9-12\|ICT2216 Project — Deployment Phases 9–12 (EC2)]] | project | ICT2216 |[[docker-compose\|Docker Compose]]] |
+| [[ict3112-lab1-nunit-tdd-calculator\|ICT3112 SVV Lab 1 — NUnit + TDD Calculator]] | lab | ICT3112 |[[test-driven-development\|Test-Driven Development]]] |
+| [[ict3112-lab2-reqnroll-bdd\|ICT3112 SVV Lab 2 — Reqnroll BDD + Acceptance Testing]] | lab | ICT3112 |[[test-driven-development\|Test-Driven Development / BDD]]] |
+| [[ict3112-lab3-ci-and-dependencies\|ICT3112 SVV Lab 3 — CI + Testing with Dependencies]] | lab | ICT3112 |[[test-doubles-and-dependency-injection\|Test Doubles and Dependency Injection]]] |
+| [[ict3112-frama-c-lab3-loops-run\|ICT3112 Frama-C Lab 3 — Loops: Run Results and Tested Failure Claims]] | lab | ICT3112 |[[loop-invariants\|Loop Invariants]]] |
+| [[ict3112-array-exercises-worked\|ICT3112 Array Exercises — Worked Proofs]] | tutorial | ICT3112 |[[select-store-axioms\|Select–Store Axioms]]] |
+| [[ict3112-loop-invariant-exercises-worked\|ICT3112 Loop Invariant Exercises — Worked Proofs]] | tutorial | ICT3112 |[[loop-invariants\|Loop Invariants]]] |
+| [[inf2005-lab-wk1-cryptography\|INF2005 Lab Wk 1 — Cryptography (Ciphers, Cryptanalysis & RSA Team Challenge)]] | lab | INF2005 |[[classical-ciphers-and-cryptanalysis\|Classical Ciphers]]],[[public-key-cryptography-and-key-exchange\|Public-Key Cryptography]]] |
+| [[inf2005-acw1-stego-verification\|INF2005 ACW1 — Steganographic Integrity Verification with Digital Signatures]] | project | INF2005 |[[steganography\|Steganography]]],[[public-key-cryptography-and-key-exchange\|Public-Key Cryptography]]] |
+| [[inf2005-acw3-mod-dav-fs-proppatch-dos\|INF2005 ACW3 — CVE-2026-93546 mod_dav_fs PROPPATCH Worker-Crash DoS (reproducible PoC)]] | project | INF2005 |[[webdav-proppatch-namespace-overflow\|WebDAV PROPPATCH Namespace Overflow]]] |
+| [[stock-prediction-neural-network\|Stock Prediction Neural Network — SOLID ML App with Tkinter GUI]] | project | machine-learning |[[neural-networks-linear-models\|Neural Networks & Linear Models]]] |
+| [[ict2216-project-vite-refactor\|ICT2216 Project — UMD Prototype to Vite + React SPA Refactor]] | project | ICT2216 / web-development |[[vite\|Vite]]],[[javascript-fundamentals\|JavaScript]]] |
+| [[inf2005-week10-tutorial-worked-answers\|INF2005 Week 10 Tutorial — Worked Answers for the Packet Captures (Tasks 5–8)]] | tutorial | INF2005 / cyber-security |[[wireshark-packet-analysis\|Wireshark Packet Analysis]]],[[nmap-scan-types\|Nmap Scan Types]]] |
+
+---
+
+*Drop a lab file into `raw/` and say "ingest [filename] as a lab session" to populate this folder.*

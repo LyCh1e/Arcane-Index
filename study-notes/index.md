@@ -5,7 +5,7 @@ updated: 2026-11-25
 tags: [index, study-notes]
 ---
 
-> **Part of the Arcane-Index wiki** — [[wiki/index|Wiki Index]] · [[wiki/hot|Recent Context]]
+> **Part of the Arcane-Index wiki** — [[wiki-school/index|Wiki Index]] · [[hot|Recent Context]]
 
 # Study Notes
 
@@ -23,7 +23,7 @@ All exam notes and formula sheets in this folder. Each module has a full notes f
 | ICT3112 | Software Verification and Validation | `ict3112` | [[ICT3112 - Software Verification and Validation Exam Notes]] | [[ICT3112 - Formula Sheet]] | yes |
 | ICT3113 | Performance Optimisation and Design | `ict3113` | [[ICT3113 - Performance Optimisation Exam Notes]] | [[ICT3113 - Formula Sheet]] | yes |
 
-**Source Pattern** is matched against filenames in `wiki/sources/` — any source page whose filename contains the pattern belongs to that module.
+**Source Pattern** is matched against filenames in `wiki-school/sources/` — any source page whose filename contains the pattern belongs to that module.
 
 ---
 
@@ -59,6 +59,6 @@ _No modules are currently restricted to part of their syllabus._
 ## See Also
 
 - [[ICT3113 - Performance Testing and Optimisation Cheat Sheet]] — ICT3113 testing types, JMeter sizing, Erlang B, optimisation levers and connection-pool diagnosis with formulas and worked examples
-- [[wiki/index|Wiki Index]] — master catalogue of all ingested sources, concepts, and pages
-- [[wiki/hot|Recent Context]] — latest session output (~300 words)
-- [[wiki/log|Operation Log]] — chronological record of every ingest and update
+- [[wiki-school/index|Wiki Index]] — master catalogue of all ingested sources, concepts, and pages
+- [[hot|Recent Context]] — latest session output (~300 words)
+- [[wiki-school/log|Operation Log]] — chronological record of every ingest and update

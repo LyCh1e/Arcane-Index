@@ -8,70 +8,70 @@
   "collapse-color-groups": true,
   "colorGroups": [
     {
-      "query": "path:wiki/index.md OR path:wiki/hot.md OR path:wiki/log.md OR path:wiki/overview.md",
+      "query": "path:wiki-school/index.md OR path:wiki-school/hot.md OR path:wiki-school/log.md OR path:wiki-school/overview.md",
       "color": {
         "a": 1,
         "rgb": 16777215
       }
     },
     {
-      "query": "path:wiki/concepts",
+      "query": "path:wiki-school/concepts",
       "color": {
         "a": 1,
         "rgb": 5227007
       }
     },
     {
-      "query": "path:wiki/synthesis",
+      "query": "path:wiki-school/synthesis",
       "color": {
         "a": 1,
         "rgb": 15844367
       }
     },
     {
-      "query": "path:wiki/sources",
+      "query": "path:wiki-school/sources",
       "color": {
         "a": 1,
         "rgb": 6986069
       }
     },
     {
-      "query": "path:wiki/examples",
+      "query": "path:wiki-school/examples",
       "color": {
         "a": 1,
         "rgb": 9009603
       }
     },
     {
-      "query": "path:wiki/entities",
+      "query": "path:wiki-school/entities",
       "color": {
         "a": 1,
         "rgb": 16742854
       }
     },
     {
-      "query": "path:wiki/gaps",
+      "query": "path:wiki-school/gaps",
       "color": {
         "a": 1,
         "rgb": 13724009
       }
     },
     {
-      "query": "path:wiki/areas",
+      "query": "path:wiki-school/areas",
       "color": {
         "a": 1,
         "rgb": 14474410
       }
     },
     {
-      "query": "path:wiki/learning",
+      "query": "path:wiki-school/learning",
       "color": {
         "a": 1,
         "rgb": 5163440
       }
     },
     {
-      "query": "path:wiki/resources",
+      "query": "path:wiki-school/resources",
       "color": {
         "a": 1,
         "rgb": 13537656
@@ -85,7 +85,7 @@
       }
     },
     {
-      "query": "path:wiki/arguments",
+      "query": "path:wiki-school/arguments",
       "color": {
         "a": 1,
         "rgb": 15022389

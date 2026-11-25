@@ -1,0 +1,31 @@
+﻿---
+type: index
+status: established
+title: "Areas Index"
+updated: 2026-05-24
+tags: [index, areas]
+---
+
+# Areas
+
+Domain overview pages — one per academic discipline or knowledge area. Each area page is the single-page answer to "what do I know about this domain?"
+
+| Area | Concepts | Sources | Last Updated |
+|------|----------|---------|--------------|
+|[[software-engineering\|Software Engineering]]] | 6 | ICT2113, INF1009, ICT2112 | 2026-05-14 |
+|[[computer-science\|Computer Science]]] | 4 | INF1008 | 2026-05-14 |
+|[[mathematics\|Mathematics]]] | 10 | INF1003, INF1004 | 2026-05-14 |
+|[[machine-learning\|Machine Learning]]] | 6 | INF2008 | 2026-05-14 |
+|[[database-systems\|Database Systems]]] | 6 | INF2003 | 2026-05-14 |
+|[[secure-software-development\|Secure Software Development]]] | 5 | ICT2216 | 2026-05-15 |
+|[[computer-architecture\|Computer Architecture]]] | 3 | ICT1011 | 2026-05-15 |
+|[[operating-systems\|Operating Systems]]] | 5 | ICT1012 | 2026-05-14 |
+|[[web-development\|Web Development]]] | 5 | INF1005 | 2026-05-14 |
+|[[mobile-development\|Mobile Development]]] | 3 | INF2007, INF1009 | 2026-05-15 |
+|[[hci\|Human-Computer Interaction]]] | 2 | INF2002 | 2026-05-15 |
+|[[agile-project-management\|Agile Project Management]]] | 1 | Scrum Guide 2020 | 2026-05-21 |
+|[[computer-networks\|Computer Networks]]] | 7 | INF1006 | 2026-05-22 |
+|[[programming-fundamentals\|Programming Fundamentals]]] | 5 | INF1002 | 2026-05-23 |
+|[[embedded-systems\|Embedded Systems]]] | 5 | INF2004 | 2026-05-23 |
+|[[it-ethics\|IT Ethics]]] | 4 | INF1007 | 2026-05-24 |
+|[[cryptography\|Cryptography]]] | 3 | INF2005 | 2026-09-03 |

@@ -1147,7 +1147,7 @@ $$\frac{}{\{Q[a \leftarrow a[i \leftarrow E]]\} \; a[i] := E \; \{Q\}}$$
 
 ### Select–Store Axioms and Array Loops
 
-Reading an updated array (see [[wiki/concepts/select-store-axioms]]):
+Reading an updated array (see [[select-store-axioms]]):
 
 ```
 a[I ↦ E][J] = E       if J = I
@@ -1159,7 +1159,7 @@ sizeof(a[I ↦ E]) = sizeof(a)
 
 Example: Q `a[i] ≥ a[j]`, program `a[i] := x` gives `(j = i ∨ x ≥ a[j]) ∧ 0 ≤ i < sizeof(a)`.
 
-**Array-loop invariant template** ([[wiki/examples/ict3112-array-exercises-worked]]):
+**Array-loop invariant template** ([[ict3112-array-exercises-worked]]):
 
 | Slot | Example |
 |---|---|
@@ -1177,7 +1177,7 @@ Example: Q `a[i] ≥ a[j]`, program `a[i] := x` gives `(j = i ∨ x ≥ a[j]) �
 
 ### Invariant Recipe Refinements (Recorded-Lecture Exercises)
 
-Source: [[wiki/examples/ict3112-loop-invariant-exercises-worked]].
+Source: [[ict3112-loop-invariant-exercises-worked]].
 
 | Situation | What to do |
 |---|---|

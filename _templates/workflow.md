@@ -36,7 +36,7 @@ related: []
 
 > Workflows use these patterns once. If you need the pattern to *repeat until a condition is met*, use `_templates/workflow-loop.md` instead.
 
-See [[concepts/ai-workflows]] for pattern details and when to choose each.
+See [[ai-workflows]] for pattern details and when to choose each.
 
 ---
 
@@ -238,5 +238,5 @@ describes the task, specifies the output format and file path]
 - [[_templates/workflow-loop]] — use instead if the workflow needs to repeat until a condition is met
 - [[_templates/agent]] — for documenting each step's agent configuration in detail
 - [[_templates/skill]] — if this workflow is invoked by a skill
-- [[concepts/ai-workflows]] — the 5 core patterns with decision guide
-- [[concepts/ai-workflow-orchestration]] — tool choices (LangGraph, Temporal, Dagster) for productionising workflows
+- [[ai-workflows]] — the 5 core patterns with decision guide
+- [[ai-workflow-orchestration]] — tool choices (LangGraph, Temporal, Dagster) for productionising workflows

@@ -1014,7 +1014,7 @@ Cross-reference results with **cve.mitre.org** and **nvd.nist.gov** for known ex
 
 ## §11A — Network Security Defence
 
-> Full detail: [[concepts/network-security-defence]]
+> Full detail: [[network-security-defence]]
 
 **Defence in depth** layers controls to *delay* an attack: policies → physical → perimeter → internal network → host → application → data.
 
@@ -1048,7 +1048,7 @@ Cross-reference results with **cve.mitre.org** and **nvd.nist.gov** for known ex
 
 ## §11B — Digital Forensics
 
-> Full detail: [[concepts/digital-forensics]]
+> Full detail: [[digital-forensics]]
 
 - **Digital forensics** = recovery and investigation of digital evidence (computer, storage, network, mobile).
 - **Integrity:** hash the evidence at collection and re-check later (MD5 → SHA-1/2 → **SHA-256**). Collisions are why MD5 and SHA-1 are retired.
@@ -1071,7 +1071,7 @@ Cross-reference results with **cve.mitre.org** and **nvd.nist.gov** for known ex
 
 ### Hands-on: Nmap and Wireshark (Week 10 tutorial)
 
-> Full detail: [[concepts/nmap-scan-types]] · [[concepts/wireshark-packet-analysis]] · [[examples/inf2005-week10-tutorial-worked-answers]]
+> Full detail: [[nmap-scan-types]] · [[wireshark-packet-analysis]] · [[inf2005-week10-tutorial-worked-answers]]
 
 | Scan | Command | Key point |
 |---|---|---|
@@ -1091,7 +1091,7 @@ Cross-reference results with **cve.mitre.org** and **nvd.nist.gov** for known ex
 
 ## §11C — IoT Security
 
-> Full detail: [[concepts/iot-security]]
+> Full detail: [[iot-security]]
 
 An IoT device is a physical device running an OS, so **all system attacks apply to it**. It is a soft target because it is installed once, left unattended, rarely patched and often keeps its **default password**.
 
