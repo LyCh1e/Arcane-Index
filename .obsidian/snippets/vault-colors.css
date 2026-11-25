@@ -20,8 +20,8 @@
 }
 
 /* ── Wiki root & meta (steel blue) ── */
-.nav-folder-title[data-path="wiki-school"]  { color: var(--cb-meta); }
-.nav-folder-title[data-path="wiki-finance"] { color: var(--cb-fin); }
+.nav-folder-title[data-path="wiki-school"]  { color: #ffffff; }
+.nav-folder-title[data-path="wiki-finance"] { color: #ffffff; }
 
 /* ── Mode E: Research ── */
 .nav-folder-title[data-path^="wiki-school/concepts"]     { color: var(--cb-blue); }

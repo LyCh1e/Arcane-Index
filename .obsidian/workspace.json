@@ -63,7 +63,8 @@
               "title": "index"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -252,7 +253,7 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "632b2c1c466ec5b8",
+  "active": "aa21592bb12da3f9",
   "lastOpenFiles": [
     "wiki-finance/index.md",
     "wiki-school/index.md",
