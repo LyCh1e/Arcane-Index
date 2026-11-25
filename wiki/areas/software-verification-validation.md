@@ -54,6 +54,18 @@ This area covers the ICT3112 course content and related knowledge on software V&
 
 ---
 
+## Formal Verification Exercises (ICT3112)
+
+| Page | Content |
+|------|---------|
+| [[sources/ict3112-array-exercises-solved\|Array Exercises with Solutions]] | [ARRAY-READ]/[ARRAY-ASSIGN] on straight-line code, dot-product and doubling loops |
+| [[sources/ict3112-loop-invariant-exercises-recorded-lecture\|Loop Invariant Exercises (Recorded Lecture)]] | Six solved loops: count-down sum, helper variable, integer square root, `4n+1`, in-place array increment |
+| [[concepts/select-store-axioms\|Select–Store Axioms]] | Reads of updated arrays; three-step write rule |
+| [[examples/ict3112-array-exercises-worked\|Array Exercises — Worked Proofs]] | Condensed proofs |
+| [[examples/ict3112-loop-invariant-exercises-worked\|Loop Invariant Exercises — Worked Proofs]] | Condensed proofs and diagnosis table |
+
+---
+
 ## Related Areas
 
 - [[areas/machine-learning]] — ML evaluation and experimental design (testing as applied to ML models)

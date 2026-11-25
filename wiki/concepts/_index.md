@@ -34,6 +34,7 @@ tags: [index, concepts]
 | DevOps | 4 |
 | Cyber Security | 6 |
 | Trading | 8 |
+| Formal Verification | 3 |
 | Performance Engineering (ICT3113 Lec09 additions) | 3 |
 
 ---
@@ -319,6 +320,14 @@ tags: [index, concepts]
 | [[concepts/wireshark-packet-analysis\|Wireshark Packet Analysis — Reading Captures]] | INF2005 | medium |
 
 ---
+
+## Formal Verification (ICT3112)
+
+| Concept | Source | Confidence |
+|---------|--------|------------|
+| [[concepts/hoare-logic\|Hoare Logic]] | ict3112-hoare-logic-core | high |
+| [[concepts/loop-invariants\|Loop Invariants]] | ict3112-loop-invariants, ict3112-loop-invariant-exercises-recorded-lecture | high |
+| [[concepts/select-store-axioms\|Select–Store Axioms]] | ict3112-array-exercises-solved | high |
 
 ## Connections Map
 

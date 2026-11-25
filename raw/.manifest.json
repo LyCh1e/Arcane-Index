@@ -651,6 +651,41 @@
         "wiki/log.md",
         "wiki/hot.md"
       ]
+    },
+    "raw/ICT3112 Array exercises with solutions.md": {
+      "hash": "0063b8b4061ec06e2f0fa630e5c169b5",
+      "ingested_at": "2026-11-25",
+      "pages_created": [
+        "wiki/sources/ict3112-array-exercises-solved.md",
+        "wiki/concepts/select-store-axioms.md",
+        "wiki/examples/ict3112-array-exercises-worked.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/loop-invariants.md",
+        "wiki/concepts/hoare-logic.md",
+        "wiki/sources/ict3112-hoare-arrays.md",
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md",
+        "study-notes/ICT3112 - Formula Sheet.md"
+      ]
+    },
+    "raw/ICT3112 Loop invariant exercises for the recorded lecture.md": {
+      "hash": "40ef0490a92f40e2e4dd71764dbcb136",
+      "ingested_at": "2026-11-25",
+      "pages_created": [
+        "wiki/sources/ict3112-loop-invariant-exercises-recorded-lecture.md",
+        "wiki/examples/ict3112-loop-invariant-exercises-worked.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/loop-invariants.md",
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md",
+        "study-notes/ICT3112 - Formula Sheet.md"
+      ]
     }
   },
   "address_map": {
@@ -803,7 +838,12 @@
     "wiki/concepts/exponential-moving-average.md": "c-000154",
     "wiki/concepts/ema-9-20-200-roles.md": "c-000155",
     "wiki/concepts/moving-average-trading-evidence.md": "c-000156",
-    "wiki/synthesis/research-emas-in-trading.md": "c-000157"
+    "wiki/synthesis/research-emas-in-trading.md": "c-000157",
+    "wiki/sources/ict3112-array-exercises-solved.md": "c-000158",
+    "wiki/sources/ict3112-loop-invariant-exercises-recorded-lecture.md": "c-000159",
+    "wiki/examples/ict3112-array-exercises-worked.md": "c-000160",
+    "wiki/examples/ict3112-loop-invariant-exercises-worked.md": "c-000161",
+    "wiki/concepts/select-store-axioms.md": "c-000162"
   },
   "INF2005 Cyber Security Fundamentals - Social Engineering.md": {
     "ingested_at": "2026-10-16",

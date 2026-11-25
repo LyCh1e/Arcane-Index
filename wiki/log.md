@@ -2,13 +2,21 @@
 type: meta
 status: established
 title: "Operation Log"
-updated: 2026-11-24
+updated: 2026-11-25
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## [2026-11-25] ingest | ICT3112 Array exercises and Loop invariant exercises (2 PDFs)
+
+- Source: `raw/ICT3112 Array exercises with solutions.md`, `raw/ICT3112 Loop invariant exercises for the recorded lecture.md` (text extracts of the uploaded PDFs)
+- Summary: [[sources/ict3112-array-exercises-solved]], [[sources/ict3112-loop-invariant-exercises-recorded-lecture]]
+- Pages created: [[sources/ict3112-array-exercises-solved]], [[sources/ict3112-loop-invariant-exercises-recorded-lecture]], [[concepts/select-store-axioms]], [[examples/ict3112-array-exercises-worked]], [[examples/ict3112-loop-invariant-exercises-worked]]
+- Pages updated: [[concepts/loop-invariants]], [[concepts/hoare-logic]], [[sources/ict3112-hoare-arrays]], [[areas/software-verification-validation]], indexes (sources, concepts, examples, wiki index), hot cache; study notes (ICT3112 Exam Notes, Formula Sheet, Coverage Summary)
+- Key insight: Invariant discovery needs the final value of the progress variable (not "n") plus an undo-check, and array loops need size facts and a "not touched yet" region; the array sheet contains four exercises although its intro says the last three have loops.
 
 ## [2026-11-24] autoresearch | EMAs in trading and what the 9, 20 and 200 EMAs show
 

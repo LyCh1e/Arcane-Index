@@ -263,6 +263,12 @@ If P holds before C and C terminates, then Q holds after. (Partial correctness.)
 | **ARRAY-READ** `x := a[i]` | Requires `def(a[i])` = `0 ≤ i < sizeof(a)` |
 | **ARRAY-ASSIGN** `a[i] := E` | Substitution: `Q[a ← a[i ← E]]` |
 
+**Select–store:** `a[I ↦ E][J] = E` if `J = I`; `= a[J]` if `J ≠ I`; `sizeof` unchanged by an update.
+
+**Write in 3 steps:** substitute, select–store (both cases if `J = I` unknown), add `def(a[I]) ∧ def(E)` in parentheses.
+
+**Array-loop invariant slots:** processed `∀k. 0 ≤ k < i ⇒ …` · not touched yet `∀k. i ≤ k < n ⇒ a[k] = a₀[k]` (if body reads the cell it writes) · `sizeof(a) = n` · `0 ≤ i ≤ n`.
+
 ---
 
 ### Loop Invariant Obligations
@@ -286,6 +292,8 @@ If P holds before C and C terminates, then Q holds after. (Partial correctness.)
 | **4. Bounds** | Add counter range (e.g. `0 ≤ i ≤ n`) |
 | **5. Check** | Verify all four obligations mechanically |
 
+**Refinements:** replace the *final value* of the progress variable (count-down: 0, not n) · **undo-check** (substitute final value, must give Q) · drop the conjunct of Q that `¬B` gives (integer sqrt: `I = 0 ≤ r ∧ r·r ≤ n`) · add helper relations (`k = 2i + 1`) · exit needs the bound that makes `¬B` an equality (`0 ≤ i` for `i > 0`, `i ≤ n` for `i < n`).
+
 ---
 
 ### Common Variant Patterns
@@ -295,3 +303,5 @@ If P holds before C and C terminates, then Q holds after. (Partial correctness.)
 | Count up from 0 to n | n − i |
 | Count down from n to 0 | i (or current value) |
 | Halving a value | x (when `x := x div 2`) |
+| Search until square exceeds n (`r` grows) | n − r (needs `0 ≤ r`) |
+| Array loop over `a` | `sizeof(a) − i` or `n − i` |

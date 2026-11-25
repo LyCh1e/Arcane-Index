@@ -26,7 +26,7 @@ flowchart TD
     B --> E & F
     E["§5 Whitebox Testing\nCFG, Coverage Criteria\nCyclomatic Complexity\nBasis Paths, LCSAJ"]
     F["§6 Blackbox Testing\nUse Case Testing\nEP, BVA\nDecision Tables\nState Transition"]
-    B --> G["§8 Axiomatic Semantics\nHoare Logic\nWP Calculus\nLoop Invariants\nArray Rules"]
+    B --> G["§8 Axiomatic Semantics\nHoare Logic\nWP Calculus\nLoop Invariants\nArray Rules + Select-Store"]
     B --> H["§7 Browser Testing\nSelenium WebDriver\nExplicit Waits\nPage Object Pattern\nCI Orchestration"]
     G --> I["§9 Frama-C / ACSL\nACSQL Contracts\nRuntime Errors\nPointer Memory\nLoop Annotations"]
 ```
@@ -1145,6 +1145,53 @@ $$\frac{}{\{Q[a \leftarrow a[i \leftarrow E]]\} \; a[i] := E \; \{Q\}}$$
 
 ---
 
+### Select–Store Axioms and Array Loops
+
+Reading an updated array (see [[wiki/concepts/select-store-axioms]]):
+
+```
+a[I ↦ E][J] = E       if J = I
+a[I ↦ E][J] = a[J]    if J ≠ I
+sizeof(a[I ↦ E]) = sizeof(a)
+```
+
+**Three steps for `a[I] := E`:** (1) substitute `a ← a[I ↦ E]` in Q, (2) simplify each read with select–store, keeping **both cases** if `J = I` is unknown, (3) add `def(a[I]) ∧ def(E)` (one `def(b[J])` per array read in E), with parentheses so definedness holds in both cases.
+
+Example: Q `a[i] ≥ a[j]`, program `a[i] := x` gives `(j = i ∨ x ≥ a[j]) ∧ 0 ≤ i < sizeof(a)`.
+
+**Array-loop invariant template** ([[wiki/examples/ict3112-array-exercises-worked]]):
+
+| Slot | Example |
+|---|---|
+| Processed region | `∀k. 0 ≤ k < i ⇒ b[k] = 2·a[k]` |
+| Not touched yet (needed if the body reads the cell it writes) | `∀k. i ≤ k < n ⇒ a[k] = a₀[k]` (`a₀` = original array, a logical constant) |
+| Sizes | `sizeof(a) = n ∧ sizeof(b) = n` (needed for `def`) |
+| Bounds | `0 ≤ i ≤ n` |
+
+- Empty range: `Σ(k=0..−1) = 0` and `∀k. 0 ≤ k < 0 ⇒ …` is true, which gives establishment.
+- Split the last term: `Σ(k=0..i) = Σ(k=0..i−1) + e(i)`.
+- Guard `i ≤ n` instead of `i < n` fails `def(a[n])` (`n < n`).
+- Aliasing: the proofs hold only if `a` and `b` are different arrays; in C use `\separated`.
+
+---
+
+### Invariant Recipe Refinements (Recorded-Lecture Exercises)
+
+Source: [[wiki/examples/ict3112-loop-invariant-exercises-worked]].
+
+| Situation | What to do |
+|---|---|
+| Loop counts **down** (`i := n … i > 0`) | Replace the **final value** of the progress variable (0), not "n". Make it visible: `Q: s = n(n+1)/2 − 0·(0+1)/2` then `I: s = n(n+1)/2 − i(i+1)/2 ∧ 0 ≤ i ≤ n` |
+| Candidate looks right | **Undo-check:** substitute the final value back; you must get Q. Also check the trace row 1 |
+| Q mentions `n` twice (`s = n*n`) | Trace decides which `n` becomes `i`: `s = i·i`, not `s = i·n` |
+| Preservation fails on a state that never occurs | Body needs an untracked fact; add a **helper relation** (`k = 2i + 1`) or the **not touched yet** region |
+| Q is a conjunction, one conjunct equals `¬B` (integer sqrt) | **Drop that conjunct**: `I: 0 ≤ r ∧ r·r ≤ n`. Using Q itself fails establishment |
+| Exit fails | Add the bound that turns `¬B` into equality: `0 ≤ i` for `i > 0` loops, `i ≤ n` for `i < n` loops |
+
+Exit counterexamples to quote: missing `0 ≤ i` gives `i = −1, s = 2n + 2`; missing `i ≤ n` gives `i = n + 1, s = 4n + 5`. In `s := 1; s += 4` (`s = 4i + 1`) the lower bound `0 ≤ i` is not used at exit or establishment, so the marking guide accepts its absence. Guard use differs by loop: count-down uses it for `0 ≤ i − 1`, count-up for `i + 1 ≤ n`. The variant in integer sqrt (`n − r`) needs `0 ≤ r`.
+
+---
+
 ### Common Invariant Patterns
 
 | Programme structure | Typical invariant form |
@@ -1359,6 +1406,8 @@ loop invariant \forall int k; i < k <= n ==> a[k] == \old(a[k-1]);
 > 4. For loops: identify invariant I using the **5-step recipe** (Q → trace → generalise → bounds → check)
 > 5. Check all **four invariant obligations** (Establishment, Preservation, Exit, Termination)
 > 6. For arrays: always include `def(a[i])` guard and use `a[i ← E]` notation for array-assign substitution
+> 7. After substituting `a[i ← E]`, split on `J = i` / `J ≠ i` with the select–store axioms before simplifying
+> 8. Check a candidate invariant with the **trace** and the **undo-check**; if preservation fails, ask which fact about a changing variable or unreached cell is missing
 
 > [!warning] Hoare Logic Common Mistakes
 > - Computing wp **left to right** (it must go **right to left**)
@@ -1366,6 +1415,11 @@ loop invariant \forall int k; i < k <= n ==> a[k] == \old(a[k-1]);
 > - Confusing **partial** correctness (if terminates, Q holds) with **total** (terminates AND Q holds)
 > - Omitting the `def(a[i])` guard when applying ARRAY-READ
 > - Using `a[i] = E` in place of the correct `a[i ← E]` array-update notation
+> - Replacing `n` by `i` blindly in a count-down loop: use the **final value** of the progress variable and run the undo-check
+> - Using Q as the invariant when one conjunct of Q is just `¬B` (fails establishment)
+> - Omitting the `not touched yet` region when the body reads the cell it writes (`a[i] := a[i] + 1`)
+> - Leaving `sizeof(a) = n` out of an array-loop invariant, so `def(a[i])` cannot be proved
+> - Using `a[i] > 0` (the cell being overwritten) when the postcondition needs a fact about `a[j]`
 
 > [!tip] For any whitebox question:
 > 1. Draw the **CFG** first — nodes and edges

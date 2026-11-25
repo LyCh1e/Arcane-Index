@@ -4,8 +4,8 @@ title: "Loop Invariants"
 domain: formal-verification
 status: established
 created: 2026-10-15
-updated: 2026-11-03
-sources: [ict3112-loop-invariants, ict3112-hoare-logic-core, ict3112-hoare-exercises, hoare-logic-workbench, ict3112-frama-c-lab3-loops]
+updated: 2026-11-25
+sources: [ict3112-loop-invariants, ict3112-hoare-logic-core, ict3112-hoare-exercises, hoare-logic-workbench, ict3112-frama-c-lab3-loops, ict3112-loop-invariant-exercises-recorded-lecture, ict3112-array-exercises-solved]
 tags: [loop-invariants, hoare-logic, formal-verification, weakest-precondition, termination, variant, invariant-discovery]
 ---
 
@@ -151,6 +151,21 @@ The state `a = 2, b = 3, i = 4, p = 8` satisfies `I ∧ ¬B` but `p ≠ a * b`. 
 
 ---
 
+## Refinements from the Recorded-Lecture Exercises
+
+Source: [[sources/ict3112-loop-invariant-exercises-recorded-lecture]]; worked in [[examples/ict3112-loop-invariant-exercises-worked]].
+
+- **Replace the final value of the progress variable, not "n".** For a count-down loop the final value is 0, so `s = i(i+1)/2` is wrong. Make the final value visible first (`Q: s = n(n+1)/2 − 0·(0+1)/2`), then replace it: `s = n(n+1)/2 − i(i+1)/2`.
+- **Undo-check.** Substitute the final value of the progress variable into the candidate. If the result is not Q, reject it. It catches what a quick trace misses.
+- **Partial replacement.** If Q mentions `n` twice (`s = n*n`), the trace decides which occurrences become `i` (`s = i·i`).
+- **Helper variables.** A body variable that is not in Q (e.g. `k` with `k = 2i+1`) needs its own relation in I, or preservation fails.
+- **Drop the conjunct `¬B` gives.** Integer square root: Q's `n < (r+1)²` is the negated guard, so `I = 0 ≤ r ∧ r·r ≤ n`. Using Q itself fails establishment.
+- **Template slots:** *produced so far*, *not touched yet*, *other relations*, *bounds*. In-place array updates need *not touched yet* (`∀k. i ≤ k < n ⇒ a[k] = a₀[k]`) because the body reads the cell it writes. `a₀` is a logical constant for the original array.
+- **Which bound is used where.** The bound that matters at exit is the one that turns `¬B` into an equality (`0 ≤ i` for `i > 0` loops, `i ≤ n` for `i < n` loops). The other bound often only matters for the variant or definedness.
+- **Array loops add size facts** (`sizeof(a) = n`) to I so `def(a[i])` can be discharged ([[concepts/select-store-axioms]], [[examples/ict3112-array-exercises-worked]]).
+
+---
+
 ## Loop Variants (Termination)
 
 A **variant** *E* is an integer expression with two properties:
@@ -246,6 +261,8 @@ Key insight for preservation: the hint `2 · (x div 2) = x − x mod 2` lets you
 - [[concepts/hoare-logic]] — all six inference rules and WP calculus
 - [[sources/ict3112-loop-invariants]] — source notes (Module 7)
 - [[sources/ict3112-hoare-exercises]] — solved exercise sheets
+- [[sources/ict3112-loop-invariant-exercises-recorded-lecture]], [[examples/ict3112-loop-invariant-exercises-worked]] — recorded-lecture exercises
+- [[concepts/select-store-axioms]], [[sources/ict3112-array-exercises-solved]] — array reads and writes inside loops
 - [[examples/ict3112-hoare-exercises-worked]] — condensed worked examples
 - [[sources/ict3112-frama-c-lab3-loops]] — Frama-C Lab 3 slides
 - [[examples/ict3112-frama-c-lab3-loops-run]] — measured goal counts in Frama-C 33

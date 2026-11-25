@@ -303,5 +303,7 @@ Testing is *incomplete*: it can find bugs but cannot prove their absence. Formal
 - [[sources/ict3112-hoare-logic-core]] — lecture notes source (Modules 0–6)
 - [[sources/ict3112-loop-invariants]] — loop invariant discovery lecture notes (Module 7)
 - [[sources/ict3112-hoare-arrays]] — array rules lecture notes (Module 8)
+- [[concepts/select-store-axioms]] — reading an updated array; three-step write rule
+- [[sources/ict3112-array-exercises-solved]] — four solved array exercises
 - [[sources/ict3112-hoare-exercises]] — solved exercise sheets
 - [[examples/ict3112-hoare-exercises-worked]] — key worked proofs

@@ -108,3 +108,8 @@ For loops that iterate over arrays (e.g., find maximum, copy, sum), the invarian
 ## Concept Pages Updated
 
 - [[concepts/hoare-logic]] — array rules section
+
+## See Also
+
+- [[sources/ict3112-array-exercises-solved]] — solved exercises for this module
+- [[concepts/select-store-axioms]]

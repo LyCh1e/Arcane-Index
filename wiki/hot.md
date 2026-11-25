@@ -2,13 +2,19 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-11-24
+updated: 2026-11-25
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-11-25 (ingest). **Session: ingest of two ICT3112 exercise PDFs.** New: [[sources/ict3112-array-exercises-solved]], [[sources/ict3112-loop-invariant-exercises-recorded-lecture]], [[concepts/select-store-axioms]], [[examples/ict3112-array-exercises-worked]], [[examples/ict3112-loop-invariant-exercises-worked]]. Updated: [[concepts/loop-invariants]], [[concepts/hoare-logic]], [[areas/software-verification-validation]], ICT3112 study notes.
+
+**Loop-invariant recipe fixes:** replace the final value of the progress variable (count-down loops end at 0, not n), run the undo-check, drop the conjunct of Q that the negated guard gives (integer sqrt), add helper relations (`k = 2i + 1`) and, for in-place array updates, a "not touched yet" region. **Array writes:** substitute, apply select-store with a `j = i` / `j != i` split, then add definedness; put `sizeof(a) = n` in the invariant. The array PDF has 4 exercises, not 5.
+
+## Previous Session
 
 2026-11-24 (autoresearch). **Session: EMAs in trading, and what the 9, 20 and 200 show.** New: [[synthesis/research-emas-in-trading]], [[concepts/exponential-moving-average]], [[concepts/ema-9-20-200-roles]], [[concepts/moving-average-trading-evidence]] and seven source pages.
 

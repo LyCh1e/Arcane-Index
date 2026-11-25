@@ -149,6 +149,16 @@ Course notes, papers, books, articles, and any material ingested into this vault
 
 > Earlier ICT3113 sources (L1 to L7, labs, tutorials) are listed in [[index]]; this section starts with the Lec09 ingest.
 
+### Formal Verification (ICT3112)
+| Source | Type | Concepts |
+|--------|------|----------|
+| [[sources/ict3112-hoare-logic-core\|Hoare Logic Core Rules (Modules 0–6)]] | lecture-notes | [[concepts/hoare-logic]] |
+| [[sources/ict3112-loop-invariants\|Loop Invariants: Discovering and Recipe (Module 7)]] | lecture-notes | [[concepts/loop-invariants]] |
+| [[sources/ict3112-hoare-arrays\|Reasoning about Arrays (Module 8)]] | lecture-notes | [[concepts/hoare-logic]], [[concepts/select-store-axioms]] |
+| [[sources/ict3112-hoare-exercises\|Hoare Logic Exercises 1–3 (Solved)]] | exercise-solutions | [[concepts/hoare-logic]] |
+| [[sources/ict3112-array-exercises-solved\|Array Exercises with Solutions]] | exercise-solutions | [[concepts/select-store-axioms]], [[concepts/loop-invariants]] |
+| [[sources/ict3112-loop-invariant-exercises-recorded-lecture\|Loop Invariant Exercises for the Recorded Lecture]] | exercise-solutions | [[concepts/loop-invariants]] |
+
 ## Papers & Articles
 
 ### AI Engineering

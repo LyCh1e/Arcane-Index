@@ -18,8 +18,8 @@ Each link is a persistent URL: republishing to the same URL updates the page's c
 
 | Module | Artefact URL | Last Published |
 |---|---|---|
-| ICT3112 | https://claude.ai/artifact/8CuL27NdrZqYRu1qBG9rJV | 2026-11-24 |
-| ICT3113 | https://claude.ai/artifact/VC19BXRWz158dszEdJ79G1 | 2026-11-24 |
+| ICT3112 | https://claude.ai/artifact/8CuL27NdrZqYRu1qBG9rJV | 2026-11-25 |
+| ICT3113 | https://claude.ai/artifact/VC19BXRWz158dszEdJ79G1 | 2026-11-25 |
 | INF2005 | https://claude.ai/artifact/Ar7Qj3yH2fua71nW2rXuUv | 2026-11-23 |
 
 If a publish ever returns a different URL than the one listed here (for example, if an artefact was deleted), replace the affected row above with the new URL so future runs update the correct page. If a module is removed from `study-notes/index.md`, leave its row here untouched — never delete an Artefact page automatically.
@@ -266,25 +266,29 @@ If a publish ever returns a different URL than the one listed here (for example,
 
 > Run 81 (2026-11-24): live pages for ICT3112 and ICT3113 were read and matched run 80 before republishing. The "Create Study Notes For" table in `study-notes/index.md` now lists only ICT3112 and ICT3113, so INF2005 was treated as retired and skipped (its page, row and rotation history are left untouched). Pages built with the project generator's build_page logic (CSS/JS taken verbatim from the last published page); all fresh subtopics. Labs: Lab 1 NUnit + TDD Calculator (ICT3112), Lab 1 Introduction to Profiling (ICT3113). Notes came to roughly 1,450-1,500 words (below the ~2,000 target; reading-time label held at the 10-minute floor). Option-length self-check run programmatically after fixing 5 failures per module: 0 failures; answer positions 5/5/5/5 on both; 0 entity leaks. Published as ICT3112 v98 and ICT3113 v99 (each needed one 'identical content' refusal first).
 
+> Run 82 (2026-11-24, second run today): live pages for ICT3112 and ICT3113 were read and matched run 81 before republishing. INF2005 remains retired (not in the index table) and was skipped; its page, row and history are untouched. Pages built with the project generator's build_page logic (CSS/JS taken verbatim from the last published page); all fresh subtopics. Labs: Lab 2 Reqnroll BDD (ICT3112), Lab 2 Flask profiling and JMeter testing (ICT3113). Notes came to roughly 1,430 words per page (below the ~2,000 target; reading-time label held at the 10-minute floor). Option-length self-check run programmatically: 0 failures; answer positions 5/5/5/5 on both; 0 entity leaks. Published as ICT3112 v99 and ICT3113 v100 (each needed one 'identical content' refusal first).
+
+> Run 83 (2026-11-25, scheduled): live pages for ICT3112 and ICT3113 were read in full and matched run 82 before republishing. INF2005 remains retired (not in the index table) and was skipped; its page, row and history are untouched. Pages built by applying the project generator's build_page logic to the CSS/JS of the last published page; all subtopics fresh against the last 5 runs. Labs: Frama-C Lab 3 loop runs (ICT3112), Assignment 1 Ticket Triage Service (ICT3113). Notes are about 1,750 (ICT3112) and 1,650 (ICT3113) words, under the ~2,000 target; reading-time label at the 10-minute floor. Checks: 0 option length-tell failures, answer positions 5/5/5/5 on both, 0 entity leaks, headless run scored 20/20 with no script errors or phone-width overflow. Published as ICT3112 v100 and ICT3113 v101. Possible errors seen in source notes (not edited): ICT3113 Exam Notes give B(5, 0.7) as about 9.3e-4 (recursion gives about 7.0e-4; m = 5 still holds) and call the retry case 'Erlang C' (Erlang C models waiting in a queue, not retries); the page uses the corrected value and omits the Erlang C label. ICT3112 Exam Notes say 1-switch excludes self-loops, but the stated count of 10 includes pairs containing self-loops; the page teaches the 10 pairs.
+
 ## Topic Rotation History
 
 Tracks roughly the last 5 runs' subtopics per module, so the tutor agent can avoid repeating recent content without needing to scan local daily files (there are none). Each run appends its selections to the relevant module's list and prunes older entries down to about 5. A module new to the index simply starts with an empty list here.
 
 ### ICT3112
 
-- 2026-11-23 (run 77): Boundary Value Analysis (BVA); Static Analysis — Data-Flow Defect Classes; State Transition Testing; [Lab] Selenium Browser Testing (ict3112-lab4-selenium-browser-testing.md)
-- 2026-11-23 (run 78, second run today): Testing Levels & the Testing Pyramid; Coverage Criteria — Statement to Multiple Condition; Musa Reliability Models — Basic vs Logarithmic; [Lab] Lab 3 — Continuous Integration & Testing with Dependencies (ict3112-lab3-ci-and-dependencies.md)
 - 2026-11-23 (run 79, third run today): The Seven ISTQB Principles; Cyclomatic Complexity & Basis Path Testing; MTTF, MTBF, Availability & Defect Density; [Lab] Frama-C Lab 1 — First Steps: Contracts, Pointers & Behaviours (ict3112-frama-c-lab1-first-steps.md)
 - 2026-11-23 (run 80, fourth run today): Verification vs Validation, Static vs Dynamic & the V-Model; Use Case Testing & Whitebox vs Blackbox; LCSAJ — Linear Code Sequence and Jump; [Lab] Frama-C Lab 2 — Verifying Programs with Loops (ict3112-frama-c-lab2-loops.md)
 - 2026-11-24 (run 81): Decision Table Testing; Hoare Logic — Triples, the Six Rules & Weakest Precondition; Error → Defect → Failure, Eight Good Testing Practices & Goodhart's Law; [Lab] Lab 1 — NUnit Unit Testing & a TDD Calculator (ict3112-lab1-nunit-tdd-calculator.md)
+- 2026-11-24 (run 82, second run today): Equivalence Partitioning (EP); Loop Invariants & Array Rules; Frama-C & ACSL — Contracts, RTE Goals & Vacuity; [Lab] Lab 2 — Reqnroll BDD & Acceptance Testing (ict3112-lab2-reqnroll-bdd.md)
+- 2026-11-25 (run 83): Boundary Value Analysis (BVA); State Transition Testing; Static Analysis & Data Flow Defects; [Lab] Frama-C Lab 3 — Loop Runs & Tested Failure Claims (ict3112-frama-c-lab3-loops-run.md)
 
 ### ICT3113
 
-- 2026-11-23 (run 77): Workload Identification & Peak Sizing; Operational Laws — Forced Flow & Service Demand; Lost Work & the Erlang B Formula; [Lab] JMeter Load Testing of a Profiled Flask Server (ict3113-lab2-jmeter-testing.md)
-- 2026-11-23 (run 78, second run today): The Utilisation Law & Why Response Time Explodes; Little's Law & the Observation Boundary Effect; Multi-Server Queues — M/M/c; [Lab] Week 11 — Load and Stress Test on Build C (ict3113-lab-wk11-load-stress-build-c.md)
 - 2026-11-23 (run 79, third run today): Open vs Closed Systems & the Interactive Response Time Law; The Four Sources Framework; The Six Performance Test Types; [Lab] Week 12 — Diagnosing a Slow Endpoint & the Connection Pool (ict3113-lab-wk12-slow-endpoint-worked.md)
 - 2026-11-23 (run 80, fourth run today): The Core Loop, When to Optimise & Classical Techniques; Six Properties of a Good Metric (LRRECI) & the Three Classes of Metric; Bottleneck Analysis — Ceilings, Hotspots & the Three Levers; [Lab] Lecture 09 — Worked Numbers for Database Request Time (ict3113-lec09-worked-examples.md)
 - 2026-11-24 (run 81): Percentiles, Tail Latency, SLI/SLO/SLA & the Fan-Out Effect; The M/M/1 Single-Server Queue; Performance Test Documents, Requirements & Reading Results; [Lab] Lab 1 — An Introduction to Profiling in Python (ict3113-lab1-profiling.md)
+- 2026-11-24 (run 82, second run today): Response Time R = W + S & User Perception Thresholds; Variability & the Kingman Formula; AI Agents & the Harness (Lecture 10); [Lab] Lab 2 — Flask Profiling & JMeter Testing (ict3113-lab2-jmeter-testing.md)
+- 2026-11-25 (run 83): Workload Identification; Operational Laws — Forced Flow & Service Demand; Lost Work & the Erlang B Formula; [Lab] Assignment 1 — Ticket Triage Baseline Service (ict3113-a1-ticket-triage-service.md)
 
 ### INF2005
 > Scope since 2026-11-16: Social Engineering (low weight) · System Security and Malware · Network Security and Defences · System and Network Forensics · IoT Security or Attacks only — see "Daily Read Topic Scopes" in `study-notes/index.md`. Earlier entries below include out-of-scope topics.

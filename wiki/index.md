@@ -140,6 +140,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[sources/ict3112-loop-invariants\|ICT3112 Formal Verification — Loop Invariants: Discovering and Recipe (Module 7)]] | lecture-notes | formal-verification | 2026-10-15 |
 | [[sources/ict3112-hoare-arrays\|ICT3112 Formal Verification — Reasoning about Arrays (Module 8)]] | lecture-notes | formal-verification | 2026-10-15 |
 | [[sources/ict3112-hoare-exercises\|ICT3112 Formal Verification — Hoare Logic Exercises 1–3 (Solved)]] | exercise-solutions | formal-verification | 2026-10-15 |
+| [[sources/ict3112-array-exercises-solved\|ICT3112 Formal Verification — Array Exercises with Solutions]] | exercise-solutions | formal-verification | 2026-11-25 |
+| [[sources/ict3112-loop-invariant-exercises-recorded-lecture\|ICT3112 Formal Verification — Loop Invariant Exercises for the Recorded Lecture]] | exercise-solutions | formal-verification | 2026-11-25 |
 | [[sources/ict3112-lecture-w4-sec2-intro-transcript\|ICT3112 — Week 4 Lecture: Second Half Module Intro (Transcript)]] | lecture-transcript | formal-verification | 2026-10-22 |
 | [[sources/ict3112-assignment1-leaderboard-brief\|ICT3112 Assignment 1 — Bounded Leaderboard Verification in Frama-C (Brief)]] | assignment-brief | formal-verification | 2026-10-24 |
 | [[sources/ict3112-frama-c-lab1-lab2-pointers-slides\|ICT3112 Frama-C Slide Labs — Specifications, RTE, Labels and Pointers]] | lab-handout | formal-verification | 2026-10-27 |
@@ -333,6 +335,7 @@ Master catalog of all pages. Updated on every ingest.
 | [[concepts/saga-pattern\|Saga Pattern (Short Transactions with Compensation)]] | performance-engineering | medium |
 | [[concepts/hoare-logic\|Hoare Logic]] | formal-verification | high |
 | [[concepts/loop-invariants\|Loop Invariants]] | formal-verification | high |
+| [[concepts/select-store-axioms\|Select–Store Axioms]] | formal-verification | high |
 | [[concepts/acsl-sorted-array-insert-pattern\|ACSL Pattern: Binary Search and Ordered Insertion]] | formal-verification | medium |
 | [[concepts/acsl-contract-strength-and-pointer-memory\|ACSL Contracts: Strength, Vacuity, Runtime Errors and Pointer Memory]] | formal-verification | high |
 | [[concepts/malware\|Malware]] | secure-software-development | high |
@@ -400,6 +403,8 @@ Master catalog of all pages. Updated on every ingest.
 | [[examples/inf2005-acw1-stego-verification\|INF2005 ACW1 — Steganographic Integrity Verification with Digital Signatures]] | project | INF2005 / secure-software-development | [[concepts/steganography\|Steganography]] |
 | [[examples/inf2005-week10-tutorial-worked-answers\|INF2005 Week 10 Tutorial — Worked Answers for the Packet Captures (Tasks 5–8)]] | tutorial | INF2005 / cyber-security | [[concepts/wireshark-packet-analysis\|Wireshark Packet Analysis]] |
 | [[examples/ict3112-hoare-exercises-worked\|ICT3112 Hoare Logic — Key Worked Proofs]] | practice | ICT3112 / formal-verification | [[concepts/hoare-logic\|Hoare Logic]] |
+| [[examples/ict3112-array-exercises-worked\|ICT3112 Array Exercises — Worked Proofs]] | practice | ICT3112 / formal-verification | [[concepts/select-store-axioms\|Select–Store Axioms]] |
+| [[examples/ict3112-loop-invariant-exercises-worked\|ICT3112 Loop Invariant Exercises — Worked Proofs]] | practice | ICT3112 / formal-verification | [[concepts/loop-invariants\|Loop Invariants]] |
 | [[examples/ict3112-frama-c-labs-0-2\|ICT3112 Frama-C Labs 0–2 — Install, Contracts, Loops]] | lab | ICT3112 / formal-verification | [[concepts/loop-invariants\|Loop Invariants]] |
 | [[examples/ict3112-frama-c-lab0-installation\|ICT3112 Frama-C Lab 0 — Installation]] | lab | ICT3112 / formal-verification | [[resources/frama-c\|Frama-C]] |
 | [[examples/ict3112-frama-c-lab1-first-steps\|ICT3112 Frama-C Lab 1 — Contracts, Pointers, Behaviors]] | lab | ICT3112 / formal-verification | [[resources/frama-c\|Frama-C]] |
