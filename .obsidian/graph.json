@@ -8,70 +8,70 @@
   "collapse-color-groups": true,
   "colorGroups": [
     {
-      "query": "path:wiki-school/index.md OR path:wiki-school/hot.md OR path:wiki-school/log.md OR path:wiki-school/overview.md",
+      "query": "path:wiki-school/index.md OR path:wiki-finance/index.md OR path:wiki-school/hot.md OR path:wiki-finance/hot.md OR path:wiki-school/log.md OR path:wiki-finance/log.md OR path:wiki-school/overview.md OR path:wiki-finance/overview.md",
       "color": {
         "a": 1,
         "rgb": 16777215
       }
     },
     {
-      "query": "path:wiki-school/concepts",
+      "query": "path:wiki-school/concepts OR path:wiki-finance/concepts",
       "color": {
         "a": 1,
         "rgb": 5227007
       }
     },
     {
-      "query": "path:wiki-school/synthesis",
+      "query": "path:wiki-school/synthesis OR path:wiki-finance/synthesis",
       "color": {
         "a": 1,
         "rgb": 15844367
       }
     },
     {
-      "query": "path:wiki-school/sources",
+      "query": "path:wiki-school/sources OR path:wiki-finance/sources",
       "color": {
         "a": 1,
         "rgb": 6986069
       }
     },
     {
-      "query": "path:wiki-school/examples",
+      "query": "path:wiki-school/examples OR path:wiki-finance/examples",
       "color": {
         "a": 1,
         "rgb": 9009603
       }
     },
     {
-      "query": "path:wiki-school/entities",
+      "query": "path:wiki-school/entities OR path:wiki-finance/entities",
       "color": {
         "a": 1,
         "rgb": 16742854
       }
     },
     {
-      "query": "path:wiki-school/gaps",
+      "query": "path:wiki-school/gaps OR path:wiki-finance/gaps",
       "color": {
         "a": 1,
         "rgb": 13724009
       }
     },
     {
-      "query": "path:wiki-school/areas",
+      "query": "path:wiki-school/areas OR path:wiki-finance/areas",
       "color": {
         "a": 1,
         "rgb": 14474410
       }
     },
     {
-      "query": "path:wiki-school/learning",
+      "query": "path:wiki-school/learning OR path:wiki-finance/learning",
       "color": {
         "a": 1,
         "rgb": 5163440
       }
     },
     {
-      "query": "path:wiki-school/resources",
+      "query": "path:wiki-school/resources OR path:wiki-finance/resources",
       "color": {
         "a": 1,
         "rgb": 13537656
@@ -85,7 +85,7 @@
       }
     },
     {
-      "query": "path:wiki-school/arguments",
+      "query": "path:wiki-school/arguments OR path:wiki-finance/arguments",
       "color": {
         "a": 1,
         "rgb": 15022389

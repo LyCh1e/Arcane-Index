@@ -9,16 +9,6 @@
     "example-use-cases": {
       "textColor": "#ce7dd8"
     },
-    "wiki/examples": {
-      "textColor": "#8979c3"
-    },
-    "wiki": {
-      "isBold": true,
-      "textColor": "#ffffff"
-    },
-    "wiki/arguments": {
-      "textColor": "#e53935"
-    },
     "bin": {
       "opacity": 1
     },
@@ -29,6 +19,26 @@
     "study-notes": {
       "textColor": "#ffffff",
       "isBold": true
+    },
+    "wiki-school": {
+      "isBold": true,
+      "textColor": "#ffffff"
+    },
+    "wiki-finance": {
+      "isBold": true,
+      "textColor": "#e6b422"
+    },
+    "wiki-school/examples": {
+      "textColor": "#8979c3"
+    },
+    "wiki-finance/examples": {
+      "textColor": "#8979c3"
+    },
+    "wiki-school/arguments": {
+      "textColor": "#e53935"
+    },
+    "wiki-finance/arguments": {
+      "textColor": "#e53935"
     }
   },
   "presets": {},

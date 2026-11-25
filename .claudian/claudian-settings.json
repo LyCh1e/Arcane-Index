@@ -7,12 +7,13 @@
   "enableAutoTitleGeneration": true,
   "titleGenerationLocale": "",
   "titleGenerationModel": "haiku",
+  "showTabTitlesByDefault": true,
+  "chatFontScale": 100,
   "excludedTags": [],
   "mediaFolder": "",
   "systemPrompt": "",
   "sharedEnvironmentVariables": "",
   "envSnippets": [],
-  "customContextLimits": {},
   "keyboardNavigation": {
     "scrollUpKey": "w",
     "scrollDownKey": "s",
@@ -94,7 +95,6 @@
         "Explanatory",
         "Learning"
       ],
-      "sessionEnvironmentHash": "",
       "installationMethodsByHost": {},
       "wslDistroOverridesByHost": {}
     },
@@ -122,7 +122,7 @@
       "cliPath": "",
       "cliPathsByHost": {},
       "enabled": false,
-      "environmentHash": "",
+      "environmentHash": "runtime-input:v1:65be9fd755fceb24e0d4a97b388b455fc79245d593888ed6c3a02adef11d106a",
       "environmentVariables": "OPENCODE_ENABLE_EXA=1",
       "modelAliases": {},
       "preferredThinkingByModel": {},
@@ -142,14 +142,12 @@
       "environmentVariables": "",
       "modelAliases": {},
       "preferredThinkingByModel": {},
-      "sessionEnvironmentHash": "",
       "visibleModels": [],
       "selectedModels": []
     },
     "grok": {
       "installationMethodsByHost": {},
       "wslDistroOverridesByHost": {},
-      "sessionEnvironmentHash": "",
       "cliPath": "",
       "cliPathsByHost": {},
       "enabled": false,
@@ -181,10 +179,11 @@
       "enabled": false,
       "environmentHash": "",
       "environmentVariables": "",
+      "installationMethodsByHost": {},
       "modelAliases": {},
       "preferredReasoningByModel": {},
-      "sessionStoreHash": "",
       "visibleModels": [],
+      "wslDistroOverridesByHost": {},
       "selectedModelsByHost": {}
     }
   },
@@ -202,11 +201,10 @@
   },
   "savedProviderServiceTier": {},
   "savedProviderPermissionMode": {
-    "claude": "acceptEdits"
+    "claude": "acceptEdits",
+    "opencode": "normal"
   },
-  "pendingProviderSessionInvalidations": {},
   "enableAutoScroll": true,
-  "showMessageTimestamps": false,
   "deferMathRenderingDuringStreaming": true,
   "pluginRenderedFenceLanguages": [],
   "expandFileEditsByDefault": false,

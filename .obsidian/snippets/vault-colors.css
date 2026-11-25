@@ -16,25 +16,38 @@
   --cb-meta:    #569cd6;   /* wiki meta: overview, hot, log          */
   --cb-dim:     #606060;   /* templates, raw — de-emphasized         */
   --cb-violet:  #8b74d8;   /* arguments — tracked beliefs & critique */
+  --cb-fin:     #e6b422;   /* wiki-finance root folder               */
 }
 
 /* ── Wiki root & meta (steel blue) ── */
-.nav-folder-title[data-path="wiki"]               { color: var(--cb-meta); }
+.nav-folder-title[data-path="wiki-school"]  { color: var(--cb-meta); }
+.nav-folder-title[data-path="wiki-finance"] { color: var(--cb-fin); }
 
 /* ── Mode E: Research ── */
-.nav-folder-title[data-path^="wiki/concepts"]     { color: var(--cb-blue); }
-.nav-folder-title[data-path^="wiki/synthesis"]    { color: var(--cb-yellow); }
-.nav-folder-title[data-path^="wiki/sources"]      { color: var(--cb-green); }
-.nav-folder-title[data-path^="wiki/examples"]     { color: var(--cb-purple); }
-.nav-folder-title[data-path^="wiki/entities"]     { color: var(--cb-pink); }
-.nav-folder-title[data-path^="wiki/cases"]        { color: var(--cb-purple); }
-.nav-folder-title[data-path^="wiki/gaps"]         { color: var(--cb-red); }
-.nav-folder-title[data-path^="wiki/arguments"]    { color: var(--cb-violet); }
+.nav-folder-title[data-path^="wiki-school/concepts"]     { color: var(--cb-blue); }
+.nav-folder-title[data-path^="wiki-finance/concepts"]     { color: var(--cb-blue); }
+.nav-folder-title[data-path^="wiki-school/synthesis"]    { color: var(--cb-yellow); }
+.nav-folder-title[data-path^="wiki-finance/synthesis"]    { color: var(--cb-yellow); }
+.nav-folder-title[data-path^="wiki-school/sources"]      { color: var(--cb-green); }
+.nav-folder-title[data-path^="wiki-finance/sources"]      { color: var(--cb-green); }
+.nav-folder-title[data-path^="wiki-school/examples"]     { color: var(--cb-purple); }
+.nav-folder-title[data-path^="wiki-finance/examples"]     { color: var(--cb-purple); }
+.nav-folder-title[data-path^="wiki-school/entities"]     { color: var(--cb-pink); }
+.nav-folder-title[data-path^="wiki-finance/entities"]     { color: var(--cb-pink); }
+.nav-folder-title[data-path^="wiki-school/cases"]        { color: var(--cb-purple); }
+.nav-folder-title[data-path^="wiki-finance/cases"]        { color: var(--cb-purple); }
+.nav-folder-title[data-path^="wiki-school/gaps"]         { color: var(--cb-red); }
+.nav-folder-title[data-path^="wiki-finance/gaps"]         { color: var(--cb-red); }
+.nav-folder-title[data-path^="wiki-school/arguments"]    { color: var(--cb-violet); }
+.nav-folder-title[data-path^="wiki-finance/arguments"]    { color: var(--cb-violet); }
 
 /* ── Mode D: Personal / Second Brain ── */
-.nav-folder-title[data-path^="wiki/areas"]        { color: var(--cb-gold); }
-.nav-folder-title[data-path^="wiki/learning"]     { color: var(--cb-teal); }
-.nav-folder-title[data-path^="wiki/resources"]    { color: var(--cb-orange); }
+.nav-folder-title[data-path^="wiki-school/areas"]        { color: var(--cb-gold); }
+.nav-folder-title[data-path^="wiki-finance/areas"]        { color: var(--cb-gold); }
+.nav-folder-title[data-path^="wiki-school/learning"]     { color: var(--cb-teal); }
+.nav-folder-title[data-path^="wiki-finance/learning"]     { color: var(--cb-teal); }
+.nav-folder-title[data-path^="wiki-school/resources"]    { color: var(--cb-orange); }
+.nav-folder-title[data-path^="wiki-finance/resources"]    { color: var(--cb-orange); }
 
 /* ── De-emphasized ── */
 .nav-folder-title[data-path="_templates"]        { color: var(--cb-dim); opacity: 0.55; }
