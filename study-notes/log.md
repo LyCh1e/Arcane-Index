@@ -18,8 +18,8 @@ Each link is a persistent URL: republishing to the same URL updates the page's c
 
 | Module | Artefact URL | Last Published |
 |---|---|---|
-| ICT3112 | https://claude.ai/artifact/8CuL27NdrZqYRu1qBG9rJV | 2026-11-25 |
-| ICT3113 | https://claude.ai/artifact/VC19BXRWz158dszEdJ79G1 | 2026-11-25 |
+| ICT3112 | https://claude.ai/artifact/8CuL27NdrZqYRu1qBG9rJV | 2026-11-26 |
+| ICT3113 | https://claude.ai/artifact/VC19BXRWz158dszEdJ79G1 | 2026-11-26 |
 | INF2005 | https://claude.ai/artifact/Ar7Qj3yH2fua71nW2rXuUv | 2026-11-23 |
 
 If a publish ever returns a different URL than the one listed here (for example, if an artefact was deleted), replace the affected row above with the new URL so future runs update the correct page. If a module is removed from `study-notes/index.md`, leave its row here untouched — never delete an Artefact page automatically.
@@ -272,25 +272,27 @@ If a publish ever returns a different URL than the one listed here (for example,
 
 > Run 84 (2026-11-25, second run today, scheduled): live pages for ICT3112 and ICT3113 were read in full and matched run 83 before republishing. INF2005 is not in the index table, so it was skipped; its page, row and history are untouched. The tutor file still points to `wiki/examples/`; lab write-ups are now under `wiki-school/examples/`. Pages built by applying the project generator's build_page logic to the CSS/JS of the last published page; all topics fresh against the last 5 runs. Labs: Assignment 1 Bounded Leaderboard (ICT3112), Tutorial 5 worked examples (ICT3113). Notes about 1,700 words per page, under the ~2,000 target; reading-time label at the 10-minute floor. Checks: 0 option length-tell failures, answer positions 5/5/5/5, 0 entity leaks, headless run scored 20/20 with no script errors or phone-width overflow. Published as ICT3112 v101 and ICT3113 v102. Possible source-note error (not edited): ICT3113 Exam Notes M/M/c example gives mean waits of about 7 ms and 58 ms; the pure M/M/c (Erlang C) formula with those inputs gives about 11 ms and 80 ms. The page quotes both and says so.
 
+> Run 85 (2026-11-26, scheduled): live pages for ICT3112 and ICT3113 were read in full and matched run 84 before republishing. INF2005 is not in the index table, so it was skipped; its page, row and history are untouched. Lab write-ups were read from `wiki-school/examples/` (the tutor file still says `wiki/examples/`). Pages built by applying the project generator's build_page logic to the CSS/JS of the last published page; lecture topics fresh against the last 5 runs. Labs: Assignment 2 AI-Assisted Verification Loop (ICT3112), Tutorial 4 worked examples (ICT3113, last used run 76). Notes about 1,800 (ICT3112) and 1,860 (ICT3113) words, slightly under the ~2,000 target; reading-time label at the 10-minute floor. Checks: 0 option length-tell failures, answer positions 5/5/5/5, 0 entity leaks, headless run scored 20/20 with no script errors or phone-width overflow. Published as ICT3112 v102 and ICT3113 v103. Possible source-note issue (not edited): in the Tutorial 4 write-up, the Q2.3 database demand (2.5 × 4 = 10 ms) does not obviously match the 2.6 queries per request in Q2.2; the page leaves Q2.3 out.
+
 ## Topic Rotation History
 
 Tracks roughly the last 5 runs' subtopics per module, so the tutor agent can avoid repeating recent content without needing to scan local daily files (there are none). Each run appends its selections to the relevant module's list and prunes older entries down to about 5. A module new to the index simply starts with an empty list here.
 
 ### ICT3112
 
-- 2026-11-23 (run 80, fourth run today): Verification vs Validation, Static vs Dynamic & the V-Model; Use Case Testing & Whitebox vs Blackbox; LCSAJ — Linear Code Sequence and Jump; [Lab] Frama-C Lab 2 — Verifying Programs with Loops (ict3112-frama-c-lab2-loops.md)
 - 2026-11-24 (run 81): Decision Table Testing; Hoare Logic — Triples, the Six Rules & Weakest Precondition; Error → Defect → Failure, Eight Good Testing Practices & Goodhart's Law; [Lab] Lab 1 — NUnit Unit Testing & a TDD Calculator (ict3112-lab1-nunit-tdd-calculator.md)
 - 2026-11-24 (run 82, second run today): Equivalence Partitioning (EP); Loop Invariants & Array Rules; Frama-C & ACSL — Contracts, RTE Goals & Vacuity; [Lab] Lab 2 — Reqnroll BDD & Acceptance Testing (ict3112-lab2-reqnroll-bdd.md)
 - 2026-11-25 (run 83): Boundary Value Analysis (BVA); State Transition Testing; Static Analysis & Data Flow Defects; [Lab] Frama-C Lab 3 — Loop Runs & Tested Failure Claims (ict3112-frama-c-lab3-loops-run.md)
 - 2026-11-25 (run 84, second run today): Control Flow Graphs & the Coverage Criteria Hierarchy; Basic vs Logarithmic Musa Reliability Models; Four Testing Levels, the Testing Pyramid & Retesting vs Regression; [Lab] Assignment 1 — Bounded Leaderboard ACSL Specification (ict3112-frama-c-assignment1-leaderboard.md)
+- 2026-11-26 (run 85): The Seven ISTQB Principles; Cyclomatic Complexity & Basis Path Testing; Reliability & Quality Metrics (MTTF/MTBF, Defect Density, PUM); [Lab] Assignment 2 — AI-Assisted Verification Loop (ict3112-assignment2-verification-loop.md)
 
 ### ICT3113
 
-- 2026-11-23 (run 80, fourth run today): The Core Loop, When to Optimise & Classical Techniques; Six Properties of a Good Metric (LRRECI) & the Three Classes of Metric; Bottleneck Analysis — Ceilings, Hotspots & the Three Levers; [Lab] Lecture 09 — Worked Numbers for Database Request Time (ict3113-lec09-worked-examples.md)
 - 2026-11-24 (run 81): Percentiles, Tail Latency, SLI/SLO/SLA & the Fan-Out Effect; The M/M/1 Single-Server Queue; Performance Test Documents, Requirements & Reading Results; [Lab] Lab 1 — An Introduction to Profiling in Python (ict3113-lab1-profiling.md)
 - 2026-11-24 (run 82, second run today): Response Time R = W + S & User Perception Thresholds; Variability & the Kingman Formula; AI Agents & the Harness (Lecture 10); [Lab] Lab 2 — Flask Profiling & JMeter Testing (ict3113-lab2-jmeter-testing.md)
 - 2026-11-25 (run 83): Workload Identification; Operational Laws — Forced Flow & Service Demand; Lost Work & the Erlang B Formula; [Lab] Assignment 1 — Ticket Triage Baseline Service (ict3113-a1-ticket-triage-service.md)
 - 2026-11-25 (run 84, second run today): Utilisation Law & the Utilisation–Response-Time Curve; Little's Law & the Observation Boundary Effect; Multi-Server Queues (M/M/c); [Lab] Tutorial 5 — Job Logs, Performance Bounds & a MapReduce Model (ict3113-t05-worked-examples.md)
+- 2026-11-26 (run 85): Interactive Systems & the Response Time Law; The Four Sources Framework; Performance Test Types, Open vs Closed Load & JMeter Sizing; [Lab] Tutorial 4 — Lossy Pipelines, Retries & Capacity Planning (ict3113-t04-worked-examples.md)
 
 ### INF2005
 > Scope since 2026-11-16: Social Engineering (low weight) · System Security and Malware · Network Security and Defences · System and Network Forensics · IoT Security or Attacks only — see "Daily Read Topic Scopes" in `study-notes/index.md`. Earlier entries below include out-of-scope topics.

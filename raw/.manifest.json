@@ -686,6 +686,24 @@
         "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md",
         "study-notes/ICT3112 - Formula Sheet.md"
       ]
+    },
+    "raw/images/ict3112-loop-invariant-slides-2026-11-27.md": {
+      "hash": "fe71f01a62aa56937c122c422198050e",
+      "ingested_at": "2026-11-27",
+      "pages_created": [
+        "wiki-school/sources/ict3112-loop-invariant-slides-finding-fixing.md"
+      ],
+      "pages_updated": [
+        "wiki-school/concepts/loop-invariants.md",
+        "wiki-school/sources/_index.md",
+        "wiki-school/index.md",
+        "wiki-school/areas/software-verification-validation.md",
+        "wiki-school/hot.md",
+        "wiki-school/log.md",
+        "study-notes/ICT3112 - Software Verification and Validation Exam Notes.md",
+        "study-notes/ICT3112 - Formula Sheet.md",
+        "study-notes/index.md"
+      ]
     }
   },
   "address_map": {
@@ -843,7 +861,8 @@
     "wiki/sources/ict3112-loop-invariant-exercises-recorded-lecture.md": "c-000159",
     "wiki/examples/ict3112-array-exercises-worked.md": "c-000160",
     "wiki/examples/ict3112-loop-invariant-exercises-worked.md": "c-000161",
-    "wiki/concepts/select-store-axioms.md": "c-000162"
+    "wiki/concepts/select-store-axioms.md": "c-000162",
+    "wiki-school/sources/ict3112-loop-invariant-slides-finding-fixing.md": "c-000163"
   },
   "INF2005 Cyber Security Fundamentals - Social Engineering.md": {
     "ingested_at": "2026-10-16",

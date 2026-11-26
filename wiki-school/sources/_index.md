@@ -2,7 +2,7 @@
 type: index
 status: established
 title: "Sources Index"
-updated: 2026-06-25
+updated: 2026-11-27
 tags: [index, sources]
 ---
 
@@ -158,6 +158,7 @@ Course notes, papers, books, articles, and any material ingested into this vault
 |[[ict3112-hoare-exercises\|Hoare Logic Exercises 1–3 (Solved)]]] | exercise-solutions |[[hoare-logic]]] |
 |[[ict3112-array-exercises-solved\|Array Exercises with Solutions]]] | exercise-solutions |[[select-store-axioms]]],[[loop-invariants]]] |
 |[[ict3112-loop-invariant-exercises-recorded-lecture\|Loop Invariant Exercises for the Recorded Lecture]]] | exercise-solutions |[[loop-invariants]]] |
+| [[ict3112-loop-invariant-slides-finding-fixing\|Loop Invariant Slides: Drawing the Data and Repairing Candidates]] | lecture-slides | [[loop-invariants]] |
 
 ## Papers & Articles
 

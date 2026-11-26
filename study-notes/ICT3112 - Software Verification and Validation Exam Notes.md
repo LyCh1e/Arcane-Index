@@ -1192,6 +1192,34 @@ Exit counterexamples to quote: missing `0 ≤ i` gives `i = −1, s = 2n + 2`; m
 
 ---
 
+### Drawing the Data, the Four-Slot Template and Repairs (Lecture Slides)
+
+Source: [[ict3112-loop-invariant-slides-finding-fixing]]. Plain-language version: [[ICT3112 - Loop Invariants Simple Guide]].
+
+**Draw the data:** mark the progress variable, then write what holds in the **visited** region (Q restricted to `0 … i−1`) and the **not-visited** region (usually `A[k] = A₀[k]`). `I = visited ∧ not visited ∧ bounds`; facts about no single region go in **other relations**.
+
+| Loop | Visited | Not visited | Other relations | Bounds |
+|---|---|---|---|---|
+| Countdown with a counter | — | — | `c + x = C + X` | `x ≥ 0` |
+| Integer division | — | — | `a = b·q + r` | `0 ≤ r` |
+| Array sum | `s = A[0] + ⋯ + A[i−1]` | — | — | `0 ≤ i ≤ n` |
+| Zero-fill | `A[k] = 0`, `k < i` | `A[k] = A₀[k]`, `k ≥ i` | — | `0 ≤ i ≤ m` |
+| Reverse in place | ends swapped | middle unchanged | `l + r = n − 1` | on `l`, `r` |
+| Selection sort | sorted prefix | — | `perm(A, A₀)`, prefix ≤ rest | `0 ≤ i ≤ n` |
+
+**Four mistakes:** too weak (`I ∧ ¬B` does not give Q), too strong (false before the first pass), missing bounds, missing extra facts (max/search loops need prefix facts or a witness).
+
+**Repair method:** name the failing check → write a concrete state → rejected real state means weaken; accepted wrong state means strengthen → re-check all three conditions.
+
+| Fails | Problem | Repair |
+|---|---|---|
+| Establishment | Too strong | Replace constants by progress variables |
+| Preservation | Missing extra facts | Add the fact the body needs |
+| Exit, counter past final value | Missing bounds | Add the counter's range |
+| Exit, wrong result | Too weak | Add the partial result or a witness |
+
+---
+
 ### Common Invariant Patterns
 
 | Programme structure | Typical invariant form |

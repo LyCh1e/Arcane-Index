@@ -4,7 +4,7 @@ title: "Software Verification and Validation"
 domain: software-verification-validation
 status: established
 created: 2026-08-31
-updated: 2026-08-31
+updated: 2026-11-27
 tags: [svv, software-testing, verification, validation, ict3112]
 ---
 
@@ -60,6 +60,7 @@ This area covers the ICT3112 course content and related knowledge on software V&
 |------|---------|
 | [[ict3112-array-exercises-solved\|Array Exercises with Solutions]] | [ARRAY-READ]/[ARRAY-ASSIGN] on straight-line code, dot-product and doubling loops |
 | [[ict3112-loop-invariant-exercises-recorded-lecture\|Loop Invariant Exercises (Recorded Lecture)]] | Six solved loops: count-down sum, helper variable, integer square root, `4n+1`, in-place array increment |
+| [[ict3112-loop-invariant-slides-finding-fixing\|Loop Invariant Slides (Drawing the Data, Repairs)]] | Region picture, four-slot template for six course loops, four common mistakes, failing-check repair table |
 | [[select-store-axioms\|Select–Store Axioms]] | Reads of updated arrays; three-step write rule |
 | [[ict3112-array-exercises-worked\|Array Exercises — Worked Proofs]] | Condensed proofs |
 | [[ict3112-loop-invariant-exercises-worked\|Loop Invariant Exercises — Worked Proofs]] | Condensed proofs and diagnosis table |

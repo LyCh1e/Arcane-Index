@@ -2,13 +2,23 @@
 type: meta
 status: established
 title: "Hot Cache"
-updated: 2026-11-25
+updated: 2026-11-27
 tags: [meta, hot-cache]
 ---
 
 # Recent Context
 
 ## Last Updated
+
+2026-11-27 (ingest). **Session: five ICT3112 loop-invariant slides ingested.** New: [[ict3112-loop-invariant-slides-finding-fixing]]. Updated: [[loop-invariants]] (new "Drawing the Data and the Four-Slot Template" section and a refined repair method), [[software-verification-validation]], ICT3112 study notes. Two plain-language guides were added: `study-notes/ICT3112 - Loop Invariants Simple Guide.md` and `study-notes/ICT3112 - Array Exercises Simple Guide.md`.
+
+**Key points:** draw the array, mark `i`, and write what holds in the visited and not-visited regions; the four slots are visited, not visited, other relations and bounds (always filled). A failing check gives a concrete state: a rejected real state means the candidate is too strong, and an accepted wrong state means it is too weak. Exit failures are either missing bounds or a missing partial result or witness. Re-check all three conditions after each repair.
+
+## Previous Session
+
+2026-11-26. **Session: ICT3112 A2 report checked against the rubric.** Claims compared with logs, state files and final programs. Repairs could change code without `fix_code`, and three runs (m1, m5, L4) reached verification with no reviewed contracts. Report fixes pending. Details in [[agent-verification-loop-unguarded-paths]].
+
+## Previous Session
 
 2026-11-25 (ingest). **Session: ingest of two ICT3112 exercise PDFs.** New:[[ict3112-array-exercises-solved]]],[[ict3112-loop-invariant-exercises-recorded-lecture]]],[[select-store-axioms]]],[[ict3112-array-exercises-worked]]],[[ict3112-loop-invariant-exercises-worked]]]. Updated:[[loop-invariants]]],[[hoare-logic]]],[[software-verification-validation]]], ICT3112 study notes.
 
@@ -451,7 +461,8 @@ Full TLS handshake table (9 steps); why hybrid (asymmetric 100–1000× slower �
 
 ## Previous Session
 
-2026-09-12. **Session: follow-up — ICT3112 SVV Lab 2 review (no rebuild).** Small updates to[[ict3112-lab2-reqnroll-bdd]]] and[[test-driven-development]]]; no new pages.
+2026-09-12. **Session: follow-up — ICT3112 SVV Lab 2 review (no rebuild).** Small updates to
+[[ict3112-lab2-reqnroll-bdd]]] and[[test-driven-development]]]; no new pages.
 
 Asked to "add comments to the codes in Lab 2/Features." Checked first: the `.feature` files there
 already carry thorough Gherkin `#` comments from the 2026-09-09 build session — nothing to add.

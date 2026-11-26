@@ -4,8 +4,8 @@ title: "Loop Invariants"
 domain: formal-verification
 status: established
 created: 2026-10-15
-updated: 2026-11-25
-sources: [ict3112-loop-invariants, ict3112-hoare-logic-core, ict3112-hoare-exercises, hoare-logic-workbench, ict3112-frama-c-lab3-loops, ict3112-loop-invariant-exercises-recorded-lecture, ict3112-array-exercises-solved]
+updated: 2026-11-27
+sources: [ict3112-loop-invariants, ict3112-hoare-logic-core, ict3112-hoare-exercises, hoare-logic-workbench, ict3112-frama-c-lab3-loops, ict3112-loop-invariant-exercises-recorded-lecture, ict3112-array-exercises-solved, ict3112-loop-invariant-slides-finding-fixing]
 tags: [loop-invariants, hoare-logic, formal-verification, weakest-precondition, termination, variant, invariant-discovery]
 ---
 
@@ -124,6 +124,35 @@ If a check fails, the failure tells you what to add or fix in the invariant.
 
 ---
 
+## Drawing the Data and the Four-Slot Template
+
+Source: [[ict3112-loop-invariant-slides-finding-fixing]].
+
+For loops over arrays, draw the data, mark the progress variable, and write what is true in each region:
+
+```
+0                     i                     n
++---------------------+---------------------+
+|       visited       |     not visited     |
++---------------------+---------------------+
+ Q, restricted here     still true here (usually original values)
+```
+
+`I = (visited) ∧ (not visited) ∧ (bounds)`. Facts that are not about a single region go in a fourth slot, **other relations**. The bounds slot is always filled.
+
+| Loop | Visited | Not visited | Other relations | Bounds |
+|---|---|---|---|---|
+| Countdown with a counter | — | — | `c + x = C + X` | `x ≥ 0` |
+| Integer division | — | — | `a = b·q + r` | `0 ≤ r` |
+| Array sum | `s = A[0] + ⋯ + A[i−1]` | — (only reads `A`) | — | `0 ≤ i ≤ n` |
+| Zero-fill | `A[k] = 0` for `k < i` | `A[k] = A₀[k]` for `k ≥ i` | — | `0 ≤ i ≤ m` |
+| Reverse in place | front and back swapped | middle: `A[k] = A₀[k]` | `l + r = n − 1` | on `l` and `r` |
+| Selection sort | sorted prefix | — | `perm(A, A₀)`, prefix ≤ rest | `0 ≤ i ≤ n` |
+
+A loop that only reads the array leaves the not-visited slot empty; a loop that writes it almost always needs that slot.
+
+---
+
 ## Other Ways to Build a Candidate
 
 Replacing a final constant with the progress variable (Step 3) is the most common technique, but there are three others:
@@ -148,6 +177,21 @@ Source: Hoare Logic Workbench (`content.js`).
 
 **Example:** Candidate `p = a * i` for a multiplication loop `while i < b do (p := p + a; i := i + 1)`.  
 The state `a = 2, b = 3, i = 4, p = 8` satisfies `I ∧ ¬B` but `p ≠ a * b`. The missing fact is `0 ≤ i ≤ b`.
+
+### Refined repair method (lecture slides)
+
+Source: [[ict3112-loop-invariant-slides-finding-fixing]].
+
+1. Name the failing check. 2. Write a concrete bad state with a value for every variable. 3. Decide whether the candidate **rejects a real state** (too strong: weaken it) or **accepts a wrong state** (too weak: add the fact that rules it out). 4. Change the candidate and re-check **all three** conditions, because one repair can break another.
+
+| Check that fails | Bad state | Problem | Repair |
+|---|---|---|---|
+| Establishment | Real state at the first loop head, rejected | Too strong | Weaken: replace constants by progress variables |
+| Preservation | Satisfies `I ∧ B`, not `I` after one pass | Missing extra facts | Add the fact the body needs |
+| Exit | Satisfies `I ∧ ¬B`, counter beyond its final value | Missing bounds | Add the range of the counter |
+| Exit | Satisfies `I ∧ ¬B`, wrong result | Too weak | Add the result computed so far, or a witness |
+
+The slides name four mistakes: **too weak**, **too strong**, **missing bounds**, and **missing extra facts** (max and search loops need prefix facts or a witness, not one equation). The slides split the earlier single exit row into the missing-bounds and too-weak cases.
 
 ---
 
@@ -262,6 +306,7 @@ Key insight for preservation: the hint `2 · (x div 2) = x − x mod 2` lets you
 - [[ict3112-loop-invariants]] — source notes (Module 7)
 - [[ict3112-hoare-exercises]] — solved exercise sheets
 - [[ict3112-loop-invariant-exercises-recorded-lecture]], [[ict3112-loop-invariant-exercises-worked]] — recorded-lecture exercises
+- [[ict3112-loop-invariant-slides-finding-fixing]] — region picture, four-slot table, repair table
 - [[select-store-axioms]], [[ict3112-array-exercises-solved]] — array reads and writes inside loops
 - [[ict3112-hoare-exercises-worked]] — condensed worked examples
 - [[ict3112-frama-c-lab3-loops]] — Frama-C Lab 3 slides

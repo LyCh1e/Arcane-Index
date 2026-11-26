@@ -2,13 +2,21 @@
 type: meta
 status: established
 title: "Operation Log"
-updated: 2026-11-25
+updated: 2026-11-27
 tags: [meta, log]
 ---
 
 # Operation Log
 
 Chronological record of all vault operations. Append-only — never edit past entries. New entries go at the TOP.
+
+## [2026-11-27] ingest | ICT3112 Loop Invariant Slides: Drawing the Data and Repairing Candidates
+
+- Source: `raw/images/ict3112-loop-invariant-slides-2026-11-27.md` (five slide screenshots, images in `_attachments/images/`)
+- Summary: [[ict3112-loop-invariant-slides-finding-fixing]]
+- Pages created: [[ict3112-loop-invariant-slides-finding-fixing]]
+- Pages updated: [[loop-invariants]], [[software-verification-validation]], sources index, wiki index, hot cache; study notes (ICT3112 Exam Notes, Formula Sheet, Coverage Summary); new simple guides in `study-notes/`
+- Key insight: The visited / not-visited region picture fills the four-slot template directly, and exit failures split into missing bounds (counter past its final value) and a too-weak candidate (wrong result, repaired with the partial result or a witness).
 
 ## [2026-11-25] ingest | ICT3112 Array exercises and Loop invariant exercises (2 PDFs)
 
@@ -2165,3 +2173,7 @@ Chronological record of all vault operations. Append-only — never edit past en
 ## 2026-11-23 — ICT3112 A2 report improvements
 - Report rewritten against the rubric: added code-defect table, contract-change disclosure, unproved-goal causes (WP lacks sum and numof lambdas), expanded AI-use section.
 - New:[[frama-c-wp-sum-numof-lambda-unsupported]]].
+
+## 2026-11-26 — ICT3112 A2 report vs rubric check
+- Verified report claims against logs, state files and final programs; found unguarded loop paths and several unsupported claims.
+- New: [[agent-verification-loop-unguarded-paths]].

@@ -2,7 +2,7 @@
 type: meta
 status: established
 title: "Wiki Index"
-updated: 2026-11-24
+updated: 2026-11-27
 tags: [meta, index]
 ---
 
@@ -139,6 +139,7 @@ Master catalogue of the school wiki. Updated on every ingest.
 |[[ict3112-hoare-exercises\|ICT3112 Formal Verification — Hoare Logic Exercises 1–3 (Solved)]]] | exercise-solutions | formal-verification | 2026-10-15 |
 |[[ict3112-array-exercises-solved\|ICT3112 Formal Verification — Array Exercises with Solutions]]] | exercise-solutions | formal-verification | 2026-11-25 |
 |[[ict3112-loop-invariant-exercises-recorded-lecture\|ICT3112 Formal Verification — Loop Invariant Exercises for the Recorded Lecture]]] | exercise-solutions | formal-verification | 2026-11-25 |
+| [[ict3112-loop-invariant-slides-finding-fixing\|ICT3112 Formal Verification — Loop Invariant Slides: Drawing the Data and Repairing Candidates]] | lecture-slides | formal-verification | 2026-11-27 |
 |[[ict3112-lecture-w4-sec2-intro-transcript\|ICT3112 — Week 4 Lecture: Second Half Module Intro (Transcript)]]] | lecture-transcript | formal-verification | 2026-10-22 |
 |[[ict3112-assignment1-leaderboard-brief\|ICT3112 Assignment 1 — Bounded Leaderboard Verification in Frama-C (Brief)]]] | assignment-brief | formal-verification | 2026-10-24 |
 |[[ict3112-frama-c-lab1-lab2-pointers-slides\|ICT3112 Frama-C Slide Labs — Specifications, RTE, Labels and Pointers]]] | lab-handout | formal-verification | 2026-10-27 |
@@ -510,3 +511,5 @@ Master catalogue of the school wiki. Updated on every ingest.
 |[[frama-c\|Frama-C (WP plugin) and ACSL]]] | tool |
 |[[fake-indexeddb\|fake-indexeddb]]] | tool |
 |[[hoare-logic-workbench\|Hoare Logic Workbench — davidsanan.github.io/Hoare-Logic]]] | interactive tool |
+
+- [[agent-verification-loop-unguarded-paths]] — learning, ICT3112 A2 (2026-11-26)

@@ -294,6 +294,8 @@ If P holds before C and C terminates, then Q holds after. (Partial correctness.)
 
 **Refinements:** replace the *final value* of the progress variable (count-down: 0, not n) · **undo-check** (substitute final value, must give Q) · drop the conjunct of Q that `¬B` gives (integer sqrt: `I = 0 ≤ r ∧ r·r ≤ n`) · add helper relations (`k = 2i + 1`) · exit needs the bound that makes `¬B` an equality (`0 ≤ i` for `i > 0`, `i ≤ n` for `i < n`).
 
+**Four slots:** visited (Q on `0…i−1`) · not visited (`A[k] = A₀[k]`) · other relations · bounds (always). **Repairs:** establishment fails → too strong, weaken · preservation fails → add the fact the body needs · exit with counter past final value → add bounds · exit with wrong result → add partial result or witness. Re-check all three after each fix.
+
 ---
 
 ### Common Variant Patterns
